@@ -7,9 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-TEST
-<%
 
+<h2>Hibernate 版本 DAO 測試程式</h2><br />
+
+<%
 model.dao.JPFollowerDetailDAOJdbc dao = new model.dao.JPFollowerDetailDAOJdbc();
 java.util.List<model.JPFollowerDetailBean> list = dao.select();
 %>

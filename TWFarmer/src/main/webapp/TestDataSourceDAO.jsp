@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-Homepage
+
+<h2>DataSource 版本DAO 測試程式</h2><br />
+<%
+model.dao.ChatRoomDAOJdbc dao = new model.dao.ChatRoomDAOJdbc();
+java.util.List<model.ChatRoomBean> list = dao.select();
+%>
+<h1><%=list %></h1>
 </body>
 </html>
