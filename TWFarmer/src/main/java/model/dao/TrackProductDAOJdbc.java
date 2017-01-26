@@ -11,14 +11,26 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import model.TrackProductBean;
 import model.TrackProductDAO;
 
 public class TrackProductDAOJdbc implements TrackProductDAO {
-	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
-	private static final String USERNAME = "sa";
-	private static final String PASSWORD = "P@ssw0rd";
+	DataSource dataSource;
 	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+	public TrackProductDAOJdbc() {
+		try {
+			Context ctx = new InitialContext();
+			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static void main(String[] args) {
 		TrackProductDAO ppdao = new TrackProductDAOJdbc();
@@ -47,9 +59,9 @@ public class TrackProductDAOJdbc implements TrackProductDAO {
 		update.setProductId(2002);
 		update.setTrackDate(date);
 		ppdao.updateByMemberId(update);
-		
+
 		ppdao.deleteByMemberId(1001);
-		
+
 		ppdao.deleteByProductId(2002);
 
 	}
@@ -60,7 +72,7 @@ public class TrackProductDAOJdbc implements TrackProductDAO {
 	public TrackProductBean selectByMemberId(int memberId) {
 		TrackProductBean result = null;
 		ResultSet rset = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_MEMBERID);) {
 
 			stmt.setInt(1, memberId);
@@ -91,7 +103,7 @@ public class TrackProductDAOJdbc implements TrackProductDAO {
 	public TrackProductBean selectByProductId(int productId) {
 		TrackProductBean result = null;
 		ResultSet rset = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_PRODUCTID);) {
 
 			stmt.setInt(1, productId);
@@ -121,7 +133,7 @@ public class TrackProductDAOJdbc implements TrackProductDAO {
 	@Override
 	public List<TrackProductBean> select() {
 		List<TrackProductBean> result = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
 				ResultSet rset = stmt.executeQuery();) {
 
@@ -144,7 +156,7 @@ public class TrackProductDAOJdbc implements TrackProductDAO {
 	@Override
 	public TrackProductBean insert(TrackProductBean trackProductBean) {
 		TrackProductBean result = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(INSERT);) {
 			if (trackProductBean != null) {
 				stmt.setInt(1, trackProductBean.getMemberId());
@@ -167,7 +179,7 @@ public class TrackProductDAOJdbc implements TrackProductDAO {
 	@Override
 	public TrackProductBean updateByMemberId(TrackProductBean trackProductBean) {
 		TrackProductBean result = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
 			stmt.setInt(1, trackProductBean.getProductId());
 			java.sql.Date d = new java.sql.Date(trackProductBean.getTrackDate().getTime());
@@ -188,7 +200,7 @@ public class TrackProductDAOJdbc implements TrackProductDAO {
 
 	@Override
 	public boolean deleteByMemberId(int memberId) {
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(DELETE_BY_MEMBERID);) {
 			stmt.setInt(1, memberId);
 			int i = stmt.executeUpdate();
@@ -200,12 +212,12 @@ public class TrackProductDAOJdbc implements TrackProductDAO {
 		}
 		return false;
 	}
-	
+
 	private static final String DELETE_BY_PRODUCTID = "delete from TrackProduct where ProductID=?";
 
 	@Override
 	public boolean deleteByProductId(int productId) {
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(DELETE_BY_PRODUCTID);) {
 			stmt.setInt(1, productId);
 			int i = stmt.executeUpdate();

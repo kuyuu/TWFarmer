@@ -19,30 +19,6 @@ import model.MemberBean;
 
 public class JPFollowerDAOJdbc implements JPFollowerDAO {
 
-	public static void main(String[] args) {
-		JPFollowerDAO jdao = new JPFollowerDAOJdbc();
-		JPFollowerBean select = jdao.select(4402);
-		System.out.println(select.getRemittanceDate());
-
-		List<JPFollowerBean> selects = jdao.select();
-		for (JPFollowerBean select1 : selects) {
-			System.out.println(select1.getNotes());
-		}
-
-		JPFollowerBean insert = new JPFollowerBean();
-		insert.setMemberId(1007);
-		insert.setF2FId(4303);
-		insert.setJPId(4001);
-		jdao.insert(insert);
-
-		JPFollowerBean update = jdao.select(4403);
-		update.setTotalPrice(999);
-		jdao.update(update);
-		
-		jdao.delete(4404);
-
-	}
-
 	@Override
 	public JPFollowerBean select(int JPFollowerId) {
 		JPFollowerBean result = null;
