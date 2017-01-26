@@ -11,11 +11,6 @@ import java.util.List;
 import model.ProductDiscountBean;
 import model.ProductDiscountDAO;
 
-
-
-
-
-
 public class ProductDiscountDAOjdbc implements ProductDiscountDAO {
 	
 	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";

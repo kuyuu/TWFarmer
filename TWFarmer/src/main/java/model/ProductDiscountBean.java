@@ -1,11 +1,6 @@
 package model;
 
 public class ProductDiscountBean {
-//	DiscountID int IDENTITY(2301,1) NOT NULL PRIMARY KEY,
-//	ProductID int REFERENCES Product(ProductID) NOT NULL,
-//	MinThreshold int,
-//	MaxThreshold int,
-//	DiscountPrice int,
 	private int DiscountId;
 	private int ProductId;
 	private int MinThreshold;
