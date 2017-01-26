@@ -18,9 +18,6 @@ import model.JPFollowerDAO;
 import model.MemberBean;
 
 public class JPFollowerDAOJdbc implements JPFollowerDAO {
-	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
-	private static final String USERNAME = "sa";
-	private static final String PASSWORD = "P@ssw0rd";
 
 	public static void main(String[] args) {
 		JPFollowerDAO jdao = new JPFollowerDAOJdbc();

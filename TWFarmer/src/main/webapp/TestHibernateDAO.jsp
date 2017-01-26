@@ -11,9 +11,13 @@
 <h2>Hibernate 版本 DAO 測試程式</h2><br />
 
 <%
-model.dao.JPFollowerDetailDAOJdbc dao = new model.dao.JPFollowerDetailDAOJdbc();
-java.util.List<model.JPFollowerDetailBean> list = dao.select();
+model.dao.JPFollowerDAOJdbc dao1 = new model.dao.JPFollowerDAOJdbc();
+java.util.List<model.JPFollowerBean> list1 = dao1.select();
+
+model.dao.JPFollowerDetailDAOJdbc dao2 = new model.dao.JPFollowerDetailDAOJdbc();
+java.util.List<model.JPFollowerDetailBean> list2 = dao2.select();
 %>
-<h1><%=list %></h1>
+<h1><%=list1 %></h1>
+<h1><%=list2 %></h1>
 </body>
 </html>
