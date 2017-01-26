@@ -1,21 +1,11 @@
 package model.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
-
 import hibernate.util.HibernateUtil;
 import model.JPFollowerBean;
 import model.JPFollowerDAO;
-import model.MemberBean;
 
 public class JPFollowerDAOJdbc implements JPFollowerDAO {
 

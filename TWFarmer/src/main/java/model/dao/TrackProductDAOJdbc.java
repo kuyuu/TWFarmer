@@ -227,7 +227,7 @@ public class TrackProductDAOJdbc implements TrackProductDAO {
 				PreparedStatement stmt = conn.prepareStatement(DELETE_BY_MEMBERID);) {
 			stmt.setInt(1, memberId);
 			int i = stmt.executeUpdate();
-			if (i == 1) {
+			if (i >= 1) {
 				return true;
 			}
 		} catch (SQLException e) {
@@ -244,7 +244,7 @@ public class TrackProductDAOJdbc implements TrackProductDAO {
 				PreparedStatement stmt = conn.prepareStatement(DELETE_BY_PRODUCTID);) {
 			stmt.setInt(1, productId);
 			int i = stmt.executeUpdate();
-			if (i == 1) {
+			if (i >= 1) {
 				return true;
 			}
 		} catch (SQLException e) {

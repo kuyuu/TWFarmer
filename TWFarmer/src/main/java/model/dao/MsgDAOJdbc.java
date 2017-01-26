@@ -8,57 +8,70 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import model.MsgBean;
 import model.MsgDAO;
 
 public class MsgDAOJdbc implements MsgDAO {
-	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
-	private static final String USERNAME = "sa";
-	private static final String PASSWORD = "P@ssw0rd";
-	
+	private DataSource dataSource;
+
+	public MsgDAOJdbc() {
+		try {
+			Context ctx = new InitialContext();
+			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static void main(String[] args) {
 		MsgDAO dao = new MsgDAOJdbc();
 
 		// 新增
-//		MsgBean msgBean1 = new MsgBean();
-//
-//		msgBean1.setMsgWriterId(1002);
-//		msgBean1.setMsgReaderId(1004);
-//		msgBean1.setMsgTitle("請問芒果何時會出貨？");
-//		msgBean1.setMsgContent("最近好想吃芒果，請問何時有貨呢？");
-//		msgBean1.setMsgTime(java.sql.Timestamp.valueOf("2017-01-23 09:07:43"));
-//		msgBean1.setMsgStatus(0);
-//
-//		MsgBean q = dao.insert(msgBean1);
-//		System.out.println(q);
+		// MsgBean msgBean1 = new MsgBean();
+		//
+		// msgBean1.setMsgWriterId(1002);
+		// msgBean1.setMsgReaderId(1004);
+		// msgBean1.setMsgTitle("請問芒果何時會出貨？");
+		// msgBean1.setMsgContent("最近好想吃芒果，請問何時有貨呢？");
+		// msgBean1.setMsgTime(java.sql.Timestamp.valueOf("2017-01-23
+		// 09:07:43"));
+		// msgBean1.setMsgStatus(0);
+		//
+		// MsgBean q = dao.insert(msgBean1);
+		// System.out.println(q);
 
 		// 修改
-//	    MsgBean msgBean2 = new MsgBean();
-//		
-//		msgBean2.setMsgId(5301);
-//		msgBean2.setMsgWriterId(1002);
-//		msgBean2.setMsgReaderId(1004);
-//		msgBean2.setMsgTitle("請問芒果何時會出貨？YYY");
-//		msgBean2.setMsgContent("最近好想吃芒果，請問何時有貨呢？");
-//		msgBean2.setMsgTime(java.sql.Timestamp.valueOf("2017-01-23 09:07:43"));
-//		msgBean2.setMsgStatus(0);
-//		
-//		MsgBean q = dao.update(msgBean2);
-//		System.out.println(q);
+		// MsgBean msgBean2 = new MsgBean();
+		//
+		// msgBean2.setMsgId(5301);
+		// msgBean2.setMsgWriterId(1002);
+		// msgBean2.setMsgReaderId(1004);
+		// msgBean2.setMsgTitle("請問芒果何時會出貨？YYY");
+		// msgBean2.setMsgContent("最近好想吃芒果，請問何時有貨呢？");
+		// msgBean2.setMsgTime(java.sql.Timestamp.valueOf("2017-01-23
+		// 09:07:43"));
+		// msgBean2.setMsgStatus(0);
+		//
+		// MsgBean q = dao.update(msgBean2);
+		// System.out.println(q);
 
 		// 刪除
 		// dao.delete(5301);
 
 		// 查詢單筆
-//		 MsgBean msgBean3 = dao.select(5301);
-//		 System.out.print(msgBean3.getMsgId() + ",");
-//		 System.out.print(msgBean3.getMsgWriterId() + ",");
-//		 System.out.print(msgBean3.getMsgReaderId() + ",");
-//		 System.out.print(msgBean3.getMsgTitle() + ",");
-//		 System.out.print(msgBean3.getMsgContent() + ",");
-//		 System.out.print(msgBean3.getMsgTime() + ",");
-//		 System.out.println(msgBean3.getMsgStatus() + ",");
-		
+		// MsgBean msgBean3 = dao.select(5301);
+		// System.out.print(msgBean3.getMsgId() + ",");
+		// System.out.print(msgBean3.getMsgWriterId() + ",");
+		// System.out.print(msgBean3.getMsgReaderId() + ",");
+		// System.out.print(msgBean3.getMsgTitle() + ",");
+		// System.out.print(msgBean3.getMsgContent() + ",");
+		// System.out.print(msgBean3.getMsgTime() + ",");
+		// System.out.println(msgBean3.getMsgStatus() + ",");
 
 		// 查詢全部
 		List<MsgBean> beans = dao.select();
@@ -73,16 +86,13 @@ public class MsgDAOJdbc implements MsgDAO {
 		MsgBean result = null;
 		Connection conn;
 		try {
-			conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			conn = dataSource.getConnection();
 			PreparedStatement stmt = conn.prepareStatement(INSERT);
 			if (msgBean != null) {
 
 				stmt.setInt(1, msgBean.getMsgWriterId());
-
 				stmt.setInt(2, msgBean.getMsgReaderId());
-
 				stmt.setString(3, msgBean.getMsgTitle());
-
 				stmt.setString(4, msgBean.getMsgContent());
 
 				java.util.Date msgTime = msgBean.getMsgTime();
@@ -114,15 +124,11 @@ public class MsgDAOJdbc implements MsgDAO {
 	public MsgBean update(MsgBean msgBean) {
 		MsgBean result = null;
 
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
+		try (Connection conn = dataSource.getConnection(); PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
 
 			stmt.setInt(1, msgBean.getMsgWriterId());
-
 			stmt.setInt(2, msgBean.getMsgReaderId());
-
 			stmt.setString(3, msgBean.getMsgTitle());
-
 			stmt.setString(4, msgBean.getMsgContent());
 
 			java.util.Date msgTime = msgBean.getMsgTime();
@@ -136,7 +142,7 @@ public class MsgDAOJdbc implements MsgDAO {
 			stmt.setInt(6, msgBean.getMsgStatus());
 
 			stmt.setInt(7, msgBean.getMsgId());
-			
+
 			int i = stmt.executeUpdate();
 			if (i == 1) {
 				result = msgBean;
@@ -152,8 +158,7 @@ public class MsgDAOJdbc implements MsgDAO {
 
 	@Override
 	public boolean delete(int msgId) {
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-				PreparedStatement stmt = conn.prepareStatement(DELETE);) {
+		try (Connection conn = dataSource.getConnection(); PreparedStatement stmt = conn.prepareStatement(DELETE);) {
 			stmt.setInt(1, msgId);
 			int i = stmt.executeUpdate();
 			if (i == 1) {
@@ -171,7 +176,7 @@ public class MsgDAOJdbc implements MsgDAO {
 	public MsgBean select(int msgId) {
 		MsgBean result = null;
 		ResultSet rset = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);) {
 
 			stmt.setInt(1, msgId);
@@ -205,7 +210,7 @@ public class MsgDAOJdbc implements MsgDAO {
 	@Override
 	public List<MsgBean> select() {
 		List<MsgBean> result = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
 				ResultSet rset = stmt.executeQuery();) {
 

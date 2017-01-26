@@ -8,14 +8,25 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import model.ViolationBean;
 import model.ViolationDAO;
 
 
 public class ViolationDAOJdbc implements ViolationDAO {
-	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
-	private static final String USERNAME = "sa";
-	private static final String PASSWORD = "P@ssw0rd";
+	private DataSource dataSource;
+	public ViolationDAOJdbc() {
+		try {
+			Context ctx = new InitialContext();
+			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static void main(String[] args) {
 		ViolationDAO dao = new ViolationDAOJdbc();
@@ -79,7 +90,7 @@ public class ViolationDAOJdbc implements ViolationDAO {
 		ViolationBean result = null;
 		Connection conn;
 		try {
-			conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			conn = dataSource.getConnection(); 
 			PreparedStatement stmt = conn.prepareStatement(INSERT);
 			if (violationBean != null) {
 
@@ -130,7 +141,7 @@ public class ViolationDAOJdbc implements ViolationDAO {
 	public ViolationBean update(ViolationBean violationBean) {
 		ViolationBean result = null;
 
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection(); 
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
 
 			stmt.setInt(1, violationBean.getReportedId());
@@ -178,7 +189,7 @@ public class ViolationDAOJdbc implements ViolationDAO {
 
 	@Override
 	public boolean delete(int ticketId) {
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection(); 
 				PreparedStatement stmt = conn.prepareStatement(DELETE);) {
 			stmt.setInt(1, ticketId);
 			int i = stmt.executeUpdate();
@@ -197,7 +208,7 @@ public class ViolationDAOJdbc implements ViolationDAO {
 	public ViolationBean select(int ticketId) {
 		ViolationBean result = null;
 		ResultSet rset = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection(); 
 				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);) {
 
 			stmt.setInt(1, ticketId);
@@ -233,7 +244,7 @@ public class ViolationDAOJdbc implements ViolationDAO {
 	@Override
 	public List<ViolationBean> select() {
 		List<ViolationBean> result = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection(); 
 				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
 				ResultSet rset = stmt.executeQuery();) {
 

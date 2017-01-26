@@ -8,14 +8,26 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import model.ProductBean;
 import model.ProductPicBean;
 import model.ProductPicDAO;
 
 public class ProductPicDAOJdbc implements ProductPicDAO {
-	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
-	private static final String USERNAME = "sa";
-	private static final String PASSWORD = "P@ssw0rd";
+	private DataSource dataSource;
+
+	public ProductPicDAOJdbc() {
+		try {
+			Context ctx = new InitialContext();
+			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static void main(String[] args) {
 		ProductPicDAO ppdao = new ProductPicDAOJdbc();
@@ -33,7 +45,7 @@ public class ProductPicDAOJdbc implements ProductPicDAO {
 		ProductPicBean update = ppdao.select(2403);
 		update.setPictureIntro("測試修改資料");
 		ppdao.update(update);
-		
+
 		ppdao.delete(2404);
 
 	}
@@ -44,20 +56,16 @@ public class ProductPicDAOJdbc implements ProductPicDAO {
 	public ProductPicBean select(int productPicId) {
 		ProductPicBean result = null;
 		ResultSet rset = null;
-		try {
-			Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-			PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);
-			{
-				stmt.setInt(1, productPicId);
-				rset = stmt.executeQuery();
-				if (rset.next()) {
-					result = new ProductPicBean();
-					result.setProductPicId(rset.getInt("ProductPicId"));
-					result.setProductId(rset.getInt("ProductId"));
-					result.setPicture(rset.getBytes(("Picture")));
-					result.setPictureIntro(rset.getString("PictureIntro"));
-				}
-
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);) {
+			stmt.setInt(1, productPicId);
+			rset = stmt.executeQuery();
+			if (rset.next()) {
+				result = new ProductPicBean();
+				result.setProductPicId(rset.getInt("ProductPicId"));
+				result.setProductId(rset.getInt("ProductId"));
+				result.setPicture(rset.getBytes(("Picture")));
+				result.setPictureIntro(rset.getString("PictureIntro"));
 			}
 
 		} catch (SQLException e) {
@@ -80,7 +88,7 @@ public class ProductPicDAOJdbc implements ProductPicDAO {
 	@Override
 	public List<ProductPicBean> select() {
 		List<ProductPicBean> result = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
 				ResultSet rset = stmt.executeQuery();) {
 			result = new ArrayList<ProductPicBean>();
@@ -103,7 +111,7 @@ public class ProductPicDAOJdbc implements ProductPicDAO {
 	@Override
 	public ProductPicBean insert(ProductPicBean productPicBean) {
 		ProductPicBean result = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(INSERT);) {
 			if (productPicBean != null) {
 				stmt.setInt(1, productPicBean.getProductId());
@@ -125,7 +133,7 @@ public class ProductPicDAOJdbc implements ProductPicDAO {
 	@Override
 	public ProductPicBean update(ProductPicBean productPicBean) {
 		ProductPicBean result = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
 			stmt.setInt(1, productPicBean.getProductId());
 			stmt.setBytes(2, productPicBean.getPicture());
@@ -145,7 +153,7 @@ public class ProductPicDAOJdbc implements ProductPicDAO {
 
 	@Override
 	public boolean delete(int productPicId) {
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(DELETE);) {
 			stmt.setInt(1, productPicId);
 			int i = stmt.executeUpdate();
