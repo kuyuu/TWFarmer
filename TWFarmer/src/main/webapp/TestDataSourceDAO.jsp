@@ -12,7 +12,10 @@
 <%
 model.dao.ChatRoomDAOJdbc dao = new model.dao.ChatRoomDAOJdbc();
 java.util.List<model.ChatRoomBean> list = dao.select();
+model.dao.TrackProductDAOJdbc dao2 = new model.dao.TrackProductDAOJdbc();
+java.util.List<model.TrackProductBean> list2 = dao2.select();
 %>
 <h1><%=list %></h1>
+<h1><%=list2 %></h1>
 </body>
 </html>
