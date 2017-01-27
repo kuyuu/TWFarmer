@@ -18,123 +18,160 @@ public class ProductBean {
 //	RemoveEstDate datetime,
 //	RemoveDate datetime,
 //	ProductStatusID int REFERENCES ProductStatus(ProductStatusID),
-	private int ProductId;
-	private int SellerId;
-	private String Origin;
-	private String ProductName;
-	private int Inventory;
-	private int Price;
-	private int UnitId;
-	private int ProductTypeId;
-	private String ProductIntro;
-	private int Freight;
-	private Date AddDate;
-	private Date RemoveEstDate;
-	private Date RemoveDate;
-	private int ProductStatusId;
+	private int productId;
+	private int sellerId;
+	private String origin;
+	private String productName;
+	private int inventory;
+	private int price;
+	private int unitId;
+	private int productTypeId;
+	private String productIntro;
+	private int freight;
+	private java.util.Date addDate;
+	private java.util.Date removeEstDate;
+	private java.util.Date removeDate;
+	private int productStatusId;
 	private static SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd");
 	
 	@Override
-	public boolean equals(Object obj) {
-		if(obj!=null && (obj instanceof ProductBean)) {
-			ProductBean temp = (ProductBean) obj;
-			if(this.ProductId == temp.ProductId) {
-				return true;
-			}
-		}
-		return false;
-	}
+//	public boolean equals(Object obj) {
+//		if(obj!=null && (obj instanceof ProductBean)) {
+//			ProductBean temp = (ProductBean) obj;
+//			if(this.ProductId == temp.ProductId) {
+//				return true;
+//			}
+//		}
+//		return false;
+//	}
 	public String toString() {
-		return "{"+ProductId+":"+SellerId+":"+Origin+":"+ProductName+":"+Inventory+
-				":"+Price+":"+UnitId+":"+ProductTypeId+":"+ProductIntro+":"+Freight+":"+AddDate+":"+RemoveEstDate+""
-						+ ":"+ProductStatusId+" }";
+		return "{"+productId+":"+sellerId+":"+origin+":"+productName+":"+inventory+
+				":"+price+":"+unitId+":"+productTypeId+":"+productIntro+":"+freight+":"+addDate+":"+removeEstDate+""
+						+ ":"+removeDate+""
+								+  ":"+productStatusId+"}";
 	}
+	
+	
+	
+	
+	
 	
 	
 	public int getProductId() {
-		return ProductId;
+		return productId;
 	}
+
 	public void setProductId(int productId) {
-		ProductId = productId;
+		this.productId = productId;
 	}
+
 	public int getSellerId() {
-		return SellerId;
+		return sellerId;
 	}
+
 	public void setSellerId(int sellerId) {
-		SellerId = sellerId;
+		this.sellerId = sellerId;
 	}
+
 	public String getOrigin() {
-		return Origin;
+		return origin;
 	}
+
 	public void setOrigin(String origin) {
-		Origin = origin;
+		this.origin = origin;
 	}
+
 	public String getProductName() {
-		return ProductName;
+		return productName;
 	}
+
 	public void setProductName(String productName) {
-		ProductName = productName;
+		this.productName = productName;
 	}
+
 	public int getInventory() {
-		return Inventory;
+		return inventory;
 	}
+
 	public void setInventory(int inventory) {
-		Inventory = inventory;
+		this.inventory = inventory;
 	}
+
 	public int getPrice() {
-		return Price;
+		return price;
 	}
+
 	public void setPrice(int price) {
-		Price = price;
+		this.price = price;
 	}
+
 	public int getUnitId() {
-		return UnitId;
+		return unitId;
 	}
+
 	public void setUnitId(int unitId) {
-		UnitId = unitId;
+		this.unitId = unitId;
 	}
+
 	public int getProductTypeId() {
-		return ProductTypeId;
+		return productTypeId;
 	}
+
 	public void setProductTypeId(int productTypeId) {
-		ProductTypeId = productTypeId;
+		this.productTypeId = productTypeId;
 	}
+
 	public String getProductIntro() {
-		return ProductIntro;
+		return productIntro;
 	}
+
 	public void setProductIntro(String productIntro) {
-		ProductIntro = productIntro;
+		this.productIntro = productIntro;
 	}
+
 	public int getFreight() {
-		return Freight;
+		return freight;
 	}
+
 	public void setFreight(int freight) {
-		Freight = freight;
+		this.freight = freight;
 	}
-	public Date getAddDate() {
-		return AddDate;
+
+	public java.util.Date getAddDate() {
+		return addDate;
 	}
-	public void setAddDate(Date addDate) {
-		AddDate = addDate;
+
+	public void setAddDate(java.util.Date addDate) {
+		this.addDate = addDate;
 	}
-	public Date getRemoveEstDate() {
-		return RemoveEstDate;
+
+	public java.util.Date getRemoveEstDate() {
+		return removeEstDate;
 	}
-	public void setRemoveEstDate(Date removeEstDate) {
-		RemoveEstDate = removeEstDate;
+
+	public void setRemoveEstDate(java.util.Date removeEstDate) {
+		this.removeEstDate = removeEstDate;
 	}
-	public Date getRemoveDate() {
-		return RemoveDate;
+
+	public java.util.Date getRemoveDate() {
+		return removeDate;
 	}
-	public void setRemoveDate(Date removeDate) {
-		RemoveDate = removeDate;
+
+	public void setRemoveDate(java.util.Date removeDate) {
+		this.removeDate = removeDate;
 	}
+
 	public int getProductStatusId() {
-		return ProductStatusId;
+		return productStatusId;
 	}
+
 	public void setProductStatusId(int productStatusId) {
-		ProductStatusId = productStatusId;
+		this.productStatusId = productStatusId;
 	}
+
 	
+	
+	
+
 	
 }

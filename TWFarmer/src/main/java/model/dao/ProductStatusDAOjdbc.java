@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.ProductBean;
 import model.ProductStatusBean;
 import model.ProductStatusDAO;
 
@@ -19,33 +20,59 @@ public class ProductStatusDAOjdbc implements ProductStatusDAO {
 
 	public static void main(String[] args) {
 		ProductStatusDAO dao=new ProductStatusDAOjdbc();
-		List<ProductStatusBean> beans= dao.select();
-		System.out.println("bean="+beans);
+		
+		// select all. ok
+//		List<ProductStatusBean> beans= dao.select();
+//		System.out.println("bean="+beans);
+		
+		//select by ID. ok
+//		ProductStatusBean productStatusBean1=dao.select(2501);
+//		System.out.println(productStatusBean1.toString());
+		
+		//insert. ok
+//		ProductStatusBean productStatusBean2 =new ProductStatusBean();
+//		productStatusBean2.setProductStatusName("補貨中");
+//		ProductStatusBean ins= dao.insert(productStatusBean2);
+//		System.out.println(ins);
+		
+		//update. ok
+//		ProductStatusBean productStatusBean3=dao.select(3502);
+//		productStatusBean3.setProductStatusName("缺貨中");
+//		ProductStatusBean upd= dao.update(productStatusBean3);
+//		System.out.println(upd);
+		
+		//delete. ok
+//		dao.delete(3502);
+//		System.out.println("delete it");
+		
 	}
-
-	private static final String SELECT_BY_ID=
-			"select* from ProductStatus where ProductStatusID=?";
-	@Override
-	public ProductStatusBean select(int ProductStatusID ){
-		ProductStatusBean result =null;
-		ResultSet rset =null;
-		try {
-		Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);	
-		PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);{
-			rset=stmt.executeQuery();
-			if(rset.next()){
-				result= new ProductStatusBean();
-				result.setProductStatusID(rset.getInt("ProductStatusID"));
-				result.setProductStatusName(rset.getString("ProductStatusName"));
-			}
-			
-		}
 	
+	
+	
+	
+	private static final String SELECT_BY_ID=
+			"select* from ProductStatus where productStatusId=?";
+	
+	@Override
+	public ProductStatusBean select(int productStatusId) {
+		ProductStatusBean result = null;
+		ResultSet rset = null;
+		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);) {
+
+			stmt.setInt(1, productStatusId);
+			rset = stmt.executeQuery();
+			if (rset.next()) {
+				result = new ProductStatusBean();
+				result.setProductStatusId(rset.getInt("productStatusId"));
+				result.setProductStatusName(rset.getString("productStatusName"));
+
+								
+			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			if (rset!=null) {
+		} finally {
+			if (rset != null) {
 				try {
 					rset.close();
 				} catch (SQLException e) {
@@ -54,92 +81,102 @@ public class ProductStatusDAOjdbc implements ProductStatusDAO {
 			}
 		}
 		return result;
-					
 	}
-	
-	
+
 	private static final String SELECT_ALL =
 			"select * from ProductStatus";
 	@Override
 	public List<ProductStatusBean> select() {
-		List<ProductStatusBean> result =null;
-		try {
-			Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-			PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
-			ResultSet rset= stmt.executeQuery();{
-				result= new ArrayList<ProductStatusBean>();
-				while(rset.next()){
-					ProductStatusBean bean=new ProductStatusBean();
-					bean.setProductStatusID(rset.getInt("setProductStatusID"));
-					bean.setProductStatusName(rset.getString("productStatusName"));
-					
-					result.add(bean);
-				}
+		List<ProductStatusBean> result = null;
+		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
+				ResultSet rset = stmt.executeQuery();) {
+
+			result = new ArrayList<ProductStatusBean>();
+			while (rset.next()) {
+				ProductStatusBean productStatusBean = new ProductStatusBean();
+				productStatusBean.setProductStatusId(rset.getInt("productStatusId"));
+				productStatusBean.setProductStatusName(rset.getString("productStatusName"));;
+	
+				result.add(productStatusBean);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
 	}
-	
-	private static final String INSERT =
-			"insert into ProductStatus (ProductStatusID, ProductStatusName) values (?, ?)";
+
+	private static final String INSERT = "insert into ProductStatus (productStatusName) values (?)";
 	@Override
 	public ProductStatusBean insert(ProductStatusBean bean) {
-			ProductStatusBean result= null;
-			try {
-				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-				PreparedStatement stmt = conn.prepareStatement(INSERT);{
-					if (bean !=null){
-						stmt.setInt(1, bean.getProductStatusID());
-						stmt.setString(2, bean.getProductStatusName());
-					}
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return result;
-	}
-	
-	private static final String UPDATE =
-			"update ProductStatus set ProductStatusID=?,ProductStatusName=?";
-	@Override
-	public ProductStatusBean update(int ProductStatusID, String ProductStatusName) {
-		ProductStatusBean result= null;
+		ProductStatusBean result = null;
+		Connection conn;
 		try {
-			Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-			PreparedStatement stmt = conn.prepareStatement(UPDATE);{
-				stmt.setInt(1,ProductStatusID);
-				stmt.setString(2, ProductStatusName);
+			conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			PreparedStatement stmt = conn.prepareStatement(INSERT);
+			if (bean != null) {
+
+				stmt.setString(1, bean.getProductStatusName());
+	
+				
+				int i = stmt.executeUpdate();
+				if (i == 1) {
+					result = bean;
+				}
+			
 			}
+
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return result;
 	}
+
+	
+	private static final String UPDATE =
+			"update ProductStatus set productStatusName=? where productStatusId=?";
+	@Override
+	public ProductStatusBean update(ProductStatusBean bean) {
+		ProductStatusBean result = null;
+
+		try(Connection conn= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				PreparedStatement stmt = conn.prepareStatement(UPDATE);){
+		
+			stmt.setString(1, bean.getProductStatusName());
+			stmt.setInt(2,bean.getProductStatusId());
+
+			
+		int i = stmt.executeUpdate();
+		if (i == 1) {
+			result = bean;
+		}
+		
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return result;
+	}
+
 	
 	private static final String DELETE =
-			"delete from ProductStatus where ProductStatusID=?";	
+			"delete from ProductStatus where productStatusId=?";
+	
 	@Override
-	public boolean delete(int ProductStatusID) {
-		try {
-			Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-			PreparedStatement stmt = conn.prepareStatement(DELETE);{
-				stmt.setInt(1, ProductStatusID);
-				int i= stmt.executeUpdate();
-				if(i==1){
-					return true;
-				}
+	public boolean delete(int productStatusId) {
+		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				PreparedStatement stmt = conn.prepareStatement(DELETE);) {
+			stmt.setInt(1, productStatusId);
+			int i = stmt.executeUpdate();
+			if (i == 1) {
+				return true;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
 	}
+
+	
 
 }

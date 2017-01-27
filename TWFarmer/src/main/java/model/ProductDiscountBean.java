@@ -1,55 +1,69 @@
 package model;
 
-public class ProductDiscountBean {
-	private int DiscountId;
-	private int ProductId;
-	private int MinThreshold;
-	private int MaxThreshold;
-	private int DiscountPrice;
+import java.io.Serializable;
+
+public class ProductDiscountBean implements Serializable {
+	
+	int discountId;
+	int productId;
+	int minThreshold;
+	int maxThreshold;
+	int discountPrice;
 	
 	@Override
 	public boolean equals(Object obj) {
 		if(obj!=null && (obj instanceof ProductDiscountBean)) {
 			ProductDiscountBean temp = (ProductDiscountBean) obj;
-			if(this.DiscountId == temp.DiscountId) {
+			if(this.discountId == temp.discountId) {
 				return true;
 			}
 		}
 		return false;
 	}
+
+	@Override
 	public String toString() {
-		return "{"+DiscountId+":"+ProductId+":"+MinThreshold+":"+MaxThreshold+":"+DiscountPrice+"}";
+		return "{"+discountId+":"+productId+":"+minThreshold+":"+maxThreshold+":"+discountPrice+"}";
 	}
-	
 	
 	public int getDiscountId() {
-		return DiscountId;
+		return discountId;
 	}
+
 	public void setDiscountId(int discountId) {
-		DiscountId = discountId;
+		this.discountId = discountId;
 	}
+
 	public int getProductId() {
-		return ProductId;
+		return productId;
 	}
+
 	public void setProductId(int productId) {
-		ProductId = productId;
+		this.productId = productId;
 	}
+
 	public int getMinThreshold() {
-		return MinThreshold;
+		return minThreshold;
 	}
+
 	public void setMinThreshold(int minThreshold) {
-		MinThreshold = minThreshold;
+		this.minThreshold = minThreshold;
 	}
+
 	public int getMaxThreshold() {
-		return MaxThreshold;
+		return maxThreshold;
 	}
+
 	public void setMaxThreshold(int maxThreshold) {
-		MaxThreshold = maxThreshold;
+		this.maxThreshold = maxThreshold;
 	}
+
 	public int getDiscountPrice() {
-		return DiscountPrice;
+		return discountPrice;
 	}
+
 	public void setDiscountPrice(int discountPrice) {
-		DiscountPrice = discountPrice;
+		this.discountPrice = discountPrice;
 	}
+
 }

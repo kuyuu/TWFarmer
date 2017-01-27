@@ -4,20 +4,28 @@ public class ProductTypeBean {
 	//ProductTypeID int IDENTITY(2101,1) NOT NULL PRIMARY KEY,
 	//Type nvarchar(10),
 	
-	private int ProductTypeId;
-	private String Type;
+	private int productTypeId;
+	private String type;
+	
+	@Override
+	public String toString() {
+		return "{"+productTypeId+":"+type+"}";
+	}
+	
+	
 	public int getProductTypeId() {
-		return ProductTypeId;
+		return productTypeId;
 	}
 	public void setProductTypeId(int productTypeId) {
-		ProductTypeId = productTypeId;
+		this.productTypeId = productTypeId;
 	}
 	public String getType() {
-		return Type;
+		return type;
 	}
 	public void setType(String type) {
-		Type = type;
+		this.type = type;
 	}
+	
 	
 	
 }

@@ -10,6 +10,8 @@ import java.util.List;
 
 import model.ProductDiscountBean;
 import model.ProductDiscountDAO;
+import model.ProductStatusBean;
+
 
 public class ProductDiscountDAOjdbc implements ProductDiscountDAO {
 	
@@ -17,38 +19,74 @@ public class ProductDiscountDAOjdbc implements ProductDiscountDAO {
 	private static final String USERNAME = "sa";
 	private static final String PASSWORD = "P@ssw0rd";
 	
+	//測試程式
 	public static void main(String[] args) {
-		ProductDiscountDAO dao=new ProductDiscountDAOjdbc();
-		List<ProductDiscountBean> beans= dao.select();
-		System.out.println("bean="+beans);	
+		ProductDiscountDAO dao = new ProductDiscountDAOjdbc();
+
+		//select all. ok
+//		List<ProductDiscountBean> beans = dao.select();
+//		System.out.println("bean="+beans);
+		
+//		//select by id. ok
+//		ProductDiscountBean productDiscountBean1 = dao.select(2301);
+//		System.out.println(productDiscountBean1.toString());
+
+		 
+		 //insert.
+//		ProductDiscountBean productDiscountBean2 = new ProductDiscountBean();
+//		
+//		productDiscountBean2.setProductId(3007);
+//		productDiscountBean2.setMinThreshold(50);
+//		productDiscountBean2.setMaxThreshold(100);
+//		productDiscountBean2.setDiscountPrice(900);
+//		
+//		ProductDiscountBean ins = dao.insert(productDiscountBean2);
+//		System.out.println(ins);
+
+//		 update. ok
+//		ProductDiscountBean productDiscountBean3 = new ProductDiscountBean();	
+//		
+//		productDiscountBean3.setDiscountId(3306);
+//		productDiscountBean3.setProductId(3007);
+//		productDiscountBean3.setMinThreshold(1);
+//		productDiscountBean3.setMaxThreshold(2);
+//		productDiscountBean3.setDiscountPrice(1300);
+//			
+//		ProductDiscountBean upd = dao.update(productDiscountBean3);
+//		System.out.println(upd);
+//
+		// delete. ok
+//		dao.delete(3307);
+//		System.out.println("資料已刪除");
+		
 	}
 
-	private static final String SELECT_BY_ID=
-			"select* from ProductDiscount where DiscountId=?";
+
+
+	private static final String SELECT_BY_ID =
+			"SELECT * from ProductDiscount where discountId=?";
 	@Override
-	public ProductDiscountBean select(int DiscountId) {
-		ProductDiscountBean result =null;
-		ResultSet rset =null;
-		try {
-		Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);	
-		PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);{
-			rset=stmt.executeQuery();
-			if(rset.next()){
-				result= new ProductDiscountBean();
-				result.setDiscountId(rset.getInt("DiscountId"));
-				result.setDiscountPrice(rset.getInt("DiscountPrice"));
-				result.setMaxThreshold(rset.getInt("MaxThreshold"));
-				result.setMinThreshold(rset.getInt("MinThreshold"));
-				result.setProductId(rset.getInt("ProductId"));
+	public ProductDiscountBean select(int discountId) {
+		ProductDiscountBean result = null;
+		ResultSet rset = null;
+		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);) {
+
+			stmt.setInt(1, discountId);
+			rset = stmt.executeQuery();
+			if (rset.next()) {
+				result = new ProductDiscountBean();
+				result.setDiscountId(rset.getInt("discountId"));;
+				result.setProductId(rset.getInt("productId"));
+				result.setMinThreshold(rset.getInt("minThreshold"));;
+				result.setMaxThreshold(rset.getInt("maxThreshold"));;
+				result.setDiscountPrice(rset.getInt("discountPrice"));
+						
 			}
-			
-		}
-	
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			if (rset!=null) {
+		} finally {
+			if (rset != null) {
 				try {
 					rset.close();
 				} catch (SQLException e) {
@@ -57,103 +95,110 @@ public class ProductDiscountDAOjdbc implements ProductDiscountDAO {
 			}
 		}
 		return result;
-					
 	}
 
 	private static final String SELECT_ALL =
-			"select * from ProductDiscount";
+			"SELECT * from ProductDiscount";
 	@Override
 	public List<ProductDiscountBean> select() {
-		List<ProductDiscountBean> result =null;
-		try {
-			Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-			PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
-			ResultSet rset= stmt.executeQuery();{
-				result= new ArrayList<ProductDiscountBean>();
-				while(rset.next()){
-					ProductDiscountBean bean=new ProductDiscountBean();
-					bean.setDiscountId(rset.getInt("DiscountId"));
-					bean.setDiscountPrice(rset.getInt("DiscountPrice"));
-					bean.setMaxThreshold(rset.getInt("MaxThreshold"));
-					bean.setMinThreshold(rset.getInt("MinThreshold"));
-					bean.setProductId(rset.getInt("ProductId"));
-					
-					
-					result.add(bean);
-				}
+		List<ProductDiscountBean> result = null;
+		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
+				ResultSet rset = stmt.executeQuery();) {
+
+			result = new ArrayList<ProductDiscountBean>();
+			while (rset.next()) {
+				ProductDiscountBean productDiscountBean = new ProductDiscountBean();
+				productDiscountBean.setDiscountId(rset.getInt("discountId"));;
+				productDiscountBean.setProductId(rset.getInt("productId"));
+				productDiscountBean.setMinThreshold(rset.getInt("minThreshold"));;
+				productDiscountBean.setMaxThreshold(rset.getInt("maxThreshold"));;
+				productDiscountBean.setDiscountPrice(rset.getInt("discountPrice"));
+	
+				result.add(productDiscountBean);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
 	}
 
-	
 	private static final String INSERT =
-			"insert into ProductDiscount (DiscountId, ProductId,MinThreshold,MaxThreshold,DiscountPrice) values (?, ?, ?, ?, ?)";
+			"insert into ProductDiscount (productId, minThreshold, maxThreshold, discountPrice) VALUES (?,?,?,?)";
 	@Override
 	public ProductDiscountBean insert(ProductDiscountBean bean) {
-		ProductDiscountBean result= null;
+		ProductDiscountBean result = null;
+		Connection conn;
 		try {
-			Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-			PreparedStatement stmt = conn.prepareStatement(INSERT);{
-				if (bean !=null){
-					stmt.setInt(1, bean.getDiscountId());
-					stmt.setInt(2, bean.getProductId());
-					stmt.setInt(3, bean.getMinThreshold());
-					stmt.setInt(4, bean.getMaxThreshold());
-					stmt.setInt(5, bean.getDiscountPrice());
+			conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			PreparedStatement stmt = conn.prepareStatement(INSERT);
+			if (bean != null) {
+
+				stmt.setInt(1, bean.getProductId());
+				stmt.setInt(2, bean.getMinThreshold());
+				stmt.setInt(3, bean.getMaxThreshold());
+				stmt.setInt(4, bean.getDiscountPrice());
+				
+				int i = stmt.executeUpdate();
+				if (i == 1) {
+					result = bean;
 				}
+			
 			}
+
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		return result;
 	}
 
 	private static final String UPDATE =
-			"update ProductDiscount set DiscountId=?,ProductId=?,MinThreshold=?,MaxThreshold=?,DiscountPrice=?";
+			"UPDATE ProductDiscount "
+			+ "SET productId=?, "
+			+ "minThreshold=?, "
+			+ "maxThreshold=?, "
+			+ "discountPrice=? "
+			+ "where discountId=?";
 	@Override
-	public ProductDiscountBean update(int DiscountId, int ProductId, int MinThreshold, int MaxThreshold,
-			int DiscountPrice) {
-		ProductDiscountBean result= null;
-		try {
-			Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-			PreparedStatement stmt = conn.prepareStatement(UPDATE);{
-				stmt.setInt(1,DiscountId);
-				stmt.setInt(2, ProductId);
-				stmt.setInt(3, MinThreshold);
-				stmt.setInt(4, MaxThreshold);
-				stmt.setInt(5, DiscountPrice);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	public ProductDiscountBean update(ProductDiscountBean bean) {
+		ProductDiscountBean result = null;
+
+		try(Connection conn= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				PreparedStatement stmt = conn.prepareStatement(UPDATE);){
+		
+			stmt.setInt(1, bean.getProductId());
+			stmt.setInt(2, bean.getMinThreshold());
+			stmt.setInt(3, bean.getMaxThreshold());
+			stmt.setInt(4, bean.getDiscountPrice());
+			stmt.setInt(5, bean.getDiscountId());
+			
+		int i = stmt.executeUpdate();
+		if (i == 1) {
+			result = bean;
 		}
 		
-		return result;
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return result;
 	}
 
 	private static final String DELETE =
-			"delete from ProductDiscount where DiscountId=?";	
+			"DELETE FROM ProductDiscount where discountId=?";
 	@Override
-	public boolean delete(int DiscountId) {
-		try {
-			Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-			PreparedStatement stmt = conn.prepareStatement(DELETE);{
-				stmt.setInt(1, DiscountId);
-				int i= stmt.executeUpdate();
-				if(i==1){
-					return true;
-				}
+	public boolean delete(int discountId) {
+		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				PreparedStatement stmt = conn.prepareStatement(DELETE);) {
+			stmt.setInt(1, discountId);
+			int i = stmt.executeUpdate();
+			if (i == 1) {
+				return true;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
 	}
-
+	
 }
