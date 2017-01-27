@@ -1,41 +1,115 @@
 package model.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+import model.FarmerBean;
 import model.MemberBean;
 import model.MemberDAO;
 
-
 public class MemberDAOJdbc implements MemberDAO {
-	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
-	private static final String USERNAME = "sa";
-	private static final String PASSWORD = "P@ssw0rd";
+	DataSource dataSource;
+	 public MemberDAOJdbc() {
+	 try {
+	 Context ctx = new InitialContext();
+	 dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+	 } catch (NamingException e) {
+	 e.printStackTrace();
+	 }
+	 }
 
-	public static void main(String[] args) {
-		MemberDAO dao = new MemberDAOJdbc();
-		List<MemberBean> beans = dao.select();
-		System.out.println("bean="+beans);
+	 public static void main(String[] testingIsAChore) {
+//======HEAD OF TESTING METHODS 測試方法由此開始======
+MemberDAO mdao = new MemberDAOJdbc();
+System.out.println("Remove a block comment to begin testing 將各區註解移除即可測試");
+// 1. SELECT BY MemberID 以會員編號選擇
+/*		 System.out.println("Member going by number 1002 does not imply we have 1002 members~");
+			MemberBean memberBean1 =mdao.select(1001);
+			System.out.println(memberBean1.toString());*/
 		
-		System.out.println(dao.select(1001).getAccount());
-	}
-	private static final String SELECT_BY_ID =
-			"SELECT * from Member where MemberId=?";
-	@Override
-	public MemberBean select(int memberId) {
+ //2. SELECT ALL 全部選擇
+		/*System.out.println("Ctrl+A is so overrated. 
+		 * Let's select it all with~~codes that are even more overrated.");
+		List<MemberBean> beans = mdao.select();
+		System.out.println("bean="+beans);*/
+			
+				
+//3. INSERT 新增
+	 /*System.out.println("Roald Velden is my favorite EDM composer. Maybe he likes Taiwanese vegs too~");
+		MemberBean memberBean1 = new MemberBean();
+	 	memberBean1.setMemberId(1021);
+		memberBean1.setAccount("NetherlandsStyle");
+		memberBean1.setPassword("ILikeProgressiveHouse");
+		memberBean1.setName("RoaldOtherVelden");
+		memberBean1.setPostalCode("105");
+		memberBean1.setDistrict("臺北市松山區");
+		memberBean1.setAddress("南京東路4段2號");
+		memberBean1.setPhone("0935648167");
+		memberBean1.setEmail("PurestHouse@gmail.com");
+		memberBean1.setIdNumber("C191245911");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			memberBean1.setBirthDate(sdf.parse("1987-11-11"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		memberBean1.setGender("M");
+		memberBean1.setIdType(1);
+		memberBean1.setRating(500);
+		mdao.insert(memberBean1);*/
+	 
+//4.  UPDATE 修改
+		/*System.out.println("Velden thinks it's dangerous to use his own name. There goes modification~");
+		MemberBean update = mdao.select(1021);
+		update.setAccount("NetherlandsStyle");
+		update.setPassword("ProgressiveHouseLikesMe");
+		update.setName("NotRoaldVeldenAtAll");
+		update.setPostalCode("105");
+		update.setDistrict("臺北市松山區");
+		update.setAddress("南京東路4段2號");
+		update.setPhone("0935648167");
+		update.setEmail("PurestHouse@gmail.com");
+		update.setIdNumber("C191245911");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			update.setBirthDate(sdf.parse("1987-11-11"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		update.setGender("M");
+		update.setIdType(1);
+		update.setRating(500);
+		MemberBean rv = mdao.update(update);
+		System.out.println(rv);
+*/
+//5. DELETE: USAGE REQUIRES "INSERT" OR "UPDATE"! 刪除 需在"新增"或"修改"之後測試!
+	/*	System.out.println("Velden decides he should delete his own acc and go back to Europe~Asia is dangerous.");
+		mdao.delete(1021);	*/
+//======END OF TESTING METHODS 測試方法至此結束======
+System.out.println("Add the block comments back when you're done 測試完畢請記得恢復註解");
+}
+	 
+	private static final String SELECT_BY_PK = "SELECT * from Member where MemberId=?";
+
+@Override
+public MemberBean select(int memberId) {
 		MemberBean result = null;
 		ResultSet rset = null;
-		try(
-			Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-			PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);) {
-			
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_PK);) {
 			stmt.setInt(1, memberId);
 			rset = stmt.executeQuery();
-			if(rset.next()) {
+			if (rset.next()) {
 				result = new MemberBean();
 				result.setMemberId(rset.getInt("memberId"));
 				result.setAccount(rset.getString("account"));
@@ -47,16 +121,15 @@ public class MemberDAOJdbc implements MemberDAO {
 				result.setPhone(rset.getString("phone"));
 				result.setEmail(rset.getString("email"));
 				result.setIdNumber(rset.getString("idNumber"));
-				result.setBirthDate(rset.getDate("BirthDate"));
+				result.setBirthDate(rset.getDate("datetime"));
 				result.setGender(rset.getString("gender"));
 				result.setIdType(rset.getInt("idType"));
 				result.setRating(rset.getInt("rating"));
-				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (rset!=null) {
+			if (rset != null) {
 				try {
 					rset.close();
 				} catch (SQLException e) {
@@ -66,21 +139,20 @@ public class MemberDAOJdbc implements MemberDAO {
 		}
 		return result;
 	}
+
 	
-	private static final String SELECT_ALL =
-			"select * from member";
+	private static final String SELECT_ALL = "select * from Member";
 	@Override
 	public List<MemberBean> select() {
 		List<MemberBean> result = null;
-		try(
-				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
 				ResultSet rset = stmt.executeQuery();) {
-			
+
 			result = new ArrayList<MemberBean>();
-			while(rset.next()) {
+			while (rset.next()) {
 				MemberBean bean = new MemberBean();
-				bean.setMemberId(rset.getInt("memberId"));
+				bean.setMemberId(rset.getInt("MemberID"));
 				bean.setAccount(rset.getString("account"));
 				bean.setPassword(rset.getString("password"));
 				bean.setName(rset.getString("name"));
@@ -90,11 +162,10 @@ public class MemberDAOJdbc implements MemberDAO {
 				bean.setPhone(rset.getString("phone"));
 				bean.setEmail(rset.getString("email"));
 				bean.setIdNumber(rset.getString("idNumber"));
-				bean.setBirthDate(rset.getDate("BirthDate"));
+				bean.setBirthDate(rset.getDate("datetime"));
 				bean.setGender(rset.getString("gender"));
 				bean.setIdType(rset.getInt("idType"));
 				bean.setRating(rset.getInt("rating"));
-				
 				result.add(bean);
 			}
 		} catch (SQLException e) {
@@ -102,16 +173,14 @@ public class MemberDAOJdbc implements MemberDAO {
 		}
 		return result;
 	}
-	
-	private static final String INSERT =
-			"INSERT INTO MEMBER (MemberID,Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+	private static final String INSERT = "INSERT INTO MEMBER (MemberID,Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	@Override
 	public MemberBean insert(MemberBean bean) {
 		MemberBean result = null;
-		try(
-				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(INSERT);) {
-			if(bean!=null) {
+			if (bean != null) {
 				stmt.setInt(1,bean.getMemberId());
 				stmt.setString(2,bean.getAccount());
 				stmt.setString(3,bean.getPassword());
@@ -122,22 +191,13 @@ public class MemberDAOJdbc implements MemberDAO {
 				stmt.setString(8,bean.getPhone());
 				stmt.setString(9,bean.getEmail());
 				stmt.setString(10,bean.getIdNumber());
-				
-				//stmt.setDouble(3, bean.getPrice());
-				
-				java.util.Date birthDate = bean.getBirthDate();
-				if(birthDate!=null) {
-					long time = birthDate.getTime();
-					stmt.setDate(11, new java.sql.Date(time));
-				} else {
-					stmt.setDate(11, null);				
-				}
+				java.sql.Date d = new java.sql.Date(bean.getBirthDate().getTime());
+				stmt.setDate(11, d);
 				stmt.setString(12, bean.getGender());
 				stmt.setInt(13,bean.getIdType());
 				stmt.setInt(14,bean.getRating());
-				
 				int i = stmt.executeUpdate();
-				if(i==1) {
+				if (i == 1) {
 					result = bean;
 				}
 			}
@@ -146,9 +206,8 @@ public class MemberDAOJdbc implements MemberDAO {
 		}
 		return result;
 	}
-	
-	private static final String UPDATE =
-			"UPDATE Member "
+
+	private static final String UPDATE = "UPDATE Member "
 			+ "SET Account=?, "
 			+ "Password=?, "
 			+ "Name=?, "
@@ -164,64 +223,44 @@ public class MemberDAOJdbc implements MemberDAO {
 			+ "Rating=? "
 			+ "WHERE MemberId=?";
 	@Override
-	public MemberBean update(
-			int memberId,
-			String account,
-			String password,
-			String name,
-			String postalCode,
-			String district,
-			String address,
-			String phone,
-			String email,
-			String idNumber,
-			java.util.Date birthDate,
-			String gender,
-			int idType,
-			int rating) {
+	public MemberBean update (MemberBean bean) {
 		MemberBean result = null;
-		try(
-				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
-			stmt.setString(1, account);
-			stmt.setString(2, password);
-			stmt.setString(3, name);
-			stmt.setString(4, postalCode);
-			stmt.setString(5,district);
-			stmt.setString(6, address);
-			stmt.setString(7, phone);
-			stmt.setString(8, email);
-			stmt.setString(9,idNumber);
-			if(birthDate!=null) {
-				long time = birthDate.getTime();
-				stmt.setDate(10, new java.sql.Date(time));
-			} else {
-				stmt.setDate(10, null);				
-			}
-			stmt.setString(11, gender);
-			stmt.setInt(12, idType);
-			stmt.setInt(13,rating);
-			stmt.setInt(14, memberId);
+			java.sql.Date date = new java.sql.Date(bean.getBirthDate().getTime());
+			stmt.setString(1, bean.getAccount());
+			stmt.setString(2, bean.getPassword());
+			stmt.setString(3, bean.getName());
+			stmt.setString(4, bean.getPostalCode());
+			stmt.setString(5,bean.getDistrict());
+			stmt.setString(6, bean.getAddress());
+			stmt.setString(7, bean.getPhone());
+			stmt.setString(8, bean.getEmail());
+			stmt.setString(9,bean.getIdNumber());
+			stmt.setDate(10, date);
+			stmt.setString(11, bean.getGender());
+			stmt.setInt(12, bean.getIdType());
+			stmt.setInt(13,bean.getRating());
+			stmt.setInt(14, bean.getMemberId());
 			int i = stmt.executeUpdate();
-			if(i==1) {
-				result = this.select(memberId);
+			if (i == 1) {
+				result = this.select(bean.getMemberId());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
-	
-	private static final String DELETE =
-			"DELETE FROM Member where MemberID=?";
+
+	private static final String DELETE_BY_MEMBERID = "delete from Member where MemberId=?";
+
 	@Override
-	public boolean delete(int memberId) {
-		try(
-				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-				PreparedStatement stmt = conn.prepareStatement(DELETE);) {			
+	public boolean delete (int memberId) {
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(DELETE_BY_MEMBERID);) {
 			stmt.setInt(1, memberId);
 			int i = stmt.executeUpdate();
-			if(i==1) {
+			if (i == 1) {
 				return true;
 			}
 		} catch (SQLException e) {
@@ -229,4 +268,6 @@ public class MemberDAOJdbc implements MemberDAO {
 		}
 		return false;
 	}
+
+	
 }
