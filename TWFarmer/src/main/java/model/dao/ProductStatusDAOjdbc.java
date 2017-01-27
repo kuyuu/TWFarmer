@@ -8,15 +8,25 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import model.ProductBean;
 import model.ProductStatusBean;
 import model.ProductStatusDAO;
 
 public class ProductStatusDAOjdbc implements ProductStatusDAO {
-
-	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
-	private static final String USERNAME = "sa";
-	private static final String PASSWORD = "P@ssw0rd";
+	private DataSource dataSource;
+	public ProductStatusDAOjdbc() {
+		try {
+			Context ctx = new InitialContext();
+			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static void main(String[] args) {
 		ProductStatusDAO dao=new ProductStatusDAOjdbc();
@@ -57,7 +67,7 @@ public class ProductStatusDAOjdbc implements ProductStatusDAO {
 	public ProductStatusBean select(int productStatusId) {
 		ProductStatusBean result = null;
 		ResultSet rset = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);) {
 
 			stmt.setInt(1, productStatusId);
@@ -88,7 +98,7 @@ public class ProductStatusDAOjdbc implements ProductStatusDAO {
 	@Override
 	public List<ProductStatusBean> select() {
 		List<ProductStatusBean> result = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
 				ResultSet rset = stmt.executeQuery();) {
 
@@ -112,7 +122,7 @@ public class ProductStatusDAOjdbc implements ProductStatusDAO {
 		ProductStatusBean result = null;
 		Connection conn;
 		try {
-			conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			conn = dataSource.getConnection();
 			PreparedStatement stmt = conn.prepareStatement(INSERT);
 			if (bean != null) {
 
@@ -140,7 +150,7 @@ public class ProductStatusDAOjdbc implements ProductStatusDAO {
 	public ProductStatusBean update(ProductStatusBean bean) {
 		ProductStatusBean result = null;
 
-		try(Connection conn= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try(Connection conn= dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);){
 		
 			stmt.setString(1, bean.getProductStatusName());
@@ -164,7 +174,7 @@ public class ProductStatusDAOjdbc implements ProductStatusDAO {
 	
 	@Override
 	public boolean delete(int productStatusId) {
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(DELETE);) {
 			stmt.setInt(1, productStatusId);
 			int i = stmt.executeUpdate();

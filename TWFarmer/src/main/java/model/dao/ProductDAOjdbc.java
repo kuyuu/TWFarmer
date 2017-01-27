@@ -9,6 +9,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import model.ProductBean;
 import model.ProductDAO;
 
@@ -18,9 +23,15 @@ import model.ProductDAO;
 
 
 public class ProductDAOjdbc implements ProductDAO{
-	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
-	private static final String USERNAME = "sa";
-	private static final String PASSWORD = "P@ssw0rd";
+	private DataSource dataSource;
+	public ProductDAOjdbc() {
+		try {
+			Context ctx = new InitialContext();
+			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public static void main(String[] args) {
 		ProductDAO dao=new ProductDAOjdbc();
@@ -103,7 +114,7 @@ public class ProductDAOjdbc implements ProductDAO{
 	public ProductBean select(int productId) {
 		ProductBean result = null;
 		ResultSet rset = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);) {
 
 			stmt.setInt(1, productId);
@@ -148,7 +159,7 @@ public class ProductDAOjdbc implements ProductDAO{
 	@Override
 	public List<ProductBean> select() {
 		List<ProductBean> result = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
 				ResultSet rset = stmt.executeQuery();) {
 
@@ -188,7 +199,7 @@ public class ProductDAOjdbc implements ProductDAO{
 		ProductBean result = null;
 		Connection conn;
 		try {
-			conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			conn = dataSource.getConnection();
 			PreparedStatement stmt = conn.prepareStatement(INSERT);
 			if (bean != null) {
 
@@ -248,7 +259,7 @@ System.out.println(INSERT);
 	public ProductBean update(ProductBean bean) {
 		ProductBean result = null;
 
-			try(Connection conn= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			try(Connection conn= dataSource.getConnection();
 					PreparedStatement stmt = conn.prepareStatement(UPDATE);){
 			
 				stmt.setInt(1, bean.getSellerId());
@@ -302,7 +313,7 @@ System.out.println(INSERT);
 	private static final String DELETE = "delete from Product where productId=?";
 	@Override
 	public boolean delete(int productId) {
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(DELETE);) {
 			stmt.setInt(1, productId);
 			int i = stmt.executeUpdate();

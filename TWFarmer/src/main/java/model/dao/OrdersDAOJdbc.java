@@ -9,15 +9,26 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import model.MemberBean;
 import model.MemberDAO;
 import model.OrdersBean;
 import model.OrdersDAO;
 
 public class OrdersDAOJdbc implements OrdersDAO{
-	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
-	private static final String USERNAME = "sa";
-	private static final String PASSWORD = "P@ssw0rd";
+	private DataSource dataSource;
+	public OrdersDAOJdbc() {
+		try {
+			Context ctx = new InitialContext();
+			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public static void main(String[] args) {
 		OrdersDAO dao = new OrdersDAOJdbc();
@@ -33,7 +44,7 @@ public class OrdersDAOJdbc implements OrdersDAO{
 	public List<OrdersBean> select() {
 		List<OrdersBean> result = null;
 		try(
-				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
 				ResultSet rset = stmt.executeQuery();) {
 			
@@ -70,7 +81,7 @@ public class OrdersDAOJdbc implements OrdersDAO{
 		OrdersBean result = null;
 		ResultSet rset = null;
 		try(
-			Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			Connection conn = dataSource.getConnection();
 			PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);) {
 			
 			stmt.setInt(1, orderID);
@@ -112,7 +123,7 @@ public class OrdersDAOJdbc implements OrdersDAO{
 	public OrdersBean insert(OrdersBean ordersBean) {
 		OrdersBean result = null;
 		try(
-				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(INSERT);) {
 			if(ordersBean!=null) {
 				stmt.setInt(1,ordersBean.getSellerId());
@@ -157,7 +168,7 @@ public class OrdersDAOJdbc implements OrdersDAO{
 	public OrdersBean update(OrdersBean ordersBean) {
 		OrdersBean result = null;
 		try(
-				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
 			stmt.setInt(1,ordersBean.getSellerId());
 			stmt.setInt(2,ordersBean.getBuyerId());
@@ -199,7 +210,7 @@ public class OrdersDAOJdbc implements OrdersDAO{
 	@Override
 	public boolean delete(int orderID) {
 		try(
-				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(DELETE);) {			
 			stmt.setInt(1, orderID);
 			int i = stmt.executeUpdate();

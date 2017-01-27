@@ -8,14 +8,26 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import model.ProductStatusBean;
 import model.ProductTypeBean;
 import model.ProductTypeDAO;
 
 public class ProductTypeDAOjdbc implements ProductTypeDAO {
-	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
-	private static final String USERNAME = "sa";
-	private static final String PASSWORD = "P@ssw0rd";
+	private DataSource dataSource;
+	public ProductTypeDAOjdbc() {
+		try {
+			Context ctx = new InitialContext();
+			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
+
 
 	public static void main(String[] args) {
 		ProductTypeDAO dao=new ProductTypeDAOjdbc();
@@ -62,7 +74,7 @@ public class ProductTypeDAOjdbc implements ProductTypeDAO {
 	public ProductTypeBean select(int productTypeId) {
 		ProductTypeBean result = null;
 		ResultSet rset = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);) {
 
 			stmt.setInt(1, productTypeId);
@@ -92,7 +104,7 @@ public class ProductTypeDAOjdbc implements ProductTypeDAO {
 	@Override
 	public List<ProductTypeBean> select() {
 		List<ProductTypeBean> result = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
 				ResultSet rset = stmt.executeQuery();) {
 
@@ -117,7 +129,7 @@ public class ProductTypeDAOjdbc implements ProductTypeDAO {
 		ProductTypeBean result = null;
 		Connection conn;
 		try {
-			conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			conn = dataSource.getConnection();
 			PreparedStatement stmt = conn.prepareStatement(INSERT);
 			if (bean != null) {
 
@@ -143,7 +155,7 @@ public class ProductTypeDAOjdbc implements ProductTypeDAO {
 	public ProductTypeBean update(ProductTypeBean bean) {
 		ProductTypeBean result = null;
 
-		try(Connection conn= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try(Connection conn= dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);){
 		
 			stmt.setString(1, bean.getType());
@@ -164,7 +176,7 @@ public class ProductTypeDAOjdbc implements ProductTypeDAO {
 			"delete from ProductType where productTypeId=?";
 	@Override
 	public boolean delete(int productTypeId) {
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(DELETE);) {
 			stmt.setInt(1, productTypeId);
 			int i = stmt.executeUpdate();

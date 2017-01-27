@@ -8,16 +8,26 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import model.ProductDiscountBean;
 import model.ProductDiscountDAO;
 import model.ProductStatusBean;
 
 
 public class ProductDiscountDAOjdbc implements ProductDiscountDAO {
-	
-	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
-	private static final String USERNAME = "sa";
-	private static final String PASSWORD = "P@ssw0rd";
+	private DataSource dataSource;
+	public ProductDiscountDAOjdbc() {
+		try {
+			Context ctx = new InitialContext();
+			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	//測試程式
 	public static void main(String[] args) {
@@ -69,7 +79,7 @@ public class ProductDiscountDAOjdbc implements ProductDiscountDAO {
 	public ProductDiscountBean select(int discountId) {
 		ProductDiscountBean result = null;
 		ResultSet rset = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);) {
 
 			stmt.setInt(1, discountId);
@@ -102,7 +112,7 @@ public class ProductDiscountDAOjdbc implements ProductDiscountDAO {
 	@Override
 	public List<ProductDiscountBean> select() {
 		List<ProductDiscountBean> result = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
 				ResultSet rset = stmt.executeQuery();) {
 
@@ -130,7 +140,7 @@ public class ProductDiscountDAOjdbc implements ProductDiscountDAO {
 		ProductDiscountBean result = null;
 		Connection conn;
 		try {
-			conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			conn = dataSource.getConnection();
 			PreparedStatement stmt = conn.prepareStatement(INSERT);
 			if (bean != null) {
 
@@ -164,7 +174,7 @@ public class ProductDiscountDAOjdbc implements ProductDiscountDAO {
 	public ProductDiscountBean update(ProductDiscountBean bean) {
 		ProductDiscountBean result = null;
 
-		try(Connection conn= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try(Connection conn= dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);){
 		
 			stmt.setInt(1, bean.getProductId());
@@ -188,7 +198,7 @@ public class ProductDiscountDAOjdbc implements ProductDiscountDAO {
 			"DELETE FROM ProductDiscount where discountId=?";
 	@Override
 	public boolean delete(int discountId) {
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(DELETE);) {
 			stmt.setInt(1, discountId);
 			int i = stmt.executeUpdate();
