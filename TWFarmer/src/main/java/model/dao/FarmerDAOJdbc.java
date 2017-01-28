@@ -1,6 +1,7 @@
 package model.dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,6 +27,7 @@ public class FarmerDAOJdbc implements FarmerDAO {
 	 e.printStackTrace();
 	 }
 	 }
+	
 	public static void main(String[] whyTestWhenYouCanCast) {
 //======HEAD OF TESTING METHODS 測試方法由此開始======
 FarmerDAO fdao = new FarmerDAOJdbc();
@@ -39,24 +41,24 @@ System.out.println("Remove a block comment to begin testing 將各區註解移�
 		List<FarmerBean> beans = fdao.select();
 		System.out.println("bean="+beans);*/
 	
-//3. INSERT 新增 
-		/* System.out.println("Velden wants to try farming. Surely no harm could come from that~");
+//3. INSERT 新增  	 
+/*System.out.println("Velden wants to try farming. Surely no harm could come from that~");
 			FarmerBean farmerBean2 = new FarmerBean();
-			farmerBean2.setFarmerId("Z000000010");
-			farmerBean2.setMemberId(1021);
+			farmerBean2.setFarmerId("Z000000005");
+			farmerBean2.setMemberId(1012);
 			farmerBean2.setFarmerIntro("Velden doesn't just create songs, but crops too.");
 			fdao.insert(farmerBean2);*/
 		 
 //4.  UPDATE 修改
-			/*System.out.println("Velden decides to plant apples to keep the doctors away.");
-			FarmerBean update2 = fdao.select("Z000000010");
+/*			System.out.println("Velden decides to plant apples to keep the doctors away.");
+			FarmerBean update2 = fdao.select("Z000000002");
 			update2.setFarmerIntro("Velden likes apple. So he plants apples. I think.");
 			FarmerBean rv = fdao.update(update2);
 			System.out.println(rv);*/
 	
 //5. DELETE: USAGE REQUIRES "INSERT"! 刪除 需在"新增"之後測試!
 			/*System.out.println("Europeans should farm in European soil, not on some tropical rock.");
-			fdao.delete("Z000000010");	*/
+			fdao.delete("Z000000004");	*/
 //======END OF TESTING METHODS 測試方法至此結束======	
 System.out.println("Add the block comments back when you're done 測試完畢請記得恢復註解");
 	}
@@ -119,7 +121,7 @@ System.out.println("Add the block comments back when you're done 測試完畢請
 	}
 	
 	private static final String INSERT =
-			"INSERT INTO FARMER (FarmerID,MemberID,FarmerIntro) values (?, ?, ?)";
+			"INSERT INTO FARMER (FarmerID, MemberID,FarmerIntro) values (?, ?, ?)";
 	@Override
 	public FarmerBean insert(FarmerBean bean) {
 		FarmerBean result = null;
