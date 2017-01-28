@@ -15,84 +15,66 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "JPFollower")
 public class JPFollowerBean implements Serializable {
-	private int JPFollowerId;
-	private int memberId;
-	private int F2FId;
-	private int JPId;
-	private int totalPrice;
-	private int remittanceStatus;
+	private Integer JPFollowerId;
+	private Integer memberId;
+	private Integer F2FId;
+	private Integer JPId;
+	private Integer totalPrice;
+	private Integer remittanceStatus;
 	private Date remittanceDate;
-	private int remittance;
+	private Integer remittance;
 	private String remittanceBank;
 	private String remittanceAcc;
-	private int misc;
-	private int splitFreight;
+	private Integer misc;
+	private Integer splitFreight;
 	private String notes;
 	
 	public JPFollowerBean() {
 		
 	}
 	
-	public JPFollowerBean(int jPFollowerId, int memberId, int f2fId, int jPId, int totalPrice, int remittanceStatus,
-			Date remittanceDate, int remittance, String remittanceBank, String remittanceAcc, int misc,
-			int splitFreight, String notes) {
-		super();
-		JPFollowerId = jPFollowerId;
-		this.memberId = memberId;
-		F2FId = f2fId;
-		JPId = jPId;
-		this.totalPrice = totalPrice;
-		this.remittanceStatus = remittanceStatus;
-		this.remittanceDate = remittanceDate;
-		this.remittance = remittance;
-		this.remittanceBank = remittanceBank;
-		this.remittanceAcc = remittanceAcc;
-		this.misc = misc;
-		this.splitFreight = splitFreight;
-		this.notes = notes;
-	}
 	@Id 
 	@Column(name = "JPFollowerID") 
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	public int getJPFollowerId() {
+	public Integer getJPFollowerId() {
 		return JPFollowerId;
 	}
-	public void setJPFollowerId(int jPFollowerId) {
+	public void setJPFollowerId(Integer jPFollowerId) {
 		JPFollowerId = jPFollowerId;
 	}
 	@Column(name = "MemberID")
-	public int getMemberId() {
+	public Integer getMemberId() {
 		return memberId;
 	}
-	public void setMemberId(int memberId) {
+	public void setMemberId(Integer memberId) {
 		this.memberId = memberId;
 	}
 	@Column(name = "F2FID")
-	public int getF2FId() {
+	public Integer getF2FId() {
 		return F2FId;
 	}
-	public void setF2FId(int f2fId) {
+	public void setF2FId(Integer f2fId) {
 		F2FId = f2fId;
 	}
 	@Column(name = "JPID")
-	public int getJPId() {
+	public Integer getJPId() {
 		return JPId;
 	}
-	public void setJPId(int jPId) {
+	public void setJPId(Integer jPId) {
 		JPId = jPId;
 	}
 	@Column(name = "TotalPrice")
-	public int getTotalPrice() {
+	public Integer getTotalPrice() {
 		return totalPrice;
 	}
-	public void setTotalPrice(int totalPrice) {
+	public void setTotalPrice(Integer totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 	@Column(name = "RemittanceStatus")
-	public int getRemittanceStatus() {
+	public Integer getRemittanceStatus() {
 		return remittanceStatus;
 	}
-	public void setRemittanceStatus(int remittanceStatus) {
+	public void setRemittanceStatus(Integer remittanceStatus) {
 		this.remittanceStatus = remittanceStatus;
 	}
 	@Temporal(TemporalType.DATE)
@@ -104,10 +86,10 @@ public class JPFollowerBean implements Serializable {
 		this.remittanceDate = remittanceDate;
 	}
 	@Column(name = "Remittance")
-	public int getRemittance() {
+	public Integer getRemittance() {
 		return remittance;
 	}
-	public void setRemittance(int remittance) {
+	public void setRemittance(Integer remittance) {
 		this.remittance = remittance;
 	}
 	@Column(name = "RemittanceBank")
@@ -125,17 +107,17 @@ public class JPFollowerBean implements Serializable {
 		this.remittanceAcc = remittanceAcc;
 	}
 	@Column(name = "Misc")
-	public int getMisc() {
+	public Integer getMisc() {
 		return misc;
 	}
-	public void setMisc(int misc) {
+	public void setMisc(Integer misc) {
 		this.misc = misc;
 	}
 	@Column(name = "SplitFreight")
-	public int getSplitFreight() {
+	public Integer getSplitFreight() {
 		return splitFreight;
 	}
-	public void setSplitFreight(int splitFreight) {
+	public void setSplitFreight(Integer splitFreight) {
 		this.splitFreight = splitFreight;
 	}
 	@Column(name = "Notes")

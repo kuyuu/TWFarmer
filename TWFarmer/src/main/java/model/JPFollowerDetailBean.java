@@ -8,45 +8,45 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "JPFollowerDetail")
 public class JPFollowerDetailBean implements java.io.Serializable {
-	private int JPFollowerId;
-	private int productId;
-	private int quantity;
-	private int price;
+	private Integer JPFollowerId;
+	private Integer productId;
+	private Integer quantity;
+	private Integer price;
 
 	public JPFollowerDetailBean() {
 	}
 	@Id 
 	@Column(name = "JPFollowerID") 
-	public int getJPFollowerId() {
+	public Integer getJPFollowerId() {
 		return JPFollowerId;
 	}
 
-	public void setJPFollowerId(int JPFollowerId) {
+	public void setJPFollowerId(Integer JPFollowerId) {
 		this.JPFollowerId = JPFollowerId;
 	}
 	@Id 
 	@Column(name = "ProductID") 
-	public int getProductId() {
+	public Integer getProductId() {
 		return productId;
 	}
 
-	public void setProductId(int productId) {
+	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
 	@Column(name = "Quantity")
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 	@Column(name = "Price")
-	public int getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 	

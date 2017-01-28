@@ -12,22 +12,24 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Unit")
 public class UnitBean  implements Serializable{
-	private int unitId;
+	private Integer unitId;
 	private String unitName;
 	
 	@Id 
 	@Column(name = "UnitID") 
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	public int getUnitId() {
+	public Integer getUnitId() {
 		return unitId;
 	}
-	public void setUnitId(int unitId) {
+	public void setUnitId(Integer unitId) {
 		this.unitId = unitId;
 	}
+	
 	@Column(name = "UnitName")
 	public String getUnitName() {
 		return unitName;
 	}
+	
 	public void setUnitName(String unitName) {
 		this.unitName = unitName;
 	}

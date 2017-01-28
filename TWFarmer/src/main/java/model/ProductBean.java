@@ -4,20 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ProductBean {
-//	ProductID int IDENTITY(2001,1) NOT NULL PRIMARY KEY,
-//	SellerID int REFERENCES Member (MemberID) NOT NULL,
-//	Origin nvarchar(10),
-//	ProductName nvarchar(40),
-//	Inventory int,
-//	Price int,
-//	UnitID int REFERENCES Unit(UnitID),
-//	ProductTypeID int REFERENCES ProductType(ProductTypeID),
-//	ProductIntro nvarchar(600),
-//	Freight int,
-//	AddDate datetime,
-//	RemoveEstDate datetime,
-//	RemoveDate datetime,
-//	ProductStatusID int REFERENCES ProductStatus(ProductStatusID),
 	private int productId;
 	private int sellerId;
 	private String origin;
@@ -50,11 +36,6 @@ public class ProductBean {
 						+ ":"+removeDate+""
 								+  ":"+productStatusId+"}";
 	}
-	
-	
-	
-	
-	
 	
 	
 	public int getProductId() {
