@@ -1,9 +1,11 @@
 package model.dao;
 
+import java.io.Serializable;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import hibernate.util.HibernateUtil;
+import model.JPFollowerBean;
 import model.JPFollowerDetailBean;
 import model.JPFollowerDetailDAO;
 
@@ -73,8 +75,9 @@ public class JPFollowerDetailDAOJdbc implements JPFollowerDetailDAO {
 		try {
 			session.beginTransaction();
 			session.saveOrUpdate(JPFollowerDetailBean);
+			Serializable i = session.save(JPFollowerDetailBean);
+			result = (JPFollowerDetailBean) session.get(JPFollowerDetailBean.class, i);
 			session.getTransaction().commit();
-			result = JPFollowerDetailBean;
 		} catch (RuntimeException ex) {
 			session.getTransaction().rollback();
 			throw ex;

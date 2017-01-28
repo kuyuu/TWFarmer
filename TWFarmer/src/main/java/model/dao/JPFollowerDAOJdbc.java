@@ -1,5 +1,6 @@
 package model.dao;
 
+import java.io.Serializable;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -8,7 +9,7 @@ import model.JPFollowerBean;
 import model.JPFollowerDAO;
 
 public class JPFollowerDAOJdbc implements JPFollowerDAO {
-
+	
 	@Override
 	public JPFollowerBean select(int JPFollowerId) {
 		JPFollowerBean result = null;
@@ -48,9 +49,9 @@ public class JPFollowerDAOJdbc implements JPFollowerDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			session.saveOrUpdate(JPFollowerBean);
+			Serializable i = session.save(JPFollowerBean);
+			result = (JPFollowerBean) session.get(JPFollowerBean.class, i);
 			session.getTransaction().commit();
-			result = JPFollowerBean;
 		} catch (RuntimeException ex) {
 			session.getTransaction().rollback();
 			throw ex;

@@ -13,6 +13,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import model.ChatRoomBean;
 import model.JointPurchaseBean;
 import model.JointPurchaseDAO;
 
@@ -160,7 +161,9 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 	
 	//新增
 	private static final String INSERT =
-			"insert into JointPurchase (InitID, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc) VALUES (?,?,?,?,?,?,?,?,?)";
+			"insert into JointPurchase (InitID, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc) "
+			+ "OUTPUT INSERTED.JPID "
+			+ "VALUES (?,?,?,?,?,?,?,?,?)";
 	@Override
 	public JointPurchaseBean insert(JointPurchaseBean bean) {
 		JointPurchaseBean result = null;
@@ -193,9 +196,11 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 				stmt.setInt(8,bean.getMiscViaId());
 				stmt.setInt(9,bean.getMisc());
 				
-				int i = stmt.executeUpdate();
-				if(i==1) {
-					result = bean;
+				ResultSet rs = stmt.executeQuery();
+
+				if (rs.next()) {
+					result = new JointPurchaseBean();
+					result = select(rs.getInt("jpId"));
 				}
 			}
 		} catch (SQLException e) {
