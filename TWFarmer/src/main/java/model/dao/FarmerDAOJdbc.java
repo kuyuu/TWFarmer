@@ -1,4 +1,4 @@
-package model.dao;
+﻿package model.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -58,7 +58,7 @@ System.out.println("Remove a block comment to begin testing 將各區註解移�
 	
 //5. DELETE: USAGE REQUIRES "INSERT"! 刪除 需在"新增"之後測試!
 			/*System.out.println("Europeans should farm in European soil, not on some tropical rock.");
-			fdao.delete("Z000000004");	*/
+			fdao.delete("Z000000005");	*/
 //======END OF TESTING METHODS 測試方法至此結束======	
 System.out.println("Add the block comments back when you're done 測試完畢請記得恢復註解");
 	}
