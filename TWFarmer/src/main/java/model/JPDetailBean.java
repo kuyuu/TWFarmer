@@ -4,13 +4,13 @@ import java.io.Serializable;
 
 public class JPDetailBean implements Serializable {		
 
-	int jpId;
-	int productId;
-	int jpPopulationMin;
-	int jpPopulationMax;
-	int jpMinQEach;
-	int jpPrice;
-	int jpFreight;
+	private int jpId;
+	private int productId;
+	private int jpPopulationMin;
+	private int jpPopulationMax;
+	private int jpMinQEach;
+	private int jpPrice;
+	private int jpFreight;
 //	PRIMARY KEY(JPID,ProductID)
 	
 	@Override

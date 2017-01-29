@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import model.JPDetailBean;
 import model.JointPurchaseBean;
+import model.dao.JPDetailDAOjdbc;
 import model.dao.JointPurchaseDAOjdbc;
 
 @WebServlet("/JointPurchase/CheckJointPurchaseServlet")
@@ -101,17 +102,22 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 		if (jpIntro != null && jpIntro.length() != 0) {
 			jpBean.setJpIntro(jpIntro);
 		}
+		
+		JointPurchaseDAOjdbc dao = new JointPurchaseDAOjdbc();
+		
 		jpBean.setInitDate(initDate);
 		jpBean.setEndDate(endDate);
 		jpBean.setJpLocation(jpLocation);
 		jpBean.setJpStatusId(4101);
 		jpBean.setMiscViaId(miscViaWay);
 		jpBean.setMisc(misc);
-
-		JointPurchaseDAOjdbc dao = new JointPurchaseDAOjdbc();
-		dao.insert(jpBean);
+		JointPurchaseBean insert = dao.insert(jpBean);
 		
-		request.setAttribute("jpBean", jpBean);
+		JPDetailDAOjdbc dao2 = new JPDetailDAOjdbc();
+		jpDetailBean.setJpId(insert.getJpId());
+		dao2.insert(jpDetailBean);
+		
+		request.setAttribute("jpBean", insert);
 
 		request.getRequestDispatcher("success.jsp").forward(request, response);
 

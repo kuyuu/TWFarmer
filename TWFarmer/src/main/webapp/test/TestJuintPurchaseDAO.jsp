@@ -15,6 +15,9 @@ java.util.List<model.F2FDetailBean> list = dao.select();
 model.dao.JointPurchaseDAOjdbc dao2 = new model.dao.JointPurchaseDAOjdbc();
 java.util.List<model.JointPurchaseBean> list2 = dao2.select();
 
+model.dao.JointPurchaseDAOjdbc dao22 = new model.dao.JointPurchaseDAOjdbc();
+java.util.List<model.JointPurchaseBean> list22 = dao22.selectJpIdBySellerId(1003);
+
 model.dao.JPDetailDAOjdbc dao3 = new model.dao.JPDetailDAOjdbc();
 java.util.List<model.JPDetailBean> list3 = dao3.select();
 
@@ -26,6 +29,7 @@ java.util.List<model.MiscViaBean> list5 = dao5.select();
 %>
 <h1><%=list %></h1>
 <h1><%=list2 %></h1>
+<h1><%=list22 %></h1>
 <h1><%=list3 %></h1>
 <h1><%=list4 %></h1>
 <h1><%=list5 %></h1>

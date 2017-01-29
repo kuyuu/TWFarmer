@@ -13,6 +13,4 @@ public interface JointPurchaseDAO {
 	public abstract JointPurchaseBean update(JointPurchaseBean bean);
 	
 	public abstract boolean delete(int  jpId);
-
-	
 }

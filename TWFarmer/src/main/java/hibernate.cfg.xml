@@ -8,7 +8,7 @@
 
 		<!-- JNDI連線池 (Apache Tomcat 連線池DBCP)設定 -->
 		<property name="hibernate.connection.datasource">java:comp/env/jdbc/TestDB</property>
-<!-- 		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property> -->
+		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
 <!-- 		<property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;DatabaseName=TWFarmer</property> -->
 <!-- 		<property name="hibernate.connection.username">sa</property> -->
 <!-- 		<property name="hibernate.connection.password">P@ssw0rd</property> -->
