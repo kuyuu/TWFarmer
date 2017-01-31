@@ -13,6 +13,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import model.JointPurchaseBean;
 import model.ProductBean;
 import model.ProductPicBean;
 import model.ProductPicDAO;
@@ -64,7 +65,7 @@ public class ProductPicDAOJdbc implements ProductPicDAO {
 				result = new ProductPicBean();
 				result.setProductPicId(rset.getInt("ProductPicId"));
 				result.setProductId(rset.getInt("ProductId"));
-				result.setPicture(rset.getBytes(("Picture")));
+				result.setPictureName(rset.getString("PictureName"));
 				result.setPictureIntro(rset.getString("PictureIntro"));
 			}
 
@@ -96,7 +97,7 @@ public class ProductPicDAOJdbc implements ProductPicDAO {
 				ProductPicBean bean = new ProductPicBean();
 				bean.setProductPicId(rset.getInt("ProductPicID"));
 				bean.setProductId(rset.getInt("ProductId"));
-				bean.setPicture(rset.getBytes(("Picture")));
+				bean.setPictureName(rset.getString("PictureName"));
 				bean.setPictureIntro(rset.getString("PictureIntro"));
 				result.add(bean);
 			}
@@ -106,7 +107,7 @@ public class ProductPicDAOJdbc implements ProductPicDAO {
 		return result;
 	}
 
-	private static final String INSERT = "insert into ProductPic (ProductID, Picture, PictureIntro) values (?, ?, ?)";
+	private static final String INSERT = "insert into ProductPic (ProductID, PictureName, PictureIntro) output inserted.ProductPicID values (?, ?, ?)";
 
 	@Override
 	public ProductPicBean insert(ProductPicBean productPicBean) {
@@ -115,11 +116,12 @@ public class ProductPicDAOJdbc implements ProductPicDAO {
 				PreparedStatement stmt = conn.prepareStatement(INSERT);) {
 			if (productPicBean != null) {
 				stmt.setInt(1, productPicBean.getProductId());
-				stmt.setBytes(2, productPicBean.getPicture());
+				stmt.setString(2, productPicBean.getPictureName());
 				stmt.setString(3, productPicBean.getPictureIntro());
-				int i = stmt.executeUpdate();
-				if (i == 1) {
-					result = productPicBean;
+				ResultSet rs = stmt.executeQuery();
+				if (rs.next()) {
+					result = new ProductPicBean();
+					result = select(rs.getInt("ProductPicID"));
 				}
 			}
 		} catch (SQLException e) {
@@ -128,7 +130,7 @@ public class ProductPicDAOJdbc implements ProductPicDAO {
 		return result;
 	}
 
-	private static final String UPDATE = "update ProductPic set ProductID=?, Picture=?, PictureIntro=? where ProductPicID=?";
+	private static final String UPDATE = "update ProductPic set ProductID=?, PictureName=?, PictureIntro=? where ProductPicID=?";
 
 	@Override
 	public ProductPicBean update(ProductPicBean productPicBean) {
@@ -136,7 +138,7 @@ public class ProductPicDAOJdbc implements ProductPicDAO {
 		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
 			stmt.setInt(1, productPicBean.getProductId());
-			stmt.setBytes(2, productPicBean.getPicture());
+			stmt.setString(2, productPicBean.getPictureName());
 			stmt.setString(3, productPicBean.getPictureIntro());
 			stmt.setInt(4, productPicBean.getProductPicId());
 			int i = stmt.executeUpdate();

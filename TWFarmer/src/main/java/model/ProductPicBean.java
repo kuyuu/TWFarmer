@@ -1,22 +1,23 @@
 package model;
 
+import java.io.InputStream;
 import java.io.Serializable;
 
 public class ProductPicBean implements Serializable {
 	private int productPicId;
 	private int productId;
-	private byte[] picture;
+	private String pictureName;
 	private String pictureIntro;
 
 	public ProductPicBean() {
 
 	}
 
-	public ProductPicBean(int productPicId, int productId, byte[] picture, String pictureIntro) {
+	public ProductPicBean(int productPicId, int productId, String pictureName, String pictureIntro) {
 		super();
 		this.productPicId = productPicId;
 		this.productId = productId;
-		this.picture = picture;
+		this.pictureName = pictureName;
 		this.pictureIntro = pictureIntro;
 	}
 
@@ -52,12 +53,12 @@ public class ProductPicBean implements Serializable {
 		this.productId = productId;
 	}
 
-	public byte[] getPicture() {
-		return picture;
+	public String getPictureName() {
+		return pictureName;
 	}
 
-	public void setPicture(byte[] picture) {
-		this.picture = picture;
+	public void setPictureName(String pictureName) {
+		this.pictureName = pictureName;
 	}
 
 	public String getPictureIntro() {
