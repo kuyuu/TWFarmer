@@ -328,7 +328,6 @@ public class ProcessProductServlet extends HttpServlet {
 		 */
 		ProductDAOjdbc dao1 = new ProductDAOjdbc();
 		productBean = dao1.insert(productBean);
-		System.out.println(productBean.getProductId());
 		// 商品圖片(參考UploadFileServlet)
 		
 		/*
