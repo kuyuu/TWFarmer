@@ -10,59 +10,6 @@
 </head>
 <body>
 	<h2>開新合購</h2>
-	<form action="<c:url value="CheckJointPurchaseServlet"/>" method="POST">
-		<table border="1">
-			<tr>
-				<td>會員ID：</td>
-				<td>${sessionScope.JointPurchase.initId}</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>商品ID：</td>
-				<td>${sessionScope.JPDetail.productId}</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>合購介紹：</td>
-				<td><textarea rows="2" cols="20" name="jpIntro"></textarea></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>開始日期：</td>
-				<td><input type="text" name="initDate"
-					value="${param.initDate}" /></td>
-				<td>${errors.initDate}</td>
-			</tr>
-			<tr>
-				<td>結束日期：</td>
-				<td><input type="text" name="endDate" value="${param.endDate}" /></td>
-				<td>${errors.endDate}</td>
-			</tr>
-			<tr>
-				<td>合購地區：</td>
-				<td><input type="text" name="jpLocation"
-					value="${param.jpLocation}" /></td>
-				<td>${errors.jpLocation}</td>
-			</tr>
-			<tr>
-				<td>雜費收取方式：</td>
-				<td><select name="miscViaWay" id="miscViaWay">
-						<option value="4201">不收</option>
-						<option value="4202">依人頭</option>
-						<option value="4203">依比例</option>
-				</select></td>
-				<td>${errors.miscViaWay}</td>
-			</tr>
-			<tr>
-				<td>雜費：</td>
-				<td><input type="text" name="misc" value="${param.misc}" /></select></td>
-				<td>${errors.misc}</td>
-			</tr>
-			<tr>
-				<td colspan="3"><input type="submit" value="確認"></td>
-			</tr>
-		</table>
-	</form>
 	<form action="<c:url value="CheckJointPurchaseServlet"/>" method="POST"
 		class="form-horizontal">
 		<div class="col-md-offset-3">
@@ -76,6 +23,13 @@
 				<label for="productId" class="col-sm-2 control-label">商品ID</label>
 				<div class="col-sm-4">
 					<p id="productId" class="form-control-static">${sessionScope.JPDetail.productId}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="jpName" class="col-sm-2 control-label">合購團名</label>
+				<div class="col-sm-4">
+					<input type="text" id="jpName" name="jpName" class="form-control"
+						value="${param.jpName}">
 				</div>
 			</div>
 			<div class="form-group">

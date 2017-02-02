@@ -25,6 +25,8 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		String jpName = request.getParameter("jpName");
+		System.out.println(jpName+"1");
 		String jpIntro = request.getParameter("jpIntro");
 		String temp1 = request.getParameter("initDate");
 		String temp2 = request.getParameter("endDate");
@@ -40,6 +42,9 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 		Map<String, String> errors = new HashMap<String, String>();
 		request.setAttribute("errors", errors);
 
+		if (jpName == null || jpName.length() == 0) {
+			errors.put("jpName", "合購團名是必填欄位");
+		}
 		if (temp1 == null || temp1.length() == 0) {
 			errors.put("initDate", "開始日期是必填欄位");
 		}
@@ -103,7 +108,7 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 		}
 		
 		JointPurchaseDAOjdbc dao = new JointPurchaseDAOjdbc();
-		
+		jpBean.setJpName(jpName);
 		jpBean.setInitDate(initDate);
 		jpBean.setEndDate(endDate);
 		jpBean.setJpLocation(jpLocation);

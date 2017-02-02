@@ -25,7 +25,7 @@ import model.ProductTypeBean;
 import model.UnitBean;
 import model.dao.ProductDAOjdbc;
 import model.dao.ProductDiscountDAOjdbc;
-import model.dao.ProductPicDAOJdbc;
+import model.dao.ProductStatusDAOjdbc;
 
 @WebServlet("/ProductMaintain/ProcessProductServlet")
 @MultipartConfig(location = "C:/TWFarmer/repository/TWFarmer/src/main/webapp/img/") // 圖片存放路徑
@@ -349,14 +349,17 @@ public class ProcessProductServlet extends HttpServlet {
 		productDiscountBean.setMinThreshold(maxThreshold);
 		productDiscountBean.setProductId(productBean.getProductId());
 		dao3.insert(productDiscountBean);
+		
+		ProductStatusDAOjdbc dao4 = new ProductStatusDAOjdbc();
+		productStatusBean = dao4.select(productBean.getProductStatusId());
 
 		// 5.挑選適當頁面============================================
 		request.setAttribute("productBean", productBean);
 		request.setAttribute("productPicBean", productPicBean);
+		request.setAttribute("productStatusBean", productStatusBean);
 
-		// request.getRequestDispatcher("ProductInsertSuccess.jsp").forward(request,
-		// response);
-		response.sendRedirect("ProductInsertSuccess.jsp"); // 網址改為新網頁
+		 request.getRequestDispatcher("ProductInsertSuccess.jsp").forward(request, response);
+//		response.sendRedirect("ProductInsertSuccess.jsp"); // 網址改為新網頁
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

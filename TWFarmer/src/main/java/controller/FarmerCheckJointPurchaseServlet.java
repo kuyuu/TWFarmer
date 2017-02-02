@@ -43,7 +43,7 @@ public class FarmerCheckJointPurchaseServlet extends HttpServlet {
 		request.setAttribute("jpBean", jpBean);
 		request.setAttribute("JPDetailList", list);
 		
-		request.getRequestDispatcher("farmerCheck.jsp").forward(request, response);
+		request.getRequestDispatcher("farmerCheckJpDetail.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

@@ -22,12 +22,7 @@
 預估下架日期:${productBean.removeEstDate}<br>
 下架日期:${productBean.removeDate}<br>
 商品狀態:${productStatusBean.productStatusName}<br>
-折扣編號:${productDiscountBean.discountId}<br>
-最小件數:${productDiscountBean.minThreshold}<br>
-最大件數:${productDiscountBean.maxThreshold}<br>
-折扣後價格:${productDiscountBean.discountPrice}<br>
 商品圖片編號:${productPicBean.productPicId}<br>
-商品圖片:${productPicBean.picture}如何讀圖???<br>
 商品圖片介紹:${productPicBean.pictureIntro}<br>
 </body>
 </html>

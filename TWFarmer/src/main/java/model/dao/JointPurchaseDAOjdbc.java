@@ -106,6 +106,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 				result = new JointPurchaseBean();
 				result.setJpId(rset.getInt("jpId"));
 				result.setInitId(rset.getInt("initId"));
+				result.setJpName(rset.getString("jpName"));
 				result.setJpIntro(rset.getString("jpIntro"));
 				result.setInitDate(rset.getDate("initDate"));
 				result.setEndDate(rset.getDate("endDate"));
@@ -143,6 +144,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 				JointPurchaseBean bean = new JointPurchaseBean();
 				bean.setJpId(rset.getInt("jpId"));
 				bean.setInitId(rset.getInt("initId"));
+				bean.setJpName(rset.getString("jpName"));
 				bean.setJpIntro(rset.getString("jpIntro"));
 				bean.setInitDate(rset.getDate("initDate"));
 				bean.setEndDate(rset.getDate("endDate"));
@@ -161,8 +163,8 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 	}
 
 	// 新增
-	private static final String INSERT = "insert into JointPurchase (InitID, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc) "
-			+ "OUTPUT INSERTED.JPID " + "VALUES (?,?,?,?,?,?,?,?,?)";
+	private static final String INSERT = "insert into JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc) "
+			+ "OUTPUT INSERTED.JPID " + "VALUES (?,?,?,?,?,?,?,?,?,?)";
 
 	@Override
 	public JointPurchaseBean insert(JointPurchaseBean bean) {
@@ -171,29 +173,30 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 				PreparedStatement stmt = conn.prepareStatement(INSERT);) {
 			if (bean != null) {
 				stmt.setInt(1, bean.getInitId());
-				stmt.setString(2, bean.getJpIntro());
+				stmt.setString(2, bean.getJpName());
+				stmt.setString(3, bean.getJpIntro());
 
 				Date initDate = bean.getInitDate();
 				if (initDate != null) {
 					long time = initDate.getTime();
-					stmt.setDate(3, new java.sql.Date(time));
-				} else {
-					stmt.setDate(3, null);
-				}
-
-				Date endDate = bean.getEndDate();
-				if (endDate != null) {
-					long time = endDate.getTime();
 					stmt.setDate(4, new java.sql.Date(time));
 				} else {
 					stmt.setDate(4, null);
 				}
 
-				stmt.setString(5, bean.getJpLocation());
-				stmt.setInt(6, bean.getJpStatusId());
-				stmt.setInt(7, bean.getJpFreight());
-				stmt.setInt(8, bean.getMiscViaId());
-				stmt.setInt(9, bean.getMisc());
+				Date endDate = bean.getEndDate();
+				if (endDate != null) {
+					long time = endDate.getTime();
+					stmt.setDate(5, new java.sql.Date(time));
+				} else {
+					stmt.setDate(5, null);
+				}
+
+				stmt.setString(6, bean.getJpLocation());
+				stmt.setInt(7, bean.getJpStatusId());
+				stmt.setInt(8, bean.getJpFreight());
+				stmt.setInt(9, bean.getMiscViaId());
+				stmt.setInt(10, bean.getMisc());
 
 				ResultSet rs = stmt.executeQuery();
 
@@ -209,7 +212,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 	}
 
 	// 修改
-	private static final String UPDATE = "UPDATE JointPurchase " + "SET InitId=?, " + "JPIntro=?, " + "InitDate=?, "
+	private static final String UPDATE = "UPDATE JointPurchase " + "SET InitId=?, " + "JPName=?, "+ "JPIntro=?, " + "InitDate=?, "
 			+ "EndDate=?, " + "JPLocation=?, " + "JPStatusID=?, " + "JPFreight=?, " + "MiscViaID=?, " + "Misc=? "
 			+ "WHERE JPId=?";
 
@@ -218,28 +221,29 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 		JointPurchaseBean result = null;
 		try (Connection conn = dataSource.getConnection(); PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
 			stmt.setInt(1, bean.getInitId());
-			stmt.setString(2, bean.getJpIntro());
+			stmt.setString(2, bean.getJpName());
+			stmt.setString(3, bean.getJpIntro());
 
 			if (bean.getInitDate() != null) {
 				long time = bean.getInitDate().getTime();
-				stmt.setDate(3, new java.sql.Date(time));
-			} else {
-				stmt.setDate(3, null);
-			}
-
-			if (bean.getEndDate() != null) {
-				long time = bean.getEndDate().getTime();
 				stmt.setDate(4, new java.sql.Date(time));
 			} else {
 				stmt.setDate(4, null);
 			}
 
-			stmt.setString(5, bean.getJpLocation());
-			stmt.setInt(6, bean.getJpStatusId());
-			stmt.setInt(7, bean.getJpFreight());
-			stmt.setInt(8, bean.getMiscViaId());
-			stmt.setInt(9, bean.getMisc());
-			stmt.setInt(10, bean.getJpId());
+			if (bean.getEndDate() != null) {
+				long time = bean.getEndDate().getTime();
+				stmt.setDate(5, new java.sql.Date(time));
+			} else {
+				stmt.setDate(5, null);
+			}
+
+			stmt.setString(6, bean.getJpLocation());
+			stmt.setInt(7, bean.getJpStatusId());
+			stmt.setInt(8, bean.getJpFreight());
+			stmt.setInt(9, bean.getMiscViaId());
+			stmt.setInt(10, bean.getMisc());
+			stmt.setInt(11, bean.getJpId());
 			int i = stmt.executeUpdate();
 			if (i == 1) {
 				result = bean;
