@@ -1,38 +1,37 @@
 package model;
 
 public class OrderStatusBean {
-	private int OrderStatusId;
-	private String OrderStatusName;
+	private int orderStatusId;
+	private String orderStatusName;
 	
 	@Override
 	public String toString() {
-		return "OrderStatusBean [OrderStatusId=" + OrderStatusId + ", OrderStatusName=" + OrderStatusName + "]";
+		return "OrderStatusBean [orderStatusId=" + orderStatusId + ", orderStatusName=" + orderStatusName + "]";
 	}
 
 	public OrderStatusBean(int orderStatusId, String orderStatusName) {
 		super();
-		OrderStatusId = orderStatusId;
-		OrderStatusName = orderStatusName;
+		this.orderStatusId = orderStatusId;
+		this.orderStatusName = orderStatusName;
 	}
 
-	public OrderStatusBean(){
-		
+	public OrderStatusBean() {
 	}
 
 	public int getOrderStatusId() {
-		return OrderStatusId;
+		return orderStatusId;
 	}
 
 	public void setOrderStatusId(int orderStatusId) {
-		this.OrderStatusId = orderStatusId;
+		this.orderStatusId = orderStatusId;
 	}
 
 	public String getOrderStatusName() {
-		return OrderStatusName;
+		return orderStatusName;
 	}
 
 	public void setOrderStatusName(String orderStatusName) {
-		this.OrderStatusName = orderStatusName;
+		this.orderStatusName = orderStatusName;
 	}
 	
 	
