@@ -9,34 +9,63 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
-
-import model.MemberBean;
-import model.MemberDAO;
 import model.OrdersBean;
 import model.OrdersDAO;
 
 public class OrdersDAOJdbc implements OrdersDAO{
-	private DataSource dataSource;
-	public OrdersDAOJdbc() {
-		try {
-			Context ctx = new InitialContext();
-			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
-		} catch (NamingException e) {
-			e.printStackTrace();
-		}
-	}
+	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
+	private static final String USERNAME = "sa";
+	private static final String PASSWORD = "P@ssw0rd";
 	
 	public static void main(String[] args) {
 		OrdersDAO dao = new OrdersDAOJdbc();
-
-		List<OrdersBean> beans = dao.select();
-		System.out.println("bean="+beans);
 		
-		System.out.println(dao.select(3001).getOrderId());
+		//Select all
+//		List<OrdersBean> beans = dao.select();
+//		System.out.println("bean="+beans);
+
+		//Select By ID
+		System.out.println(dao.select(3001));
+		
+		//Insert
+//		OrdersBean bean = new OrdersBean();
+//
+//		bean.setSellerId(1002);
+//		bean.setBuyerId(1004);
+//		bean.setTotalFreight(200);
+//		bean.setTotalPrice(1000);
+//		bean.setOrderDate(java.sql.Timestamp.valueOf("2017-01-23 09:07:43"));
+//		bean.setShipDate(java.sql.Timestamp.valueOf("2017-01-25 13:27:03"));
+//		bean.setShipName("會員B");
+//		bean.setShipPostalCode("106");
+//		bean.setShipDistrict("台北市大安區");
+//		bean.setShipAddress("會員B的家");
+//		bean.setOrderStatusId(3103);
+////		bean.setRatingBuyer();
+////		bean.setRatingSeller();
+//		dao.insert(bean);
+//		System.out.println(bean);
+		
+		//Update
+//		OrdersBean bean2 = dao.select(3004);
+//		bean2.setSellerId(1001);
+//		bean2.setBuyerId(1003);
+//		bean2.setTotalFreight(200);
+//		bean2.setTotalPrice(1000);
+//		bean2.setOrderDate(java.sql.Timestamp.valueOf("2017-01-23 09:07:43"));
+//		bean2.setShipDate(java.sql.Timestamp.valueOf("2017-01-25 13:27:03"));
+//		bean2.setShipName("會員B");
+//		bean2.setShipPostalCode("235");
+//		bean2.setShipDistrict("台北市大安區");
+//		bean2.setShipAddress("會員B的家");
+//		bean2.setOrderStatusId(3103);
+//		bean2.setRatingBuyer(5);
+//		bean2.setRatingSeller(5);	
+//		System.out.println(bean2);
+		
+		//Delete
+//		dao.delete(3004);
+		
 	}
 
 	private static final String SELECT_ALL ="SELECT * FROM Orders";
@@ -44,7 +73,7 @@ public class OrdersDAOJdbc implements OrdersDAO{
 	public List<OrdersBean> select() {
 		List<OrdersBean> result = null;
 		try(
-				Connection conn = dataSource.getConnection();
+				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
 				ResultSet rset = stmt.executeQuery();) {
 			
@@ -54,9 +83,9 @@ public class OrdersDAOJdbc implements OrdersDAO{
 				bean.setOrderId(rset.getInt("orderId"));
 				bean.setSellerId(rset.getInt("sellerId"));
 				bean.setBuyerId(rset.getInt("buyerId"));
-				bean.setTotalFreight(rset.getInt("totalFreight("));
+				bean.setTotalFreight(rset.getInt("totalFreight"));
 				bean.setTotalPrice(rset.getInt("totalPrice"));
-				bean.setOrderDate(rset.getDate("datetime"));
+				bean.setOrderDate(rset.getDate("orderDate"));
 				bean.setShipDate(rset.getDate("shipDate"));
 				bean.setShipName(rset.getString("shipName"));
 				bean.setShipPostalCode(rset.getString("shipPostalCode"));
@@ -75,13 +104,13 @@ public class OrdersDAOJdbc implements OrdersDAO{
 	}
 
 	private static final String SELECT_BY_ID =
-			"SELECT * FROM Orders where OrderId=?";
+			"SELECT * FROM Orders where OrderID=?";
 	@Override
 	public OrdersBean select(int orderID) {
 		OrdersBean result = null;
 		ResultSet rset = null;
 		try(
-			Connection conn = dataSource.getConnection();
+			Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 			PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);) {
 			
 			stmt.setInt(1, orderID);
@@ -91,7 +120,7 @@ public class OrdersDAOJdbc implements OrdersDAO{
 				result.setOrderId(rset.getInt("orderId"));
 				result.setSellerId(rset.getInt("sellerId"));
 				result.setBuyerId(rset.getInt("buyerId"));
-				result.setTotalFreight(rset.getInt("totalFreight("));
+				result.setTotalFreight(rset.getInt("totalFreight"));
 				result.setTotalPrice(rset.getInt("totalPrice"));
 				result.setOrderDate(rset.getDate("orderDate"));
 				result.setShipDate(rset.getDate("shipDate"));
@@ -118,12 +147,12 @@ public class OrdersDAOJdbc implements OrdersDAO{
 		return result;
 	}
 	private static final String INSERT =
-			"INSERT INTO Orders (SellerId, BuyerId, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusId, RatingBuyer, RatingSeller) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			"INSERT INTO Orders (SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	@Override
 	public OrdersBean insert(OrdersBean ordersBean) {
 		OrdersBean result = null;
 		try(
-				Connection conn = dataSource.getConnection();
+				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 				PreparedStatement stmt = conn.prepareStatement(INSERT);) {
 			if(ordersBean!=null) {
 				stmt.setInt(1,ordersBean.getSellerId());
@@ -168,7 +197,7 @@ public class OrdersDAOJdbc implements OrdersDAO{
 	public OrdersBean update(OrdersBean ordersBean) {
 		OrdersBean result = null;
 		try(
-				Connection conn = dataSource.getConnection();
+				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
 			stmt.setInt(1,ordersBean.getSellerId());
 			stmt.setInt(2,ordersBean.getBuyerId());
@@ -210,7 +239,7 @@ public class OrdersDAOJdbc implements OrdersDAO{
 	@Override
 	public boolean delete(int orderID) {
 		try(
-				Connection conn = dataSource.getConnection();
+				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 				PreparedStatement stmt = conn.prepareStatement(DELETE);) {			
 			stmt.setInt(1, orderID);
 			int i = stmt.executeUpdate();

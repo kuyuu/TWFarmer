@@ -8,33 +8,37 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
-
 import model.OrderStatusBean;
 import model.OrderStatusDAO;
-import model.OrdersBean;
 
 public class OrderStatusDAOJdbc implements OrderStatusDAO{
-	private DataSource dataSource;
-	public OrderStatusDAOJdbc() {
-		try {
-			Context ctx = new InitialContext();
-			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
-		} catch (NamingException e) {
-			e.printStackTrace();
-		}
-	}
+	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
+	private static final String USERNAME = "sa";
+	private static final String PASSWORD = "P@ssw0rd";
 	
 	public static void main(String[] args) {
 		OrderStatusDAO dao = new OrderStatusDAOJdbc();
-
-		List<OrderStatusBean> beans = dao.select();
-		System.out.println("bean="+beans);
 		
-		System.out.println(dao.select(3101).getOrderStatusId());
+		// Select all
+//		List<OrderStatusBean> beans = dao.select();
+//		System.out.println("bean="+beans);
+		
+		// Select By OrderID
+		System.out.println(dao.select(3101));
+		
+		//Insert
+//		OrderStatusBean bean = new OrderStatusBean();
+//		bean.setOrderStatusName("測試");
+//		dao.insert(bean);
+//		System.out.println(bean);
+		
+		//Update
+//		OrderStatusBean bean2 = dao.select(3104);
+//		bean2.setOrderStatusName("測試改變");
+//		System.out.println(bean2);
+		
+		//Delete
+//		dao.delete(3104);
 	}
 	
 	private static final String SELECT_ALL ="SELECT * FROM OrderStatus";
@@ -42,7 +46,7 @@ public class OrderStatusDAOJdbc implements OrderStatusDAO{
 	public List<OrderStatusBean> select() {
 		List<OrderStatusBean> result = null;
 		try(
-				Connection conn = dataSource.getConnection();
+				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
 				ResultSet rset = stmt.executeQuery();) {
 			
@@ -60,13 +64,13 @@ public class OrderStatusDAOJdbc implements OrderStatusDAO{
 	}
 
 	private static final String SELECT_BY_ID =
-			"SELECT * FROM Orders where orderStatusId=?";
+			"SELECT * FROM OrderStatus where orderStatusId=?";
 	@Override
 	public OrderStatusBean select(int orderStatusId) {
 		OrderStatusBean result = null;
 		ResultSet rset = null;
 		try(
-			Connection conn = dataSource.getConnection();
+			Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 			PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);) {
 			
 			stmt.setInt(1, orderStatusId);
@@ -91,12 +95,12 @@ public class OrderStatusDAOJdbc implements OrderStatusDAO{
 	}
 
 	private static final String INSERT =
-			"INSERT INTO Orders (OrderStatusName) Values (?)";
+			"INSERT INTO OrderStatus (OrderStatusName) Values (?)";
 	@Override
 	public OrderStatusBean insert(OrderStatusBean orderStatusBean) {
 		OrderStatusBean result = null;
 		try(
-				Connection conn = dataSource.getConnection();
+				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 				PreparedStatement stmt = conn.prepareStatement(INSERT);) {
 			if(orderStatusBean!=null) {
 				stmt.setString(1,orderStatusBean.getOrderStatusName());
@@ -113,12 +117,12 @@ public class OrderStatusDAOJdbc implements OrderStatusDAO{
 	}
 
 	private static final String UPDATE =
-			"UPDATE Orders set OrderStatusId=?, OrderStatusName=?";
+			"UPDATE OrderStatus set OrderStatusId=?, OrderStatusName=?";
 	@Override
 	public OrderStatusBean update(OrderStatusBean orderStatusBean) {
 		OrderStatusBean result = null;
 		try(
-				Connection conn = dataSource.getConnection();
+				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
 			stmt.setString(1,orderStatusBean.getOrderStatusName());
 			int i = stmt.executeUpdate();
@@ -132,11 +136,11 @@ public class OrderStatusDAOJdbc implements OrderStatusDAO{
 	}
 
 	private static final String DELETE =
-			"DELETE FROM Orders WHERE OrderStatusId = ?";
+			"DELETE FROM OrderStatus WHERE OrderStatusId = ?";
 	@Override
 	public boolean delete(int orderStatusId) {
 		try(
-				Connection conn = dataSource.getConnection();
+				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 				PreparedStatement stmt = conn.prepareStatement(DELETE);) {			
 			stmt.setInt(1, orderStatusId);
 			int i = stmt.executeUpdate();
