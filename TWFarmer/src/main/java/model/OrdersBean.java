@@ -2,164 +2,163 @@ package model;
 import java.util.Date;
 
 public class OrdersBean {
-	private int OrderId;
-	private int SellerId;
-	private int BuyerId;
-	private int TotalFreight;
-	private int TotalPrice;
-	private Date OrderDate ;
-	private Date ShipDate;
-	private String ShipName;
-	private String ShipPostalCode;
-	private String ShipDistrict;
-	private String ShipAddress;
-	private int OrderStatusId;
-	private int RatingBuyer;
-	private int RatingSeller;
+	private int orderId;
+	private int sellerId;
+	private int buyerId;
+	private int totalFreight;
+	private int totalPrice;
+	private Date orderDate ;
+	private Date shipDate;
+	private String shipName;
+	private String shipPostalCode;
+	private String shipDistrict;
+	private String shipAddress;
+	private int orderStatusId;
+	private int ratingBuyer;
+	private int ratingSeller;
 	
 	@Override
 	public String toString() {
-		return "OrdersBean [OrderId=" + OrderId + ", SellerId=" + SellerId + ", BuyerId=" + BuyerId + ", TotalFreight="
-				+ TotalFreight + ", TotalPrice=" + TotalPrice + ", OrderDate=" + OrderDate + ", ShipDate=" + ShipDate
-				+ ", ShipName=" + ShipName + ", ShipPostalCode=" + ShipPostalCode + ", ShipDistrict=" + ShipDistrict
-				+ ", ShipAddress=" + ShipAddress + ", OrderStatusId=" + OrderStatusId + ", RatingBuyer=" + RatingBuyer
-				+ ", RatingSeller=" + RatingSeller + "]";
+		return "OrdersBean [orderId=" + orderId + ", sellerId=" + sellerId + ", buyerId=" + buyerId + ", totalFreight="
+				+ totalFreight + ", totalPrice=" + totalPrice + ", orderDate=" + orderDate + ", shipDate=" + shipDate
+				+ ", shipName=" + shipName + ", shipPostalCode=" + shipPostalCode + ", shipDistrict=" + shipDistrict
+				+ ", shipAddress=" + shipAddress + ", orderStatusId=" + orderStatusId + ", ratingBuyer=" + ratingBuyer
+				+ ", ratingSeller=" + ratingSeller + "]";
 	}
 
-	public OrdersBean(){
-	}
-	
 	public OrdersBean(int orderId, int sellerId, int buyerId, int totalFreight, int totalPrice, Date orderDate,
 			Date shipDate, String shipName, String shipPostalCode, String shipDistrict, String shipAddress,
 			int orderStatusId, int ratingBuyer, int ratingSeller) {
 		super();
-		this.OrderId = orderId;
-		this.SellerId = sellerId;
-		this.BuyerId = buyerId;
-		this.TotalFreight = totalFreight;
-		this.TotalPrice = totalPrice;
-		this.OrderDate = orderDate;
-		this.ShipDate = shipDate;
-		this.ShipName = shipName;
-		this.ShipPostalCode = shipPostalCode;
-		this.ShipDistrict = shipDistrict;
-		this.ShipAddress = shipAddress;
-		this.OrderStatusId = orderStatusId;
-		this.RatingBuyer = ratingBuyer;
-		this.RatingSeller = ratingSeller;
+		this.orderId = orderId;
+		this.sellerId = sellerId;
+		this.buyerId = buyerId;
+		this.totalFreight = totalFreight;
+		this.totalPrice = totalPrice;
+		this.orderDate = orderDate;
+		this.shipDate = shipDate;
+		this.shipName = shipName;
+		this.shipPostalCode = shipPostalCode;
+		this.shipDistrict = shipDistrict;
+		this.shipAddress = shipAddress;
+		this.orderStatusId = orderStatusId;
+		this.ratingBuyer = ratingBuyer;
+		this.ratingSeller = ratingSeller;
+	}
+
+	public OrdersBean() {
 	}
 
 	public int getOrderId() {
-		return OrderId;
+		return orderId;
 	}
 
 	public void setOrderId(int orderId) {
-		this.OrderId = orderId;
+		this.orderId = orderId;
 	}
 
 	public int getSellerId() {
-		return SellerId;
+		return sellerId;
 	}
 
 	public void setSellerId(int sellerId) {
-		this.SellerId = sellerId;
+		this.sellerId = sellerId;
 	}
 
 	public int getBuyerId() {
-		return BuyerId;
+		return buyerId;
 	}
 
 	public void setBuyerId(int buyerId) {
-		this.BuyerId = buyerId;
+		this.buyerId = buyerId;
 	}
 
 	public int getTotalFreight() {
-		return TotalFreight;
+		return totalFreight;
 	}
 
 	public void setTotalFreight(int totalFreight) {
-		this.TotalFreight = totalFreight;
+		this.totalFreight = totalFreight;
 	}
 
 	public int getTotalPrice() {
-		return TotalPrice;
+		return totalPrice;
 	}
 
 	public void setTotalPrice(int totalPrice) {
-		this.TotalPrice = totalPrice;
+		this.totalPrice = totalPrice;
 	}
 
 	public Date getOrderDate() {
-		return OrderDate;
+		return orderDate;
 	}
 
 	public void setOrderDate(Date orderDate) {
-		this.OrderDate = orderDate;
+		this.orderDate = orderDate;
 	}
 
 	public Date getShipDate() {
-		return ShipDate;
+		return shipDate;
 	}
 
 	public void setShipDate(Date shipDate) {
-		this.ShipDate = shipDate;
+		this.shipDate = shipDate;
 	}
 
 	public String getShipName() {
-		return ShipName;
+		return shipName;
 	}
 
 	public void setShipName(String shipName) {
-		this.ShipName = shipName;
+		this.shipName = shipName;
 	}
 
 	public String getShipPostalCode() {
-		return ShipPostalCode;
+		return shipPostalCode;
 	}
 
 	public void setShipPostalCode(String shipPostalCode) {
-		this.ShipPostalCode = shipPostalCode;
+		this.shipPostalCode = shipPostalCode;
 	}
 
 	public String getShipDistrict() {
-		return ShipDistrict;
+		return shipDistrict;
 	}
 
 	public void setShipDistrict(String shipDistrict) {
-		this.ShipDistrict = shipDistrict;
+		this.shipDistrict = shipDistrict;
 	}
 
 	public String getShipAddress() {
-		return ShipAddress;
+		return shipAddress;
 	}
 
 	public void setShipAddress(String shipAddress) {
-		this.ShipAddress = shipAddress;
+		this.shipAddress = shipAddress;
 	}
 
 	public int getOrderStatusId() {
-		return OrderStatusId;
+		return orderStatusId;
 	}
 
 	public void setOrderStatusId(int orderStatusId) {
-		this.OrderStatusId = orderStatusId;
+		this.orderStatusId = orderStatusId;
 	}
 
 	public int getRatingBuyer() {
-		return RatingBuyer;
+		return ratingBuyer;
 	}
 
 	public void setRatingBuyer(int ratingBuyer) {
-		this.RatingBuyer = ratingBuyer;
+		this.ratingBuyer = ratingBuyer;
 	}
 
 	public int getRatingSeller() {
-		return RatingSeller;
+		return ratingSeller;
 	}
 
 	public void setRatingSeller(int ratingSeller) {
-		this.RatingSeller = ratingSeller;
+		this.ratingSeller = ratingSeller;
 	}
-	
 	
 }
