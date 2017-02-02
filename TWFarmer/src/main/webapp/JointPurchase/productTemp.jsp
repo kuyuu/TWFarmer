@@ -13,7 +13,7 @@
 		<table>
 			<tr>
 				<td>會員ID</td>
-				<td><input type="text" name="memberId"></textarea></td>
+				<td><input type="text" name="memberId"></td>
 			</tr>
 			<tr>
 				<td>商品ID</td>
