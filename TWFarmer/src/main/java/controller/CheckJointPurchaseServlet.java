@@ -35,7 +35,6 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		JointPurchaseBean jpBean = new JointPurchaseBean();
 		jpBean = (JointPurchaseBean) session.getAttribute("JointPurchase");
-		System.out.println(jpBean.getInitId());
 		JPDetailBean jpDetailBean = (JPDetailBean) session.getAttribute("JPDetail");
 
 		Map<String, String> errors = new HashMap<String, String>();
