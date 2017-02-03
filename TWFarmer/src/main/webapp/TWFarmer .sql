@@ -278,6 +278,11 @@ INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phon
 	VALUES ('c002','password','小農C',367,'苗栗縣三義鄉','小農C的家','0933333333','memberC@gmail.com','C333333333','1944-04-04','M',2,100);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating)
 	VALUES ('d002','password','小農D',904,'屏東縣九如鄉','小農D的家','0944444444','memberD@gmail.com','D444444444','1955-05-05','M',2,30);
+INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating)
+	VALUES ('micky','123','米小鼠',555,'南投縣魚池鄉','埔尾路215號','0912345678','micky@gmail.com','M125943647','1962-08-25','M',2,126);
+INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating)
+	VALUES ('kitty','123','凱蒂貓',973,'花蓮縣吉安鄉','慈雲路52號','0987416423','kitty@gmail.com','U235974118','1973-06-16','M',2,95);
+
 
 
 --Farmer
@@ -289,6 +294,10 @@ INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
 	VALUES ('Z000000003', 1009, '小農C種');
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
 	VALUES ('Z000000004', 1010, '小農D種');
+INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
+	VALUES ('Z000000005', 1011, '米小鼠南投田園農莊');
+INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
+	VALUES ('Z000000005', 1012, '花蓮吉安凱蒂貓觀光果園');
 
 --ProductType
 INSERT INTO ProductType (Type) VALUES ('仁果類');
@@ -319,6 +328,33 @@ INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, Prod
 	VALUES (1009, 'C', 'C', 100, 600, '箱', 2102, 'C', 100, '2016-06-05', '2016-07-25', 2502);
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
 	VALUES (1010, 'D', 'D', 100, 600, '箱', 2102, 'D', 100, '2016-06-05', '2016-07-25', 2502);
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
+	VALUES (1012, '花蓮縣吉安鄉', '白柚', 0, 30, '斤', 2105, '快來搶購今年最後的柚子喔，最少10斤出貨!!', 10, '2016-08-18', '2016-11-31', 2502);
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
+	VALUES (1011, '南投縣魚池鄉', '豆芽菜', 300, 250, '箱', 2111, '鮮脆可口的豆芽菜，長期供應', 80, '2016-12-05', '2017-05-25', 2501);
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
+	VALUES (1012, '花蓮縣吉安鄉', '葡萄', 300, 70, '斤', 2102, '好吃的巨峰葡萄，5斤出貨', 10, '2016-12-25', '2017-02-17', 2501);
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
+	VALUES (1011, '南投縣魚池鄉', '金針菇', 75, 350, '箱', 2111, '過年火鍋必備金針菇，10斤裝', 80, '2017-01-10', '2017-03-25', 2501);
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
+	VALUES (1003, '苗栗縣三義鄉', '柳橙', 400, 45, '公斤', 2105, '最少6公斤出貨，鮮甜美味', 10, '2017-01-18', '2017-05-03', 2501);
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
+	VALUES (1003, '苗栗縣三義鄉', '蘋果', 200, 50, '公斤', 2102, '最少5公斤出貨，鬆脆好吃喔', 10, '2017-01-22', '2017-04-21', 2501);
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
+	VALUES (1011, '南投縣魚池鄉', '馬鈴薯', 35, 500, '箱', 2107, '馬鈴薯一箱20斤，年後出貨', 100, '2017-01-26', '2017-03-18', 2501);
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
+	VALUES (1003, '苗栗縣三義鄉', '草莓', 30, 600, '箱', 2104, '會小心保護避免碰撞，10斤裝', 100, '2017-02-01', '2017-03-31', 2501);
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
+	VALUES (1011, '南投縣魚池鄉', '高麗菜', 75, 300, '箱', 2111, '高麗菜大跌價，請一起幫幫菜農', 80, '2017-02-02', '2017-03-25', 2501);
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
+	VALUES (1011, '南投縣魚池鄉', '地瓜葉', 50, 300, '箱', 2111, '大分量地瓜葉，歡迎機關團體直接批貨', 80, '2017-02-05', '2017-04-05', 2501);
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
+	VALUES (1012, '花蓮縣吉安鄉', '櫻桃', 20, 800, '箱', 2102, '過年應景水果，保證大顆又好吃喔', 100, '2017-01-11', '2017-02-28', 2501);
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
+	VALUES (1012, '花蓮縣吉安鄉', '開心果', 200, 280, '斤', 2102, '過年就是要開心果，三斤出貨喔', 20, '2017-01-03', '2017-02-17', 2501);
+
+
+
 
 --ProductDiscount
 INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
