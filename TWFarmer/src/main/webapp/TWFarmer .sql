@@ -418,3 +418,9 @@ insert into ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
 insert into Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
 values(1002,1004,'請問芒果何時會出貨？','最近好想吃芒果，請問何時有貨呢？','2017-01-23 09:07:43',0);
 	
+--Unit
+--INSERT INTO Unit (UnitName) VALUES ('箱');
+--INSERT INTO Unit (UnitName) VALUES ('顆');
+--INSERT INTO Unit (UnitName) VALUES ('斤');
+--INSERT INTO Unit (UnitName) VALUES ('公斤');
+
