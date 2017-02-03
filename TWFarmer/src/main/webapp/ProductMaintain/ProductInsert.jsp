@@ -61,11 +61,11 @@
 
 					<tr>
 						<td>單位：</td>
-						<td><select id='unitName' name="unitName">
-								<option value="2201">箱</option>
-								<option value="2202">顆</option>
-								<option value="2203">斤</option>
-								<option value="2204">公斤</option>
+						<td><select id='unit' name="unit">
+								<option>箱</option>
+								<option>顆</option>
+								<option>斤</option>
+								<option>公斤</option>
 						</select>
 							<div style="color: #FF0000; display: inline">${ErrorMsg.unitName}</div>
 					</tr>
@@ -155,16 +155,16 @@
 							<div style="color: #FF0000; display: inline">${ErrorMsg.discountPrice}</div>
 					</tr>
 
-					<tr>
-						<td>商品圖片編號：<br>*商品資料填寫完會產生，無需填寫
-						</td>
-						<td>圖片1：${productPicBean.productPicId}<br>
-						圖片2：${productPicBean.productPicId}<br>
-						圖片3：${productPicBean.productPicId}<br>
-						圖片4：${productPicBean.productPicId}<br>
-						圖片5：${productPicBean.productPicId}<br>
-						</td>
-					</tr>
+<!-- 					<tr> -->
+<!-- 						<td>商品圖片編號：<br>*商品資料填寫完會產生，無需填寫 -->
+<!-- 						</td> -->
+<%-- 						<td>圖片1：${productPicBean.productPicId}<br> --%>
+<%-- 						圖片2：${productPicBean.productPicId}<br> --%>
+<%-- 						圖片3：${productPicBean.productPicId}<br> --%>
+<%-- 						圖片4：${productPicBean.productPicId}<br> --%>
+<%-- 						圖片5：${productPicBean.productPicId}<br> --%>
+<!-- 						</td> -->
+<!-- 					</tr> -->
 
 					<tr>
 						<td>商品圖片：</td>

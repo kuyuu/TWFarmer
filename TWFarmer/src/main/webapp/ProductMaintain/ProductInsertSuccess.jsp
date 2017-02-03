@@ -40,8 +40,8 @@
 			</tr>
 
 			<tr>
-				<td>單位編號:</td>
-				<td>${productBean.unitId}</td>
+				<td>單位:</td>
+				<td>${productBean.unit}</td>
 			</tr>
 
 			<tr>

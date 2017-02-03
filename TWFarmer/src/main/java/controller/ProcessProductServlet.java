@@ -23,7 +23,6 @@ import model.ProductPicBean;
 import model.ProductPicService;
 import model.ProductStatusBean;
 import model.ProductTypeBean;
-import model.UnitBean;
 import model.dao.ProductDAOjdbc;
 import model.dao.ProductDiscountDAOjdbc;
 import model.dao.ProductPicDAOJdbc;
@@ -55,8 +54,9 @@ public class ProcessProductServlet extends HttpServlet {
 		String productName = request.getParameter("productName");
 		String temp1 = request.getParameter("inventory");
 		String temp2 = request.getParameter("price");
-		String temp3 = request.getParameter("unitName");
-		System.out.println(temp3);
+		String unit = request.getParameter("unit");
+//		String temp3 = request.getParameter("unitName");
+//		System.out.println(temp3);
 		String temp4 = request.getParameter("type");
 		String productIntro = request.getParameter("productIntro");
 		String temp5 = request.getParameter("freight");
@@ -108,8 +108,8 @@ public class ProcessProductServlet extends HttpServlet {
 			errorMessage.put("price", "單位價格是必填欄位");
 		}
 
-		if (temp3 == null || temp3.trim().length() == 0) {
-			errorMessage.put("unitName", "單位是必填欄位");
+		if (unit == null || unit.trim().length() == 0) {
+			errorMessage.put("unit", "單位是必填欄位");
 		}
 
 		if (temp4 == null || temp4.trim().length() == 0) {
@@ -190,15 +190,15 @@ public class ProcessProductServlet extends HttpServlet {
 			}
 		}
 
-		int unitName = 0;
-		if (temp3 != null && temp3.length() != 0) {
-			try {
-				unitName = Integer.parseInt(temp3);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-				errorMessage.put("unitName", "單位必須是整數");
-			}
-		}
+		// int unitName = 0;
+		// if (temp3 != null && temp3.length() != 0) {
+		// try {
+		// unitName = Integer.parseInt(temp3);
+		// } catch (NumberFormatException e) {
+		// e.printStackTrace();
+		// errorMessage.put("unitName", "單位必須是整數");
+		// }
+		// }
 
 		int type = 0;
 		if (temp4 != null && temp4.length() != 0) {
@@ -303,7 +303,7 @@ public class ProcessProductServlet extends HttpServlet {
 		// 單位價格
 		productBean.setPrice(price);
 		// 單位
-		productBean.setUnitId(unitName);
+		productBean.setUnit(unit);
 		// 類別
 		productBean.setProductTypeId(type);
 		// 運費
@@ -344,7 +344,7 @@ public class ProcessProductServlet extends HttpServlet {
 		ProductPicBean productPicBean = new ProductPicBean();
 		productPicBean.setProductId(productBean.getProductId());
 		// if (productIntro != null && productIntro.length() != 0) {
-		
+
 		// } // 商品圖片介紹
 		if (part != null) {
 			productPicBean.setPictureIntro(pictureIntro1);
