@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.JPDetailBean;
 import model.JointPurchaseBean;
+import model.ProductBean;
 import model.dao.JPDetailDAOjdbc;
 import model.dao.JointPurchaseDAOjdbc;
+import model.dao.ProductDAOjdbc;
 @WebServlet("/BackStage/FarmerCheckJointPurchaseServlet")
 public class FarmerCheckJointPurchaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -37,11 +39,10 @@ public class FarmerCheckJointPurchaseServlet extends HttpServlet {
 		JointPurchaseDAOjdbc dao = new JointPurchaseDAOjdbc();
 		JointPurchaseBean jpBean = dao.select(jointPurchaseId);
 		
-		JPDetailDAOjdbc dao2 = new JPDetailDAOjdbc();
-		List<JPDetailBean> list = dao2.selectByJpId(jointPurchaseId);
-		
+		ProductDAOjdbc dao3 = new ProductDAOjdbc();
+		Map<JPDetailBean, ProductBean> map = dao3.selectByJpId(jpBean.getJpId());
 		request.setAttribute("jpBean", jpBean);
-		request.setAttribute("JPDetailList", list);
+		request.setAttribute("map", map);
 		
 		request.getRequestDispatcher("farmerCheckJpDetail.jsp").forward(request, response);
 	}
