@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
@@ -44,10 +45,10 @@ public class ProcessProductServlet extends HttpServlet {
 		productBean = (ProductBean) session.getAttribute("product");
 		System.out.println(productBean.getSellerId());
 
-		ProductTypeBean productTypeBean = new ProductTypeBean();
-		UnitBean unitBean = new UnitBean();
+		// ProductTypeBean productTypeBean = new ProductTypeBean();
+		// UnitBean unitBean = new UnitBean();
 		ProductDiscountBean productDiscountBean = new ProductDiscountBean();
-		ProductStatusBean productStatusBean = new ProductStatusBean();
+		// ProductStatusBean productStatusBean = new ProductStatusBean();
 
 		// 1.讀取使用者輸入的資料============================================
 		String origin = request.getParameter("origin");
@@ -69,7 +70,15 @@ public class ProcessProductServlet extends HttpServlet {
 		String temp11 = request.getParameter("discountPrice");
 		// String productPicId = request.getParameter("productPicId");
 		Part part = request.getPart("picture1");
-		String pictureIntro = request.getParameter("pictureIntro");
+		Part part2 = request.getPart("picture2");
+		Part part3 = request.getPart("picture3");
+		Part part4 = request.getPart("picture4");
+		Part part5 = request.getPart("picture5");
+		String pictureIntro1 = request.getParameter("pictureIntro1");
+		String pictureIntro2 = request.getParameter("pictureIntro2");
+		String pictureIntro3 = request.getParameter("pictureIntro3");
+		String pictureIntro4 = request.getParameter("pictureIntro4");
+		String pictureIntro5 = request.getParameter("pictureIntro5");
 
 		// 存放錯誤訊息============================================
 		Map<String, String> errorMessage = new HashMap<>();
@@ -278,7 +287,6 @@ public class ProcessProductServlet extends HttpServlet {
 			for (Object key : errorMessage.keySet()) {
 				System.out.println(key + " : " + errorMessage.get(key));
 			}
-			System.out.println();
 			return; // 在這就停止，不往下跑
 		}
 
@@ -296,7 +304,6 @@ public class ProcessProductServlet extends HttpServlet {
 		productBean.setPrice(price);
 		// 單位
 		productBean.setUnitId(unitName);
-		System.out.println(unitName);
 		// 類別
 		productBean.setProductTypeId(type);
 		// 運費
@@ -336,8 +343,31 @@ public class ProcessProductServlet extends HttpServlet {
 		 */
 		ProductPicBean productPicBean = new ProductPicBean();
 		productPicBean.setProductId(productBean.getProductId());
-		productPicBean.setPictureIntro(pictureIntro); // 商品圖片介紹
-		ProductPicService.uploadPic(productPicBean, part);
+		// if (productIntro != null && productIntro.length() != 0) {
+		
+		// } // 商品圖片介紹
+		if (part != null) {
+			productPicBean.setPictureIntro(pictureIntro1);
+			ProductPicService.uploadPic(productPicBean, part);
+		}
+		if (part2 != null) {
+			productPicBean.setPictureIntro(pictureIntro2);
+			ProductPicService.uploadPic(productPicBean, part2);
+		}
+		if (part3 != null) {
+			productPicBean.setPictureIntro(pictureIntro3);
+			ProductPicService.uploadPic(productPicBean, part3);
+		}
+		if (part4 != null) {
+			productPicBean.setPictureIntro(pictureIntro4);
+			ProductPicService.uploadPic(productPicBean, part4);
+		}
+		if (part5 != null) {
+			productPicBean.setPictureIntro(pictureIntro5);
+			ProductPicService.uploadPic(productPicBean, part5);
+		}
+		ProductPicDAOJdbc dao2 = new ProductPicDAOJdbc();
+		List<ProductPicBean> list = dao2.selectByProductId(productBean.getProductId());
 
 		/*
 		 * insert同時回傳含有流水號的Bean(DiscountId) insert完後回傳的bean就會有流水號
@@ -352,10 +382,11 @@ public class ProcessProductServlet extends HttpServlet {
 
 		// 5.挑選適當頁面============================================
 		request.setAttribute("productBean", productBean);
-		request.setAttribute("productPicBean", productPicBean);
+		request.setAttribute("productPicList", list);
 
 		request.getRequestDispatcher("ProductInsertSuccess.jsp").forward(request, response);
-		// 不能用=>這樣等於說client重新送出request  存的一堆productBean都沒了)  不然就要塞到session裡面  不能塞request
+		// 不能用=>這樣等於說client重新送出request 存的一堆productBean都沒了) 不然就要塞到session裡面
+		// 不能塞request
 		// response.sendRedirect("ProductInsertSuccess.jsp"); // 網址改為新網頁
 	}
 
