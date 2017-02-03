@@ -1,22 +1,22 @@
 package model.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import model.JPDetailBean;
 import model.ProductBean;
 import model.ProductDAO;
-import model.ProductPicBean;
 
 public class ProductDAOjdbc implements ProductDAO {
 	private DataSource dataSource;
@@ -117,7 +117,7 @@ public class ProductDAOjdbc implements ProductDAO {
 				result.setProductName(rset.getString("productName"));
 				result.setInventory(rset.getInt("inventory"));
 				result.setPrice(rset.getInt("price"));
-				result.setUnitId(rset.getInt("unitId"));
+				result.setUnit(rset.getString("unit"));
 				result.setProductTypeId(rset.getInt("productTypeId"));
 				result.setProductIntro(rset.getString("productIntro"));
 				result.setFreight(rset.getInt("freight"));
@@ -163,7 +163,7 @@ public class ProductDAOjdbc implements ProductDAO {
 				productBean.setProductName(rset.getString("productName"));
 				productBean.setInventory(rset.getInt("inventory"));
 				productBean.setPrice(rset.getInt("price"));
-				productBean.setUnitId(rset.getInt("unitId"));
+				productBean.setUnit(rset.getString("unit"));
 				productBean.setProductTypeId(rset.getInt("productTypeId"));
 				productBean.setProductIntro(rset.getString("productIntro"));
 				productBean.setFreight(rset.getInt("freight"));
@@ -177,6 +177,54 @@ public class ProductDAOjdbc implements ProductDAO {
 				productBean.setProductStatusId(rset.getInt("productStatusId"));
 
 				result.add(productBean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	private static final String SELECT_BY_JPID = "SELECT * FROM Product JOIN JPDetail ON Product.ProductID = JPDetail.ProductID WHERE JPID=?";
+
+	@Override
+	public Map<JPDetailBean, ProductBean> selectByJpId(int jpId) {
+		Map<JPDetailBean, ProductBean> result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_JPID);) {
+			stmt.setInt(1, jpId);
+			ResultSet rset = stmt.executeQuery();
+			result = new HashMap<JPDetailBean, ProductBean>();
+			while (rset.next()) {
+				ProductBean productBean = new ProductBean();
+				JPDetailBean jpdBean = new JPDetailBean();
+				productBean.setProductId(rset.getInt("productId"));
+				productBean.setSellerId(rset.getInt("sellerId"));
+				productBean.setOrigin(rset.getString("origin"));
+				productBean.setProductName(rset.getString("productName"));
+				productBean.setInventory(rset.getInt("inventory"));
+				productBean.setPrice(rset.getInt("price"));
+				productBean.setUnit(rset.getString("unit"));
+				productBean.setProductTypeId(rset.getInt("productTypeId"));
+				productBean.setProductIntro(rset.getString("productIntro"));
+				productBean.setFreight(rset.getInt("freight"));
+				productBean.setAddDate(rset.getDate("addDate"));
+				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
+				productBean.setRemoveDate(rset.getDate("removeDate"));
+				productBean.setProductStatusId(rset.getInt("productStatusId"));
+				productBean.setAddDate(rset.getDate("addDate"));
+				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
+				productBean.setRemoveDate(rset.getDate("removeDate"));
+				productBean.setProductStatusId(rset.getInt("productStatusId"));
+				
+				jpdBean.setJpId(rset.getInt("JpID"));
+				jpdBean.setProductId(rset.getInt("ProductID"));
+				jpdBean.setJpPopulationMin(rset.getInt("JpPopulationMin"));
+				jpdBean.setJpPopulationMax(rset.getInt("JpPopulationMax"));
+				jpdBean.setJpMinQEach(rset.getInt("JpMinQEach"));
+				jpdBean.setJpPrice(rset.getInt("JpPrice"));
+				jpdBean.setJpFreight(rset.getInt("JpFreight"));
+
+				result.put(jpdBean, productBean);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -202,7 +250,7 @@ public class ProductDAOjdbc implements ProductDAO {
 				productBean.setProductName(rset.getString("productName"));
 				productBean.setInventory(rset.getInt("inventory"));
 				productBean.setPrice(rset.getInt("price"));
-				productBean.setUnitId(rset.getInt("unitId"));
+				productBean.setUnit(rset.getString("unit"));
 				productBean.setProductTypeId(rset.getInt("productTypeId"));
 				productBean.setProductIntro(rset.getString("productIntro"));
 				productBean.setFreight(rset.getInt("freight"));
@@ -223,7 +271,7 @@ public class ProductDAOjdbc implements ProductDAO {
 		return result;
 	}
 
-	private static final String INSERT = "insert into Product (sellerId,origin,productName,inventory,price,unitId,productTypeId,productIntro,freight,addDate,removeEstDate,removeDate,productStatusId) output inserted.productid values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+	private static final String INSERT = "insert into Product (sellerId,origin,productName,inventory,price,unit,productTypeId,productIntro,freight,addDate,removeEstDate,removeDate,productStatusId) output inserted.productid values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 
 	@Override
 	public ProductBean insert(ProductBean bean) {
@@ -239,7 +287,7 @@ public class ProductDAOjdbc implements ProductDAO {
 				stmt.setString(3, bean.getProductName());
 				stmt.setInt(4, bean.getInventory());
 				stmt.setInt(5, bean.getPrice());
-				stmt.setInt(6, bean.getUnitId());
+				stmt.setString(6, bean.getUnit());
 				stmt.setInt(7, bean.getProductTypeId());
 				stmt.setString(8, bean.getProductIntro());
 				stmt.setInt(9, bean.getFreight());
@@ -291,7 +339,7 @@ public class ProductDAOjdbc implements ProductDAO {
 		return result;
 	}
 
-	private static final String UPDATE = "update Product set sellerId=?, origin=?, productName=?, inventory=?, price=?, unitId=?, productTypeId=?, productIntro=?, freight=?, addDate=?, removeEstDate=?, removeDate=?, productStatusId=? where productId=?";
+	private static final String UPDATE = "update Product set sellerId=?, origin=?, productName=?, inventory=?, price=?, unit=?, productTypeId=?, productIntro=?, freight=?, addDate=?, removeEstDate=?, removeDate=?, productStatusId=? where productId=?";
 
 	@Override
 	public ProductBean update(ProductBean bean) {
@@ -304,7 +352,7 @@ public class ProductDAOjdbc implements ProductDAO {
 			stmt.setString(3, bean.getProductName());
 			stmt.setInt(4, bean.getInventory());
 			stmt.setInt(5, bean.getPrice());
-			stmt.setInt(6, bean.getUnitId());
+			stmt.setString(6, bean.getUnit());
 			stmt.setInt(7, bean.getProductTypeId());
 			stmt.setString(8, bean.getProductIntro());
 			stmt.setInt(9, bean.getFreight());

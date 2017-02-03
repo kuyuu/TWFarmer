@@ -19,7 +19,6 @@ DROP TABLE ProductPic
 DROP TABLE ProductDiscount
 DROP TABLE TrackProduct
 DROP TABLE Product
-DROP TABLE Unit
 DROP TABLE ProductType
 DROP TABLE ProductStatus
 DROP TABLE Farmer
@@ -56,12 +55,6 @@ CREATE TABLE ProductType(
 )
 GO
 
-CREATE TABLE Unit(
-	UnitID int IDENTITY(2201,1) NOT NULL PRIMARY KEY,
-	UnitName nvarchar(5),
-)
-GO
-
 CREATE TABLE ProductStatus(
 	ProductStatusID int IDENTITY(2501,1) NOT NULL PRIMARY KEY,
 	ProductStatusName nvarchar(10),
@@ -75,7 +68,7 @@ CREATE TABLE Product(
 	ProductName nvarchar(40),
 	Inventory int,
 	Price int,
-	UnitID int REFERENCES Unit(UnitID),
+	Unit varchar(10),
 	ProductTypeID int REFERENCES ProductType(ProductTypeID),
 	ProductIntro nvarchar(600),
 	Freight int,
@@ -138,7 +131,7 @@ GO
 CREATE TABLE OrderDetail(
 	OrderID int REFERENCES Orders (OrderID) NOT NULL,
 	ProductID int REFERENCES Product(ProductID) NOT NULL,
-	UnitID int REFERENCES Unit(UnitID),
+	Unit varchar(10),
 	UnitPrice int,
 	OrderQuantity int,
 	UnitFreight int,
@@ -312,26 +305,20 @@ INSERT INTO ProductType (Type) VALUES ('葉菜類');
 INSERT INTO ProductType (Type) VALUES ('香辛類');
 INSERT INTO ProductType (Type) VALUES ('菌藻類');
 
---Unit
-INSERT INTO Unit (UnitName) VALUES ('箱');
-INSERT INTO Unit (UnitName) VALUES ('顆');
-INSERT INTO Unit (UnitName) VALUES ('斤');
-INSERT INTO Unit (UnitName) VALUES ('公斤');
-
 --ProductStatus
 INSERT INTO ProductStatus (ProductStatusName) VALUES ('上架');
 INSERT INTO ProductStatus (ProductStatusName) VALUES ('下架');
 INSERT INTO ProductStatus (ProductStatusName) VALUES ('封鎖');
 
 --Product
-INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, UnitID, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
-	VALUES (1003, '苗栗縣三義鄉', '橘子', 200, 35, 2204, 2105, '最少6公斤出貨很甜很多汁', 10, '2017-01-20', '2017-03-20', 2501);
-INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, UnitID, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
-	VALUES (1004, '屏東縣九如鄉', '愛文芒果', 100, 600, 2201, 2102, '每箱10斤不甜不要錢', 100, '2016-06-05', '2016-07-25', 2502);
-INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, UnitID, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
-	VALUES (1009, 'C', 'C', 100, 600, 2201, 2102, 'C', 100, '2016-06-05', '2016-07-25', 2502);
-INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, UnitID, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
-	VALUES (1010, 'D', 'D', 100, 600, 2201, 2102, 'D', 100, '2016-06-05', '2016-07-25', 2502);
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
+	VALUES (1003, '苗栗縣三義鄉', '橘子', 200, 35, '公斤', 2105, '最少6公斤出貨很甜很多汁', 10, '2017-01-20', '2017-03-20', 2501);
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
+	VALUES (1004, '屏東縣九如鄉', '愛文芒果', 100, 600, '箱', 2102, '每箱10斤不甜不要錢', 100, '2016-06-05', '2016-07-25', 2502);
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
+	VALUES (1009, 'C', 'C', 100, 600, '箱', 2102, 'C', 100, '2016-06-05', '2016-07-25', 2502);
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
+	VALUES (1010, 'D', 'D', 100, 600, '箱', 2102, 'D', 100, '2016-06-05', '2016-07-25', 2502);
 
 --ProductDiscount
 INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
@@ -352,6 +339,24 @@ INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
 --ProductTrackProduct
 INSERT INTO TrackProduct (MemberID, ProductID, TrackDate)
 	VALUES ( 1001,2001,'2017-01-21' );
+INSERT INTO OrderStatus (OrderStatusName) values('未付款')
+INSERT INTO OrderStatus (OrderStatusName) values('已付款')
+INSERT INTO OrderStatus (OrderStatusName) values('出貨中')
+INSERT INTO OrderStatus (OrderStatusName) values('已出貨')
+
+--Orders
+INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
+	VALUES (1001 , 1003 , 200,900,'2017-01-03 20:51:29','2017-01-06 13:20:01','會員A',235,'新北市中和區','會員A的家',3104, 5 , 5);
+INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
+	VALUES (1001 , 1003 , 200,1400,'2017-01-15 18:20:05','2017-01-20 11:48:32','會員A',235,'新北市中和區','會員A的家',3103, 5, null);
+ INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
+	VALUES (1002 , 1003 ,400, 2550,'2017-01-23 09:02:31','2017-01-25 15:13:21','會員B',106,'台北市大安區','會員B的家',3101,null,null);
+
+--OrderDetail
+Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3001,2001,'公斤',35,20,200);
+Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3002,2002,'箱',600,2,200);
+Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3003,2001,'公斤',35,10,100);
+Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3003,2002,'箱',600,3,300);
 
 --MiscVia
 INSERT INTO MiscVia (MiscViaWay) VALUES ('不收');

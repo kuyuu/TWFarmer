@@ -10,7 +10,7 @@ public class ProductBean {
 	private String productName;
 	private int inventory;
 	private int price;
-	private int unitId;
+	private String unit;
 	private int productTypeId;
 	private String productIntro;
 	private int freight;
@@ -32,7 +32,7 @@ public class ProductBean {
 //	}
 	public String toString() {
 		return "{"+productId+":"+sellerId+":"+origin+":"+productName+":"+inventory+
-				":"+price+":"+unitId+":"+productTypeId+":"+productIntro+":"+freight+":"+addDate+":"+removeEstDate+""
+				":"+price+":"+unit+":"+productTypeId+":"+productIntro+":"+freight+":"+addDate+":"+removeEstDate+""
 						+ ":"+removeDate+""
 								+  ":"+productStatusId+"}";
 	}
@@ -86,12 +86,12 @@ public class ProductBean {
 		this.price = price;
 	}
 
-	public int getUnitId() {
-		return unitId;
+	public String getUnit() {
+		return unit;
 	}
 
-	public void setUnitId(int unitId) {
-		this.unitId = unitId;
+	public void setUnit(String unit) {
+		this.unit = unit;
 	}
 
 	public int getProductTypeId() {

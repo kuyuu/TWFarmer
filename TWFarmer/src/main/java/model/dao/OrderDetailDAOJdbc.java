@@ -71,7 +71,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 				OrderDetailBean bean = new OrderDetailBean();
 				bean.setOrderId(rset.getInt("orderId"));
 				bean.setProductId(rset.getInt("productId"));
-				bean.setUnitId(rset.getInt("unitId"));
+				bean.setUnit(rset.getString("unit"));
 				bean.setUnitPrice(rset.getInt("unitPrice"));
 				bean.setOrderQuantity(rset.getInt("orderQuantity"));
 				bean.setUnitFreight(rset.getInt("unitFreight"));
@@ -99,7 +99,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 				result = new OrderDetailBean();
 				result.setOrderId(rset.getInt("orderId"));
 				result.setProductId(rset.getInt("productId"));
-				result.setUnitId(rset.getInt("unitId"));
+				result.setUnit(rset.getString("unit"));
 				result.setUnitPrice(rset.getInt("unitPrice"));
 				result.setOrderQuantity(rset.getInt("orderQuantity"));
 				result.setUnitFreight(rset.getInt("unitFreight"));
@@ -134,7 +134,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 				result = new OrderDetailBean();
 				result.setOrderId(rset.getInt("orderId"));
 				result.setProductId(rset.getInt("productId"));
-				result.setUnitId(rset.getInt("unitId"));
+				result.setUnit(rset.getString("unit"));
 				result.setUnitPrice(rset.getInt("unitPrice"));
 				result.setOrderQuantity(rset.getInt("orderQuantity"));
 				result.setUnitFreight(rset.getInt("unitFreight"));
@@ -154,7 +154,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 		return result;
 	}
 
-	private static final String INSERT = "INSERT INTO OrderDetail (OrderId, ProductId, UnitId, UnitPrice, OrderQuantity, UnitFreight) values ( ?, ?, ?, ?, ?, ? )";
+	private static final String INSERT = "INSERT INTO OrderDetail (OrderId, ProductId, Unit, UnitPrice, OrderQuantity, UnitFreight) values ( ?, ?, ?, ?, ?, ? )";
 
 	@Override
 	public OrderDetailBean insert(OrderDetailBean orderDetailBean) {
@@ -164,7 +164,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 			if (orderDetailBean != null) {
 				stmt.setInt(1, orderDetailBean.getOrderId());
 				stmt.setInt(2, orderDetailBean.getProductId());
-				stmt.setInt(3, orderDetailBean.getUnitId());
+				stmt.setString(3, orderDetailBean.getUnit());
 				stmt.setInt(4, orderDetailBean.getUnitPrice());
 				stmt.setInt(5, orderDetailBean.getOrderQuantity());
 				stmt.setInt(6, orderDetailBean.getUnitFreight());
@@ -180,7 +180,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 		return result;
 	}
 
-	private static final String UPDATE = "UPDATE OrderDetail set OrderId=?, ProductId=?, UnitId=?, UnitPrice=?, OrderQuantity=?, UnitFreight=?)";
+	private static final String UPDATE = "UPDATE OrderDetail set OrderId=?, ProductId=?, Unit=?, UnitPrice=?, OrderQuantity=?, UnitFreight=?)";
 
 	@Override
 	public OrderDetailBean update(OrderDetailBean orderDetailBean) {
@@ -189,7 +189,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
 			stmt.setInt(1, orderDetailBean.getOrderId());
 			stmt.setInt(2, orderDetailBean.getProductId());
-			stmt.setInt(3, orderDetailBean.getUnitId());
+			stmt.setString(3, orderDetailBean.getUnit());
 			stmt.setInt(4, orderDetailBean.getUnitPrice());
 			stmt.setInt(5, orderDetailBean.getOrderQuantity());
 			stmt.setInt(6, orderDetailBean.getUnitFreight());
