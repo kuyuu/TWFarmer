@@ -8,14 +8,28 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import model.OrderStatusBean;
 import model.OrderStatusDAO;
 
 public class OrderStatusDAOJdbc implements OrderStatusDAO{
-	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
+/*	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
 	private static final String USERNAME = "sa";
-	private static final String PASSWORD = "P@ssw0rd";
+	private static final String PASSWORD = "P@ssw0rd";*/
+	DataSource dataSource;
 	
+	public OrderStatusDAOJdbc() {
+		try {
+			Context ctx = new InitialContext();
+			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
 	public static void main(String[] args) {
 		OrderStatusDAO dao = new OrderStatusDAOJdbc();
 		
@@ -46,7 +60,7 @@ public class OrderStatusDAOJdbc implements OrderStatusDAO{
 	public List<OrderStatusBean> select() {
 		List<OrderStatusBean> result = null;
 		try(
-				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
 				ResultSet rset = stmt.executeQuery();) {
 			
@@ -70,7 +84,7 @@ public class OrderStatusDAOJdbc implements OrderStatusDAO{
 		OrderStatusBean result = null;
 		ResultSet rset = null;
 		try(
-			Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				Connection conn = dataSource.getConnection();
 			PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);) {
 			
 			stmt.setInt(1, orderStatusId);
@@ -100,7 +114,7 @@ public class OrderStatusDAOJdbc implements OrderStatusDAO{
 	public OrderStatusBean insert(OrderStatusBean orderStatusBean) {
 		OrderStatusBean result = null;
 		try(
-				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(INSERT);) {
 			if(orderStatusBean!=null) {
 				stmt.setString(1,orderStatusBean.getOrderStatusName());
@@ -122,7 +136,7 @@ public class OrderStatusDAOJdbc implements OrderStatusDAO{
 	public OrderStatusBean update(OrderStatusBean orderStatusBean) {
 		OrderStatusBean result = null;
 		try(
-				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
 			stmt.setString(1,orderStatusBean.getOrderStatusName());
 			int i = stmt.executeUpdate();
@@ -140,7 +154,7 @@ public class OrderStatusDAOJdbc implements OrderStatusDAO{
 	@Override
 	public boolean delete(int orderStatusId) {
 		try(
-				Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(DELETE);) {			
 			stmt.setInt(1, orderStatusId);
 			int i = stmt.executeUpdate();

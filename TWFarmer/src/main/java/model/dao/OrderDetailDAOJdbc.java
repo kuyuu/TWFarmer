@@ -8,15 +8,29 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import model.OrderDetailBean;
 import model.OrderDetailDAO;
 import model.OrdersBean;
 
 public class OrderDetailDAOJdbc implements OrderDetailDAO {
-	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
-	private static final String USERNAME = "sa";
-	private static final String PASSWORD = "P@ssw0rd";
-
+//	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
+//	private static final String USERNAME = "sa";
+//	private static final String PASSWORD = "P@ssw0rd";
+	DataSource dataSource;
+	
+	public OrderDetailDAOJdbc() {
+		try {
+			Context ctx = new InitialContext();
+			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
 	public static void main(String[] args) {
 		OrderDetailDAO dao = new OrderDetailDAOJdbc();
 
@@ -67,7 +81,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 		OrderDetailBean result = null;
 		ResultSet rset = null;
 		try(
-			Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				Connection conn = dataSource.getConnection();
 			PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);) {
 			
 			stmt.setInt(1, orderId);
@@ -95,7 +109,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 	@Override
 	public List<OrderDetailBean> select() {
 		List<OrderDetailBean> result = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
 				ResultSet rset = stmt.executeQuery();) {
 
@@ -122,7 +136,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 	public List<OrderDetailBean> selectByOrderId(int orderId) {
 		List<OrderDetailBean> result = null;
 		ResultSet rset = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ORDERID);) {
 
 			stmt.setInt(1, orderId);
@@ -151,7 +165,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 	public List<OrderDetailBean> selectByProductId(int productId) {
 		List<OrderDetailBean> result = null;
 		ResultSet rset = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_PRODUCTID);) {
 
 			stmt.setInt(1, productId);
@@ -178,7 +192,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 	@Override
 	public OrderDetailBean insert(OrderDetailBean orderDetailBean) {
 		OrderDetailBean result = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(INSERT);) {
 			if (orderDetailBean != null) {
 				stmt.setInt(1, orderDetailBean.getOrderId());
@@ -203,7 +217,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 	@Override
 	public OrderDetailBean update(OrderDetailBean orderDetailBean) {
 		OrderDetailBean result = null;
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
 			stmt.setInt(1, orderDetailBean.getOrderId());
 			stmt.setInt(2, orderDetailBean.getProductId());
@@ -224,7 +238,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 	private static final String DELETE_BY_ORDERID = "DELETE FROM OrderDetail WHERE OrderID = ?";
 	@Override
 	public boolean deleteByOrderId(int orderId) {
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(DELETE_BY_ORDERID);) {
 			stmt.setInt(1, orderId);
 			int i = stmt.executeUpdate();
@@ -240,7 +254,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 	private static final String DELETE_BY_PRODUCTID = "DELETE FROM OrderDetail WHERE ProductID = ?";
 	@Override
 	public boolean deleteByProductId(int productId) {
-		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(DELETE_BY_PRODUCTID);) {
 			stmt.setInt(1, productId);
 			int i = stmt.executeUpdate();
