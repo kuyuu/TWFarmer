@@ -39,14 +39,14 @@ public class MsgCreatingServlet extends HttpServlet {
 		
 		if (temp2 == null || temp2.length() == 0) {
 			
-				errors.put("msgReaderId", "信總要有人讀吧 ಠ皿ಠ");	
+				errors.put("msgReaderId", "請指明收件人之會員編號");	
 		}
 
 		if (msgTitle == null || msgTitle.length() == 0) {
-			errors.put("msgTitle", "標題不會自己想??༼ ͠ຈ Ĺ̯ ͠ຈ ༽┌");
+			errors.put("msgTitle", "主旨為必填欄位");
 		}
 		if (msgContent == null || msgContent.length() == 0) {
-			errors.put("msgContent", "無字天書，打點東西吧 ಠ⌣ಠ");
+			errors.put("msgContent", "內文為必填欄位");
 		}
 		
 		if(errors!=null && !errors.isEmpty()) {
