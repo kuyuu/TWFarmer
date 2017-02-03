@@ -186,10 +186,45 @@ public class ProductDAOjdbc implements ProductDAO {
 		return result;
 	}
 
-	
+	private static final String SELECT_BY_PRODUCTTYPEID = "Select * FROM Product where productTypeId=?";
 	@Override
 	public List<ProductBean> selectByType(int productTypeId) {
-		return null;
+		List<ProductBean> result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_PRODUCTTYPEID);) {
+
+			stmt.setInt(1, productTypeId);
+			ResultSet rset = stmt.executeQuery();
+			result = new ArrayList<ProductBean>();
+			while (rset.next()) {
+				ProductBean productBean = new ProductBean();
+
+				productBean.setProductId(rset.getInt("productId"));
+				productBean.setSellerId(rset.getInt("sellerId"));
+				productBean.setOrigin(rset.getString("origin"));
+				productBean.setProductName(rset.getString("productName"));
+				productBean.setInventory(rset.getInt("inventory"));
+				productBean.setPrice(rset.getInt("price"));
+				productBean.setUnit(rset.getString("unit"));
+				productBean.setProductTypeId(rset.getInt("productTypeId"));
+				productBean.setProductIntro(rset.getString("productIntro"));
+				productBean.setFreight(rset.getInt("freight"));
+				productBean.setAddDate(rset.getDate("addDate"));
+				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
+				productBean.setRemoveDate(rset.getDate("removeDate"));
+				productBean.setProductStatusId(rset.getInt("productStatusId"));
+				productBean.setAddDate(rset.getDate("addDate"));
+				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
+				productBean.setRemoveDate(rset.getDate("removeDate"));
+				productBean.setProductStatusId(rset.getInt("productStatusId"));
+
+				result.add(productBean);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 	
 	private static final String SELECT_BY_SELLERID = "select * from Product where SellerID=?";

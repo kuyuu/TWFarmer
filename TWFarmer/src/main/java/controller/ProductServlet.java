@@ -23,29 +23,45 @@ public class ProductServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//接收資料
 		String name = request.getParameter("name");
-		String selectBy = request.getParameter("selectBy");
-		//驗證資料
-		Map<String, String> errors = new HashMap<String, String>();
-		request.setAttribute("errors", errors);
-		if(name==null || name.length()==0){
-			errors.put("name","請輸入欲搜尋蔬果");
-		}
+		String temp1 = request.getParameter("selectBy");
 		
-		if(errors!=null && !errors.isEmpty()) {
-			request.getRequestDispatcher(
-					"/ProductSelect/product.jsp").forward(request, response);
-			return;
-		}
+		//驗證資料
+//		Map<String, String> errors = new HashMap<String, String>();
+//		request.setAttribute("errors", errors);
+//		if(name==null || name.length()==0){
+//			errors.put("name","請輸入產地名稱");
+//		}
+//		
+//		if(errors!=null && !errors.isEmpty()) {
+//			request.getRequestDispatcher(
+//					"/ProductSelect/product.jsp").forward(request, response);
+//			return;
+//		}
 		
 		//轉換資料
-		
+		int selectBy = 0;
+		if(temp1!=null && temp1.length()!=0) {
+			try {
+				selectBy = Integer.parseInt(temp1);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();				
+			} 
+		}
 		//呼叫Model
 		ProductBean bean = new ProductBean();
 		bean.setOrigin(name);
+		bean.setProductId(selectBy);
 		//根據Model執行結果，決定需要顯示的View元件
-		if("origin".equals(selectBy)) {
+//		if("origin".equals(selectBy)) {
+		
+		if(temp1.length() == 0){
 			List<ProductBean> result = productDAOjdbc.selectByName(name);
 			request.setAttribute("name", result);
+			request.getRequestDispatcher(
+					"/ProductSelect/product.jsp").forward(request, response);
+		} else {
+			List<ProductBean> result = productDAOjdbc.selectByType(selectBy);
+			request.setAttribute("selectBy", result);
 			request.getRequestDispatcher(
 					"/ProductSelect/product.jsp").forward(request, response);
 		}
