@@ -16,12 +16,8 @@ java.util.List<model.JPFollowerBean> list1 = dao1.select();
 
 model.dao.JPFollowerDetailDAOJdbc dao2 = new model.dao.JPFollowerDetailDAOJdbc();
 java.util.List<model.JPFollowerDetailBean> list2 = dao2.select();
-
-model.dao.UnitDAOJdbc dao3 = new model.dao.UnitDAOJdbc();
-java.util.List<model.UnitBean> list3 = dao3.select();
 %>
 <h1><%=list1 %></h1>
 <h1><%=list2 %></h1>
-<h1><%=list3 %></h1>
 </body>
 </html>

@@ -9,10 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>開新合購</h2>
 	<form action="<c:url value="CheckJointPurchaseServlet"/>" method="POST"
 		class="form-horizontal">
-		<div class="col-md-offset-3">
 			<div class="form-group">
 				<label for="memberId" class="col-sm-2 control-label">會員ID</label>
 				<div class="col-sm-4">
@@ -23,6 +21,34 @@
 				<label for="productId" class="col-sm-2 control-label">商品ID</label>
 				<div class="col-sm-4">
 					<p id="productId" class="form-control-static">${sessionScope.JPDetail.productId}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="jpPrice" class="col-sm-2 control-label">合購價格</label>
+				<div class="col-sm-4">
+					<input type="text" id="jpPrice" name="jpPrice" class="form-control"
+						value="${param.jpPrice}">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="jpFreight" class="col-sm-2 control-label">單位運費</label>
+				<div class="col-sm-4">
+					<input type="text" id="jpFreight" name="jpFreight" class="form-control"
+						value="${param.jpFreight}">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="jpPopulationMin" class="col-sm-2 control-label">最小購買量</label>
+				<div class="col-sm-4">
+					<input type="text" id="jpPopulationMin" name="jpPopulationMin" class="form-control"
+						value="${param.jpPopulationMin}">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="jpPopulationMax" class="col-sm-2 control-label">最大購買量</label>
+				<div class="col-sm-4">
+					<input type="text" id="jpPopulationMax" name="jpPopulationMax" class="form-control"
+						value="${param.jpPopulationMax}">
 				</div>
 			</div>
 			<div class="form-group">

@@ -58,7 +58,6 @@ public class NewJointPurchaseServlet extends HttpServlet {
 		JointPurchaseBean bean = new JointPurchaseBean();
 		bean.setInitId(memberId);
 		
-		JPDetailDAOjdbc dao2 = new JPDetailDAOjdbc();
 		JPDetailBean bean2 = new JPDetailBean();
 		bean2.setProductId(productId);
 		

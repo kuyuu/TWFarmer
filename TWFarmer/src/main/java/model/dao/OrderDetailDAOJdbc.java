@@ -10,6 +10,7 @@ import java.util.List;
 
 import model.OrderDetailBean;
 import model.OrderDetailDAO;
+import model.OrdersBean;
 
 public class OrderDetailDAOJdbc implements OrderDetailDAO {
 	private static final String URL = "jdbc:sqlserver://localhost:1433;database=TWFarmer";
@@ -20,15 +21,18 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 		OrderDetailDAO dao = new OrderDetailDAOJdbc();
 
 		// Select all
-		 List<OrderDetailBean> beans = dao.select();
-		 System.out.println("bean=" + beans);
+//		 List<OrderDetailBean> beans = dao.select();
+//		 System.out.println("bean=" + beans);
 
 		// Select By OrderID
-//		System.out.println(dao.selectByOrderId(3001));
+//		System.out.println(dao.selectByOrderId(3003));
 
 		// Select By ProductID
-		// System.out.println(dao.selectByProductId(2001));
+//		System.out.println(dao.selectByProductId(2001));
 
+		// Select By PK
+//		System.out.println(dao.select(3003, 2001));
+		
 		// Insert
 //		OrderDetailBean bean = new OrderDetailBean();
 //		bean.setOrderId(3005);
@@ -57,8 +61,37 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 //		dao.deleteByOrderId(2001);
 	}
 
+	private static final String SELECT_BY_ID ="SELECT * FROM OrderDetail where OrderID=? and ProductID =?";
+	@Override
+	public OrderDetailBean select(int orderId, int productId) {
+		OrderDetailBean result = null;
+		ResultSet rset = null;
+		try(
+			Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID);) {
+			
+			stmt.setInt(1, orderId);
+			stmt.setInt(2, productId);
+			rset = stmt.executeQuery();
+			if(rset.next()) {
+				result = new OrderDetailBean();
+				result.setOrderId(rset.getInt("orderId"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (rset!=null) {
+				try {
+					rset.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return result;
+	}
+	
 	private static final String SELECT_ALL = "SELECT * FROM OrderDetail";
-
 	@Override
 	public List<OrderDetailBean> select() {
 		List<OrderDetailBean> result = null;
@@ -71,7 +104,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 				OrderDetailBean bean = new OrderDetailBean();
 				bean.setOrderId(rset.getInt("orderId"));
 				bean.setProductId(rset.getInt("productId"));
-				bean.setUnitId(rset.getInt("unitId"));
+				bean.setUnit(rset.getString("unit"));
 				bean.setUnitPrice(rset.getInt("unitPrice"));
 				bean.setOrderQuantity(rset.getInt("orderQuantity"));
 				bean.setUnitFreight(rset.getInt("unitFreight"));
@@ -85,36 +118,29 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 	}
 
 	private static final String SELECT_BY_ORDERID = "SELECT * FROM OrderDetail where OrderID=?";
-
 	@Override
-	public OrderDetailBean selectByOrderId(int orderId) {
-		OrderDetailBean result = null;
+	public List<OrderDetailBean> selectByOrderId(int orderId) {
+		List<OrderDetailBean> result = null;
 		ResultSet rset = null;
 		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ORDERID);) {
 
 			stmt.setInt(1, orderId);
 			rset = stmt.executeQuery();
-			if (rset.next()) {
-				result = new OrderDetailBean();
-				result.setOrderId(rset.getInt("orderId"));
-				result.setProductId(rset.getInt("productId"));
-				result.setUnitId(rset.getInt("unitId"));
-				result.setUnitPrice(rset.getInt("unitPrice"));
-				result.setOrderQuantity(rset.getInt("orderQuantity"));
-				result.setUnitFreight(rset.getInt("unitFreight"));
+			result = new ArrayList<OrderDetailBean>();
+			while (rset.next()) {
+				OrderDetailBean bean = new OrderDetailBean();
+				bean.setOrderId(rset.getInt("orderId"));
+				bean.setProductId(rset.getInt("productId"));
+				bean.setUnit(rset.getString("unit"));
+				bean.setUnitPrice(rset.getInt("unitPrice"));
+				bean.setOrderQuantity(rset.getInt("orderQuantity"));
+				bean.setUnitFreight(rset.getInt("unitFreight"));
 
+				result.add(bean);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			if (rset != null) {
-				try {
-					rset.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
 		}
 		return result;
 	}
@@ -122,40 +148,33 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 	private static final String SELECT_BY_PRODUCTID = "SELECT * FROM OrderDetail where ProductId=?";
 
 	@Override
-	public OrderDetailBean selectByProductId(int productId) {
-		OrderDetailBean result = null;
+	public List<OrderDetailBean> selectByProductId(int productId) {
+		List<OrderDetailBean> result = null;
 		ResultSet rset = null;
 		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_PRODUCTID);) {
 
 			stmt.setInt(1, productId);
 			rset = stmt.executeQuery();
-			if (rset.next()) {
-				result = new OrderDetailBean();
-				result.setOrderId(rset.getInt("orderId"));
-				result.setProductId(rset.getInt("productId"));
-				result.setUnitId(rset.getInt("unitId"));
-				result.setUnitPrice(rset.getInt("unitPrice"));
-				result.setOrderQuantity(rset.getInt("orderQuantity"));
-				result.setUnitFreight(rset.getInt("unitFreight"));
+			result = new ArrayList<OrderDetailBean>();
+			while (rset.next()) {
+				OrderDetailBean bean = new OrderDetailBean();
+				bean.setOrderId(rset.getInt("orderId"));
+				bean.setProductId(rset.getInt("productId"));
+				bean.setUnit(rset.getString("unit"));
+				bean.setUnitPrice(rset.getInt("unitPrice"));
+				bean.setOrderQuantity(rset.getInt("orderQuantity"));
+				bean.setUnitFreight(rset.getInt("unitFreight"));
 
+				result.add(bean);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			if (rset != null) {
-				try {
-					rset.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
 		}
 		return result;
 	}
 
 	private static final String INSERT = "INSERT INTO OrderDetail (OrderId, ProductId, UnitId, UnitPrice, OrderQuantity, UnitFreight) values ( ?, ?, ?, ?, ?, ? )";
-
 	@Override
 	public OrderDetailBean insert(OrderDetailBean orderDetailBean) {
 		OrderDetailBean result = null;
@@ -164,7 +183,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 			if (orderDetailBean != null) {
 				stmt.setInt(1, orderDetailBean.getOrderId());
 				stmt.setInt(2, orderDetailBean.getProductId());
-				stmt.setInt(3, orderDetailBean.getUnitId());
+				stmt.setString(3, orderDetailBean.getUnit());
 				stmt.setInt(4, orderDetailBean.getUnitPrice());
 				stmt.setInt(5, orderDetailBean.getOrderQuantity());
 				stmt.setInt(6, orderDetailBean.getUnitFreight());
@@ -181,7 +200,6 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 	}
 
 	private static final String UPDATE = "UPDATE OrderDetail set OrderId=?, ProductId=?, UnitId=?, UnitPrice=?, OrderQuantity=?, UnitFreight=?)";
-
 	@Override
 	public OrderDetailBean update(OrderDetailBean orderDetailBean) {
 		OrderDetailBean result = null;
@@ -189,13 +207,13 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
 			stmt.setInt(1, orderDetailBean.getOrderId());
 			stmt.setInt(2, orderDetailBean.getProductId());
-			stmt.setInt(3, orderDetailBean.getUnitId());
+			stmt.setString(3, orderDetailBean.getUnit());
 			stmt.setInt(4, orderDetailBean.getUnitPrice());
 			stmt.setInt(5, orderDetailBean.getOrderQuantity());
 			stmt.setInt(6, orderDetailBean.getUnitFreight());
 			int i = stmt.executeUpdate();
 			if (i == 1) {
-				result = this.selectByOrderId(orderDetailBean.getOrderId());
+				result = this.select(orderDetailBean.getOrderId(), orderDetailBean.getProductId());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -204,7 +222,6 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 	}
 
 	private static final String DELETE_BY_ORDERID = "DELETE FROM OrderDetail WHERE OrderID = ?";
-
 	@Override
 	public boolean deleteByOrderId(int orderId) {
 		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -221,7 +238,6 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 	}
 
 	private static final String DELETE_BY_PRODUCTID = "DELETE FROM OrderDetail WHERE ProductID = ?";
-
 	@Override
 	public boolean deleteByProductId(int productId) {
 		try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);

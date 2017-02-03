@@ -3,23 +3,23 @@ package model;
 public class OrderDetailBean {
 	private int orderId;
 	private int productId;
-	private int unitId;
+	private String unit;
 	private int unitPrice;
 	private int orderQuantity;
 	private int unitFreight;
 	
 	@Override
 	public String toString() {
-		return "OrderDetailBean [orderId=" + orderId + ", productId=" + productId + ", unitId=" + unitId
+		return "OrderDetailBean [orderId=" + orderId + ", productId=" + productId + ", unitId=" + unit
 				+ ", unitPrice=" + unitPrice + ", orderQuantity=" + orderQuantity + ", unitFreight=" + unitFreight
 				+ "]";
 	}
 
-	public OrderDetailBean(int orderId, int productId, int unitId, int unitPrice, int orderQuantity, int unitFreight) {
+	public OrderDetailBean(int orderId, int productId, String unit, int unitPrice, int orderQuantity, int unitFreight) {
 		super();
 		this.orderId = orderId;
 		this.productId = productId;
-		this.unitId = unitId;
+		this.unit = unit;
 		this.unitPrice = unitPrice;
 		this.orderQuantity = orderQuantity;
 		this.unitFreight = unitFreight;
@@ -44,12 +44,12 @@ public class OrderDetailBean {
 		this.productId = productId;
 	}
 
-	public int getUnitId() {
-		return unitId;
+	public String getUnit() {
+		return unit;
 	}
 
-	public void setUnitId(int unitId) {
-		this.unitId = unitId;
+	public void setUnit(String unit) {
+		this.unit = unit;
 	}
 
 	public int getUnitPrice() {
