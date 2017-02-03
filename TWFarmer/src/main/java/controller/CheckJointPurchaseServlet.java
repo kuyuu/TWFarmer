@@ -33,6 +33,10 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 		String jpLocation = request.getParameter("jpLocation");
 		String temp3 = request.getParameter("miscViaWay");
 		String temp4 = request.getParameter("misc");
+		String temp5 = request.getParameter("jpPrice");
+		String temp6 = request.getParameter("jpPopulationMin");
+		String temp7 = request.getParameter("jpPopulationMax");
+		String temp8 = request.getParameter("jpFreight");
 
 		HttpSession session = request.getSession();
 		JointPurchaseBean jpBean = new JointPurchaseBean();
@@ -56,6 +60,18 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 		}
 		if (temp3 == null || temp3.length() == 0) {
 			errors.put("miscViaWay", "雜費收取方式是必填欄位");
+		}
+		if (temp5 == null || temp5.length() == 0) {
+			errors.put("jpPrice", "合購價格是必填欄位");
+		}
+		if (temp6 == null || temp6.length() == 0) {
+			errors.put("jpPopulationMin", "最小購買量是必填欄位");
+		}
+		if (temp7 == null || temp7.length() == 0) {
+			errors.put("jpPopulationMax", "最大購買量是必填欄位");
+		}
+		if (temp8 == null || temp8.length() == 0) {
+			errors.put("jpFreight", "單位運費是必填欄位");
 		}
 
 		java.util.Date initDate = null;
@@ -84,7 +100,7 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 				miscViaWay = Integer.parseInt(temp3);
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
-				errors.put("id", "Id必須是整數");
+				errors.put("miscViaWay", "miscViaWay必須是整數");
 			}
 		}
 
@@ -95,6 +111,46 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 				errors.put("misc", "misc必須是整數");
+			}
+		}
+		
+		int jpPrice = 0;
+		if (temp5 != null && temp5.length() != 0) {
+			try {
+				jpPrice = Integer.parseInt(temp5);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+				errors.put("jpPrice", "jpPrice必須是整數");
+			}
+		}
+		
+		int jpPopulationMin = 0;
+		if (temp6 != null && temp6.length() != 0) {
+			try {
+				jpPopulationMin = Integer.parseInt(temp6);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+				errors.put("jpPopulationMin", "jpPopulationMin必須是整數");
+			}
+		}
+		
+		int jpPopulationMax = 0;
+		if (temp7 != null && temp7.length() != 0) {
+			try {
+				jpPopulationMax = Integer.parseInt(temp7);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+				errors.put("jpPopulationMax", "jpPopulationMax必須是整數");
+			}
+		}
+
+		int jpFreight = 0;
+		if (temp8 != null && temp8.length() != 0) {
+			try {
+				jpFreight = Integer.parseInt(temp8);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+				errors.put("jpPopulationMax", "jpPopulationMax必須是整數");
 			}
 		}
 
@@ -119,6 +175,10 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 		
 		JPDetailDAOjdbc dao2 = new JPDetailDAOjdbc();
 		jpDetailBean.setJpId(insert.getJpId());
+		jpDetailBean.setJpPrice(jpPrice);
+		jpDetailBean.setJpPopulationMin(jpPopulationMin);
+		jpDetailBean.setJpPopulationMax(jpPopulationMax);
+		jpDetailBean.setJpFreight(jpFreight);
 		dao2.insert(jpDetailBean);
 		
 		request.setAttribute("jpBean", insert);
