@@ -1,16 +1,10 @@
 package controller;
 
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.ZonedDateTime;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,13 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.EmailUtility;
-import model.JPDetailBean;
-import model.JointPurchaseBean;
 import model.MsgBean;
-import model.ProductBean;
 import model.dao.MsgDAOJdbc;
-import model.dao.ProductDAOjdbc;
  
 /**
  * A servlet that takes message details from user and send it as a new e-mail

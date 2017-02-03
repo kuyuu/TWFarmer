@@ -7,6 +7,7 @@ public class JointPurchaseBean implements Serializable {
 
 	int jpId;
 	int initId;
+	String jpName;
 	String jpIntro;
 	Date initDate;
 	Date endDate;
@@ -46,6 +47,14 @@ public class JointPurchaseBean implements Serializable {
 
 	public void setInitId(int initId) {
 		this.initId = initId;
+	}
+
+	public String getJpName() {
+		return jpName;
+	}
+
+	public void setJpName(String jpName) {
+		this.jpName = jpName;
 	}
 
 	public String getJpIntro() {

@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import hibernate.util.HibernateUtil;
-import model.JPFollowerBean;
 import model.JPFollowerDetailBean;
 import model.JPFollowerDetailDAO;
 

@@ -174,7 +174,7 @@ public class ProcessProductServlet extends HttpServlet {
 		int price = 0;
 		if (temp2 != null && temp2.length() != 0) {
 			try {
-				inventory = Integer.parseInt(temp2);
+				price = Integer.parseInt(temp2);
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 				errorMessage.put("price", "單位價格必須是整數");
@@ -309,12 +309,12 @@ public class ProcessProductServlet extends HttpServlet {
 		// productBean.setRemoveDate(removeDate);
 		// 商品狀態
 		productBean.setProductStatusId(2501);
-		// 最小件數
-		productDiscountBean.setMinThreshold(minThreshold);
-		// 最大件數
-		productDiscountBean.setMaxThreshold(maxThreshold);
-		// 折扣後價格
-		productDiscountBean.setDiscountPrice(discountPrice);
+		// // 最小件數
+		// productDiscountBean.setMinThreshold(minThreshold);
+		// // 最大件數
+		// productDiscountBean.setMaxThreshold(maxThreshold);
+		// // 折扣後價格
+		// productDiscountBean.setDiscountPrice(discountPrice);
 
 		// 商品介紹
 		if (productIntro != null && productIntro.length() != 0) {
@@ -329,7 +329,7 @@ public class ProcessProductServlet extends HttpServlet {
 		ProductDAOjdbc dao1 = new ProductDAOjdbc();
 		productBean = dao1.insert(productBean);
 		// 商品圖片(參考UploadFileServlet)
-		
+
 		/*
 		 * insert同時回傳含有流水號的Bean(productPicId) insert完後回傳的bean就會有流水號
 		 * 可以再從這個bean裡面拿出商品圖片編號
@@ -346,7 +346,7 @@ public class ProcessProductServlet extends HttpServlet {
 		ProductDiscountDAOjdbc dao3 = new ProductDiscountDAOjdbc();
 		productDiscountBean.setDiscountPrice(discountPrice);
 		productDiscountBean.setMaxThreshold(maxThreshold);
-		productDiscountBean.setMinThreshold(maxThreshold);
+		productDiscountBean.setMinThreshold(minThreshold);
 		productDiscountBean.setProductId(productBean.getProductId());
 		dao3.insert(productDiscountBean);
 
@@ -354,9 +354,9 @@ public class ProcessProductServlet extends HttpServlet {
 		request.setAttribute("productBean", productBean);
 		request.setAttribute("productPicBean", productPicBean);
 
-		// request.getRequestDispatcher("ProductInsertSuccess.jsp").forward(request,
-		// response);
-		response.sendRedirect("ProductInsertSuccess.jsp"); // 網址改為新網頁
+		request.getRequestDispatcher("ProductInsertSuccess.jsp").forward(request, response);
+		// 不能用=>這樣等於說client重新送出request  存的一堆productBean都沒了)  不然就要塞到session裡面  不能塞request
+		// response.sendRedirect("ProductInsertSuccess.jsp"); // 網址改為新網頁
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
