@@ -272,7 +272,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 		return false;
 	}
 	
-	private static final String SELECT_JPID_BY_SELLERID = "SELECT JPID FROM JPDetail join Product ON JPDetail.productId = Product.productId WHERE sellerId=?";
+	private static final String SELECT_JPID_BY_SELLERID = "SELECT JointPurchase.JPID FROM JPDetail JOIN Product ON JPDetail.productId = Product.productId JOIN JointPurchase ON JPDetail.JPID = JointPurchase.JPID WHERE sellerId=? AND JPStatusID = 4101";
 
 	public List<JointPurchaseBean> selectJpIdBySellerId(int sellerId) {
 		List<JointPurchaseBean> result = null;

@@ -93,7 +93,7 @@
 											<td>${row.key.jpId}</td>
 											<td>${row.value.productName}</td>
 											<td>${row.value.inventory}</td>
-											<td>${row.value.unitId}</td>
+											<td>${row.value.unit}</td>
 											<td>${row.value.price}</td>
 											<td>${row.key.jpPrice}</td>
 											<td>${row.key.jpPopulationMin}</td>
@@ -102,6 +102,12 @@
 									</c:forEach>
 								</tbody>
 							</table>
+						</div>
+						<div class="col-md-1 col-md-offset-4">
+							<button type="button" class="btn btn-danger" onclick="location.href='/TWFarmer/BackStage/FarmerCheckJPDetailServlet?jpId=${jpBean.jpId}&value=reject'">拒絕</button>
+						</div>
+						<div class="col-md-1 col-md-offset-1">
+							<button type="button" class="btn btn-primary" onclick="location.href='/TWFarmer/BackStage/FarmerCheckJPDetailServlet?jpId=${jpBean.jpId}&value=accept'">接受</button>
 						</div>
 					</div>
 				</div>

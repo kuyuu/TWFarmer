@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -12,40 +11,40 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.JointPurchaseBean;
-import model.ProductBean;
 import model.dao.JointPurchaseDAOjdbc;
-import model.dao.ProductDAOjdbc;
 
-@WebServlet("/BackStage/FarmerBackStageServlet")
-public class FarmerBackStageServlet extends HttpServlet {
+@WebServlet("/BackStage/FarmerCheckJPDetailServlet")
+public class FarmerCheckJPDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String temp = request.getParameter("memberId");
+		String temp = request.getParameter("jpId");
+		String value = request.getParameter("value");
+
 		Map<String, String> errors = new HashMap<String, String>();
 		request.setAttribute("errors", errors);
 
-		int memberId = 0;
+		int jpId = 0;
 		if (temp != null && temp.length() != 0) {
 			try {
-				memberId = Integer.parseInt(temp);
+				jpId = Integer.parseInt(temp);
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
-				errors.put("memberId", "Id必須是整數");
+				errors.put("jpId", "jpId必須是整數");
 			}
 		}
 		
-		ProductDAOjdbc dao1 = new ProductDAOjdbc();
-		List<ProductBean> list1 = dao1.selectBySellerId(memberId);
-		
-		JointPurchaseDAOjdbc dao2 = new JointPurchaseDAOjdbc();
-		List<JointPurchaseBean> list2 = dao2.selectJpIdBySellerId(memberId);
-		
-		request.setAttribute("productList", list1);
-		request.setAttribute("jpList", list2);
-		request.getRequestDispatcher("/BackStage/farmerCheckJP.jsp").forward(request, response);
-//		request.getRequestDispatcher("/BackStage/farmerManageProduct.jsp").forward(request, response);
+		JointPurchaseDAOjdbc dao = new JointPurchaseDAOjdbc();
+		JointPurchaseBean bean = dao.select(jpId);
+		if ("accept".equals(value)) {
+			bean.setJpStatusId(4102);
+			dao.update(bean);
+		} else if("reject".equals(value)) {
+			bean.setJpStatusId(4105);
+			dao.update(bean);
+		}
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
