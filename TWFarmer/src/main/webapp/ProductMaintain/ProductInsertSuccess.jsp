@@ -6,13 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
 	<h1>商品新增成功</h1>
 	<br>您的商品資料：
 	<br>
 	<center>
-		<table>
+		<table class="table">
 
 			<tr>
 				<td>商品編號:</td>
@@ -69,26 +71,29 @@
 				<td>${productBean.removeEstDate}</td>
 			</tr>
 
-			<tr>
-				<td>下架日期:</td>
-				<td>${productBean.removeDate}</td>
-			</tr>
+			<!-- 			<tr> -->
+			<!-- 				<td>下架日期:</td> -->
+			<%-- 				<td>${productBean.removeDate}</td> --%>
+			<!-- 			</tr> -->
 
 			<tr>
 				<td>商品狀態:</td>
-				<td>${productStatusBean.productStatusId}</td>
+				<td>${productStatusBean.productStatusName}</td>
 			</tr>
 
 			<tr>
 				<td>商品圖片及介紹：</td>
-				<td><c:forEach items="${productPicList}" var="row">
-
-						<img src="../img/${row.pictureName}" width="300" height="300" /></td>
-				<br>
-				商品圖片介紹:${row.pictureIntro}<br>
+				<c:forEach items="${productPicList}" var="row">
+					<td>商品圖片： <img src="../img/${row.pictureName}" width="100"
+						height="100" /><br>商品介紹：${row.pictureIntro}</td>
+<%-- 					<td>商品介紹：${row.pictureIntro}</td> --%>
+					<br>
 				</c:forEach>
 			</tr>
 		</table>
 	</center>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/scripts.js"></script>
 </body>
 </html>

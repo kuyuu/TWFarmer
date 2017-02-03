@@ -6,23 +6,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
 	<center>
 		<!-- 上傳圖片的form表單，要增加enctype="multipart/form-data" -->
 		<form action="<c:url value="ProcessProductServlet" />" method="POST"
 			enctype="multipart/form-data">
-			<table border="1">
+			<table class="table-bordered">
 				<thead>
 					<tr>
 						<th height="60" colspan="2" align="center">新增商品資料</th>
 					</tr>
 				</thead>
 				<tbody>
-<!-- 					<tr> -->
-<!-- 						<td>商品編號：<br>*商品資料填寫完會產生，無需填寫</td> -->
-<%-- 						<td>${productBean.productId}</td> --%>
-<!-- 					</tr> -->
+					<!-- 					<tr> -->
+					<!-- 						<td>商品編號：<br>*商品資料填寫完會產生，無需填寫</td> -->
+					<%-- 						<td>${productBean.productId}</td> --%>
+					<!-- 					</tr> -->
 
 					<tr>
 						<td>賣家ID：</td>
@@ -122,17 +124,22 @@
 						<td>商品下架才填</td>
 					</tr>
 
+					<tr>
+						<td>商品狀態：</td>
+						<td><select id='productStatusName' name="productStatusName">
+								<option value="2501">上架</option>
+								<option value="2502">下架</option>
+								<option value="2503">封鎖</option>
+						</select></td>
+
+					</tr>
+
 					<!-- 					<tr> -->
-					<!-- 						<td>商品狀態：</td> -->
+					<!-- 						<td>折扣編號：<br>*商品資料填寫完會產生，無需填寫 -->
+					<!-- 						</td> -->
+					<%-- 						<td>${productDiscountBean.discountId}</td> --%>
 
 					<!-- 					</tr> -->
-
-<!-- 					<tr> -->
-<!-- 						<td>折扣編號：<br>*商品資料填寫完會產生，無需填寫 -->
-<!-- 						</td> -->
-<%-- 						<td>${productDiscountBean.discountId}</td> --%>
-
-<!-- 					</tr> -->
 
 					<tr>
 						<td>最小件數：</td>
@@ -155,16 +162,16 @@
 							<div style="color: #FF0000; display: inline">${ErrorMsg.discountPrice}</div>
 					</tr>
 
-<!-- 					<tr> -->
-<!-- 						<td>商品圖片編號：<br>*商品資料填寫完會產生，無需填寫 -->
-<!-- 						</td> -->
-<%-- 						<td>圖片1：${productPicBean.productPicId}<br> --%>
-<%-- 						圖片2：${productPicBean.productPicId}<br> --%>
-<%-- 						圖片3：${productPicBean.productPicId}<br> --%>
-<%-- 						圖片4：${productPicBean.productPicId}<br> --%>
-<%-- 						圖片5：${productPicBean.productPicId}<br> --%>
-<!-- 						</td> -->
-<!-- 					</tr> -->
+					<!-- 					<tr> -->
+					<!-- 						<td>商品圖片編號：<br>*商品資料填寫完會產生，無需填寫 -->
+					<!-- 						</td> -->
+					<%-- 						<td>圖片1：${productPicBean.productPicId}<br> --%>
+					<%-- 						圖片2：${productPicBean.productPicId}<br> --%>
+					<%-- 						圖片3：${productPicBean.productPicId}<br> --%>
+					<%-- 						圖片4：${productPicBean.productPicId}<br> --%>
+					<%-- 						圖片5：${productPicBean.productPicId}<br> --%>
+					<!-- 						</td> -->
+					<!-- 					</tr> -->
 
 					<tr>
 						<td>商品圖片：</td>
@@ -198,5 +205,8 @@
 			</table>
 		</form>
 	</center>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/scripts.js"></script>
 </body>
 </html>

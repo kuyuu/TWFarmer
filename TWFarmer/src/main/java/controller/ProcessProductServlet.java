@@ -65,7 +65,7 @@ public class ProcessProductServlet extends HttpServlet {
 		String temp6 = request.getParameter("addDate");
 		String temp7 = request.getParameter("removeEstDate");
 		String temp8 = request.getParameter("removeDate");
-		// String productStatusId = request.getParameter("productStatusId");
+		String productStatusId = request.getParameter("productStatusName");
 		// String discountId = request.getParameter("discountId");
 		String temp9 = request.getParameter("minThreshold");
 		String temp10 = request.getParameter("maxThreshold");
@@ -138,10 +138,10 @@ public class ProcessProductServlet extends HttpServlet {
 		// errorMessage.put("removeDate", "下架日期是必填欄位");
 		// }
 
-		// if (productStatusId == null || productStatusId.trim().length() == 0)
-		// {
-		// errorMessage.put("productStatusId", "商品狀態是必填欄位");
-		// }
+		 if (productStatusId == null || productStatusId.trim().length() == 0)
+		 {
+		 errorMessage.put("productStatusId", "商品狀態是必填欄位");
+		 }
 
 		// if (discountId == null || discountId.trim().length() == 0) {
 		// errorMessage.put("discountId", "折扣編號是必填欄位");
