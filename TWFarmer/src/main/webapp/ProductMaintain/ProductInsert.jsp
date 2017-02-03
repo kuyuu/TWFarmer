@@ -19,11 +19,10 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>商品編號：<br>*商品資料填寫完會產生，無需填寫
-						</td>
-						<td>${productBean.productId}</td>
-					</tr>
+<!-- 					<tr> -->
+<!-- 						<td>商品編號：<br>*商品資料填寫完會產生，無需填寫</td> -->
+<%-- 						<td>${productBean.productId}</td> --%>
+<!-- 					</tr> -->
 
 					<tr>
 						<td>賣家ID：</td>
@@ -128,12 +127,12 @@
 
 					<!-- 					</tr> -->
 
-					<tr>
-						<td>折扣編號：<br>*商品資料填寫完會產生，無需填寫
-						</td>
-						<td>${productDiscountBean.discountId}</td>
+<!-- 					<tr> -->
+<!-- 						<td>折扣編號：<br>*商品資料填寫完會產生，無需填寫 -->
+<!-- 						</td> -->
+<%-- 						<td>${productDiscountBean.discountId}</td> --%>
 
-					</tr>
+<!-- 					</tr> -->
 
 					<tr>
 						<td>最小件數：</td>

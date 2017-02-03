@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,22 +8,87 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>商品新增成功</h1><br>
-您的商品資料：<br><br>
-商品編號:${productBean.productId}<br>
-產地:${productBean.origin}<br>
-商品名稱:${productBean.productName}<br>
-庫存:${productBean.inventory}<br>
-單位價格:${productBean.price}<br>
-單位編號:${productBean.unitId}<br>
-類別編號:${productBean.productTypeId}	<br>
-商品介紹:${productBean.productIntro}<br>
-運費:${productBean.freight}<br>
-上架日期:${productBean.addDate}<br>
-預估下架日期:${productBean.removeEstDate}<br>
-下架日期:${productBean.removeDate}<br>
-商品狀態:${productStatusBean.productStatusName}<br>
-商品圖片編號:${productPicBean.productPicId}<br>
-商品圖片介紹:${productPicBean.pictureIntro}<br>
+	<h1>商品新增成功</h1>
+	<br>您的商品資料：
+	<br>
+	<center>
+		<table>
+
+			<tr>
+				<td>商品編號:</td>
+				<td>${productBean.productId}</td>
+			</tr>
+
+			<tr>
+				<td>產地:</td>
+				<td>${productBean.origin}</td>
+			</tr>
+
+			<tr>
+				<td>商品名稱:</td>
+				<td>${productBean.productName}</td>
+			</tr>
+
+			<tr>
+				<td>庫存:</td>
+				<td>${productBean.inventory}</td>
+			</tr>
+
+			<tr>
+				<td>單位價格:</td>
+				<td>${productBean.price}</td>
+			</tr>
+
+			<tr>
+				<td>單位編號:</td>
+				<td>${productBean.unitId}</td>
+			</tr>
+
+			<tr>
+				<td>類別編號:</td>
+				<td>${productBean.productTypeId}</td>
+			</tr>
+
+			<tr>
+				<td>商品介紹:</td>
+				<td>${productBean.productIntro}</td>
+			</tr>
+
+			<tr>
+				<td>運費:</td>
+				<td>${productBean.freight}</td>
+			</tr>
+
+			<tr>
+				<td>上架日期:</td>
+				<td>${productBean.addDate}</td>
+			</tr>
+
+			<tr>
+				<td>預估下架日期:</td>
+				<td>${productBean.removeEstDate}</td>
+			</tr>
+
+			<tr>
+				<td>下架日期:</td>
+				<td>${productBean.removeDate}</td>
+			</tr>
+
+			<tr>
+				<td>商品狀態:</td>
+				<td>${productStatusBean.productStatusId}</td>
+			</tr>
+
+			<tr>
+				<td>商品圖片及介紹：</td>
+				<td><c:forEach items="${productPicList}" var="row">
+
+						<img src="../img/${row.pictureName}" width="300" height="300" /></td>
+				<br>
+				商品圖片介紹:${row.pictureIntro}<br>
+				</c:forEach>
+			</tr>
+		</table>
+	</center>
 </body>
 </html>
