@@ -83,6 +83,31 @@ public class ProductPicDAOJdbc implements ProductPicDAO {
 		}
 		return result;
 	}
+	
+	private static final String SELECT_PRODUCTID = "select * from ProductPic WHERE ProductID=?";
+
+	@Override
+	public List<ProductPicBean> selectByProductId(int productId) {
+		List<ProductPicBean> result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_PRODUCTID);
+				) {
+			stmt.setInt(1, productId);
+			ResultSet rset = stmt.executeQuery();
+			result = new ArrayList<ProductPicBean>();
+			while (rset.next()) {
+				ProductPicBean bean = new ProductPicBean();
+				bean.setProductPicId(rset.getInt("ProductPicID"));
+				bean.setProductId(rset.getInt("ProductId"));
+				bean.setPictureName(rset.getString("PictureName"));
+				bean.setPictureIntro(rset.getString("PictureIntro"));
+				result.add(bean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 
 	private static final String SELECT_ALL = "select * from ProductPic";
 

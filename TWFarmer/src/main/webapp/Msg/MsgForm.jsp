@@ -11,25 +11,30 @@
     <form action="<c:url value="MsgCreatingServlet"/>" method="POST"> 
         <table border="0" width="35%" align="center">
             <caption><h2>寄送站內訊息</h2></caption>
-            <tr>
+            <%-- <tr>
 				<td width="50%">寄件人：</td>
 				<td>${sessionScope.Msg.msgWriterId}</td>
 				<td></td>
-			</tr>
-            
+			</tr> --%>
+            <tr>
+                <td width="50%">寄件人 </td>
+                <td><input id='msgWriterId' value ="${param.msgWriterId}" type="text" name="msgWriterId" size="50"/>
+                <div style="color: #FF0000; display: inline"><center>${errors.msgWriterId}</center></div></td></tr>
+            <tr>
             <tr>
                 <td width="50%">收件人 </td>
                 <td><input id='msgReaderId' value ="${param.msgReaderId}" type="text" name="msgReaderId" size="50"/>
-                <div style="color: #FF0000; display: inline">${errors.msgReaderId}</div></td></tr>
+                <div style="color: #FF0000; display: inline"><center>${errors.msgReaderId}</center></div></td></tr>
             <tr>
                 <td>標題 </td>
                 <td><input id='msgTitle' value="${param.msgTitle}" type="text" name="msgTitle" size="50"/>
-                <div style="color: #FF0000; display: inline">${errors.msgTitle}</div></td>
+                <div style="color: #FF0000; display: inline"><center>${errors.msgTitle}</center></div></td>
             </tr>
             <tr>
                 <td>內文 </td>
-                <td><textarea rows="10" cols="39" name="msgContent">${param.msgContent}</textarea>
-                <div style="color: #FF0000; display: inline">${errors.msgContent}</div></td>
+                <td><textarea rows="10" cols="40" name="msgContent">${param.msgContent}</textarea>
+                <div style="color: #FF0000; display: inline"><center>${errors.msgContent}</center>
+                </div></td>
             </tr>
             <tr>
                 <td colspan="2" align="center"><input type="submit" value="送出"/></td>
