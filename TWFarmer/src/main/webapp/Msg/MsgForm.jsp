@@ -28,8 +28,9 @@
             </tr>
             <tr>
                 <td>內文 </td>
-                <td><textarea rows="10" cols="39" name="msgContent">${param.msgContent}</textarea>
-                <div style="color: #FF0000; display: inline">${errors.msgContent}</div></td>
+                <td><textarea rows="10" cols="40" name="msgContent">${param.msgContent}</textarea>
+                <div style="color: #FF0000; display: inline"><center>${errors.msgContent}</center>
+                </div></td>
             </tr>
             <tr>
                 <td colspan="2" align="center"><input type="submit" value="送出"/></td>

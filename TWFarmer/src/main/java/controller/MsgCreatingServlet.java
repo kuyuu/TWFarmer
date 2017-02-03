@@ -43,8 +43,9 @@ public class MsgCreatingServlet extends HttpServlet {
             HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		MsgBean msgBean = new MsgBean();
-		 // reads form per writer's input: Reader, Title and Content
+//mstWriterId 寄件人需要Session Scope技術 (Servlet / JSP II ch8)才能從網站取得，所以先寫死~
+		
+		
 		String temp1 = request.getParameter("msgReaderId");
 		String temp2 = request.getParameter("msgTitle");
 		String temp3 = request.getParameter("msgContent");		
@@ -53,33 +54,36 @@ public class MsgCreatingServlet extends HttpServlet {
 		request.setAttribute("errors", errors);
 		
 		
-
-		msgBean = (MsgBean) session.getAttribute("Msg");
-		System.out.println(msgBean.getMsgWriterId());
-		int msgReaderId = 0;
-		if (temp1 != null && temp1.length() != 0) {
+		
+		/*if (temp1 != null && temp1.length() != 0) {
 			try {
-				msgReaderId = Integer.parseInt(temp1);
+				memberId = Integer.parseInt(temp1);
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
-				errors.put("msgReaderId", "信不能寄給神，總要有人讀吧 ಠ皿ಠ");
+				errors.put("msgReaderId", "msgReaderId必須是整數");
 			}
+		}*/
+		if (temp1 == null || temp1.length() == 0) {
+			
+				errors.put("msgReaderId", "信總要有人讀吧 ಠ皿ಠ");	
 		}
 
 		if (temp2 == null || temp2.length() == 0) {
 			errors.put("msgTitle", "標題不會自己想??༼ ͠ຈ Ĺ̯ ͠ຈ ༽┌");
 		}
 		if (temp3 == null || temp3.length() == 0) {
-			errors.put("msgContent", "無字天書不是這樣寫的，打點東西吧 ಠ⌣ಠ");
+			errors.put("msgContent", "無字天書，打點東西吧 ಠ⌣ಠ");
 		}
 		
 		if(errors!=null && !errors.isEmpty()) {
 			request.getRequestDispatcher(
-					"error.jsp").forward(request, response);
+					"MsgForm.jsp").forward(request, response);
 			return;
 		}
 
+    MsgBean msgBean = new MsgBean();
     
+		
 	java.util.Date dateObj = msgBean.getMsgTime();
 
 	       // Setting the user's ID as Writer ID and the system time on his/her computer as Message Time
@@ -89,8 +93,10 @@ public class MsgCreatingServlet extends HttpServlet {
 			MsgDAOJdbc daom = new MsgDAOJdbc();
 			msgBean = daom.insert(msgBean);
 		
-
-			request.getRequestDispatcher("/MsgFormSuccess.jsp").forward(request, response);
+			
+			//System.out.println(System.currentTimeMillis());
+			
+			request.getRequestDispatcher("MsgFormSuccess.jsp").forward(request, response);
 			//response.sendRedirect("/MsgFormSuccess.jsp");
 			
 	}
