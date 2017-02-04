@@ -70,7 +70,7 @@ CREATE TABLE Product(
 	Price int,
 	Unit varchar(10),
 	ProductTypeID int REFERENCES ProductType(ProductTypeID),
-	ProductIntro nvarchar(600),
+	ProductIntro varchar(600),
 	Freight int,
 	AddDate datetime,
 	RemoveEstDate datetime,
@@ -297,7 +297,7 @@ INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
 	VALUES ('Z000000005', 1011, '米小鼠南投田園農莊');
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
-	VALUES ('Z000000005', 1012, '花蓮吉安凱蒂貓觀光果園');
+	VALUES ('Z000000006', 1012, '花蓮吉安凱蒂貓觀光果園');
 
 --ProductType
 INSERT INTO ProductType (Type) VALUES ('仁果類');
@@ -329,7 +329,7 @@ INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, Prod
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
 	VALUES (1010, 'D', 'D', 100, 600, '箱', 2102, 'D', 100, '2016-06-05', '2016-07-25', 2502);
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
-	VALUES (1012, '花蓮縣吉安鄉', '白柚', 0, 30, '斤', 2105, '快來搶購今年最後的柚子喔，最少10斤出貨!!', 10, '2016-08-18', '2016-11-31', 2502);
+	VALUES (1012, '花蓮縣吉安鄉', '白柚', 0, 30, '斤', 2105, '快來搶購今年最後的柚子喔，最少10斤出貨!!', 10, '2016-08-18', '2016-11-30', 2502);
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 
 	VALUES (1011, '南投縣魚池鄉', '花椰菜', 60, 350, '箱', 2109, '好吃便宜花椰菜，10斤裝', 80, '2016-12-05', '2017-05-25', 2501);
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusID) 

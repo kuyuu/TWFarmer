@@ -17,7 +17,7 @@ import model.JointPurchaseDAO;
 import model.dao.JPDetailDAOjdbc;
 import model.dao.JointPurchaseDAOjdbc;
 
-@WebServlet("/JointPurchase/NewJointPurchaseServlet")
+@WebServlet(urlPatterns="/JointPurchase/NewJointPurchaseServlet")
 public class NewJointPurchaseServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
