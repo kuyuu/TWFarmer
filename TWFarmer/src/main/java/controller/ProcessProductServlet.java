@@ -22,7 +22,6 @@ import model.ProductDiscountBean;
 import model.ProductPicBean;
 import model.ProductPicService;
 import model.ProductStatusBean;
-import model.ProductTypeBean;
 import model.dao.ProductDAOjdbc;
 import model.dao.ProductDiscountDAOjdbc;
 import model.dao.ProductPicDAOJdbc;
@@ -48,7 +47,6 @@ public class ProcessProductServlet extends HttpServlet {
 		// UnitBean unitBean = new UnitBean();
 
 		ProductDiscountBean productDiscountBean = new ProductDiscountBean();
-		// ProductStatusBean productStatusBean = new ProductStatusBean();
 
 		// 1.讀取使用者輸入的資料============================================
 		String origin = request.getParameter("origin");
@@ -57,15 +55,15 @@ public class ProcessProductServlet extends HttpServlet {
 		String temp2 = request.getParameter("price");
 
 		String unit = request.getParameter("unit");
-//		String temp3 = request.getParameter("unitName");
-//		System.out.println(temp3);
+		// String temp3 = request.getParameter("unitName");
+		// System.out.println(temp3);
 		String temp4 = request.getParameter("type");
 		String productIntro = request.getParameter("productIntro");
 		String temp5 = request.getParameter("freight");
 		String temp6 = request.getParameter("addDate");
 		String temp7 = request.getParameter("removeEstDate");
 		String temp8 = request.getParameter("removeDate");
-		String productStatusId = request.getParameter("productStatusName");
+		String productStatusName = request.getParameter("productStatusName");
 		// String discountId = request.getParameter("discountId");
 		String temp9 = request.getParameter("minThreshold");
 		String temp10 = request.getParameter("maxThreshold");
@@ -138,10 +136,9 @@ public class ProcessProductServlet extends HttpServlet {
 		// errorMessage.put("removeDate", "下架日期是必填欄位");
 		// }
 
-		 if (productStatusId == null || productStatusId.trim().length() == 0)
-		 {
-		 errorMessage.put("productStatusId", "商品狀態是必填欄位");
-		 }
+		if (productStatusName == null || productStatusName.trim().length() == 0) {
+			errorMessage.put("productStatusName", "商品狀態是必填欄位");
+		}
 
 		// if (discountId == null || discountId.trim().length() == 0) {
 		// errorMessage.put("discountId", "折扣編號是必填欄位");
@@ -317,12 +314,12 @@ public class ProcessProductServlet extends HttpServlet {
 		// 下架日期
 		// productBean.setRemoveDate(removeDate);
 		// 商品狀態
-		productBean.setProductStatusId(2501);
-		// // 最小件數
+		productBean.setProductStatusName(productStatusName);
+		// 最小件數
 		// productDiscountBean.setMinThreshold(minThreshold);
-		// // 最大件數
+		// 最大件數
 		// productDiscountBean.setMaxThreshold(maxThreshold);
-		// // 折扣後價格
+		// 折扣後價格
 		// productDiscountBean.setDiscountPrice(discountPrice);
 
 		// 商品介紹
@@ -348,26 +345,26 @@ public class ProcessProductServlet extends HttpServlet {
 		// if (productIntro != null && productIntro.length() != 0) {
 
 		// } // 商品圖片介紹
-		if (part != null) {
-			productPicBean.setPictureIntro(pictureIntro1);
-			ProductPicService.uploadPic(productPicBean, part);
-		}
-		if (part2 != null) {
-			productPicBean.setPictureIntro(pictureIntro2);
-			ProductPicService.uploadPic(productPicBean, part2);
-		}
-		if (part3 != null) {
-			productPicBean.setPictureIntro(pictureIntro3);
-			ProductPicService.uploadPic(productPicBean, part3);
-		}
-		if (part4 != null) {
-			productPicBean.setPictureIntro(pictureIntro4);
-			ProductPicService.uploadPic(productPicBean, part4);
-		}
-		if (part5 != null) {
-			productPicBean.setPictureIntro(pictureIntro5);
-			ProductPicService.uploadPic(productPicBean, part5);
-		}
+		if (part.getSize() != 0) {
+			   productPicBean.setPictureIntro(pictureIntro1);
+			   ProductPicService.uploadPic(productPicBean, part);
+			  }
+		if (part2.getSize() != 0) {
+			   productPicBean.setPictureIntro(pictureIntro2);
+			   ProductPicService.uploadPic(productPicBean, part2);
+			  }
+		if (part3.getSize() != 0) {
+			   productPicBean.setPictureIntro(pictureIntro3);
+			   ProductPicService.uploadPic(productPicBean, part3);
+			  }
+		if (part4.getSize() != 0) {
+			   productPicBean.setPictureIntro(pictureIntro4);
+			   ProductPicService.uploadPic(productPicBean, part4);
+			  }
+		if (part5.getSize() != 0) {
+			   productPicBean.setPictureIntro(pictureIntro5);
+			   ProductPicService.uploadPic(productPicBean, part5);
+			  }
 		ProductPicDAOJdbc dao2 = new ProductPicDAOJdbc();
 		List<ProductPicBean> list = dao2.selectByProductId(productBean.getProductId());
 

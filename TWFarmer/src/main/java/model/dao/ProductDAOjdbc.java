@@ -34,8 +34,8 @@ public class ProductDAOjdbc implements ProductDAO {
 		ProductDAO dao = new ProductDAOjdbc();
 
 		// select all OK
-		// List<ProductBean> beans= dao.select();
-		// System.out.println("bean="+beans);
+//		 List<ProductBean> beans= dao.select();
+//		 System.out.println("bean="+beans);
 
 		// 查詢單筆 OK
 		// ProductBean productBean3 = dao.select(2001);
@@ -51,7 +51,7 @@ public class ProductDAOjdbc implements ProductDAO {
 		// System.out.print(productBean3.getAddDate() + ",");
 		// System.out.print(productBean3.getRemoveEstDate() + ",");
 		// System.out.print(productBean3.getRemoveDate() + ",");
-		// System.out.println(productBean3.getProductStatusId() );
+		// System.out.println(productBean3.getProductStatusName() );
 
 		// 新增 OK
 		// ProductBean productBean1 = new ProductBean();
@@ -67,7 +67,7 @@ public class ProductDAOjdbc implements ProductDAO {
 		// productBean1.setAddDate(java.sql.Date.valueOf("2016-06-05"));
 		// productBean1.setRemoveEstDate(java.sql.Date.valueOf("2016-06-05"));
 		// productBean1.setRemoveDate(java.sql.Date.valueOf("2016-06-05"));
-		// productBean1.setProductStatusId(2501);
+		// productBean1.setProductStatusName("上架");
 		//
 		// ProductBean q = dao.insert(productBean1);
 		// System.out.println(q);
@@ -87,7 +87,7 @@ public class ProductDAOjdbc implements ProductDAO {
 		// productBean2.setAddDate(java.sql.Date.valueOf("2016-06-05"));
 		// productBean2.setRemoveEstDate(java.sql.Date.valueOf("2016-06-05"));
 		// productBean2.setRemoveDate(java.sql.Date.valueOf("2016-06-05"));
-		// productBean2.setProductStatusId(2502);
+		// productBean2.setProductStatusName("下架");
 		// dao.update(productBean2);
 		// System.out.println(productBean2);
 
@@ -124,11 +124,11 @@ public class ProductDAOjdbc implements ProductDAO {
 				result.setAddDate(rset.getDate("addDate"));
 				result.setRemoveEstDate(rset.getDate("removeEstDate"));
 				result.setRemoveDate(rset.getDate("removeDate"));
-				result.setProductStatusId(rset.getInt("productStatusId"));
+//				result.setProductStatusId(rset.getInt("productStatusId"));
 				result.setAddDate(rset.getDate("addDate"));
 				result.setRemoveEstDate(rset.getDate("removeEstDate"));
 				result.setRemoveDate(rset.getDate("removeDate"));
-				result.setProductStatusId(rset.getInt("productStatusId"));
+				result.setProductStatusName(rset.getString("productStatusName"));
 
 			}
 		} catch (SQLException e) {
@@ -171,11 +171,11 @@ public class ProductDAOjdbc implements ProductDAO {
 				productBean.setAddDate(rset.getDate("addDate"));
 				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
 				productBean.setRemoveDate(rset.getDate("removeDate"));
-				productBean.setProductStatusId(rset.getInt("productStatusId"));
+//				productBean.setProductStatusId(rset.getInt("productStatusId"));
 				productBean.setAddDate(rset.getDate("addDate"));
 				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
 				productBean.setRemoveDate(rset.getDate("removeDate"));
-				productBean.setProductStatusId(rset.getInt("productStatusId"));
+				productBean.setProductStatusName(rset.getString("productStatusName"));
 
 				result.add(productBean);
 				
@@ -212,11 +212,11 @@ public class ProductDAOjdbc implements ProductDAO {
 				productBean.setAddDate(rset.getDate("addDate"));
 				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
 				productBean.setRemoveDate(rset.getDate("removeDate"));
-				productBean.setProductStatusId(rset.getInt("productStatusId"));
+//				productBean.setProductStatusId(rset.getInt("productStatusId"));
 				productBean.setAddDate(rset.getDate("addDate"));
 				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
 				productBean.setRemoveDate(rset.getDate("removeDate"));
-				productBean.setProductStatusId(rset.getInt("productStatusId"));
+				productBean.setProductStatusName(rset.getString("productStatusName"));
 
 				result.add(productBean);
 				
@@ -251,11 +251,11 @@ public class ProductDAOjdbc implements ProductDAO {
 				productBean.setAddDate(rset.getDate("addDate"));
 				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
 				productBean.setRemoveDate(rset.getDate("removeDate"));
-				productBean.setProductStatusId(rset.getInt("productStatusId"));
+//				productBean.setProductStatusId(rset.getInt("productStatusId"));
 				productBean.setAddDate(rset.getDate("addDate"));
 				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
 				productBean.setRemoveDate(rset.getDate("removeDate"));
-				productBean.setProductStatusId(rset.getInt("productStatusId"));
+				productBean.setProductStatusName(rset.getString("productStatusName"));
 
 				result.add(productBean);
 			}
@@ -291,11 +291,11 @@ public class ProductDAOjdbc implements ProductDAO {
 				productBean.setAddDate(rset.getDate("addDate"));
 				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
 				productBean.setRemoveDate(rset.getDate("removeDate"));
-				productBean.setProductStatusId(rset.getInt("productStatusId"));
+//				productBean.setProductStatusId(rset.getInt("productStatusId"));
 				productBean.setAddDate(rset.getDate("addDate"));
 				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
 				productBean.setRemoveDate(rset.getDate("removeDate"));
-				productBean.setProductStatusId(rset.getInt("productStatusId"));
+				productBean.setProductStatusName(rset.getString("productStatusName"));
 				
 				jpdBean.setJpId(rset.getInt("JpID"));
 				jpdBean.setProductId(rset.getInt("ProductID"));
@@ -338,11 +338,11 @@ public class ProductDAOjdbc implements ProductDAO {
 				productBean.setAddDate(rset.getDate("addDate"));
 				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
 				productBean.setRemoveDate(rset.getDate("removeDate"));
-				productBean.setProductStatusId(rset.getInt("productStatusId"));
+//				productBean.setProductStatusId(rset.getInt("productStatusId"));
 				productBean.setAddDate(rset.getDate("addDate"));
 				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
 				productBean.setRemoveDate(rset.getDate("removeDate"));
-				productBean.setProductStatusId(rset.getInt("productStatusId"));
+				productBean.setProductStatusName(rset.getString("productStatusName"));
 
 				result.add(productBean);
 			}
@@ -352,7 +352,7 @@ public class ProductDAOjdbc implements ProductDAO {
 		return result;
 	}
 
-	private static final String INSERT = "insert into Product (sellerId,origin,productName,inventory,price,unit,productTypeId,productIntro,freight,addDate,removeEstDate,removeDate,productStatusId) output inserted.productid values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+	private static final String INSERT = "insert into Product (sellerId,origin,productName,inventory,price,unit,productTypeId,productIntro,freight,addDate,removeEstDate,removeDate,productStatusName) output inserted.productid values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 	@Override
 	public ProductBean insert(ProductBean bean) {
@@ -397,7 +397,8 @@ public class ProductDAOjdbc implements ProductDAO {
 					stmt.setDate(12, null);
 				}
 				System.out.println(INSERT);
-				stmt.setInt(13, bean.getProductStatusId());
+//				stmt.setInt(13, bean.getProductStatusId());
+				stmt.setString(13, bean.getProductStatusName());
 				// 新增===========
 				ResultSet rs = stmt.executeQuery();
 				if (rs.next()) {
@@ -406,10 +407,10 @@ public class ProductDAOjdbc implements ProductDAO {
 				}
 				// 新增===========
 
-				// int i = stmt.executeUpdate();
-				// if (i == 1) {
-				// result = bean;
-				// }
+				 int i = stmt.executeUpdate();
+				 if (i == 1) {
+				 result = bean;
+				 }
 
 			}
 
@@ -420,7 +421,7 @@ public class ProductDAOjdbc implements ProductDAO {
 		return result;
 	}
 
-	private static final String UPDATE = "update Product set sellerId=?, origin=?, productName=?, inventory=?, price=?, unit=?, productTypeId=?, productIntro=?, freight=?, addDate=?, removeEstDate=?, removeDate=?, productStatusId=? where productId=?";
+	private static final String UPDATE = "update Product set sellerId=?, origin=?, productName=?, inventory=?, price=?, unit=?, productTypeId=?, productIntro=?, freight=?, addDate=?, removeEstDate=?, removeDate=?, productStatusName=? where productId=?";
 
 	@Override
 	public ProductBean update(ProductBean bean) {
@@ -462,7 +463,8 @@ public class ProductDAOjdbc implements ProductDAO {
 				stmt.setDate(12, null);
 			}
 			// System.out.println(INSERT);
-			stmt.setInt(13, bean.getProductStatusId());
+//			stmt.setInt(13, bean.getProductStatusId());
+			stmt.setString(13, bean.getProductStatusName());
 			stmt.setInt(14, bean.getProductId());
 
 			int i = stmt.executeUpdate();

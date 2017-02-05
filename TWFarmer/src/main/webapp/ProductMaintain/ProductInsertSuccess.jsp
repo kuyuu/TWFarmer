@@ -78,7 +78,7 @@
 
 			<tr>
 				<td>商品狀態:</td>
-				<td>${productStatusBean.productStatusName}</td>
+				<td>${productBean.productStatusName}</td>
 			</tr>
 
 			<tr>

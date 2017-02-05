@@ -14,8 +14,8 @@ java.util.List<model.ProductBean> list = dao.select();
 model.dao.ProductDiscountDAOjdbc dao2 = new model.dao.ProductDiscountDAOjdbc();
 java.util.List<model.ProductDiscountBean> list2 = dao2.select();
 
-model.dao.ProductStatusDAOjdbc dao3 = new model.dao.ProductStatusDAOjdbc();
-java.util.List<model.ProductStatusBean> list3 = dao3.select();
+// model.dao.ProductStatusDAOjdbc dao3 = new model.dao.ProductStatusDAOjdbc();
+// java.util.List<model.ProductStatusBean> list3 = dao3.select();
 
 model.dao.ProductTypeDAOjdbc dao4 = new model.dao.ProductTypeDAOjdbc();
 java.util.List<model.ProductTypeBean> list4 = dao4.select();
@@ -26,7 +26,7 @@ java.util.List<model.ProductBean> list5 = dao5.selectByType(2105);
 
 <h1><%=list %></h1>
 <h1><%=list2 %></h1>
-<h1><%=list3 %></h1>
+<%-- <h1><%=list3 %></h1> --%>
 <h1><%=list4 %></h1>
 <h1><%=list5 %></h1>
 

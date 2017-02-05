@@ -127,9 +127,9 @@
 					<tr>
 						<td>商品狀態：</td>
 						<td><select id='productStatusName' name="productStatusName">
-								<option value="2501">上架</option>
-								<option value="2502">下架</option>
-								<option value="2503">封鎖</option>
+								<option>上架</option>
+								<option>下架</option>
+								<option>封鎖</option>
 						</select></td>
 
 					</tr>

@@ -17,7 +17,8 @@ public class ProductBean {
 	private java.util.Date addDate;
 	private java.util.Date removeEstDate;
 	private java.util.Date removeDate;
-	private int productStatusId;
+//	private int productStatusId;
+	private String productStatusName;
 	private static SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd");
 	
 	@Override
@@ -34,7 +35,7 @@ public class ProductBean {
 		return "{"+productId+":"+sellerId+":"+origin+":"+productName+":"+inventory+
 				":"+price+":"+unit+":"+productTypeId+":"+productIntro+":"+freight+":"+addDate+":"+removeEstDate+""
 						+ ":"+removeDate+""
-								+  ":"+productStatusId+"}";
+								+  ":"+productStatusName+"}";
 	}
 	
 	
@@ -142,17 +143,22 @@ public class ProductBean {
 		this.removeDate = removeDate;
 	}
 
-	public int getProductStatusId() {
-		return productStatusId;
+
+	public String getProductStatusName() {
+		return productStatusName;
 	}
 
-	public void setProductStatusId(int productStatusId) {
-		this.productStatusId = productStatusId;
+
+	public void setProductStatusName(String productStatusName) {
+		this.productStatusName = productStatusName;
 	}
 
-	
-	
-	
+//	public int getProductStatusId() {
+//		return productStatusId;
+//	}
+//
+//	public void setProductStatusId(int productStatusId) {
+//		this.productStatusId = productStatusId;
+//	}
 
-	
 }
