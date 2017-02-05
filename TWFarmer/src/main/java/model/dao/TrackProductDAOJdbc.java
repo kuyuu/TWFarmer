@@ -23,12 +23,12 @@ import model.TrackProductDAO;
 public class TrackProductDAOJdbc implements TrackProductDAO {
 	DataSource dataSource;
 	 public TrackProductDAOJdbc() {
-	 try {
-	 Context ctx = new InitialContext();
-	 dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
-	 } catch (NamingException e) {
-	 e.printStackTrace();
-	 }
+		 try {
+			 Context ctx = new InitialContext();
+			 dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+		 } catch (NamingException e) {
+			 e.printStackTrace();
+		 }
 	 }
 
 //	public static void main(String[] args) {

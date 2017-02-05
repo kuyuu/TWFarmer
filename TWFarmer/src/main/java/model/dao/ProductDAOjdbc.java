@@ -405,12 +405,6 @@ public class ProductDAOjdbc implements ProductDAO {
 					result = new ProductBean();
 					result = select(rs.getInt("ProductID"));
 				}
-				// 新增===========
-
-				 int i = stmt.executeUpdate();
-				 if (i == 1) {
-				 result = bean;
-				 }
 
 			}
 
