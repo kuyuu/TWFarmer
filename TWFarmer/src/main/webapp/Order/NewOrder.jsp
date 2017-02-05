@@ -37,18 +37,46 @@
  				<td width="50%">買家：</td>
 				<td>${sessionScope.Order.BuyerId}</td>
 				<td></td>
-			</tr>   --%>         
+			</tr>           
 					 <tr>
 				<td width="50%">賣家編號：</td>
 				<td><input id='sellerId' value="${param.sellerId}" type="text" name="sellerId" size="50"/>
 				<div style="color:#FF0000; display:inline">${errors.sellerId}</div>
 				</td>
-				<td></td>
 			</tr>	
+			 --%>
 					 <tr>
 				<td width="50%">買家編號：</td>
 				<td><input id='buyerId' value="${param.buyerId}" type="text" name="buyerId" size="50"/>
 				<div style="color:#FF0000; display:inline">${errors.buyerId}</div>
+				</td>
+				<td></td>
+			</tr>	
+			<tr>
+			
+			<td width="50%">購買商品 ${test}</td>
+			<td>
+			<select name="selectedProduct" value="${param.selectedProduct}">
+      <c:forEach items="${products}" var="product">
+      	<option value="${product.productId}">${product.productName}</option>
+      </c:forEach>
+   </select>
+		
+		<!--	
+			<select name="selectedProduct" value="${param.selectedProduct}">
+      <option>Small0</option>
+      <option>Small1</option>
+      <option>Small2</option>
+   </select>
+   -->
+   </td>
+   <td></td>
+   </tr>
+			
+			 <tr>
+				<td width="50%">數量：</td>
+				<td><input id='amount' value="${param.amount}" type="text" name="amount" size="50"/>
+				<div style="color:#FF0000; display:inline">${errors.amount}</div>
 				</td>
 				<td></td>
 			</tr>	
@@ -59,7 +87,8 @@
 				<div style="color:#FF0000; display:inline">${errors.totalFreight}</div>
 				</td>
 				<td></td>
-			</tr>		
+			</tr>	
+			<!-- 
     		<tr>
 				<td width="50%">總金額：</td>
 				<td><input id='totalPrice' value="${param.totalPrice}" type="text" name="totalPrice" size="50"/>
@@ -67,6 +96,7 @@
 				</td>
 				<td></td>
 			</tr>	
+			-->
 			 <tr>
 				<td width="50%">訂購日期：</td>
 				<td><input id='orderDate' value="${param.orderDate}" type="text" name="orderDate" size="50"/>

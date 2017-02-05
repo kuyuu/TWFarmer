@@ -16,5 +16,6 @@
 標題:${msgBean.msgTitle}<br>
 內文:${msgBean.msgContent}<br>
 
+寄送時間:${msgBean.msgTime}<br>
 </body>
 </html>

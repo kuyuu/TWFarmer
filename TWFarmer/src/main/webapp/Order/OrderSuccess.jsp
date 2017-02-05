@@ -23,6 +23,6 @@
 訂單狀態:${ordersBean.orderStatusId}<br>
 買家評分:${ordersBean.ratingBuyer}<br>
 賣家評分:${ordersBean.ratingSeller}<br>
-
+Test: ${test}<br>
 </body>
 </html>
