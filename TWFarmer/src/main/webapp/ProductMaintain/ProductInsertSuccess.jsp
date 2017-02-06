@@ -47,8 +47,8 @@
 			</tr>
 
 			<tr>
-				<td>類別編號:</td>
-				<td>${productBean.productTypeId}</td>
+				<td>類別:</td>
+				<td>${productBean.productTypeName}</td>
 			</tr>
 
 			<tr>

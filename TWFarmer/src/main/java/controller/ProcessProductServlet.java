@@ -57,7 +57,7 @@ public class ProcessProductServlet extends HttpServlet {
 		String unit = request.getParameter("unit");
 		// String temp3 = request.getParameter("unitName");
 		// System.out.println(temp3);
-		String temp4 = request.getParameter("type");
+		String productTypeName = request.getParameter("productTypeName");
 		String productIntro = request.getParameter("productIntro");
 		String temp5 = request.getParameter("freight");
 		String temp6 = request.getParameter("addDate");
@@ -112,8 +112,8 @@ public class ProcessProductServlet extends HttpServlet {
 			errorMessage.put("unit", "單位是必填欄位");
 		}
 
-		if (temp4 == null || temp4.trim().length() == 0) {
-			errorMessage.put("type", "類別是必填欄位");
+		if (productTypeName == null || productTypeName.trim().length() == 0) {
+			errorMessage.put("productTypeName", "類別是必填欄位");
 		}
 
 		if (productIntro == null || productIntro.trim().length() == 0) {
@@ -199,15 +199,15 @@ public class ProcessProductServlet extends HttpServlet {
 		// }
 		// }
 
-		int type = 0;
-		if (temp4 != null && temp4.length() != 0) {
-			try {
-				type = Integer.parseInt(temp4);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-				errorMessage.put("type", "類別必須是整數");
-			}
-		}
+//		int type = 0;
+//		if (temp4 != null && temp4.length() != 0) {
+//			try {
+//				type = Integer.parseInt(temp4);
+//			} catch (NumberFormatException e) {
+//				e.printStackTrace();
+//				errorMessage.put("type", "類別必須是整數");
+//			}
+//		}
 
 		int freight = 0;
 		if (temp5 != null && temp5.length() != 0) {
@@ -304,7 +304,7 @@ public class ProcessProductServlet extends HttpServlet {
 		// 單位
 		productBean.setUnit(unit);
 		// 類別
-		productBean.setProductTypeId(type);
+		productBean.setProductTypeName(productTypeName);
 		// 運費
 		productBean.setFreight(freight);
 		// 上架日期
