@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>寄信成功！</title>
+<title>臺灣小農 - 購買蔬果</title>
 <meta name="description"
 	content="Source code generated using layoutit.com">
 <meta name="author" content="LayoutIt!">
@@ -62,7 +62,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#">註冊</a></li>
 						<li><a href="#">登入</a></li>
-						<li><a href="/TWFarmer/Msg/MsgForm.jsp">站內信</a></li>
+						<li><a href="/TWFarmer/Msg/MsgHome.jsp">站內信</a></li>
 					</ul>
 					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
@@ -75,28 +75,22 @@
 				</nav>
 				<div class="row">
 					<div class="col-md-2"></div>
-					<div class="col-md-8">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="list-group">
+									<a href="/TWFarmer/Order/NewOrder.jsp"class="list-group-item">直接下單</a> 
+									<a href="/TWFarmer/JointPurchase/newJp.jsp" class="list-group-item">發起合購</a>
+									<a href="/TWFarmer/Order/ReportVio.jsp"class="list-group-item">檢舉違規</a>
+									
 
-						<form>
-							<h1>站內信順利寄出</h1>
-							<br> 以下是您的訊息內容：<br>
-							<br> 信件流水號:${msgBean.msgId}<br>
-							寄件者:${msgBean.msgWriterId}<br> 收件者:${msgBean.msgReaderId}<br>
-							寄送時間：${msgBean.msgTime}<br>
-							<br> 標題:${msgBean.msgTitle}<br>
-							內文:${msgBean.msgContent}<br>
-						</form>
-
-
+							</div>
+						</div>
+						<div class="col-md-2"></div>
 					</div>
-					<div class="col-md-2"></div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- 上方選單 End -->
-
-
+		<!-- 上方選單 End -->
 </body>
 </html>
 

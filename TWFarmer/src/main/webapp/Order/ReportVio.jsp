@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>寄信成功！</title>
+<title>臺灣小農 - 檢舉違規</title>
 <meta name="description"
 	content="Source code generated using layoutit.com">
 <meta name="author" content="LayoutIt!">
@@ -17,7 +17,7 @@
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-
+  
 <!--   Date Picker for Ship Date
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -32,11 +32,11 @@
   } );
   </script>
    -->
-
-
+  	
+	
 </head>
 <body>
-	<!-- 上方選單start -->
+<!-- 上方選單start -->
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
@@ -77,16 +77,22 @@
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
 
-						<form>
-							<h1>站內信順利寄出</h1>
-							<br> 以下是您的訊息內容：<br>
-							<br> 信件流水號:${msgBean.msgId}<br>
-							寄件者:${msgBean.msgWriterId}<br> 收件者:${msgBean.msgReaderId}<br>
-							寄送時間：${msgBean.msgTime}<br>
-							<br> 標題:${msgBean.msgTitle}<br>
-							內文:${msgBean.msgContent}<br>
-						</form>
+	<div class="row">
+					<div class="col-md-2"></div>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="list-group">
+								<a href="/TWFarmer/Order/NewOrder.jsp"
+									class="list-group-item">直接下單</a> 
+									<a href="/TWFarmer/JointPurchase/newJp.jsp" class="list-group-item">發起合購</a> 
+									<a href="/TWFarmer/Order/ReportVio.jsp" class="list-group-item active">檢舉違規</a>
 
+
+							</div>
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+				</div>
 
 					</div>
 					<div class="col-md-2"></div>
@@ -97,11 +103,10 @@
 	<!-- 上方選單 End -->
 
 
+<!-- NewOrderTemp Start -->>
+	<center><h1>檢舉違規區 施工中</h1></center>
+
+<!-- NewOrderTemp End -->
+
 </body>
 </html>
-
-
-
-
-
-

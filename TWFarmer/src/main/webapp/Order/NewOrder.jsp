@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>臺灣小農-註冊會員</title>
+<title>臺灣小農 - 直接下單</title>
 <meta name="description"
 	content="Source code generated using layoutit.com">
 <meta name="author" content="LayoutIt!">
@@ -55,7 +55,7 @@
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="/TWFarmer/Order/NewOrder.jsp">購買蔬果</a></li>
+						<li><a href="/TWFarmer/Order/OrderTemp.jsp">購買蔬果</a></li>
 						<li><a href="#">合購專區</a></li>
 						<li><a href="#">購物車</a></li>
 					</ul>
@@ -77,6 +77,32 @@
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
 
+	<div class="row">
+					<div class="col-md-2"></div>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="list-group">
+									<a href="/TWFarmer/Order/NewOrder.jsp"class="list-group-item active">直接下單</a> 
+									<a href="/TWFarmer/JointPurchase/newJp.jsp" class="list-group-item">發起合購</a>
+									<a href="/TWFarmer/Order/ReportVio.jsp"class="list-group-item">檢舉違規</a>
+
+
+							</div>
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+				</div>
+
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 上方選單 End -->
+
+
+<!-- NewOrderTemp Start -->>
 		<center>
    <form action="<c:url value="InsertOrderServlet"/>" method="POST"> 
         <table border="0" width="35%" >
@@ -206,14 +232,7 @@
     </form>
 </center>
 
-					</div>
-					<div class="col-md-2"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- 上方選單 End -->
-
+<!-- NewOrderTemp End -->
 
 </body>
 </html>
