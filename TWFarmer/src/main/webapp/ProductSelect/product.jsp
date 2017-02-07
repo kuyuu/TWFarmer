@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/table.css" />
-<title>搜尋蔬果</title>
+<!-- <link rel="stylesheet" type="text/css" href="../css/table.css" /> -->
+<title>購買蔬果</title>
 </head>
 <body>
 	<form action="<c:url value="/ProductSelect/product.controller" />"
@@ -21,19 +21,19 @@
 				<td>分類搜尋：</td>
 				<td><select id='selectBy' name="selectBy">
 					<option value="">請選擇分類</option>
-					<option value="2101">仁果類</option>
-					<option value="2102">核果類</option>
-					<option value="2103">堅果類</option>
-					<option value="2104">漿果類</option>
-					<option value="2105">柑橘類</option>
-					<option value="2106">瓜類</option>
-					<option value="2107">根菜類</option>
-					<option value="2108">莖菜類</option>
-					<option value="2109">花菜類</option>
-					<option value="2110">果菜類</option>
-					<option value="2111">葉菜類</option>
-					<option value="2112">香辛類</option>
-					<option value="2113">菌藻類</option>
+					<option value="仁果類">仁果類</option>
+					<option value="核果類">核果類</option>
+					<option value="堅果類">堅果類</option>
+					<option value="漿果類">漿果類</option>
+					<option value="柑橘類">柑橘類</option>
+					<option value="瓜類">瓜類</option>
+					<option value="根菜類">根菜類</option>
+					<option value="莖菜類">莖菜類</option>
+					<option value="花菜類">花菜類</option>
+					<option value="果菜類">果菜類</option>
+					<option value="葉菜類">葉菜類</option>
+					<option value="香辛類">香辛類</option>
+					<option value="菌藻類">菌藻類</option>
 				</select>
 			</tr>
 			<tr>
