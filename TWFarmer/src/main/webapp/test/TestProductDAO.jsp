@@ -21,7 +21,7 @@ model.dao.ProductTypeDAOjdbc dao4 = new model.dao.ProductTypeDAOjdbc();
 java.util.List<model.ProductTypeBean> list4 = dao4.select();
 
 model.dao.ProductDAOjdbc dao5 = new model.dao.ProductDAOjdbc();
-java.util.List<model.ProductBean> list5 = dao5.selectByType(2105);
+java.util.List<model.ProductBean> list5 = dao5.selectByType("柑橘類");
 %>
 
 <h1><%=list %></h1>

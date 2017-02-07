@@ -11,7 +11,7 @@ public interface ProductDAO {
 
 	public abstract List<ProductBean> selectByName(String name);
 
-	public abstract List<ProductBean> selectByType(int productTypeId);
+	public abstract List<ProductBean> selectByType(String type);
 	
 	public abstract ProductBean insert(ProductBean bean);
 

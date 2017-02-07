@@ -69,7 +69,7 @@ CREATE TABLE Product(
 	Inventory int,
 	Price int,
 	Unit varchar(10),
-	ProductTypeID int REFERENCES ProductType(ProductTypeID),
+	ProductTypeName nvarchar(40),
 	ProductIntro nvarchar(600),
 	Freight int,
 	AddDate datetime,
@@ -311,14 +311,14 @@ INSERT INTO ProductType (Type) VALUES ('菌藻類');
 --INSERT INTO ProductStatus (ProductStatusName) VALUES ('封鎖');
 
 --Product
-INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusName) 
-	VALUES (1003, '苗栗縣三義鄉', '橘子', 200, 35, '公斤', 2105, '最少6公斤出貨很甜很多汁', 10, '2017-01-20', '2017-03-20', '上架');
-INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1004, '屏東縣九如鄉', '愛文芒果', 100, 600, '箱', 2102, '每箱10斤不甜不要錢', 100, '2016-06-05', '2016-07-20', '2016-07-25', '下架');
-INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1009, 'C', 'C', 100, 600, '箱', 2102, 'C', 100, '2016-06-05', '2016-07-20', '2016-07-25', '下架');
-INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeID, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1010, 'D', 'D', 100, 600, '箱', 2102, 'D', 100, '2016-06-05', '2016-07-20', '2016-07-25', '下架');
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusName) 
+	VALUES (1003, '苗栗縣三義鄉', '橘子', 200, 35, '公斤', '柑橘類', '最少6公斤出貨很甜很多汁', 10, '2017-01-20', '2017-03-20', '上架');
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
+	VALUES (1004, '屏東縣九如鄉', '愛文芒果', 100, 600, '箱', '核果類', '每箱10斤不甜不要錢', 100, '2016-06-05', '2016-07-20', '2016-07-25', '下架');
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
+	VALUES (1009, 'C', 'C', 100, 600, '箱', '核果類', 'C', 100, '2016-06-05', '2016-07-20', '2016-07-25', '下架');
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
+	VALUES (1010, 'D', 'D', 100, 600, '箱', '核果類', 'D', 100, '2016-06-05', '2016-07-20', '2016-07-25', '下架');
 
 --ProductDiscount
 INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
