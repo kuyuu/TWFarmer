@@ -83,6 +83,7 @@ public class MsgCreatingServlet extends HttpServlet {
 	      			
 	        MsgDAOJdbc daom = new MsgDAOJdbc();
 			MsgBean msgBean = new MsgBean();
+			//msgBean.setMsgId(msgId);
 			msgBean.setMsgWriterId(msgWriterId);
 			msgBean.setMsgReaderId(msgReaderId);
 			msgBean.setMsgContent(msgContent);
@@ -90,9 +91,12 @@ public class MsgCreatingServlet extends HttpServlet {
 			java.util.Date date = new java.util.Date();
 			msgBean.setMsgTime(date);
 			msgBean = daom.insert(msgBean);
-			//msgBean = daom.select();
+			//MsgBean firstRow = daom.select().get(0);
 			
 			//System.out.println(System.currentTimeMillis());
+			//System.out.println(firstRow.getMsgTitle());
+			
+			session.setAttribute("msgBean", msgBean);
 			
 			request.getRequestDispatcher("MsgFormSuccess.jsp").forward(request, response);
 			//response.sendRedirect("/MsgFormSuccess.jsp");
