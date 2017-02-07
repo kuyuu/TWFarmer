@@ -88,6 +88,7 @@
 								<option>葉菜類</option>
 								<option>香辛類</option>
 								<option>菌藻類</option>
+								<option>豆類</option>
 						</select>
 							<div style="color: #FF0000; display: inline">${ErrorMsg.type}</div>
 					</tr>
