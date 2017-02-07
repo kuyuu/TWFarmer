@@ -118,17 +118,19 @@
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">身分證字號</label>
-								<input type="text" name="idNumber"
-									value="${param.idNumber}" class="form-control"
+								<input type="text" name="idnumber"
+									value="${param.idnumber}" class="form-control"
 									id="exampleInputEmail1">
-								<span style="color:#ff0000">${errors.idNumber}</span>
+								<span style="color:#ff0000">${errors.idnumber}</span>
 							</div>
-							<div class="form-group form-inline">
+							<div class="form-group">
 								<label for="exampleInputEmail1">郵遞區號</label>
-								<input type="text" name="postalCode"
-									value="${param.postalCode}" class="form-control"
+								<input type="text" name="postalcode"
+									value="${param.postalcode}" class="form-control"
 									id="exampleInputEmail1" value="請輸入郵遞區號">
-								<span style="color:#ff0000">${errors.postalCode}</span>
+								<span style="color:#ff0000">${errors.postalcode}</span>
+							</div>
+							<div class="form-group">
 								<label for="exampleInputEmail1">居住的縣市及鄉鎮市區</label>
 								<input type="text" name="district"
 									value="${param.district}" class="form-control"
