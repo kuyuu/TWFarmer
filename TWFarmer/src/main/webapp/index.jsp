@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Bootstrap 3, from LayoutIt!</title>
+    <title>臺灣小農</title>
 
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
@@ -46,7 +46,7 @@
 							<a href="/TWFarmer/MemberSubmit/MemberSubmit.jsp">註冊</a>
 						</li>
 						<li>
-							<a href="#">登入</a>
+							<a href="/TWFarmer/MemberLogin.jsp">登入</a>
 						</li>
 					</ul>
 					<form class="navbar-form navbar-right" role="search">

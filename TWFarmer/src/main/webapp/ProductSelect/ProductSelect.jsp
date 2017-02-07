@@ -9,9 +9,8 @@
 <title>購買蔬果</title>
 </head>
 <body>
-	<form action="<c:url value="/ProductSelect/product.controller" />"
-		method="get">
-		<table class="select">
+	<form action="<c:url value="/ProductSelect/ProductSelect.controller" />" method="get">
+		<table class="">
 			<tr>
 				<td>產地搜尋：</td>
 				<td><input type="text" name="name" value=""></td>
@@ -34,6 +33,7 @@
 					<option value="葉菜類">葉菜類</option>
 					<option value="香辛類">香辛類</option>
 					<option value="菌藻類">菌藻類</option>
+					<option value="豆類">豆類</option>
 				</select>
 			</tr>
 			<tr>

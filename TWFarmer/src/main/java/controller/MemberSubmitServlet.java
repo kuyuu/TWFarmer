@@ -40,12 +40,12 @@ public class MemberSubmitServlet extends HttpServlet {
 		String account  = request.getParameter("account") ;
 		String password  = request.getParameter("password");
 		String name  = request.getParameter("name");
-		String postalcode  = request.getParameter("postalCode");
+		String postalcode  = request.getParameter("postalcode");
 		String district  = request.getParameter("district");
 		String address  = request.getParameter("address");
 		String phone  = request.getParameter("phone");
 		String email  = request.getParameter("email");
-		String idnumber  = request.getParameter("idNumber");
+		String idnumber  = request.getParameter("idnumber");
 		String birthdate  = request.getParameter("birthDate");
 		String gender  = request.getParameter("gender");
 

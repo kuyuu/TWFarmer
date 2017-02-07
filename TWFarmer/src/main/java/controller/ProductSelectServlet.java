@@ -15,9 +15,9 @@ import model.ProductBean;
 import model.dao.ProductDAOjdbc;
 
 @WebServlet(
-		urlPatterns={"/ProductSelect/product.controller"}
+		urlPatterns={"/ProductSelect/ProductSelect.controller"}
 )
-public class ProductServlet extends HttpServlet {
+public class ProductSelectServlet extends HttpServlet {
 	private ProductDAOjdbc productDAOjdbc = new ProductDAOjdbc();
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,24 +41,21 @@ public class ProductServlet extends HttpServlet {
 		//轉換資料
 
 		//呼叫Model
-		ProductBean bean = new ProductBean();
-		bean.setOrigin(name);
-		bean.setProductTypeName(selectBy);
-		//根據Model執行結果，決定需要顯示的View元件
-//		if("origin".equals(selectBy)) {
-
+//		ProductBean bean = new ProductBean();
+//		bean.setOrigin(name);
+//		bean.setProductTypeName(selectBy);
 		
+		//根據Model執行結果，決定需要顯示的View元件
 		if(selectBy.length() == 0){
 			List<ProductBean> result = productDAOjdbc.selectByName(name);
 			request.setAttribute("name", result);
 			request.getRequestDispatcher(
-					"/ProductSelect/product.jsp").forward(request, response);
+					"/ProductSelect/ProductSelect.jsp").forward(request, response);
 		} else {
 			List<ProductBean> result = productDAOjdbc.selectByType(selectBy);
 			request.setAttribute("selectBy", result);
-			System.out.println(result);
 			request.getRequestDispatcher(
-					"/ProductSelect/product.jsp").forward(request, response);
+					"/ProductSelect/ProductSelect.jsp").forward(request, response);
 		}
 	}
 

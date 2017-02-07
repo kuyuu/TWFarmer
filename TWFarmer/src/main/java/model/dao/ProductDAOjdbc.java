@@ -31,7 +31,7 @@ public class ProductDAOjdbc implements ProductDAO {
 	}
 
 	public static void main(String[] args) {
-		ProductDAO dao = new ProductDAOjdbc();
+//		ProductDAO dao = new ProductDAOjdbc();
 
 		// select all OK
 		// List<ProductBean> beans= dao.select();
