@@ -304,6 +304,8 @@ INSERT INTO ProductType (Type) VALUES ('果菜類');
 INSERT INTO ProductType (Type) VALUES ('葉菜類');
 INSERT INTO ProductType (Type) VALUES ('香辛類');
 INSERT INTO ProductType (Type) VALUES ('菌藻類');
+INSERT INTO ProductType (Type) VALUES ('菌藻類');
+INSERT INTO ProductType (Type) VALUES ('豆類');
 
 --ProductStatus
 --INSERT INTO ProductStatus (ProductStatusName) VALUES ('上架');
