@@ -15,7 +15,7 @@ import model.dao.JointPurchaseDAOjdbc;
 @WebServlet(
 		urlPatterns={"/PurchaseSelect/PurchaseSelect.controller"}
 )
-public class PurchaseSelect extends HttpServlet {
+public class PurchaseSelectServlet extends HttpServlet {
 	private JointPurchaseDAOjdbc jointPurchaseDAOjdbc = new JointPurchaseDAOjdbc();
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,7 +33,7 @@ public class PurchaseSelect extends HttpServlet {
 			request.getRequestDispatcher(
 					"/PurchaseSelect/PurchaseSelect.jsp").forward(request, response);
 		} else {
-			List<JointPurchaseBean> result = jointPurchaseDAOjdbc.select();
+			List<JointPurchaseBean> result = jointPurchaseDAOjdbc.selectByPurchaseOk();
 			request.setAttribute("keyword", result);
 			request.getRequestDispatcher(
 					"/PurchaseSelect/PurchaseSelect.jsp").forward(request, response);
