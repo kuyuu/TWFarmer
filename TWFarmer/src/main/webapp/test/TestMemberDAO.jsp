@@ -14,9 +14,13 @@ java.util.List<model.MemberBean> list = dao.select();
 
 model.dao.FarmerDAOJdbc dao2 = new model.dao.FarmerDAOJdbc();
 java.util.List<model.FarmerBean> list2 = dao2.select();
+
+model.dao.MemberDAOJdbc dao3 = new model.dao.MemberDAOJdbc();  
+java.util.List<model.MemberBean> list3 = dao3.selectByTypeId(4);
+
 %>
 <h1><%=list %></h1>
 <h1><%=list2 %></h1>
-
+<h1><%=list3 %></h1>
 </body>
 </html>
