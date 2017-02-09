@@ -13,6 +13,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import model.JointPurchaseBean;
 import model.MemberBean;
 import model.MemberDAO;
 
@@ -221,6 +222,43 @@ public class MemberDAOJdbc implements MemberDAO {
 		return result;
 	}
 	
+	
+	public MemberBean update2(
+			MemberBean bean) {
+		MemberBean result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
+			stmt.setString(1,bean.getAccount());
+			stmt.setString(2,bean.getPassword());
+			stmt.setString(3,bean.getName());
+			stmt.setString(4,bean.getPostalCode());
+			stmt.setString(5,bean.getDistrict());
+			stmt.setString(6,bean.getAddress());
+			stmt.setString(7,bean.getPhone());
+			stmt.setString(8,bean.getEmail());
+			stmt.setString(9,bean.getIdNumber());
+
+			java.util.Date birthDate = bean.getBirthDate();
+			if(birthDate!=null) {
+				long time = birthDate.getTime();
+				stmt.setDate(10, new java.sql.Date(time));
+			} else {
+				stmt.setDate(10, null);				
+			}
+			stmt.setString(11, bean.getGender());
+			stmt.setInt(12, bean.getIdType());
+			stmt.setInt(13, bean.getRating());
+			stmt.setInt(14, bean.getMemberId());
+			int i = stmt.executeUpdate();
+			if(i==1) {
+				result = bean;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	private static final String DELETE =
 			"DELETE FROM Member where MemberID=?";
 	@Override
@@ -237,4 +275,38 @@ public class MemberDAOJdbc implements MemberDAO {
 		}
 		return false;
 	}
-}
+
+	private static final String SELECT_BY_TYPEID =
+			"SELECT * from Member where IdType=?";
+	@Override
+	public List<MemberBean> selectByTypeId(int idType) {
+		List<MemberBean> result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_TYPEID);
+				) {
+			stmt.setInt(1, idType);
+			ResultSet rset = stmt.executeQuery();
+			result = new ArrayList<MemberBean>();
+			while(rset.next()) {
+				MemberBean bean = new MemberBean();
+				bean.setMemberId(rset.getInt("memberId"));
+				bean.setAccount(rset.getString("account"));
+				bean.setPassword(rset.getString("password"));
+				bean.setName(rset.getString("name"));
+				bean.setPostalCode(rset.getString("postalCode"));
+				bean.setDistrict(rset.getString("district"));
+				bean.setAddress(rset.getString("address"));
+				bean.setPhone(rset.getString("phone"));
+				bean.setEmail(rset.getString("email"));
+				bean.setIdNumber(rset.getString("idNumber"));
+				bean.setBirthDate(rset.getDate("BirthDate"));
+				bean.setGender(rset.getString("gender"));
+				bean.setRating(rset.getInt("rating"));
+				
+				result.add(bean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+}}

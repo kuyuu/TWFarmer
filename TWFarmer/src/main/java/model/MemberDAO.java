@@ -5,6 +5,8 @@ import java.util.List;
 public interface MemberDAO {
 
 	public abstract MemberBean select(int memberId);
+	
+	public abstract List<MemberBean> selectByTypeId(int idType);
 
 	public abstract List<MemberBean> select();
 
