@@ -8,6 +8,8 @@ public interface MemberDAO {
 	
 	public abstract List<MemberBean> selectByTypeId(int idType);
 
+	public abstract MemberBean selectByAccount(String account);
+	
 	public abstract List<MemberBean> select();
 
 	public abstract MemberBean insert(MemberBean bean);

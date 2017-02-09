@@ -67,35 +67,35 @@
 							<div class="form-group ">
 								<label for="exampleInputEmail1">帳號</label>
 								<input type="text" name="account"
-									value="${param.account}" class="form-control"
+									value="" class="form-control"
 									id="exampleInputEmail1">
 								<span style="color:#ff0000">${errors.account}</span>
 							</div>
 							<div class="form-group">
 							<label for="exampleInputPassword1">密碼</label>
 							<input type="password" name="password"
-									value="${param.password}" class="form-control" 
+									value="" class="form-control" 
 									id="exampleInputPassword1" />
 								<span style="color:#ff0000">${errors.password}</span>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">名字</label>
 								<input type="text" name="name"
-									value="${param.name}" class="form-control"
+									value="" class="form-control"
 									id="exampleInputEmail1">
 								<span style="color:#ff0000">${errors.name}</span>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">手機</label>
 								<input type="text" name="phone"
-									value="${param.phone}" class="form-control"
+									value="" class="form-control"
 									id="exampleInputEmail1">
 								<span style="color:#ff0000">${errors.phone}</span>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">生日</label>
 								<input type="text" name="birthDate"
-									value="${param.birthDate}" class="form-control"
+									value="" class="form-control"
 									id="datepicker" >
 								<span style="color:#ff0000">${errors.birthDate}</span>
 							</div>
@@ -112,35 +112,35 @@
 							<div class="form-group">
 								<label for="exampleInputEmail1">E-mail</label>
 								<input type="text" name="email"
-									value="${param.email}" class="form-control"
+									value="" class="form-control"
 									id="exampleInputEmail1">
 								<span style="color:#ff0000">${errors.email}</span>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">身分證字號</label>
 								<input type="text" name="idnumber"
-									value="${param.idnumber}" class="form-control"
+									value="" class="form-control"
 									id="exampleInputEmail1">
 								<span style="color:#ff0000">${errors.idnumber}</span>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">郵遞區號</label>
 								<input type="text" name="postalcode"
-									value="${param.postalcode}" class="form-control"
+									value="" class="form-control"
 									id="exampleInputEmail1" value="請輸入郵遞區號">
 								<span style="color:#ff0000">${errors.postalcode}</span>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">居住的縣市及鄉鎮市區</label>
 								<input type="text" name="district"
-									value="${param.district}" class="form-control"
+									value="" class="form-control"
 									id="exampleInputEmail1" value="請輸入您居住的縣市及鄉鎮市區">								
 								<span style="color:#ff0000">${errors.district}</span>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">地址</label>
 								<input type="text" name="address"
-									value="${param.address}" class="form-control"
+									value="" class="form-control"
 									id="exampleInputEmail1">
 								<span style="color:#ff0000">${errors.address}</span>
 							</div>
