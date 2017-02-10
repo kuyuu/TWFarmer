@@ -106,7 +106,7 @@ td {
 							<c:if test="${not empty keyword}">
 								<c:forEach var="row" items="${keyword}">
 									<div class="col-md-4">
-										<a href="../ProductServlet">
+										<a href="../ProductServlet?productId=${row.key.productId}">
 											<div class="thumbnail" style="height: 320px">
 												<img src="../img/${row.value[0].pictureName}"
 													style="height: 180px">

@@ -28,6 +28,7 @@ public class ProductServlet extends HttpServlet {
 		ProductDAOjdbc dao = new ProductDAOjdbc();
 		ProductBean bean = dao.select(productId);
 		request.setAttribute("productBean", bean);
+		request.getRequestDispatcher("Product.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
