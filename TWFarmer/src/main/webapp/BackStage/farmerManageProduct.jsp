@@ -75,12 +75,15 @@
 							</thead>
 							<tbody>
 								<c:forEach var="row" items="${productList}">
+									<c:url value="/BackStage/ToProductServlet" var="path">
+										<c:param name="productId" value="${row.productId}" />
+									</c:url>
 									<tr>
-										<td>${row.productId}</td>
+										<td><a href="${path}">${row.productId}</a></td>
 										<td>${row.productName}</td>
 										<td>${row.inventory}</td>
 										<td>${row.price}</td>
-										<td>${row.unitId}</td>
+										<td>${row.unit}</td>
 										<td>${row.freight}</td>
 									</tr>
 								</c:forEach>
