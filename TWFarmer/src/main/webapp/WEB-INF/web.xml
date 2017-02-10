@@ -28,4 +28,8 @@
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
+  <context-param>
+  	<param-name>DBString</param-name>
+	<param-value>java:comp/env/jdbc/MemberDB</param-value>    
+  </context-param>
 </web-app>
