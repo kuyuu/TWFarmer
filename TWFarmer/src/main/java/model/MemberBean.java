@@ -27,7 +27,9 @@ public class MemberBean {
 	}
 	@Override
 	public String toString() {
-		return memberId+","+email+","+birthDate;
+		return memberId+","+account+","+password+","+name+","+postalCode+","
+	+district+","+address+"," + phone + "," +email+","+idNumber+","+birthDate+","
+				+gender+","+idType+","+rating;
 	}
 	/* Referenced from SQL Server's TWFarmer database
 	 * MemberID int PRIMARY KEY IDENTITY(1001,1) NOT NULL,
@@ -44,6 +46,8 @@ public class MemberBean {
 	Gender varchar(1),
 	IDType int NOT NULL DEFAULT 1,
 	Rating int,*/
+	
+	
 
 	public int getMemberId() {
 		return memberId;

@@ -12,58 +12,73 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
+import model.FarmerBean;
 import model.MemberBean;
+import model.MemberDAO;
 import model.MemberService;
+import model.dao.FarmerDAOJdbc;
 import model.dao.MemberDAOJdbc;
 import model.dao.MsgDAOJdbc;
 
 @WebServlet(
-		urlPatterns={"/MemberSubmit/MemberSubmit.controller"}
+		urlPatterns={"/ToBeFarmer/NewFarmerServlet"}
 )
-public class MemberSubmitServlet extends HttpServlet {
-	
+public class NewFarmerServlet extends HttpServlet {
 	private SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd");
-	private MemberService memberService = new MemberService();
+
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		this.doPost(request, response);
     }
-
-	
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
     	request.setCharacterEncoding("UTF-8");
+    	HttpSession session = request.getSession();
 		//接收資料
+    	String farmerId = request.getParameter("farmerId");
+    	String temp6 = request.getParameter("memberId");
 		String account  = request.getParameter("account") ;
-		String password  = request.getParameter("password");
+		//String password  = request.getParameter("password");
 		String name  = request.getParameter("name");
-		String postalcode  = request.getParameter("postalcode");
+		String postalcode  = request.getParameter("postalCode");
 		String district  = request.getParameter("district");
 		String address  = request.getParameter("address");
 		String phone  = request.getParameter("phone");
 		String email  = request.getParameter("email");
-		String idnumber  = request.getParameter("idnumber");
-		String birthdate  = request.getParameter("birthDate");
-		String gender  = request.getParameter("gender");
+		String farmerIntro =request.getParameter("farmerIntro");
+		//String idnumber  = request.getParameter("idNumber");
+		//String birthdate  = request.getParameter("birthDate");
+		//String gender  = request.getParameter("gender");
 
-		System.out.println(account+":"+password+":"+name+":"+postalcode+":"+district+":"+address+":"+phone+":"+email+":"+idnumber+":"+birthdate+":"+gender);
-		System.out.println("接收資料");
+	
 		
 		//驗證資料
 		Map<String, String> errors = new HashMap<String, String>();
 		request.setAttribute("errors", errors);
-			
+		if(farmerId == null || farmerId.length() == 0){
+			errors.put("farmerId", "請提供中華民國農民證號");	
+			}
+		
+		if(temp6 == null || temp6.length() == 0){
+			errors.put("memberId", "必須是已註冊會員的編號");	
+			}
+		
+		if(farmerIntro==null||farmerIntro.length()==0)
+		{errors.put("farmerIntro", "賣場介紹必填，否則不予核准。");}
+		
 		if(account==null||account.length()==0){
 			errors.put("account", "請輸入帳號");
 		}
 
-		if(password==null||password.length()==0){
+/*		if(password==null||password.length()==0){
 			errors.put("password", "請輸入密碼");
-		}
+		}*/
 				
 		if(name==null||name.length()==0){
 			errors.put("name", "請輸入您的姓名");
@@ -89,7 +104,7 @@ public class MemberSubmitServlet extends HttpServlet {
 			errors.put("email", "請輸入您的email");
 		}
 					
-		if(idnumber==null||idnumber.length()==0){
+	/*	if(idnumber==null||idnumber.length()==0){
 			errors.put("idnumber", "請輸入您的身分證字號");
 		}
 
@@ -99,11 +114,11 @@ public class MemberSubmitServlet extends HttpServlet {
 
 		if(gender==null||gender.length()==0){
 			errors.put("gender", "請選擇您的性別");
-		}
+		}*/
 					
 		if(errors!=null && !errors.isEmpty()) {
 			request.getRequestDispatcher(
-					"/MemberSubmit/MemberSubmit.jsp").forward(request, response);
+					"/ToBeFarmer/newFarmer.jsp").forward(request, response);
 			return;
 		}
 				
@@ -112,24 +127,34 @@ public class MemberSubmitServlet extends HttpServlet {
 		//轉換資料
 		
 		java.util.Date birthDate = null;
-		if(birthdate!=null && birthdate.length()!=0) {
+		/*if(birthdate!=null && birthdate.length()!=0) {
 			try {
 				birthDate = sFormat.parse(birthdate);
 			} catch (ParseException e) {
 				e.printStackTrace();
 				errors.put("birthDate", "生日日期格式必須是yyyy-mm-dd");
 			}
-		}
+		}*/
 
+		int memberId = 0;
+		if (temp6 != null && temp6.length() != 0) {
+			try {
+				memberId = Integer.parseInt(temp6);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+				errors.put("memberId", "必須是已註冊會員的編號");
+			}
+		}	
+		
 		if(errors!=null && !errors.isEmpty()) {
 			request.getRequestDispatcher(
-					"/MemberSubmit/MemberSubmit.jsp").forward(request, response);
+					"/ToBeFarmer/newFarmer.jsp").forward(request, response);
 			return;
 		}
 
 			
 //			// 4. 進行 Business Logic 運算
-			MemberService mss = new MemberService();
+//			MemberSubmitService mss = new MemberSubmitService();
 //			if (mss.idExists(account)) {
 //				errorMsg.add("該代號 (" +  account  + ") 已經存在，請換新的代號");
 //			} else {
@@ -144,91 +169,38 @@ public class MemberSubmitServlet extends HttpServlet {
 
         
 		//呼叫Model
-		
-		MemberBean bean = new MemberBean();
-		bean.setAccount(account);
-		bean.setPassword(password);
-		bean.setName(name);
-		bean.setPostalCode(postalcode);
-		bean.setDistrict(district);
-		bean.setAddress(address);
-		bean.setPhone(phone);
-		bean.setEmail(email);
-		bean.setIdNumber(idnumber);
-		bean.setBirthDate(birthDate);
-		bean.setGender(gender);
-		bean.setIdType(1);
-		bean.setRating(0);
-
-		
-//        MemberDAO MemberDAO = new MemberDAOJdbc();
-//        MemberDAO.insert(bean);
-//        request.getRequestDispatcher("/SubmitSuccess.jsp").forward(request,
-//                response);
+		MemberDAOJdbc dao = new MemberDAOJdbc();
+		MemberBean memberBean = dao.select(memberId);
+		FarmerDAOJdbc dao2 = new FarmerDAOJdbc();
+		FarmerBean farmerBean = new FarmerBean();
+		memberBean.setAccount(account);
+		//bean.setPassword(password);
+		memberBean.setName(name);
+		memberBean.setPostalCode(postalcode);
+		memberBean.setDistrict(district);
+		memberBean.setAddress(address);
+		memberBean.setPhone(phone);
+		memberBean.setEmail(email);
+		//bean.setIdNumber(idnumber);
+		//bean.setBirthDate(birthDate);
+		//bean.setGender(gender);
+		memberBean.setIdType(4);
+		//bean.setRating(0);
+        dao.update2(memberBean);
+        farmerBean.setFarmerId(farmerId);
+        farmerBean.setMemberId(memberId);
+        farmerBean.setFarmerIntro(farmerIntro);
+        dao2.insert(farmerBean);
+        //Can we change the format of Farmer ID?? 
+        session.setAttribute("farmerBean", farmerBean);
+        session.setAttribute("memberBean", memberBean);
+        
+        
+        request.getRequestDispatcher("farmerSuccess.jsp").forward(request,response);
 		
 		
 		// 5.依照 Business Logic 運算結果來挑選適當的畫面
-		request.setAttribute("account", account);
-		MemberBean memberBean = null;
-
-		if (errors.isEmpty())	{	
-			MemberBean result = memberService.insert(bean);
-			if(result==null) {
-				errors.put("action", "Insert fail");
-			} else {
-				request.setAttribute("insert", result);
-			}
-			request.getRequestDispatcher(
-					"/MemberSubmit/SubmitSuccess.jsp").forward(request, response);
-			System.out.println("成功");
-			return ; 
-
-		}  else {
-			RequestDispatcher rd = request.getRequestDispatcher("/MemberSubmit/MemberSubmit.jsp");
-			rd.forward(request, response);
-			System.out.println("失敗");
-			return;
-		}
-
-
 		
-		
-		
-		
-		
-		
-		
-		//呼叫Model
-//		MemberBean mb = memberSubmitService.insert(mb);
-
-		//根據Model執行結果，決定需要顯示的View元件
-//		if(bean==null) {
-//			//login fail
-//			errors.put("username", "註冊失敗");
-//			request.getRequestDispatcher(
-//					"/MemberSubmit/MemberSubmit.jsp").forward(request, response);
-//		} else {
-//			HttpSession session = request.getSession();
-//			session.setAttribute("user", bean);
-//			
-//			String contextPath = request.getContextPath();
-//			response.sendRedirect(contextPath+"/index.jsp");
-//		}
-//		
-//		System.out.println("呼叫model");
-
-//		//根據Model執行結果，決定需要顯示的View元件
-//		
-//		if(bean!=null) {
-//			MemberBean result = memberSubmitService.insert(bean);
-//			request.setAttribute("insert", result);
-//			request.getRequestDispatcher(
-//					"/MemberSubmit/SubmitSuccess.jsp").forward(request, response);
-//		}
-//
-//		System.out.println("hahahaa");
-//
-
 	}
 
 

@@ -14,4 +14,6 @@ public interface ProductDiscountDAO {
 		
 		public abstract boolean delete(int  discountId);
 
+		List<ProductDiscountBean> selectByProductId(int productId);
+
 }
