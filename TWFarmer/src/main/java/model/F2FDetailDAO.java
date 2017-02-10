@@ -14,6 +14,8 @@ public interface F2FDetailDAO {
 
 	public abstract boolean delete(int f2fId);
 
+	List<F2FDetailBean> selectByJpId(int jpId);
+
 
 
 }

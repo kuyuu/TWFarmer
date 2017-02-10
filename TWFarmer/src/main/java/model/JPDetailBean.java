@@ -2,6 +2,8 @@ package model;
 
 import java.io.Serializable;
 
+import model.dao.ProductDAOjdbc;
+
 public class JPDetailBean implements Serializable {		
 
 	private int jpId;
@@ -11,7 +13,6 @@ public class JPDetailBean implements Serializable {
 	private int jpMinQEach;
 	private int jpPrice;
 	private int jpFreight;
-//	PRIMARY KEY(JPID,ProductID)
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -86,6 +87,9 @@ public class JPDetailBean implements Serializable {
 		this.jpFreight = jpFreight;
 	}
 
-	
+	public String getProductName() {
+		ProductDAO dao = new ProductDAOjdbc();
+		return dao.select(productId).getProductName();
+	}
 	
 }

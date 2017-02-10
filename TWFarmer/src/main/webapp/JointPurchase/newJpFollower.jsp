@@ -50,94 +50,47 @@
 						<div class="form-group">
 							<label for="memberId" class="col-sm-2 control-label">會員ID</label>
 							<div class="col-sm-6">
-								<p id="memberId" class="form-control-static">${sessionScope.JointPurchase.initId}</p>
+								<p id="memberId" class="form-control-static">${memberBean.memberId}</p>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="productId" class="col-sm-2 control-label">商品ID</label>
+							<label for="productId" class="col-sm-2 control-label">合購ID</label>
 							<div class="col-sm-6">
-								<p id="productId" class="form-control-static">${sessionScope.JPDetail.productId}</p>
+								<p id="productId" class="form-control-static">${jpBean.jpId}</p>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="jpPrice" class="col-sm-2 control-label">合購價格</label>
+							<label for="f2fId" class="col-sm-2 control-label">面交方式</label>
 							<div class="col-sm-6">
-								<input type="text" id="jpPrice" name="jpPrice"
-									class="form-control" value="${param.jpPrice}">
+								<c:forEach items="${f2fList}" var="x">
+									<div class="radio">
+										<label> <input type="radio" name="f2fId" id="f2fId"
+											checked>${x.f2fTime} ${x.f2fPlace}
+										</label>
+									</div>
+								</c:forEach>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="jpFreight" class="col-sm-2 control-label">單位運費</label>
+							<label for="f2fId" class="col-sm-2 control-label">欲購商品</label>
 							<div class="col-sm-6">
-								<input type="text" id="jpFreight" name="jpFreight"
-									class="form-control" value="${param.jpFreight}">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="jpPopulationMin" class="col-sm-2 control-label">最小購買量</label>
-							<div class="col-sm-6">
-								<input type="text" id="jpPopulationMin" name="jpPopulationMin"
-									class="form-control" value="${param.jpPopulationMin}">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="jpPopulationMax" class="col-sm-2 control-label">最大購買量</label>
-							<div class="col-sm-6">
-								<input type="text" id="jpPopulationMax" name="jpPopulationMax"
-									class="form-control" value="${param.jpPopulationMax}">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="jpName" class="col-sm-2 control-label">合購團名</label>
-							<div class="col-sm-6">
-								<input type="text" id="jpName" name="jpName"
-									class="form-control" value="${param.jpName}">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="jpIntro" class="col-sm-2 control-label">合購介紹</label>
-							<div class="col-sm-6">
-								<textarea id="jpIntro" name="jpIntro" class="form-control"
-									rows="3"></textarea>
-								<p class="help-block">限制300字</p>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="initDate" class="col-sm-2 control-label">開始日期</label>
-							<div class="col-sm-6">
-								<input type="text" id="initDate" name="initDate"
-									class="form-control" value="${param.initDate}" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="endDate" class="col-sm-2 control-label">結束日期</label>
-							<div class="col-sm-6">
-								<input type="text" id="endDate" name="endDate"
-									class="form-control" value="${param.endDate}" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="jpLocation" class="col-sm-2 control-label">合購地區</label>
-							<div class="col-sm-6">
-								<input type="text" id="jpLocation" name="jpLocation"
-									class="form-control" value="${param.jpLocation}" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="miscViaWay" class="col-sm-2 control-label">雜費收取方式</label>
-							<div class="col-sm-6">
-								<select class="form-control" id="miscViaWay" name="miscViaWay">
-									<option value="4201">不收</option>
-									<option value="4202">依人頭</option>
-									<option value="4203">依比例</option>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="misc" class="col-sm-2 control-label">雜費</label>
-							<div class="col-sm-6">
-								<input type="text" id="misc" name="misc" class="form-control"
-									value="${param.misc}" />
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<td>商品名稱</td>
+											<td>購買數量</td>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach var="row" items="${jpDetailList}">
+											<tr>
+												<td>${row.productName}</td>
+												<td><input type="text" id="jpPrice" name="jpPrice"
+													class="form-control" value="${param.jpPrice}"></td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
 							</div>
 						</div>
 						<div class="form-group">
