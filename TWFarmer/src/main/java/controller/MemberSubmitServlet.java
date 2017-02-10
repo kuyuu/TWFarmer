@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.MemberBean;
-import model.MemberSubmitService;
+import model.MemberService;
 import model.dao.MemberDAOJdbc;
 import model.dao.MsgDAOJdbc;
 
@@ -22,8 +22,9 @@ import model.dao.MsgDAOJdbc;
 		urlPatterns={"/MemberSubmit/MemberSubmit.controller"}
 )
 public class MemberSubmitServlet extends HttpServlet {
+	
 	private SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd");
-	private MemberSubmitService memberSubmitService = new MemberSubmitService();
+	private MemberService memberService = new MemberService();
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -128,7 +129,7 @@ public class MemberSubmitServlet extends HttpServlet {
 
 			
 //			// 4. 進行 Business Logic 運算
-//			MemberSubmitService mss = new MemberSubmitService();
+			MemberService mss = new MemberService();
 //			if (mss.idExists(account)) {
 //				errorMsg.add("該代號 (" +  account  + ") 已經存在，請換新的代號");
 //			} else {
@@ -171,7 +172,7 @@ public class MemberSubmitServlet extends HttpServlet {
 		MemberBean memberBean = null;
 
 		if (errors.isEmpty())	{	
-			MemberBean result = memberSubmitService.insert(bean);
+			MemberBean result = memberService.insert(bean);
 			if(result==null) {
 				errors.put("action", "Insert fail");
 			} else {

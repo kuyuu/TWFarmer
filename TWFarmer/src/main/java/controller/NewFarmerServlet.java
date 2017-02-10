@@ -18,7 +18,7 @@ import javax.servlet.http.Part;
 import model.FarmerBean;
 import model.MemberBean;
 import model.MemberDAO;
-import model.MemberSubmitService;
+import model.MemberService;
 import model.dao.FarmerDAOJdbc;
 import model.dao.MemberDAOJdbc;
 import model.dao.MsgDAOJdbc;

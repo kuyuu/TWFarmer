@@ -46,7 +46,7 @@
 							<a href="/TWFarmer/MemberSubmit/MemberSubmit.jsp">註冊</a>
 						</li>
 						<li>
-							<a href="/TWFarmer/MemberLogin.jsp">登入</a>
+							<a href="/TWFarmer/Login.jsp">登入</a>
 						</li>
 					</ul>
 					<form class="navbar-form navbar-right" role="search">
