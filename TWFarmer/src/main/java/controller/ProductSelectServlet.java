@@ -52,11 +52,11 @@ public class ProductSelectServlet extends HttpServlet {
 			request.getRequestDispatcher("/ProductSelect/ProductSelect.jsp").forward(request, response);
 		} else if ( keyword.length() == 0){
 			Map<ProductBean, List<ProductPicBean>> result = productDAOjdbc.selectByType(selectBy);
-			request.setAttribute("selectBy", result);
+			request.setAttribute("keyword", result);
 			request.getRequestDispatcher("/ProductSelect/ProductSelect.jsp").forward(request, response);
 		} else {
 			Map<ProductBean, List<ProductPicBean>> result = productDAOjdbc.selectByTypeAndName(selectBy, keyword);
-			request.setAttribute("all", result);
+			request.setAttribute("keyword", result);
 			request.getRequestDispatcher("/ProductSelect/ProductSelect.jsp").forward(request, response);
 		}
 	}

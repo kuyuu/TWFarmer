@@ -106,54 +106,20 @@ td {
 							<c:if test="${not empty keyword}">
 								<c:forEach var="row" items="${keyword}">
 									<div class="col-md-4">
-										<div class="thumbnail" style="height: 320px">
-											<img src="../img/${row.value[0].pictureName}"
-												style="height: 180px">
-											<div class="caption">
-												<h3>${row.key.productName}</h3>
-												<p>${row.key.origin}</p>
-												<p>
-													<a href="#" class="btn btn-primary" role="button">Button</a>
-													<a href="#" class="btn btn-default" role="button">Button</a>
-												</p>
+										<a href="../ProductServlet">
+											<div class="thumbnail" style="height: 320px">
+												<img src="../img/${row.value[0].pictureName}"
+													style="height: 180px">
+												<div class="caption">
+													<h3>${row.key.productName}</h3>
+													<p>${row.key.origin}</p>
+													<p>
+														<a href="#" class="btn btn-primary" role="button">Button</a>
+														<a href="#" class="btn btn-default" role="button">Button</a>
+													</p>
+												</div>
 											</div>
-										</div>
-									</div>
-								</c:forEach>
-							</c:if>
-							<c:if test="${not empty selectBy}">
-								<c:forEach var="row" items="${selectBy}">
-									<div class="col-md-4">
-										<div class="thumbnail" style="height: 350px">
-											<img src="../img/${row.value[0].pictureName}"
-												style="height: 180px">
-											<div class="caption">
-												<h3>${row.key.productName}</h3>
-												<p>${row.key.origin}</p>
-												<p>
-													<a href="#" class="btn btn-primary" role="button">Button</a>
-													<a href="#" class="btn btn-default" role="button">Button</a>
-												</p>
-											</div>
-										</div>
-									</div>
-								</c:forEach>
-							</c:if>
-							<c:if test="${not empty all}">
-								<c:forEach var="row" items="${all}">
-									<div class="col-md-4">
-										<div class="thumbnail" style="height: 320px">
-											<img src="../img/${row.value[0].pictureName}"
-												style="height: 180px">
-											<div class="caption">
-												<h3>${row.key.productName}</h3>
-												<p>${row.key.origin}</p>
-												<p>
-													<a href="#" class="btn btn-primary" role="button">Button</a>
-													<a href="#" class="btn btn-default" role="button">Button</a>
-												</p>
-											</div>
-										</div>
+										</a>
 									</div>
 								</c:forEach>
 							</c:if>
