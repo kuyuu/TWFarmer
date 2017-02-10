@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,15 +45,25 @@
 					</form>
 				</div>
 				</nav>
-				<div class="jumbotron">
-					<h1>${productBean.productName}</h1>
-					<p>${productBean.productIntro }</p>
-					<p>
-						<button type="button" class="btn btn-default">購買商品</button>
-						<button type="button" class="btn btn-default">發起合購</button>
-						<button type="button" class="btn btn-default">我想跟團</button>
-						<button type="button" class="btn btn-default">加入購物車</button>
-					</p>
+				<div class="row">
+					<div class="jumbotron">
+						<div class="col-md-4">
+							<c:forEach items="${picList}" var="x">
+								<img src="img/${x.pictureName}" style="width: 100%;" />
+							</c:forEach>
+						</div>
+						<div class="col-md-8">
+							<h1>${productBean.productName}</h1>
+							<p>${productBean.productIntro }</p>
+							<p>${productBean.price } / ${productBean.unit }</p>
+							<p>
+								<button type="button" class="btn btn-default">購買商品</button>
+								<button type="button" class="btn btn-default">發起合購</button>
+								<button type="button" class="btn btn-default">我想跟團</button>
+								<button type="button" class="btn btn-default">加入購物車</button>
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
