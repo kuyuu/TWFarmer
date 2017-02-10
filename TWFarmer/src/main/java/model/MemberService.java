@@ -22,6 +22,15 @@ public class MemberService {
 	
 	private DataSource ds = null;
 	
+	public MemberService() {
+		try {
+			Context ctx = new InitialContext();
+			ds = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	private MemberDAO memberDao = new MemberDAOJdbc();
 	public static void main(String[] args) {
 		MemberService service = new MemberService();
