@@ -174,6 +174,7 @@ CREATE TABLE JPDetail(
 	JPMinQEach int,
 	JPPrice int,
 	JPFreight int,
+	JPUnit varchar(10),
 	PRIMARY KEY(JPID,ProductID)
 )
 GO
@@ -293,7 +294,7 @@ INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phon
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating)
 	VALUES ('p002','ilovedoraemon','哆啦A夢',840,'高雄市大樹區','哆啦A夢之家','0988888888','doraemon@gmail.com','E133333333','1978-09-03','M',2,65);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating)
-	 VALUES ('p003','ilovesonic','音速小子',238,'新北市樹林區','音速小子之家','0999000123','sonic@gmail.com','F1333333333','1987-08-05','M',1,53);
+	VALUES ('p003','ilovesonic','音速小子',238,'新北市樹林區','音速小子之家','0999000123','sonic@gmail.com','F133333333','1987-08-05','M',1,53);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating)
 	VALUES ('skyYo','123456','石在天',906,'屏東縣高樹鄉','中央路96號','0908997955','strongyo@gmail.com','A136854479','1988-08-08','M',1,100);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating)
@@ -316,6 +317,16 @@ INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phon
 	VALUES ('kitty','123456','杞蒂凱',973,'花蓮縣吉安鄉','慈雲路52號','0987416423','kitty@gmail.com','U235974118','1973-06-16','F',2,95);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating)
 	VALUES ('GuanGong','123456','關羽歐',807,'高雄市三民區','建工路415號','0937282706','guangong@gmail.com','E136859487','1917-01-31','M',3,1000);
+INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating)
+	VALUES ('tentacool','123','馬英九',116,'台北市文山區','興隆路二段96巷15號3樓','0987416423','mamaisbest@gmail.com','A119301548','1950-07-13','M',1,-10);
+INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating)
+	VALUES ('walkman','123','陳水扁',721,'台南市麻豆區','磚子井33號','0957963584','ilovemoney@gmail.com','D105095174','1950-10-12','M',2,-99);
+INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating)
+	VALUES ('liangrandpa','123','連戰',721,' 台南市麻豆區','安業里79之3號','0912586429','chinesegood@gmail.com','D110724799','1936-8-27','M',2,-10);
+INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating)
+	VALUES ('chingte','123','賴清德',721,'台南市麻豆區','磚子井137之1號','0999888777','laichingte@gmail.com','D184618560','1959-10-6','M',2,-10);
+INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating)
+	VALUES ('english','123','蔡英文',234,'新北市永和區','環河東路四段106號10樓','0941558778','greatamerica@gmail.com','L219759723','1956-08-31','F',1,-80);
 
 --Farmer
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
@@ -330,6 +341,12 @@ INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
 	VALUES ('Z000000005', 1011, '米小鼠南投田園農莊');
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
 	VALUES ('Z000000006', 1012, '花蓮吉安凱蒂貓觀光果園');
+INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
+	VALUES ('N261870375', 1031, '阿扁貪汙...兼賣文旦');
+INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
+	VALUES ('S185803332', 1032, '連爺爺文旦');
+INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
+	VALUES ('J166180504', 1033, '賴清德也可以賣文旦喔糾咪');
 
 --ProductType
 INSERT INTO ProductType (Type) VALUES ('仁果類');
@@ -364,6 +381,7 @@ INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, Prod
 	VALUES (1010, 'D', 'D', 100, 600, '箱', '核果類', 'D', 100, '2016-06-05', '2016-07-20', '2016-07-25', '下架');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
 	VALUES (1012, '花蓮縣吉安鄉', '白柚', 0, 30, '斤', '柑橘類', '快來搶購今年最後的柚子喔，最少10斤出貨!!', 10, '2016-08-18', '2016-11-30', '2016-11-30', '下架');
+
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
 	VALUES (1011, '南投縣魚池鄉', '花椰菜', 60, 350, '箱', '花菜類', '好吃便宜花椰菜，10斤裝', 80, '2016-12-05', '2017-05-25', null, '上架');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
@@ -373,7 +391,8 @@ INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, Prod
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
 	VALUES (1003, '苗栗縣三義鄉', '柳橙', 400, 45, '公斤', '柑橘類', '最少6公斤出貨，鮮甜美味', 10, '2017-01-18', '2017-05-03', null, '上架');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1003, '苗栗縣三義鄉', '蘋果', 200, 50, '公斤', '仁果類', '最少5公斤出貨，鬆脆好吃喔', 10, '2017-01-22', '2017-04-21', null, '上架');
+	VALUES (1003, '苗栗縣三義鄉', '蘋果', 200, 50, '公斤', '仁果類', '一天一天蘋果，醫生遠離我', 10, '2017-01-22', '2017-04-21', null, '上架');
+
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
 	VALUES (1011, '南投縣魚池鄉', '馬鈴薯', 35, 500, '箱', '根菜類', '馬鈴薯一箱20斤，年後出貨', 100, '2017-01-26', '2017-03-18', null, '上架');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
@@ -384,24 +403,111 @@ INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, Prod
 	VALUES (1011, '南投縣魚池鄉', '地瓜葉', 50, 300, '箱', '葉菜類', '大分量地瓜葉，歡迎機關團體直接批貨', 80, '2017-02-05', '2017-04-05', null, '上架');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
 	VALUES (1012, '花蓮縣吉安鄉', '櫻桃', 20, 800, '箱', '核果類', '過年應景水果，保證大顆又好吃喔', 100, '2017-01-11', '2017-02-28', null, '上架');
+
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
 	VALUES (1012, '花蓮縣吉安鄉', '開心果', 200, 280, '斤', '堅果類', '過年就是要開心果，三斤出貨喔', 20, '2017-01-03', '2017-02-17', null, '上架');
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
+	VALUES (1031, '台南市麻豆區', '文旦', 300, 100, '顆', '柑橘類', '產地自售中秋節送禮品味最佳的季節產品，邊賞月邊吃文旦～最能感受中秋節氣息', 10, '2017-08-10', '2017-10-30', null, '上架');
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
+	VALUES (1032, '台南市麻豆區', '文旦', 400, 110, '顆', '柑橘類', '中秋節送禮最佳的伴手禮～賞月一定要來一顆啦!!', 10, '2017-08-20', '2017-09-30', null, '上架');
+INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
+	VALUES (1033, '台南市麻豆區', '文旦', 350, 105, '顆', '柑橘類', '堅持草生栽培管理且通過安全蔬果吉園圃認證，所產出的果實汁多肉嫩還帶有甘甜的滋味，消費者可安心食用!', 5, '2017-08-01', '2017-10-05', null, '上架');
 
 --ProductDiscount
 INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
-	VALUES ( 2001,10,15,540 );
+	VALUES ( 2001,10,15,34 );
 INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
-	VALUES ( 2002,10,15,34 );
+	VALUES ( 2002,10,15,540 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2003,5,10,580 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2004,5,10,580 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2005,30,50,29 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2006,10,15,320 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2007,20,35,65 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2008,5,15,330 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2009,20,40,42 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2010,25,40,48 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2011,5,15,480 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2012,5,15,580 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2013,5,20,290 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2014,10,15,280 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2015,3,5,780 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2016,5,10,260 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2017,10,20,95 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2017,20,30,90 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2018,null,null,null );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2019,10,15,103 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2019,15,20,100 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2019,20,25,97 );
+INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice)
+	VALUES ( 2019,25,30,95 );
 
 --ProductPic
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2001,null,'橘子的照片1' );
+	VALUES ( 2001,'2401.jpg','橘子的照片1' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2001,null,'橘子的照片2' );
+	VALUES ( 2001,'2402.jpg','橘子的照片2' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2002,null,'芒果的照片1' );
+	VALUES ( 2002,'2403.jpg','芒果的照片1' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2002,null,'芒果的照片2' );
+	VALUES ( 2002,'2404.jpg','芒果的照片2' );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2003,'2405.jpg',null );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2004,'2406.jpg',null );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2005,'2407.jpg','汁多味美的白柚' );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2006,'2408.jpg','綠色花椰菜抗癌喔' );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2007,'2409.jpg','葡萄架上的葡萄' );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2008,'2410.jpg','火鍋店必備金針菇' );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2009,'2411.jpg','送禮也很大方' );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2010,'2412.jpg','一天一天蘋果，醫生遠離我' );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2011,'2413.jpg','在地的馬鈴薯' );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2012,'2414.jpg','新鮮現摘的草莓' );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2013,'2415.jpg','冬天高麗菜鮮甜美味' );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2014,'2416.jpg','地瓜葉田' );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2015,'2417.jpg','櫻桃送禮超大方' );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2016,'2418.jpg','年節必備開心果' );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2017,'2419.jpg','又甜又好吃的文旦' );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2017,'2420.jpg','新鮮好吃的文旦' );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2018,'2421.jpg','中秋最佳伴手禮' );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2018,'2422.jpg','不甜不要錢～吃過就知道' );
+INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
+	VALUES ( 2019,'2423.jpg','好吃文旦跳樓大拍賣ing' );
 
 --ProductTrackProduct
 INSERT INTO TrackProduct (MemberID, ProductID, TrackDate)
@@ -413,17 +519,26 @@ INSERT INTO OrderStatus (OrderStatusName) values('已出貨')
 
 --Orders
 INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1001 , 1003 , 200,900,'2017-01-03 20:51:29','2017-01-06 13:20:01','會員A',235,'新北市中和區','會員A的家',3104, 5 , 5);
+	VALUES (1001 , 1003 , 200,900,'2017-01-03 20:51:29','2017-01-06 13:20:01','會員A',235,'新北市中和區','會員A的家',3104, 1 , 1);
 INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1001 , 1003 , 200,1400,'2017-01-15 18:20:05','2017-01-20 11:48:32','會員A',235,'新北市中和區','會員A的家',3103, 5, null);
+	VALUES (1001 , 1003 , 200,1400,'2017-01-15 18:20:05','2017-01-20 11:48:32','會員A',235,'新北市中和區','會員A的家',3103, 1, null);
  INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
 	VALUES (1002 , 1003 ,400, 2550,'2017-01-23 09:02:31','2017-01-25 15:13:21','會員B',106,'台北市大安區','會員B的家',3101,null,null);
+INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
+	VALUES (1030 , 1031 ,80, 800,'2017-03-08 17:42:51',null,'馬英九',116,'台北市文山區','興隆路二段96巷15號3樓',3103,null,null);
+ INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
+	VALUES (1030 , 1032 ,50, 550,'2017-01-31 12:42:17','2017-02-01 17:22:34','馬英九',116,'台北市文山區','興隆路二段96巷15號3樓',3104,1,-1);
+ INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
+	VALUES (1030 , 1033 ,30, 630,'2017-01-10 00:08:53','2017-01-14 15:32:47','馬英九',116,'台北市文山區','興隆路二段96巷15號3樓',3104,1,1);
 
 --OrderDetail
 Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3001,2001,'公斤',35,20,200);
 Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3002,2002,'箱',600,2,200);
 Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3003,2001,'公斤',35,10,100);
 Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3003,2002,'箱',600,3,300);
+Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3004,2017,'顆',100,8,10);
+Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3005,2018,'顆',100,5,10);
+Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3006,2019,'顆',105,6,5);
 
 --MiscVia
 INSERT INTO MiscVia (MiscViaWay) VALUES ('不收');
@@ -444,31 +559,63 @@ INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocatio
 	VALUES (1001, '橘子合購團', '橘子合購團審核', '2017-02-20', '2017-03-20',	'台北市大安區',	4101, 200, 4201, 0);
 INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc)
 	VALUES (1002, '橘子合購團', '橘子合購團開團', '2017-01-20', '2017-03-20',	'新北市板橋區',	4103, 200, 4201, 0);
+INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc)
+	VALUES (1030, '買個文旦 快速團~~湊滿20顆就衝囉~~不能配合勿跟', '這家文旦真的超好吃  吃了還想再吃 吃了還想再吃 吃了還想再吃 吃了還想再吃 吃了還想再吃 趕快來跟團八!!!', '2017-02-10', '2017-02-17',	'台北市文山區',	4104, 100, 4202, 10);
+INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc)
+	VALUES (1030, '突然好想吃蘋果~快來一起買蘋果ㄅ', '要5斤才出貨~~所以5斤就不收囉 快來一起吃蘋果美容ㄅ', '2017-03-01', '2017-03-10',	'台北市文山區',	4103, 0, 4201, 0);
+INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc)
+	VALUES (1030, '草莓合購，最少湊一箱!!!', '合購草莓最少湊滿1箱，每箱10斤，最多3箱就不收囉，要跟要快~~~', '2017-02-28', '2017-03-07',	'台北市文山區',	4104, 300, 4201, 0);
 
 --JPDetail
-INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight) 
-	VALUES (4001, 2001, 6, 10, 1, 35, 10);
+INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight,JPUnit) 
+	VALUES (4001, 2001, 6, 10, 1, 35, 10,'公斤');
+INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight,JPUnit) 
+	VALUES (4004, 2019, 20, 20, 1, 97, 10,'顆');
+INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight,JPUnit) 
+	VALUES (4005, 2010, 5, 5, 1, 50, 10,'公斤');
+INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight,JPUnit) 
+	VALUES (4006, 2009, 1, 3, 1, 60, 10,'公斤');
 
 --F2F
 INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4001, '捷運永安市場站出口','2017-01-31 12:00');
 INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4001, '中和遠東世紀廣場(J棟樓下全家)','2017-01-31 14:00');
 INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4001, '新北市中和區中正路753號(板信銀行門口)','2017-01-31 16:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4004, '政大麥側','2017-02-25 16:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4004, '考試院門口','2017-02-25 17:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4004, '景美女中校門口','2017-02-25 18:00');
 
 --JPFollower
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-	VALUES (1001, 4301, 4001, 100, null, '2011-11-11', 100, 'bank', 12345, 0, 0, 'haha');
+	VALUES (1001, 4301, 4001, 100, null, '2011-11-11', 100, 'bank', 12345, 0, 0, '感謝主購');
+INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
+	VALUES (1032, 4302, 4003, 100, null, '2011-12-12', 100, '中國信託', 33333, 0, 0, 'You are my Sunshine');
+INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
+	VALUES (1030, 4304, 4005, 100, null, '2017-03-31', 100, '台北富邦', 74125, 0, 0, '天使!!');
+
+--JPFollowerDetail
+INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4402, 2019, 3, 291);
+INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4403, 2002, 4, 80);
+INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4401, 2007, 9, 180);
 
 --QnA
-insert into QnA(QueryID, ProductID, QnATitle, QnAContent, QueryDate, ReQnA, ReDate, ReStatus)
-values(1001 ,2001, '我想問關於收據的問題...', '請問收據可以開106年的嗎? 若這星期下訂匯款完成，1月13日前可以到貨嗎?', '2016-12-28 08:28:50', '好的，幫您安排', '2016-12-28 14:28:50','1');
-insert into QnA(QueryID, ProductID, QnATitle, QnAContent, QueryDate, ReQnA, ReDate, ReStatus)
-values(1002 ,2002, '想請問關於下標付款的問題...', '請問我要訂7箱，預計何時可到貨? 價格是2800元免運嗎?', '2016-12-30 12:18:33', '您好...安排到元旦後了', '2016-12-30 18:24:09','1');
+INSERT INTO QnA(QueryID, ProductID, QnATitle, QnAContent, QueryDate, ReQnA, ReDate, ReStatus)
+	values(1001 ,2001, '我想問關於收據的問題...', '請問收據可以開106年的嗎? 若這星期下訂匯款完成，1月13日前可以到貨嗎?', '2016-12-28 08:28:50', '好的，幫您安排', '2016-12-28 14:28:50','1');
+INSERT INTO QnA(QueryID, ProductID, QnATitle, QnAContent, QueryDate, ReQnA, ReDate, ReStatus)
+	values(1002 ,2002, '想請問關於下標付款的問題...', '請問我要訂7箱，預計何時可到貨? 價格是2800元免運嗎?', '2016-12-30 12:18:33', '您好...安排到元旦後了', '2016-12-30 18:24:09','1');
+INSERT INTO QnA(QueryID, ProductID, QnATitle, QnAContent, QueryDate, ReQnA, ReDate, ReStatus)
+	VALUES(1030 ,2019, null, '請問買20ㄎ可不可以折扣多一點', '2016-02-03 18:00:42', '目前20顆的價格請您參考我們網站上提供的折扣喔', '2016-02-03 18:12:44',1);
+INSERT INTO QnA(QueryID, ProductID, QnATitle, QnAContent, QueryDate, ReQnA, ReDate, ReStatus)
+	VALUES(1031 ,2019, null, '你媽知道你在賣文旦嗎', '2016-03-09 19:52:24', null, null,0);
+INSERT INTO QnA(QueryID, ProductID, QnATitle, QnAContent, QueryDate, ReQnA, ReDate, ReStatus)
+	VALUES(1011 ,2019, null, '請問這批文旦大概可以放到多久', '2016-03-01 21:33:07', '您好，出貨後約可放四週，未免影響新鮮風味，還請盡快食用，感謝您', '2016-03-02 08:22:43',1);
 
 --Violation
 insert into Violation(ReportedID, ReporterID, VioTitle, VioContent, CreateDate, ProcessDate, TicketResult, TicketStatue)
-values(1004,1001,'送來的不是愛文芒果','我訂購的是愛文芒果，結果商家竟然送土芒果給我，請幫忙處理一下','2016-06-20 09:12:07','2016-06-21 10:10:10','經查證屬實，已將該商品下架',1);
+	values(1004,1001,'送來的不是愛文芒果','我訂購的是愛文芒果，結果商家竟然送土芒果給我，請幫忙處理一下','2016-06-20 09:12:07','2016-06-21 10:10:10','經查證屬實，已將該商品下架',1);
 insert into Violation(ReportedID, ReporterID, VioTitle, VioContent, CreateDate, TicketStatue)
-values(1003,1002,'橘子全爛掉了','橘子送來時竟然全爛掉了，這是我頭一次遇到這種情形，太誇張了吧！請管理員處理一下，謝謝！','2017-01-13 19:22:35',0);
+	values(1003,1002,'橘子全爛掉了','橘子送來時竟然全爛掉了，這是我頭一次遇到這種情形，太誇張了吧！請管理員處理一下，謝謝！','2017-01-13 19:22:35',0);
+INSERT INTO Violation(ReportedID, ReporterID, VioTitle, VioContent, CreateDate, TicketStatue)
+	VALUES(1030,1032,'收到爛水果，也不處理退貨','買了好幾顆文旦其中一顆爛了，站內信他竟然已讀不回，敲他也裝死，怒檢舉RRRRRR','2017-02-13 14:32:07',0);
 
 
 --ChatRoom
@@ -480,10 +627,30 @@ insert into ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
 	values(1002,1003,'芒果有現貨嗎？？？','2016-12-28 18:22:30');
 insert into ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
 	values(1003,1002,'目前貨很充足，歡迎下訂喔^^','2016-12-28 20:11:07');
+INSERT INTO ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
+	VALUES(1030,1032,'在ㄇ','2017-02-09 14:47:52');
+INSERT INTO ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
+	VALUES(1030,1032,'有收站內信嗎','2017-02-09 14:48:12');
+INSERT INTO ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
+	VALUES(1030,1032,'在ㄇ','2017-02-09 14:49:03');
+INSERT INTO ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
+	VALUES(1030,1032,'在ㄇ','2017-02-09 14:49:04');
+INSERT INTO ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
+	VALUES(1030,1032,'在ㄇ','2017-02-09 14:49:05');
+INSERT INTO ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
+	VALUES(1030,1032,'在ㄇ在ㄇ在ㄇ在ㄇ在ㄇ在ㄇ在ㄇ在ㄇ在ㄇ在ㄇ在ㄇ','2017-02-09 14:50:42');
 
 --Msg
 insert into Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
 values(1002,1004,'請問芒果何時會出貨？','最近好想吃芒果，請問何時有貨呢？','2017-01-23 09:07:43',0);
+INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
+	VALUES(1030,1031,'請問大概多久能收到貨','剛剛下訂了你們家的文旦，請問大概什麼時候能收到呢??我很急拜託幫幫忙!!!','2017-03-08 18:04:11',0);
+INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
+	VALUES(1030,1032,'有顆文旦壞了','你們有一顆文旦感覺根本就壞了!!!超級乾完全沒水份非常難吃!!!我要求退貨處理!!!不然檢舉你喔!!!','2017-02-08 11:14:22',1);
+INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
+	VALUES(1030,1033,'請問什麼時候有下一批貨','很好吃，還想買，請問你們什麼時候還有貨?','2017-01-22 12:22:39',1);	
+INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
+	VALUES(1033,1030,'下一批文旦預計02/02到貨','感謝您的支持與鼓勵~~~下一批文旦將於02/02到貨，有任何需要歡迎隨時與我們聯繫喔0.<','2017-01-22 21:55:11',1);	
 	
 --Unit
 --INSERT INTO Unit (UnitName) VALUES ('箱');

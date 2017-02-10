@@ -295,68 +295,68 @@ public class DeleteProductServlet extends HttpServlet {
 		 * 可以再從這個bean裡面拿出商品編號
 		 */
 		ProductDAOjdbc dao1 = new ProductDAOjdbc();
-		int productId;
-		productBean = dao1.delete(productId); // 參數塞？
-
-		int n = productBean.delete(productId);
-		if (n == 1) {
-			session.setAttribute("DeleteMsg", "商品刪除成功");
-		} else {
-			session.setAttribute("DeleteMsg", "商品刪除失敗");
-		}
-
-		// 商品圖片(參考UploadFileServlet)
-
-		/*
-		 * insert同時回傳含有流水號的Bean(productPicId) insert完後回傳的bean就會有流水號
-		 * 可以再從這個bean裡面拿出商品圖片編號
-		 */
-		ProductPicBean productPicBean = new ProductPicBean();
-		productPicBean.setProductId(productBean.getProductId());
-		// if (productIntro != null && productIntro.length() != 0) {
-
-		// } // 商品圖片介紹
-		if (part.getSize() != 0) {
-			productPicBean.setPictureIntro(pictureIntro1);
-			ProductPicService.uploadPic(productPicBean, part);
-		}
-		if (part2.getSize() != 0) {
-			productPicBean.setPictureIntro(pictureIntro2);
-			ProductPicService.uploadPic(productPicBean, part2);
-		}
-		if (part3.getSize() != 0) {
-			productPicBean.setPictureIntro(pictureIntro3);
-			ProductPicService.uploadPic(productPicBean, part3);
-		}
-		if (part4.getSize() != 0) {
-			productPicBean.setPictureIntro(pictureIntro4);
-			ProductPicService.uploadPic(productPicBean, part4);
-		}
-		if (part5.getSize() != 0) {
-			productPicBean.setPictureIntro(pictureIntro5);
-			ProductPicService.uploadPic(productPicBean, part5);
-		}
-		ProductPicDAOJdbc dao2 = new ProductPicDAOJdbc();
-		List<ProductPicBean> list = dao2.selectByProductId(productBean.getProductId());
-		dao2.delete(productPicId);
-
-		/*
-		 * insert同時回傳含有流水號的Bean(DiscountId) insert完後回傳的bean就會有流水號
-		 * 可以再從這個bean裡面拿出商品折扣編號
-		 */
-		ProductDiscountDAOjdbc dao3 = new ProductDiscountDAOjdbc();
-		productDiscountBean.setDiscountPrice(discountPrice);
-		productDiscountBean.setMaxThreshold(maxThreshold);
-		productDiscountBean.setMinThreshold(minThreshold);
-		productDiscountBean.setProductId(productBean.getProductId());
-		dao3.insert(productDiscountBean);
-		dao3.delete(discountId);
-
-		// 5.挑選適當頁面============================================
-		request.setAttribute("productBean", productBean);
-		request.setAttribute("productPicList", list);
-		// 修改或刪除完後，回商品瀏覽頁面
-		request.getRequestDispatcher("farmerManageProduct.jsp").forward(request, response);
+//		int productId;
+//		productBean = dao1.delete(productId); // 參數塞？
+//
+//		int n = productBean.delete(productId);
+//		if (n == 1) {
+//			session.setAttribute("DeleteMsg", "商品刪除成功");
+//		} else {
+//			session.setAttribute("DeleteMsg", "商品刪除失敗");
+//		}
+//
+//		// 商品圖片(參考UploadFileServlet)
+//
+//		/*
+//		 * insert同時回傳含有流水號的Bean(productPicId) insert完後回傳的bean就會有流水號
+//		 * 可以再從這個bean裡面拿出商品圖片編號
+//		 */
+//		ProductPicBean productPicBean = new ProductPicBean();
+//		productPicBean.setProductId(productBean.getProductId());
+//		// if (productIntro != null && productIntro.length() != 0) {
+//
+//		// } // 商品圖片介紹
+//		if (part.getSize() != 0) {
+//			productPicBean.setPictureIntro(pictureIntro1);
+//			ProductPicService.uploadPic(productPicBean, part);
+//		}
+//		if (part2.getSize() != 0) {
+//			productPicBean.setPictureIntro(pictureIntro2);
+//			ProductPicService.uploadPic(productPicBean, part2);
+//		}
+//		if (part3.getSize() != 0) {
+//			productPicBean.setPictureIntro(pictureIntro3);
+//			ProductPicService.uploadPic(productPicBean, part3);
+//		}
+//		if (part4.getSize() != 0) {
+//			productPicBean.setPictureIntro(pictureIntro4);
+//			ProductPicService.uploadPic(productPicBean, part4);
+//		}
+//		if (part5.getSize() != 0) {
+//			productPicBean.setPictureIntro(pictureIntro5);
+//			ProductPicService.uploadPic(productPicBean, part5);
+//		}
+//		ProductPicDAOJdbc dao2 = new ProductPicDAOJdbc();
+//		List<ProductPicBean> list = dao2.selectByProductId(productBean.getProductId());
+//		dao2.delete(productPicId);
+//
+//		/*
+//		 * insert同時回傳含有流水號的Bean(DiscountId) insert完後回傳的bean就會有流水號
+//		 * 可以再從這個bean裡面拿出商品折扣編號
+//		 */
+//		ProductDiscountDAOjdbc dao3 = new ProductDiscountDAOjdbc();
+//		productDiscountBean.setDiscountPrice(discountPrice);
+//		productDiscountBean.setMaxThreshold(maxThreshold);
+//		productDiscountBean.setMinThreshold(minThreshold);
+//		productDiscountBean.setProductId(productBean.getProductId());
+//		dao3.insert(productDiscountBean);
+//		dao3.delete(discountId);
+//
+//		// 5.挑選適當頁面============================================
+//		request.setAttribute("productBean", productBean);
+//		request.setAttribute("productPicList", list);
+//		// 修改或刪除完後，回商品瀏覽頁面
+//		request.getRequestDispatcher("farmerManageProduct.jsp").forward(request, response);
 
 	}
 

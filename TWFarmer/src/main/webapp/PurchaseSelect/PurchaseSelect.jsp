@@ -25,7 +25,7 @@ td {
 					<div class="form-group">
 						<label class="">合購搜尋</label>
 						<div class="">
-							<input type="text" name="name" class="form-control" value="">
+							<input type="text"  name="keyword" class="form-control" value="">
 						</div>
 					</div>
 					<div class="form-group">
@@ -65,51 +65,5 @@ td {
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="/TWFarmer/js/bootstrap.min.js"></script>
-
-
-
-
-
-
-	<form
-		action="<c:url value="/PurchaseSelect/PurchaseSelect.controller" />"
-		method="get">
-		<table class="">
-			<tr>
-				<td>合購搜尋：</td>
-				<td><input type="text" name="keyword" value=""></td>
-				<td>${errors.keyword}</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td align="right"><input type="submit" value="搜尋"></td>
-			</tr>
-		</table>
-
-		<c:if test="${not empty keyword}">
-			<table>
-				<thead>
-					<tr>
-						<th>合購名稱</th>
-						<th>地區</th>
-						<th>描述</th>
-						<th>開始日期</th>
-						<th>截止日期</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="row" items="${keyword}">
-						<tr>
-							<td><a href="${path}">${row.jpName}</a></td>
-							<td>${row.jpLocation}</td>
-							<td>${row.jpIntro}</td>
-							<td>${row.initDate}</td>
-							<td>${row.endDate}</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</c:if>
-	</form>
 </body>
 </html>
