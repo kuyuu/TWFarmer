@@ -17,6 +17,7 @@ import javax.sql.DataSource;
 import model.JPDetailBean;
 import model.ProductBean;
 import model.ProductDAO;
+import model.ProductPicBean;
 
 public class ProductDAOjdbc implements ProductDAO {
 	private DataSource dataSource;
@@ -98,7 +99,7 @@ public class ProductDAOjdbc implements ProductDAO {
 
 	}
 
-	private static final String SELECT_BY_ID = "select * from Product where productId=?";
+	private static final String SELECT_BY_ID = "select * from Product where productId=? ";
 
 	@Override
 	public ProductBean select(int productId) {
@@ -145,20 +146,19 @@ public class ProductDAOjdbc implements ProductDAO {
 		return result;
 	}
 
-	private static final String SELECT_BY_PRODUCTNAME = "Select * FROM Product Where origin LIKE ?";
-
+	private static final String SELECT_BY_PRODUCTNAME = "Select * FROM Product Where  ProductStatusName='上架'and (origin LIKE ? or ProductName like ?)";
 	@Override
-	public List<ProductBean> selectByName(String name) {
-		List<ProductBean> result = null;
+	public Map<ProductBean, List<ProductPicBean>> selectByName(String keyword) {
+		Map<ProductBean, List<ProductPicBean>> result = null;
 		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_PRODUCTNAME);) {
 
-			stmt.setString(1, "%" + name + "%");
+			stmt.setString(1, "%" + keyword + "%");
+			stmt.setString(2, "%" + keyword + "%");
 			ResultSet rset = stmt.executeQuery();
-			result = new ArrayList<ProductBean>();
+			result = new HashMap<ProductBean, List<ProductPicBean>>();
 			while (rset.next()) {
 				ProductBean productBean = new ProductBean();
-
 				productBean.setProductId(rset.getInt("productId"));
 				productBean.setSellerId(rset.getInt("sellerId"));
 				productBean.setOrigin(rset.getString("origin"));
@@ -177,8 +177,10 @@ public class ProductDAOjdbc implements ProductDAO {
 				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
 				productBean.setRemoveDate(rset.getDate("removeDate"));
 				productBean.setProductStatusName(rset.getString("productStatusName"));
-
-				result.add(productBean);
+				List<ProductPicBean> list = new ArrayList<ProductPicBean>();
+				ProductPicDAOJdbc dao = new ProductPicDAOJdbc();
+				list = dao.selectByProductId(rset.getInt("productId"));
+				result.put(productBean, list);
 
 			}
 		} catch (SQLException e) {
@@ -186,21 +188,62 @@ public class ProductDAOjdbc implements ProductDAO {
 		}
 		return result;
 	}
+	
 
-	private static final String SELECT_BY_PRODUCTTYPENAME = "Select * FROM Product where productTypeName=?";
+//	private static final String SELECT_BY_PRODUCTNAME = "Select * FROM Product Where  ProductStatusName='上架'and origin LIKE ?";
+//
+//	@Override
+//	public List<ProductBean> selectByName(String name) {
+//		List<ProductBean> result = null;
+//		try (Connection conn = dataSource.getConnection();
+//				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_PRODUCTNAME);) {
+//
+//			stmt.setString(1, "%" + name + "%");
+//			ResultSet rset = stmt.executeQuery();
+//			result = new ArrayList<ProductBean>();
+//			while (rset.next()) {
+//				ProductBean productBean = new ProductBean();
+//
+//				productBean.setProductId(rset.getInt("productId"));
+//				productBean.setSellerId(rset.getInt("sellerId"));
+//				productBean.setOrigin(rset.getString("origin"));
+//				productBean.setProductName(rset.getString("productName"));
+//				productBean.setInventory(rset.getInt("inventory"));
+//				productBean.setPrice(rset.getInt("price"));
+//				productBean.setUnit(rset.getString("unit"));
+//				productBean.setProductTypeName(rset.getString("productTypeName"));
+//				productBean.setProductIntro(rset.getString("productIntro"));
+//				productBean.setFreight(rset.getInt("freight"));
+//				productBean.setAddDate(rset.getDate("addDate"));
+//				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
+//				productBean.setRemoveDate(rset.getDate("removeDate"));
+//				// productBean.setProductStatusId(rset.getInt("productStatusId"));
+//				productBean.setAddDate(rset.getDate("addDate"));
+//				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
+//				productBean.setRemoveDate(rset.getDate("removeDate"));
+//				productBean.setProductStatusName(rset.getString("productStatusName"));
+//
+//				result.add(productBean);
+//
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return result;
+//	}
 
+	private static final String SELECT_BY_PRODUCTTYPENAME = "Select * FROM Product where ProductStatusName='上架'and productTypeName=?";
 	@Override
-	public List<ProductBean> selectByType(String type) {
-		List<ProductBean> result = null;
+	public Map<ProductBean, List<ProductPicBean>> selectByType(String type) {
+		Map<ProductBean, List<ProductPicBean>> result = null;
 		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_PRODUCTTYPENAME);) {
 
 			stmt.setString(1, type);
 			ResultSet rset = stmt.executeQuery();
-			result = new ArrayList<ProductBean>();
+			result = new HashMap<ProductBean, List<ProductPicBean>>();
 			while (rset.next()) {
 				ProductBean productBean = new ProductBean();
-
 				productBean.setProductId(rset.getInt("productId"));
 				productBean.setSellerId(rset.getInt("sellerId"));
 				productBean.setOrigin(rset.getString("origin"));
@@ -219,8 +262,54 @@ public class ProductDAOjdbc implements ProductDAO {
 				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
 				productBean.setRemoveDate(rset.getDate("removeDate"));
 				productBean.setProductStatusName(rset.getString("productStatusName"));
+				List<ProductPicBean> list = new ArrayList<ProductPicBean>();
+				ProductPicDAOJdbc dao = new ProductPicDAOJdbc();
+				list = dao.selectByProductId(rset.getInt("productId"));
+				result.put(productBean, list);
 
-				result.add(productBean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	private static final String SELECT_BY_TYPEANDNAME = "Select * FROM Product where ProductStatusName='上架'and productTypeName=?  and (origin LIKE ? or ProductName like ?) ";
+	@Override
+	public Map<ProductBean, List<ProductPicBean>> selectByTypeAndName(String type , String keyword) {
+		Map<ProductBean, List<ProductPicBean>> result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_TYPEANDNAME);) {
+
+			stmt.setString(1, type);
+			stmt.setString(2, "%" + keyword + "%");
+			stmt.setString(3, "%" + keyword + "%");
+			ResultSet rset = stmt.executeQuery();
+			result = new HashMap<ProductBean, List<ProductPicBean>>();
+			while (rset.next()) {
+				ProductBean productBean = new ProductBean();
+				productBean.setProductId(rset.getInt("productId"));
+				productBean.setSellerId(rset.getInt("sellerId"));
+				productBean.setOrigin(rset.getString("origin"));
+				productBean.setProductName(rset.getString("productName"));
+				productBean.setInventory(rset.getInt("inventory"));
+				productBean.setPrice(rset.getInt("price"));
+				productBean.setUnit(rset.getString("unit"));
+				productBean.setProductTypeName(rset.getString("productTypeName"));
+				productBean.setProductIntro(rset.getString("productIntro"));
+				productBean.setFreight(rset.getInt("freight"));
+				productBean.setAddDate(rset.getDate("addDate"));
+				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
+				productBean.setRemoveDate(rset.getDate("removeDate"));
+				// productBean.setProductStatusId(rset.getInt("productStatusId"));
+				productBean.setAddDate(rset.getDate("addDate"));
+				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
+				productBean.setRemoveDate(rset.getDate("removeDate"));
+				productBean.setProductStatusName(rset.getString("productStatusName"));
+				List<ProductPicBean> list = new ArrayList<ProductPicBean>();
+				ProductPicDAOJdbc dao = new ProductPicDAOJdbc();
+				list = dao.selectByProductId(rset.getInt("productId"));
+				result.put(productBean, list);
 
 			}
 		} catch (SQLException e) {

@@ -29,7 +29,7 @@ public class DeleteProductServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		
+	
 		ProductDAOjdbc dao = new ProductDAOjdbc();
 		ProductBean bean = dao.select(productId);
 		request.setAttribute("productBean", bean);
@@ -43,6 +43,7 @@ public class DeleteProductServlet extends HttpServlet {
 		request.setAttribute("productPicList", list2);
 		
 		request.getRequestDispatcher("../ProductMaintain/ProductDelete.jsp").forward(request, response);
+
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

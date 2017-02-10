@@ -158,19 +158,24 @@ public class LoginServlet extends HttpServlet {
 				rd.forward(request, response);
 				return;
 			}else {
-				// 此時不要用下面兩個敘述，因為網址列的URL不會改變
-				// RequestDispatcher rd = request.getRequestDispatcher("...");
-				// rd.forward(request, response);
-				if (requestURI != null) {
-					requestURI = (requestURI.length() == 0 ? request
-							.getContextPath() : requestURI);
-					response.sendRedirect(response.encodeRedirectURL(requestURI));
-					return;
-				} else {
-					response.sendRedirect(response.encodeRedirectURL(request
-							.getContextPath()));
-					return;
-				}
+				session.setAttribute("contextMemberBean", member);
+				RequestDispatcher rd = request.getRequestDispatcher("/test/ShowMember.jsp");
+				rd.forward(request, response);
+				return;
+
+//				// 此時不要用下面兩個敘述，因為網址列的URL不會改變
+//				// RequestDispatcher rd = request.getRequestDispatcher("...");
+//				// rd.forward(request, response);
+//				if (requestURI != null) {
+//					requestURI = (requestURI.length() == 0 ? request
+//							.getContextPath() : requestURI);
+//					response.sendRedirect(response.encodeRedirectURL(requestURI));
+//					return;
+//				} else {
+//					response.sendRedirect(response.encodeRedirectURL(request
+//							.getContextPath()));
+//					return;
+//				}
 			}
 
 			
