@@ -41,11 +41,14 @@ public class FarmerBackStageServlet extends HttpServlet {
 		
 		JointPurchaseDAOjdbc dao2 = new JointPurchaseDAOjdbc();
 		List<JointPurchaseBean> list2 = dao2.selectJpIdBySellerId(memberId);
+		List<JointPurchaseBean> list3 = dao2.selectByInitId(memberId);
 		
 		request.setAttribute("productList", list1);
 		request.setAttribute("jpList", list2);
-		request.getRequestDispatcher("/BackStage/farmerCheckJP.jsp").forward(request, response);
+		request.setAttribute("initJpList", list3);
+//		request.getRequestDispatcher("/BackStage/farmerCheckJP.jsp").forward(request, response);
 //		request.getRequestDispatcher("/BackStage/farmerManageProduct.jsp").forward(request, response);
+		request.getRequestDispatcher("/BackStage/memberCheckJp.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
