@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="UTF-8">
 <head>
@@ -53,14 +54,43 @@
 				<div class="list-group">
 					<a href="#" class="list-group-item">管理訂單</a> <a href="#"
 						class="list-group-item active">管理開團</a> <a href="#"
-						class="list-group-item">管理跟團</a> <a href="#"
+						class="list-group-item">管理跟團</a><a href="#"
+						class="list-group-item">管理追蹤商品</a> <a href="#"
 						class="list-group-item">管理個人資料</a>
 				</div>
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
 					<h3>管理開團</h3>
-					
+					<c:if test="${not empty initJpList}">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>合購編號</th>
+									<th>合購發起人</th>
+									<th>開始日期</th>
+									<th>結束日期</th>
+									<th>合購地點</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="row" items="${initJpList}">
+									<c:url value="/BackStage/FarmerCheckJointPurchaseServlet"
+										var="path">
+										<c:param name="jointPurchaseId" value="${row.jpId}" />
+									</c:url>
+									<tr>
+										<td><a href="${path}">${row.jpId}</a></td>
+										<td>${row.initId}</td>
+										<td>${row.initDate}</td>
+										<td>${row.endDate}</td>
+										<td>${row.jpLocation}</td>
+									</tr>
+								</c:forEach>
+
+							</tbody>
+						</table>
+					</c:if>
 				</div>
 			</div>
 		</div>

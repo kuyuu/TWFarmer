@@ -9,9 +9,11 @@ public interface ProductDAO {
 
 	public abstract List<ProductBean> select();
 
-	public abstract List<ProductBean> selectByName(String name);
+	public abstract Map<ProductBean, List<ProductPicBean>> selectByName(String keyword);
 
-	public abstract List<ProductBean> selectByType(int productTypeId);
+	public abstract Map<ProductBean, List<ProductPicBean>> selectByType(String type);
+	
+	public abstract Map<ProductBean, List<ProductPicBean>> selectByTypeAndName(String type, String keyword);
 	
 	public abstract ProductBean insert(ProductBean bean);
 
@@ -22,4 +24,5 @@ public interface ProductDAO {
 	List<ProductBean> selectBySellerId(int sellerId);
 
 	Map<JPDetailBean, ProductBean> selectByJpId(int jpId);
+	
 }

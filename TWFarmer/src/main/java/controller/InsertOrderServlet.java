@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -9,11 +10,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.MsgBean;
+import model.OrderStatusDAO;
 import model.OrdersBean;
 import model.dao.MsgDAOJdbc;
 import model.dao.OrdersDAOJdbc;
+import model.ProductDAO;
+import model.ProductBean;
+import model.dao.ProductDAOjdbc;
 
 /**
  * Servlet implementation class InsertOrdersIServlet
@@ -22,16 +28,25 @@ import model.dao.OrdersDAOJdbc;
 public class InsertOrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	public void init() throws ServletException{
+		
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("test");
+		doPost(request, response);
+	}	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 request.setCharacterEncoding("UTF-8");
-
+HttpSession session = request.getSession();
 //request.getParameter("orderId"); //這三行如何直接撈資料
 //request.getParameter("sellerId");
 //request.getParameter("buyerId");
-String temp5 = request.getParameter("sellerId");
+//String temp5 = request.getParameter("sellerId");
 String temp6 = request.getParameter("buyerId");
 String temp1 = request.getParameter("totalFreight");//如何直接帶入運費金額
-String temp2 = request.getParameter("totalPrice");//如何直接帶入商品金額
+//String temp2 = request.getParameter("totalPrice");//如何直接帶入商品金額
 String temp3 = request.getParameter("orderDate");// 如何直接抓當下時間
 String temp4 = request.getParameter("shipDate");
 String shipName = request.getParameter("shipName");
@@ -41,23 +56,42 @@ String shipAddress = request.getParameter("shipAddress");
 //String temp9 = request.getParameter("orderStatusId"); //如何寫入狀態(已、未付款，已、出貨)
 //String temp10 = request.getParameter("ratingBuyer");//還沒寫入評比
 //String temp11 = request.getParameter("ratingSeller");//還沒寫入評比
-
+String selectedProductId = request.getParameter("selectedProduct");
+String amount = request.getParameter("amount");
 
 //錯誤訊息
 Map<String, String> errors = new HashMap<String, String>();
 request.setAttribute("errors", errors);
 
 
+
+
+System.out.println("Selected Product ID");
+System.out.println(selectedProductId);
+ProductDAOjdbc pd = new ProductDAOjdbc();
+if(selectedProductId == null){
+	
+	List<ProductBean> plist = pd.select();//new ArrayList<ProductBean>();
+	
+	System.out.println(plist.size());
+	request.setAttribute("products", plist);
+	
+	request.getRequestDispatcher(
+			"NewOrder.jsp").forward(request, response);
+}
+else{
+
+System.out.println("test2");
 if(temp1 == null || temp1.length() ==0){
 errors.put("totalFreight","運費必填" );	
 	}
 
-if(temp2 == null || temp2.length() == 0){
-	errors.put("totalPrice", "總價位必填");	
-	}
-if(temp5 == null || temp5.length() == 0){
-	errors.put("sellerId", "賣家必填");	
-	}
+//if(temp2 == null || temp2.length() == 0){
+//	errors.put("totalPrice", "總價位必填");	
+//	}
+//if(temp5 == null || temp5.length() == 0){
+//	errors.put("sellerId", "賣家必填");	
+//	}
 if(temp6 == null || temp6.length() == 0){
 	errors.put("buyerId", "買家必填");	
 	}
@@ -81,7 +115,6 @@ if(shipAddress == null || shipAddress.length() == 0){
 	errors.put("shipAddress", "收件地址");
 	}
 
-
 //轉換
 
 int totalFreight = 0;
@@ -94,25 +127,25 @@ if (temp1 != null && temp1.length() != 0) {
 	}
 }
 
-int totalPrice = 0;
-if (temp2 != null && temp2.length() != 0) {
-	try {
-		totalPrice = Integer.parseInt(temp1);
-	} catch (NumberFormatException e) {
-		e.printStackTrace();
-		errors.put("totalPrice", "總金額必須是整數");
-	}
-}
+int unitPrice = 0;
+//if (temp2 != null && temp2.length() != 0) {
+//	try {
+//		totalPrice = Integer.parseInt(temp1);
+//	} catch (NumberFormatException e) {
+//		e.printStackTrace();
+//		errors.put("totalPrice", "總金額必須是整數");
+//	}
+//}
 
 int sellerId = 0;
-if (temp5 != null && temp5.length() != 0) {
-	try {
-		sellerId = Integer.parseInt(temp5);
-	} catch (NumberFormatException e) {
-		e.printStackTrace();
-		errors.put("sellerId", "賣家編號必須是整數");
-	}
-}
+//if (temp5 != null && temp5.length() != 0) {
+//	try {
+//		sellerId = Integer.parseInt(temp5);
+//	} catch (NumberFormatException e) {
+//		e.printStackTrace();
+//		errors.put("sellerId", "賣家編號必須是整數");
+//	}
+//}
 int buyerId = 0;
 if (temp6 != null && temp6.length() != 0) {
 	try {
@@ -143,10 +176,12 @@ if (temp4 != null && temp4.length() != 0) {
 	}
 }
 
-
+//Trying to get serial number~
+int orderId = 0;
 
 
 if(errors!=null && !errors.isEmpty()) {
+	//request.setAttribute("test", "This is test");
 	request.getRequestDispatcher(
 			"NewOrder.jsp").forward(request, response);
 	return;
@@ -156,7 +191,14 @@ if(errors!=null && !errors.isEmpty()) {
 OrdersDAOJdbc daoo = new OrdersDAOJdbc();
 OrdersBean ordersBean = new OrdersBean();
 
+// get information based on the product ID selected by user
+ProductBean pro = pd.select(Integer.valueOf(selectedProductId));
+sellerId = pro.getSellerId();
+unitPrice = pro.getPrice();
 
+
+int totalPrice = unitPrice* Integer.valueOf(amount) + Integer.valueOf(totalFreight) ;
+ordersBean.setOrderId(orderId);
 ordersBean.setSellerId(sellerId);
 ordersBean.setBuyerId(buyerId);
 ordersBean.setTotalFreight(totalFreight);
@@ -168,10 +210,20 @@ ordersBean.setShipName(shipName);
 ordersBean.setShipPostalCode(shipPostalCode);
 ordersBean.setShipDistrict(shipDistrict);
 ordersBean.setShipAddress(shipAddress);
+//Integer orderStatus = new Integer(3101); // OrderStatusDAO. 
+ordersBean.setOrderStatusId(3101);
+
+
 ordersBean = daoo.insert(ordersBean);
 
+// OrderStatusDAO. 
+
+session.setAttribute("ordersBean", ordersBean);
+
+//request.setAttribute("test", "This is test");
 
 request.getRequestDispatcher("OrderSuccess.jsp").forward(request,response);
+}
 
 	}
 }

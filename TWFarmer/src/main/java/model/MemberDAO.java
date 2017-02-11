@@ -5,7 +5,11 @@ import java.util.List;
 public interface MemberDAO {
 
 	public abstract MemberBean select(int memberId);
+	
+	public abstract List<MemberBean> selectByTypeId(int idType);
 
+	public abstract MemberBean selectByAccount(String account);
+	
 	public abstract List<MemberBean> select();
 
 	public abstract MemberBean insert(MemberBean bean);

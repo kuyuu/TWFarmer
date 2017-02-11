@@ -7,7 +7,7 @@
 <title>註冊成功!</title>
 </head>
 <body>
-<h1>會員 ${ mom.account } 註冊成功</h1>
+<h1>會員註冊成功</h1>
 <a href="/TWFarmer/index.jsp">直接回首頁</a>
 </body>
 </html>

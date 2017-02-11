@@ -1,15 +1,21 @@
 package model.dao;
 
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import hibernate.util.HibernateUtil;
 import model.JPFollowerBean;
 import model.JPFollowerDAO;
+import model.JointPurchaseBean;
 
 public class JPFollowerDAOJdbc implements JPFollowerDAO {
-	
+
 	@Override
 	public JPFollowerBean select(int JPFollowerId) {
 		JPFollowerBean result = null;
@@ -87,6 +93,24 @@ public class JPFollowerDAOJdbc implements JPFollowerDAO {
 			if (i == 1) {
 				result = true;
 			}
+			session.getTransaction().commit();
+		} catch (RuntimeException ex) {
+			session.getTransaction().rollback();
+			throw ex;
+		}
+		return result;
+	}
+
+	private static final String SELECT_BY_BUYERID = "from JPFollowerBean order by JPFollowerId where MemberId=?";
+
+	@Override
+	public List<JPFollowerBean> selectByBuyerId(int buyerId) {
+		List<JPFollowerBean> result = null;
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try {
+			session.beginTransaction();
+			Query query = session.createQuery(SELECT_BY_BUYERID).setParameter(0, buyerId);
+			result = query.list();
 			session.getTransaction().commit();
 		} catch (RuntimeException ex) {
 			session.getTransaction().rollback();

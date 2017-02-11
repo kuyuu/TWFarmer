@@ -11,34 +11,32 @@ public class ProductBean {
 	private int inventory;
 	private int price;
 	private String unit;
-	private int productTypeId;
+	private String productTypeName;
 	private String productIntro;
 	private int freight;
 	private java.util.Date addDate;
 	private java.util.Date removeEstDate;
 	private java.util.Date removeDate;
-//	private int productStatusId;
+	// private int productStatusId;
 	private String productStatusName;
 	private static SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd");
-	
+
 	@Override
-//	public boolean equals(Object obj) {
-//		if(obj!=null && (obj instanceof ProductBean)) {
-//			ProductBean temp = (ProductBean) obj;
-//			if(this.ProductId == temp.ProductId) {
-//				return true;
-//			}
-//		}
-//		return false;
-//	}
+	// public boolean equals(Object obj) {
+	// if(obj!=null && (obj instanceof ProductBean)) {
+	// ProductBean temp = (ProductBean) obj;
+	// if(this.ProductId == temp.ProductId) {
+	// return true;
+	// }
+	// }
+	// return false;
+	// }
 	public String toString() {
-		return "{"+productId+":"+sellerId+":"+origin+":"+productName+":"+inventory+
-				":"+price+":"+unit+":"+productTypeId+":"+productIntro+":"+freight+":"+addDate+":"+removeEstDate+""
-						+ ":"+removeDate+""
-								+  ":"+productStatusName+"}";
+		return "{" + productId + ":" + sellerId + ":" + origin + ":" + productName + ":" + inventory + ":" + price + ":"
+				+ unit + ":" + productTypeName + ":" + productIntro + ":" + freight + ":" + addDate + ":"
+				+ removeEstDate + "" + ":" + removeDate + "" + ":" + productStatusName + "}";
 	}
-	
-	
+
 	public int getProductId() {
 		return productId;
 	}
@@ -95,12 +93,12 @@ public class ProductBean {
 		this.unit = unit;
 	}
 
-	public int getProductTypeId() {
-		return productTypeId;
+	public String getProductTypeName() {
+		return productTypeName;
 	}
 
-	public void setProductTypeId(int productTypeId) {
-		this.productTypeId = productTypeId;
+	public void setProductTypeName(String productTypeName) {
+		this.productTypeName = productTypeName;
 	}
 
 	public String getProductIntro() {
@@ -143,22 +141,28 @@ public class ProductBean {
 		this.removeDate = removeDate;
 	}
 
-
 	public String getProductStatusName() {
 		return productStatusName;
 	}
-
 
 	public void setProductStatusName(String productStatusName) {
 		this.productStatusName = productStatusName;
 	}
 
-//	public int getProductStatusId() {
-//		return productStatusId;
-//	}
-//
-//	public void setProductStatusId(int productStatusId) {
-//		this.productStatusId = productStatusId;
-//	}
+	// public int getProductStatusId() {
+	// return productStatusId;
+	// }
+	//
+	// public void setProductStatusId(int productStatusId) {
+	// this.productStatusId = productStatusId;
+	// }
+	
+	// public int getproductTypeId() {
+	// return productTypeId;
+	// }
+	//
+	// public void setproductTypeId(int productTypeId) {
+	// this.productTypeId = productTypeId;
+	// }
 
 }

@@ -74,20 +74,21 @@
 
 					<tr>
 						<td>類別：</td>
-						<td><select id="type" name="type">
-								<option value="2101">仁果類</option>
-								<option value="2102">核果類</option>
-								<option value="2103">堅果類</option>
-								<option value="2104">漿果類</option>
-								<option value="2105">柑橘類</option>
-								<option value="2106">瓜類</option>
-								<option value="2107">根菜類</option>
-								<option value="2108">莖菜類</option>
-								<option value="2109">花菜類</option>
-								<option value="2110">果菜類</option>
-								<option value="2111">葉菜類</option>
-								<option value="2112">香辛類</option>
-								<option value="2113">菌藻類</option>
+						<td><select id="productTypeName" name="productTypeName">
+								<option>仁果類</option>
+								<option>核果類</option>
+								<option>堅果類</option>
+								<option>漿果類</option>
+								<option>柑橘類</option>
+								<option>瓜類</option>
+								<option>根菜類</option>
+								<option>莖菜類</option>
+								<option>花菜類</option>
+								<option>果菜類</option>
+								<option>葉菜類</option>
+								<option>香辛類</option>
+								<option>菌藻類</option>
+								<option>豆類</option>
 						</select>
 							<div style="color: #FF0000; display: inline">${ErrorMsg.type}</div>
 					</tr>

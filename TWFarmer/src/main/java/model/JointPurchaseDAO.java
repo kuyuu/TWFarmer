@@ -7,6 +7,10 @@ public interface JointPurchaseDAO {
 	public abstract JointPurchaseBean select(int  jpId);
 
 	public abstract List<JointPurchaseBean> select();
+	
+	public abstract List<JointPurchaseBean> selectByPurchaseOk();
+	
+	public abstract List<JointPurchaseBean> selectByKeyword(String Keyword);
 
 	public abstract JointPurchaseBean insert(JointPurchaseBean bean);
 
