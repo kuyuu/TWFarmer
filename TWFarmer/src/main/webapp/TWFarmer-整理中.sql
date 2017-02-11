@@ -261,73 +261,73 @@ GO
 
 --Member
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('a001','password','會員A',235,'新北市中和區','會員A的家','0911111111','memberA@gmail.com','A111111111','1990-01-01','M',1,0);
+	VALUES ('a001','password','會員A',235,'新北市中和區','會員A的家','0911111111','memberA@gmail.com','A111111111','1990-01-01','M',1,0,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('b001','password','會員B',106,'台北市大安區','會員B的家','0922222222','memberB@gmail.com','B222222222','1988-02-02','F',1,10);
+	VALUES ('b001','password','會員B',106,'台北市大安區','會員B的家','0922222222','memberB@gmail.com','B222222222','1988-02-02','F',1,10,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('c002','password','小農A',367,'苗栗縣三義鄉','小農A的家','0933333333','memberA@gmail.com','A333333333','1944-04-04','M',2,100);
+	VALUES ('c002','password','小農A',367,'苗栗縣三義鄉','小農A的家','0933333333','memberA@gmail.com','A333333333','1944-04-04','M',2,100,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('d002','password','小農B',904,'屏東縣九如鄉','小農B的家','0944444444','memberB@gmail.com','B444444444','1955-05-05','M',2,30);
+	VALUES ('d002','password','小農B',904,'屏東縣九如鄉','小農B的家','0944444444','memberB@gmail.com','B444444444','1955-05-05','M',2,30,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('c001','password','會員C',106,'台北市大安區','會員C的家','0933333333','memberB@gmail.com','C222222222','1988-02-02','F',1,10);
+	VALUES ('c001','password','會員C',106,'台北市大安區','會員C的家','0933333333','memberB@gmail.com','C222222222','1988-02-02','F',1,10,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('d001','password','會員D',106,'台北市大安區','會員D的家','0944444444','memberB@gmail.com','D222222222','1988-02-02','F',1,10);
+	VALUES ('d001','password','會員D',106,'台北市大安區','會員D的家','0944444444','memberB@gmail.com','D222222222','1988-02-02','F',1,10,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('e001','password','會員E',106,'台北市大安區','會員E的家','0955555555','memberB@gmail.com','E222222222','1988-02-02','F',1,10);
+	VALUES ('e001','password','會員E',106,'台北市大安區','會員E的家','0955555555','memberB@gmail.com','E222222222','1988-02-02','F',1,10,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('f001','password','會員F',106,'台北市大安區','會員F的家','0966666666','memberB@gmail.com','F222222222','1988-02-02','F',1,10);
+	VALUES ('f001','password','會員F',106,'台北市大安區','會員F的家','0966666666','memberB@gmail.com','F222222222','1988-02-02','F',1,10,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('c002','password','小農C',367,'苗栗縣三義鄉','小農C的家','0933333333','memberC@gmail.com','C333333333','1944-04-04','M',2,100);
+	VALUES ('c002','password','小農C',367,'苗栗縣三義鄉','小農C的家','0933333333','memberC@gmail.com','C333333333','1944-04-04','M',2,100,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('d002','password','小農D',904,'屏東縣九如鄉','小農D的家','0944444444','memberD@gmail.com','D444444444','1955-05-05','M',2,30);
+	VALUES ('d002','password','小農D',904,'屏東縣九如鄉','小農D的家','0944444444','memberD@gmail.com','D444444444','1955-05-05','M',2,30,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('micky','123','米小鼠',555,'南投縣魚池鄉','埔尾路215號','0912345678','micky@gmail.com','M125943647','1962-08-25','M',2,126);
+	VALUES ('micky','123','米小鼠',555,'南投縣魚池鄉','埔尾路215號','0912345678','micky@gmail.com','M125943647','1962-08-25','M',2,126,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('kitty','123','凱蒂貓',973,'花蓮縣吉安鄉','慈雲路52號','0987416423','kitty@gmail.com','U235974118','1973-06-16','M',2,95);
+	VALUES ('kitty','123','凱蒂貓',973,'花蓮縣吉安鄉','慈雲路52號','0987416423','kitty@gmail.com','U235974118','1973-06-16','M',2,95,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	values ('sunmary', '123', '孫小美', 206, '基隆市七堵區', '福一街172巷22號', '0912766281', 'sunmary@gmail.com', 'C223456724', '1988-10-08', 'F',1, 25);
+	values ('sunmary', '123', '孫小美', 206, '基隆市七堵區', '福一街172巷22號', '0912766281', 'sunmary@gmail.com', 'C223456724', '1988-10-08', 'F',1, 25,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	values ('arrtuu', '123', '張阿土', 950, '台東縣台東市', '青海路二段581巷', '0933268953', 'arrtuu@gmail.com', 'V116456724', '1963-05-30', 'M',2, 130);
+	values ('arrtuu', '123', '張阿土', 950, '台東縣台東市', '青海路二段581巷', '0933268953', 'arrtuu@gmail.com', 'V116456724', '1963-05-30', 'M',2, 130,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	values ('missmoney', '123', '錢夫人', 106, '台北市大安區', '臨江街40巷65號3樓', '0957923581', 'missmoney@gmail.com', 'A213583216', '1976-05-20', 'F',1, 32);
+	values ('missmoney', '123', '錢夫人', 106, '台北市大安區', '臨江街40巷65號3樓', '0957923581', 'missmoney@gmail.com', 'A213583216', '1976-05-20', 'F',1, 32,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('p001','iloveopen','open將',654,'雲林縣四湖鄉','open將之家','0977777777','open@gmail.com','O177777777','1966-06-06','M',2,30);
+	VALUES ('p001','iloveopen','open將',654,'雲林縣四湖鄉','open將之家','0977777777','open@gmail.com','O177777777','1966-06-06','M',2,30,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('p002','ilovedoraemon','哆啦A夢',840,'高雄市大樹區','哆啦A夢之家','0988888888','doraemon@gmail.com','E133333333','1978-09-03','M',2,65);
+	VALUES ('p002','ilovedoraemon','哆啦A夢',840,'高雄市大樹區','哆啦A夢之家','0988888888','doraemon@gmail.com','E133333333','1978-09-03','M',2,65,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('p003','ilovesonic','音速小子',238,'新北市樹林區','音速小子之家','0999000123','sonic@gmail.com','F133333333','1987-08-05','M',1,53);
+	VALUES ('p003','ilovesonic','音速小子',238,'新北市樹林區','音速小子之家','0999000123','sonic@gmail.com','F133333333','1987-08-05','M',1,53,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('skyYo','123456','石在天',906,'屏東縣高樹鄉','中央路96號','0908997955','strongyo@gmail.com','A136854479','1988-08-08','M',1,100);
+	VALUES ('skyYo','123456','石在天',906,'屏東縣高樹鄉','中央路96號','0908997955','strongyo@gmail.com','A136854479','1988-08-08','M',1,100,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('draconicwu','123456','巫正龍',221,'新北市汐止區','新台五路一段866號','0970579136','draconicwu@gmail.com','F136854132','1996-12-23','M',1,0);
+	VALUES ('draconicwu','123456','巫正龍',221,'新北市汐止區','新台五路一段866號','0970579136','draconicwu@gmail.com','F136854132','1996-12-23','M',1,0,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('verysilent','123456','沈曉真',266,'宜蘭縣三星鄉','尚武村健富路二段704號','0979254186','truesilence50@gmail.com','G236854479','1987-07-04','F',2,105);
+	VALUES ('verysilent','123456','沈曉真',266,'宜蘭縣三星鄉','尚武村健富路二段704號','0979254186','truesilence50@gmail.com','G236854479','1987-07-04','F',2,105,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('littleli','123456','李小倩',110,'台北市信義區','松山路999號','0971270920','chienchien999@gmail.com','F206854185','1998-03-06','F',2,299);
+	VALUES ('littleli','123456','李小倩',110,'台北市信義區','松山路999號','0971270920','chienchien999@gmail.com','F206854185','1998-03-06','F',2,299,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('furry','123456','陸羽晨',106,'台北市大安區','建國南路二段79巷100號','0974180520','thisrealmneedsme@gmail.com','F276854479','1992-01-01','F',1,240);
+	VALUES ('furry','123456','陸羽晨',106,'台北市大安區','建國南路二段79巷100號','0974180520','thisrealmneedsme@gmail.com','F276854479','1992-01-01','F',1,240,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('shinhuei','123456','陳玉婷',241,'新北市三重區','中正北路111號','0947240785','tintinyuli@gmail.com','F243054423','1987-09-06','F',1,340);
+	VALUES ('shinhuei','123456','陳玉婷',241,'新北市三重區','中正北路111號','0947240785','tintinyuli@gmail.com','F243054423','1987-09-06','F',1,340,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('reginelu','123456','呂若仙',106,'台北市大安區','羅斯福路四段1號','0955520520','storiesuntold@gmail.com','A270012591','1994-12-23','F',1,500);
+	VALUES ('reginelu','123456','呂若仙',106,'台北市大安區','羅斯福路四段1號','0955520520','storiesuntold@gmail.com','A270012591','1994-12-23','F',1,500,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('vladpussy','123456','丁普席',106,'台北市大安區','羅斯福路三段333巷9487號','0957383322','TrumpIsMyBro@gmail.com','VP19521007','1952-10-07','F',1,10);
+	VALUES ('vladpussy','123456','丁普席',106,'台北市大安區','羅斯福路三段333巷9487號','0957383322','TrumpIsMyBro@gmail.com','VP19521007','1952-10-07','F',1,10,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('usaisdead','USAUSA','唐川伯',904,'台北市大安區','信義路三段134巷9487號','0940439206','ILovePutin@gmail.com','DT19460614','1946-06-14','M',2,-100);
+	VALUES ('usaisdead','USAUSA','唐川伯',904,'台北市大安區','信義路三段134巷9487號','0940439206','ILovePutin@gmail.com','DT19460614','1946-06-14','M',2,-100,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('kitty','123456','杞蒂凱',973,'花蓮縣吉安鄉','慈雲路52號','0987416423','kitty@gmail.com','U235974118','1973-06-16','F',2,95);
+	VALUES ('kitty','123456','杞蒂凱',973,'花蓮縣吉安鄉','慈雲路52號','0987416423','kitty@gmail.com','U235974118','1973-06-16','F',2,95,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('GuanGong','123456','關羽歐',807,'高雄市三民區','建工路415號','0937282706','guangong@gmail.com','E136859487','1917-01-31','M',3,1000);
+	VALUES ('GuanGong','123456','關羽歐',807,'高雄市三民區','建工路415號','0937282706','guangong@gmail.com','E136859487','1917-01-31','M',3,1000,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('tentacool','123','馬英九',116,'台北市文山區','興隆路二段96巷15號3樓','0987416423','mamaisbest@gmail.com','A119301548','1950-07-13','M',1,-10);
+	VALUES ('tentacool','123','馬英九',116,'台北市文山區','興隆路二段96巷15號3樓','0987416423','mamaisbest@gmail.com','A119301548','1950-07-13','M',1,-10,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('walkman','123','陳水扁',721,'台南市麻豆區','磚子井33號','0957963584','ilovemoney@gmail.com','D105095174','1950-10-12','M',2,-99);
+	VALUES ('walkman','123','陳水扁',721,'台南市麻豆區','磚子井33號','0957963584','ilovemoney@gmail.com','D105095174','1950-10-12','M',2,-99,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('liangrandpa','123','連戰',721,' 台南市麻豆區','安業里79之3號','0912586429','chinesegood@gmail.com','D110724799','1936-8-27','M',2,-10);
+	VALUES ('liangrandpa','123','連戰',721,' 台南市麻豆區','安業里79之3號','0912586429','chinesegood@gmail.com','D110724799','1936-8-27','M',2,-10,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('chingte','123','賴清德',721,'台南市麻豆區','磚子井137之1號','0999888777','laichingte@gmail.com','D184618560','1959-10-6','M',2,-10);
+	VALUES ('chingte','123','賴清德',721,'台南市麻豆區','磚子井137之1號','0999888777','laichingte@gmail.com','D184618560','1959-10-6','M',2,-10,null);
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	VALUES ('english','123','蔡英文',234,'新北市永和區','環河東路四段106號10樓','0941558778','greatamerica@gmail.com','L219759723','1956-08-31','F',1,-80);
+	VALUES ('english','123','蔡英文',234,'新北市永和區','環河東路四段106號10樓','0941558778','greatamerica@gmail.com','L219759723','1956-08-31','F',1,-80,null);
 
 --Farmer
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
