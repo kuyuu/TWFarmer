@@ -236,8 +236,9 @@
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-4">
 				<p>
-					<a href="#" class="btn btn-default" role="button">修改</a> <a
-						href="../ProductMaintain/ProductDeleteSuccess.jsp" class="btn btn-default" role="button">刪除</a>
+					<input class="btn btn-default" type="button" value="修改">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					<input class="btn btn-default" type="button" value="刪除">
 				</p>
 			</div>
 		</div>
