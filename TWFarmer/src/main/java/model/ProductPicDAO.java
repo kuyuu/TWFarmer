@@ -9,4 +9,5 @@ public interface ProductPicDAO {
 	public abstract ProductPicBean update(ProductPicBean productPicBean);
 	public abstract boolean delete(int productPicId);
 	List<ProductPicBean> selectByProductId(int productId);
+	public abstract boolean deleteByProductId(int productId);
 }

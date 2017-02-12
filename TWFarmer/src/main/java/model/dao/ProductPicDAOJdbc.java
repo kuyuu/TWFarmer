@@ -192,5 +192,22 @@ public class ProductPicDAOJdbc implements ProductPicDAO {
 		}
 		return false;
 	}
+	
+	private static final String DELETE_BY_PRODUCTID = "delete from ProductPic where ProductPic.ProductID=?";
+
+	@Override
+	public boolean deleteByProductId(int productId) {
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(DELETE_BY_PRODUCTID);) {
+			stmt.setInt(1, productId);
+			int i = stmt.executeUpdate();
+			if (i == 1) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 }

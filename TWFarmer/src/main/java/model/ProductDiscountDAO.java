@@ -13,6 +13,8 @@ public interface ProductDiscountDAO {
 		public abstract ProductDiscountBean update(ProductDiscountBean bean);
 		
 		public abstract boolean delete(int  discountId);
+		
+		public abstract boolean deleteByProductId(int productId);
 
 		List<ProductDiscountBean> selectByProductId(int productId);
 

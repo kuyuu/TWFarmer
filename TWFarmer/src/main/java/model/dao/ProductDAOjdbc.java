@@ -579,5 +579,6 @@ public class ProductDAOjdbc implements ProductDAO {
 		}
 		return false;
 	}
+	
 
 }

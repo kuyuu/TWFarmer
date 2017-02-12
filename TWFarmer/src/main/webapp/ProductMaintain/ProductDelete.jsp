@@ -237,7 +237,7 @@
 			<div class="col-sm-offset-2 col-sm-4">
 				<p>
 					<a href="#" class="btn btn-default" role="button">修改</a> <a
-						href="#" class="btn btn-default" role="button">刪除</a>
+						href="../ProductMaintain/ProductDeleteSuccess.jsp" class="btn btn-default" role="button">刪除</a>
 				</p>
 			</div>
 		</div>
