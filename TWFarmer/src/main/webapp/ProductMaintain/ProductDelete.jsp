@@ -16,7 +16,7 @@
 		enctype="multipart/form-data" class="form-horizontal">
 
 		<center>
-			<h2>變更商品資料</h2>
+			<h2>變更商品資料</h2><br>
 		</center>
 
 
@@ -32,7 +32,7 @@
 		<!-- 					</tr> -->
 
 		<div class="form-group">
-			<label for="origin" class="col-sm-2 control-label">產地：</label>
+			<label for="origin" class="col-sm-offset-2 col-sm-2 control-label">產地：</label>
 			<%-- value=${productBean.name屬性值} --%>
 			<div class="col-sm-4">
 				<input id='origin' name="origin" value="${productBean.origin}"
@@ -43,7 +43,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="productName" class="col-sm-2 control-label">商品名稱：</label>
+			<label for="productName" class="col-sm-offset-2 col-sm-2 control-label">商品名稱：</label>
 			<div class="col-sm-4">
 				<input id='productName' name="productName"
 					value="${productBean.productName}" type="text" class="form-control">
@@ -52,7 +52,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="inventory" class="col-sm-2 control-label">庫存：</label>
+			<label for="inventory" class="col-sm-offset-2 col-sm-2 control-label">庫存：</label>
 			<div class="col-sm-4">
 				<input id='inventory' name="inventory"
 					value="${productBean.inventory}" type="text" class="form-control">
@@ -62,7 +62,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="price" class="col-sm-2 control-label">單位價格：</label>
+			<label for="price" class="col-sm-offset-2 col-sm-2 control-label">單位價格：</label>
 			<div class="col-sm-4">
 				<input id='price' name="price" value="${productBean.price}"
 					type="text" class="form-control">
@@ -71,7 +71,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="unit" class="col-sm-2 control-label">單位：</label>
+			<label for="unit" class="col-sm-offset-2 col-sm-2 control-label">單位：</label>
 			<div class="col-sm-4">
 				<input id='unit' name="unit" value="${productBean.unit}" type="text"
 					class="form-control">
@@ -80,7 +80,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="productTypeName" class="col-sm-2 control-label">類別：</label>
+			<label for="productTypeName" class="col-sm-offset-2 col-sm-2 control-label">類別：</label>
 			<div class="col-sm-4">
 				<input id='productTypeName' name="productTypeName"
 					value="${productBean.productTypeName}" type="text"
@@ -90,7 +90,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="productIntro" class="col-sm-2 control-label">商品介紹：</label>
+			<label for="productIntro" class="col-sm-offset-2 col-sm-2 control-label">商品介紹：</label>
 			<div class="col-sm-4">
 				<textarea id='productIntro' name="productIntro" class="form-control"
 					rows="3">${productBean.productIntro}</textarea>
@@ -99,7 +99,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="freight" class="col-sm-2 control-label">運費：</label>
+			<label for="freight" class="col-sm-offset-2 col-sm-2 control-label">運費：</label>
 			<div class="col-sm-4">
 				<input id='freight' name="freight" value="${productBean.freight}"
 					type="text" class="form-control">
@@ -108,7 +108,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="addDate" class="col-sm-2 control-label">上架日期：</label>
+			<label for="addDate" class="col-sm-offset-2 col-sm-2 control-label">上架日期：</label>
 			<div class="col-sm-4">
 				<input id='addDate' name="addDate" value="${productBean.addDate}"
 					type="text" class="form-control">
@@ -117,7 +117,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="removeEstDate" class="col-sm-2 control-label">預估下架日期：</label>
+			<label for="removeEstDate" class="col-sm-offset-2 col-sm-2 control-label">預估下架日期：</label>
 			<div class="col-sm-4">
 				<input id='removeEstDate' name="removeEstDate"
 					value="${productBean.removeEstDate}" type="text"
@@ -142,7 +142,7 @@
 		<!-- 					</tr> -->
 		<c:forEach items="${productDiscountList}" var="x">
 			<div class="form-group">
-				<label for="minThreshold" class="col-sm-2 control-label">最小件數：</label>
+				<label for="minThreshold" class="col-sm-offset-2 col-sm-2 control-label">最小件數：</label>
 				<div class="col-sm-4">
 					<input id='minThreshold' name="minThreshold"
 						value="${x.minThreshold}" type="text" class="form-control">
@@ -151,7 +151,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="minThreshold" class="col-sm-2 control-label">最大件數：</label>
+				<label for="minThreshold" class="col-sm-offset-2 col-sm-2 control-label">最大件數：</label>
 				<div class="col-sm-4">
 					<input id='maxThreshold' name="maxThreshold"
 						value="${x.maxThreshold}" type="text" class="form-control">
@@ -160,7 +160,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="minThreshold" class="col-sm-2 control-label">折扣後價格：</label>
+				<label for="minThreshold" class="col-sm-offset-2 col-sm-2 control-label">折扣後價格：</label>
 				<div class="col-sm-4">
 					<input id='discountPrice' name="discountPrice"
 						value="${x.discountPrice}" type="text" class="form-control">
@@ -214,7 +214,7 @@
 		<!-- 					</div> -->
 
 		<div class="form-group">
-			<label for="picture" class="col-sm-2 control-label">商品圖片及介紹：</label>
+			<label for="picture" class="col-sm-offset-2 col-sm-2 control-label">商品圖片及介紹：</label>
 
 
 			<div class="row col-md-offset-2">
@@ -234,7 +234,7 @@
 
 
 		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-4">
+			<div class="col-sm-offset-5 col-sm-4">
 				<p>
 					<input class="btn btn-default" type="button" value="修改">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
