@@ -28,14 +28,14 @@
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="#">購買蔬果</a></li>
-						<li><a href="#">合購專區</a></li>
+						<li><a href="./ProductSelect/ProductSelect.jsp">購買蔬果</a></li>
+						<li><a href="./PurchaseSelect/PurchaseSelect.jsp">合購專區</a></li>
 						<li><a href="#">購物車</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/TWFarmer/MemberSubmit/MemberSubmit.jsp">註冊</a>
+						<li><a href="./MemberSubmit/MemberSubmit.jsp">註冊</a>
 						</li>
-						<li><a href="/TWFarmer/Login.jsp">登入</a></li>
+						<li><a href="./Login.jsp">登入</a></li>
 					</ul>
 					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">

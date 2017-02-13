@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.FarmerBean;
 import model.MemberBean;
+import model.dao.FarmerDAOJdbc;
 import model.dao.MemberDAOJdbc;
 
 @WebServlet("/BackStage/AEFDetailServlet")
@@ -31,7 +33,7 @@ public class AEFDetailServlet extends HttpServlet {
         //session.getAttribute("farmerBean", farmerBean);
         //session.getAttribute("memberBean", memberBean);
 		
-		
+		String farmerId = "0";
 		int memberId = 0;
 		if (temp != null && temp.length() != 0) {
 			try {
@@ -44,12 +46,16 @@ public class AEFDetailServlet extends HttpServlet {
 		
 		MemberDAOJdbc dao = new MemberDAOJdbc();
 		MemberBean bean = dao.select(memberId);
+		FarmerDAOJdbc dao2 = new FarmerDAOJdbc();
+		FarmerBean bean2 = dao2.selectByMemberId(memberId);
 		if ("accept".equals(value)) {
 			bean.setIdType(2);
 			dao.update2(bean);
 		} else if("reject".equals(value)) {
 			bean.setIdType(1);
 			dao.update2(bean);
+			dao2.select(farmerId);
+			dao2.delete(farmerId);
 		}
 
 	}

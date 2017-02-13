@@ -97,6 +97,43 @@ System.out.println("Add the block comments back when you're done 測試完畢請
 		return result;
 	}
 	
+	//SELECT BY MEMBER ID START
+	private static final String SELECT_BY_MEMBER_ID =
+			"SELECT * FROM Farmer where MemberId=?";
+	@Override
+	public FarmerBean selectByMemberId(int memberId) {
+		FarmerBean result = null;
+		ResultSet rset = null;
+		try(
+				Connection conn = dataSource.getConnection();
+			PreparedStatement stmt = conn.prepareStatement(SELECT_BY_MEMBER_ID);) {
+			
+			stmt.setInt(1, memberId);
+			rset = stmt.executeQuery();
+			if(rset.next()) {
+				result = new FarmerBean();
+				result.setFarmerId(rset.getString("farmerId"));
+				result.setMemberId(rset.getInt("memberId"));
+				result.setFarmerIntro(rset.getString("farmerIntro"));
+		
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (rset!=null) {
+				try {
+					rset.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return result;
+	}
+	
+	
+	//SELECT BY MEMBER ID END
 	private static final String SELECT_ALL =
 			"select * from farmer";
 	@Override
@@ -186,4 +223,22 @@ System.out.println("Add the block comments back when you're done 測試完畢請
 		}
 		return false;
 	}
+	private static final String DELETE_BY_MEMBER_ID =
+			"DELETE FROM Farmer where MemberID=?";
+	@Override
+	public boolean deleteByMemberId(int memberId) {
+		try(
+				Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(DELETE_BY_MEMBER_ID);) {			
+			stmt.setInt(1, memberId);
+			int i = stmt.executeUpdate();
+			if(i==1) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 }

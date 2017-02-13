@@ -8,8 +8,6 @@ public interface MemberDAO {
 	
 	public abstract List<MemberBean> selectByTypeId(int idType);
 
-	public abstract MemberBean selectByAccount(String account);
-	
 	public abstract List<MemberBean> select();
 
 	public abstract MemberBean insert(MemberBean bean);
@@ -28,7 +26,8 @@ public interface MemberDAO {
 			java.util.Date birthDate,
 			String gender,
 			int idType,
-			int rating);
+			int rating,
+			String memberPic);
 
 	public abstract boolean delete(int memberId);
 

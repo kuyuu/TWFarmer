@@ -151,65 +151,6 @@
 	<!-- 上方選單 End -->
 
 </body>
-<!-- 		Msg Outbox    Start    -->
-<div style="padding: 5% 10% 10% 10%;">
-	<div
-		style="font-weight: bold; color: #ff0000; margin: .67em 0; font-size: 2em;">寄送站內信</div>
-	<form action="<c:url value="MsgCreatingServlet"/>" method="POST">
-		<table border="0" width="35%" align="center">
-			<caption>
-				<h2>貼心提醒：文長不可超過500字</h2>
-			</caption>
-			<%-- <tr>
-				<td width="50%">寄件人：</td>
-				<td>${sessionScope.Msg.msgWriterId}</td>
-				<td></td>
-			</tr> --%>
-			<tr>
-				<td width="50%">寄件人</td>
-				<td><input id='msgWriterId' value="${param.msgWriterId}"
-					type="text" name="msgWriterId" size="50" />
-					<div style="color: #FF0000; display: inline">
-						<center>${errors.msgWriterId}</center>
-					</div></td>
-			</tr>
-			<tr>
-			<tr>
-				<td width="50%">收件人</td>
-				<td><input id='msgReaderId' value="${param.msgReaderId}"
-					type="text" name="msgReaderId" size="50" />
-					<div style="color: #FF0000; display: inline">
-						<center>${errors.msgReaderId}</center>
-					</div></td>
-			</tr>
-			<tr>
-				<td>標題</td>
-				<td><input id='msgTitle' value="${param.msgTitle}" type="text"
-					name="msgTitle" size="50" />
-					<div style="color: #FF0000; display: inline">
-						<center>${errors.msgTitle}</center>
-					</div></td>
-			</tr>
-			<tr>
-				<td>內文</td>
-				<td><textarea rows="10" cols="40" name="msgContent">${param.msgContent}</textarea>
-					<div style="color: #FF0000; display: inline">
-						<center>${errors.msgContent}</center>
-					</div></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit" value="送出" /></td>
-			</tr>
-
-
-
-		</table>
-
-	</form>
-</div>
-
-<!-- Msg Outbox  End -->
-
 
 
 </html>
