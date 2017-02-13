@@ -80,15 +80,16 @@ public class NewJpFollowerServlet extends HttpServlet {
 		}
 
 		String[] templist = request.getParameterValues("jpCount");
+		boolean x = true;
 		for (String a : templist) {
-			boolean x = true;
 			if (!"0".equals(a)) {
 				x = false;
 			}
-			if (x) {
-				errors.put("jpCount", "需至少購買一項商品");
-			}
 		}
+		if (x) {
+			errors.put("jpCount", "需至少購買一項商品");
+		}
+
 		if (errors != null && !errors.isEmpty()) {
 			request.getRequestDispatcher("newJpFollower.jsp").forward(request, response);
 			return;
@@ -99,27 +100,43 @@ public class NewJpFollowerServlet extends HttpServlet {
 			totalPrice = list.get(0).getJpPrice() * a + totalPrice;
 		}
 
-		JPFollowerDAOJdbc dao5 = new JPFollowerDAOJdbc();
-		JPFollowerBean bean = new JPFollowerBean();
-		bean.setMemberId(memberId);
-		bean.setF2FId(f2fId);
-		bean.setJPId(jpId);
-		bean.setNotes(notes);
-		bean.setTotalPrice(totalPrice);
-		bean = dao5.insert(bean);
-		
-		JPFollowerDetailDAO dao6 = new JPFollowerDetailDAOJdbc();
-		JPFollowerDetailBean bean2 = new JPFollowerDetailBean();
+		try {
+			JPFollowerDAOJdbc dao5 = new JPFollowerDAOJdbc();
+			JPFollowerBean bean = new JPFollowerBean();
+			bean.setMemberId(memberId);
+			bean.setF2FId(f2fId);
+			bean.setJPId(jpId);
+			bean.setNotes(notes);
+			bean.setTotalPrice(totalPrice);
+			bean.setMisc(0);
+			if (jpBean.getMiscViaId() == 4202) {
+				bean.setMisc(jpBean.getMisc());
+			} 
+			bean = dao5.insert(bean);
+			request.setAttribute("jpFollowerBean", bean);
+			request.setAttribute("f2f", dao4.select(bean.getF2FId()));
 
-		for (int i = 0; i < list.size(); i++) {
-			bean2.setProductId(list.get(i).getProductId());
-			bean2.setJPFollowerId(bean.getJPFollowerId());
-			bean2.setPrice(list.get(i).getJpPrice());
-			int a = Integer.parseInt(templist[i]);
-			bean2.setQuantity(a);
-			dao6.insert(bean2);
+			JPFollowerDetailDAO dao6 = new JPFollowerDetailDAOJdbc();
+			JPFollowerDetailBean bean2 = new JPFollowerDetailBean();
+
+			for (int i = 0; i < list.size(); i++) {
+				bean2.setProductId(list.get(i).getProductId());
+				bean2.setJPFollowerId(bean.getJPFollowerId());
+				bean2.setPrice(list.get(i).getJpPrice());
+				int a = Integer.parseInt(templist[i]);
+				bean2.setQuantity(a);
+				dao6.insert(bean2);
+			}
+
+			List<JPFollowerDetailBean> list3 = dao6.selectByJPFollowerId(bean.getJPFollowerId());
+			request.setAttribute("jpFollowerDetailList", list3);
+
+			request.getRequestDispatcher("jpFollowerSuccess.jsp").forward(request, response);
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
