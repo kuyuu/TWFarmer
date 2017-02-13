@@ -37,7 +37,7 @@
 </head>
 <body>
 	<!-- 上方選單start -->
-	<div class="container">
+	<div class="container">  
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-default" role="navigation">
@@ -49,7 +49,7 @@
 							class="icon-bar"></span><span class="icon-bar"></span><span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="../index.html">台灣小農</a>
+					<a class="navbar-brand" href="../index.jsp">台灣小農</a>
 				</div>
 
 				<div class="collapse navbar-collapse"
@@ -105,38 +105,43 @@
 
 				</div>
 			</div>
-			<c:choose>
-				<c:when test="${not empty dao.messages}">
-        留給${LoginOK.custId}的訊息<br>
-					<br>
-					<c:forEach var='mb' items='${dao.messages}' varStatus='vs'>
-						<c:if test="${vs.first}">
-							<%--       <c:out value="<table border='1' style='width:960px;'>" escapeXml='false' /> --%>
-							<tr>
-								<th style="width: 80px">信件流水號:</th>
-								<th style="width: 80px">寄件者:</th>
-								<th style="width: 180px">標題:</th>
-								<th style="width: 250px">寄送時間：</th>
-								<th style="width: 250px">內文:</th>
-							</tr>
-						</c:if>
+			<div class="jumbotrom col-md-offset-3">
+				<h1>收件匣</h1>
+				<c:choose>
+					<c:when test="${not empty msgList}">
+        留給${sessionScope.memberBean.memberId}的訊息<br>
+						<br>
+						<c:forEach var='msgBean' items='${msgList}' varStatus='vs'>
+							<c:if test="${vs.first}">
+								<c:out value="<table class='table'>" escapeXml='false' />
+								<tr>
+									<th style="width: 80px">信件流水號:</th>
+									<th style="width: 80px">寄件者:</th>
+									<th style="width: 180px">標題:</th>
+									<th style="width: 250px">寄送時間：</th>
+									<th style="width: 250px">內文:</th>
+								</tr>
+							</c:if>
 
-						<tr>
-							<td style="width: 80px">${msgBean.msgId}</td>
-							<td style="width: 80px">${msgBean.msgWriterId}</td>
-							<td style="width: 180px">${msgBean.msgTitle}</td>
-							<td style="width: 250px; text-align: left">&nbsp;${msgBean.msgTime}</td>
-							<td style="width: 250px; text-align: left">${msgBean.msgContent}</td>
-						</tr>
-						<c:if test="${vs.last}">
-							<c:out value="</table>" escapeXml='false' />
-						</c:if>
-					</c:forEach>
-				</c:when>
-				<c:otherwise>
-					<center>沒有留言給您</center>
-				</c:otherwise>
-			</c:choose>
+							<tr>
+								<td style="width: 80px">${msgBean.msgId}</td>
+								<td style="width: 80px">${msgBean.msgWriterId}</td>
+								<td style="width: 180px">${msgBean.msgTitle}</td>
+								<td style="width: 250px; text-align: left">&nbsp;${msgBean.msgTime}</td>
+								<td style="width: 250px; text-align: left">${msgBean.msgContent}</td>
+							</tr>
+							<c:if test="${vs.last}">
+								<c:out value="</table>" escapeXml='false' />
+							</c:if>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<center>沒有留言給您</center>
+					</c:otherwise>
+				</c:choose>
+			</div>
+
+
 		</div>
 	</div>
 	<!-- 上方選單 End -->

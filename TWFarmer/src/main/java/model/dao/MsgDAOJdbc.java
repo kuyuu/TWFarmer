@@ -205,6 +205,35 @@ public class MsgDAOJdbc implements MsgDAO {
 		return result;
 	}
 
+	private static final String SELECT_BY_READER_ID = "select * from Msg where MsgReaderID=?";
+
+	@Override
+	public List<MsgBean> selectByReaderId(int msgReaderId) {
+		List<MsgBean> result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_READER_ID);) {
+			stmt.setInt(1, msgReaderId);
+			ResultSet rset = stmt.executeQuery();
+			result = new ArrayList<MsgBean>();
+			while (rset.next()) {
+				MsgBean msgBean = new MsgBean();
+				msgBean.setMsgId(rset.getInt("msgId"));
+				msgBean.setMsgWriterId(rset.getInt("msgWriterId"));
+				msgBean.setMsgReaderId(rset.getInt("msgReaderId"));
+				msgBean.setMsgTitle(rset.getString("msgTitle"));
+				msgBean.setMsgContent(rset.getString("msgContent"));
+				msgBean.setMsgTime(rset.getTimestamp("msgTime"));
+				msgBean.setMsgStatus(rset.getInt("msgStatus"));
+
+				result.add(msgBean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	
 	private static final String SELECT_ALL = "select * from Msg";
 
 	@Override

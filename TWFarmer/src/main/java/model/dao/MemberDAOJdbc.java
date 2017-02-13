@@ -82,54 +82,6 @@ public class MemberDAOJdbc implements MemberDAO {
 		return result;
 	}
 	
-	
-	private static final String SELECT_BY_ACCOUNT =
-			"SELECT * from Member where Account=?";
-	@Override
-	public MemberBean selectByAccount(String account) {
-		MemberBean result = null;
-		ResultSet rset = null;
-		try (Connection conn = dataSource.getConnection();
-				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ACCOUNT);) {
-			
-			stmt.setString(1, account);
-			rset = stmt.executeQuery();
-			if(rset.next()) {
-				result = new MemberBean();
-				result.setMemberId(rset.getInt("memberId"));
-				result.setAccount(rset.getString("account"));
-				result.setPassword(rset.getString("password"));
-				result.setName(rset.getString("name"));
-				result.setPostalCode(rset.getString("postalCode"));
-				result.setDistrict(rset.getString("district"));
-				result.setAddress(rset.getString("address"));
-				result.setPhone(rset.getString("phone"));
-				result.setEmail(rset.getString("email"));
-				result.setIdNumber(rset.getString("idNumber"));
-				result.setBirthDate(rset.getDate("BirthDate"));
-				result.setGender(rset.getString("gender"));
-				result.setIdType(rset.getInt("idType"));
-				result.setRating(rset.getInt("rating"));
-				
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (rset!=null) {
-				try {
-					rset.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return result;
-	}
-
-	
-	
-	
-	
 	private static final String SELECT_ALL =
 			"select * from member";
 	@Override
@@ -357,47 +309,4 @@ public class MemberDAOJdbc implements MemberDAO {
 			e.printStackTrace();
 		}
 		return result;
-	}
-	
-	public MemberBean findByAccountAndPassword(String account, String password) {
-		MemberBean result = null;
-		ResultSet rset = null;
-		try (Connection conn = dataSource.getConnection();
-				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Member WHERE Account = ? AND Password = ?")) {
-			
-			stmt.setString(1, account);
-			stmt.setString(2, password);
-			
-			rset = stmt.executeQuery();
-			if(rset.next()) {
-				result = new MemberBean();
-				result.setMemberId(rset.getInt("memberId"));
-				result.setAccount(rset.getString("account"));
-				result.setPassword(rset.getString("password"));
-				result.setName(rset.getString("name"));
-				result.setPostalCode(rset.getString("postalCode"));
-				result.setDistrict(rset.getString("district"));
-				result.setAddress(rset.getString("address"));
-				result.setPhone(rset.getString("phone"));
-				result.setEmail(rset.getString("email"));
-				result.setIdNumber(rset.getString("idNumber"));
-				result.setBirthDate(rset.getDate("BirthDate"));
-				result.setGender(rset.getString("gender"));
-				result.setIdType(rset.getInt("idType"));
-				result.setRating(rset.getInt("rating"));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (rset!=null) {
-				try {
-					rset.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return result;
-	}
-
-}
+}}
