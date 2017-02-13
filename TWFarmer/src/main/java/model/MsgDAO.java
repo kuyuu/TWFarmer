@@ -7,5 +7,6 @@ public interface MsgDAO {
 	public abstract MsgBean update(MsgBean msgBean);
 	public abstract boolean delete(int msgId);
 	public abstract MsgBean select(int msgId);
+	public abstract List<MsgBean> selectByReaderId(int msgReaderId);
 	public abstract List<MsgBean> select();
 }

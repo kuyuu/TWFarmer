@@ -46,8 +46,6 @@ public class MemberBean {
 	Gender varchar(1),
 	IDType int NOT NULL DEFAULT 1,
 	Rating int,*/
-	
-	
 
 	public int getMemberId() {
 		return memberId;
