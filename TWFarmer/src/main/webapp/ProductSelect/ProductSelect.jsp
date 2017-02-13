@@ -7,13 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="/TWFarmer/css/bootstrap.min.css" rel="stylesheet">
 <title>購買蔬果</title>
-<style type="text/css">
-td {
-	padding: 5px;
-}
-</style>
 </head>
 <body>
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -37,8 +33,8 @@ td {
 						<li><a href="#">購物車</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">註冊</a></li>
-						<li><a href="#">登入</a></li>
+						<li><a href="../MemberSubmit/MemberSubmit.jsp">註冊</a></li>
+						<li><a href="../Login.jsp">登入</a></li>
 					</ul>
 					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
@@ -51,20 +47,67 @@ td {
 				</nav>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<div class="list-group">
-					<a href="#" class="list-group-item">管理商品</a> <a href="#"
-						class="list-group-item active">審核合購</a> <a href="#"
-						class="list-group-item">管理賣場資料</a> <a href="#"
-						class="list-group-item">管理個人資料</a>
+		<form
+			action="<c:url value="/ProductSelect/ProductSelect.controller" />"
+			method="get" class="">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="panel-group" id="accordion" role="tablist"
+						aria-multiselectable="true">
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingOne">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#accordion"
+										href="#collapseOne" aria-expanded="true"
+										aria-controls="collapseOne"> 蔬菜分類 </a>
+								</h4>
+							</div>
+							<div id="collapseOne" class="panel-collapse collapse"
+								role="tabpanel" aria-labelledby="headingOne">
+								<div class="panel-body">
+									<select class="form-control" id='selectBy' name="selectBy">
+										<option value="">請選擇分類</option>
+										<option value="瓜類">瓜類</option>
+										<option value="豆類">豆類</option>
+										<option value="根菜類">根菜類</option>
+										<option value="莖菜類">莖菜類</option>
+										<option value="花菜類">花菜類</option>
+										<option value="果菜類">果菜類</option>
+										<option value="葉菜類">葉菜類</option>
+										<option value="香辛類">香辛類</option>
+										<option value="菌藻類">菌藻類</option>
+
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingTwo">
+								<h4 class="panel-title">
+									<a class="collapsed" data-toggle="collapse"
+										data-parent="#accordion" href="#collapseTwo"
+										aria-expanded="false" aria-controls="collapseTwo"> 水果分類 </a>
+								</h4>
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse"
+								role="tabpanel" aria-labelledby="headingTwo">
+								<div class="panel-body">
+									<select class="form-control" id='selectBy' name="selectBy">
+										<option value="">請選擇分類</option>
+										<option value="仁果類">仁果類</option>
+										<option value="核果類">核果類</option>
+										<option value="堅果類">堅果類</option>
+										<option value="漿果類">漿果類</option>
+										<option value="柑橘類">柑橘類</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="container">
-				<div class="row">
-					<form
-						action="<c:url value="/ProductSelect/ProductSelect.controller" />"
-						method="get" class="">
+				<div class="container">
+					<div class="row">
+
 						<div class="col-md-9">
 							<h3>商品搜尋</h3>
 							<h2></h2>
@@ -74,35 +117,35 @@ td {
 									<input type="text" name="keyword" class="form-control" value="">
 								</div>
 							</div>
-							<div class="form-group">
-								<label class="">分類搜尋</label>
-								<div class="">
-									<select class="form-control" id='selectBy' name="selectBy">
-										<option value="">請選擇分類</option>
-										<option value="仁果類">仁果類</option>
-										<option value="核果類">核果類</option>
-										<option value="堅果類">堅果類</option>
-										<option value="漿果類">漿果類</option>
-										<option value="柑橘類">柑橘類</option>
-										<option value="瓜類">瓜類</option>
-										<option value="根菜類">根菜類</option>
-										<option value="莖菜類">莖菜類</option>
-										<option value="花菜類">花菜類</option>
-										<option value="果菜類">果菜類</option>
-										<option value="葉菜類">葉菜類</option>
-										<option value="香辛類">香辛類</option>
-										<option value="菌藻類">菌藻類</option>
-										<option value="豆類">豆類</option>
-									</select>
-								</div>
-							</div>
+							<!-- 							<div class="form-group"> -->
+							<!-- 								<label class="">分類搜尋</label> -->
+							<!-- 								<div class=""> -->
+							<!-- 									<select class="form-control" id='selectBy' name="selectBy"> -->
+							<!-- 										<option value="">請選擇分類</option> -->
+							<!-- 										<option value="仁果類">仁果類</option> -->
+							<!-- 										<option value="核果類">核果類</option> -->
+							<!-- 										<option value="堅果類">堅果類</option> -->
+							<!-- 										<option value="漿果類">漿果類</option> -->
+							<!-- 										<option value="柑橘類">柑橘類</option> -->
+							<!-- 										<option value="瓜類">瓜類</option> -->
+							<!-- 										<option value="根菜類">根菜類</option> -->
+							<!-- 										<option value="莖菜類">莖菜類</option> -->
+							<!-- 										<option value="花菜類">花菜類</option> -->
+							<!-- 										<option value="果菜類">果菜類</option> -->
+							<!-- 										<option value="葉菜類">葉菜類</option> -->
+							<!-- 										<option value="香辛類">香辛類</option> -->
+							<!-- 										<option value="菌藻類">菌藻類</option> -->
+							<!-- 										<option value="豆類">豆類</option> -->
+							<!-- 									</select> -->
+							<!-- 								</div> -->
+							<!-- 							</div> -->
 							<div class="form-group">
 								<div class="col-md-11"></div>
 								<div class="col-md-1">
 									<button type="submit" class="btn btn-default">搜尋</button>
 								</div>
 							</div>
-							<h3> </h3>
+							<h3></h3>
 							<c:if test="${not empty keyword}">
 								<c:forEach var="row" items="${keyword}">
 									<div class="col-md-4">
@@ -124,11 +167,16 @@ td {
 								</c:forEach>
 							</c:if>
 						</div>
-					</form>
+
+
+					</div>
+
 				</div>
+
 			</div>
-		</div>
+		</form>
 	</div>
+
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="/TWFarmer/js/bootstrap.min.js"></script>

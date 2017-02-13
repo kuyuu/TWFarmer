@@ -37,8 +37,8 @@ td {
 						<li><a href="#">購物車</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">註冊</a></li>
-						<li><a href="#">登入</a></li>
+						<li><a href="../MemberSubmit/MemberSubmit.jsp">註冊</a></li>
+						<li><a href="../Login.jsp">登入</a></li>
 					</ul>
 					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
