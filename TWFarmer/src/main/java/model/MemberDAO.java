@@ -26,7 +26,8 @@ public interface MemberDAO {
 			java.util.Date birthDate,
 			String gender,
 			int idType,
-			int rating);
+			int rating,
+			String memberPic);
 
 	public abstract boolean delete(int memberId);
 

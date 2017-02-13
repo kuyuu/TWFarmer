@@ -19,7 +19,6 @@ td {
 			<div class="col-md-12">
 				<nav class="navbar navbar-default" role="navigation">
 				<div class="navbar-header">
-
 					<button type="button" class="navbar-toggle" data-toggle="collapse"
 						data-target="#bs-example-navbar-collapse-1">
 						<span class="sr-only">Toggle navigation</span><span
@@ -50,20 +49,13 @@ td {
 				</nav>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<div class="list-group">
-					<a href="#" class="list-group-item">管理商品</a> <a href="#"
-						class="list-group-item active">審核合購</a> <a href="#"
-						class="list-group-item">管理賣場資料</a> <a href="#"
-						class="list-group-item">管理個人資料</a>
-				</div>
-			</div>
-			<div class="container">
-				<div class="row">
-					<form
-						action="<c:url value="/PurchaseSelect/PurchaseSelect.controller" />"
-						method="get">
+		<form
+			action="<c:url value="/PurchaseSelect/PurchaseSelect.controller" />"
+			method="get">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="container">
+					<div class="row">
 						<div class="col-md-6">
 							<h3>合購搜尋</h3>
 							<h2></h2>
@@ -79,8 +71,8 @@ td {
 									<button type="submit" class="btn btn-default">搜尋</button>
 								</div>
 							</div>
-							<h3> </h3>
 							<c:if test="${not empty keyword}">
+								<h3>搜尋結果</h3>
 								<table class="table-bordered" width="850px">
 									<thead>
 										<tr>
@@ -105,10 +97,10 @@ td {
 								</table>
 							</c:if>
 						</div>
-					</form>
+					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
