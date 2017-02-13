@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Date;
+
 public class MemberBean {
 	int memberId;
 	String account;
@@ -15,6 +17,8 @@ public class MemberBean {
 	String gender;
 	int idType;
 	int rating;
+	String memberPic;
+	
 	@Override
 	public boolean equals(Object obj) {
 		if(obj!=null && (obj instanceof MemberBean)) {
@@ -25,27 +29,38 @@ public class MemberBean {
 		}
 		return false;
 	}
+
 	@Override
 	public String toString() {
-		return memberId+","+account+","+password+","+name+","+postalCode+","
-	+district+","+address+"," + phone + "," +email+","+idNumber+","+birthDate+","
-				+gender+","+idType+","+rating;
+		return "MemberBean [memberId=" + memberId + ", account=" + account + ", password=" + password + ", name=" + name
+				+ ", postalCode=" + postalCode + ", district=" + district + ", address=" + address + ", phone=" + phone
+				+ ", email=" + email + ", idNumber=" + idNumber + ", birthDate=" + birthDate + ", gender=" + gender
+				+ ", idType=" + idType + ", rating=" + rating + ", memberPic=" + memberPic + "]";
 	}
-	/* Referenced from SQL Server's TWFarmer database
-	 * MemberID int PRIMARY KEY IDENTITY(1001,1) NOT NULL,
-	Account varchar(20) NOT NULL,
-	Password varchar(20) NOT NULL,
-	Name nvarchar(20) NOT NULL,
-	PostalCode char(3),
-	District nchar(10),
-	Address nvarchar(50) ,
-	Phone varchar(20), 
-	Email varchar(50) NOT NULL,
-	IDNumber varchar(10) NOT NULL,
-	BirthDate datetime,
-	Gender varchar(1),
-	IDType int NOT NULL DEFAULT 1,
-	Rating int,*/
+
+	public MemberBean(int memberId, String account, String password, String name, String postalCode, String district,
+			String address, String phone, String email, String idNumber, Date birthDate, String gender, int idType,
+			int rating, String memberPic) {
+		super();
+		this.memberId = memberId;
+		this.account = account;
+		this.password = password;
+		this.name = name;
+		this.postalCode = postalCode;
+		this.district = district;
+		this.address = address;
+		this.phone = phone;
+		this.email = email;
+		this.idNumber = idNumber;
+		this.birthDate = birthDate;
+		this.gender = gender;
+		this.idType = idType;
+		this.rating = rating;
+		this.memberPic = memberPic;
+	}
+
+	public MemberBean() {
+	}
 
 	public int getMemberId() {
 		return memberId;
@@ -131,5 +146,13 @@ public class MemberBean {
 	}
 	public void setRating(int rating) {
 		this.rating = rating;
+	}
+	
+	public String getMemberPic() {
+		return memberPic;
+	}
+
+	public void setMemberPic(String memberPic) {
+		this.memberPic = memberPic;
 	}
 }

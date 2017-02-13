@@ -8,4 +8,6 @@ public interface OrdersDAO {
 	public abstract OrdersBean insert(OrdersBean ordersBean);
 	public abstract OrdersBean update(OrdersBean ordersBean);
 	public abstract boolean delete(int orderId);
+	public abstract List<OrdersBean> findSellerAllList(int sellerID);
+	public abstract List<OrdersBean> findBuyerAllList(int buyerId);
 }

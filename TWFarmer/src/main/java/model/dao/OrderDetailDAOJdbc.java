@@ -188,7 +188,7 @@ public class OrderDetailDAOJdbc implements OrderDetailDAO {
 		return result;
 	}
 
-	private static final String INSERT = "INSERT INTO OrderDetail (OrderId, ProductId, UnitId, UnitPrice, OrderQuantity, UnitFreight) values ( ?, ?, ?, ?, ?, ? )";
+	private static final String INSERT = "INSERT INTO OrderDetail (OrderId, ProductId, Unit, UnitPrice, OrderQuantity, UnitFreight) values ( ?, ?, ?, ?, ?, ? )";
 	@Override
 	public OrderDetailBean insert(OrderDetailBean orderDetailBean) {
 		OrderDetailBean result = null;

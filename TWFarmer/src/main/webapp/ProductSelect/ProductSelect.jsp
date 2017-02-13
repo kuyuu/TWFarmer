@@ -92,7 +92,7 @@
 							<div id="collapseTwo" class="panel-collapse collapse"
 								role="tabpanel" aria-labelledby="headingTwo">
 								<div class="panel-body">
-									<select class="form-control" id='selectBy' name="selectBy">
+									<select class="form-control" id='selectBy2' name="selectBy2">
 										<option value="">請選擇分類</option>
 										<option value="仁果類">仁果類</option>
 										<option value="核果類">核果類</option>
