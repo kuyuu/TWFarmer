@@ -26,11 +26,11 @@ public class LoginServlet extends HttpServlet {
 
 	// private MemberService memberService = new MemberService();
 
-	// @Override
-	// protected void doGet(HttpServletRequest request,
-	// HttpServletResponse response) throws ServletException, IOException {
-	// this.doPost(request, response);
-	// }
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		this.doPost(request, response);
+	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -84,22 +84,23 @@ public class LoginServlet extends HttpServlet {
 		// 同時將傳回值放入MemberBean型別的變數mb之內。
 		MemberBean mb = mdj.findByAccountAndPassword(account, password);
 
-		if (mb.getIdType() == 2) {
-			FarmerDAOJdbc dao = new FarmerDAOJdbc();
-			FarmerBean fb = dao.selectByMemberId(mb.getMemberId());
-			session.setAttribute("IsFarmer", fb);
-		} else if (mb.getIdType() == 3) {
-			session.setAttribute("manager", "hi");
-		}
 		// 如果變數mb的值不等於 null,表示資料庫含有account搭配password的紀錄
 		if (mb != null) {
 			// OK, 將mb物件放入Session範圍內，識別字串為"LoginOK"，表示此使用者已經登入
 			session.setAttribute("LoginOK", mb);
+			if (mb.getIdType() == 2) {
+				FarmerDAOJdbc dao = new FarmerDAOJdbc();
+				FarmerBean fb = dao.selectByMemberId(mb.getMemberId());
+				session.setAttribute("IsFarmer", fb);
+			} else if (mb.getIdType() == 3) {
+				session.setAttribute("manager", "hi");
+			}
 		} else {
 			// NG, account與密碼的組合錯誤，放錯誤訊息"該帳號不存在或密碼錯誤"到 errorMsgMap 之內
 			// 對應的識別字串為 "LoginError"
 			errors.put("LoginError", "該帳號不存在或密碼錯誤");
 		}
+
 		// 5.依照 Business Logic 運算結果來挑選適當的畫面
 		// 如果 errors是空的，表示沒有任何錯誤，準備交棒給下一隻程式
 		if (errors.isEmpty()) {
@@ -117,14 +118,15 @@ public class LoginServlet extends HttpServlet {
 
 			} else {
 				// 導向 contextPath + "/index.jsp"
-				response.sendRedirect(contextPath + "/test/ShowMember.jsp");
+				response.sendRedirect(contextPath + "/index.jsp");
 			}
 			return;
 		} else {
 			// 如果 errorMsgMap 不是空的，表示有錯誤，停留在Login.jsp
-			RequestDispatcher rd = request.getRequestDispatcher("/Login.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");
 			rd.forward(request, response);
 			return;
 		}
 	}
+
 }

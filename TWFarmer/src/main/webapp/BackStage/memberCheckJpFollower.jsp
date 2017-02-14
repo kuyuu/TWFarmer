@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="UTF-8">
 <head>
@@ -66,8 +67,12 @@
 						<table class="table table-bordered">
 							<thead>
 								<tr>
-									<th>合購編號</th>
-									<th>合購發起人</th>
+									<th>合購團名</th>
+									<th>總價</th>
+									<th>開始日期</th>
+									<th>截止日期</th>
+									<th>狀態</th>
+									<th></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -77,8 +82,18 @@
 										<c:param name="jointPurchaseId" value="${row.JPFollowerId}" />
 									</c:url>
 									<tr>
-										<td><a href="${path}">${row.JPFollowerId}</a></td>
 										<td>${row.jpName}</td>
+										<td>${row.totalPrice + row.misc}</td>
+										<td><fmt:formatDate value="${row.initDate}"
+												pattern="yyyy-MM-dd HH:mm:ss" /></td>
+										<td><fmt:formatDate value="${row.endDate}"
+												pattern="yyyy-MM-dd HH:mm:ss" /></td>
+										<td>${row.jpStatusName}</td>
+
+										<td><c:if test="${row.jpStatusId==4104}">
+												<a href=""><button type="button" class="btn btn-default">回報匯款</button>
+												</a>
+											</c:if></td>
 									</tr>
 								</c:forEach>
 

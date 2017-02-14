@@ -60,27 +60,25 @@
 						<div style="padding: 5% 10% 10% 10%;">
 							<div
 								style="font-weight: bold; color: #ff0000; margin: .67em 0; font-size: 2em;">會員登入</div>
-							<form action="<c:url value="/Login.controller" />"
-							method="post" role="form" >
+							<form action="<c:url value="/Login.controller" />" method="post"
+								role="form">
 
-							<div class="form-group ">
-								<label for="exampleInputEmail1">帳號</label>
-								<input type="text" name="account"
-									value="" class="form-control"
-									id="exampleInputEmail1">
-								<span style="color:#ff0000">${errors.account}</span>
-							</div>
-							<div class="form-group">
-							<label for="exampleInputPassword1">密碼</label>
-							<input type="password" name="password"
-									value="" class="form-control" 
-									id="exampleInputPassword1" />
-								<span style="color:#ff0000">${errors.password}</span>
-							</div>
-							<div>
-								<span style="color:#ff0000"> <h4> ${errors.LoginError} </h4> </span>
-							</div>
-							
+								<div class="form-group ">
+									<label for="exampleInputEmail1">帳號</label> <input type="text"
+										name="account" value="" class="form-control"
+										id="exampleInputEmail1"> <span style="color: #ff0000">${errors.account}</span>
+								</div>
+								<div class="form-group">
+									<label for="exampleInputPassword1">密碼</label> <input
+										type="password" name="password" value="" class="form-control"
+										id="exampleInputPassword1" /> <span style="color: #ff0000">${errors.password}</span>
+								</div>
+								<div>
+									<span style="color: #ff0000">
+										<h4>${errors.LoginError}</h4>
+									</span>
+								</div>
+
 								<button type="submit" class="btn btn-default">Login</button>
 							</form>
 						</div>
