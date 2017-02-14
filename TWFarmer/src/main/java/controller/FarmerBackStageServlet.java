@@ -47,8 +47,8 @@ public class FarmerBackStageServlet extends HttpServlet {
 		request.setAttribute("jpList", list2);
 		request.setAttribute("initJpList", list3);
 //		request.getRequestDispatcher("/BackStage/farmerCheckJP.jsp").forward(request, response);
-//		request.getRequestDispatcher("/BackStage/farmerManageProduct.jsp").forward(request, response);
-		request.getRequestDispatcher("/BackStage/memberCheckJp.jsp").forward(request, response);
+		request.getRequestDispatcher("/BackStage/farmerManageProduct.jsp").forward(request, response);
+//		request.getRequestDispatcher("/BackStage/memberCheckJp.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
