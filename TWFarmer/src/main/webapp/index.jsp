@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -41,7 +40,7 @@
 					<ul class="nav navbar-nav">
 						<li><a href="ProductSelect/ProductSelect.jsp">購買蔬果</a></li>
 						<li><a href="PurchaseSelect/PurchaseSelect.jsp">合購專區</a></li>
-						<li><a href="#">購物車</a></li>
+						<li><a href="shoppingCart/shoppingCart.jsp">購物車</a></li>
 					</ul>
 					<c:choose>
 						<c:when test="${empty LoginOK}">
@@ -166,6 +165,7 @@
 			</div>
 		</div>
 	</div>
+	
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

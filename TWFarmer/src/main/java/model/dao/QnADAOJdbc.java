@@ -269,4 +269,34 @@ public class QnADAOJdbc implements QnADAO {
 		return result;
 	}
 
+	private static final String SELECT_BY_PRODUCTID = "select * from QnA where ProductId=?";
+	@Override
+	public List<QnABean> selectByProductId(int productId) {
+		List<QnABean> result = null;
+		ResultSet rset = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_PRODUCTID);) {
+			
+			stmt.setInt(1, productId);
+			rset = stmt.executeQuery();
+			result = new ArrayList<QnABean>();
+			while (rset.next()) {
+				QnABean qnABean = new QnABean();
+				qnABean.setQnAId(rset.getInt("qnAId"));
+				qnABean.setQueryId(rset.getInt("queryId"));;
+				qnABean.setQnATitle(rset.getString("qnATitle"));
+				qnABean.setQnAContent(rset.getString("qnAContent"));
+				qnABean.setQueryDate(rset.getTimestamp("queryDate"));
+				qnABean.setReQnA(rset.getString("reQnA"));
+				qnABean.setReDate(rset.getTimestamp("reDate"));
+				qnABean.setReStatus(rset.getInt("reStatus"));
+
+				result.add(qnABean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }
