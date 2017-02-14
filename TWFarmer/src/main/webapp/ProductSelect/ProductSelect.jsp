@@ -157,7 +157,7 @@
 													<h3>${row.key.productName}</h3>
 													<p>${row.key.origin}</p>
 													<p>
-														<a href="#" class="btn btn-primary" role="button">Button</a>
+														<a href="<c:url value="Order/NewOrderServlet?productId=${productBean.productId}&sellerId=${productBean.sellerId}" />" class="btn btn-default" >直接購買</a>														
 														<a href="#" class="btn btn-default" role="button">Button</a>
 													</p>
 												</div>
