@@ -2,42 +2,25 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>臺灣小農 - 購買蔬果</title>
+
+<title>臺灣小農</title>
+
 <meta name="description"
 	content="Source code generated using layoutit.com">
 <meta name="author" content="LayoutIt!">
+
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/style.css" rel="stylesheet">
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-
-<!--   Date Picker for Ship Date
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( "#datepicker_ShipDate" ).datepicker({
-        altField : "#datepicker",
-        altFormat : "yy-mm-dd",
-        dateFormat : "yy-mm-dd"
-      });
-  } );
-  </script>
-   -->
-
 
 </head>
 <body>
-	<!-- 上方選單start -->
-	<div class="container-fluid">
+
+	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-default" role="navigation">
@@ -55,14 +38,14 @@
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="/TWFarmer/Order/OrderTemp.jsp">購買蔬果</a></li>
+						<li><a href="#">購買蔬果</a></li>
 						<li><a href="#">合購專區</a></li>
 						<li><a href="#">購物車</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">註冊</a></li>
-						<li><a href="#">登入</a></li>
-						<li><a href="/TWFarmer/Msg/MsgHome.jsp">站內信</a></li>
+						<li><a href="/TWFarmer/MemberSubmit/MemberSubmit.jsp">註冊</a>
+						</li>
+						<li><a href="/TWFarmer/Login.jsp">登入</a></li>
 					</ul>
 					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
@@ -71,31 +54,44 @@
 						<button type="submit" class="btn btn-default">搜尋</button>
 					</form>
 				</div>
-
 				</nav>
-				<div class="row">
-					<div class="col-md-2"></div>
-					<div class="row">
-						<div class="col-md-3">
-							<div class="list-group">
-									<a href="/TWFarmer/Order/NewOrder.jsp"class="list-group-item">直接下單</a> 
-									<a href="/TWFarmer/JointPurchase/newJp.jsp" class="list-group-item">發起合購</a>
-									<a href="/TWFarmer/Order/ReportVio.jsp"class="list-group-item">檢舉違規</a>
-									
-
-							</div>
-						</div>
-						<div class="col-md-2"></div>
-					</div>
+				<div class="jumbotron">
+					<h3>跟團成功</h3>
+					<p>團名：${jpBean.jpName}</p>
+					<p>介紹：${jpBean.jpIntro}</p>
+					<p>跟團開始日期：${jpBean.initDate}</p>
+					<p>跟團截止日期：${jpBean.endDate}</p>
+					<p>面交時間：${f2f.f2fTime}</p>
+					<p>面交地點：${f2f.f2fPlace}</p>
+					
+					<table class="table">
+						<thead>
+							<tr>
+								<td>商品名稱</td>
+								<td>購買價格</td>
+								<td>購買數量</td>
+							</tr>
+						</thead>
+						<c:forEach items="${jpFollowerDetailList}" var="x">
+							<tr>
+								<td>${x.productName}</td>
+								<td>${x.price}</td>
+								<td>${x.quantity}</td>
+							</tr>
+						</c:forEach>
+					</table>
+					<p>
+					商品總價：${jpFollowerBean.totalPrice}<br>
+					雜費：${jpFollowerBean.misc}<br>
+					總價：${jpFollowerBean.totalPrice + jpFollowerBean.misc}<br>
+					</p>
 				</div>
 			</div>
 		</div>
-		<!-- 上方選單 End -->
+	</div>
+
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/scripts.js"></script>
 </body>
 </html>
-
-
-
-
-
-

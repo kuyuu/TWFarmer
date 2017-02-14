@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import model.dao.JointPurchaseDAOjdbc;
 
 @Entity
 @Table(name = "JPFollower")
@@ -28,6 +31,8 @@ public class JPFollowerBean implements Serializable {
 	private Integer misc;
 	private Integer splitFreight;
 	private String notes;
+	private String jpName;
+	JointPurchaseDAOjdbc dao = new JointPurchaseDAOjdbc();
 	
 	public JPFollowerBean() {
 		
@@ -126,6 +131,14 @@ public class JPFollowerBean implements Serializable {
 	}
 	public void setNotes(String notes) {
 		this.notes = notes;
+	}
+	@Transient
+	public String getJpName() {
+		return dao.select(JPId).getJpName();
+	}
+	@Transient
+	public void setJpName(String jpName) {
+		this.jpName = jpName;
 	}
 	
 }

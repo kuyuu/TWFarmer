@@ -16,51 +16,91 @@ td {
 <body>
 	<div class="container">
 		<div class="row">
-			<form
-				action="<c:url value="/PurchaseSelect/PurchaseSelect.controller" />"
-				method="get">
-				<div class="col-md-3"></div>
-				<div class="col-md-6">
-					<h2></h2>
-					<div class="form-group">
-						<label class="">合購搜尋</label>
-						<div class="">
-							<input type="text"  name="keyword" class="form-control" value="">
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-md-11"></div>
-						<div class="col-md-1">
-							<button type="submit" class="btn btn-default">搜尋</button>
-						</div>
-					</div>
-					<c:if test="${not empty keyword}">
-						<table class="table-bordered">
-							<thead>
-								<tr>
-									<th>合購名稱</th>
-									<th>地區</th>
-									<th>描述</th>
-									<th>開始日期</th>
-									<th>截止日期</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="row" items="${keyword}">
-									<tr>
-										<td><a href="${path}">${row.jpName}</a></td>
-										<td>${row.jpLocation}</td>
-										<td>${row.jpIntro}</td>
-										<td>${row.initDate}</td>
-										<td>${row.endDate}</td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</c:if>
+			<div class="col-md-12">
+				<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span><span
+							class="icon-bar"></span><span class="icon-bar"></span><span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="../index.html">台灣小農</a>
 				</div>
-			</form>
+
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="../ProductSelect/ProductSelect.jsp">購買蔬果</a></li>
+						<li class="active"><a href="#">合購專區</a></li>
+						<li><a href="#">購物車</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="../MemberSubmit/MemberSubmit.jsp">註冊</a></li>
+						<li><a href="../Login.jsp">登入</a></li>
+					</ul>
+					<form class="navbar-form navbar-right" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control">
+						</div>
+						<button type="submit" class="btn btn-default">搜尋</button>
+					</form>
+				</div>
+				</nav>
+			</div>
 		</div>
+		<form
+			action="<c:url value="/PurchaseSelect/PurchaseSelect.controller" />"
+			method="get">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<h3>合購搜尋</h3>
+							<h2></h2>
+							<div class="form-group">
+								<label class="">搜尋</label>
+								<div class="">
+									<input type="text" name="keyword" class="form-control" value="">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-11"></div>
+								<div class="col-md-1">
+									<button type="submit" class="btn btn-default">搜尋</button>
+								</div>
+							</div>
+							<c:if test="${not empty keyword}">
+								<h3>搜尋結果</h3>
+								<table class="table-bordered" width="850px">
+									<thead>
+										<tr>
+											<th>合購名稱</th>
+											<th>地區</th>
+											<th>描述</th>
+											<th>開始日期</th>
+											<th>截止日期</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach var="row" items="${keyword}">
+											<tr>
+												<td><a href="${path}">${row.jpName}</a></td>
+												<td>${row.jpLocation}</td>
+												<td>${row.jpIntro}</td>
+												<td>${row.initDate}</td>
+												<td>${row.endDate}</td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
+							</c:if>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -66,7 +66,7 @@ public class MemberDAOJdbc implements MemberDAO {
 				result.setGender(rset.getString("gender"));
 				result.setIdType(rset.getInt("idType"));
 				result.setRating(rset.getInt("rating"));
-				
+				result.setMemberPic(rset.getString("memberPic"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -81,54 +81,6 @@ public class MemberDAOJdbc implements MemberDAO {
 		}
 		return result;
 	}
-	
-	
-	private static final String SELECT_BY_ACCOUNT =
-			"SELECT * from Member where Account=?";
-	@Override
-	public MemberBean selectByAccount(String account) {
-		MemberBean result = null;
-		ResultSet rset = null;
-		try (Connection conn = dataSource.getConnection();
-				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ACCOUNT);) {
-			
-			stmt.setString(1, account);
-			rset = stmt.executeQuery();
-			if(rset.next()) {
-				result = new MemberBean();
-				result.setMemberId(rset.getInt("memberId"));
-				result.setAccount(rset.getString("account"));
-				result.setPassword(rset.getString("password"));
-				result.setName(rset.getString("name"));
-				result.setPostalCode(rset.getString("postalCode"));
-				result.setDistrict(rset.getString("district"));
-				result.setAddress(rset.getString("address"));
-				result.setPhone(rset.getString("phone"));
-				result.setEmail(rset.getString("email"));
-				result.setIdNumber(rset.getString("idNumber"));
-				result.setBirthDate(rset.getDate("BirthDate"));
-				result.setGender(rset.getString("gender"));
-				result.setIdType(rset.getInt("idType"));
-				result.setRating(rset.getInt("rating"));
-				
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (rset!=null) {
-				try {
-					rset.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return result;
-	}
-
-	
-	
-	
 	
 	private static final String SELECT_ALL =
 			"select * from member";
@@ -156,7 +108,7 @@ public class MemberDAOJdbc implements MemberDAO {
 				bean.setGender(rset.getString("gender"));
 				bean.setIdType(rset.getInt("idType"));
 				bean.setRating(rset.getInt("rating"));
-				
+				bean.setMemberPic(rset.getString("memberPic"));
 				result.add(bean);
 			}
 		} catch (SQLException e) {
@@ -166,7 +118,7 @@ public class MemberDAOJdbc implements MemberDAO {
 	}
 	
 	private static final String INSERT =
-			"INSERT INTO MEMBER (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IdType, Rating) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			"INSERT INTO MEMBER (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IdType, Rating, MemberPic) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	@Override
 	public MemberBean insert(MemberBean bean) {
 		
@@ -194,7 +146,7 @@ public class MemberDAOJdbc implements MemberDAO {
 				stmt.setString(11, bean.getGender());
 				stmt.setInt(12, bean.getIdType());
 				stmt.setInt(13, bean.getRating());
-				
+				stmt.setString(14, bean.getMemberPic());
 				int i = stmt.executeUpdate();
 				if(i==1) {
 					result = bean;
@@ -220,7 +172,8 @@ public class MemberDAOJdbc implements MemberDAO {
 			+ "BirthDate=?, "
 			+ "Gender=?, "
 			+ "IdType=?, "
-			+ "Rating=? "
+			+ "Rating=?, "
+			+ "MemberPic=? "
 			+ "WHERE MemberId=?";
 	@Override
 	public MemberBean update(
@@ -237,7 +190,8 @@ public class MemberDAOJdbc implements MemberDAO {
 			java.util.Date birthDate,
 			String gender,
 			int idType,
-			int rating) {
+			int rating,
+			String memberPic) {
 		MemberBean result = null;
 		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
@@ -259,7 +213,8 @@ public class MemberDAOJdbc implements MemberDAO {
 			stmt.setString(11, gender);
 			stmt.setInt(12, idType);
 			stmt.setInt(13,rating);
-			stmt.setInt(14, memberId);
+			stmt.setString(14, memberPic);
+			stmt.setInt(15, memberId);
 			int i = stmt.executeUpdate();
 			if(i==1) {
 				result = this.select(memberId);
@@ -296,7 +251,8 @@ public class MemberDAOJdbc implements MemberDAO {
 			stmt.setString(11, bean.getGender());
 			stmt.setInt(12, bean.getIdType());
 			stmt.setInt(13, bean.getRating());
-			stmt.setInt(14, bean.getMemberId());
+			stmt.setString(14, bean.getMemberPic());
+			stmt.setInt(15, bean.getMemberId());
 			int i = stmt.executeUpdate();
 			if(i==1) {
 				result = bean;
@@ -350,6 +306,7 @@ public class MemberDAOJdbc implements MemberDAO {
 				bean.setBirthDate(rset.getDate("BirthDate"));
 				bean.setGender(rset.getString("gender"));
 				bean.setRating(rset.getInt("rating"));
+				bean.setMemberPic(rset.getString("memberPic"));
 				
 				result.add(bean);
 			}
@@ -357,7 +314,7 @@ public class MemberDAOJdbc implements MemberDAO {
 			e.printStackTrace();
 		}
 		return result;
-	}
+}
 	
 	public MemberBean findByAccountAndPassword(String account, String password) {
 		MemberBean result = null;
@@ -385,6 +342,7 @@ public class MemberDAOJdbc implements MemberDAO {
 				result.setGender(rset.getString("gender"));
 				result.setIdType(rset.getInt("idType"));
 				result.setRating(rset.getInt("rating"));
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -399,5 +357,4 @@ public class MemberDAOJdbc implements MemberDAO {
 		}
 		return result;
 	}
-
 }

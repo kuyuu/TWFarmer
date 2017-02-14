@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import model.dao.ProductDAOjdbc;
 
 @Entity
 @Table(name = "JPFollowerDetail")
@@ -12,6 +15,7 @@ public class JPFollowerDetailBean implements java.io.Serializable {
 	private Integer productId;
 	private Integer quantity;
 	private Integer price;
+	private String productName;
 
 	public JPFollowerDetailBean() {
 	}
@@ -48,6 +52,15 @@ public class JPFollowerDetailBean implements java.io.Serializable {
 
 	public void setPrice(Integer price) {
 		this.price = price;
+	}
+	@Transient
+	public void setProductName(String productName){
+		this.productName = productName;
+	}
+	@Transient
+	public String getProductName() {
+		ProductDAOjdbc dao = new ProductDAOjdbc();
+		return dao.select(productId).getProductName();
 	}
 	
 }
