@@ -26,11 +26,11 @@ public class LoginServlet extends HttpServlet {
 
 	// private MemberService memberService = new MemberService();
 
-	// @Override
-	// protected void doGet(HttpServletRequest request,
-	// HttpServletResponse response) throws ServletException, IOException {
-	// this.doPost(request, response);
-	// }
+	 @Override
+	 protected void doGet(HttpServletRequest request,
+	 HttpServletResponse response) throws ServletException, IOException {
+	 this.doPost(request, response);
+	 }
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 		// 1. 讀取使用者輸入資料(<Input>標籤內的name屬性分別為 account與password
 		String account = request.getParameter("account");
 		String password = request.getParameter("password");
-
+		
 		// System.out.println(account+":"+password);
 		// System.out.println("接收資料");
 		//
@@ -83,20 +83,22 @@ public class LoginServlet extends HttpServlet {
 		// 呼叫 mdj物件的 findByAccountAndPassword()，要記得傳入account與password兩個參數
 		// 同時將傳回值放入MemberBean型別的變數mb之內。
 		MemberBean mb = mdj.findByAccountAndPassword(account, password);
-
-		if (mb.getIdType() == 2) {
-			FarmerDAOJdbc dao = new FarmerDAOJdbc();
-			FarmerBean fb = dao.selectByMemberId(mb.getMemberId());
-			session.setAttribute("IsFarmer", fb);
-		} else if (mb.getIdType() == 3) {
-			session.setAttribute("manager", "hi");
-		}
+		
 		// 如果變數mb的值不等於 null,表示資料庫含有account搭配password的紀錄
 		if (mb != null) {
 			// OK, 將mb物件放入Session範圍內，識別字串為"LoginOK"，表示此使用者已經登入
 			session.setAttribute("LoginOK", mb);
+			
+			if (mb.getIdType() == 2) {
+				FarmerDAOJdbc dao = new FarmerDAOJdbc();
+				FarmerBean fb = dao.selectByMemberId(mb.getMemberId());
+				session.setAttribute("IsFarmer", fb);
+			} else if (mb.getIdType() == 3) {
+				session.setAttribute("manager", "hi");
+			}
+
 		} else {
-			// NG, account與密碼的組合錯誤，放錯誤訊息"該帳號不存在或密碼錯誤"到 errorMsgMap 之內
+			// account與密碼的組合錯誤，放錯誤訊息"該帳號不存在或密碼錯誤"到 errorMsgMap 之內
 			// 對應的識別字串為 "LoginError"
 			errors.put("LoginError", "該帳號不存在或密碼錯誤");
 		}

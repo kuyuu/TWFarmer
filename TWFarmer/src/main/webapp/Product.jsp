@@ -10,13 +10,12 @@
 <link href="css/style.css" rel="stylesheet">
 <style>
 * {
-	box-sizing: border-box 
+	box-sizing: border-box
 }
 
 /* body {
 	font-family: Verdana, sans-serif;
 } */
-
 .mySlides {
 	display: none
 }
@@ -47,9 +46,10 @@
 	padding: 8px 12px;
 	position: absolute;
 	top: 0;
-} */
+}
 
-/* The dots/bullets/indicators */
+* /
+	/* The dots/bullets/indicators */   
 .dot {
 	height: 13px;
 	width: 13px;
@@ -98,8 +98,8 @@ to {
 	.text {
 		font-size: 11px
 	}
-} 
-</style> 
+}
+</style>
 </head>
 <body>
 	<div class="container">
@@ -153,14 +153,48 @@ to {
 							<%-- <c:forEach items="${picList}" var="x">
 								<img src="img/${x.pictureName}" style="width: 100%;" />
 							</c:forEach> --%>
+							<div class="ThisIsTheSlider">
+								<div class="text"
+									style="color: #7C630F; font-weight: bold; font-size: 25px">商品寫真</div>
+								<br>
+								<div class="text"
+									style="color: #6133FF; font-weight: bold; font-size: 16px">୧༼✿
+									͡◕ д ◕͡ ༽୨商品皆為賣方提供，恕不代表本站立場୧༼✿ ͡◕ д ◕͡ ༽୨</div>
+								<div class="text" style="color: #0F7C58; font-weight: bold">(q^-^)q貨比三家不吃虧下單前請先充分聯繫賣家
+									(p^-^)p</div>
+								<c:forEach items="${picList}" var="x" varStatus="y">
+
+									<div class="mySlides fadeAlt">
+										<%-- <center>
+										<div class="numbertext"></div>
+									</center> --%>
+										<div class="text">${x.pictureIntro}</div>
+										<img src="img/${x.pictureName}" style="width: 80%"> <br>
+										<br>
+
+
+									</div>
+									<c:if test="${y.last}">
+										<c:set var="count" value="${y.count}" />
+									</c:if>
+								</c:forEach>
+								<div style="text-align: center">
+									<c:forEach begin="1" end="${count}">
+										<span class="dot"></span>
+									</c:forEach>
+								</div>
+							</div>
 						</div>
 						<div class="col-md-8">
 							<h1>${productBean.productName}</h1>
 							<p>${productBean.productIntro }</p>
-							<p>${productBean.price }/ ${productBean.unit }</p>
+							<p>${productBean.price }/${productBean.unit }</p>
 							<p>
-								<a href="<c:url value="Order/NewOrderServlet?productId=${productBean.productId}&sellerId=${productBean.sellerId}" />" class="btn btn-default" >購買商品</a>
-								<a href="JointPurchase/NewJointPurchaseServlet?memberId=${LoginOK.memberId}&productId=${productBean.productId}"><button type="button" class="btn btn-default">發起合購</button></a>
+								<a
+									href="<c:url value="Order/NewOrderServlet?productId=${productBean.productId}&sellerId=${productBean.sellerId}" />"
+									class="btn btn-default">購買商品</a> <a
+									href="JointPurchase/NewJointPurchaseServlet?memberId=${LoginOK.memberId}&productId=${productBean.productId}"><button
+										type="button" class="btn btn-default">發起合購</button></a>
 								<button type="button" class="btn btn-default">我想跟團</button>
 								<button type="button" class="btn btn-default">加入購物車</button>
 							</p>
@@ -174,40 +208,32 @@ to {
 
 							</c:if>
 
-
-							<div class="form-group">
-								<label class="">問與答</label>
-								<textarea id="QnA" class="form-control" rows="5"></textarea>
-								<button type="submit" class="btn btn-default">送出</button>
-								<button type="submit" class="btn btn-default" id="clearQnA">清除</button>
-							</div>
+							<form
+								style="border: 1px solid; border-radius: 20px; padding: 15px">
+								<c:if test="${not empty QnA}">
+									<h3>問與答</h3>
+									<c:forEach var="row" items="${QnA}">
+										<div>
+											<p style="background: #DDDDDD">買家提問:${row.qnAContent}</p>
+											<p>${row.reQnA}</p>
+										</div>
+									</c:forEach>
+								</c:if>
+								<div class="form-group">
+									<label class="">我要發問</label>
+									<textarea id="QnA" class="form-control" rows="5"></textarea>
+									<button type="submit" class="btn btn-default">送出</button>
+									<button type="button" class="btn btn-default" id="clearQnA"
+										onclick="ClearFields();">清除</button>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<center><div class="TheOnlyWayIsGuildWars">
-		<div class="text" style="color:#7C630F;font-weight: bold; font-size:25px" >商品寫真</div><br>
-		<c:forEach items="${picList}" var="x" varStatus="y">
-			<div class="mySlides fadeAlt">
-				<center><div class="numbertext"></div></center><br>
-				<img src="img/${x.pictureName}" style="height: 320px">
-				<div class="text">${x.pictureIntro}</div><br><br>
-			
-				<div class="text" style="color:#6133FF;font-weight: bold; font-size:16px" >୧༼✿ ͡◕ д ◕͡ ༽୨商品皆為賣方提供，恕不代表本站立場୧༼✿ ͡◕ д ◕͡ ༽୨</div>
-				<div class="text" style="color:#0F7C58;font-weight: bold">(q^-^)q貨比三家不吃虧，下單或合購前請先充分聯繫賣家 (p^-^)p</div>
-			</div>
-			<c:if test="${y.last}">
-				<c:set var="count" value="${y.count}" />
-			</c:if>
-		</c:forEach>
-			<div style="text-align: center">
-			<c:forEach begin="1" end="${count}"><span class="dot"></span></c:forEach>
-		</div>
-		<br>
-	
-	</div></center>
+
 	<script type="text/javascript">
 		$("#clearQnA").click(function() {
 			$("#QnA").val('');
@@ -234,6 +260,11 @@ to {
 			slides[slideIndex - 1].style.display = "block";
 			dots[slideIndex - 1].className += " active";
 			setTimeout(showSlides, 4000); // Change image every 4 seconds
+		}
+
+		function ClearFields() {
+
+			document.getElementById("QnA").value = "";
 		}
 	</script>
 	<script src="js/jquery.min.js"></script>
