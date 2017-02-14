@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import model.JPDetailBean;
 import model.JointPurchaseBean;
+import model.MemberBean;
 import model.dao.JPDetailDAOjdbc;
 import model.dao.JointPurchaseDAOjdbc;
 
@@ -41,6 +42,7 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 		JointPurchaseBean jpBean = new JointPurchaseBean();
 		jpBean = (JointPurchaseBean) session.getAttribute("JointPurchase");
 		JPDetailBean jpDetailBean = (JPDetailBean) session.getAttribute("JPDetail");
+		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 
 		Map<String, String> errors = new HashMap<String, String>();
 		request.setAttribute("errors", errors);
@@ -170,6 +172,7 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 		jpBean.setJpStatusId(4101);
 		jpBean.setMiscViaId(miscViaWay);
 		jpBean.setMisc(misc);
+		jpBean.setInitId(mb.getMemberId());
 		JointPurchaseBean insert = dao.insert(jpBean);
 		
 		JPDetailDAOjdbc dao2 = new JPDetailDAOjdbc();

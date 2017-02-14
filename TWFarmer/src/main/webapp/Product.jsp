@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:if test="${empty LoginOK}">
+	<c:set var="target" value="${pageContext.request.servletPath}"
+		scope="session" />
+</c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -49,7 +53,7 @@
 }
 
 * /
-	/* The dots/bullets/indicators */   
+	/* The dots/bullets/indicators */    
 .dot {
 	height: 13px;
 	width: 13px;
@@ -135,7 +139,7 @@ to {
 						<c:otherwise>
 							<ul class="nav navbar-nav navbar-right">
 								<li><a href="/TWFarmer/Msg/MsgCheckingServlet">站內信</a></li>
-								<li><a href="#">會員專區</a></li>
+								<li><a href="/TWFarmer/BackStage/BackStageServlet">會員專區</a></li>
 							</ul>
 						</c:otherwise>
 					</c:choose>
@@ -213,7 +217,8 @@ to {
 									</c:forEach>
 								</c:if>
 								<input type="hidden" name="memberId" value="${LoginOK.memberId}" />
-								<input type="hidden" name="productId" value="${productBean.productId}" />
+								<input type="hidden" name="productId"
+									value="${productBean.productId}" />
 								<div class="form-group">
 									<label class="">我要發問</label>
 									<textarea id="QnA" name="QnA" class="form-control" rows="5"></textarea>
