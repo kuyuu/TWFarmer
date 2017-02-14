@@ -200,12 +200,15 @@ to {
 							</p>
 							<form action="/TWFarmer/QnAInsertServlet"
 								style="border: 1px solid; border-radius: 20px; padding: 15px" method="POST">
+								<c:if test="${empty QnA}">
+								<h4>目前沒有問與答</h4>
+								</c:if>
 								<c:if test="${not empty QnA}">
 									<h3>問與答</h3>
 									<c:forEach var="row" items="${QnA}">
 										<div>
-											<p style="background: #DDDDDD">買家提問:${row.qnAContent}</p>
-											<p>${row.reQnA}</p>
+											<p style="background: #DDDDDD">賣家提問:${row.qnAContent}</p>
+											<p>　　${row.reQnA}</p>
 										</div>
 									</c:forEach>
 								</c:if>
@@ -214,6 +217,7 @@ to {
 								<div class="form-group">
 									<label class="">我要發問</label>
 									<textarea id="QnA" name="QnA" class="form-control" rows="5"></textarea>
+									<h4>${errors.QnAerror}</h4>
 									<button type="submit" class="btn btn-default">送出</button>
 									<button type="button" class="btn btn-default" id="clearQnA"
 										onclick="ClearFields();">清除</button>
