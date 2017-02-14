@@ -43,7 +43,7 @@ public class SaveOrderServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		request.setCharacterEncoding("UTF-8");
 		//以下為input 跟 hidden input 儲存目標為Order table
 		String shipName = String.valueOf(request.getParameter("shipName"));
 		String shipPostalCode = String.valueOf(request.getParameter("shipPostalCode"));
@@ -68,8 +68,12 @@ public class SaveOrderServlet extends HttpServlet {
 			//DTO
 			ordersBean.setShipName(shipName);
 			ordersBean.setShipPostalCode(shipPostalCode);
-			ordersBean.setShipDistrict(shipDistrict);
+			ordersBean.setShipDistrict(shipDistrict);	
 			ordersBean.setShipAddress(shipAddress);
+			//此處sysout 測試輸入的文字是否為亂碼
+			System.out.println("controller: shipName="+shipName);
+			System.out.println("controller: shipDistrict="+shipDistrict);
+			System.out.println("controller: shipAddress="+shipAddress);
 			ordersBean.setSellerId(sellerID);
 			ordersBean.setBuyerId(buyerID);
 			
@@ -89,11 +93,12 @@ public class SaveOrderServlet extends HttpServlet {
 			orderDetailBean.setOrderQuantity(amount);
 			orderDetailBean.setProductId(productID);
 			orderDetailBean.setUnitPrice(price);
-			orderDetailBean.setUnitFreight(freight);	
+			orderDetailBean.setUnitFreight(freight);
+		
 			
 			OrderDetailBean orderDetailResult = orderDetailDAOJdbc.insert(orderDetailBean);
 			System.out.println(orderResult.getOrderId());
-			
+		
 			
 			//orderDetailBean
 		} catch (Exception e) {

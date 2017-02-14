@@ -40,13 +40,22 @@ public class ListOrderServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MemberBean member = (MemberBean) request.getSession().getAttribute("MemberBean");
+		MemberBean member = (MemberBean) request.getSession().getAttribute("LoginOK");
+		request.setCharacterEncoding("UTF-8");
 		
-		List<OrdersBean> sellerorders = ordersDAOJdbc.findSellerAllList(member.getMemberId());
-		System.out.println("seller:"+sellerorders);
+//		List<OrdersBean> sellerorders = ordersDAOJdbc.findSellerAllList(member.getMemberId());
+//		System.out.println("seller:"+sellerorders);
+//		System.out.println("memeber:"+member.getMemberId());
+		
 		
 		List<OrdersBean> buyerorders =ordersDAOJdbc.findBuyerAllList(member.getMemberId());
 		System.out.println("buyer:"+buyerorders);
+		
+		request.setAttribute("buyerorders", buyerorders);
+		
+		request.getRequestDispatcher("OrderList.jsp").forward(request, response);
+		
+		//ordersDAOJdbc.selectAllOrdersWithDetail
 		
 //		List<OrderDetailBean> myorderdetail = orderDetailDAOJdbc.selectByOrderId(member.getMemberId());
 //		System.out.println("detail:"+myorderdetail );

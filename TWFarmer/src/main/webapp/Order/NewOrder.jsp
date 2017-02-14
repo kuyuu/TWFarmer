@@ -50,7 +50,7 @@
 				</tr>
 				<tr>
 					<td width="50%">買家：</td>
-					<td>${sessionScope.contextMemberBean.account}</td>
+					<td>${sessionScope.LoginOK.account}</td>
 					<td></td>
 				</tr>
 
@@ -84,7 +84,7 @@
 				<tr>
 					<td width="50%">收件人：</td>
 					<td><input id='shipName'
-						value="${sessionScope.contextMemberBean.name}" type="text"
+						value="${sessionScope.LoginOK.name}" type="text"
 						name="shipName" size="50" />
 						<div style="color: #FF0000; display: inline">${errors.shipName}</div>
 					</td>
@@ -93,7 +93,7 @@
 				<tr>
 					<td width="50%">收件郵遞區號：</td>
 					<td><input id='shipPostalCode'
-						value="${sessionScope.contextMemberBean.postalCode}" type="text"
+						value="${sessionScope.LoginOK.postalCode}" type="text"
 						name="shipPostalCode" size="50" />
 						<div style="color: #FF0000; display: inline">${errors.shipPostalCode}</div>
 					</td>
@@ -102,7 +102,7 @@
 				<tr>
 					<td width="50%">收件地區：</td>
 					<td><input id='shipDistrict'
-						value="${sessionScope.contextMemberBean.district}" type="text"
+						value="${sessionScope.LoginOK.district}" type="text"
 						name="shipDistrict" size="50" />
 						<div style="color: #FF0000; display: inline">${errors.shipDistrict}</div>
 					</td>
@@ -112,7 +112,7 @@
 				<tr>
 					<td width="50%">收件地址：</td>
 					<td><input id='shipAddress'
-						value="${sessionScope.contextMemberBean.address}" type="text"
+						value="${sessionScope.LoginOK.address}" type="text"
 						name="shipAddress" size="50" />
 						<div style="color: #FF0000; display: inline">${errors.shipAddress}</div>
 					</td>

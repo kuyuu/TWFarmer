@@ -20,16 +20,6 @@ import model.dao.MemberDAOJdbc;
 
 public class MemberService {
 	
-	private DataSource ds = null;
-	
-	public MemberService() {
-		try {
-			Context ctx = new InitialContext();
-			ds = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
-		} catch (NamingException e) {
-			e.printStackTrace();
-		}
-	}
 	
 	private MemberDAO memberDao = new MemberDAOJdbc();
 	public static void main(String[] args) {
@@ -38,48 +28,6 @@ public class MemberService {
 		System.out.println("beans="+beans);
 	}
 	
-	public MemberBean login(String account, String password) {
-		MemberBean result = null;
-		ResultSet rset = null;
-		try (Connection conn = ds.getConnection();
-				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Member WHERE Account = ? AND Password = ?")) {
-			
-			stmt.setString(1, account);
-			stmt.setString(2, password);
-			
-			rset = stmt.executeQuery();
-			if(rset.next()) {
-				result = new MemberBean();
-				result.setMemberId(rset.getInt("memberId"));
-				result.setAccount(rset.getString("account"));
-				result.setPassword(rset.getString("password"));
-				result.setName(rset.getString("name"));
-				result.setPostalCode(rset.getString("postalCode"));
-				result.setDistrict(rset.getString("district"));
-				result.setAddress(rset.getString("address"));
-				result.setPhone(rset.getString("phone"));
-				result.setEmail(rset.getString("email"));
-				result.setIdNumber(rset.getString("idNumber"));
-				result.setBirthDate(rset.getDate("BirthDate"));
-				result.setGender(rset.getString("gender"));
-				result.setIdType(rset.getInt("idType"));
-				result.setRating(rset.getInt("rating"));
-				
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (rset!=null) {
-				try {
-					rset.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return result;
-	}
-
 
 	public List<MemberBean> select(MemberBean bean) {
 		List<MemberBean> result = null;
@@ -101,13 +49,6 @@ public class MemberService {
 		}
 		return result;
 	}
-//	public MemberBean update(MemberBean bean) {
-//		MemberBean result = null;
-//		if(bean!=null) {
-//			result = memberDao.update(bean);
-//		}
-//		return result;
-//	}
 
 	public boolean delete(MemberBean bean) {
 		boolean result = false;

@@ -11,31 +11,31 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.MemberBean;
-import model.MsgBean;
-import model.dao.MsgDAOJdbc;
+import model.ProductBean;
+import model.dao.ProductDAOjdbc;
 
-@WebServlet("/Msg/MsgCheckingServlet")
-public class MsgCheckingServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+@WebServlet("/BackStage/BackStageServlet")
+public class BackStageServlet extends HttpServlet {
 
-	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		MemberBean bean = (MemberBean)session.getAttribute("LoginOK");
-		int msgReaderId = bean.getMemberId();
-		
-		MsgDAOJdbc dao = new MsgDAOJdbc();
-		List<MsgBean> list = dao.selectByReaderId(msgReaderId);
-		request.setAttribute("msgList", list);
-		
-		request.getRequestDispatcher("MsgCheck.jsp").forward(request, response);
-		
+		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
+		if (mb.getIdType() == 2) {
+			ProductDAOjdbc dao1 = new ProductDAOjdbc();
+			List<ProductBean> list1 = dao1.selectBySellerId(mb.getMemberId());
+			request.setAttribute("productList", list1);
+			request.getRequestDispatcher("farmerManageProduct.jsp").forward(request, response);
+		} else if (mb.getIdType() == 3) {
+
+		} else {
+			request.getRequestDispatcher("../Order/ListOrderServlet").forward(request, response);
+		}
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
