@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.ProductBean;
 import model.ProductPicBean;
+import model.QnABean;
 import model.dao.ProductDAOjdbc;
 import model.dao.ProductPicDAOJdbc;
+import model.dao.QnADAOJdbc;
 
 @WebServlet("/ProductServlet")
 public class ProductServlet extends HttpServlet {
@@ -37,6 +39,10 @@ public class ProductServlet extends HttpServlet {
 		ProductPicDAOJdbc dao2 = new ProductPicDAOJdbc();
 		List<ProductPicBean> list = dao2.selectByProductId(productId);
 		request.setAttribute("picList", list);
+		
+		QnADAOJdbc dao3 = new QnADAOJdbc();
+		List<QnABean> list1 = dao3.selectByProductId(productId);
+		request.setAttribute("QnA", list1);
 
 		request.getRequestDispatcher("Product.jsp").forward(request, response);
 	}

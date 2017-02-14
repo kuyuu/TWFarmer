@@ -120,14 +120,16 @@ CREATE TABLE Orders(
 	OrderDate datetime,
 	ShipDate datetime,
 	ShipName nvarchar(20),
-	ShipPostalCode char(3),
-	ShipDistrict nchar(10),
+	ShipPostalCode nvarchar(3),
+	ShipDistrict nvarchar(10),
 	ShipAddress nvarchar(50) ,
 	OrderStatusID int REFERENCES OrderStatus (OrderStatusID),
 	RatingBuyer int,
 	RatingSeller int,
 )
 GO
+
+
 
 CREATE TABLE OrderDetail(
 	OrderID int REFERENCES Orders (OrderID) NOT NULL,

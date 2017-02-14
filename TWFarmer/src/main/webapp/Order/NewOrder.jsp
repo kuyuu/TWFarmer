@@ -169,7 +169,7 @@
 
 			</table>
 			<input type="hidden" name="sellerID" value="${member.memberId}">
-			<input type="hidden" name="buyerID" value="${member.memberId}">
+			<input type="hidden" name="buyerID" value="${sessionScope.LoginOK.memberId}">
 			<input type="hidden" name="orderDate" value="${currentDateTime}">
 			<input type="hidden" name="shipDateTime" value="${shipDateTime}">
 			<input type="hidden" name="productID" value="${product.productId}">
