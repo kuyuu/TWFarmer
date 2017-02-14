@@ -101,7 +101,7 @@ public class JPFollowerDAOJdbc implements JPFollowerDAO {
 		return result;
 	}
 
-	private static final String SELECT_BY_BUYERID = "from JPFollowerBean A where A.memberId=? order by JPFollowerId";
+	private static final String SELECT_BY_BUYERID = "from JPFollowerBean A where A.memberId=? and order by JPFollowerId";
 
 	@Override
 	public List<JPFollowerBean> selectByBuyerId(int buyerId) {
