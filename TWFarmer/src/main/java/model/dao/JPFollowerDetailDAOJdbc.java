@@ -49,6 +49,23 @@ public class JPFollowerDetailDAOJdbc implements JPFollowerDetailDAO {
 		return result;
 	}
 	
+	private static final String SELECT_JPFId = "from JPFollowerDetailBean where JPFollowerId=?";
+
+	@Override
+	public List<JPFollowerDetailBean> selectByJPFollowerId(int jpFollowerId) {
+		List<JPFollowerDetailBean> result = null;
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try {
+			session.beginTransaction();
+			result = session.createQuery(SELECT_JPFId).setParameter(0, jpFollowerId).list();
+			session.getTransaction().commit();
+		} catch (RuntimeException ex) {
+			session.getTransaction().rollback();
+			throw ex;
+		}
+		return result;
+	}
+	
 	private static final String SELECT_ALL = "from JPFollowerDetailBean order by JPFollowerId";
 
 	@Override

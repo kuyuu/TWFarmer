@@ -51,11 +51,11 @@ public class NewOrderServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int sellerID = Integer.parseInt(request.getParameter("sellerID"));
-		int productID = Integer.parseInt(request.getParameter("productID"));
+		int sellerId = Integer.parseInt(request.getParameter("sellerId"));
+		int productId = Integer.parseInt(request.getParameter("productId"));
 
-		MemberBean member = memberDAOJdbc.select(sellerID);
-		ProductBean product = productDAOjdbc.select(productID);
+		MemberBean member = memberDAOJdbc.select(sellerId);
+		ProductBean product = productDAOjdbc.select(productId);
 
 		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		Date current = new Date();

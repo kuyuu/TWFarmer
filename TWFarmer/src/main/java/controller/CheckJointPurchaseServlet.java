@@ -26,7 +26,6 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String jpName = request.getParameter("jpName");
-		System.out.println(jpName+"1");
 		String jpIntro = request.getParameter("jpIntro");
 		String temp1 = request.getParameter("initDate");
 		String temp2 = request.getParameter("endDate");
