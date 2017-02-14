@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:if test="${empty LoginOK}">
+	<c:set var="target" value="${pageContext.request.servletPath}"
+		scope="session" />
+	<c:redirect url="../Login.jsp" />
+</c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -42,7 +47,7 @@
 						<c:otherwise>
 							<ul class="nav navbar-nav navbar-right">
 								<li><a href="/TWFarmer/Msg/MsgHome.jsp">站內信</a></li>
-								<li><a href="#">會員專區</a></li>
+								<li><a href="/TWFarmer/BackStage/BackStageServlet">會員專區</a></li>
 							</ul>
 						</c:otherwise>
 					</c:choose>
@@ -58,9 +63,10 @@
 					<form action="<c:url value="CheckJointPurchaseServlet"/>"
 						method="POST" class="form-horizontal">
 						<div class="form-group">
-							<label for="memberId" class="col-sm-2 control-label">會員ID</label>
+							<label for="jpName" class="col-sm-2 control-label">合購團名</label>
 							<div class="col-sm-6">
-								<p id="memberId" class="form-control-static">${sessionScope.JointPurchase.initId}</p>
+								<input type="text" id="jpName" name="jpName"
+									class="form-control" value="${param.jpName}">
 							</div>
 						</div>
 						<div class="form-group">
@@ -97,13 +103,7 @@
 									class="form-control" value="${param.jpPopulationMax}">
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="jpName" class="col-sm-2 control-label">合購團名</label>
-							<div class="col-sm-6">
-								<input type="text" id="jpName" name="jpName"
-									class="form-control" value="${param.jpName}">
-							</div>
-						</div>
+
 						<div class="form-group">
 							<label for="jpIntro" class="col-sm-2 control-label">合購介紹</label>
 							<div class="col-sm-6">
