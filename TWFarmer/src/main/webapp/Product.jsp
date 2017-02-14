@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>??</title>
+<title>商品</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 <style>
@@ -114,28 +114,28 @@ to {
 							class="icon-bar"></span><span class="icon-bar"></span><span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/TWFarmer/index.jsp">?啁撠噙</a>
+					<a class="navbar-brand" href="/TWFarmer/index.jsp">台灣小農</a>
 				</div>
 
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="ProductSelect/ProductSelect.jsp">鞈潸眺?祆?</a></li>
-						<li><a href="PurchaseSelect/PurchaseSelect.jsp">?頃撠?</a></li>
-						<li><a href="#">鞈潛頠?/a></li>
+						<li><a href="ProductSelect/ProductSelect.jsp">購買蔬果</a></li>
+						<li><a href="PurchaseSelect/PurchaseSelect.jsp">合購專區</a></li>
+						<li><a href="#">購物車</a></li>
 					</ul>
 					<c:choose>
 						<c:when test="${empty LoginOK}">
 							<ul class="nav navbar-nav navbar-right">
-								<li><a href="/TWFarmer/MemberSubmit/MemberSubmit.jsp">閮餃?</a>
+								<li><a href="/TWFarmer/MemberSubmit/MemberSubmit.jsp">註冊</a>
 								</li>
-								<li><a href="/TWFarmer/Login.jsp">?餃</a></li>
+								<li><a href="/TWFarmer/Login.jsp">登入</a></li>
 							</ul>
 						</c:when>
 						<c:otherwise>
 							<ul class="nav navbar-nav navbar-right">
-								<li><a href="/TWFarmer/Msg/MsgCheckingServlet">蝡靽?/a></li>
-								<li><a href="#">?撠?</a></li>
+								<li><a href="/TWFarmer/Msg/MsgCheckingServlet">站內信</a></li>
+								<li><a href="#">會員專區</a></li>
 							</ul>
 						</c:otherwise>
 					</c:choose>
@@ -143,7 +143,7 @@ to {
 						<div class="form-group">
 							<input type="text" class="form-control">
 						</div>
-						<button type="submit" class="btn btn-default">??</button>
+						<button type="submit" class="btn btn-default">搜尋</button>
 					</form>
 				</div>
 				</nav>
@@ -155,12 +155,12 @@ to {
 							</c:forEach> --%>
 							<div class="ThisIsTheSlider">
 								<div class="text"
-									style="color: #7C630F; font-weight: bold; font-size: 25px">??撖怎?</div>
+									style="color: #7C630F; font-weight: bold; font-size: 25px">商品寫真</div>
 								<br>
 								<div class="text"
-									style="color: #6133FF; font-weight: bold; font-size: 16px">酯抉撮??
-									矷??迡 ??鉏賞郃???鞈???嚗?銝誨銵冽蝡??毯郁鉏潑 矷??迡 ??鉏賞郃</div>
-								<div class="text" style="color: #0F7C58; font-weight: bold">(q^-^)q鞎冽?銝振銝??找??桀?隢????舐鼠鞈?振
+									style="color: #6133FF; font-weight: bold; font-size: 16px">୧༼✿
+									͡◕ д ◕͡ ༽୨商品皆為賣方提供，恕不代表本站立場୧༼✿ ͡◕ д ◕͡ ༽୨</div>
+								<div class="text" style="color: #0F7C58; font-weight: bold">(q^-^)q貨比三家不吃虧下單前請先充分聯繫賣家
 									(p^-^)p</div>
 								<c:forEach items="${picList}" var="x" varStatus="y">
 
@@ -192,11 +192,11 @@ to {
 							<p>
 								<a
 									href="<c:url value="Order/NewOrderServlet?productId=${productBean.productId}&sellerId=${productBean.sellerId}" />"
-									class="btn btn-default">鞈潸眺??</a> <a
+									class="btn btn-default">購買商品</a> <a
 									href="JointPurchase/NewJointPurchaseServlet?memberId=${LoginOK.memberId}&productId=${productBean.productId}"><button
-										type="button" class="btn btn-default">?潸絲?頃</button></a>
-								<button type="button" class="btn btn-default">?頝?</button>
-								<button type="button" class="btn btn-default">?鞈潛頠?/button>
+										type="button" class="btn btn-default">發起合購</button></a>
+								<button type="button" class="btn btn-default">我想跟團</button>
+								<button type="button" class="btn btn-default">加入購物車</button>
 							</p>
 							<c:if test="${not empty keyword}">
 								<c:forEach var="row" items="${keyword}">
@@ -211,20 +211,20 @@ to {
 							<form
 								style="border: 1px solid; border-radius: 20px; padding: 15px">
 								<c:if test="${not empty QnA}">
-									<h3>??蝑?/h3>
+									<h3>問與答</h3>
 									<c:forEach var="row" items="${QnA}">
 										<div>
-											<p style="background: #DDDDDD">鞎瑕振??:${row.qnAContent}</p>
+											<p style="background: #DDDDDD">買家提問:${row.qnAContent}</p>
 											<p>${row.reQnA}</p>
 										</div>
 									</c:forEach>
 								</c:if>
 								<div class="form-group">
-									<label class="">???澆?</label>
+									<label class="">我要發問</label>
 									<textarea id="QnA" class="form-control" rows="5"></textarea>
-									<button type="submit" class="btn btn-default">?</button>
+									<button type="submit" class="btn btn-default">送出</button>
 									<button type="button" class="btn btn-default" id="clearQnA"
-										onclick="ClearFields();">皜</button>
+										onclick="ClearFields();">清除</button>
 								</div>
 							</form>
 						</div>
