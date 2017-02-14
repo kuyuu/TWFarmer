@@ -27,6 +27,13 @@
     <artifactId>hibernate-core</artifactId>
     <version>4.3.5.Final</version>
 </dependency>
+<!-- https://mvnrepository.com/artifact/javax.servlet.jsp/jsp-api -->
+<dependency>
+    <groupId>javax.servlet.jsp</groupId>
+    <artifactId>jsp-api</artifactId>
+    <version>2.2</version>
+</dependency>
+
 
 
 <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->

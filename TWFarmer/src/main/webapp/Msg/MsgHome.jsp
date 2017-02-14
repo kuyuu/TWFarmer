@@ -37,7 +37,7 @@
 </head>
 <body>
 	<!-- 上方選單start -->
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-default" role="navigation">
@@ -59,11 +59,20 @@
 						<li><a href="#">合購專區</a></li>
 						<li><a href="#">購物車</a></li>
 					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">註冊</a></li>
-						<li><a href="#">登入</a></li>
-						<li><a href="/TWFarmer/Msg/MsgHome.jsp">站內信</a></li>
-					</ul>
+					<c:choose>
+						<c:when test="${empty LoginOK}">
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="/TWFarmer/MemberSubmit/MemberSubmit.jsp">註冊</a>
+								</li>
+								<li><a href="/TWFarmer/Login.jsp">登入</a></li>
+							</ul>
+						</c:when>
+						<c:otherwise>
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="/TWFarmer/Msg/MsgHome.jsp">站內信</a></li>
+							</ul>
+						</c:otherwise>
+					</c:choose>
 					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
 							<input type="text" class="form-control">
@@ -79,8 +88,7 @@
 						<div class="col-md-3">
 							<div class="list-group">
 								<a href="/TWFarmer/Msg/MsgCheck.jsp" class="list-group-item">收件匣</a>
-								<a href="/TWFarmer/Msg/MsgForm.jsp"
-									class="list-group-item">寄件匣</a>
+								<a href="/TWFarmer/Msg/MsgForm.jsp" class="list-group-item">寄件匣</a>
 
 							</div>
 						</div>
