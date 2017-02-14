@@ -32,10 +32,21 @@
 						<li><a href="../PurchaseSelect/PurchaseSelect.jsp">合購專區</a></li>
 						<li><a href="#">購物車</a></li>
 					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="../MemberSubmit/MemberSubmit.jsp">註冊</a></li>
-						<li><a href="../Login.jsp">登入</a></li>
-					</ul>
+					<c:choose>
+						<c:when test="${empty LoginOK}">
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="/TWFarmer/MemberSubmit/MemberSubmit.jsp">註冊</a>
+								</li>
+								<li><a href="/TWFarmer/Login.jsp">登入</a></li>
+							</ul>
+						</c:when>
+						<c:otherwise>
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="/TWFarmer/Msg/MsgHome.jsp">站內信</a></li>
+								<li><a href="/TWFarmer/BackStage/BackStageServlet">會員專區</a></li>
+							</ul>
+						</c:otherwise>
+					</c:choose>
 					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
 							<input type="text" class="form-control">
@@ -157,7 +168,7 @@
 													<h3>${row.key.productName}</h3>
 													<p>${row.key.origin}</p>
 													<p>
-														<a href="#" class="btn btn-primary" role="button">Button</a>
+														<a href="<c:url value="Order/NewOrderServlet?productId=${productBean.productId}&sellerId=${productBean.sellerId}" />" class="btn btn-default" >直接購買</a>														
 														<a href="#" class="btn btn-default" role="button">Button</a>
 													</p>
 												</div>

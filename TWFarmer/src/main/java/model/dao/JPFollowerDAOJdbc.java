@@ -101,7 +101,7 @@ public class JPFollowerDAOJdbc implements JPFollowerDAO {
 		return result;
 	}
 
-	private static final String SELECT_BY_BUYERID = "from JPFollowerBean jp order by JPFollowerId where jp.MemberId=:id";
+	private static final String SELECT_BY_BUYERID = "from JPFollowerBean A where A.memberId=? order by JPFollowerId";
 
 	@Override
 	public List<JPFollowerBean> selectByBuyerId(int buyerId) {
@@ -109,18 +109,13 @@ public class JPFollowerDAOJdbc implements JPFollowerDAO {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			result = session.createQuery(SELECT_BY_BUYERID).setParameter("id", buyerId).list();
+			result = session.createQuery(SELECT_BY_BUYERID).setParameter(0, buyerId).list();
 			session.getTransaction().commit();
 		} catch (RuntimeException ex) {
 			session.getTransaction().rollback();
 			throw ex;
 		}
 		return result;
-	}
-	
-	public static void main(String[] args) {
-		JPFollowerDAOJdbc dao = new JPFollowerDAOJdbc();
-		dao.selectByBuyerId(1030);
 	}
 
 }
