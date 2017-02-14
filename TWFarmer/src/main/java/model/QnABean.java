@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Date;
+
 public class QnABean {
 	private int qnAId;
 	private int queryId;
@@ -16,6 +18,23 @@ public class QnABean {
 		return "QnABean [qnAId=" + qnAId + ", queryId=" + queryId + ", productId=" + productId + ", qnATitle="
 				+ qnATitle + ", qnAContent=" + qnAContent + ", queryDate=" + queryDate + ", reQnA=" + reQnA
 				+ ", reDate=" + reDate + ", reStatus=" + reStatus + "]";
+	}
+	
+	public QnABean(int qnAId, int queryId, int productId, String qnATitle, String qnAContent, Date queryDate,
+			String reQnA, Date reDate, int reStatus) {
+		super();
+		this.qnAId = qnAId;
+		this.queryId = queryId;
+		this.productId = productId;
+		this.qnATitle = qnATitle;
+		this.qnAContent = qnAContent;
+		this.queryDate = queryDate;
+		this.reQnA = reQnA;
+		this.reDate = reDate;
+		this.reStatus = reStatus;
+	}
+
+	public QnABean() {
 	}
 
 	public int getQnAId() {
