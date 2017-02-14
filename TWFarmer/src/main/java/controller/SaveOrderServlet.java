@@ -75,7 +75,9 @@ public class SaveOrderServlet extends HttpServlet {
 			System.out.println("controller: shipDistrict="+shipDistrict);
 			System.out.println("controller: shipAddress="+shipAddress);
 			ordersBean.setSellerId(sellerID);
+			System.out.println("controller: sellerID="+sellerID);
 			ordersBean.setBuyerId(buyerID);
+			System.out.println("controller: buyerID="+buyerID);
 			
 			SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");					
 			ordersBean.setOrderDate(sdFormat.parse(currentDateTime));
