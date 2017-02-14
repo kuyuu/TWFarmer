@@ -87,20 +87,25 @@ public class SaveOrderServlet extends HttpServlet {
 			ordersBean.setTotalPrice((freight+price)*amount);
 			//先寫死訂單狀態
 			ordersBean.setOrderStatusId(3101);
-			
-			
+						
 			OrdersBean orderResult = ordersDAOJdbc.insert(ordersBean);			
+			
+			
+			
 			OrderDetailBean orderDetailBean = new OrderDetailBean();
 			orderDetailBean.setOrderId(orderResult.getOrderId());		
 			orderDetailBean.setOrderQuantity(amount);
 			orderDetailBean.setProductId(productID);
 			orderDetailBean.setUnitPrice(price);
 			orderDetailBean.setUnitFreight(freight);
-		
-			
+					
 			OrderDetailBean orderDetailResult = orderDetailDAOJdbc.insert(orderDetailBean);
 			System.out.println(orderResult.getOrderId());
 		
+			request.setAttribute("orderResult", orderResult);
+			request.setAttribute("orderDetailResult", orderDetailResult);
+			request.getRequestDispatcher("OrderDetail.jsp").forward(request, response);
+			//response.sendRedirect("/Order/OrderDetailServlet");
 			
 			//orderDetailBean
 		} catch (Exception e) {

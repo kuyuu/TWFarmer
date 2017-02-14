@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.MemberBean;
 import model.MsgBean;
 import model.dao.MsgDAOJdbc;
 
@@ -21,12 +22,21 @@ public class MsgCreatingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	//====== INSERTING MESSAGE INTO TABLE MSG
 	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		System.out.println("doget!! begin");
+		doPost(request, response);
+	}
+
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		//session.getAttribute("")
+		MemberBean bean = (MemberBean)session.getAttribute("LoginOK");
+		
 //mstWriterId 寄件人需要Session Scope技術 (Servlet / JSP II ch8)才能從網站取得，所以先寫死~
+		
+		
 		
 		String temp1 = request.getParameter("msgWriterId");
 		String temp2 = request.getParameter("msgReaderId");
@@ -56,6 +66,8 @@ public class MsgCreatingServlet extends HttpServlet {
 		}
 		
 	//SessionScope出來之後要知道如何呼叫寄件人帶入欄位中	
+		
+	
 		int msgWriterId = 0;
 		if (temp1 != null && temp1.length() != 0) {
 			try {

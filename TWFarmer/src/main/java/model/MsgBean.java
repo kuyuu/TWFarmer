@@ -1,6 +1,9 @@
 package model;
 
+import model.dao.MemberDAOJdbc;
+
 public class MsgBean {
+	MemberDAOJdbc dao = new MemberDAOJdbc();
 	private int msgId;
 	private int msgWriterId;
 	private int msgReaderId;
@@ -8,6 +11,7 @@ public class MsgBean {
 	private String msgContent;
 	private java.util.Date msgTime;
 	private int msgStatus;
+	private String writerName;
 	
 	@Override
 	public String toString() {
@@ -56,6 +60,13 @@ public class MsgBean {
 	}
 	public void setMsgStatus(int msgStatus) {
 		this.msgStatus = msgStatus;
+	}
+	public String getWriterName() {
+		return dao.select(msgWriterId).getName();
+	}
+	
+	public void setWriterName(String writerName) {
+		this.writerName = writerName;
 	}
 
 }
