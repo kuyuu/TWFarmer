@@ -1,13 +1,9 @@
 package controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,170 +12,119 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.FarmerBean;
 import model.MemberBean;
-import model.MemberService;
+import model.dao.FarmerDAOJdbc;
 import model.dao.MemberDAOJdbc;
 
 /**
  * Servlet implementation class LoginServlet
  */
 
-@WebServlet(
-		urlPatterns={"/Login.controller"}
-)
+@WebServlet(urlPatterns = { "/Login.controller" })
 public class LoginServlet extends HttpServlet {
 
-//	@Override
-//	protected void doGet(HttpServletRequest request,
-//			HttpServletResponse response) throws ServletException, IOException {
-//		
-//		
-//		String action = String.valueOf(request.getParameter("action"));
-// 	
-//		if(action.equals("logout")) {
-//			request.getSession().removeAttribute("MemberBean");
-//			response.sendRedirect("MemberBean");
-//		}else {
-//			//user
-//			request.getRequestDispatcher("/Login.jsp").forward(request, response);
-//		}		
-//	}
-//
-//	@Override
-//	protected void doPost(HttpServletRequest request,
-//			HttpServletResponse response) throws ServletException, IOException {
-//
-//		String account = String.valueOf(request.getParameter("account"));
-//		String password = String.valueOf(request.getParameter("password"));		
-//	
-//		//MemberBean memberBean = new MemberBean(account,password);
-//		
-//		MemberDAOJdbc memberDAO = new  MemberDAOJdbc();
-//		MemberBean member = memberDAO.findByAccountAndPassword(account , password);
-//		
-//		if(member == null) {
-//			response.sendRedirect("/TWFarmer/Login.jsp");
-//		}else {
-//			response.sendRedirect("/TWFarmer/index.jsp");;
-//		}
-//		
-//		
-//		if(!validateUser(memberBean)) {
-//			System.out.println("not logon!");
-//			response.sendRedirect("MemberBean");
-//			return;
-//		}else {
-//			request.getSession().setAttribute("MemberBean", memberBean);
-//			System.out.println("login!");
-//			response.sendRedirect("Order/InsertOrderServlet");
-//		}
-//	}
-//}
+	// private MemberService memberService = new MemberService();
 
-	private MemberService memberService = new MemberService();
-	@Override
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		this.doPost(request, response);
-    }
+	// @Override
+	// protected void doGet(HttpServletRequest request,
+	// HttpServletResponse response) throws ServletException, IOException {
+	// this.doPost(request, response);
+	// }
 
-	
-	
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-    	request.setCharacterEncoding("UTF-8");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+
 		HttpSession session = request.getSession();
 
-		//接收資料
-		String account  = request.getParameter("account") ;
-		String password  = request.getParameter("password");
-		String requestURI = (String) session.getAttribute("requestURI");
-
-		System.out.println(account+":"+password);
-		System.out.println("接收資料");
-		
-		
-		//驗證資料
+		// 準備存放錯誤訊息的 Map<String, String> 物件 : errors
 		Map<String, String> errors = new HashMap<String, String>();
-		request.setAttribute("errors", errors);
-			
-		if(account==null||account.trim().length()==0){
-			errors.put("account", "請輸入帳號");
-		}
 
-		if(password==null||password.trim().length()==0){
-			errors.put("password", "請輸入密碼");
+		// 將 errors 放入 request 置物櫃內，識別字串為 "errors"
+		request.setAttribute("errors", errors);
+
+		// 接收資料
+		// 1. 讀取使用者輸入資料(<Input>標籤內的name屬性分別為 account與password
+		String account = request.getParameter("account");
+		String password = request.getParameter("password");
+
+		// System.out.println(account+":"+password);
+		// System.out.println("接收資料");
+		//
+		// 驗證資料
+		// 2. 進行必要的資料轉換
+		// 無
+		// 3. 檢查使用者輸入資料
+		// 如果 account 欄位為空白，放錯誤訊息"帳號欄必須輸入"到 errors 之內
+		// 對應的識別字串為 "AccountEmptyError"
+		if (account == null || account.trim().length() == 0) {
+			errors.put("account", "帳號欄必須輸入");
 		}
-				
-		
-		if(errors!=null && !errors.isEmpty()) {
-			request.getRequestDispatcher(
-					"/Login.jsp").forward(request, response);
+		// 如果 password 欄位為空白，放錯誤訊息"密碼欄必須輸入"到 errors 之內
+		// 對應的識別字串為 "PasswordEmptyError"
+		if (password == null || password.trim().length() == 0) {
+			errors.put("password", "密碼欄必須輸入");
+		}
+		// 如果 errorMsgMap 不是空的，表示有錯誤，停留在login.jsp，
+		// 然後 return
+		if (!errors.isEmpty()) {
+			RequestDispatcher rd = request.getRequestDispatcher("/Login.jsp");
+			rd.forward(request, response);
 			return;
 		}
-				
-		System.out.println("驗證資料");
-				
-		//轉換資料
-        
+
+		// System.out.println("驗證資料");
+
 		// 4. 進行 Business Logic 運算
-		// 將LoginServiceDB類別new為物件，存放物件參考的變數為 lsdb
-		MemberService ms = new MemberService();
-			try {
-				// 呼叫 ms物件的 checkIDPassword()，要記得傳入userid與password兩個參數
-				MemberBean mb = ms.login(account, password);
-				if (mb != null && !"".equals(mb)) {
-					// OK, 將mb物件放入Session範圍內，識別字串為"LoginOK"
-					session.setAttribute("LoginOK", mb);
-				} 
-				//		} catch (NamingException e) {
-				//		} catch (SQLException e) {
-				//			errors.put("LoginError",
-				//					"LoginServlet->SQLException:" + e.getMessage());
-				//			e.printStackTrace();
-				//		}
-			} catch (Exception e) {
-					errors.put("LoginError",
-							"該帳號不存在或密碼錯誤");
-					e.printStackTrace();
-			}
-			
-			
-			// 5.依照 Business Logic 運算結果來挑選適當的畫面
-			// 如果 errorMsgMap 是空的，表示沒有任何錯誤，交棒給下一棒
-			
-			MemberDAOJdbc memberDAO = new  MemberDAOJdbc();
-			MemberBean member = memberDAO.findByAccountAndPassword(account , password);
-			
-			if(member == null) {
-				// 如果errorMsgMap不是空的，表示有錯誤，交棒給login.jsp
-				RequestDispatcher rd = request.getRequestDispatcher("/Login.jsp");
-				rd.forward(request, response);
-				return;
-			}else {
-				session.setAttribute("contextMemberBean", member);
-				RequestDispatcher rd = request.getRequestDispatcher("/test/ShowMember.jsp");
-				rd.forward(request, response);
-				return;
+		// 將LoginService類別new為物件，存放物件參考的變數為 mdj
+		MemberDAOJdbc mdj = new MemberDAOJdbc();
+		// 呼叫 mdj物件的 findByAccountAndPassword()，要記得傳入account與password兩個參數
+		// 同時將傳回值放入MemberBean型別的變數mb之內。
+		MemberBean mb = mdj.findByAccountAndPassword(account, password);
 
-//				// 此時不要用下面兩個敘述，因為網址列的URL不會改變
-//				// RequestDispatcher rd = request.getRequestDispatcher("...");
-//				// rd.forward(request, response);
-//				if (requestURI != null) {
-//					requestURI = (requestURI.length() == 0 ? request
-//							.getContextPath() : requestURI);
-//					response.sendRedirect(response.encodeRedirectURL(requestURI));
-//					return;
-//				} else {
-//					response.sendRedirect(response.encodeRedirectURL(request
-//							.getContextPath()));
-//					return;
-//				}
-			}
+		if (mb.getIdType() == 2) {
+			FarmerDAOJdbc dao = new FarmerDAOJdbc();
+			FarmerBean fb = dao.selectByMemberId(mb.getMemberId());
+			session.setAttribute("IsFarmer", fb);
+		} else if (mb.getIdType() == 3) {
+			session.setAttribute("manager", "hi");
+		}
+		// 如果變數mb的值不等於 null,表示資料庫含有account搭配password的紀錄
+		if (mb != null) {
+			// OK, 將mb物件放入Session範圍內，識別字串為"LoginOK"，表示此使用者已經登入
+			session.setAttribute("LoginOK", mb);
+		} else {
+			// NG, account與密碼的組合錯誤，放錯誤訊息"該帳號不存在或密碼錯誤"到 errorMsgMap 之內
+			// 對應的識別字串為 "LoginError"
+			errors.put("LoginError", "該帳號不存在或密碼錯誤");
+		}
+		// 5.依照 Business Logic 運算結果來挑選適當的畫面
+		// 如果 errors是空的，表示沒有任何錯誤，準備交棒給下一隻程式
+		if (errors.isEmpty()) {
+			// 如果session物件內含有"target"屬性物件，表示使用者先前嘗試執行某個應該
+			// 登入，但使用者未登入的網頁，由該網頁放置的"target"屬性物件，因此如果
+			// 有"target"屬性物件則導向"target"屬性物件所標示的網頁，否則導向首頁
+			String contextPath = getServletContext().getContextPath();
+			String target = (String) session.getAttribute("target");
+			if (target != null) {
+				// 先由session中移除此項屬性，否則下一次User直接執行login功能後，
+				// 會再度被導向到 target
+				session.removeAttribute("target");
+				// 導向 contextPath + target
+				response.sendRedirect(contextPath + target);
 
-			
+			} else {
+				// 導向 contextPath + "/index.jsp"
+				response.sendRedirect(contextPath + "/test/ShowMember.jsp");
+			}
+			return;
+		} else {
+			// 如果 errorMsgMap 不是空的，表示有錯誤，停留在Login.jsp
+			RequestDispatcher rd = request.getRequestDispatcher("/Login.jsp");
+			rd.forward(request, response);
+			return;
+		}
 	}
-
-
 }
