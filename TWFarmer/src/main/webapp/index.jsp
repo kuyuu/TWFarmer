@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:useBean id="memberDaoJdbc" class="model.dao.MemberDAOJdbc"
-	scope="session" />
-<jsp:useBean id="memberBean" class="model.MemberBean" scope="session" />
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
@@ -56,8 +53,8 @@
 						</c:when>
 						<c:otherwise>
 							<ul class="nav navbar-nav navbar-right">
-								<li><a href="/TWFarmer/Msg/MsgHome.jsp">站內信</a>
-								</li>
+								<li><a href="/TWFarmer/Msg/MsgCheckingServlet">站內信</a></li>
+								<li><a href="#">會員專區</a></li>
 							</ul>
 						</c:otherwise>
 					</c:choose>

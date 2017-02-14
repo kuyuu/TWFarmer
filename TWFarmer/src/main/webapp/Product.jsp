@@ -43,6 +43,7 @@
 						<c:otherwise>
 							<ul class="nav navbar-nav navbar-right">
 								<li><a href="/TWFarmer/Msg/MsgHome.jsp">站內信</a></li>
+								<li><a href="#">會員專區</a></li>
 							</ul>
 						</c:otherwise>
 					</c:choose>

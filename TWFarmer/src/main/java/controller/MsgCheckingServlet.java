@@ -2,11 +2,15 @@ package controller;
 
 import java.io.IOException;
 import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.MemberBean;
 import model.MsgBean;
 import model.dao.MsgDAOJdbc;
 
@@ -17,11 +21,9 @@ public class MsgCheckingServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String temp = request.getParameter("msgReaderId");
-		int msgReaderId = 0;
-		if (temp != null && temp.trim().length() != 0) {
-			msgReaderId = Integer.parseInt(temp);
-		}
+		HttpSession session = request.getSession();
+		MemberBean bean = (MemberBean)session.getAttribute("LoginOK");
+		int msgReaderId = bean.getMemberId();
 		
 		MsgDAOJdbc dao = new MsgDAOJdbc();
 		List<MsgBean> list = dao.selectByReaderId(msgReaderId);
