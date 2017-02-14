@@ -28,15 +28,24 @@
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="./ProductSelect/ProductSelect.jsp">購買蔬果</a></li>
-						<li><a href="./PurchaseSelect/PurchaseSelect.jsp">合購專區</a></li>
+						<li><a href="ProductSelect/ProductSelect.jsp">購買蔬果</a></li>
+						<li><a href="PurchaseSelect/PurchaseSelect.jsp">合購專區</a></li>
 						<li><a href="#">購物車</a></li>
 					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="./MemberSubmit/MemberSubmit.jsp">註冊</a>
-						</li>
-						<li><a href="./Login.jsp">登入</a></li>
-					</ul>
+					<c:choose>
+						<c:when test="${empty LoginOK}">
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="/TWFarmer/MemberSubmit/MemberSubmit.jsp">註冊</a>
+								</li>
+								<li><a href="/TWFarmer/Login.jsp">登入</a></li>
+							</ul>
+						</c:when>
+						<c:otherwise>
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="/TWFarmer/Msg/MsgHome.jsp">站內信</a></li>
+							</ul>
+						</c:otherwise>
+					</c:choose>
 					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
 							<input type="text" class="form-control">
@@ -55,10 +64,10 @@
 						<div class="col-md-8">
 							<h1>${productBean.productName}</h1>
 							<p>${productBean.productIntro }</p>
-							<p>${productBean.price } / ${productBean.unit }</p>
+							<p>${productBean.price }/ ${productBean.unit }</p>
 							<p>
 								<button type="button" class="btn btn-default">購買商品</button>
-								<button type="button" class="btn btn-default">發起合購</button>
+								<a href="JointPurchase/NewJointPurchaseServlet?memberId=${LoginOK.memberId}&productId=${productBean.productId}"><button type="button" class="btn btn-default">發起合購</button></a>
 								<button type="button" class="btn btn-default">我想跟團</button>
 								<button type="button" class="btn btn-default">加入購物車</button>
 							</p>
