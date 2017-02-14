@@ -40,7 +40,7 @@ public class ListOrderServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MemberBean member = (MemberBean) request.getSession().getAttribute("contextMemberBean");
+		MemberBean member = (MemberBean) request.getSession().getAttribute("LoginOK");
 		request.setCharacterEncoding("UTF-8");
 		
 //		List<OrdersBean> sellerorders = ordersDAOJdbc.findSellerAllList(member.getMemberId());
