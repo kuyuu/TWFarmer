@@ -198,18 +198,8 @@ to {
 								<button type="button" class="btn btn-default">我想跟團</button>
 								<button type="button" class="btn btn-default">加入購物車</button>
 							</p>
-							<c:if test="${not empty keyword}">
-								<c:forEach var="row" items="${keyword}">
-									<table>
-
-									</table>
-								</c:forEach>
-
-
-							</c:if>
-
-							<form
-								style="border: 1px solid; border-radius: 20px; padding: 15px">
+							<form action="/TWFarmer/QnAInsertServlet"
+								style="border: 1px solid; border-radius: 20px; padding: 15px" method="POST">
 								<c:if test="${not empty QnA}">
 									<h3>問與答</h3>
 									<c:forEach var="row" items="${QnA}">
@@ -219,9 +209,11 @@ to {
 										</div>
 									</c:forEach>
 								</c:if>
+								<input type="hidden" name="memberId" value="${LoginOK.memberId}" />
+								<input type="hidden" name="productId" value="${productBean.productId}" />
 								<div class="form-group">
 									<label class="">我要發問</label>
-									<textarea id="QnA" class="form-control" rows="5"></textarea>
+									<textarea id="QnA" name="QnA" class="form-control" rows="5"></textarea>
 									<button type="submit" class="btn btn-default">送出</button>
 									<button type="button" class="btn btn-default" id="clearQnA"
 										onclick="ClearFields();">清除</button>
