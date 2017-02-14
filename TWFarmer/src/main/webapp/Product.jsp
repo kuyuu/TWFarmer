@@ -66,7 +66,7 @@
 							<p>${productBean.productIntro }</p>
 							<p>${productBean.price }/ ${productBean.unit }</p>
 							<p>
-								<button type="button" class="btn btn-default">購買商品</button>
+								<a href="<c:url value="Order/NewOrderServlet?productId=${productBean.productId}&sellerId=${productBean.sellerId}" />" class="btn btn-default" >購買商品</a>
 								<a href="JointPurchase/NewJointPurchaseServlet?memberId=${LoginOK.memberId}&productId=${productBean.productId}"><button type="button" class="btn btn-default">發起合購</button></a>
 								<button type="button" class="btn btn-default">我想跟團</button>
 								<button type="button" class="btn btn-default">加入購物車</button>
