@@ -53,38 +53,32 @@
 			<div class="col-md-3">
 				<div class="list-group">
 					<a href="#" class="list-group-item">管理訂單</a> <a href="#"
-						class="list-group-item active">管理開團</a> <a href="#"
-						class="list-group-item">管理跟團</a><a href="#"
+						class="list-group-item">管理開團</a> <a href="#"
+						class="list-group-item active">管理跟團</a><a href="#"
 						class="list-group-item">管理追蹤商品</a> <a href="#"
 						class="list-group-item">管理個人資料</a>
 				</div>
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<h3>管理開團</h3>
-					<c:if test="${not empty initJpList}">
+					<h3>管理跟團</h3>
+					<c:if test="${not empty jpFollowerList}">
 						<table class="table table-bordered">
 							<thead>
 								<tr>
 									<th>合購編號</th>
 									<th>合購發起人</th>
-									<th>開始日期</th>
-									<th>結束日期</th>
-									<th>合購地點</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="row" items="${initJpList}">
+								<c:forEach var="row" items="${jpFollowerList}">
 									<c:url value="/BackStage/FarmerCheckJointPurchaseServlet"
 										var="path">
-										<c:param name="jointPurchaseId" value="${row.jpId}" />
+										<c:param name="jointPurchaseId" value="${row.JPFollowerId}" />
 									</c:url>
 									<tr>
-										<td><a href="${path}">${row.jpId}</a></td>
-										<td>${row.initId}</td>
-										<td>${row.initDate}</td>
-										<td>${row.endDate}</td>
-										<td>${row.jpLocation}</td>
+										<td><a href="${path}">${row.JPFollowerId}</a></td>
+										<td>${row.jpName}</td>
 									</tr>
 								</c:forEach>
 
