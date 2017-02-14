@@ -10,10 +10,9 @@
 <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
-
+<!-- enctype="multipart/form-data" -->
 	<!-- 上傳圖片的form表單，要增加enctype="multipart/form-data" -->
-	<form action="<c:url value="DeleteProductServlet" />" method="POST"
-		enctype="multipart/form-data" class="form-horizontal">
+	<form action="<c:url value="/BackStage/DeleteTheProductServlet?productId=${productBean.productId}" />" method="POST" class="form-horizontal">
 
 		<center>
 			<h2>變更商品資料</h2><br>
@@ -236,9 +235,9 @@
 		<div class="form-group">
 			<div class="col-sm-offset-5 col-sm-4">
 				<p>
-					<input class="btn btn-default" type="button" value="修改">
+					<input class="btn btn-default" type="submit" value="修改" name="prodaction">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-					<input class="btn btn-default" type="button" value="刪除">
+					<input class="btn btn-default" type="submit" value="刪除" name="prodaction">
 				</p>
 			</div>
 		</div>
