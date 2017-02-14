@@ -37,7 +37,7 @@
 </head>
 <body>
 	<!-- 上方選單start -->
-	<div class="container">  
+	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-default" role="navigation">
@@ -100,8 +100,9 @@
 		<div class="row">
 			<div class="col-md-3">
 				<div class="list-group">
-					<a href="/TWFarmer/Msg/MsgCheck.jsp" class="list-group-item active">收件匣</a>
-					<a href="/TWFarmer/Msg/MsgForm.jsp" class="list-group-item">寄件匣</a>
+					<a href="/TWFarmer/Msg/MsgCheckingServlet"
+						class="list-group-item active">收件匣</a> <a
+						href="/TWFarmer/Msg/MsgCreatingServlet" class="list-group-item">寄件匣</a>
 
 				</div>
 			</div>
@@ -109,7 +110,7 @@
 				<h1>收件匣</h1>
 				<c:choose>
 					<c:when test="${not empty msgList}">
-        留給${sessionScope.memberBean.memberId}的訊息<br>
+						<div class="text" style="color: #0F7C58; font-weight: bold">${sessionScope.LoginOK.name}，歡迎回家！</div>以下是站友們寄給您的信<br>
 						<br>
 						<c:forEach var='msgBean' items='${msgList}' varStatus='vs'>
 							<c:if test="${vs.first}">
@@ -125,7 +126,7 @@
 
 							<tr>
 								<td style="width: 80px">${msgBean.msgId}</td>
-								<td style="width: 80px">${msgBean.msgWriterId}</td>
+								<td style="width: 80px">${msgBean.writerName}</td>
 								<td style="width: 180px">${msgBean.msgTitle}</td>
 								<td style="width: 250px; text-align: left">&nbsp;${msgBean.msgTime}</td>
 								<td style="width: 250px; text-align: left">${msgBean.msgContent}</td>

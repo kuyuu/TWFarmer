@@ -82,19 +82,20 @@
 		<div class="row">
 			<div class="col-md-3">
 				<div class="list-group">
-					<a href="/TWFarmer/Msg/MsgCheck.jsp" class="list-group-item">收件匣</a>
-					<a href="/TWFarmer/Msg/MsgForm.jsp" class="list-group-item active">寄件匣</a>
+					<a href="/TWFarmer/Msg/MsgCheckingServlet" class="list-group-item">收件匣</a>
+					<a href="/TWFarmer/Msg/MsgCreatingServlet" class="list-group-item active">寄件匣</a>
 
 				</div>
 			</div>
-			<!-- 		Msg Outbox    Start    -->
-			<div style="padding: 5% 10% 10% 10%;">
-				<div
-					style="font-weight: bold; color: #ff0000; margin: .67em 0; font-size: 2em;">寄送站內信</div>
+			<div class="jumbotrom col-md-offset-3">
+				<h1>寄件匣</h1>
+				<!-- 		Msg Outbox    Start    -->
+			<div>
+	<div class="text" style="color: #0F7C58; font-weight: bold">${sessionScope.LoginOK.name}，歡迎回家！</div>請開始撰寫您的新信<br>
 				<form action="<c:url value="MsgCreatingServlet"/>" method="POST">
-					<table border="0" width="35%" align="center">
+					<table border="0" width="100%" align="center">
 						<caption>
-							<h2>貼心提醒：文長不可超過500字</h2>
+							<h2>貼心提醒：文長不可超過500字喔！ᶘ ᵒᴥᵒᶅ</h2>
 						</caption>
 						<%-- <tr>
 				<td width="50%">寄件人：</td>
@@ -102,20 +103,23 @@
 				<td></td>
 			</tr> --%>
 						<tr>
-							<td width="50%">寄件人</td>
-							<td><input id='msgWriterId' value="${param.msgWriterId}"
-								type="text" name="msgWriterId" size="50" />
-								<div style="color: #FF0000; display: inline">
-									<center>${errors.msgWriterId}</center>
+							<td width="10%">寄件人</td>
+							<td>
+							<input id='msgWriterId' value="${sessionScope.LoginOK.name}"
+								type="text" size="50" disabled/> </td>
+							<td>
+							<input type="hidden" value="${sessionScope.LoginOK.memberId}" type="text" name="msgWriterId" />
+							<div style="color: #FF0000; display: inline">
+									${errors.msgWriterId}
 								</div></td>
 						</tr>
 						<tr>
 						<tr>
-							<td width="50%">收件人</td>
+							<td width="10%">收件人</td>
 							<td><input id='msgReaderId' value="${param.msgReaderId}"
 								type="text" name="msgReaderId" size="50" />
 								<div style="color: #FF0000; display: inline">
-									<center>${errors.msgReaderId}</center>
+									${errors.msgReaderId}
 								</div></td>
 						</tr>
 						<tr>
@@ -123,14 +127,14 @@
 							<td><input id='msgTitle' value="${param.msgTitle}"
 								type="text" name="msgTitle" size="50" />
 								<div style="color: #FF0000; display: inline">
-									<center>${errors.msgTitle}</center>
+									${errors.msgTitle}
 								</div></td>
 						</tr>
 						<tr>
 							<td>內文</td>
 							<td><textarea rows="10" cols="40" name="msgContent">${param.msgContent}</textarea>
 								<div style="color: #FF0000; display: inline">
-									<center>${errors.msgContent}</center>
+									${errors.msgContent}
 								</div></td>
 						</tr>
 						<tr>
@@ -146,6 +150,8 @@
 			</div>
 
 			<!-- Msg Outbox  End -->
+			</div>
+			
 		</div>
 	</div>
 	<!-- 上方選單 End -->

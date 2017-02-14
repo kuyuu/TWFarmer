@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import model.MemberBean;
 import model.MsgBean;
+import model.dao.MemberDAOJdbc;
 import model.dao.MsgDAOJdbc;
 
 @WebServlet("/Msg/MsgCheckingServlet")
@@ -24,9 +25,10 @@ public class MsgCheckingServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		MemberBean bean = (MemberBean)session.getAttribute("LoginOK");
 		int msgReaderId = bean.getMemberId();
-		
 		MsgDAOJdbc dao = new MsgDAOJdbc();
+		//根據收件者的ID決定被讀取的信
 		List<MsgBean> list = dao.selectByReaderId(msgReaderId);
+		
 		request.setAttribute("msgList", list);
 		
 		request.getRequestDispatcher("MsgCheck.jsp").forward(request, response);
