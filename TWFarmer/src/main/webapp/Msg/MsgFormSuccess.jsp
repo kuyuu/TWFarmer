@@ -36,22 +36,13 @@
 
 </head>
 <body>
-<<<<<<< HEAD
-<h1>站內信順利寄出</h1><br>
-以下是您的訊息內容：<br><br>
-信件流水號:${msgBean.msgId}
-寄件者:${msgBean.msgWriterId}<br>
-收件者:${msgBean.msgReaderId}<br>
-標題:${msgBean.msgTitle}<br>
-內文:${msgBean.msgContent}<br>
-=======
+
 	<!-- 上方選單start -->
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<nav class="navbar navbar-default" role="navigation">
+					<nav class="navbar navbar-default" role="navigation">
 				<div class="navbar-header">
->>>>>>> branch 'master' of https://github.com/kuyuu/TWFarmer.git
 
 					<button type="button" class="navbar-toggle" data-toggle="collapse"
 						data-target="#bs-example-navbar-collapse-1">
@@ -59,7 +50,7 @@
 							class="icon-bar"></span><span class="icon-bar"></span><span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/TWFarmer/index.jsp">台灣小農</a>
+					<a class="navbar-brand" href="../index.jsp">台灣小農</a>
 				</div>
 
 				<div class="collapse navbar-collapse"
@@ -70,9 +61,8 @@
 						<li><a href="#">購物車</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">註冊</a></li>
-						<li><a href="#">登入</a></li>
-						<li><a href="/TWFarmer/Msg/MsgForm.jsp">站內信</a></li>
+						<!-- <li><a href="#">註冊</a></li> -->
+						<li><a href="#">登出</a></li>
 					</ul>
 					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">

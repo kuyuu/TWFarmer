@@ -60,9 +60,8 @@
 						<li><a href="#">購物車</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">註冊</a></li>
-						<li><a href="#">登入</a></li>
-						<li><a href="/TWFarmer/Msg/MsgHome.jsp">站內信</a></li>
+						<!-- <li><a href="#">註冊</a></li> -->
+						<li><a href="#">登出</a></li>
 					</ul>
 					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
@@ -116,11 +115,12 @@
 							<c:if test="${vs.first}">
 								<c:out value="<table class='table'>" escapeXml='false' />
 								<tr>
-									<th style="width: 80px">信件流水號:</th>
+									<th style="width: 80px">信件編號:</th>
 									<th style="width: 80px">寄件者:</th>
 									<th style="width: 180px">標題:</th>
 									<th style="width: 250px">寄送時間：</th>
 									<th style="width: 250px">內文:</th>
+									<th style="width: 80px">直接回覆</th>
 								</tr>
 							</c:if>
 
