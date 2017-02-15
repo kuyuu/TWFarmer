@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>寄信成功！</title>
+<title>站內信 - 收件匣</title>
 <meta name="description"
 	content="Source code generated using layoutit.com">
 <meta name="author" content="LayoutIt!">
@@ -99,71 +99,66 @@
 		<div class="row">
 			<div class="col-md-3">
 				<div class="list-group">
-					<a href="/TWFarmer/Msg/MsgCheckingServlet" class="list-group-item">收件匣</a>
-					<a href="/TWFarmer/Msg/MsgCreatingServlet"
-						class="list-group-item active">寄件匣</a>
+					<a href="/TWFarmer/Msg/MsgCheckingServlet"
+						class="list-group-item active">收件匣</a> <a
+						href="/TWFarmer/Msg/MsgCreatingServlet" class="list-group-item">寄件匣</a>
 
 				</div>
 			</div>
 			<div class="jumbotrom col-md-offset-3">
-				<h1>寄件匣</h1>
-				<form>
+				<h1>收件匣</h1>
+				<c:choose>
+					<c:when test="${not empty msgList}">
+						<div class="text" style="color: #0F7C58; font-weight: bold">${sessionScope.LoginOK.name}，歡迎回家！</div>以下是站友們寄給您的信<br>
+						<br>
+						<c:forEach var='msgBean' items='${msgList}' varStatus='vs'>
+							<c:if test="${vs.first}">
+								<c:out value="<table class='table'>" escapeXml='false' />
+								<tr>
+									<th style="width: 80px">流水號:</th>
+									<th style="width: 80px">寄件者:</th>
+									<th style="width: 80px">標題:</th>
+									<th style="width: 250px">寄送時間：</th>
+									<th style="width: 250px">內文:</th>
+									<th style="width: 80px">回覆訊息</th>
+									<th style="width: 80px">刪除訊息</th>
+								</tr>
+							</c:if>
 
-					<div class="form-group ">
-						<label for="msgWriterId">寄件者:</label>
-						<div>${msgBean.msgWriterId}</div>
-					</div>
-
-					<div class="form-group ">
-						<label for="msgReaderId">收件者:</label>
-						<div>${msgBean.msgReaderId}</div>
-					</div>
-					<div class="form-group ">
-						<label for="msgTime">寄送時間：</label>
-						<div>${msgBean.msgTime}</div>
-					</div>
-					<div class="form-group ">
-						<label for="msgTitle">標題:</label>
-						<div>${msgBean.msgTitle}</div>
-					</div>
-					<div class="form-group ">
-						<label for="msgContent">內文:</label>
-						<div>${msgBean.msgContent}</div>
-					</div>
-
+							<tr>
+								<td style="width: 80px">${msgBean.msgId}</td>
+								<td style="width: 80px">${msgBean.writerName}</td>
+								<td style="width: 180px">${msgBean.msgTitle}</td>
+								<td style="width: 250px; text-align: left">&nbsp;${msgBean.msgTime}</td>
+								<td style="width: 250px; text-align: left">${msgBean.msgContent}</td>
+								<td><button type="button" class="btn btn-primary" onclick="location.href='/TWFarmer/Msg/MsgCheckingDetail?msgId=${msgBean.msgId}&value=reply'">回覆</button></td>
+								<td><button type="button" class="btn btn-danger" onclick="location.href='/TWFarmer/Msg/MsgCheckingDetail?msgId=${msgBean.msgId}&value=torch'">刪除</button></td>
+							</tr>
+							<c:if test="${vs.last}">
+								<c:out value="</table>" escapeXml='false' />
+							</c:if>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<center>訊息${msgBean.msgTitle}已經刪除</center>
+						<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 					<center><div class="list-group">
 					<a href="/TWFarmer/Msg/MsgCheckingServlet" class="list-group-item">回到收件匣</a>
 				</div></center>
-				</form>
+					</c:otherwise>
+				</c:choose>
+				
 			</div>
+
 
 		</div>
 	</div>
 	<!-- 上方選單 End -->
 
-
-
-
 </body>
-
-<%-- <form>
-	<tr>
-		<th style="width: 80px">寄件者:${msgBean.msgWriterId}</th>
-		<br>
-		<th style="width: 80px">收件者:${msgBean.msgReaderId}</th>
-		<br>
-		<th style="width: 180px">寄送時間：${msgBean.msgTime}</th>
-		<br>
-		<th style="width: 250px">標題:${msgBean.msgTitle}</th>
-		<br>
-		<th style="width: 250px">內文:${msgBean.msgContent}</th>
-		<br>
-		<th style="width: 80px">直接回覆</th>
-	</tr>
-
-</form> --%>
-
 </html>
+
+
 
 
 

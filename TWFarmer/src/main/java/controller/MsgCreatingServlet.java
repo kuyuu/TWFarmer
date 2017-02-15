@@ -111,7 +111,7 @@ public class MsgCreatingServlet extends HttpServlet {
 			session.setAttribute("msgBean", msgBean);
 			
 			request.getRequestDispatcher("MsgFormSuccess.jsp").forward(request, response);
-			//response.sendRedirect("/MsgFormSuccess.jsp");
+			response.sendRedirect("/MsgFormSuccess.jsp");
 	
 	}
 

@@ -14,53 +14,7 @@
 <body>
 
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<nav class="navbar navbar-default" role="navigation">
-				<div class="navbar-header">
-
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span><span
-							class="icon-bar"></span><span class="icon-bar"></span><span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="../index.html">台灣小農</a>
-				</div>
-
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="#">購買蔬果</a></li>
-						<li><a href="#">合購專區</a></li>
-						<li><a href="#">購物車</a></li>
-					</ul>
-					<c:choose>
-						<c:when test="${empty LoginOK}">
-							<ul class="nav navbar-nav navbar-right">
-								<li><a href="/TWFarmer/MemberSubmit/MemberSubmit.jsp">註冊</a>
-								</li>
-								<li><a href="/TWFarmer/Login.jsp">登入</a></li>
-							</ul>
-						</c:when>
-						<c:otherwise>
-							<ul class="nav navbar-nav navbar-right">
-								<li><a href="/TWFarmer/Msg/MsgCheckingServlet">站內信</a></li>
-								<li><a href="/TWFarmer/BackStage/BackStageServlet">會員專區</a></li>
-							</ul>
-						</c:otherwise>
-					</c:choose>
-					<form class="navbar-form navbar-right" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control">
-						</div>
-						<button type="submit" class="btn btn-default">搜尋</button>
-					</form>
-				</div>
-
-				</nav>
-			</div>
-		</div>
+		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
 			<div class="col-md-3">
 				<div class="list-group">
@@ -88,22 +42,21 @@
 							</thead>
 							<tbody>
 								<c:forEach var="row" items="${jpFollowerList}">
-									<c:url value="/BackStage/FarmerCheckJointPurchaseServlet"
-										var="path">
-										<c:param name="jointPurchaseId" value="${row.JPFollowerId}" />
-									</c:url>
 									<tr>
 										<td>${row.jpName}</td>
 										<td>${row.totalPrice + row.misc}</td>
 										<td><fmt:formatDate value="${row.initDate}"
-												pattern="yyyy-MM-dd HH:mm:ss" /></td>
+												pattern="yyyy-MM-dd HH:mm" /></td>
 										<td><fmt:formatDate value="${row.endDate}"
-												pattern="yyyy-MM-dd HH:mm:ss" /></td>
+												pattern="yyyy-MM-dd HH:mm" /></td>
 										<td>${row.jpStatusName}</td>
 
-										<td><c:if test="${row.jpStatusId==4104}">
-												<a href="CheckJpFollowerDetailServlet?jpFollowerId=${row.JPFollowerId}"><button type="button" class="btn btn-default">回報匯款</button>
-												</a>
+										<td><c:if test="${row.remittanceStatus==1}">
+											已匯款</c:if> <c:if
+												test="${row.jpStatusId==4104 && row.remittanceStatus!=1}">
+												<a
+													href="CheckJpFollowerDetailServlet?jpFollowerId=${row.JPFollowerId}"><button
+														type="button" class="btn btn-default">匯款去</button> </a>
 											</c:if></td>
 									</tr>
 								</c:forEach>

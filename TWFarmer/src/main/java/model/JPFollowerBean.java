@@ -100,7 +100,7 @@ public class JPFollowerBean implements Serializable {
 		this.remittanceStatus = remittanceStatus;
 	}
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "RemittanceDate")
 	public Date getRemittanceDate() {
 		return remittanceDate;
