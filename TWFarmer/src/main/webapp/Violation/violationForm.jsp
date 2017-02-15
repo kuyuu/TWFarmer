@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:if test="${empty LoginOK}">
+	<c:set var="target" value="${pageContext.request.servletPath}"
+		scope="session" />
+	<c:set var="reportedId" value="${param.productId}" scope="session" />
+	<c:redirect url="../Login.jsp" />
+</c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="UTF-8">
 <head>
@@ -17,13 +23,29 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="col-md-offset-2">
-					<form action="<c:url value="NewViolationServlet"/>"
-						method="POST" class="form-horizontal">
+					<form action="<c:url value="NewViolationServlet"/>" method="POST"
+						class="form-horizontal">
+						<c:choose>
+							<c:when test="${not empty LoginOK && not empty reportedId}">
+								<input type="hidden" name="productId" value="${reportedId}" />
+							</c:when>
+							<c:otherwise>
+								<input type="hidden" name="productId" value="${param.productId}" />
+							</c:otherwise>
+						</c:choose>
 						<div class="form-group">
-							<label for="jpName" class="col-sm-2 control-label">檢舉主旨</label>
+							<label for="vioTitle" class="col-sm-2 control-label">檢舉主旨</label>
 							<div class="col-sm-6">
-								<input type="text" id="jpName" name="jpName"
-									class="form-control" value="${param.jpName}">
+								<input type="text" id="vioTitle" name="vioTitle"
+									class="form-control" value="${param.vioTitle}">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="vioContent" class="col-sm-2 control-label">檢舉內容</label>
+							<div class="col-sm-6">
+								<textarea id="vioContent" name="vioContent" class="form-control"
+									rows="3"></textarea>
+								<p class="help-block">限制200字</p>
 							</div>
 						</div>
 						<div class="form-group">
@@ -34,7 +56,7 @@
 					</form>
 				</div>
 			</div>
-		${param.productId}
+
 		</div>
 	</div>
 
