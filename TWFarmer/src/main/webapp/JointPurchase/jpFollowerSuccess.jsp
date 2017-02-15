@@ -21,49 +21,19 @@
 <body>
 
 	<div class="container">
+		<jsp:include page="../common/menuJp.jsp" />
+
 		<div class="row">
 			<div class="col-md-12">
-				<nav class="navbar navbar-default" role="navigation">
-				<div class="navbar-header">
-
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span><span
-							class="icon-bar"></span><span class="icon-bar"></span><span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="/TWFarmer/index.jsp">台灣小農</a>
-				</div>
-
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="#">購買蔬果</a></li>
-						<li><a href="#">合購專區</a></li>
-						<li><a href="#">購物車</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/TWFarmer/MemberSubmit/MemberSubmit.jsp">註冊</a>
-						</li>
-						<li><a href="/TWFarmer/Login.jsp">登入</a></li>
-					</ul>
-					<form class="navbar-form navbar-right" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control">
-						</div>
-						<button type="submit" class="btn btn-default">搜尋</button>
-					</form>
-				</div>
-				</nav>
 				<div class="jumbotron">
 					<h3>跟團成功</h3>
-					<p>團名：${jpBean.jpName}</p>
+<%-- 					<p>團名：${jpBean.jpName}</p> --%>
 					<p>介紹：${jpBean.jpIntro}</p>
 					<p>跟團開始日期：${jpBean.initDate}</p>
 					<p>跟團截止日期：${jpBean.endDate}</p>
 					<p>面交時間：${f2f.f2fTime}</p>
 					<p>面交地點：${f2f.f2fPlace}</p>
-					
+
 					<table class="table">
 						<thead>
 							<tr>
@@ -81,9 +51,8 @@
 						</c:forEach>
 					</table>
 					<p>
-					商品總價：${jpFollowerBean.totalPrice}<br>
-					雜費：${jpFollowerBean.misc}<br>
-					總價：${jpFollowerBean.totalPrice + jpFollowerBean.misc}<br>
+						商品總價：${jpFollowerBean.totalPrice}<br>
+						雜費：${jpFollowerBean.misc}<br> 總價：${jpFollowerBean.totalPrice + jpFollowerBean.misc}<br>
 					</p>
 				</div>
 			</div>
