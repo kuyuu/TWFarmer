@@ -73,44 +73,34 @@
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<h3>管理跟團</h3>
-					<c:if test="${not empty jpFollowerList}">
-						<table class="table table-bordered">
-							<thead>
-								<tr>
-									<th>合購團名</th>
-									<th>總價</th>
-									<th>開始日期</th>
-									<th>截止日期</th>
-									<th>狀態</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="row" items="${jpFollowerList}">
-									<c:url value="/BackStage/FarmerCheckJointPurchaseServlet"
-										var="path">
-										<c:param name="jointPurchaseId" value="${row.JPFollowerId}" />
-									</c:url>
-									<tr>
-										<td>${row.jpName}</td>
-										<td>${row.totalPrice + row.misc}</td>
-										<td><fmt:formatDate value="${row.initDate}"
-												pattern="yyyy-MM-dd HH:mm:ss" /></td>
-										<td><fmt:formatDate value="${row.endDate}"
-												pattern="yyyy-MM-dd HH:mm:ss" /></td>
-										<td>${row.jpStatusName}</td>
+					<p>團名：${jpBean.jpName}</p>
+					<p>介紹：${jpBean.jpIntro}</p>
+					<p>跟團開始日期：${jpBean.initDate}</p>
+					<p>跟團截止日期：${jpBean.endDate}</p>
+					<p>面交時間：${f2f.f2fTime}</p>
+					<p>面交地點：${f2f.f2fPlace}</p>
 
-										<td><c:if test="${row.jpStatusId==4104}">
-												<a href="CheckJpFollowerDetailServlet?jpFollowerId=${row.JPFollowerId}"><button type="button" class="btn btn-default">回報匯款</button>
-												</a>
-											</c:if></td>
-									</tr>
-								</c:forEach>
-
-							</tbody>
-						</table>
-					</c:if>
+					<table class="table">
+						<thead>
+							<tr>
+								<td>商品名稱</td>
+								<td>購買價格</td>
+								<td>購買數量</td>
+							</tr>
+						</thead>
+						<c:forEach items="${jpFollowerDetailList}" var="x">
+							<tr>
+								<td>${x.productName}</td>
+								<td>${x.price}</td>
+								<td>${x.quantity}</td>
+							</tr>
+						</c:forEach>
+					</table>
+					<p>
+						商品總價：${jpFollowerBean.totalPrice}<br>
+						雜費：${jpFollowerBean.misc}<br> 總價：${jpFollowerBean.totalPrice + jpFollowerBean.misc}<br>
+					</p>
+					<button type="button" class="btn btn-default">填寫匯款資訊</button>
 				</div>
 			</div>
 		</div>
