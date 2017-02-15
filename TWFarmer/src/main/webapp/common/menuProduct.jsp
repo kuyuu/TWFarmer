@@ -17,7 +17,8 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="/TWFarmer/ProductSelect/ProductSelect.jsp">購買蔬果</a></li>
+					<li class="active"><a
+						href="/TWFarmer/ProductSelect/ProductSelect.jsp">購買蔬果</a></li>
 					<li><a href="/TWFarmer/PurchaseSelect/PurchaseSelect.jsp">合購專區</a></li>
 					<li><a href="/TWFarmer/shoppingCart/shoppingCart.jsp">購物車</a></li>
 				</ul>
