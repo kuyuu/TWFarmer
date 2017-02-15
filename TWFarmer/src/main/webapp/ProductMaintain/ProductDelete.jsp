@@ -61,7 +61,8 @@
 		<div class="row">
 			<div class="col-md-3">
 				<div class="list-group">
-					<a href="#" class="list-group-item active">管理商品</a> <a href="../BackStage/farmerCheckJpDetail.jsp"
+					<a href="#" class="list-group-item active">管理商品</a> <a
+						href="../BackStage/farmerCheckJpDetail.jsp"
 						class="list-group-item">審核合購</a> <a href="#"
 						class="list-group-item">管理賣場資料</a> <a href="#"
 						class="list-group-item">管理個人資料</a>
@@ -74,251 +75,215 @@
 					<form
 						action="<c:url value="/BackStage/DeleteTheProductServlet?productId=${productBean.productId}" />"
 						method="POST" class="form-horizontal">
-
 						<center>
-							<h2>變更商品資料</h2>
-							<br>
-						</center>
+							<table>
+								<thead>
+									<%-- 									<center> --%>
+									<h2>變更商品資料</h2>
+									<br>
+									<%-- 									</center> --%>
+								</thead>
+								<tbody>
+									<!-- 					<tr> -->
+									<!-- 						<td>商品編號：<br>*商品資料填寫完會產生，無需填寫</td> -->
+									<%-- 						<td>${productBean.productId}</td> --%>
+									<!-- 					</tr> -->
+
+									<!-- 									<tr height=60> -->
+									<!-- 										<td>賣家ID：</td> -->
+									<%-- 										${範圍 . InsertProductServlet 第59行setAttributesetAttribute的key . ProductBean的變數} --%>
+									<%-- 										<td>${sessionScope.product.sellerId}</td> --%>
+									<!-- 									</tr> -->
+
+									<tr height=60>
+										<td><strong>產地</strong></td>
+										<%-- value=${productBean.name屬性值} --%>
+										<td><input id='origin' name="origin"
+											value="${productBean.origin}" type="text"
+											class="form-control"> <%-- ${ErrorMsg(Map的key).origin(put的name)} --%>
+											<div style="color: #FF0000; display: inline">${ErrorMsg.origin}</div>
+										</td>
+									</tr>
+
+									<tr height=60>
+										<td><strong>商品名稱</strong></td>
+										<td><input id='productName' name="productName"
+											value="${productBean.productName}" type="text"
+											class="form-control">
+											<div style="color: #FF0000; display: inline">${ErrorMsg.productName}</div>
+									</tr>
+
+									<tr height=60>
+										<td><strong>庫存</strong></td>
+										<td><input id='inventory' name="inventory"
+											value="${productBean.inventory}" type="text"
+											class="form-control">
+											<div style="color: #FF0000; display: inline">${ErrorMsg.inventory}</div>
+									</tr>
+
+									<tr height=60>
+										<td><strong>單位價格</strong></td>
+										<td><input id='price' name="price"
+											value="${productBean.price}" type="text" class="form-control">
+											<div style="color: #FF0000; display: inline">${ErrorMsg.price}</div>
+									</tr>
+
+									<tr height=60>
+										<td><strong>單位</strong></td>
+										<td><select class="form-control" id='unit' name="unit">
+												<option>箱</option>
+												<option>顆</option>
+												<option>斤</option>
+												<option>公斤</option>
+										</select>
+											<div style="color: #FF0000; display: inline">${ErrorMsg.unitName}</div>
+									</tr>
+
+									<tr height=60>
+										<td><strong>類別</strong></td>
+										<td><select class="form-control" id="productTypeName"
+											name="productTypeName">
+												<option>仁果類</option>
+												<option>核果類</option>
+												<option>堅果類</option>
+												<option>漿果類</option>
+												<option>柑橘類</option>
+												<option>瓜類</option>
+												<option>根菜類</option>
+												<option>莖菜類</option>
+												<option>花菜類</option>
+												<option>果菜類</option>
+												<option>葉菜類</option>
+												<option>香辛類</option>
+												<option>菌藻類</option>
+												<option>豆類</option>
+										</select>
+											<div style="color: #FF0000; display: inline">${ErrorMsg.type}</div>
+									</tr>
+
+									<tr height=60>
+										<td><strong>商品介紹</strong></td>
+										<td><textarea class="form-control" id='productIntro'
+												name="productIntro" cols="50" rows="8">${productBean.productIntro}</textarea>
+									</tr>
+
+									<tr height=60>
+										<td><strong>運費</strong></td>
+										<td><input id='freight' name="freight"
+											value="${productBean.freight}" type="text"
+											class="form-control">
+											<div style="color: #FF0000; display: inline">${ErrorMsg.freight}</div>
+									</tr>
+
+									<tr height=60>
+										<td><strong>上架日期</strong></td>
+										<td><input id='addDate' name="addDate"
+											value="${productBean.addDate}" type="text"
+											class="form-control">
+											<div style="color: #FF0000; display: inline">${ErrorMsg.addDate}</div>
+									</tr>
+
+									<tr height=60>
+										<td><strong>預估下架日期</strong></td>
+										<td><input id='removeEstDate' name="removeEstDate"
+											value="${productBean.removeEstDate}" type="text"
+											class="form-control">
+											<div style="color: #FF0000; display: inline">${ErrorMsg.removeEstDate}</div>
+									</tr>
+
+									<!-- 									<tr> -->
+									<!-- 										<td>下架日期：</td> -->
+									<!-- 										<td>商品下架才填</td> -->
+									<!-- 									</tr> -->
+
+									<tr height=60>
+										<td><strong>商品狀態</strong></td>
+										<td><select class="form-control" id='productStatusName'
+											name="productStatusName">
+												<option>上架</option>
+												<option>下架</option>
+												<option>封鎖</option>
+										</select></td>
+
+									</tr>
+
+									<!-- 					<tr> -->
+									<!-- 						<td>折扣編號：<br>*商品資料填寫完會產生，無需填寫 -->
+									<!-- 						</td> -->
+									<%-- 						<td>${productDiscountBean.discountId}</td> --%>
+
+									<!-- 					</tr> -->
+
+									<c:forEach items="${productDiscountList}" var="x">
+										<tr height=60>
+											<td><strong>最小件數</strong></td>
+											<td><input id='minThreshold' name="minThreshold"
+												value="${x.minThreshold}" type="text" class="form-control">
+												<div style="color: #FF0000; display: inline">${ErrorMsg.minThreshold}</div>
+											</td>
+										</tr>
+
+										<tr height=60>
+											<td><strong>最大件數</strong></td>
+											<td><input id='maxThreshold' name="maxThreshold"
+												value="${x.maxThreshold}" type="text" class="form-control">
+												<div style="color: #FF0000; display: inline">${ErrorMsg.maxThreshold}</div>
+											</td>
+										</tr>
+
+										<tr height=60>
+											<td><strong>折扣後價格</strong></td>
+											<td><input id='discountPrice' name="discountPrice"
+												value="${x.discountPrice}" type="text" class="form-control">
+												<div style="color: #FF0000; display: inline">${ErrorMsg.discountPrice}</div>
+											</td>
+										</tr>
+									</c:forEach>
 
 
-						<!-- 					<tr> -->
-						<!-- 						<td>商品編號：</td> -->
-						<%-- 						<td>${productBean.productId}</td> --%>
-						<!-- 					</tr> -->
+									<!-- 					<tr> -->
+									<!-- 						<td>商品圖片編號：<br>*商品資料填寫完會產生，無需填寫 -->
+									<!-- 						</td> -->
+									<%-- 						<td>圖片1：${productPicBean.productPicId}<br> --%>
+									<%-- 						圖片2：${productPicBean.productPicId}<br> --%>
+									<%-- 						圖片3：${productPicBean.productPicId}<br> --%>
+									<%-- 						圖片4：${productPicBean.productPicId}<br> --%>
+									<%-- 						圖片5：${productPicBean.productPicId}<br> --%>
+									<!-- 						</td> -->
+									<!-- 					</tr> -->
 
-						<!-- 					<tr> -->
-						<!-- 						<td>賣家ID：</td> -->
-						<%-- 						${範圍 . InsertProductServlet 第59行setAttributesetAttribute的key . ProductBean的變數} --%>
-						<%-- 						<td>${sessionScope.product.sellerId}</td> --%>
-						<!-- 					</tr> -->
-
-						<div class="form-group">
-							<label for="origin"
-								class="col-sm-offset-2 col-sm-2 control-label" width=300>產地：</label>
-							<%-- value=${productBean.name屬性值} --%>
-							<div class="col-sm-4">
-								<input id='origin' name="origin" value="${productBean.origin}"
-									type="text" class="form-control">
-								<%-- ${ErrorMsg(Map的key).origin(put的name)} --%>
-								<div style="color: #FF0000; display: inline">${ErrorMsg.origin}</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="productName"
-								class="col-sm-offset-2 col-sm-2 control-label">商品名稱：</label>
-							<div class="col-sm-4">
-								<input id='productName' name="productName"
-									value="${productBean.productName}" type="text"
-									class="form-control">
-								<div style="color: #FF0000; display: inline">${ErrorMsg.productName}</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="inventory"
-								class="col-sm-offset-2 col-sm-2 control-label">庫存：</label>
-							<div class="col-sm-4">
-								<input id='inventory' name="inventory"
-									value="${productBean.inventory}" type="text"
-									class="form-control">
-							</div>
-							<div style="color: #FF0000; display: inline">${ErrorMsg.inventory}</div>
-
-						</div>
-
-						<div class="form-group">
-							<label for="price" class="col-sm-offset-2 col-sm-2 control-label">單位價格：</label>
-							<div class="col-sm-4">
-								<input id='price' name="price" value="${productBean.price}"
-									type="text" class="form-control">
-							</div>
-							<div style="color: #FF0000; display: inline">${ErrorMsg.price}</div>
-						</div>
-
-						<div class="form-group">
-							<label for="unit" class="col-sm-offset-2 col-sm-2 control-label">單位：</label>
-							<div class="col-sm-4">
-								<input id='unit' name="unit" value="${productBean.unit}"
-									type="text" class="form-control">
-							</div>
-							<div style="color: #FF0000; display: inline">${ErrorMsg.unitName}</div>
-						</div>
-
-						<div class="form-group">
-							<label for="productTypeName"
-								class="col-sm-offset-2 col-sm-2 control-label">類別：</label>
-							<div class="col-sm-4">
-								<input id='productTypeName' name="productTypeName"
-									value="${productBean.productTypeName}" type="text"
-									class="form-control">
-							</div>
-							<div style="color: #FF0000; display: inline">${ErrorMsg.type}</div>
-						</div>
-
-						<div class="form-group">
-							<label for="productIntro"
-								class="col-sm-offset-2 col-sm-2 control-label">商品介紹：</label>
-							<div class="col-sm-4">
-								<textarea id='productIntro' name="productIntro"
-									class="form-control" rows="3">${productBean.productIntro}</textarea>
-								<p class="help-block">限制300字</p>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="freight"
-								class="col-sm-offset-2 col-sm-2 control-label">運費：</label>
-							<div class="col-sm-4">
-								<input id='freight' name="freight"
-									value="${productBean.freight}" type="text" class="form-control">
-								<div style="color: #FF0000; display: inline">${ErrorMsg.freight}</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="addDate"
-								class="col-sm-offset-2 col-sm-2 control-label">上架日期：</label>
-							<div class="col-sm-4">
-								<input id='addDate' name="addDate"
-									value="${productBean.addDate}" type="text" class="form-control">
-								<div style="color: #FF0000; display: inline">${ErrorMsg.addDate}</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="removeEstDate"
-								class="col-sm-offset-2 col-sm-2 control-label">預估下架日期：</label>
-							<div class="col-sm-4">
-								<input id='removeEstDate' name="removeEstDate"
-									value="${productBean.removeEstDate}" type="text"
-									class="form-control">
-								<div style="color: #FF0000; display: inline">${ErrorMsg.removeEstDate}</div>
-							</div>
-						</div>
-
-						<!-- 			<div class="form-group"> -->
-						<!-- 				<label for="removeDate" class="col-sm-2 control-label">下架日期：</label> -->
-						<!-- 				<strong>商品下架才填</strong> -->
-						<!-- 			</div> -->
-
-						<!-- 					<tr> -->
-						<!-- 						<td>商品狀態：</td> -->
-						<!-- 						<td><select id='productStatusName' name="productStatusName"> -->
-						<!-- 								<option>上架</option> -->
-						<!-- 								<option>下架</option> -->
-						<!-- 								<option>封鎖</option> -->
-						<!-- 						</select></td> -->
-
-						<!-- 					</tr> -->
-						<c:forEach items="${productDiscountList}" var="x">
-							<div class="form-group">
-								<label for="minThreshold"
-									class="col-sm-offset-2 col-sm-2 control-label">最小件數：</label>
-								<div class="col-sm-4">
-									<input id='minThreshold' name="minThreshold"
-										value="${x.minThreshold}" type="text" class="form-control">
-									<div style="color: #FF0000; display: inline">${ErrorMsg.minThreshold}</div>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="minThreshold"
-									class="col-sm-offset-2 col-sm-2 control-label">最大件數：</label>
-								<div class="col-sm-4">
-									<input id='maxThreshold' name="maxThreshold"
-										value="${x.maxThreshold}" type="text" class="form-control">
-									<div style="color: #FF0000; display: inline">${ErrorMsg.maxThreshold}</div>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="minThreshold"
-									class="col-sm-offset-2 col-sm-2 control-label">折扣後價格：</label>
-								<div class="col-sm-4">
-									<input id='discountPrice' name="discountPrice"
-										value="${x.discountPrice}" type="text" class="form-control">
-									<div style="color: #FF0000; display: inline">${ErrorMsg.discountPrice}</div>
-								</div>
-							</div>
-						</c:forEach>
-
-						<!-- 					<tr> -->
-						<!-- 						<td>商品圖片：</td> -->
-						<!-- 						<td>圖片1<input class='InputClass' type="file" name="picture1" /><br> -->
-						<!-- 							圖片2<input class='InputClass' type="file" name="picture2" /><br> -->
-						<!-- 							圖片3<input class='InputClass' type="file" name="picture3" /><br> -->
-						<!-- 							圖片4<input class='InputClass' type="file" name="picture4" /><br> -->
-						<!-- 							圖片5<input class='InputClass' type="file" name="picture5" /><br> -->
-						<%-- 							<div style="color: #FF0000; display: inline">${ErrorMsg.picture}</div> --%>
-						<!-- 					</tr> -->
-
-						<!-- 					<tr> -->
-						<!-- 						<td>商品圖片介紹：</td> -->
-						<!-- 						<td>圖片1<input id='pictureIntro' name="pictureIntro1" -->
-						<%-- 							value="${productPicBean.pictureIntro1}" type="text"><br> --%>
-						<!-- 							圖片2<input id='pictureIntro' name="pictureIntro2" -->
-						<%-- 							value="${productPicBean.pictureIntro2}" type="text"><br> --%>
-						<!-- 							圖片3<input id='pictureIntro' name="pictureIntro3" -->
-						<%-- 							value="${productPicBean.pictureIntro3}" type="text"><br> --%>
-						<!-- 							圖片4<input id='pictureIntro' name="pictureIntro4" -->
-						<%-- 							value="${productPicBean.pictureIntro4}" type="text"><br> --%>
-						<!-- 							圖片5<input id='pictureIntro' name="pictureIntro5" -->
-						<%-- 							value="${productPicBean.pictureIntro5}" type="text"><br> --%>
-						<!-- 					</tr> -->
-
-						<!-- 					<tr> -->
-						<!-- 					<div class="form-group"> -->
-						<!-- 						<label for="pictureIntro" class="col-sm-2 control-label">商品圖片：</label> -->
-						<%-- 						<c:forEach items="${productPicList}" var="row"> --%>
-						<%-- 							<img src="../img/${row.pictureName}" width="100" --%>
-						<!-- 								height="100" class="img-rounded" /> -->
-						<%-- 						</c:forEach> --%>
-						<!-- 					</div> -->
-
-						<!-- 					<div class="form-group"> -->
-						<!-- 						<label for="pictureIntro" class="col-sm-2 control-label">商品介紹：</label> -->
-						<%-- 						<c:forEach items="${productPicList}" var="y"> --%>
-						<!-- 							<div class="col-sm-4"> -->
-						<!-- 								<input id='pictureIntro' name="pictureIntro" -->
-						<%-- 							value="${y.pictureIntro}" type="text" class="form-control"> --%>
-						<!-- 							</div>			 -->
-						<!-- 						<br> -->
-						<%-- 						</c:forEach> --%>
-						<!-- 					</div> -->
-
-						<div class="form-group">
-							<label for="picture"
-								class="col-sm-offset-2 col-sm-2 control-label">商品圖片及介紹：</label>
+									<tr>
+										<td><strong>商品圖片及介紹</strong></td>
 
 
-							<div class="row col-md-offset-2">
-								<c:forEach items="${productPicList}" var="row">
-									<div class="col-md-4">
-										<div class="thumbnail">
-											<img src="../img/${row.pictureName}">
-											<div class="caption">
-												<h4>${row.pictureIntro}</h4>
-												<input class='InputClass' type="file" name="picture1" />
-											</div>
-										</div>
-									</div>
-								</c:forEach>
-							</div>
-						</div>
+										<td width=140>
+											<c:forEach items="${productPicList}" var="row">
+												<div class="col-md-8">
+													<div class="thumbnail">
+														<img src="../img/${row.pictureName}">
+														<div class="caption">
+															<h4>${row.pictureIntro}</h4>
+															<input class='InputClass' type="file" name="picture1" />
+														</div>
+													</div>
+												</div>
+											</c:forEach>
+										</td>
+									</tr>
 
-
-						<div class="form-group">
-							<div class="col-sm-offset-5 col-sm-4">
-								<p>
-									<input class="btn btn-default" type="submit" value="修改"
+									<tr>
+										<td height="100" colspan="2" align="center">
+											<input class="btn btn-default" type="submit" value="修改"
 										name="prodaction"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
 										class="btn btn-default" type="submit" value="刪除"
 										name="prodaction">
-								</p>
-							</div>
-						</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</center>
 					</form>
+					</center>
 				</div>
 			</div>
 

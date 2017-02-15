@@ -73,7 +73,7 @@
 					<center>
 						<h2>商品已刪除成功!!!</h2>
 						<br> <br> <a class="btn btn-default"
-							href="../BackStage/farmerManageProduct.jsp" role="button">回商品管理頁面</a>
+							href="../BackStage/BackStageServlet" role="button">回商品管理頁面</a>
 					</center>
 				</div>
 			</div>
