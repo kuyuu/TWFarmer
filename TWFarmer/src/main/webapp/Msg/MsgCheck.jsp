@@ -115,12 +115,13 @@
 							<c:if test="${vs.first}">
 								<c:out value="<table class='table'>" escapeXml='false' />
 								<tr>
-									<th style="width: 80px">信件編號:</th>
+									<th style="width: 80px">流水號:</th>
 									<th style="width: 80px">寄件者:</th>
-									<th style="width: 180px">標題:</th>
+									<th style="width: 80px">標題:</th>
 									<th style="width: 250px">寄送時間：</th>
 									<th style="width: 250px">內文:</th>
-									<th style="width: 80px">直接回覆</th>
+									<th style="width: 80px">回覆訊息</th>
+									<th style="width: 80px">刪除訊息</th>
 								</tr>
 							</c:if>
 
@@ -130,6 +131,8 @@
 								<td style="width: 180px">${msgBean.msgTitle}</td>
 								<td style="width: 250px; text-align: left">&nbsp;${msgBean.msgTime}</td>
 								<td style="width: 250px; text-align: left">${msgBean.msgContent}</td>
+								<td><button type="button" class="btn btn-primary" onclick="location.href='/TWFarmer/Msg/MsgCheckingDetail?msgId=${msgBean.msgId}&value=reply'">回覆</button></td>
+								<td><button type="button" class="btn btn-danger" onclick="location.href='/TWFarmer/Msg/MsgCheckingDetail?msgId=${msgBean.msgId}&value=torch'">刪除</button></td>
 							</tr>
 							<c:if test="${vs.last}">
 								<c:out value="</table>" escapeXml='false' />
