@@ -14,224 +14,196 @@
 		<!-- 上傳圖片的form表單，要增加enctype="multipart/form-data" -->
 		<form action="<c:url value="ProcessProductServlet" />" method="POST"
 			enctype="multipart/form-data">
-			<%-- 			<center> --%>
-			<h2>新增商品資料</h2>
-			<%-- 			</center> --%>
-			<!-- 					<tr> -->
-			<!-- 						<td>商品編號：<br>*商品資料填寫完會產生，無需填寫</td> -->
-			<%-- 						<td>${productBean.productId}</td> --%>
-			<!-- 					</tr> -->
+			<table class="table-bordered">
+				<thead>
+					<tr>
+						<th height="60" colspan="2" align="center">新增商品資料</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- 					<tr> -->
+					<!-- 						<td>商品編號：<br>*商品資料填寫完會產生，無需填寫</td> -->
+					<%-- 						<td>${productBean.productId}</td> --%>
+					<!-- 					</tr> -->
 
+					<tr>
+						<td>賣家ID：</td>
+						<%-- ${範圍 . InsertProductServlet 第59行setAttributesetAttribute的key . ProductBean的變數} --%>
+						<td>${sessionScope.product.sellerId}</td>
+					</tr>
 
-			<div class="form-group">
-				<label for="memberId" class="col-sm-2 control-label">賣家ID：</label>
-				<%-- ${範圍 . InsertProductServlet 第59行setAttributesetAttribute的key . ProductBean的變數} --%>
-				<div class="col-sm-6">
-					<p id="memberId" class="form-control-static">${sessionScope.product.sellerId}</p>
-				</div>
-			</div>
+					<tr>
+						<td>產地：</td>
+						<%-- value=${param.name屬性值} --%>
+						<td><input id='origin' name="origin" value="${param.origin}"
+							type="text"> <%-- ${ErrorMsg(Map的key).origin(put的name)} --%>
+							<div style="color: #FF0000; display: inline">${ErrorMsg.origin}</div>
+					</tr>
 
+					<tr>
+						<td>商品名稱：</td>
+						<td><input id='productName' name="productName"
+							value="${param.productName}" type="text">
+							<div style="color: #FF0000; display: inline">${ErrorMsg.productName}</div>
+					</tr>
 
-			<div class="form-group">
-				<label for="origin" class="col-sm-2 control-label">產地：</label>
-				<%-- value=${param.name屬性值} --%>
-				<div class="col-sm-4">
-					<input id='origin' name="origin" value="${param.origin}"
-						type="text" class="form-control">
-					<%-- ${ErrorMsg(Map的key).origin(put的name)} --%>
-					<div style="color: #FF0000; display: inline">${ErrorMsg.origin}</div>
-				</div>
-			</div>
+					<tr>
+						<td>庫存：</td>
+						<td><input id='inventory' name="inventory"
+							value="${param.inventory}" type="text">
+							<div style="color: #FF0000; display: inline">${ErrorMsg.inventory}</div>
+					</tr>
 
-			<div class="form-group">
-				<label for="productName" class="col-sm-2 control-label">商品名稱：</label>
-				<div class="col-sm-4">
-					<input id='productName' name="productName"
-						value="${param.productName}" type="text" class="form-control">
-					<div style="color: #FF0000; display: inline">${ErrorMsg.productName}</div>
-				</div>
-			</div>
+					<tr>
+						<td>單位價格：</td>
+						<td><input id='price' name="price" value="${param.price}"
+							type="text">
+							<div style="color: #FF0000; display: inline">${ErrorMsg.price}</div>
+					</tr>
 
-			<div class="form-group">
-				<label for="inventory" class="col-sm-2 control-label">庫存：</label>
-				<div class="col-sm-4">
-					<input id='inventory' name="inventory" value="${param.inventory}"
-						type="text" class="form-control">
-					<div style="color: #FF0000; display: inline">${ErrorMsg.inventory}</div>
-				</div>
-			</div>
+					<tr>
+						<td>單位：</td>
+						<td><select id='unit' name="unit">
+								<option>箱</option>
+								<option>顆</option>
+								<option>斤</option>
+								<option>公斤</option>
+						</select>
+							<div style="color: #FF0000; display: inline">${ErrorMsg.unitName}</div>
+					</tr>
 
-			<div class="form-group">
-				<label for="price" class="col-sm-2 control-label">單位價格：</label>
-				<div class="col-sm-4">
-					<input id='price' name="price" value="${param.price}" type="text"
-						class="form-control">
-					<div style="color: #FF0000; display: inline">${ErrorMsg.price}</div>
-				</div>
-			</div>
+					<tr>
+						<td>類別：</td>
+						<td><select id="productTypeName" name="productTypeName">
+								<option>仁果類</option>
+								<option>核果類</option>
+								<option>堅果類</option>
+								<option>漿果類</option>
+								<option>柑橘類</option>
+								<option>瓜類</option>
+								<option>根菜類</option>
+								<option>莖菜類</option>
+								<option>花菜類</option>
+								<option>果菜類</option>
+								<option>葉菜類</option>
+								<option>香辛類</option>
+								<option>菌藻類</option>
+								<option>豆類</option>
+						</select>
+							<div style="color: #FF0000; display: inline">${ErrorMsg.type}</div>
+					</tr>
 
-			<div class="form-group">
-				<label for="unit" class="col-sm-2 control-label">單位：</label>
-				<div class="col-sm-6">
-					<select id='unit' name="unit">
-						<option>箱</option>
-						<option>顆</option>
-						<option>斤</option>
-						<option>公斤</option>
-					</select>
-					<div style="color: #FF0000; display: inline">${ErrorMsg.unitName}</div>
-				</div>
-			</div>
+					<tr>
+						<td>商品介紹：</td>
+						<td><textarea id='productIntro' name="productIntro" cols="80"
+								rows="8">${param.productIntro}</textarea>
+					</tr>
 
-			<div class="form-group">
-				<label for="productTypeName" class="col-sm-2 control-label">類別：</label>
-				<div class="col-sm-6">
-					<select id="productTypeName" name="productTypeName">
-						<option>仁果類</option>
-						<option>核果類</option>
-						<option>堅果類</option>
-						<option>漿果類</option>
-						<option>柑橘類</option>
-						<option>瓜類</option>
-						<option>根菜類</option>
-						<option>莖菜類</option>
-						<option>花菜類</option>
-						<option>果菜類</option>
-						<option>葉菜類</option>
-						<option>香辛類</option>
-						<option>菌藻類</option>
-						<option>豆類</option>
-					</select>
-					<div style="color: #FF0000; display: inline">${ErrorMsg.type}</div>
-				</div>
-			</div>
+					<tr>
+						<td>運費：</td>
+						<td><input id='freight' name="freight"
+							value="${param.freight}" type="text">
+							<div style="color: #FF0000; display: inline">${ErrorMsg.freight}</div>
+					</tr>
 
-			<div class="form-group">
-				<label for="price" class="col-sm-2 control-label">商品介紹：</label>
-				<div class="col-sm-6">
-					<textarea id='productIntro' name="productIntro" cols="80" rows="8">${param.productIntro}</textarea>
-				</div>
-			</div>
+					<tr>
+						<td>上架日期：</td>
+						<td><input id='addDate' name="addDate"
+							value="${param.addDate}" type="text">
+							<div style="color: #FF0000; display: inline">${ErrorMsg.addDate}</div>
+					</tr>
 
-			<div class="form-group">
-				<label for="freight" class="col-sm-2 control-label">運費：</label>
-				<div class="col-sm-4">
-					<input id='freight' name="freight" value="${param.freight}"
-						type="text" class="form-control">
-					<div style="color: #FF0000; display: inline">${ErrorMsg.freight}</div>
-				</div>
-			</div>
+					<tr>
+						<td>預估下架日期：</td>
+						<td><input id='removeEstDate' name="removeEstDate"
+							value="${param.removeEstDate}" type="text">
+							<div style="color: #FF0000; display: inline">${ErrorMsg.removeEstDate}</div>
+					</tr>
 
-			<div class="form-group">
-				<label for="addDate" class="col-sm-2 control-label">上架日期：</label>
-				<div class="col-sm-4">
-					<input id='addDate' name="addDate" value="${param.addDate}"
-						type="text" class="form-control">
-					<div style="color: #FF0000; display: inline">${ErrorMsg.addDate}</div>
-				</div>
-			</div>
+					<tr>
+						<td>下架日期：</td>
+						<td>商品下架才填</td>
+					</tr>
 
-			<div class="form-group">
-				<label for="removeEstDate" class="col-sm-2 control-label">預估下架日期：</label>
-				<div class="col-sm-4">
-					<input id='removeEstDate' name="removeEstDate"
-						value="${param.removeEstDate}" type="text" class="form-control">
-					<div style="color: #FF0000; display: inline">${ErrorMsg.removeEstDate}</div>
-				</div>
-			</div>
+					<tr>
+						<td>商品狀態：</td>
+						<td><select id='productStatusName' name="productStatusName">
+								<option>上架</option>
+								<option>下架</option>
+								<option>封鎖</option>
+						</select></td>
 
-			<div class="form-group">
-				<label for="removeEstDate" class="col-sm-2 control-label">下架日期：</label>
-				<div class="col-sm-4">商品下架才填</div>
-			</div>
+					</tr>
 
-			<div class="form-group">
-				<label for="removeEstDate" class="col-sm-2 control-label">商品狀態：</label>
-				<div class="col-sm-6">
-					<select id='productStatusName' name="productStatusName">
-						<option>上架</option>
-						<option>下架</option>
-						<option>封鎖</option>
-					</select>
-				</div>
+					<!-- 					<tr> -->
+					<!-- 						<td>折扣編號：<br>*商品資料填寫完會產生，無需填寫 -->
+					<!-- 						</td> -->
+					<%-- 						<td>${productDiscountBean.discountId}</td> --%>
 
-			</div>
+					<!-- 					</tr> -->
 
-			<!-- 					<tr> -->
-			<!-- 						<td>折扣編號：<br>*商品資料填寫完會產生，無需填寫 -->
-			<!-- 						</td> -->
-			<%-- 						<td>${productDiscountBean.discountId}</td> --%>
+					<tr>
+						<td>最小件數：</td>
+						<td><input id='minThreshold' name="minThreshold"
+							value="${param.minThreshold}" type="text">
+							<div style="color: #FF0000; display: inline">${ErrorMsg.minThreshold}</div>
+					</tr>
 
-			<!-- 					</tr> -->
+					<tr>
+						<td>最大件數：</td>
+						<td><input id='maxThreshold' name="maxThreshold"
+							value="${param.maxThreshold}" type="text">
+							<div style="color: #FF0000; display: inline">${ErrorMsg.maxThreshold}</div>
+					</tr>
 
-			<div class="form-group">
-				<label for="origin" class="col-sm-2 control-label">最小件數：</label>
-				<div class="col-sm-4">
-					<input id='minThreshold' name="minThreshold"
-						value="${param.minThreshold}" type="text">
-					<div style="color: #FF0000; display: inline">${ErrorMsg.minThreshold}</div>
-				</div>
-			</div>
+					<tr>
+						<td>折扣後價格：</td>
+						<td><input id='discountPrice' name="discountPrice"
+							value="${param.discountPrice}" type="text">
+							<div style="color: #FF0000; display: inline">${ErrorMsg.discountPrice}</div>
+					</tr>
 
-			<div class="form-group">
-				<label for="maxThreshold" class="col-sm-2 control-label">最大件數：</label>
-				<div class="col-sm-4">
-					<input id='maxThreshold' name="maxThreshold"
-						value="${param.maxThreshold}" type="text">
-					<div style="color: #FF0000; display: inline">${ErrorMsg.maxThreshold}</div>
-				</div>
-			</div>
+					<!-- 					<tr> -->
+					<!-- 						<td>商品圖片編號：<br>*商品資料填寫完會產生，無需填寫 -->
+					<!-- 						</td> -->
+					<%-- 						<td>圖片1：${productPicBean.productPicId}<br> --%>
+					<%-- 						圖片2：${productPicBean.productPicId}<br> --%>
+					<%-- 						圖片3：${productPicBean.productPicId}<br> --%>
+					<%-- 						圖片4：${productPicBean.productPicId}<br> --%>
+					<%-- 						圖片5：${productPicBean.productPicId}<br> --%>
+					<!-- 						</td> -->
+					<!-- 					</tr> -->
 
-			<div class="form-group">
-				<label for="discountPrice" class="col-sm-2 control-label">折扣後價格：</label>
-				<div class="col-sm-4">
-					<input id='discountPrice' name="discountPrice"
-						value="${param.discountPrice}" type="text">
-					<div style="color: #FF0000; display: inline">${ErrorMsg.discountPrice}</div>
-				</div>
-			</div>
+					<tr>
+						<td>商品圖片：</td>
+						<td>圖片1<input class='InputClass' type="file" name="picture1" /><br>
+							圖片2<input class='InputClass' type="file" name="picture2" /><br>
+							圖片3<input class='InputClass' type="file" name="picture3" /><br>
+							圖片4<input class='InputClass' type="file" name="picture4" /><br>
+							圖片5<input class='InputClass' type="file" name="picture5" /><br>
+							<div style="color: #FF0000; display: inline">${ErrorMsg.picture}</div>
+					</tr>
 
-			<!-- 					<tr> -->
-			<!-- 						<td>商品圖片編號：<br>*商品資料填寫完會產生，無需填寫 -->
-			<!-- 						</td> -->
-			<%-- 						<td>圖片1：${productPicBean.productPicId}<br> --%>
-			<%-- 						圖片2：${productPicBean.productPicId}<br> --%>
-			<%-- 						圖片3：${productPicBean.productPicId}<br> --%>
-			<%-- 						圖片4：${productPicBean.productPicId}<br> --%>
-			<%-- 						圖片5：${productPicBean.productPicId}<br> --%>
-			<!-- 						</td> -->
-			<!-- 					</tr> -->
+					<tr>
+						<td>商品圖片介紹：</td>
+						<td>圖片1<input id='pictureIntro' name="pictureIntro1"
+							value="${param.pictureIntro1}" type="text"><br> 圖片2<input
+							id='pictureIntro' name="pictureIntro2"
+							value="${param.pictureIntro2}" type="text"><br> 圖片3<input
+							id='pictureIntro' name="pictureIntro3"
+							value="${param.pictureIntro3}" type="text"><br> 圖片4<input
+							id='pictureIntro' name="pictureIntro4"
+							value="${param.pictureIntro4}" type="text"><br> 圖片5<input
+							id='pictureIntro' name="pictureIntro5"
+							value="${param.pictureIntro5}" type="text"><br>
+					</tr>
 
-			<tr>
-				<td>商品圖片：</td>
-				<td>圖片1<input class='InputClass' type="file" name="picture1" /><br>
-					圖片2<input class='InputClass' type="file" name="picture2" /><br>
-					圖片3<input class='InputClass' type="file" name="picture3" /><br>
-					圖片4<input class='InputClass' type="file" name="picture4" /><br>
-					圖片5<input class='InputClass' type="file" name="picture5" /><br>
-					<div style="color: #FF0000; display: inline">${ErrorMsg.picture}</div>
-			</tr>
-
-			<tr>
-				<td>商品圖片介紹：</td>
-				<td>圖片1<input id='pictureIntro' name="pictureIntro1"
-					value="${param.pictureIntro1}" type="text"><br> 圖片2<input
-					id='pictureIntro' name="pictureIntro2"
-					value="${param.pictureIntro2}" type="text"><br> 圖片3<input
-					id='pictureIntro' name="pictureIntro3"
-					value="${param.pictureIntro3}" type="text"><br> 圖片4<input
-					id='pictureIntro' name="pictureIntro4"
-					value="${param.pictureIntro4}" type="text"><br> 圖片5<input
-					id='pictureIntro' name="pictureIntro5"
-					value="${param.pictureIntro5}" type="text"><br>
-			</tr>
-
-			<tr>
-				<td height="60" colspan="2" align="center"><input type="submit"
-					name="Submit" value="新增" /></td>
-			</tr>
-			<!-- 				</tbody> -->
-			<!-- 			</table> -->
+					<tr>
+						<td height="60" colspan="2" align="center"><input
+							type="submit" name="Submit" value="新增" /></td>
+					</tr>
+				</tbody>
+			</table>
 		</form>
 	</center>
 	<script src="../js/jquery.min.js"></script>
