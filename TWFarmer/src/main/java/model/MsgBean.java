@@ -12,6 +12,7 @@ public class MsgBean {
 	private java.util.Date msgTime;
 	private int msgStatus;
 	private String writerName;
+	private String writerAccount;
 	
 	@Override
 	public String toString() {
@@ -68,5 +69,11 @@ public class MsgBean {
 	public void setWriterName(String writerName) {
 		this.writerName = writerName;
 	}
-
+public String getWriterAccount(){
+	return dao.select(msgWriterId).getAccount();
+			}
+	public void setWriterAccount(){
+		this.writerAccount = writerAccount;
+	}
+	
 }
