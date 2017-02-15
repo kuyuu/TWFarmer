@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:if test="${empty IsFarmer}"> 
+   <c:set var="target" value="${pageContext.request.servletPath}" scope="session" />
+   <c:redirect url="../Login.jsp" />
+</c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="UTF-8">
 <head>
@@ -34,10 +38,21 @@
 						<li><a href="#">合購專區</a></li>
 						<li><a href="#">購物車</a></li>
 					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">註冊</a></li>
-						<li><a href="#">登入</a></li>
-					</ul>
+					<c:choose>
+						<c:when test="${empty LoginOK}">
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="/TWFarmer/MemberSubmit/MemberSubmit.jsp">註冊</a>
+								</li>
+								<li><a href="/TWFarmer/Login.jsp">登入</a></li>
+							</ul>
+						</c:when>
+						<c:otherwise>
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="/TWFarmer/Msg/MsgCheckingServlet">站內信</a></li>
+								<li><a href="#">會員專區</a></li>
+							</ul>
+						</c:otherwise>
+					</c:choose>
 					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
 							<input type="text" class="form-control">
@@ -52,65 +67,46 @@
 		<div class="row">
 			<div class="col-md-3">
 				<div class="list-group">
-					<a href="#" class="list-group-item">管理商品</a>
-					<a href="#" class="list-group-item">商品問與答</a>
-					<a href="#" class="list-group-item active">審核合購</a>
+					<a href="farmerManageProduct.jsp" class="list-group-item">管理商品</a>
+					<a href="#" class="list-group-item active">商品問與答</a>
+					<a href="#" class="list-group-item">審核合購</a>
 					<a href="#" class="list-group-item">管理賣場資料</a>
 					<a href="#" class="list-group-item">管理個人資料</a>
 				</div>
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3">
-							<h3>${jpBean.jpName}</h3>
-						</div>
-						<div class="col-md-10 col-md-offset-1">
-							<p>${jpBean.jpIntro}</p>
-							<p>開始日期：${jpBean.initDate}</p>
-							<p>截止日期：${jpBean.endDate}</p>
-							<p>合購地區：${jpBean.jpLocation}</p>
-							<br>
-
-						</div>
-						<div class="col-md-12">
-							<p>合購商品：</p>
-							<table class="table table-bordered">
-								<thead>
+					<h3>商品問與答</h3>
+					<c:if test="${not empty productList}">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>商品編號</th>
+									<th>商品名稱</th>
+									<th>存貨</th>
+									<th>價格</th>
+									<th>單位</th>
+									<th>運費</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="row" items="${productList}">
+									<c:url value="/BackStage/ToProductServlet" var="path">
+										<c:param name="productId" value="${row.productId}" />
+									</c:url>
 									<tr>
-										<td>商品編號</td>
-										<td>商品名稱</td>
-										<td>庫存量</td>
-										<td>單位</td>
-										<td>原價</td>
-										<td>合購價</td>
-										<td>最小數量</td>
-										<td>最大數量</td>
+										<td><a href="${path}">${row.productId}</a></td>
+										<td>${row.productName}</td>
+										<td>${row.inventory}</td>
+										<td>${row.price}</td>
+										<td>${row.unit}</td>
+										<td>${row.freight}</td>
 									</tr>
-								</thead>
-								<tbody>
-									<c:forEach var="row" items="${map}">
-										<tr>
-											<td>${row.key.jpId}</td>
-											<td>${row.value.productName}</td>
-											<td>${row.value.inventory}</td>
-											<td>${row.value.unit}</td>
-											<td>${row.value.price}</td>
-											<td>${row.key.jpPrice}</td>
-											<td>${row.key.jpPopulationMin}</td>
-											<td>${row.key.jpPopulationMax}</td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
-						</div>
-						<div class="col-md-1 col-md-offset-4">
-							<button type="button" class="btn btn-danger" onclick="location.href='/TWFarmer/BackStage/FarmerCheckJPDetailServlet?jpId=${jpBean.jpId}&value=reject'">拒絕</button>
-						</div>
-						<div class="col-md-1 col-md-offset-1">
-							<button type="button" class="btn btn-primary" onclick="location.href='/TWFarmer/BackStage/FarmerCheckJPDetailServlet?jpId=${jpBean.jpId}&value=accept'">接受</button>
-						</div>
-					</div>
+								</c:forEach>
+
+							</tbody>
+						</table>
+					</c:if>
 				</div>
 			</div>
 		</div>
