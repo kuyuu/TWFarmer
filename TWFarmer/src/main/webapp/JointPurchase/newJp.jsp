@@ -32,9 +32,9 @@
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="#">購買蔬果</a></li>
-						<li><a href="#">合購專區</a></li>
-						<li><a href="#">購物車</a></li>
+						<li><a href="../ProductSelect/ProductSelect.jsp">購買蔬果</a></li>
+						<li class="active"><a href="../PurchaseSelect/PurchaseSelect.jsp">合購專區</a></li>
+						<li><a href="../shoppingCart/shoppingCart.jsp">購物車</a></li>
 					</ul>
 					<c:choose>
 						<c:when test="${empty LoginOK}">
