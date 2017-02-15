@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.MemberBean;
+import model.OrdersBean;
 import model.dao.MemberDAOJdbc;
 import model.dao.OrderDetailDAOJdbc;
 import model.dao.OrdersDAOJdbc;
@@ -29,8 +31,16 @@ public class OrderDetailServlet extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// MemberBean member = (MemberBean)request.getSession().getAttribute("LoginOK");
+		 //memberDAOJdbc.select(memberId)
+		//request.getParameter(arg0)
+		 
+		//OrdersBean order = ordersDAOJdbc.select(member.getMemberId());
 		
+		//Object orderdetail = orderDetailDAOJdbc.select(orderId, productId);
+		//request.setAttribute("order", order);
 		
+		//request.getRequestDispatcher("OrderDetail.jsp").forward(request, response);
 	}
 
 
