@@ -20,8 +20,8 @@ DROP TABLE ProductDiscount
 DROP TABLE TrackProduct
 DROP TABLE Product
 DROP TABLE ProductType
---DROP TABLE ProductStatus
 DROP TABLE Farmer
+DROP TABLE Friend
 DROP TABLE Member
 
 CREATE TABLE Member(
@@ -47,6 +47,13 @@ CREATE TABLE Farmer (
 	FarmerID varchar(10) PRIMARY KEY NOT NULL, 
 	MemberID int REFERENCES Member(MemberID) NOT NULL,
 	FarmerIntro varchar(600),
+)
+GO
+
+CREATE TABLE Friend (
+	MemberId int REFERENCES Member(MemberID) NOT NULL,
+	FriendId int REFERENCES Member(MemberID) NOT NULL,
+	PRIMARY KEY(MemberId,FriendId)
 )
 GO
 
@@ -120,16 +127,14 @@ CREATE TABLE Orders(
 	OrderDate datetime,
 	ShipDate datetime,
 	ShipName nvarchar(20),
-	ShipPostalCode nvarchar(3),
-	ShipDistrict nvarchar(10),
+	ShipPostalCode char(3),
+	ShipDistrict nchar(10),
 	ShipAddress nvarchar(50) ,
 	OrderStatusID int REFERENCES OrderStatus (OrderStatusID),
 	RatingBuyer int,
 	RatingSeller int,
 )
 GO
-
-
 
 CREATE TABLE OrderDetail(
 	OrderID int REFERENCES Orders (OrderID) NOT NULL,
@@ -166,6 +171,8 @@ CREATE TABLE JointPurchase(
 	JPFreight int,
 	MiscViaID int REFERENCES MiscVia(MiscViaID),
 	Misc int,
+	BankAccount varchar(20),
+	BankName varchar(20)
 )
 GO
 
@@ -230,7 +237,7 @@ GO
 
 CREATE TABLE Violation(
 	TicketID int PRIMARY KEY IDENTITY(5101, 1) NOT NULL,
-	ReportedID int REFERENCES Member (MemberID) NOT NULL, 
+	ReportedID int REFERENCES Product (ProductId) NOT NULL, 
 	ReporterID int REFERENCES Member (MemberID) NOT NULL,
 	VioTitle nvarchar(40), 
 	VioContent nvarchar(250),
@@ -540,7 +547,7 @@ INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
 	VALUES ( 2020,'2425.jpg','沒事看看雅虎新聞，就知道我放話跟賣菜都很認真' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2020,'2426.jpg','我們應該直接把這個網站下線，並直接把站長大位交給我' );
+	VALUES ( 2020,'2426.jpg','我們該立馬讓這網站下線維修，並把站長大位交給我' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
 	VALUES ( 2020,'2427.jpg','美帝黑醋栗，不用看就知道跟我一樣強O皿O' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
@@ -623,7 +630,7 @@ INSERT INTO JPStatus (JPStatusName) VALUES ('流團');
 
 --JointPurchase
 INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc) 
-	VALUES (1001, '好ㄘ橘子合購~3/10截止', '三義鄉名產~~聽說這批橘子超好吃超甜,想買的人快一起加入, 目標湊滿10箱拼折價喔~~~', '2017-01-15', '2017-01-25', '新北市中和區',4101,80,4202,20);
+	VALUES (1001, '好ㄘ橘子合購~3/10截止', '三義鄉名產~~聽說這批橘子超好吃超甜,想買的人快一起加入, 目標湊滿10箱拼折價喔~~~', '2017-01-15', '2017-01-25', '新北市中和區',4103,80,4202,20);
 INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc)
 	VALUES (1001, '橘子合購團', '橘子合購團審核', '2017-02-20', '2017-03-20',	'台北市大安區',	4101, 200, 4201, 0);
 INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc)
@@ -637,7 +644,7 @@ INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocatio
 --2017/02/13 巫
 --本檔案中會員編號1019的"石在天"看到唐川伯的賣場，決定給他合購團開下去~總價$3600，當中$1600為4箱醋栗，$2000為運費。
 INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc) 
-	VALUES (1019, '一起買黑醋栗!4/15截止', '黑醋栗可以釀紅酒超讚的!~還是美國貨!目標湊齊4箱~每人1箱，各攤運費$500', '2017-02-15', '2017-04-25', '屏東縣高樹鄉',4101,2000,4202,0);
+	VALUES (1019, '一起買黑醋栗!4/15截止', '黑醋栗可以釀紅酒超讚的!~還是美國貨!目標湊齊4箱~每人1箱，各攤運費$500', '2017-02-15', '2017-04-25', '屏東縣高樹鄉',4104,2000,4202,0);
 
 --JPDetail
 INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight,JPUnit) 
@@ -681,11 +688,20 @@ INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, Rem
 VALUES (1026, 4308, 4007, 400, null, '2017-02-28', 400, '玉山銀行', 02089, 0, 500, '我的小寶貝阿川真的在台灣開賣了啊斯基。本總理就大發慈悲，陪你們這些小市民買買吧威基~');
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
 VALUES (1022, 4309, 4007, 400, null, '2017-03-01', 400, '華南銀行', 51501, 0, 500, '若可一試合購，願折壽十年，若更一嘗醋栗，願終身守齋。');
+INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
+	VALUES (1030, 4305, 4004, 100, null, null, null, null, null, 0, 0, '天使!!');
+INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
+	VALUES (1030, 4305, 4007, 100, null, null, null, null, null, 0, 0, '天使!!');
+INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
+	VALUES (1030, 4305, 4001, 100, null, null, null, null, null, 0, 0, '天使!!');
 
 --JPFollowerDetail
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4402, 2019, 3, 291);
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4403, 2002, 4, 80);
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4401, 2007, 9, 180);
+INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4407, 2007, 9, 180);
+INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4408, 2007, 9, 180);
+INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4409, 2007, 9, 180);
 
 --2017/02/13 巫
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4404, 2020, 1, 400);
@@ -718,18 +734,18 @@ values(1020 ,2022, '能否小量購買?', '您好!^^聽人家說北玉山蓮霧�
 
 --Violation
 insert into Violation(ReportedID, ReporterID, VioTitle, VioContent, CreateDate, ProcessDate, TicketResult, TicketStatue)
-	values(1004,1001,'送來的不是愛文芒果','我訂購的是愛文芒果，結果商家竟然送土芒果給我，請幫忙處理一下','2016-06-20 09:12:07','2016-06-21 10:10:10','經查證屬實，已將該商品下架',1);
+	values(2002,1001,'送來的不是愛文芒果','我訂購的是愛文芒果，結果商家竟然送土芒果給我，請幫忙處理一下','2016-06-20 09:12:07','2016-06-21 10:10:10','經查證屬實，已將該商品下架',1);
 insert into Violation(ReportedID, ReporterID, VioTitle, VioContent, CreateDate, TicketStatue)
-	values(1003,1002,'橘子全爛掉了','橘子送來時竟然全爛掉了，這是我頭一次遇到這種情形，太誇張了吧！請管理員處理一下，謝謝！','2017-01-13 19:22:35',0);
+	values(2001,1002,'橘子全爛掉了','橘子送來時竟然全爛掉了，這是我頭一次遇到這種情形，太誇張了吧！請管理員處理一下，謝謝！','2017-01-13 19:22:35',0);
 INSERT INTO Violation(ReportedID, ReporterID, VioTitle, VioContent, CreateDate, TicketStatue)
-	VALUES(1030,1032,'收到爛水果，也不處理退貨','買了好幾顆文旦其中一顆爛了，站內信他竟然已讀不回，敲他也裝死，怒檢舉RRRRRR','2017-02-13 14:32:07',0);
+	VALUES(2018,1030,'收到爛水果，也不處理退貨','買了好幾顆文旦其中一顆爛了，站內信他竟然已讀不回，敲他也裝死，怒檢舉RRRRRR','2017-02-13 14:32:07',0);
 --2017/02/13 巫
 insert into Violation(ReportedID, ReporterID, VioTitle, VioContent, CreateDate, ProcessDate, TicketResult, TicketStatue)
-values(1027,1024,'這賣場太過分~','我於2月1日時在賣家的問與答版上詢問是否可以提供商品實際圖片，結果他歧視女性還威脅要找管理員，這是不是太超過?請處理','2017-02-03 09:10:00','2017-02-03 10:10:10','您好!該會員在板上的發言經查證的確違規，已經要求其刪除留言並更換商品圖片。謝謝您使用客服系統 :)',1);
+values(2020,1024,'這賣場太過分~','我於2月1日時在賣家的問與答版上詢問是否可以提供商品實際圖片，結果他歧視女性還威脅要找管理員，這是不是太超過?請處理','2017-02-03 09:10:00','2017-02-03 10:10:10','您好!該會員在板上的發言經查證的確違規，已經要求其刪除留言並更換商品圖片。謝謝您使用客服系統 :)',1);
 insert into Violation(ReportedID, ReporterID, VioTitle, VioContent, CreateDate, ProcessDate, TicketResult, TicketStatue)
-values(1027,1022,'莫諒之，嚴懲之!','敢將十指拆紙包，卻把雙眉瞪了怒；苦恨月月存台幣，還為人作白老鼠。','2017-03-10 22:19:00','2017-03-10 23:59:10','面交散盡遊人去，莫慌莫急您有我。已令該員將款退，明日應可知結果。 :)',1);
+values(2020,1022,'莫諒之，嚴懲之!','敢將十指拆紙包，卻把雙眉瞪了怒；苦恨月月存台幣，還為人作白老鼠。','2017-03-10 22:19:00','2017-03-10 23:59:10','面交散盡遊人去，莫慌莫急您有我。已令該員將款退，明日應可知結果。 :)',1);
 insert into Violation(ReportedID, ReporterID, VioTitle, VioContent, CreateDate, ProcessDate, TicketResult, TicketStatue)
-values(1027,1019,'這不是黑醋栗!!','恥度無下限欸!拿到貨一進家門打開看，明明是葡萄乾嘛!難怪說可以放三年...','2017-03-11 19:22:35','2017-03-11 23:10:10','您好!同團中已有團友反映商品問題，我們已將賣家施以停權處分，取消其小農資格。最慢這兩天就能在您的帳戶中收到退款囉。謝謝您使用客服系統 :)',1);
+values(2020,1019,'這不是黑醋栗!!','恥度無下限欸!拿到貨一進家門打開看，明明是葡萄乾嘛!難怪說可以放三年...','2017-03-11 19:22:35','2017-03-11 23:10:10','您好!同團中已有團友反映商品問題，我們已將賣家施以停權處分，取消其小農資格。最慢這兩天就能在您的帳戶中收到退款囉。謝謝您使用客服系統 :)',1);
 
 
 --ChatRoom

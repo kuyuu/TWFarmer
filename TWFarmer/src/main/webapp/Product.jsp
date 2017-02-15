@@ -201,6 +201,7 @@ to {
 										type="button" class="btn btn-default">發起合購</button></a>
 								<button type="button" class="btn btn-default">我想跟團</button>
 								<button type="button" class="btn btn-default">加入購物車</button>
+								<a href="Violation/violationForm.jsp?productId=${productBean.productId}"><button type="button" class="btn btn-danger">檢舉商品</button></a>
 							</p>
 							<form action="/TWFarmer/QnAInsertServlet"
 								style="border: 1px solid; border-radius: 20px; padding: 15px" method="POST">

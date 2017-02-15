@@ -42,9 +42,8 @@
 						<li><a href="#">購物車</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">註冊</a></li>
-						<li><a href="#">登入</a></li>
-						<li><a href="/TWFarmer/Msg/MsgHome.jsp">站內信</a></li>
+						<!-- <li><a href="#">註冊</a></li> -->
+						<li><a href="#">登出</a></li>
 					</ul>
 					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
@@ -83,78 +82,97 @@
 			<div class="col-md-3">
 				<div class="list-group">
 					<a href="/TWFarmer/Msg/MsgCheckingServlet" class="list-group-item">收件匣</a>
-					<a href="/TWFarmer/Msg/MsgCreatingServlet" class="list-group-item active">寄件匣</a>
+					<a href="/TWFarmer/Msg/MsgCreatingServlet"
+						class="list-group-item active">寄件匣</a>
 
 				</div>
 			</div>
 			<div class="jumbotrom col-md-offset-3">
 				<h1>寄件匣</h1>
 				<!-- 		Msg Outbox    Start    -->
-			<div>
-	<div class="text" style="color: #0F7C58; font-weight: bold">${sessionScope.LoginOK.name}，歡迎回家！</div>請開始撰寫您的新信<br>
-				<form action="<c:url value="MsgCreatingServlet"/>" method="POST">
-					<table border="0" width="100%" align="center">
-						<caption>
-							<h2>貼心提醒：文長不可超過500字喔！ᶘ ᵒᴥᵒᶅ</h2>
-						</caption>
+				<div>
+					<div class="text" style="color: #0F7C58; font-weight: bold">${sessionScope.LoginOK.name}，歡迎回家！</div>
+					請開始撰寫您的新信<br> <br>
+					<form action="<c:url value="MsgCreatingServlet"/>" method="POST">
+						<tr>
+							<td width="10%">寄件人帳號</td>
+							<br>
+							<td style="width: 80px"><input id='msgWriterId'
+								value="${sessionScope.LoginOK.account}" type="text" size="50"
+								disabled /></td>
+							<td><input type="hidden"
+								value="${sessionScope.LoginOK.memberId}" type="text"
+								name="msgWriterId" />
+								<div style="color: #FF0000; display: inline">
+									${errors.msgWriterId}</div></td>
+						</tr>
+						<br> <br>
+						<tr>
+						<tr>
+							<td width="10%">收件人帳號</td>
+							<br>
+							<td style="width: 80px"><input id='account'
+								value="${param.account}" type="text" name="account" size="50" />
+								<div style="color: #FF0000; display: inline">
+									${errors.account}</div></td>
+						</tr>
+
 						<%-- <tr>
-				<td width="50%">寄件人：</td>
-				<td>${sessionScope.Msg.msgWriterId}</td>
-				<td></td>
-			</tr> --%>
-						<tr>
-							<td width="10%">寄件人</td>
-							<td>
-							<input id='msgWriterId' value="${sessionScope.LoginOK.name}"
-								type="text" size="50" disabled/> </td>
-							<td>
-							<input type="hidden" value="${sessionScope.LoginOK.memberId}" type="text" name="msgWriterId" />
-							<div style="color: #FF0000; display: inline">
-									${errors.msgWriterId}
-								</div></td>
-						</tr>
-						<tr>
-						<tr>
 							<td width="10%">收件人</td>
-							<td><input id='msgReaderId' value="${param.msgReaderId}"
-								type="text" name="msgReaderId" size="50" />
+							<br>
+							<td style="width: 80px"><input id='msgReaderId'
+								value="${param.msgReaderId}" type="text" name="msgReaderId"
+								size="50" />
 								<div style="color: #FF0000; display: inline">
-									${errors.msgReaderId}
-								</div></td>
-						</tr>
+									${errors.msgReaderId}</div></td>
+						</tr> --%>
+						<br> <br>
 						<tr>
-							<td>標題</td>
-							<td><input id='msgTitle' value="${param.msgTitle}"
-								type="text" name="msgTitle" size="50" />
+							<td width="10%">標題</td>
+							<br>
+							<td style="width: 80px"><input id='msgTitle'
+								value="${param.msgTitle}" type="text" name="msgTitle" size="50" />
 								<div style="color: #FF0000; display: inline">
-									${errors.msgTitle}
-								</div></td>
+									${errors.msgTitle}</div></td>
 						</tr>
+						<br> <br>
 						<tr>
-							<td>內文</td>
-							<td><textarea rows="10" cols="40" name="msgContent">${param.msgContent}</textarea>
+							<td width="10%">內文</td>
+							<br>
+							<td><textarea rows="10" cols="40" name="msgContent"
+									id="msgContent">${param.msgContent}</textarea>
 								<div style="color: #FF0000; display: inline">
-									${errors.msgContent}
-								</div></td>
+									${errors.msgContent}</div></td>
 						</tr>
+						<br>
 						<tr>
-							<td colspan="2" align="center"><input type="submit"
-								value="送出" /></td>
+							<center>
+								<div class="form-group">
+									<button type="submit" class="btn btn-default">送出</button>
+									<button type="button" class="btn btn-default" id="clearMsg"
+										onclick="ClearFields();">清除</button>
+								</div>
+							</center>
 						</tr>
-
-
-
-					</table>
-
-				</form>
+					</form>
+				</div>
+				<caption>
+					<h2>貼心提醒：文長不可超過500字喔！ᶘ ᵒᴥᵒᶅ</h2>
+				</caption>
+				<!-- Msg Outbox  End -->
 			</div>
 
-			<!-- Msg Outbox  End -->
-			</div>
-			
 		</div>
 	</div>
 	<!-- 上方選單 End -->
+
+	<script>
+		function ClearFields() {
+
+			document.getElementById("msgContent").value = "";
+		}
+	</script>
+
 
 </body>
 

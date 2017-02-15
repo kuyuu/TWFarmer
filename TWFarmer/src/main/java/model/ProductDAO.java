@@ -1,6 +1,5 @@
 package model;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +13,8 @@ public interface ProductDAO {
 	public abstract Map<ProductBean, List<ProductPicBean>> selectByType(String type);
 	
 	public abstract Map<ProductBean, List<ProductPicBean>> selectByTypeAndName(String type, String keyword);
+	
+	public abstract Map<ProductBean, List<QnABean>> selectQna(int sellerId);
 	
 	public abstract ProductBean insert(ProductBean bean);
 

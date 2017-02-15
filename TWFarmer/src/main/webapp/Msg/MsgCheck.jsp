@@ -60,9 +60,8 @@
 						<li><a href="#">購物車</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">註冊</a></li>
-						<li><a href="#">登入</a></li>
-						<li><a href="/TWFarmer/Msg/MsgHome.jsp">站內信</a></li>
+						<!-- <li><a href="#">註冊</a></li> -->
+						<li><a href="#">登出</a></li>
 					</ul>
 					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
@@ -116,20 +115,26 @@
 							<c:if test="${vs.first}">
 								<c:out value="<table class='table'>" escapeXml='false' />
 								<tr>
-									<th style="width: 80px">信件流水號:</th>
-									<th style="width: 80px">寄件者:</th>
-									<th style="width: 180px">標題:</th>
-									<th style="width: 250px">寄送時間：</th>
-									<th style="width: 250px">內文:</th>
+									<th style="width: 80px">流水號</th>
+									<th style="width: 80px">寄件者姓名</th>
+									<th style="width: 80px">帳號</th>
+									<th style="width: 80px">標題</th>
+									<th style="width: 250px">寄送時間</th>
+									<th style="width: 250px">內文</th>
+									<th style="width: 80px">回覆訊息</th>
+									<th style="width: 80px">刪除訊息</th>
 								</tr>
 							</c:if>
 
 							<tr>
 								<td style="width: 80px">${msgBean.msgId}</td>
 								<td style="width: 80px">${msgBean.writerName}</td>
-								<td style="width: 180px">${msgBean.msgTitle}</td>
+								<td style="width: 80px">${msgBean.writerAccount}</td>
+								<td style="width: 80px">${msgBean.msgTitle}</td>
 								<td style="width: 250px; text-align: left">&nbsp;${msgBean.msgTime}</td>
 								<td style="width: 250px; text-align: left">${msgBean.msgContent}</td>
+								<td><button type="button" class="btn btn-primary" onclick="location.href='/TWFarmer/Msg/MsgCheckingDetail?msgId=${msgBean.msgId}&value=reply'">回覆</button></td>
+								<td><button type="button" class="btn btn-danger" onclick="location.href='/TWFarmer/Msg/MsgCheckingDetail?msgId=${msgBean.msgId}&value=torch'">刪除</button></td>
 							</tr>
 							<c:if test="${vs.last}">
 								<c:out value="</table>" escapeXml='false' />

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import model.MemberBean;
 import model.MsgBean;
+import model.dao.MemberDAOJdbc;
 import model.dao.MsgDAOJdbc;
 
 @WebServlet("/Msg/MsgCreatingServlet")
@@ -39,18 +40,28 @@ public class MsgCreatingServlet extends HttpServlet {
 		
 		
 		String temp1 = request.getParameter("msgWriterId");
-		String temp2 = request.getParameter("msgReaderId");
+		String account = request.getParameter("account");
+		//String temp2 = request.getParameter("msgReaderId");
 		String msgTitle = request.getParameter("msgTitle");
 		String msgContent = request.getParameter("msgContent");		
 		
 		Map<String, String> errors = new HashMap<String, String>();
 		request.setAttribute("errors", errors);
 	
+		if (msgTitle == null || msgTitle.length() == 0) {
+			errors.put("msgTitle", "主旨為必填欄位");
+		}
 		
-		if (temp2 == null || temp2.length() == 0) {
+		if(account ==null || account.length()==0)
+		{
+			errors.put("account", "請輸入收件人的帳號名稱");
+		}
+		
+		
+		/*if (temp2 == null || temp2.length() == 0) {
 			
 				errors.put("msgReaderId", "請指明收件人之會員編號");	
-		}
+		}*/
 
 		if (msgTitle == null || msgTitle.length() == 0) {
 			errors.put("msgTitle", "主旨為必填欄位");
@@ -76,19 +87,13 @@ public class MsgCreatingServlet extends HttpServlet {
 				e.printStackTrace();
 				errors.put("msgWriterId", "msgWriterId必須是整數");
 			}
-		
-		int msgReaderId = 0;
-		if (temp2 != null && temp2.length() != 0) {
-			try {
-				msgReaderId = Integer.parseInt(temp2);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-				errors.put("msgReaderId", "msgReaderId必須是整數");
-			}
-			
-		
-			
+	
 		}
+		
+		MemberDAOJdbc dao1 = new MemberDAOJdbc();
+		MemberBean memberBean = new MemberBean();
+	int msgReaderId = dao1.selectByAccount(account).getMemberId();
+		
 		
 	       // Setting the user's ID as Writer ID and the system time on his/her computer as Message Time
 	   
@@ -111,9 +116,9 @@ public class MsgCreatingServlet extends HttpServlet {
 			session.setAttribute("msgBean", msgBean);
 			
 			request.getRequestDispatcher("MsgFormSuccess.jsp").forward(request, response);
-			//response.sendRedirect("/MsgFormSuccess.jsp");
+			response.sendRedirect("/MsgFormSuccess.jsp");
 	
 	}
 
-}}
+}
 	

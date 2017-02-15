@@ -108,6 +108,7 @@ public class NewJpFollowerServlet extends HttpServlet {
 			bean.setJPId(jpId);
 			bean.setNotes(notes);
 			bean.setTotalPrice(totalPrice);
+			bean.setRemittanceStatus(0);
 			bean.setMisc(0);
 			if (jpBean.getMiscViaId() == 4202) {
 				bean.setMisc(jpBean.getMisc());

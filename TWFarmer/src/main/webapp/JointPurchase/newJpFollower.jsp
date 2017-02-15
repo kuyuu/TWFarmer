@@ -10,40 +10,9 @@
 </head>
 <body>
 	<div class="container">
+		<jsp:include page="../common/menuJp.jsp" />
 		<div class="row">
 			<div class="col-md-12">
-				<nav class="navbar navbar-default" role="navigation">
-				<div class="navbar-header">
-
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span><span
-							class="icon-bar"></span><span class="icon-bar"></span><span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="/TWFarmer/index.jsp">台灣小農</a>
-				</div>
-
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="#">購買蔬果</a></li>
-						<li><a href="#">合購專區</a></li>
-						<li><a href="#">購物車</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/TWFarmer/MemberSubmit/MemberSubmit.jsp">註冊</a>
-						</li>
-						<li><a href="/TWFarmer/MemberLogin.jsp">登入</a></li>
-					</ul>
-					<form class="navbar-form navbar-right" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control">
-						</div>
-						<button type="submit" class="btn btn-default">搜尋</button>
-					</form>
-				</div>
-				</nav>
 				<div class="col-md-offset-2">
 					<form
 						action="<c:url value="NewJpFollowerServlet?memberId=${memberBean.memberId}&jpId=${jpBean.jpId}"/>"
@@ -93,9 +62,8 @@
 										<c:forEach var="row" items="${jpDetailList}" varStatus="x">
 											<tr>
 												<td>${row.productName}</td>
-												<td><input type="text"
-													name="jpCount" class="form-control" value="0"
-													style="width: 50px" /></td>
+												<td><input type="text" name="jpCount"
+													class="form-control" value="0" style="width: 50px" /></td>
 												<td>${row.jpPrice}</td>
 											</tr>
 										</c:forEach>
@@ -106,8 +74,7 @@
 						<div class="form-group">
 							<label for="jpIntro" class="col-sm-2 control-label">留言給主購</label>
 							<div class="col-sm-6">
-								<textarea id="notes" name="notes" class="form-control"
-									rows="3"></textarea>
+								<textarea id="notes" name="notes" class="form-control" rows="3"></textarea>
 								<p class="help-block">限制200字</p>
 							</div>
 						</div>
