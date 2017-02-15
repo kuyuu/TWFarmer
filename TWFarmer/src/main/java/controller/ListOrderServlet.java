@@ -46,16 +46,36 @@ public class ListOrderServlet extends HttpServlet {
 //		List<OrdersBean> sellerorders = ordersDAOJdbc.findSellerAllList(member.getMemberId());
 //		System.out.println("seller:"+sellerorders);
 //		System.out.println("memeber:"+member.getMemberId());
+//		
+		
+		List<OrdersBean> sellerorders = ordersDAOJdbc.findSellerAllList(member.getMemberId());
+		System.out.println(sellerorders);
+		request.setAttribute("sellerorders", sellerorders);
+		request.getRequestDispatcher("FarmerManergeOrderList.jsp").forward(request, response);
 		
 		
-		List<OrdersBean> buyerorders =ordersDAOJdbc.findBuyerAllList(member.getMemberId());
-		System.out.println("buyer:"+buyerorders);
+//		if (member.getIdType()==2){
+//			List<OrdersBean> sellerorders = ordersDAOJdbc.findSellerAllList(member.getMemberId());
+//			request.setAttribute("sellerorders", sellerorders);
+//			request.getRequestDispatcher("FarmerManergeOrderList.jsp").forward(request, response);
+//		}else if(member.getIdType()==3){
+//			
+//		}else{
+//			List<OrdersBean> buyerorders =ordersDAOJdbc.findBuyerAllList(member.getMemberId());
+//			
+//			request.setAttribute("buyerorders", buyerorders);
+//			request.getRequestDispatcher("OrderList.jsp").forward(request, response);
+//			
+//		}
 		
-		request.setAttribute("buyerorders", buyerorders);
 		
-		request.getRequestDispatcher("OrderList.jsp").forward(request, response);
+//		List<OrdersBean> buyerorders =ordersDAOJdbc.findBuyerAllList(member.getMemberId());	
+//		request.setAttribute("buyerorders", buyerorders);
+//		request.getRequestDispatcher("OrderList.jsp").forward(request, response);
+
 		
-		//ordersDAOJdbc.selectAllOrdersWithDetail
+		
+//ordersDAOJdbc.selectAllOrdersWithDetail
 		
 //		List<OrderDetailBean> myorderdetail = orderDetailDAOJdbc.selectByOrderId(member.getMemberId());
 //		System.out.println("detail:"+myorderdetail );

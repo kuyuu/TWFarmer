@@ -13,10 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.QnABean;
+import model.dao.QnADAOJdbc;
 
 @WebServlet("/QnAInsertServlet")
 public class QnAInsertServlet extends HttpServlet {
-
+	private QnADAOJdbc qnADAOJdbc = new QnADAOJdbc();
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -30,7 +31,6 @@ public class QnAInsertServlet extends HttpServlet {
 		String temp1 = request.getParameter("memberId");
 		String temp2 = request.getParameter("productId");
 		String qnA = request.getParameter("QnA");
-		System.out.println(temp1+temp2+qnA);
 		
 		Map<String, String> errors = new HashMap<String, String>();
 		request.setAttribute("errors", errors);
@@ -69,7 +69,11 @@ public class QnAInsertServlet extends HttpServlet {
 		java.util.Date date = new java.util.Date();
 		bean.setQueryDate(date);;
 
-		
+		if(bean != null){
+			QnABean result = qnADAOJdbc.insert(bean);
+			request.setAttribute("insert", result);
+			request.getRequestDispatcher("ProductServlet?productId="+ temp2 ).forward(request, response);
+		}
 	}
 
 }
