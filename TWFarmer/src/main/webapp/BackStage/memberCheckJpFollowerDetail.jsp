@@ -100,7 +100,7 @@
 						商品總價：${jpFollowerBean.totalPrice}<br>
 						雜費：${jpFollowerBean.misc}<br> 總價：${jpFollowerBean.totalPrice + jpFollowerBean.misc}<br>
 					</p>
-					<button type="button" class="btn btn-default">填寫匯款資訊</button>
+					<a href="ToRemittanceFormServlet?jpFollowerId=${jpFollowerBean.JPFollowerId}"><button type="button" class="btn btn-default">填寫匯款資訊</button></a>
 				</div>
 			</div>
 		</div>

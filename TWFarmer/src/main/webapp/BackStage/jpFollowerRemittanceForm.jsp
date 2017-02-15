@@ -73,43 +73,38 @@
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<h3>管理跟團</h3>
-					<c:if test="${not empty jpFollowerList}">
-						<table class="table table-bordered">
-							<thead>
-								<tr>
-									<th>合購團名</th>
-									<th>總價</th>
-									<th>開始日期</th>
-									<th>截止日期</th>
-									<th>狀態</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="row" items="${jpFollowerList}">
-									<tr>
-										<td>${row.jpName}</td>
-										<td>${row.totalPrice + row.misc}</td>
-										<td><fmt:formatDate value="${row.initDate}"
-												pattern="yyyy-MM-dd HH:mm" /></td>
-										<td><fmt:formatDate value="${row.endDate}"
-												pattern="yyyy-MM-dd HH:mm" /></td>
-										<td>${row.jpStatusName}</td>
-
-										<td><c:if test="${row.remittanceStatus==1}">
-											已匯款</c:if> <c:if
-												test="${row.jpStatusId==4104 && row.remittanceStatus!=1}">
-												<a
-													href="CheckJpFollowerDetailServlet?jpFollowerId=${row.JPFollowerId}"><button
-														type="button" class="btn btn-default">匯款去</button> </a>
-											</c:if></td>
-									</tr>
-								</c:forEach>
-
-							</tbody>
-						</table>
-					</c:if>
+					<form class="form-horizontal" action="RemittanceServlet" method="POST">
+						<input type="hidden" value="${jpfBean.JPFollowerId}" name="jpFollowerId"/>
+						<div class="form-group">
+							<label for="remittanceBank" class="col-sm-3 control-label">匯款銀行</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="remittanceBank" name="remittanceBank" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="remittanceAcc" class="col-sm-3 control-label">匯款帳號後5碼</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="remittanceAcc" name="remittanceAcc" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="remittance" class="col-sm-3 control-label">匯款金額</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="remittance" name="remittance" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="remittanceDate" class="col-sm-3 control-label">匯款時間</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="remittanceDate" name="remittanceDate" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-3 col-sm-9">
+								<button type="submit" class="btn btn-default">送出</button>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
