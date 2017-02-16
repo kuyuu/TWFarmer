@@ -37,6 +37,7 @@
 									<th>價格</th>
 									<th>單位</th>
 									<th>運費</th>
+									<th>商品狀態</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -51,6 +52,7 @@
 										<td>${row.price}</td>
 										<td>${row.unit}</td>
 										<td>${row.freight}</td>
+										<td>${row.productStatusName}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
