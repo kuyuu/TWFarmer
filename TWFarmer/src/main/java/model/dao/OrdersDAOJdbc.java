@@ -1,7 +1,6 @@
 package model.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,58 +33,6 @@ public class OrdersDAOJdbc implements OrdersDAO {
 		}
 	}
 
-	public static void main(String[] args) {
-		OrdersDAO dao = new OrdersDAOJdbc();
-
-		// Select all
-		// List<OrdersBean> beans = dao.select();
-		// System.out.println("bean="+beans);
-
-		// Select By ID
-		System.out.println(dao.select(3001));
-
-		// Insert
-		// OrdersBean bean = new OrdersBean();
-		//
-		// bean.setSellerId(1002);
-		// bean.setBuyerId(1004);
-		// bean.setTotalFreight(200);
-		// bean.setTotalPrice(1000);
-		// bean.setOrderDate(java.sql.Timestamp.valueOf("2017-01-23 09:07:43"));
-		// bean.setShipDate(java.sql.Timestamp.valueOf("2017-01-25 13:27:03"));
-		// bean.setShipName("會員B");
-		// bean.setShipPostalCode("106");
-		// bean.setShipDistrict("台北市大安區");
-		// bean.setShipAddress("會員B的家");
-		// bean.setOrderStatusId(3103);
-		//// bean.setRatingBuyer();
-		//// bean.setRatingSeller();
-		// dao.insert(bean);
-		// System.out.println(bean);
-
-		// Update
-		// OrdersBean bean2 = dao.select(3004);
-		// bean2.setSellerId(1001);
-		// bean2.setBuyerId(1003);
-		// bean2.setTotalFreight(200);
-		// bean2.setTotalPrice(1000);
-		// bean2.setOrderDate(java.sql.Timestamp.valueOf("2017-01-23
-		// 09:07:43"));
-		// bean2.setShipDate(java.sql.Timestamp.valueOf("2017-01-25 13:27:03"));
-		// bean2.setShipName("會員B");
-		// bean2.setShipPostalCode("235");
-		// bean2.setShipDistrict("台北市大安區");
-		// bean2.setShipAddress("會員B的家");
-		// bean2.setOrderStatusId(3103);
-		// bean2.setRatingBuyer(5);
-		// bean2.setRatingSeller(5);
-		// System.out.println(bean2);
-
-		// Delete
-		// dao.delete(3004);
-
-	}
-
 	private static final String SELECT_ALL = "SELECT * FROM Orders";
 
 	@Override
@@ -112,6 +59,10 @@ public class OrdersDAOJdbc implements OrdersDAO {
 				bean.setOrderStatusId(rset.getInt("orderStatusId"));
 				bean.setRatingBuyer(rset.getInt("ratingBuyer"));
 				bean.setRatingSeller(rset.getInt("ratingSeller"));
+				bean.setRemittance(rset.getInt("remittance"));
+				bean.setRemittanceDate(rset.getDate("remittanceDate"));
+				bean.setRemittanceBank(rset.getString("remittanceBank"));
+				bean.setRemittanceAcc(rset.getString("remittanceAcc"));
 
 				result.add(bean);
 			}
@@ -148,6 +99,11 @@ public class OrdersDAOJdbc implements OrdersDAO {
 				result.setOrderStatusId(rset.getInt("orderStatusId"));
 				result.setRatingBuyer(rset.getInt("ratingBuyer"));
 				result.setRatingSeller(rset.getInt("ratingSeller"));
+				result.setRemittance(rset.getInt("remittance"));
+				result.setRemittanceDate(rset.getDate("remittanceDate"));
+				result.setRemittanceBank(rset.getString("remittanceBank"));
+				result.setRemittanceAcc(rset.getString("remittanceAcc"));
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -163,13 +119,14 @@ public class OrdersDAOJdbc implements OrdersDAO {
 		return result;
 	}
 
-	private static final String INSERT = "INSERT INTO Orders (SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	private static final String INSERT = "INSERT INTO Orders (SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller, Remittance, RemittanceDate, RemittanceBank, RemittanceAcc) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 	@Override
 	public OrdersBean insert(OrdersBean ordersBean) {
 		OrdersBean result = null;
-		//此處也要加入(Statement.RETURN_GENERATED_KEYS)才能跑
-		try (Connection conn = dataSource.getConnection(); PreparedStatement stmt = conn.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);) {
+		// 此處也要加入(Statement.RETURN_GENERATED_KEYS)才能跑
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);) {
 			if (ordersBean != null) {
 				stmt.setInt(1, ordersBean.getSellerId());
 				stmt.setInt(2, ordersBean.getBuyerId());
@@ -197,14 +154,24 @@ public class OrdersDAOJdbc implements OrdersDAO {
 				stmt.setInt(11, ordersBean.getOrderStatusId());
 				stmt.setInt(12, ordersBean.getRatingBuyer());
 				stmt.setInt(13, ordersBean.getRatingSeller());
+				stmt.setInt(14, ordersBean.getRemittance());
+				Date remittanceDate = ordersBean.getRemittanceDate();
+				if (remittanceDate != null) {
+					long time = remittanceDate.getTime();
+					stmt.setDate(15, new java.sql.Date(time));
+				} else {
+					stmt.setDate(15, null);
+				}
+				stmt.setString(16, ordersBean.getRemittanceBank());
+				stmt.setString(17, ordersBean.getRemittanceAcc());
 
 				int i = stmt.executeUpdate();
 				if (i == 1) {
-					//叫出流水號的寫法 給子table
+					// 叫出流水號的寫法 給子table
 					ResultSet resultSet = stmt.getGeneratedKeys();
-					if(resultSet.next()) {
+					if (resultSet.next()) {
 						ordersBean.setOrderId(resultSet.getInt(1));
-					}				
+					}
 					result = ordersBean;
 				}
 			}
@@ -214,7 +181,7 @@ public class OrdersDAOJdbc implements OrdersDAO {
 		return result;
 	}
 
-	private static final String UPDATE = "UPDATE Orders set SellerID=?, BuyerID=?, TotalFreight=?, TotalPrice=?, OrderDate=?, ShipDate=?, ShipName=?, ShipPostalCode=?, ShipDistrict=?, ShipAddress=?, OrderStatusID=?, RatingBuyer=?, RatingSeller=? WHERE id=?";
+	private static final String UPDATE = "UPDATE Orders set SellerID=?, BuyerID=?, TotalFreight=?, TotalPrice=?, OrderDate=?, ShipDate=?, ShipName=?, ShipPostalCode=?, ShipDistrict=?, ShipAddress=?, OrderStatusID=?, RatingBuyer=?, RatingSeller=?, Remittance=?, RemittanceDate=?, RemittanceBank=?, RemittanceAcc=? WHERE id=?";
 
 	@Override
 	public OrdersBean update(OrdersBean ordersBean) {
@@ -238,7 +205,6 @@ public class OrdersDAOJdbc implements OrdersDAO {
 			} else {
 				stmt.setDate(6, null);
 			}
-
 			stmt.setString(7, ordersBean.getShipName());
 			stmt.setString(8, ordersBean.getShipPostalCode());
 			stmt.setString(9, ordersBean.getShipDistrict());
@@ -246,6 +212,18 @@ public class OrdersDAOJdbc implements OrdersDAO {
 			stmt.setInt(11, ordersBean.getOrderStatusId());
 			stmt.setInt(12, ordersBean.getRatingBuyer());
 			stmt.setInt(13, ordersBean.getRatingSeller());
+			stmt.setInt(14, ordersBean.getRemittance());
+			Date remittanceDate = ordersBean.getRemittanceDate();
+			if (remittanceDate != null) {
+				long time = remittanceDate.getTime();
+				stmt.setDate(15, new java.sql.Date(time));
+			} else {
+				stmt.setDate(15, null);
+			}
+			stmt.setString(16, ordersBean.getRemittanceBank());
+			stmt.setString(17, ordersBean.getRemittanceAcc());
+			stmt.setInt(18, ordersBean.getOrderId());
+			
 			int i = stmt.executeUpdate();
 			if (i == 1) {
 				result = this.select(ordersBean.getOrderId());
@@ -302,6 +280,10 @@ public class OrdersDAOJdbc implements OrdersDAO {
 				bean.setOrderStatusId(rset.getInt("orderStatusId"));
 				bean.setRatingBuyer(rset.getInt("ratingBuyer"));
 				bean.setRatingSeller(rset.getInt("ratingSeller"));
+				bean.setRemittance(rset.getInt("remittance"));
+				bean.setRemittanceDate(rset.getDate("remittanceDate"));
+				bean.setRemittanceBank(rset.getString("remittanceBank"));
+				bean.setRemittanceAcc(rset.getString("remittanceAcc"));
 
 				result.add(bean);
 			}
@@ -326,8 +308,8 @@ public class OrdersDAOJdbc implements OrdersDAO {
 			stmt.setInt(1, buyerId);
 			ResultSet rset = stmt.executeQuery();
 			result = new ArrayList<OrdersBean>();
-			
-			while(rset.next()){
+
+			while (rset.next()) {
 				OrdersBean bean = new OrdersBean();
 
 				bean.setOrderId(rset.getInt("orderId"));
@@ -344,6 +326,10 @@ public class OrdersDAOJdbc implements OrdersDAO {
 				bean.setOrderStatusId(rset.getInt("orderStatusId"));
 				bean.setRatingBuyer(rset.getInt("ratingBuyer"));
 				bean.setRatingSeller(rset.getInt("ratingSeller"));
+				bean.setRemittance(rset.getInt("remittance"));
+				bean.setRemittanceDate(rset.getDate("remittanceDate"));
+				bean.setRemittanceBank(rset.getString("remittanceBank"));
+				bean.setRemittanceAcc(rset.getString("remittanceAcc"));
 
 				result.add(bean);
 			}
@@ -356,9 +342,5 @@ public class OrdersDAOJdbc implements OrdersDAO {
 		return result;
 
 	}
-
-	
-	
-	
 
 }
