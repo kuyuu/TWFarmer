@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,9 +47,20 @@ public class MsgCheckingDetail extends HttpServlet {
 			MemberDAOJdbc dao2 = new MemberDAOJdbc();
 			MemberBean bean2 = new MemberBean();
 			int msgReaderId = dao.select(msgId).getMsgWriterId();
+			String replyTitle = dao.select(msgId).getMsgTitle();
+			String replyContent = dao.select(msgId).getMsgContent();
+			Date replyMsgTime = dao.select(msgId).getMsgTime();
+			bean.setMsgTitle(replyTitle);
+			bean.setMsgContent(replyContent);
+			bean.setMsgTime(replyMsgTime);
+			session.setAttribute("msgReTitle", bean);
+			
 			String readerAccount = dao2.select(msgReaderId).getAccount();
+			String readerName = dao2.select(msgReaderId).getName();
 			bean2.setAccount(readerAccount);
+			bean2.setName(readerName);
 			session.setAttribute("memberBeanReader", bean2);
+			
 			request.getRequestDispatcher("MsgFormReply.jsp").forward(request, response);
 //			response.sendRedirect("/MsgFormReply.jsp");		
 		} else if("torch".equals(value)) {
