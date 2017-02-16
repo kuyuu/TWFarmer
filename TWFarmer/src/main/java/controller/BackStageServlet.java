@@ -12,7 +12,9 @@ import javax.servlet.http.HttpSession;
 
 import model.MemberBean;
 import model.ProductBean;
+import model.ViolationBean;
 import model.dao.ProductDAOjdbc;
+import model.dao.ViolationDAOJdbc;
 
 @WebServlet("/BackStage/BackStageServlet")
 public class BackStageServlet extends HttpServlet {
@@ -28,7 +30,10 @@ public class BackStageServlet extends HttpServlet {
 				request.setAttribute("productList", list1);
 				request.getRequestDispatcher("farmerManageProduct.jsp").forward(request, response);
 			} else if (mb.getIdType() == 3) {
-
+				ViolationDAOJdbc dao = new ViolationDAOJdbc();
+				List<ViolationBean> list = dao.selectAllUntreated();
+				request.setAttribute("violationList", list);
+				request.getRequestDispatcher("managerViolation.jsp").forward(request, response);
 			} else {
 				request.getRequestDispatcher("../Order/ListOrderServlet").forward(request, response);
 			}

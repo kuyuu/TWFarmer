@@ -47,12 +47,15 @@ CREATE TABLE Farmer (
 	FarmerID varchar(10) PRIMARY KEY NOT NULL, 
 	MemberID int REFERENCES Member(MemberID) NOT NULL,
 	FarmerIntro varchar(600),
+	Bank nvarchar(10),
+	BankAccount varchar(5),
 )
 GO
 
 CREATE TABLE Friend (
 	MemberId int REFERENCES Member(MemberID) NOT NULL,
 	FriendId int REFERENCES Member(MemberID) NOT NULL,
+	FriendStatus int,
 	PRIMARY KEY(MemberId,FriendId)
 )
 GO
@@ -127,12 +130,16 @@ CREATE TABLE Orders(
 	OrderDate datetime,
 	ShipDate datetime,
 	ShipName nvarchar(20),
-	ShipPostalCode char(3),
-	ShipDistrict nchar(10),
+	ShipPostalCode nvarchar(3),
+	ShipDistrict nvarchar(10),
 	ShipAddress nvarchar(50) ,
 	OrderStatusID int REFERENCES OrderStatus (OrderStatusID),
 	RatingBuyer int,
 	RatingSeller int,
+	Remittance int,
+	RemittanceDate datetime,
+	RemittanceBank nvarchar(10),
+	RemittanceAcc varchar(5),
 )
 GO
 

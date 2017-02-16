@@ -53,7 +53,7 @@
 }
 
 * /
-	/* The dots/bullets/indicators */    
+	/* The dots/bullets/indicators */     
 .dot {
 	height: 13px;
 	width: 13px;
@@ -107,133 +107,92 @@ to {
 </head>
 <body>
 	<div class="container">
+	<jsp:include page="/common/menu.jsp" />
 		<div class="row">
-			<div class="col-md-12">
-				<nav class="navbar navbar-default" role="navigation">
-				<div class="navbar-header">
-
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span><span
-							class="icon-bar"></span><span class="icon-bar"></span><span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="/TWFarmer/index.jsp">台灣小農</a>
-				</div>
-
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="ProductSelect/ProductSelect.jsp">購買蔬果</a></li>
-						<li><a href="PurchaseSelect/PurchaseSelect.jsp">合購專區</a></li>
-						<li><a href="#">購物車</a></li>
-					</ul>
-					<c:choose>
-						<c:when test="${empty LoginOK}">
-							<ul class="nav navbar-nav navbar-right">
-								<li><a href="/TWFarmer/MemberSubmit/MemberSubmit.jsp">註冊</a>
-								</li>
-								<li><a href="/TWFarmer/Login.jsp">登入</a></li>
-							</ul>
-						</c:when>
-						<c:otherwise>
-							<ul class="nav navbar-nav navbar-right">
-								<li><a href="/TWFarmer/Msg/MsgCheckingServlet">站內信</a></li>
-								<li><a href="/TWFarmer/BackStage/BackStageServlet">會員專區</a></li>
-							</ul>
-						</c:otherwise>
-					</c:choose>
-					<form class="navbar-form navbar-right" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control">
-						</div>
-						<button type="submit" class="btn btn-default">搜尋</button>
-					</form>
-				</div>
-				</nav>
-				<div class="row">
-					<div class="jumbotron">
-						<div class="col-md-4">
-							<%-- <c:forEach items="${picList}" var="x">
+			<div class="container">
+				<div class="col-md-4">
+					<%-- <c:forEach items="${picList}" var="x">
 								<img src="img/${x.pictureName}" style="width: 100%;" />
 							</c:forEach> --%>
-							<div class="ThisIsTheSlider">
-								<div class="text"
-									style="color: #7C630F; font-weight: bold; font-size: 25px">商品寫真</div>
-								<br>
-								<div class="text"
-									style="color: #6133FF; font-weight: bold; font-size: 16px">୧༼✿
-									͡◕ д ◕͡ ༽୨商品皆為賣方提供，恕不代表本站立場୧༼✿ ͡◕ д ◕͡ ༽୨</div>
-								<div class="text" style="color: #0F7C58; font-weight: bold">(q^-^)q貨比三家不吃虧下單前請先充分聯繫賣家
-									(p^-^)p</div>
-								<c:forEach items="${picList}" var="x" varStatus="y">
+					<div class="ThisIsTheSlider">
+						<div class="text"
+							style="color: #7C630F; font-weight: bold; font-size: 25px">商品寫真</div>
+						<br>
+						<!-- 								<div class="text" -->
+						<!-- 									style="color: #6133FF; font-weight: bold; font-size: 16px">୧༼✿ -->
+						<!-- 									͡◕ д ◕͡ ༽୨商品皆為賣方提供，恕不代表本站立場୧༼✿ ͡◕ д ◕͡ ༽୨</div> -->
+						<!-- 								<div class="text" style="color: #0F7C58; font-weight: bold">(q^-^)q貨比三家不吃虧下單前請先充分聯繫賣家 -->
+						<!-- 									(p^-^)p</div> -->
+						<c:forEach items="${picList}" var="x" varStatus="y">
 
-									<div class="mySlides fadeAlt">
-										<%-- <center>
+							<div class="mySlides fadeAlt">
+								<%-- <center>
 										<div class="numbertext"></div>
 									</center> --%>
-										<div class="text">${x.pictureIntro}</div>
-										<img src="img/${x.pictureName}" style="width: 80%"> <br>
-										<br>
+								<div class="text">${x.pictureIntro}</div>
+								<img src="img/${x.pictureName}" style="width: 80%"> <br>
+								<br>
 
 
-									</div>
-									<c:if test="${y.last}">
-										<c:set var="count" value="${y.count}" />
-									</c:if>
-								</c:forEach>
-								<div style="text-align: center">
-									<c:forEach begin="1" end="${count}">
-										<span class="dot"></span>
-									</c:forEach>
-								</div>
 							</div>
-						</div>
-						<div class="col-md-8">
-							<h1>${productBean.productName}</h1>
-							<p>${productBean.productIntro }</p>
-							<p>${productBean.price }/${productBean.unit }</p>
-							<p>
-								<a
-									href="<c:url value="Order/NewOrderServlet?productId=${productBean.productId}&sellerId=${productBean.sellerId}" />"
-									class="btn btn-default">購買商品</a> <a
-									href="JointPurchase/NewJointPurchaseServlet?memberId=${LoginOK.memberId}&productId=${productBean.productId}"><button
-										type="button" class="btn btn-default">發起合購</button></a>
-								<button type="button" class="btn btn-default">我想跟團</button>
-								<button type="button" class="btn btn-default">加入購物車</button>
-								<a href="Violation/violationForm.jsp?productId=${productBean.productId}"><button type="button" class="btn btn-danger">檢舉商品</button></a>
-							</p>
-							<form action="/TWFarmer/QnAInsertServlet"
-								style="border: 1px solid; border-radius: 20px; padding: 15px" method="POST">
-								<c:if test="${empty QnA}">
-								<h4>目前沒有問與答</h4>
-								</c:if>
-								<c:if test="${not empty QnA}">
-									<h3>問與答</h3>
-									<c:forEach var="row" items="${QnA}">
-										<div>
-											<p style="background: #DDDDDD">賣家提問:${row.qnAContent}</p>
-											<p>　　${row.reQnA}</p>
-										</div>
-									</c:forEach>
-								</c:if>
-								<input type="hidden" name="memberId" value="${LoginOK.memberId}" />
-								<input type="hidden" name="productId"
-									value="${productBean.productId}" />
-								<div class="form-group">
-									<label class="">我要發問</label>
-									<textarea id="QnA" name="QnA" class="form-control" rows="5"></textarea>
-									<h4>${errors.QnAerror}</h4>
-									<button type="submit" class="btn btn-default">送出</button>
-									<button type="button" class="btn btn-default" id="clearQnA"
-										onclick="ClearFields();">清除</button>
-								</div>
-							</form>
+							<c:if test="${y.last}">
+								<c:set var="count" value="${y.count}" />
+							</c:if>
+						</c:forEach>
+						<div style="text-align: center">
+							<c:forEach begin="1" end="${count}">
+								<span class="dot"></span>
+							</c:forEach>
 						</div>
 					</div>
 				</div>
+				<div class="col-md-8">
+					<h1>${productBean.productName}</h1>
+					<p>${productBean.productIntro }</p>
+					<p>${productBean.price }/${productBean.unit }</p>
+					<p>
+						<a
+							href="<c:url value="Order/NewOrderServlet?productId=${productBean.productId}&sellerId=${productBean.sellerId}" />"
+							class="btn btn-default">購買商品</a> <a
+							href="JointPurchase/NewJointPurchaseServlet?memberId=${LoginOK.memberId}&productId=${productBean.productId}"><button
+								type="button" class="btn btn-default">發起合購</button></a>
+						<button type="button" class="btn btn-default">我想跟團</button>
+						<button type="button" class="btn btn-default">加入購物車</button>
+						<a
+							href="Violation/violationForm.jsp?productId=${productBean.productId}"><button
+								type="button" class="btn btn-danger">檢舉商品</button></a>
+					</p>
+					<form action="/TWFarmer/QnAInsertServlet"
+						style="border: 1px solid; border-radius: 20px; padding: 15px"
+						method="POST">
+						<c:if test="${empty QnA}">
+							<h4>目前沒有問與答</h4>
+						</c:if>
+						<c:if test="${not empty QnA}">
+							<h3>問與答</h3>
+							<c:forEach var="row" items="${QnA}">
+								<div>
+									<p style="background: #DDDDDD">賣家提問:${row.qnAContent}</p>
+									<p>${row.reQnA}</p>
+								</div>
+							</c:forEach>
+						</c:if>
+						<input type="hidden" name="memberId" value="${LoginOK.memberId}" />
+						<input type="hidden" name="productId"
+							value="${productBean.productId}" />
+						<div class="form-group">
+							<label class="">我要發問</label>
+							<textarea id="QnA" name="QnA" class="form-control" rows="5"></textarea>
+							<h4>${errors.QnAerror}</h4>
+							<button type="submit" class="btn btn-default">送出</button>
+							<button type="button" class="btn btn-default" id="clearQnA"
+								onclick="ClearFields();">清除</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
+
 	</div>
 	<script>
 		var slideIndex = 0;
