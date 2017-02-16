@@ -34,6 +34,7 @@
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/TWFarmer/Msg/MsgCheckingServlet">站內信</a></li>
 							<li><a href="/TWFarmer/BackStage/BackStageServlet">會員專區</a></li>
+							<li><a href="/TWFarmer/logout.jsp">登出</a></li>
 						</ul>
 					</c:otherwise>
 				</c:choose>

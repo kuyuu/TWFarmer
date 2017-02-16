@@ -8,4 +8,5 @@ public interface ViolationDAO {
 	public abstract boolean delete(int ticketId);
 	public abstract ViolationBean select(int ticketId);
 	public abstract List<ViolationBean> select();
+	List<ViolationBean> selectAllUntreated();
 }
