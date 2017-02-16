@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.MemberBean;
 import model.ProductBean;
-import model.ProductPicBean;
 import model.dao.ProductDAOjdbc;
 
 @WebServlet("/ProductMaintain/InsertProductServlet")
@@ -27,22 +27,14 @@ public class InsertProductServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		// 1.讀取使用者輸入的資料============================================
-		String temp1 = request.getParameter("memberId");
+		MemberBean mb = (MemberBean)session.getAttribute("LoginOK");
 
 		// 2.存放錯誤訊息============================================
 		Map<String, String> errorMessage = new HashMap<>();
 		request.setAttribute("ErrorMsg", errorMessage);
 
 		// 3.轉換資料============================================
-		int memberId = 0;
-		if (temp1 != null && temp1.length() != 0) {
-			try {
-				memberId = Integer.parseInt(temp1);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-				errorMessage.put("memberId", "memberId必須是整數");
-			}
-		}
+	
 		// 如果有錯誤訊息，就顯示在MemberTemp.jsp(錯誤訊息顯示在欄位旁邊)
 		if (errorMessage != null && !errorMessage.isEmpty()) {
 			request.getRequestDispatcher("MemberTemp.jsp").forward(request, response);
@@ -51,9 +43,7 @@ public class InsertProductServlet extends HttpServlet {
 
 		// 4.呼叫Model(扮演封裝資料的角色)============================================
 		ProductBean productBean = new ProductBean();
-		productBean.setSellerId(memberId);
-
-		ProductDAOjdbc dao = new ProductDAOjdbc();
+		productBean.setSellerId(mb.getMemberId());
 
 		// 5.挑選適當頁面============================================
 		session.setAttribute("product", productBean);

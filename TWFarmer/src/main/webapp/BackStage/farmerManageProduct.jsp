@@ -27,6 +27,9 @@
 			<div class="col-md-9">
 				<div class="jumbotron">
 					<h3>管理商品</h3>
+<!-- 					<h5><button type="button" class="btn btn-default">新增商品</button></h5> -->
+<!-- 					<a href="../ProductMaintain/ProductInsert.jsp" class="btn btn-primary btn-lg disabled" role="button">新增商品</a> -->
+					<a class="btn btn-default" href="../ProductMaintain/InsertProductServlet" role="button">新增商品</a>
 					<c:if test="${not empty productList}">
 						<table class="table table-bordered">
 							<thead>
