@@ -1,4 +1,4 @@
-package controller;
+package controller.jointpurchase;
 
 import java.io.IOException;
 
