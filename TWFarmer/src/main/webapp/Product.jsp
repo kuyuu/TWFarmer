@@ -234,12 +234,6 @@ to {
 			</div>
 		</div>
 	</div>
-
-	<script type="text/javascript">
-		$("#clearQnA").click(function() {
-			$("#QnA").val('');
-		})
-	</script>
 	<script>
 		var slideIndex = 0;
 		showSlides();
@@ -264,7 +258,6 @@ to {
 		}
 
 		function ClearFields() {
-
 			document.getElementById("QnA").value = "";
 		}
 	</script>
