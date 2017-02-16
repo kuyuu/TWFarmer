@@ -18,7 +18,7 @@
 			<div class="col-md-3">
 				<div class="list-group">
 					<a href="#" class="list-group-item active">管理商品</a>
-					<a href="../BackStage/ReQnaServlet?memberId=${LoginOK.memberId}" class="list-group-item">商品問與答</a>
+					<a href="../BackStage/SelectQnaServlet" class="list-group-item">商品問與答</a>
 					<a href="#" class="list-group-item">審核合購</a>
 					<a href="#" class="list-group-item">管理賣場資料</a>
 					<a href="#" class="list-group-item">管理個人資料</a>
@@ -55,10 +55,13 @@
 										<td>${row.productStatusName}</td>
 									</tr>
 								</c:forEach>
-
 							</tbody>
 						</table>
 					</c:if>
+					<form action="" method="post">
+					</form>
+				
+				
 				</div>
 			</div>
 		</div>

@@ -9,7 +9,7 @@
 <body>
 <%
 model.dao.ProductDAOjdbc dao = new model.dao.ProductDAOjdbc();
-java.util.Map<model.ProductBean, java.util.List<model.QnABean>> result = dao.selectQna(1033);
+java.util.Map<model.ProductBean, java.util.List<model.QnABean>> result = dao.selectQna(1012);
 %>
 <h3><%=result %></h3>
 </body>

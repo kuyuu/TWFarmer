@@ -13,10 +13,8 @@
 <title>台灣小農</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/style.css" rel="stylesheet">
-
 </head>
 <body>
-
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
@@ -32,42 +30,29 @@
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<h3>商品問與答</h3>
-					<c:if test="${empty Qna}">
-						<h4>目前沒有人提問</h4>
-					</c:if>
-					<c:if test="${not empty Qna}">
-						<table class="table table-bordered">
-							<thead>
-								<tr>
-									<th>問與答編號</th>
-									<th>商品編號</th>
-									<th>商品名稱</th>
-									<th>提問內容</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="row" items="${Qna}">
-									<c:forEach items="${row.value}" var="x">
-										<c:url value="/BackStage/farmerReQnA.jsp" var="path">
-											<c:param name="qnAId" value="${x.qnAId}" />
-										</c:url>
-										<tr>
-											<td><a href="${path}">${x.qnAId}</a></td>
-											<td>${row.key.productId}</td>
-											<td>${row.key.productName}</td>
-											<td>${x.qnAContent}</td>
-										</tr>
-									</c:forEach>
-								</c:forEach>
-							</tbody>
-						</table>
-					</c:if>
+					<%-- 					<c:if test="${not empty update}"> --%>
+					<form action="/TWFarmer/BackStage/ReQnaServlet">
+						<div class="form-group">
+							<input type="hidden" name="qnAId" value="${param.qnAId}" />
+							<h4>問與答編號：${param.qnAId}</h4>
+							<label class="">回答問題</label>
+							<textarea id="ReQnA" name="ReQnA" class="form-control" rows="5"></textarea>
+							<h4>${errors.QnAerror}</h4>
+							<button type="submit" class="btn btn-default">送出</button>
+							<button type="button" class="btn btn-default" id="clearQnA"
+								onclick="ClearFields();">清除</button>
+						</div>
+					</form>
+					<%-- 					</c:if> --%>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	<script type="text/javascript">
+		function ClearFields() {
+			document.getElementById("ReQnA").value = "";
+		}
+	</script>
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
