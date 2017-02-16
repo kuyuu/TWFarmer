@@ -54,7 +54,7 @@
 }
 
 * /
-	/* The dots/bullets/indicators */     
+	/* The dots/bullets/indicators */      
 .dot {
 	height: 13px;
 	width: 13px;
@@ -108,9 +108,9 @@ to {
 </head>
 <body>
 	<div class="container">
-	<jsp:include page="/common/menuProduct.jsp" />
-		<div class="row">
-			<div class="jumbotron">
+		<jsp:include page="/common/menuProduct.jsp" />
+		<div class="row jumbotron" >
+<!-- 			<div class="jumbotron"> -->
 				<div class="col-md-4">
 					<%-- <c:forEach items="${picList}" var="x">
 								<img src="img/${x.pictureName}" style="width: 100%;" />
@@ -173,18 +173,18 @@ to {
 							<h3>問與答</h3>
 							<c:forEach var="row" items="${QnA}">
 								<div>
-<%-- 									<p style="background: #DDDDDD">賣家提問:${row.qnAContent}</p> --%>
-<%-- 									<p>　　${row.reQnA}</p> --%>
+									<%-- 									<p style="background: #DDDDDD">賣家提問:${row.qnAContent}</p> --%>
+									<%-- 									<p>　　${row.reQnA}</p> --%>
 									<table style="line-height: 35px">
-										<tr style="background: #DDDDDD" >
-											<td style="width: 70%; font-size:20px">賣家提問:${row.qnAContent}</td>
-											<td style="width: 30%"><fmt:formatDate value="${row.queryDate}"
-												pattern="yyyy-MM-dd HH:mm" /></td>
+										<tr style="background: #DDDDDD">
+											<td style="width: 70%; font-size: 20px">賣家提問:${row.qnAContent}</td>
+											<td style="width: 30%"><fmt:formatDate
+													value="${row.queryDate}" pattern="yyyy-MM-dd HH:mm" /></td>
 										</tr>
 										<tr>
-											<td style="width: 80% ; font-size:20px" >　　${row.reQnA}</td>
-											<td style="width: 20%"><fmt:formatDate value="${row.reDate}"
-												pattern="yyyy-MM-dd HH:mm" /></td>
+											<td style="width: 80%; font-size: 20px">${row.reQnA}</td>
+											<td style="width: 20%"><fmt:formatDate
+													value="${row.reDate}" pattern="yyyy-MM-dd HH:mm" /></td>
 										</tr>
 									</table>
 								</div>
@@ -203,7 +203,7 @@ to {
 						</div>
 					</form>
 				</div>
-			</div>
+<!-- 			</div> -->
 		</div>
 
 	</div>
