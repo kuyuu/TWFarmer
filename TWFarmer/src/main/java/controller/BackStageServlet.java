@@ -35,7 +35,7 @@ public class BackStageServlet extends HttpServlet {
 				request.setAttribute("violationList", list);
 				request.getRequestDispatcher("managerViolation.jsp").forward(request, response);
 			} else {
-				request.getRequestDispatcher("../Order/ListOrderServlet").forward(request, response);
+				request.getRequestDispatcher("MemberCheckJpServlet").forward(request, response);
 			}
 		}
 
