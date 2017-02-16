@@ -11,8 +11,12 @@
 <body>
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
-		<div class="col-md-3">
-			<jsp:include page="backstageMenu.jsp" />
+		<div class="row">
+			<div class="col-md-3">
+				<jsp:include page="backstageMenu.jsp" />
+			</div>
+			<div class="col-md-9">
+			</div>
 		</div>
 	</div>
 	<script src="../js/jquery.min.js"></script>

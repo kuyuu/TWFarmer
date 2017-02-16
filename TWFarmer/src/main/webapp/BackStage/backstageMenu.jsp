@@ -1,36 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<div class="container">
-	<div class="row">
-		<div class="col-md-3">
-			<!-- column1, Vertical Dropdown Menu -->
-			<div id="main-menu" class="list-group">
-				<a href="#sub-menu" class="list-group-item" data-toggle="collapse"
-					data-parent="#main-menu">會員<span class="caret"></span></a>
-				<div class="collapse list-group-level1" id="sub-menu">
-					<a href="#" class="list-group-item" data-parent="#sub-menu">　管理訂單</a>
-					<a href="#" class="list-group-item" data-parent="#sub-menu">　管理開團</a>
-					<a href="#" class="list-group-item" data-parent="#sub-menu">　管理跟團</a>
-					<a href="#" class="list-group-item" data-parent="#sub-menu">　管理追蹤商品</a>
-					<a href="#" class="list-group-item" data-parent="#sub-menu">　管理個人資料</a>
-				</div>
-				<a href="#sub-menu2" class="list-group-item" data-toggle="collapse"
-					data-parent="#main-menu">小農<span class="caret"></span></a>
-				<div class="collapse list-group-level1" id="sub-menu2">
-					<a href="#" class="list-group-item" data-parent="#sub-menu2">　管理商品</a>
-					<a href="#" class="list-group-item" data-parent="#sub-menu2">　商品問與答</a>
-					<a href="#" class="list-group-item" data-parent="#sub-menu2">　審核合購</a>
-					<a href="#" class="list-group-item" data-parent="#sub-menu2">　管理小農資料</a>
-				</div>
-				<a href="#sub-menu3" class="list-group-item" data-toggle="collapse"
-					data-parent="#main-menu">管理員<span class="caret"></span></a>
-				<div class="collapse list-group-level1" id="sub-menu3">
-					<a href="#" class="list-group-item" data-parent="#sub-menu3">　處理違規</a>
-				</div>
-			</div>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<div class="panel-group" id="accordion" role="tablist"
+	aria-multiselectable="true">
+	<div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="headingOne">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion"
+					href="#collapseOne" aria-expanded="true"
+					aria-controls="collapseOne">會員</a>
+			</h4>
 		</div>
-		<div class="col-md-9">
-			<!-- column 2, content goes here... -->
+		<div id="collapseOne" class="panel-collapse collapse in"
+			role="tabpanel" aria-labelledby="headingOne">
+			<ul class="list-group">
+				<li class="list-group-item">管理訂單</li>
+				<li class="list-group-item">管理開團</li>
+				<li class="list-group-item">管理跟團</li>
+				<li class="list-group-item">管理追蹤商品</li>
+				<li class="list-group-item">管理個人資料</li>
+			</ul>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="headingTwo">
+			<h4 class="panel-title">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+					href="#collapseTwo" aria-expanded="false"
+					aria-controls="collapseTwo">小農</a>
+			</h4>
+		</div>
+		<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+			aria-labelledby="headingTwo">
+			<ul class="list-group">
+				<li class="list-group-item">管理商品</li>
+				<li class="list-group-item">商品問與答</li>
+				<li class="list-group-item">審核合購</li>
+				<li class="list-group-item">管理小農資料</li>
+			</ul>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="headingThree">
+			<h4 class="panel-title">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+					href="#collapseThree" aria-expanded="false"
+					aria-controls="collapseThree">管理員</a>
+			</h4>
+		</div>
+		<div id="collapseThree" class="panel-collapse collapse"
+			role="tabpanel" aria-labelledby="headingThree">
+			<ul class="list-group">
+				<li class="list-group-item">審核小農升級</li>
+				<li class="list-group-item">處理違規</li>
+			</ul>
 		</div>
 	</div>
 </div>
