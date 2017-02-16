@@ -36,20 +36,21 @@
 									<th>開始日期</th>
 									<th>結束日期</th>
 									<th>合購地點</th>
+									<th></th>
 								</tr>
 							</thead>
 							<tbody>
 								<c:forEach var="row" items="${initJpList}">
-									<c:url value="/BackStage/FarmerCheckJointPurchaseServlet"
-										var="path">
-										<c:param name="jointPurchaseId" value="${row.jpId}" />
-									</c:url>
 									<tr>
-										<td><a href="${path}">${row.jpId}</a></td>
+										<td>${row.jpId}</td>
 										<td>${row.initId}</td>
 										<td>${row.initDate}</td>
 										<td>${row.endDate}</td>
 										<td>${row.jpLocation}</td>
+										<td><c:if test="${row.jpStatusId==4102}"> 
+												<a href="PublicJpServlet?jpId=${row.jpId}"><button
+														type="button" class="btn btn-default">發佈開團</button></a>
+											</c:if></td>
 									</tr>
 								</c:forEach>
 

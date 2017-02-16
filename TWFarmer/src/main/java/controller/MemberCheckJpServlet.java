@@ -10,30 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.JointPurchaseBean;
 import model.MemberBean;
-import model.ProductBean;
-import model.dao.ProductDAOjdbc;
+import model.dao.JointPurchaseDAOjdbc;
 
-@WebServlet("/BackStage/BackStageServlet")
-public class BackStageServlet extends HttpServlet {
+@WebServlet("/BackStage/MemberCheckJpServlet")
+public class MemberCheckJpServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
-		if (mb != null) {
-			if (mb.getIdType() == 2) {
-				ProductDAOjdbc dao1 = new ProductDAOjdbc();
-				List<ProductBean> list1 = dao1.selectBySellerId(mb.getMemberId());
-				request.setAttribute("productList", list1);
-				request.getRequestDispatcher("farmerManageProduct.jsp").forward(request, response);
-			} else if (mb.getIdType() == 3) {
-
-			} else {
-				request.getRequestDispatcher("../Order/ListOrderServlet").forward(request, response);
-			}
-		}
-
+		MemberBean mb = (MemberBean)session.getAttribute("LoginOK");
+		JointPurchaseDAOjdbc dao2 = new JointPurchaseDAOjdbc();
+		List<JointPurchaseBean> list3 = dao2.selectByInitId(mb.getMemberId());
+		request.setAttribute("initJpList", list3);
+		request.getRequestDispatcher("/BackStage/memberCheckJp.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
