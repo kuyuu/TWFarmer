@@ -28,61 +28,6 @@ public class ViolationDAOJdbc implements ViolationDAO {
 		}
 	}
 
-	public static void main(String[] args) {
-		ViolationDAO dao = new ViolationDAOJdbc();
-
-		// 新增
-//		ViolationBean violationBean1 = new ViolationBean();
-//
-//		violationBean1.setReportedId(1003);
-//		violationBean1.setReporterId(1002);
-//		violationBean1.setVioTitle("請橘子全爛掉了");
-//		violationBean1.setVioContent("橘子送來時竟然全爛掉了，這是我頭一次遇到這種情形，太誇張了吧！請管理員處理一下，謝謝！");
-//		violationBean1.setCreateDate(java.sql.Timestamp.valueOf("2017-01-18 19:22:35"));
-//		violationBean1.setProcessDate(java.sql.Timestamp.valueOf("2017-01-19 10:10:10"));
-//		violationBean1.setTicketResult("經查證屬實，已將該商品下架");
-//		violationBean1.setTicketStatue(1);
-//
-//		ViolationBean q = dao.insert(violationBean1);
-//		System.out.println(q);
-
-		// 修改
-		ViolationBean violationBean2 = new ViolationBean();
-
-		violationBean2.setTicketId(5101);
-		violationBean2.setReportedId(1003);
-		violationBean2.setReporterId(1002);
-		violationBean2.setVioTitle("請橘子全爛掉了");
-		violationBean2.setVioContent("橘子送來時竟然全爛掉了，這是我頭一次遇到這種情形，太誇張了吧！請管理員處理一下，謝謝！ooo");
-		violationBean2.setCreateDate(java.sql.Timestamp.valueOf("2017-01-18 19:22:35"));
-		violationBean2.setProcessDate(java.sql.Timestamp.valueOf("2017-01-19 10:10:10"));
-		violationBean2.setTicketResult("經查證屬實，已將該商品下架");
-		violationBean2.setTicketStatue(1);
-
-		ViolationBean q = dao.update(violationBean2);
-		System.out.println(q);
-
-		// 刪除
-		// dao.delete(5101);
-
-		// 查詢單筆
-//		 ViolationBean violationBean3 = dao.select(5101);
-//		 System.out.print(violationBean3.getTicketId() + ",");
-//		 System.out.print(violationBean3.getReportedId() + ",");
-//		 System.out.print(violationBean3.getReporterId() + ",");
-//		 System.out.print(violationBean3.getVioTitle() + ",");
-//		 System.out.print(violationBean3.getVioContent() + ",");
-//		 System.out.print(violationBean3.getCreateDate() + ",");
-//		 System.out.print(violationBean3.getProcessDate() + ",");
-//		 System.out.print(violationBean3.getTicketResult()+ ",");
-//		 System.out.println(violationBean3.getTicketStatue());
-
-		// 查詢全部
-//		List<ViolationBean> beans = dao.select();
-//		System.out.println("bean=" + beans);
-
-	}
-
 	private static final String INSERT = "insert into Violation (ReportedID, ReporterID, VioTitle, VioContent, CreateDate, ProcessDate, TicketResult, TicketStatue) values (?, ?, ?, ?, ?, ?, ?, ?)";
 
 	@Override
@@ -93,15 +38,10 @@ public class ViolationDAOJdbc implements ViolationDAO {
 			conn = dataSource.getConnection(); 
 			PreparedStatement stmt = conn.prepareStatement(INSERT);
 			if (violationBean != null) {
-
 				stmt.setInt(1, violationBean.getReportedId());
-
 				stmt.setInt(2, violationBean.getReporterId());
-
 				stmt.setString(3, violationBean.getVioTitle());
-
 				stmt.setString(4, violationBean.getVioContent());
-
 				java.util.Date createDate = violationBean.getCreateDate();
 				if (createDate != null) {
 					long time = createDate.getTime();
@@ -145,11 +85,8 @@ public class ViolationDAOJdbc implements ViolationDAO {
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
 
 			stmt.setInt(1, violationBean.getReportedId());
-
 			stmt.setInt(2, violationBean.getReporterId());
-
 			stmt.setString(3, violationBean.getVioTitle());
-
 			stmt.setString(4, violationBean.getVioContent());
 
 			java.util.Date createDate = violationBean.getCreateDate();
@@ -169,9 +106,7 @@ public class ViolationDAOJdbc implements ViolationDAO {
 			}
 
 			stmt.setString(7, violationBean.getTicketResult());
-
 			stmt.setInt(8, violationBean.getTicketStatue());
-
 			stmt.setInt(9, violationBean.getTicketId());
 			
 			int i = stmt.executeUpdate();
@@ -246,6 +181,36 @@ public class ViolationDAOJdbc implements ViolationDAO {
 		List<ViolationBean> result = null;
 		try (Connection conn = dataSource.getConnection(); 
 				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
+				ResultSet rset = stmt.executeQuery();) {
+
+			result = new ArrayList<ViolationBean>();
+			while (rset.next()) {
+				ViolationBean violationBean = new ViolationBean();
+				violationBean.setTicketId(rset.getInt("ticketId"));
+				violationBean.setReportedId(rset.getInt("reportedId"));
+				violationBean.setReporterId(rset.getInt("reporterId"));
+				violationBean.setVioTitle(rset.getString("vioTitle"));
+				violationBean.setVioContent(rset.getString("vioContent"));
+				violationBean.setCreateDate(rset.getTimestamp("createDate"));
+				violationBean.setProcessDate(rset.getTimestamp("processDate"));
+				violationBean.setTicketResult(rset.getString("ticketResult"));
+				violationBean.setTicketStatue(rset.getInt("ticketStatue"));
+
+				result.add(violationBean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	private static final String SELECT_ALL_UNTREATED = "select * from Violation where TicketStatue=0";
+	
+	@Override
+	public List<ViolationBean> selectAllUntreated() {
+		List<ViolationBean> result = null;
+		try (Connection conn = dataSource.getConnection(); 
+				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL_UNTREATED);
 				ResultSet rset = stmt.executeQuery();) {
 
 			result = new ArrayList<ViolationBean>();
