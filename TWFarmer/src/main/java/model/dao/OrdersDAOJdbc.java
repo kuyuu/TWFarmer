@@ -181,7 +181,7 @@ public class OrdersDAOJdbc implements OrdersDAO {
 		return result;
 	}
 
-	private static final String UPDATE = "UPDATE Orders set SellerID=?, BuyerID=?, TotalFreight=?, TotalPrice=?, OrderDate=?, ShipDate=?, ShipName=?, ShipPostalCode=?, ShipDistrict=?, ShipAddress=?, OrderStatusID=?, RatingBuyer=?, RatingSeller=?, Remittance=?, RemittanceDate=?, RemittanceBank=?, RemittanceAcc=? WHERE id=?";
+	private static final String UPDATE = "UPDATE Orders set SellerID=?, BuyerID=?, TotalFreight=?, TotalPrice=?, OrderDate=?, ShipDate=?, ShipName=?, ShipPostalCode=?, ShipDistrict=?, ShipAddress=?, OrderStatusID=?, RatingBuyer=?, RatingSeller=?, Remittance=?, RemittanceDate=?, RemittanceBank=?, RemittanceAcc=? WHERE OrderID=?";
 
 	@Override
 	public OrdersBean update(OrdersBean ordersBean) {
