@@ -50,7 +50,7 @@ public class QnAInsertServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else {
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		}
 		
 		int productId =0 ;

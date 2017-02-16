@@ -1,9 +1,12 @@
 package model;
 
 public class FarmerBean {
-	String farmerId;
-	int memberId;
-String farmerIntro;
+	private String farmerId;
+	private int memberId;
+	private String farmerIntro;
+	private String bank;
+	private String bankAccount;
+	
 	@Override
 	public boolean equals(Object obj) {
 		if(obj!=null && (obj instanceof FarmerBean)) {
@@ -18,21 +21,7 @@ String farmerIntro;
 	public String toString() {
 		return farmerId+","+ memberId +","+farmerIntro;
 	}
-	/* Referenced from SQL Server's TWFarmer database
-	 * MemberID int PRIMARY KEY IDENTITY(1001,1) NOT NULL,
-	Account varchar(20) NOT NULL,
-	Password varchar(20) NOT NULL,
-	Name nvarchar(20) NOT NULL,
-	PostalCode char(3),
-	District nchar(10),
-	Address nvarchar(50) ,
-	Phone varchar(20), 
-	Email varchar(50) NOT NULL,
-	IDNumber varchar(10) NOT NULL,
-	BirthDate datetime,
-	Gender varchar(1),
-	IDType int NOT NULL DEFAULT 1,
-	Rating int,*/
+
 	public String getFarmerId() {
 		return farmerId;
 	}
@@ -53,6 +42,18 @@ String farmerIntro;
 	}
 	public void setFarmerIntro(String farmerIntro) {
 		this.farmerIntro = farmerIntro;
+	}
+	public String getBank() {
+		return bank;
+	}
+	public void setBank(String bank) {
+		this.bank = bank;
+	}
+	public String getBankAccount() {
+		return bankAccount;
+	}
+	public void setBankAccount(String bankAccount) {
+		this.bankAccount = bankAccount;
 	}
 	
 

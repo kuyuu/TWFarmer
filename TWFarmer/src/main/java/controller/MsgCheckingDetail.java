@@ -9,7 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.MemberBean;
 import model.MsgBean;
+import model.dao.MemberDAOJdbc;
 import model.dao.MsgDAOJdbc;
 
 @WebServlet("/Msg/MsgCheckingDetail")
@@ -36,13 +40,25 @@ public class MsgCheckingDetail extends HttpServlet {
 		
 		MsgDAOJdbc dao = new MsgDAOJdbc();
 		MsgBean bean = dao.select(msgId);
-		if ("reply".equals(value)) {
-			request.getRequestDispatcher("MsgForm.jsp").forward(request, response);
-			response.sendRedirect("/MsgForm.jsp");
+		if ("reply".equals(value)) {						
+			request.setCharacterEncoding("UTF-8");
+			HttpSession session = request.getSession();
+			MemberDAOJdbc dao2 = new MemberDAOJdbc();
+			MemberBean bean2 = new MemberBean();
+			int msgReaderId = dao.select(msgId).getMsgWriterId();
+			String replyTitle = dao.select(msgId).getMsgTitle();
+			bean.setMsgTitle(replyTitle);
+			String readerAccount = dao2.select(msgReaderId).getAccount();
+			bean2.setAccount(readerAccount);
+			session.setAttribute("msgReTitle", bean);
+			session.setAttribute("memberBeanReader", bean2);
+			request.getRequestDispatcher("MsgFormReply.jsp").forward(request, response);
+//			response.sendRedirect("/MsgFormReply.jsp");		
 		} else if("torch".equals(value)) {
 			dao.delete(msgId);
 			request.getRequestDispatcher("MsgDeleted.jsp").forward(request, response);
-			response.sendRedirect("/MsgDeleted.jsp");
+			return;
+//			response.sendRedirect("/MsgDeleted.jsp");
 		}
 	}
 

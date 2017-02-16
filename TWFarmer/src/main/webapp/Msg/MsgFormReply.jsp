@@ -51,14 +51,15 @@
 								</div>
 								<br>
 								<div class="form-group ">
-									<label for="msgReaderId">收件人帳號</label> <br>
-									<div class="">
-										<input id='account' value="${param.account}" type="text"
-											name="account" size="50" class="form-control" placeholder="請在此輸入收件人帳號"/>
-										<div style="color: #FF0000; display: inline">
-											${errors.account}</div>
-									</div>
-								</div>
+							<label for="msgReaderId">收件人帳號</label>
+							<br>
+							<div class="form-group "><input type="text"
+								value="${sessionScope.memberBeanReader.account}" class="form-control"
+								disabled="disabled" /> <input type="hidden" class="form-control"
+								value="${sessionScope.memberBeanReader.account}" name="account" />
+								<div style="color: #FF0000; display: inline">
+									${errors.account}</div></div>
+						</div>
 								<%-- <tr>
 							<td width="10%">收件人</td>
 							<br>
@@ -72,7 +73,7 @@
 								<div>
 									<label for="msgTitle">標題</label> <br>
 									<div class="form-group ">
-										<input id='msgTitle' value="${param.msgTitle}" type="text"
+										<input id='msgTitle' value="Re:${sessionScope.msgReTitle.msgTitle}" type="text"
 											name="msgTitle" size="50" class="form-control" placeholder="請在此輸入主標題"/>
 										<div style="color: #FF0000; display: inline">
 											${errors.msgTitle}</div>
