@@ -41,7 +41,7 @@
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-md-2">
 				<div class="list-group">
 					<a href="/TWFarmer/Msg/MsgCheckingServlet" class="list-group-item">收件匣</a>
 					<a href="/TWFarmer/Msg/MsgForm.jsp"
@@ -49,7 +49,7 @@
 
 				</div>
 			</div>
-			<div class="jumbotrom col-md-offset-3">
+			<div class="jumbotrom col-md-offset-2">
 				<h1>寄件匣</h1>
 				<div class="text" style="color: #0F7C58; font-weight: bold">${sessionScope.LoginOK.name}，信件已成功寄出！</div>
 					以下是信件內容<br> <br>

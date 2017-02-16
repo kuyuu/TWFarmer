@@ -22,14 +22,14 @@
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-md-2">
 				<div class="list-group">
 					<a href="/TWFarmer/Msg/MsgCheckingServlet" class="list-group-item">收件匣</a>
 					<a href="/TWFarmer/Msg/MsgForm.jsp" class="list-group-item active">寄件匣</a>
 
 				</div>
 			</div>
-			<div class="jumbotrom col-md-offset-3">
+			<div class="jumbotrom col-md-offset-2">
 				<h1>寄件匣</h1>
 				<!-- 		Msg Outbox    Start    -->
 				<div>

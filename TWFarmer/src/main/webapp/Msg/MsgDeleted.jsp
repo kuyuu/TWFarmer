@@ -40,7 +40,7 @@
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-md-2">
 				<div class="list-group">
 					<a href="/TWFarmer/Msg/MsgCheckingServlet"
 						class="list-group-item active">收件匣</a> <a
@@ -48,7 +48,7 @@
 
 				</div>
 			</div>
-			<div class="jumbotrom col-md-offset-3">
+			<div class="jumbotrom col-md-offset-2">
 				<h1>收件匣</h1>
 				<c:choose>
 					<c:when test="${not empty msgList}">

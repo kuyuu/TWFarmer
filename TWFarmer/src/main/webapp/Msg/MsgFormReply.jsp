@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,19 +23,19 @@
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-md-2">
 				<div class="list-group">
 					<a href="/TWFarmer/Msg/MsgCheckingServlet" class="list-group-item">收件匣</a>
 					<a href="/TWFarmer/Msg/MsgForm.jsp" class="list-group-item active">寄件匣</a>
 
 				</div>
 			</div>
-			<div class="jumbotrom col-md-offset-3">
+			<div class="jumbotrom col-md-offset-2">
 				<h1>寄件匣</h1>
 				<!-- 		Msg Outbox    Start    -->
 				<div>
 					<div class="text" style="color: #0F7C58; font-weight: bold">${sessionScope.LoginOK.name}，歡迎回家！</div>
-					請開始撰寫您的新信<br> <br>
+					請開始撰寫您給${sessionScope.memberBeanReader.name}的回信<br> <br>
 					<div class="row">
 						<div class="col-md-12">
 
@@ -83,8 +84,9 @@
 								<div>
 									<label for="msgContent">內文</label> <br>
 									<div class="form-group ">
-										<textarea rows="10" cols="40" name="msgContent"
-											id="msgContent" class="form-control" placeholder="請輸入內文">${param.msgContent}</textarea>
+										<textarea rows="10" cols="40" name="msgContent" 
+											id="msgContent" class="form-control" placeholder="請輸入內文">=======[${sessionScope.memberBeanReader.name}]於<fmt:formatDate value="${sessionScope.msgReTitle.msgTime}"
+												pattern="yyyy年MM月dd日 HH:mm" />寫道==========================================&#013&#013${sessionScope.msgReTitle.msgContent}&#013&#013==============================================================================&#013</textarea>
 										<div style="color: #FF0000; display: inline">
 											${errors.msgContent}</div>
 										</td>
