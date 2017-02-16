@@ -20,64 +20,7 @@
 <body>
 	<!-- 上方選單start -->
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<nav class="navbar navbar-default" role="navigation">
-				<div class="navbar-header">
-
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span><span
-							class="icon-bar"></span><span class="icon-bar"></span><span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="../index.jsp">台灣小農</a>
-				</div>
-
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="/TWFarmer/Order/OrderTemp.jsp">購買蔬果</a></li>
-						<li><a href="#">合購專區</a></li>
-						<li><a href="#">購物車</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<!-- <li><a href="#">註冊</a></li> -->
-						<li><a href="#">登出</a></li>
-					</ul>
-					<form class="navbar-form navbar-right" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control">
-						</div>
-						<button type="submit" class="btn btn-default">搜尋</button>
-					</form>
-				</div>
-
-				</nav>
-			</div>
-		</div>
-
-		<!-- 
-		<div class="row">
-					<div class="col-md-2"></div>
-					<div class="col-md-8">
-
-						<div class="collapse navbar-collapse"
-							id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav">
-								<li><a href="/TWFarmer/Msg/MsgCheck.jsp">收件匣</a></li>
-
-								<li><a href="/TWFarmer/Msg/MsgForm.jsp">寄信匣</a></li>
-							</ul>
-						</div>
-
-					</div>
-					<div class="col-md-2"></div>
-				</div>
-		
-		-->
-
-
+		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
 			<div class="col-md-3">
 				<div class="list-group">
@@ -88,36 +31,37 @@
 				</div>
 			</div>
 			<div class="jumbotrom col-md-offset-3">
-				<h1>寄件匣</h1>
+				<h1>寄件匣 - 撰寫新信</h1>
 				<!-- 		Msg Outbox    Start    -->
 				<div>
 					<div class="text" style="color: #0F7C58; font-weight: bold">${sessionScope.LoginOK.name}，歡迎回家！</div>
 					請開始撰寫您的新信<br> <br>
-					<form action="<c:url value="MsgCreatingServlet"/>" method="POST">
-						<tr>
-							<td width="10%">寄件人帳號</td>
-							<br>
-							<td style="width: 80px"><input id='msgWriterId'
-								value="${sessionScope.LoginOK.account}" type="text" size="50"
-								disabled /></td>
-							<td><input type="hidden"
-								value="${sessionScope.LoginOK.memberId}" type="text"
-								name="msgWriterId" />
-								<div style="color: #FF0000; display: inline">
-									${errors.msgWriterId}</div></td>
-						</tr>
-						<br> <br>
-						<tr>
-						<tr>
-							<td width="10%">收件人帳號</td>
-							<br>
-							<td style="width: 80px"><input id='account'
-								value="${param.account}" type="text" name="account" size="50" />
-								<div style="color: #FF0000; display: inline">
-									${errors.account}</div></td>
-						</tr>
+					<div class="row">
+						<div class="col-md-12">
 
-						<%-- <tr>
+							<form action="<c:url value="MsgCreatingServlet"/>" method="POST">
+								<div>
+									<label for="msgWriterId">寄件人帳號</label> <br>
+									<div class="">
+										<input id='msgWriterId'
+											value="${sessionScope.LoginOK.account}" type="text" size="50"
+											disabled />
+									</div>
+									<input type="hidden" value="${sessionScope.LoginOK.memberId}"
+										type="text" name="msgWriterId" />
+									<div style="color: #FF0000; display: inline">
+										${errors.msgWriterId}</div>
+								</div>
+								<br>
+								<div>
+									<label for="msgReaderId">收件人帳號</label>
+										<br>
+										<div class="">
+											<input id='account' value="${param.account}" type="text"
+												name="account" size="50" />
+											<div style="color: #FF0000; display: inline">
+												${errors.account}</div>
+										</div></div> <%-- <tr>
 							<td width="10%">收件人</td>
 							<br>
 							<td style="width: 80px"><input id='msgReaderId'
@@ -125,36 +69,36 @@
 								size="50" />
 								<div style="color: #FF0000; display: inline">
 									${errors.msgReaderId}</div></td>
-						</tr> --%>
-						<br> <br>
-						<tr>
-							<td width="10%">標題</td>
-							<br>
-							<td style="width: 80px"><input id='msgTitle'
-								value="${param.msgTitle}" type="text" name="msgTitle" size="50" />
-								<div style="color: #FF0000; display: inline">
-									${errors.msgTitle}</div></td>
-						</tr>
-						<br> <br>
-						<tr>
-							<td width="10%">內文</td>
-							<br>
-							<td><textarea rows="10" cols="40" name="msgContent"
-									id="msgContent">${param.msgContent}</textarea>
-								<div style="color: #FF0000; display: inline">
-									${errors.msgContent}</div></td>
-						</tr>
-						<br>
-						<tr>
-							<center>
-								<div class="form-group">
-									<button type="submit" class="btn btn-default">送出</button>
-									<button type="button" class="btn btn-default" id="clearMsg"
-										onclick="ClearFields();">清除</button>
-								</div>
-							</center>
-						</tr>
-					</form>
+						</tr> --%> <br> 
+										<div>
+											<label for="msgTitle">標題</label>
+											<br>
+											<div class=""><input id='msgTitle'
+												value="${param.msgTitle}" type="text" name="msgTitle"
+												size="50" />
+												<div style="color: #FF0000; display: inline">
+													${errors.msgTitle}</div></div>
+										</div> <br> <br>
+										<div>
+											<label for="msgContent">內文</label>
+											<br>
+											<div><textarea rows="10" cols="40" name="msgContent"
+													id="msgContent">${param.msgContent}</textarea>
+												<div style="color: #FF0000; display: inline">
+													${errors.msgContent}</div></td>
+										</div></div> <br>
+										<div>
+											<center>
+												<div class="form-group">
+													<button type="submit" class="btn btn-default">送出</button>
+													<button type="button" class="btn btn-default" id="clearMsg"
+														onclick="ClearFields();">清除</button>
+												</div>
+											</center>
+										</div>
+							</form>
+						</div>
+					</div>
 				</div>
 				<caption>
 					<h2>貼心提醒：文長不可超過500字喔！ᶘ ᵒᴥᵒᶅ</h2>
@@ -172,8 +116,6 @@
 			document.getElementById("msgContent").value = "";
 		}
 	</script>
-
-
 </body>
 
 
