@@ -14,27 +14,19 @@
 <table>
 	<tr>
 		<td>農民證號:</td>
-		<td>${farmerBean.farmerId}</td>
+		<td>${insert.farmerId}</td>
 	</tr>
 	<tr>
-		<td>會員帳號:</td>
-		<td>${memberBean.account}</td>
+		<td>會員銀行代碼:</td>
+		<td>${insert.bank}</td>
 	</tr>
 	<tr>
-		<td>會員姓名:</td>
-		<td>${memberBean.name}</td>
+		<td>會員銀行帳號:</td>
+		<td>${insert.bankAccount}</td>
 	</tr>
 	<tr>
-		<td>電子信箱:</td>
-		<td>${memberBean.email}</td>
-	</tr>
-	<tr>
-		<td>聯絡電話:</td>
-		<td>${memberBean.phone}</td>
-	</tr>
-		<tr>
 		<td>賣場介紹:</td>
-		<td>${farmerBean.farmerIntro}</td>
+		<td>${insert.farmerIntro}</td>
 	</tr>
 </table>
 <center><h2 size="+2">請耐心等候管理員審核<br>祝您有美好的一天</h2></center>

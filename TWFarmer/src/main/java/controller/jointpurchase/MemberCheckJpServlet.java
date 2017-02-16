@@ -1,4 +1,4 @@
-package controller;
+package controller.jointpurchase;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,23 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.JPFollowerBean;
+import model.JointPurchaseBean;
 import model.MemberBean;
-import model.dao.JPFollowerDAOJdbc;
+import model.dao.JointPurchaseDAOjdbc;
 
-@WebServlet("/BackStage/CheckJpFollowerServlet")
-public class CheckJpFollowerServlet extends HttpServlet {
+@WebServlet("/BackStage/MemberCheckJpServlet")
+public class MemberCheckJpServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
-
-		JPFollowerDAOJdbc dao = new JPFollowerDAOJdbc();
-		List<JPFollowerBean> list = dao.selectByBuyerId(mb.getMemberId());
-		request.setAttribute("jpFollowerList", list);
-		request.getRequestDispatcher("/BackStage/memberCheckJpFollower.jsp").forward(request, response);
-
+		MemberBean mb = (MemberBean)session.getAttribute("LoginOK");
+		JointPurchaseDAOjdbc dao2 = new JointPurchaseDAOjdbc();
+		List<JointPurchaseBean> list3 = dao2.selectByInitId(mb.getMemberId());
+		request.setAttribute("initJpList", list3);
+		request.getRequestDispatcher("/BackStage/memberCheckJp.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

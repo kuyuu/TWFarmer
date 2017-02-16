@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:if test="${empty LoginOK}">
-	<c:set var="target" value="${pageContext.request.servletPath}"
+	<c:set var="target" value="/ProductServlet?productId=${productBean.productId}"
 		scope="session" />
 </c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -53,7 +54,7 @@
 }
 
 * /
-	/* The dots/bullets/indicators */     
+	/* The dots/bullets/indicators */      
 .dot {
 	height: 13px;
 	width: 13px;
@@ -107,9 +108,9 @@ to {
 </head>
 <body>
 	<div class="container">
-	<jsp:include page="/common/menu.jsp" />
-		<div class="row">
-			<div class="container">
+		<jsp:include page="/common/menuProduct.jsp" />
+		<div class="row jumbotron" >
+<!-- 			<div class="jumbotron"> -->
 				<div class="col-md-4">
 					<%-- <c:forEach items="${picList}" var="x">
 								<img src="img/${x.pictureName}" style="width: 100%;" />
@@ -172,8 +173,20 @@ to {
 							<h3>問與答</h3>
 							<c:forEach var="row" items="${QnA}">
 								<div>
-									<p style="background: #DDDDDD">賣家提問:${row.qnAContent}</p>
-									<p>${row.reQnA}</p>
+									<%-- 									<p style="background: #DDDDDD">賣家提問:${row.qnAContent}</p> --%>
+									<%-- 									<p>　　${row.reQnA}</p> --%>
+									<table style="line-height: 35px">
+										<tr style="background: #DDDDDD">
+											<td style="width: 70%; font-size: 20px">賣家提問:${row.qnAContent}</td>
+											<td style="width: 30%"><fmt:formatDate
+													value="${row.queryDate}" pattern="yyyy-MM-dd HH:mm" /></td>
+										</tr>
+										<tr>
+											<td style="width: 80%; font-size: 20px">${row.reQnA}</td>
+											<td style="width: 20%"><fmt:formatDate
+													value="${row.reDate}" pattern="yyyy-MM-dd HH:mm" /></td>
+										</tr>
+									</table>
 								</div>
 							</c:forEach>
 						</c:if>
@@ -190,7 +203,7 @@ to {
 						</div>
 					</form>
 				</div>
-			</div>
+<!-- 			</div> -->
 		</div>
 
 	</div>
