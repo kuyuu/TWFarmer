@@ -19,7 +19,7 @@
 				<div class="list-group">
 					<a href="#" class="list-group-item active">管理商品</a>
 					<a href="../BackStage/SelectQnaServlet" class="list-group-item">商品問與答</a>
-					<a href="#" class="list-group-item">審核合購</a>
+					<a href="FarmerCheckJpServlet" class="list-group-item">審核合購</a>
 					<a href="#" class="list-group-item">管理賣場資料</a>
 					<a href="#" class="list-group-item">管理個人資料</a>
 				</div>
@@ -27,6 +27,9 @@
 			<div class="col-md-9">
 				<div class="jumbotron">
 					<h3>管理商品</h3>
+<!-- 					<h5><button type="button" class="btn btn-default">新增商品</button></h5> -->
+<!-- 					<a href="../ProductMaintain/ProductInsert.jsp" class="btn btn-primary btn-lg disabled" role="button">新增商品</a> -->
+					<a class="btn btn-default" href="../ProductMaintain/InsertProductServlet" role="button">新增商品</a>
 					<c:if test="${not empty productList}">
 						<table class="table table-bordered">
 							<thead>
@@ -37,6 +40,7 @@
 									<th>價格</th>
 									<th>單位</th>
 									<th>運費</th>
+									<th>商品狀態</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -51,6 +55,7 @@
 										<td>${row.price}</td>
 										<td>${row.unit}</td>
 										<td>${row.freight}</td>
+										<td>${row.productStatusName}</td>
 									</tr>
 								</c:forEach>
 							</tbody>

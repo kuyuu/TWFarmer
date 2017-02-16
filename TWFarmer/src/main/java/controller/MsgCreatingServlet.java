@@ -25,7 +25,6 @@ public class MsgCreatingServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("doget!! begin");
 		doPost(request, response);
 	}
 
@@ -116,7 +115,7 @@ public class MsgCreatingServlet extends HttpServlet {
 			session.setAttribute("msgBean", msgBean);
 			
 			request.getRequestDispatcher("MsgFormSuccess.jsp").forward(request, response);
-			response.sendRedirect("/MsgFormSuccess.jsp");
+//			response.sendRedirect("/MsgFormSuccess.jsp");
 	
 	}
 

@@ -38,64 +38,7 @@
 <body>
 	<!-- 上方選單start -->
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<nav class="navbar navbar-default" role="navigation">
-				<div class="navbar-header">
-
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span><span
-							class="icon-bar"></span><span class="icon-bar"></span><span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="../index.jsp">台灣小農</a>
-				</div>
-
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a href="/TWFarmer/Order/OrderTemp.jsp">購買蔬果</a></li>
-						<li><a href="#">合購專區</a></li>
-						<li><a href="#">購物車</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<!-- <li><a href="#">註冊</a></li> -->
-						<li><a href="#">登出</a></li>
-					</ul>
-					<form class="navbar-form navbar-right" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control">
-						</div>
-						<button type="submit" class="btn btn-default">搜尋</button>
-					</form>
-				</div>
-
-				</nav>
-			</div>
-		</div>
-
-		<!-- 
-		<div class="row">
-					<div class="col-md-2"></div>
-					<div class="col-md-8">
-
-						<div class="collapse navbar-collapse"
-							id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav">
-								<li><a href="/TWFarmer/Msg/MsgCheck.jsp">收件匣</a></li>
-
-								<li><a href="/TWFarmer/Msg/MsgForm.jsp">寄信匣</a></li>
-							</ul>
-						</div>
-
-					</div>
-					<div class="col-md-2"></div>
-				</div>
-		
-		-->
-
-
+		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
 			<div class="col-md-3">
 				<div class="list-group">
@@ -131,8 +74,10 @@
 								<td style="width: 180px">${msgBean.msgTitle}</td>
 								<td style="width: 250px; text-align: left">&nbsp;${msgBean.msgTime}</td>
 								<td style="width: 250px; text-align: left">${msgBean.msgContent}</td>
-								<td><button type="button" class="btn btn-primary" onclick="location.href='/TWFarmer/Msg/MsgCheckingDetail?msgId=${msgBean.msgId}&value=reply'">回覆</button></td>
-								<td><button type="button" class="btn btn-danger" onclick="location.href='/TWFarmer/Msg/MsgCheckingDetail?msgId=${msgBean.msgId}&value=torch'">刪除</button></td>
+								<td><button type="button" class="btn btn-primary"
+										onclick="location.href='/TWFarmer/Msg/MsgCheckingDetail?msgId=${msgBean.msgId}&value=reply'">回覆</button></td>
+								<td><button type="button" class="btn btn-danger"
+										onclick="location.href='/TWFarmer/Msg/MsgCheckingDetail?msgId=${msgBean.msgId}&value=torch'">刪除</button></td>
 							</tr>
 							<c:if test="${vs.last}">
 								<c:out value="</table>" escapeXml='false' />
@@ -140,14 +85,37 @@
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
-						<center>訊息${msgBean.msgTitle}已經刪除</center>
-						<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-					<center><div class="list-group">
-					<a href="/TWFarmer/Msg/MsgCheckingServlet" class="list-group-item">回到收件匣</a>
-				</div></center>
+						<center>${sessionScope.LoginOK.name}，您的訊息已經刪除。<br>
+							<br>若發現站上有會員對您造成困擾，請不吝使用違規檢舉系統。
+						</center>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<center>
+							<div class="list-group">
+								<a href="/TWFarmer/Msg/MsgCheckingServlet"
+									class="list-group-item">回到收件匣</a> <a href="/TWFarmer/Violation/violationForm.jsp"
+									class="list-group-item">我要檢舉違規!</a>
+							</div>
+						</center>
 					</c:otherwise>
 				</c:choose>
-				
+
 			</div>
 
 

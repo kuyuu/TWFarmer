@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import model.MemberBean;
 import model.ProductBean;
 import model.ProductDiscountBean;
 import model.ProductPicBean;
@@ -38,10 +39,10 @@ public class ProcessProductServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		// 取出session物件
 		HttpSession session = request.getSession();
+		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		ProductBean productBean = new ProductBean();
 		// InsertProductServlet.java 第59行setAttribute
 		productBean = (ProductBean) session.getAttribute("product");
-		System.out.println(productBean.getSellerId());
 
 		// ProductTypeBean productTypeBean = new ProductTypeBean();
 		// UnitBean unitBean = new UnitBean();
@@ -292,7 +293,7 @@ public class ProcessProductServlet extends HttpServlet {
 		// 4.呼叫Model(扮演封裝資料的角色)============================================
 
 		// 賣家ID SellerID (FK MemberID)
-		productBean = (ProductBean) session.getAttribute("product");
+		productBean.setSellerId(mb.getMemberId());
 		// 產地
 		productBean.setOrigin(origin);
 		// 商品名稱
