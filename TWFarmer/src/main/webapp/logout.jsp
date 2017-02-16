@@ -9,10 +9,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>登出</title>
+<title>臺灣小農-您已登出</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+
 </head>
 <body>
-您已經登出<P/>
-<a href="index.jsp">回首頁</a>
+<div class="container-fluid"  style="padding: 5% 10% 10% 10%;">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-5">
+				</div>
+				<div class="col-md-2">
+					<h3 class="text-center text-info">
+						您已經登出
+					</h3> 
+					<a href="index.jsp" class="btn btn-success btn-default btn-block" type="button">按我回首頁</a>
+				</div>
+				<div class="col-md-5">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
