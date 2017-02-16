@@ -118,7 +118,7 @@ public class NewFarmerServlet extends HttpServlet {
 					
 		if(errors!=null && !errors.isEmpty()) {
 			request.getRequestDispatcher(
-					"/ToBeFarmer/newFarmer.jsp").forward(request, response);
+					"/ToBeFarmer/UpToFarmer.jsp").forward(request, response);
 			return;
 		}
 				
@@ -148,7 +148,7 @@ public class NewFarmerServlet extends HttpServlet {
 		
 		if(errors!=null && !errors.isEmpty()) {
 			request.getRequestDispatcher(
-					"/ToBeFarmer/newFarmer.jsp").forward(request, response);
+					"/ToBeFarmer/UpToFarmer.jsp").forward(request, response);
 			return;
 		}
 
