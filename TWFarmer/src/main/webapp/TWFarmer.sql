@@ -48,7 +48,7 @@ CREATE TABLE Farmer (
 	MemberID int REFERENCES Member(MemberID) NOT NULL,
 	FarmerIntro varchar(600),
 	Bank nvarchar(10),
-	BankAccount varchar(5),
+	BankAccount varchar(20),
 )
 GO
 
