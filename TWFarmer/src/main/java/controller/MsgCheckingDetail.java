@@ -46,8 +46,11 @@ public class MsgCheckingDetail extends HttpServlet {
 			MemberDAOJdbc dao2 = new MemberDAOJdbc();
 			MemberBean bean2 = new MemberBean();
 			int msgReaderId = dao.select(msgId).getMsgWriterId();
+			String replyTitle = dao.select(msgId).getMsgTitle();
+			bean.setMsgTitle(replyTitle);
 			String readerAccount = dao2.select(msgReaderId).getAccount();
 			bean2.setAccount(readerAccount);
+			session.setAttribute("msgReTitle", bean);
 			session.setAttribute("memberBeanReader", bean2);
 			request.getRequestDispatcher("MsgFormReply.jsp").forward(request, response);
 //			response.sendRedirect("/MsgFormReply.jsp");		

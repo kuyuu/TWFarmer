@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,7 +45,7 @@
 				<div class="list-group">
 					<a href="/TWFarmer/Msg/MsgCheckingServlet"
 						class="list-group-item active">收件匣</a> <a
-						href="/TWFarmer/Msg/MsgCreatingServlet" class="list-group-item">寄件匣</a>
+						href="/TWFarmer/Msg/MsgForm.jsp" class="list-group-item">寄件匣</a>
 
 				</div>
 			</div>
@@ -74,7 +75,10 @@
 								<td style="width: 80px">${msgBean.writerName}</td>
 								<td style="width: 80px">${msgBean.writerAccount}</td>
 								<td style="width: 80px">${msgBean.msgTitle}</td>
-								<td style="width: 250px; text-align: left">&nbsp;${msgBean.msgTime}</td>
+								<td style="width: 250px; text-align: left"><fmt:formatDate value="${msgBean.msgTime}"
+												pattern="yyyy年MM月dd日 HH:mm" />
+				
+								</td>
 								<td style="width: 250px; text-align: left">${msgBean.msgContent}</td>
 								<td><button type="button" class="btn btn-primary" onclick="location.href='/TWFarmer/Msg/MsgCheckingDetail?msgId=${msgBean.msgId}&value=reply'">回覆</button></td>
 								<td><button type="button" class="btn btn-danger" onclick="location.href='/TWFarmer/Msg/MsgCheckingDetail?msgId=${msgBean.msgId}&value=torch'">刪除</button></td>

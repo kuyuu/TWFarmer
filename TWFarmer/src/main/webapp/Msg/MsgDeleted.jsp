@@ -44,7 +44,7 @@
 				<div class="list-group">
 					<a href="/TWFarmer/Msg/MsgCheckingServlet"
 						class="list-group-item active">收件匣</a> <a
-						href="/TWFarmer/Msg/MsgCreatingServlet" class="list-group-item">寄件匣</a>
+						href="/TWFarmer/Msg/MsgForm.jsp" class="list-group-item">寄件匣</a>
 
 				</div>
 			</div>
