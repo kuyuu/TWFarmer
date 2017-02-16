@@ -16,6 +16,10 @@ public class OrdersBean {
 	private int orderStatusId;
 	private int ratingBuyer;
 	private int ratingSeller;
+	private int remittance;
+	private Date remittanceDate;
+	private String remittanceBank;
+	private String remittanceAcc;
 	
 	@Override
 	public String toString() {
@@ -159,6 +163,38 @@ public class OrdersBean {
 
 	public void setRatingSeller(int ratingSeller) {
 		this.ratingSeller = ratingSeller;
+	}
+
+	public int getRemittance() {
+		return remittance;
+	}
+
+	public void setRemittance(int remittance) {
+		this.remittance = remittance;
+	}
+
+	public Date getRemittanceDate() {
+		return remittanceDate;
+	}
+
+	public void setRemittanceDate(Date remittanceDate) {
+		this.remittanceDate = remittanceDate;
+	}
+
+	public String getRemittanceBank() {
+		return remittanceBank;
+	}
+
+	public void setRemittanceBank(String remittanceBank) {
+		this.remittanceBank = remittanceBank;
+	}
+
+	public String getRemittanceAcc() {
+		return remittanceAcc;
+	}
+
+	public void setRemittanceAcc(String remittanceAcc) {
+		this.remittanceAcc = remittanceAcc;
 	}
 	
 }
