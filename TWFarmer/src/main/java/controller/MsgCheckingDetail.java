@@ -37,12 +37,13 @@ public class MsgCheckingDetail extends HttpServlet {
 		MsgDAOJdbc dao = new MsgDAOJdbc();
 		MsgBean bean = dao.select(msgId);
 		if ("reply".equals(value)) {
-			
+			request.getRequestDispatcher("MsgForm.jsp").forward(request, response);
+			response.sendRedirect("/MsgForm.jsp");
 		} else if("torch".equals(value)) {
 			dao.delete(msgId);
+			request.getRequestDispatcher("MsgDeleted.jsp").forward(request, response);
+			response.sendRedirect("/MsgDeleted.jsp");
 		}
-		request.getRequestDispatcher("MsgDeleted.jsp").forward(request, response);
-		response.sendRedirect("/MsgDeleted.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

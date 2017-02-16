@@ -115,11 +115,12 @@
 							<c:if test="${vs.first}">
 								<c:out value="<table class='table'>" escapeXml='false' />
 								<tr>
-									<th style="width: 80px">流水號:</th>
-									<th style="width: 80px">寄件者:</th>
-									<th style="width: 80px">標題:</th>
-									<th style="width: 250px">寄送時間：</th>
-									<th style="width: 250px">內文:</th>
+									<th style="width: 80px">流水號</th>
+									<th style="width: 80px">寄件者姓名</th>
+									<th style="width: 80px">帳號</th>
+									<th style="width: 80px">標題</th>
+									<th style="width: 250px">寄送時間</th>
+									<th style="width: 250px">內文</th>
 									<th style="width: 80px">回覆訊息</th>
 									<th style="width: 80px">刪除訊息</th>
 								</tr>
@@ -128,7 +129,8 @@
 							<tr>
 								<td style="width: 80px">${msgBean.msgId}</td>
 								<td style="width: 80px">${msgBean.writerName}</td>
-								<td style="width: 180px">${msgBean.msgTitle}</td>
+								<td style="width: 80px">${msgBean.writerAccount}</td>
+								<td style="width: 80px">${msgBean.msgTitle}</td>
 								<td style="width: 250px; text-align: left">&nbsp;${msgBean.msgTime}</td>
 								<td style="width: 250px; text-align: left">${msgBean.msgContent}</td>
 								<td><button type="button" class="btn btn-primary" onclick="location.href='/TWFarmer/Msg/MsgCheckingDetail?msgId=${msgBean.msgId}&value=reply'">回覆</button></td>

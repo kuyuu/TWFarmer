@@ -6,8 +6,12 @@ public interface MemberDAO {
 
 	public abstract MemberBean select(int memberId);
 	
+	////此功能供站內信使用
+	public abstract MemberBean selectByAccount(String account);
+	//此功能供站內信使用
+	
 	public abstract List<MemberBean> selectByTypeId(int idType);
-
+	
 	public abstract List<MemberBean> select();
 
 	public abstract MemberBean insert(MemberBean bean);
