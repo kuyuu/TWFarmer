@@ -1,4 +1,4 @@
-package controller;
+package control.qnA;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -33,13 +33,14 @@ public class ReQnaServlet extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String temp1 = request.getParameter("qnAId");
 		String reQnA = request.getParameter("ReQnA");
-		System.out.println(temp1+reQnA);
+		String button = request.getParameter("button");
+		System.out.println(temp1+reQnA+button);
 		
 		Map<String, String> errors = new HashMap<String, String>();
 		request.setAttribute("errors", errors);
 		
 		if (reQnA == null || reQnA.length() == 0){
-			errors.put("QnAerror", "發問需輸入問題");
+			errors.put("QnAerror", "回覆不可為空白");
 			request.getRequestDispatcher("/BackStage/farmerReQnA.jsp?qnAId=" + temp1).forward(request, response);
 			return;
 		}

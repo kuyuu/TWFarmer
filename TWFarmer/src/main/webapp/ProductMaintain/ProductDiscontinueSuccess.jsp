@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>臺灣小農-刪除商品</title>
+<title>臺灣小農-下架商品</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/style.css" rel="stylesheet">
 </head>
@@ -71,7 +70,7 @@
 			<div class="col-md-9">
 				<div class="jumbotron">
 					<center>
-						<h2>商品已刪除成功!!!</h2>
+						<h2>商品已下架成功!!!</h2>
 						<br> <br> <a class="btn btn-default"
 							href="../BackStage/BackStageServlet" role="button">回商品管理頁面</a>
 					</center>

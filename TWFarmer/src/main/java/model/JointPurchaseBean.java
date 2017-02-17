@@ -33,7 +33,8 @@ public class JointPurchaseBean implements Serializable {
 	@Override
 	public String toString() {
 		return "{" + jpId + ":" + initId + ":" + jpIntro + ":" + initDate + ":" + endDate + ":" + jpLocation + ":"
-				+ jpStatusId + ":" + jpFreight + ":" + miscViaId + ":" + misc + "}";
+				+ jpStatusId + ":" + jpFreight + ":" + miscViaId + ":" + misc + ":" + bankAccount + ":" + bankName
+				+ "}";
 	}
 
 	public int getJpId() {

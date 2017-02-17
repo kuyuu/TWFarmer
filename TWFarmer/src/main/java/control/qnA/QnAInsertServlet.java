@@ -1,4 +1,4 @@
-package controller;
+package control.qnA;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;

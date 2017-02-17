@@ -16,13 +16,7 @@
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
 			<div class="col-md-3">
-				<div class="list-group">
-					<a href="#" class="list-group-item">管理商品</a>
-					<a href="#" class="list-group-item">商品問與答</a>
-					<a href="#" class="list-group-item active">審核合購</a>
-					<a href="#" class="list-group-item">管理賣場資料</a>
-					<a href="#" class="list-group-item">管理個人資料</a>
-				</div>
+				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
@@ -70,21 +64,44 @@
 							</table>
 						</div>
 						<div class="col-md-1 col-md-offset-4">
-							<button type="button" class="btn btn-danger"
-								onclick="location.href='/TWFarmer/BackStage/FarmerCheckJPDetailServlet?jpId=${jpBean.jpId}&value=reject'">拒絕</button>
+							<button type="button" class="btn btn-danger" id="reject">拒絕</button>
 						</div>
 						<div class="col-md-1 col-md-offset-1">
-							<button type="button" class="btn btn-primary"
-								onclick="location.href='/TWFarmer/BackStage/FarmerCheckJPDetailServlet?jpId=${jpBean.jpId}&value=accept'">接受</button>
+							<button type="button" class="btn btn-primary" id="accept">接受</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<input type="hidden" value="${jpBean.jpId}" id="jpId" />
 
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
+	<script>
+		$(function() {
+			$('#collapseOne').removeClass("in");
+			$('#collapseTwo').addClass("in");
+			$("#collapseTwo>ul>li:eq(2)").addClass("list-group-item-info");
+
+			$('#accept').click(function() {
+				$.get('FarmerCheckJPDetailServlet', {
+					"jpId" : $('#jpId').val(),
+					"value" : "accept"
+				}, function() {
+					window.location = 'FarmerCheckJpServlet';
+				});
+			});
+			$('#reject').click(function() {
+				$.get('FarmerCheckJPDetailServlet', {
+					"jpId" : $('#jpId').val(),
+					"value" : "reject"
+				}, function() {
+					window.location = 'FarmerCheckJpServlet';
+				});
+			});
+		});
+	</script>
 </body>
 </html>

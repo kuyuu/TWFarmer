@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:if test="${empty IsFarmer}">
 	<c:set var="target" value="${pageContext.request.servletPath}"
 		scope="session" />
@@ -21,14 +22,7 @@
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
 			<div class="col-md-3">
-				<div class="list-group">
-					<a href="/TWFarmer/BackStage/BackStageServlet"
-						class="list-group-item">管理商品</a> <a href="#"
-						class="list-group-item active">商品問與答</a> <a href="#"
-						class="list-group-item">審核合購</a> <a href="#"
-						class="list-group-item">管理賣場資料</a> <a href="#"
-						class="list-group-item">管理個人資料</a>
-				</div>
+				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
@@ -37,13 +31,15 @@
 						<h4>目前沒有人提問</h4>
 					</c:if>
 					<c:if test="${not empty Qna}">
+						<h1>${Qna.value[0].qnAId}</h1>
 						<table class="table table-bordered">
 							<thead>
 								<tr>
 									<th>問與答編號</th>
-									<th>商品編號</th>
 									<th>商品名稱</th>
 									<th>提問內容</th>
+									<th>提問時間</th>
+									<th>回覆</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -53,10 +49,12 @@
 											<c:param name="qnAId" value="${x.qnAId}" />
 										</c:url>
 										<tr>
-											<td><a href="${path}">${x.qnAId}</a></td>
-											<td>${row.key.productId}</td>
+											<td>${x.qnAId}</td>
 											<td>${row.key.productName}</td>
 											<td>${x.qnAContent}</td>
+											<td><fmt:formatDate value="${x.queryDate}"
+													pattern="yyyy-MM-dd HH:mm" /></td>
+											<td><a href="${path}"><button name="button" class="btn btn-primary" value="reply">回覆</button></a></td>
 										</tr>
 									</c:forEach>
 								</c:forEach>
@@ -71,5 +69,15 @@
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
+	<script>
+		$(function() {
+			$("#collapseOne").removeClass("panel-collapse collapse in")
+					.addClass("panel-collapse collapse")
+			$("#collapseTwo").removeClass("panel-collapse collapse").addClass(
+					"panel-collapse collapse in")
+			$("#collapseTwo>ul>li:eq(1)").removeClass("list-group-item")
+					.addClass("list-group-item list-group-item-info")
+		})
+	</script>
 </body>
 </html>

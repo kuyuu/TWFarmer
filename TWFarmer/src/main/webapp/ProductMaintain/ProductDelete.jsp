@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>臺灣小農-變更商品</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/style.css" rel="stylesheet">
 </head>
@@ -74,7 +74,7 @@
 					<!-- 上傳圖片的form表單，要增加enctype="multipart/form-data" -->
 					<form
 						action="<c:url value="/BackStage/DeleteTheProductServlet?productId=${productBean.productId}" />"
-						method="POST" class="form-horizontal">
+						method="POST" class="form-horizontal" enctype="multipart/form-data">
 						<center>
 							<table>
 								<thead>
@@ -257,13 +257,13 @@
 
 
 										<td width=140>
-											<c:forEach items="${productPicList}" var="row">
+											<c:forEach items="${productPicList}" var="row" varStatus="name">
 												<div class="col-md-8">
 													<div class="thumbnail">
 														<img src="../img/${row.pictureName}">
 														<div class="caption">
 															<h4>${row.pictureIntro}</h4>
-															<input class='InputClass' type="file" name="picture1" />
+															<input class='InputClass' type="file" name="picture${name.index}" />
 														</div>
 													</div>
 												</div>
@@ -274,8 +274,10 @@
 									<tr>
 										<td height="100" colspan="2" align="center">
 											<input class="btn btn-default" type="submit" value="修改"
-										name="prodaction"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
+										name="prodaction"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
 										class="btn btn-default" type="submit" value="刪除"
+										name="prodaction">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+										class="btn btn-default" type="submit" value="下架"
 										name="prodaction">
 										</td>
 									</tr>

@@ -19,19 +19,12 @@
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
 			<div class="col-md-3">
-				<div class="list-group">
-					<a href="/TWFarmer/BackStage/BackStageServlet"
-						class="list-group-item">管理商品</a> <a href="#"
-						class="list-group-item active">商品問與答</a> <a href="#"
-						class="list-group-item">審核合購</a> <a href="#"
-						class="list-group-item">管理賣場資料</a> <a href="#"
-						class="list-group-item">管理個人資料</a>
-				</div>
+				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<%-- 					<c:if test="${not empty update}"> --%>
 					<form action="/TWFarmer/BackStage/ReQnaServlet">
+					
 						<div class="form-group">
 							<input type="hidden" name="qnAId" value="${param.qnAId}" />
 							<h4>問與答編號：${param.qnAId}</h4>
@@ -43,7 +36,6 @@
 								onclick="ClearFields();">清除</button>
 						</div>
 					</form>
-					<%-- 					</c:if> --%>
 				</div>
 			</div>
 		</div>
@@ -56,5 +48,12 @@
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
+	<script>
+		$(function(){
+			$("#collapseOne").removeClass("panel-collapse collapse in").addClass("panel-collapse collapse")
+			$("#collapseTwo").removeClass("panel-collapse collapse").addClass("panel-collapse collapse in")
+			$("#collapseTwo>ul>li:eq(1)").removeClass("list-group-item").addClass("list-group-item list-group-item-info")
+		})
+	</script>
 </body>
 </html>

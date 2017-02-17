@@ -55,7 +55,7 @@
 }
 
 * /
-	/* The dots/bullets/indicators */               
+	/* The dots/bullets/indicators */                  
 .dot {
 	height: 13px;
 	width: 13px;
@@ -159,7 +159,9 @@ to {
 						href="JointPurchase/NewJointPurchaseServlet?memberId=${LoginOK.memberId}&productId=${productBean.productId}"><button
 							type="button" class="btn btn-default">發起合購</button></a>
 					<button type="button" class="btn btn-default">我想跟團</button>
-					<button type="button" class="btn btn-default" id="cart">加入購物車</button>
+					<button type="button" class="btn btn-default" id="cart"
+						data-trigger="focus" data-placement="top" data-toggle="popover"
+						data-content="已加入購物車">加入購物車</button>
 					<a
 						href="Violation/violationForm.jsp?productId=${productBean.productId}"><button
 							type="button" class="btn btn-danger">檢舉商品</button></a>
@@ -239,8 +241,14 @@ to {
 		}
 		//購物車
 		$(function() {
+			$('[data-toggle="popover"]').popover();
 			$('#cart').click(function() {
-				$.get('shoppingCart/AddShoppingCartServlet', {"productId":$('#productId').val()});
+				$.get('shoppingCart/AddShoppingCartServlet', {
+					"productId" : $('#productId').val()
+				}, function() {
+					// 					$('#cart').attr("data-toggle", "popover");
+					// 					$('#cart').attr("title", "popover");
+				});
 			});
 		});
 	</script>
