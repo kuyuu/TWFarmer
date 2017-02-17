@@ -12,8 +12,26 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/scripts.js"></script>
+	<div class="container">
+		<jsp:include page="../common/menu.jsp" />
+		<div class="row jumbotron">
+			<h2>購物車</h2>
+			<c:if test="${not empty cartMap}">
+				<c:forEach items="${cartMap}" var="x">
+					<h3>${x.key.account}</h3>
+					<br>
+					<c:forEach items="${x.value}" var="y">
+				${y}<br>
+					</c:forEach>
+					<hr>
+				</c:forEach>
+			</c:if>
+		</div>
+	</div>
+
+
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/scripts.js"></script>
 </body>
 </html>

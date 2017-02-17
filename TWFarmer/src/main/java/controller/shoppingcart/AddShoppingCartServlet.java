@@ -1,11 +1,11 @@
 package controller.shoppingcart;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -47,13 +47,9 @@ public class AddShoppingCartServlet extends HttpServlet {
 		map.put(sellerId, set);
 
 		session.setAttribute("cart", map);
-		for (Map.Entry entry : map.entrySet()) {
-			System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
-		}
-
-		// PrintWriter out = response.getWriter();
-		// response.setContentType("text/html; charset=UTF-8");
-		// out.println("<script>window.history.back()</script>");
+//		for (Map.Entry entry : map.entrySet()) {
+//			System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
+//		}
 
 	}
 
