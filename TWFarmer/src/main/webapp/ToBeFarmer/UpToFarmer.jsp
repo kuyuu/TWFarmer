@@ -13,13 +13,7 @@
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
 		<div class="col-md-3">
-			<div class="list-group">
-				<a href="#" class="list-group-item">管理訂單</a> <a href="#"
-					class="list-group-item">管理開團</a> <a href="#"
-					class="list-group-item">管理跟團</a> <a href="#"
-					class="list-group-item">管理追蹤商品</a> <a href="#"
-					class="list-group-item active">會員升級</a>
-			</div>
+			<jsp:include page="../BackStage/backstageMenu.jsp" />
 		</div>
 		<div class="col-md-8">
 			<div style="font-weight: bold; color: #ff0000; font-size: 2em;">升級小農</div>
@@ -155,5 +149,11 @@
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
 	<script src="../js/scripts.js"></script>
+	<script>
+		$(function(){
+			$("#collapseOne>ul>li:eq(5)").removeClass("list-group-item").addClass("list-group-item list-group-item-success")
+			
+		})
+	</script>
 </body>
 </html>
