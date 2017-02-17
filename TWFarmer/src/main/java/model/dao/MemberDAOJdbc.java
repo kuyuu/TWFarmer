@@ -1,12 +1,15 @@
 package model.dao;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -16,6 +19,8 @@ import javax.sql.DataSource;
 import model.JointPurchaseBean;
 import model.MemberBean;
 import model.MemberDAO;
+import model.ProductBean;
+import model.ProductPicBean;
 
 
 public class MemberDAOJdbc implements MemberDAO {
@@ -401,4 +406,78 @@ public class MemberDAOJdbc implements MemberDAO {
 		return result;
 	}
 	//民國106年02月15日 方法至以上為止
+	
+	//民國106年02月17日 以下 新增一方法供會員搜尋功能使用 --小巫
+	private static final String SELECT_BY_ACCNAME = "Select * FROM Member Where account LIKE ? or name like ?";
+	@Override
+	public List<MemberBean> selectByAccName(String keyword) {
+		List<MemberBean> result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ACCNAME);
+				){
+			stmt.setString(1, "%" + keyword + "%");
+			stmt.setString(2, "%" + keyword + "%");
+			ResultSet rset = stmt.executeQuery(); 
+			result = new ArrayList<MemberBean>();
+			while(rset.next()) {
+				MemberBean bean = new MemberBean();
+				bean.setMemberId(rset.getInt("memberId"));
+				bean.setAccount(rset.getString("account"));
+				bean.setPassword(rset.getString("password"));
+				bean.setName(rset.getString("name"));
+				bean.setPostalCode(rset.getString("postalCode"));
+				bean.setDistrict(rset.getString("district"));
+				bean.setAddress(rset.getString("address"));
+				bean.setPhone(rset.getString("phone"));
+				bean.setEmail(rset.getString("email"));
+				bean.setIdNumber(rset.getString("idNumber"));
+				bean.setBirthDate(rset.getDate("BirthDate"));
+				bean.setGender(rset.getString("gender"));
+				bean.setIdType(rset.getInt("idType"));
+				bean.setRating(rset.getInt("rating"));
+				bean.setMemberPic(rset.getString("memberPic"));
+				result.add(bean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	private static final String SELECT_MEMBERID2 = "select * from ProductPic WHERE ProductID=?";
+
+	@Override
+	public List<MemberBean> selectById2(int memberId) {
+		List<MemberBean> result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_MEMBERID2);
+				) {
+			stmt.setInt(1, memberId);
+			ResultSet rset = stmt.executeQuery();
+			result = new ArrayList<MemberBean>();
+			while (rset.next()) {
+				MemberBean memberBean = new MemberBean();
+				memberBean.setMemberId(rset.getInt("memberId"));
+				memberBean.setAccount(rset.getString("account"));
+				memberBean.setPassword(rset.getString("password"));
+				memberBean.setName(rset.getString("name"));
+				memberBean.setPostalCode(rset.getString("postalCode"));
+				memberBean.setDistrict(rset.getString("district"));
+				memberBean.setAddress(rset.getString("address"));
+				memberBean.setPhone(rset.getString("phone"));
+				memberBean.setEmail(rset.getString("email"));
+				memberBean.setIdNumber(rset.getString("idNumber"));
+				memberBean.setBirthDate(rset.getDate("BirthDate"));
+				memberBean.setGender(rset.getString("gender"));
+				memberBean.setRating(rset.getInt("rating"));
+				memberBean.setMemberPic(rset.getString("memberPic"));
+				result.add(memberBean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	//民國106年02月17日 會員搜尋方法至以上為止
 }

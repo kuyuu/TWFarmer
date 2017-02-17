@@ -66,13 +66,13 @@ public class FriendBean implements Serializable {
 		return dao.select(friendId).getName();
 	}
 	
-	public void setWriterName(String friendName) {
+	public void setFriendName(String friendName) {
 		this.friendName = friendName;
 	}
-public String getWriterAccount(){
+public String getFriendAccount(){
 	return dao.select(friendId).getAccount();
 			}
-	public void setWriterAccount(){
+	public void setFriendAccount(){
 		this.friendAccount = friendAccount;
 	}
 	
