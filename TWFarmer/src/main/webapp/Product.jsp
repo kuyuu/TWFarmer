@@ -248,12 +248,8 @@ to {
 				});
 			});
 			$('#newJp').click(function() {
-				$.get('shoppingCart/AddShoppingCartServlet', {
-					"productId" : $('#productId').val()
-				}, function() {
 					window.location = 'JointPurchase/NewJointPurchaseServlet?productId='
 							+ $('#productId').val();
-				});
 			});
 		});
 	</script>
