@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -123,12 +124,12 @@
 
 								<tr>
 									<td><strong>上架日期</strong></td>
-									<td>${productBean.addDate}</td>
+									<td><fmt:formatDate value="${productBean.addDate}" pattern="yyyy-MM-dd"/></td>
 								</tr>
 
 								<tr>
 									<td><strong>預估下架日期</strong></td>
-									<td>${productBean.removeEstDate}</td>
+									<td><fmt:formatDate value="${productBean.removeEstDate}" pattern="yyyy-MM-dd"/></td>
 								</tr>
 
 								<!-- 			<tr> -->
