@@ -93,6 +93,7 @@ public class NewFarmerServlet extends HttpServlet {
         	MemberBean result2= memberDAOJdbc.update(memberBean);
         	request.setAttribute("farmerBean", result);
         	request.setAttribute("memberBean", result2);
+        	session.setAttribute("LoginOK", memberBean);
         	request.getRequestDispatcher("farmerSuccess.jsp").forward(request,response);
         }
 		
