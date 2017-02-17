@@ -42,7 +42,7 @@
 					role="tabpanel" aria-labelledby="headingTwo">
 					<ul class="list-group">
 						<li class="list-group-item"><a href="/TWFarmer/BackStage/BackStageServlet">管理商品</a></li>
-						<li class="list-group-item"><a href="/TWFarmer/BackStage/SelectQnaServlet">商品問與答</a></li>
+						<li class="list-group-item"><a href="/TWFarmer/BackStage/SelectAllQnaServlet">商品問與答</a></li>
 						<li class="list-group-item"><a href="FarmerCheckJpServlet">審核合購</a></li>
 						<li class="list-group-item"><a href="#">管理小農資料</a></li>
 					</ul>
