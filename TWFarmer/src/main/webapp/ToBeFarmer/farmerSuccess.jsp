@@ -13,13 +13,7 @@
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
 		<div class="col-md-3">
-			<div class="list-group">
-				<a href="#" class="list-group-item">管理訂單</a> <a href="#"
-					class="list-group-item">管理開團</a> <a href="#"
-					class="list-group-item">管理跟團</a> <a href="#"
-					class="list-group-item">管理追蹤商品</a> <a href="#"
-					class="list-group-item active">會員升級</a>
-			</div>
+			<jsp:include page="../BackStage/backstageMenu.jsp" />
 		</div>
 		<div class="col-md-8">
 			<center>

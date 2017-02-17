@@ -7,7 +7,7 @@
 	aria-multiselectable="true">
 	<c:if test="${not empty LoginOK }">
 		<div class="panel panel-default">
-			<div class="panel-heading" role="tab" id="headingOne" style="background:#007979;color: #FFFFFF">
+			<div class="panel-heading" role="tab" id="headingOne" style="background:#408080;color: #FFFFFF">
 				<h4 class="panel-title">
 					<a data-toggle="collapse" data-parent="#accordion"
 						href="#collapseOne" aria-expanded="true"
@@ -22,6 +22,9 @@
 					<li class="list-group-item"><a href="#">管理跟團</a></li>
 					<li class="list-group-item"><a href="#">管理追蹤商品</a></li>
 					<li class="list-group-item"><a href="#">管理個人資料</a></li>
+					<c:if test="${LoginOK.idType==1}">
+					<li class="list-group-item"><a href="#">會員升級</a></li>
+					</c:if>
 				</ul>
 			</div>
 		</div>
@@ -37,8 +40,8 @@
 				<div id="collapseTwo" class="panel-collapse collapse"
 					role="tabpanel" aria-labelledby="headingTwo">
 					<ul class="list-group">
-						<li class="list-group-item"><a href="#">管理商品</a></li>
-						<li class="list-group-item"><a href="#">商品問與答</a></li>
+						<li class="list-group-item"><a href="/TWFarmer/BackStage/BackStageServlet">管理商品</a></li>
+						<li class="list-group-item"><a href="/TWFarmer/BackStage/SelectQnaServlet">商品問與答</a></li>
 						<li class="list-group-item"><a href="#">審核合購</a></li>
 						<li class="list-group-item"><a href="#">管理小農資料</a></li>
 					</ul>
@@ -47,7 +50,7 @@
 		</c:if>
 		<c:if test="${LoginOK.idType==3}">
 			<div class="panel panel-default">
-				<div class="panel-heading" role="tab" id="headingThree">
+				<div class="panel-heading" role="tab" id="headingThree" style="background:#4078b0;color: #FFFFFF">
 					<h4 class="panel-title">
 						<a class="collapsed" data-toggle="collapse"
 							data-parent="#accordion" href="#collapseThree"
