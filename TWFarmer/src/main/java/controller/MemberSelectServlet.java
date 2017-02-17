@@ -1,7 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,8 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.MemberBean;
 import model.dao.MemberDAOJdbc;
-
-
 
 @WebServlet(urlPatterns = { "/FindFriends/MemberSelect.controller" })
 public class MemberSelectServlet extends HttpServlet {
@@ -22,35 +22,30 @@ public class MemberSelectServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// 接收資料
 		String keyword = request.getParameter("keyword");
-		//String selectBy = request.getParameter("selectBy");
-		//String selectBy2 = request.getParameter("selectBy2");
+		Map<String, String> errors = new HashMap<String, String>();
+		request.setAttribute("errors", errors);
 
-		// 驗證資料
-		// Map<String, String> errors = new HashMap<String, String>();
-		// request.setAttribute("errors", errors);
-		// if(name==null || name.length()==0){
-		// errors.put("name","請輸入產地名稱");
-		// }
-		//
-		// if(errors!=null && !errors.isEmpty()) {
-		// request.getRequestDispatcher(
-		// "/ProductSelect/product.jsp").forward(request, response);
-		// return;
-		// }
+		if (keyword == null || keyword.length() == 0) {
+			errors.put("keyword", "請輸入您想搜尋的會員帳號或姓名");
+		}
 
-		// 轉換資料
+		if (errors != null && !errors.isEmpty()) {
+			request.getRequestDispatcher("/FindFriends/MemberSelect.jsp").forward(request, response);
+			return;
+		}
 
-		// 呼叫Model
-		// ProductBean bean = new ProductBean();
-		// bean.setOrigin(name);
-		// bean.setProductTypeName(selectBy);
-
-		// 根據Model執行結果，決定需要顯示的View元件
-	
-		List<MemberBean> result = memberDAOjdbc.selectByAccName(keyword);
+		// 如果使用者成功輸入密碼，就可顯示所有會員(還沒做出來...我以為是Select * from Member就成了～)
+		if (keyword == "ShowMeTheMinions") {
+			List<MemberBean> result = memberDAOjdbc.selectByAccNameCheat();
 			request.setAttribute("keyword", result);
 			request.getRequestDispatcher("/FindFriends/MemberSelect.jsp").forward(request, response);
-	
+		}
+		//否則需帳號或名字完全相符才可找到該員
+		else{
+			List<MemberBean> result = memberDAOjdbc.selectByAccName(keyword);
+			request.setAttribute("keyword", result);
+			request.getRequestDispatcher("/FindFriends/MemberSelect.jsp").forward(request, response);
+		}
 	}
 
 	@Override

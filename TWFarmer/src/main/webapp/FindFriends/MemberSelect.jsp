@@ -10,7 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>站內信 - 收件匣</title>
+<title>搜尋新好友</title>
 <meta name="description"
 	content="Source code generated using layoutit.com">
 <meta name="author" content="LayoutIt!">
@@ -24,49 +24,66 @@
 
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
-		<form
-			action="<c:url value="/FindFriends/MemberSelect.controller" />"
+		<form action="<c:url value="/FindFriends/MemberSelect.controller" />"
 			method="get" class="">
 			<div class="row">
 				<div class="container">
 					<div class="row">
 
-						<div class="col-md-9">
+						<div class="col-md-12">
 							<h3>會員搜尋</h3>
 							<h2></h2>
 							<div class="form-group">
 								<label class="">搜尋</label>
 								<div class="">
-									<input type="text" name="keyword" class="form-control" value="" placeholder="請在此輸入您要搜尋的會員">
+									<input type="text" name="keyword" class="form-control" value=""
+										placeholder="請在此輸入您要搜尋的會員"> <br>
+									<div style="color: #FF0000; display: inline">
+										${errors.keyword}</div>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-md-11"></div>
 								<div class="col-md-1">
 									<button type="submit" class="btn btn-default">搜尋</button>
+
 								</div>
 							</div>
 							<h3></h3>
-							<c:if test="${not empty keyword}">
-								<c:forEach var="row" items="${keyword}">
-									<div class="col-md-4">
-										<%-- <a href="../ProductServlet?productId=${row.key.productId}"> --%>
-											<div class="thumbnail" style="height: 320px">
-												<img src="../MemberPic/${row.memberPic}"
-													style="height: 180px">
-												<div class="caption">
-													<h3>${row.name}</h3>
-													<p>${row.account}</p>
-													<p>
-														<a href="" class="btn btn-primary" role="button">加為好友</a>
-														<a href="#" class="btn btn-default" role="button">拒絕往來</a>
-													</p>
+							<c:choose>
+								<c:when test="${not empty keyword}">
+									<c:forEach var="row" items="${keyword}">
+										<center>
+											<div class="col-md--offset-4">
+												<%-- <a href="../ProductServlet?productId=${row.key.productId}"> --%>
+												<div class="thumbnail" style="height: 320px">
+													<img src="../MemberPic/${row.memberPic}"
+														style="height: 300px" class="img-circle"
+														alt="Cinque Terre">
+													<div class="caption">
+														<h3>${row.name}</h3>
+														<p>${row.account}</p>
+														<p>
+															<a
+																href="<c:url value="../FindFriends/AddFriendServlet?friendId=${row.memberId}&value=add" />"
+																class="btn btn-primary" role="button">加為好友</a> <a
+																href="<c:url value="../FindFriends/AddFriendServlet?friendId=${row.memberId}&value=block" />"
+																class="btn btn-warning" role="button">拒絕往來</a>
+
+														</p>
+													</div>
 												</div>
+												<!-- </a> -->
 											</div>
-										<!-- </a> -->
-									</div>
-								</c:forEach>
-							</c:if>
+										</center>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<center>
+										請注意<br>您必須輸入該員完整帳號或姓名才能尋得
+									</center>
+								</c:otherwise>
+							</c:choose>
 						</div>
 
 
