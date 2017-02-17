@@ -13,9 +13,10 @@
 </head>
 <body>
 	<div class="container">
-		<jsp:include page="../common/menu.jsp" />
+		<jsp:include page="../common/menuShoppingCart.jsp" />
 		<div class="row jumbotron">
 			<h2>購物車</h2>
+			<button type="button" class="btn btn-default" id="clear">清空購物車</button>
 			<c:if test="${not empty cartMap}">
 				<c:forEach items="${cartMap}" var="x">
 					<h3>${x.key.account}</h3>
@@ -33,5 +34,14 @@
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
+	<script>
+		$(function() {
+			$('#clear').click(function() {
+				$.get('ClearShoppingCartServlet', function() {
+					window.location.reload();
+				});
+			});
+		});
+	</script>
 </body>
 </html>
