@@ -17,13 +17,7 @@
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
 			<div class="col-md-3">
-				<div class="list-group">
-					<a href="#" class="list-group-item">管理訂單</a> <a href="#"
-						class="list-group-item">管理開團</a> <a href="#"
-						class="list-group-item active">管理跟團</a><a href="#"
-						class="list-group-item">管理追蹤商品</a> <a href="#"
-						class="list-group-item">管理個人資料</a>
-				</div>
+				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
@@ -72,5 +66,10 @@
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
+		<script>
+		$(function() {
+			$('#collapseOne>ul>li:eq(2)').addClass("list-group-item-success");
+		});
+	</script>
 </body>
 </html>
