@@ -32,7 +32,6 @@
 							<thead>
 								<tr>
 									<th>合購編號</th>
-									<th>合購發起人</th>
 									<th>開始日期</th>
 									<th>結束日期</th>
 									<th>合購地點</th>
@@ -43,7 +42,6 @@
 								<c:forEach var="row" items="${initJpList}">
 									<tr>
 										<td>${row.jpId}</td>
-										<td>${row.initId}</td>
 										<td>${row.initDate}</td>
 										<td>${row.endDate}</td>
 										<td>${row.jpLocation}</td>

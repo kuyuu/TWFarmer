@@ -29,67 +29,6 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 		}
 	}
 
-	// 測試程式
-	// public static void main(String[] args) {
-	// //查詢所有資料
-	// List<JointPurchaseBean> beans = dao.select();
-	// System.out.println("bean="+beans);
-	// //查詢單筆資料
-	// JointPurchaseBean jpBeanSelect = dao.select(4001);
-	// System.out.print(jpBeanSelect.getJpId() + ",");
-	// System.out.print(jpBeanSelect.getInitId() + ",");
-	// System.out.print(jpBeanSelect.getJpIntro() + ",");
-	// System.out.print(jpBeanSelect.getInitDate() + ",");
-	// System.out.print(jpBeanSelect.getEndDate() + ",");
-	// System.out.print(jpBeanSelect.getJpLocation() + ",");
-	// System.out.print(jpBeanSelect.getJpStatusId() + ",");
-	// System.out.print(jpBeanSelect.getJpFreight() + ",");
-	// System.out.print(jpBeanSelect.getMiscViaId() + ",");
-	// System.out.print(jpBeanSelect.getMisc() + ",");
-
-	// 新增
-	// JointPurchaseBean jpBeanInsert = new JointPurchaseBean();
-	//
-	// jpBeanInsert.setInitId(1005);
-	// jpBeanInsert.setJpIntro("大安區的愛吃水果的人一起來跟團");
-	// jpBeanInsert.setInitDate(java.sql.Timestamp.valueOf("2017-01-21
-	// 09:23:12"));
-	// jpBeanInsert.setEndDate(java.sql.Timestamp.valueOf("2017-01-28
-	// 09:23:12"));
-	// jpBeanInsert.setJpLocation("台北市大安區");
-	// jpBeanInsert.setJpStatusId(4103);
-	// jpBeanInsert.setJpFreight(300);
-	// jpBeanInsert.setMiscViaId(4203);
-	// jpBeanInsert.setMisc(15);
-	//
-	// JointPurchaseBean jpadd = dao.insert(jpBeanInsert);
-	// System.out.println(jpadd);
-
-	// 修改
-	// JointPurchaseBean jpBeanUpdate = new JointPurchaseBean();
-	//
-	// jpBeanUpdate.setJpId(4006);
-	// jpBeanUpdate.setInitId(1006);
-	// jpBeanUpdate.setJpIntro("主揪換人做做看");
-	// jpBeanUpdate.setInitDate(java.sql.Timestamp.valueOf("2017-01-22
-	// 09:23:12"));
-	// jpBeanUpdate.setEndDate(java.sql.Timestamp.valueOf("2017-01-29
-	// 09:23:12"));
-	// jpBeanUpdate.setJpLocation("台北市中正區");
-	// jpBeanUpdate.setJpStatusId(4102);
-	// jpBeanUpdate.setJpFreight(350); //總運費要再確認
-	// jpBeanUpdate.setMiscViaId(4201);
-	// jpBeanUpdate.setMisc(0);
-	//
-	// JointPurchaseBean jpBeanChange = dao.update(jpBeanUpdate);
-	// System.out.println(jpBeanChange);
-	//
-	// // 刪除
-	// dao.delete(4006);
-	// System.out.println("資料已刪除");
-	//
-	// }
-
 	// 查詢
 	private static final String SELECT_BY_ID = "SELECT * from JointPurchase where JPId=?";
 
@@ -115,6 +54,8 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 				result.setJpFreight(rset.getInt("jpFreight"));
 				result.setMiscViaId(rset.getInt("MiscViaId"));
 				result.setMisc(rset.getInt("Misc"));
+				result.setBankAccount(rset.getString("bankAccount"));
+				result.setBankName(rset.getString("bankName"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -153,6 +94,8 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 				bean.setJpFreight(rset.getInt("jpFreight"));
 				bean.setMiscViaId(rset.getInt("MiscViaId"));
 				bean.setMisc(rset.getInt("Misc"));
+				bean.setBankAccount(rset.getString("bankAccount"));
+				bean.setBankName(rset.getString("bankName"));
 
 				result.add(bean);
 			}
@@ -163,6 +106,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 	}
 
 	private static final String SELECT_KEYWORD = "Select * from JointPurchase Where  JPStatusID = 4103 and (JPName Like ? or JPLocation like ?)";
+
 	@Override
 	public List<JointPurchaseBean> selectByKeyword(String Keyword) {
 		List<JointPurchaseBean> result = null;
@@ -187,6 +131,8 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 				bean.setJpFreight(rset.getInt("jpFreight"));
 				bean.setMiscViaId(rset.getInt("MiscViaId"));
 				bean.setMisc(rset.getInt("Misc"));
+				bean.setBankAccount(rset.getString("bankAccount"));
+				bean.setBankName(rset.getString("bankName"));
 
 				result.add(bean);
 
@@ -196,8 +142,9 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 		}
 		return result;
 	}
-	
+
 	private static final String SELECT_JPOK = "SELECT * from JointPurchase where JPStatusID = 4103";
+
 	@Override
 	public List<JointPurchaseBean> selectByPurchaseOk() {
 		List<JointPurchaseBean> result = null;
@@ -219,6 +166,8 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 				bean.setJpFreight(rset.getInt("jpFreight"));
 				bean.setMiscViaId(rset.getInt("MiscViaId"));
 				bean.setMisc(rset.getInt("Misc"));
+				bean.setBankAccount(rset.getString("bankAccount"));
+				bean.setBankName(rset.getString("bankName"));
 
 				result.add(bean);
 			}
@@ -227,16 +176,15 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 		}
 		return result;
 	}
-	
+
 	// 新增
-	private static final String INSERT = "insert into JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc) "
-			+ "OUTPUT INSERTED.JPID " + "VALUES (?,?,?,?,?,?,?,?,?,?)";
+	private static final String INSERT = "insert into JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc, BankAccount, BankName) "
+			+ "OUTPUT INSERTED.JPID " + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
 	@Override
 	public JointPurchaseBean insert(JointPurchaseBean bean) {
 		JointPurchaseBean result = null;
-		try (Connection conn = dataSource.getConnection(); 
-				PreparedStatement stmt = conn.prepareStatement(INSERT);) {
+		try (Connection conn = dataSource.getConnection(); PreparedStatement stmt = conn.prepareStatement(INSERT);) {
 			if (bean != null) {
 				stmt.setInt(1, bean.getInitId());
 				stmt.setString(2, bean.getJpName());
@@ -263,6 +211,8 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 				stmt.setInt(8, bean.getJpFreight());
 				stmt.setInt(9, bean.getMiscViaId());
 				stmt.setInt(10, bean.getMisc());
+				stmt.setString(11, bean.getBankAccount());
+				stmt.setString(12, bean.getBankName());
 
 				ResultSet rs = stmt.executeQuery();
 
@@ -278,9 +228,9 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 	}
 
 	// 修改
-	private static final String UPDATE = "UPDATE JointPurchase " + "SET InitId=?, " + "JPName=?, "+ "JPIntro=?, " + "InitDate=?, "
-			+ "EndDate=?, " + "JPLocation=?, " + "JPStatusID=?, " + "JPFreight=?, " + "MiscViaID=?, " + "Misc=? "
-			+ "WHERE JPId=?";
+	private static final String UPDATE = "UPDATE JointPurchase " + "SET InitId=?, " + "JPName=?, " + "JPIntro=?, "
+			+ "InitDate=?, " + "EndDate=?, " + "JPLocation=?, " + "JPStatusID=?, " + "JPFreight=?, " + "MiscViaID=?, "
+			+ "Misc=?, " + "BankAccount=?, " + "BankName=? " + "WHERE JPId=?";
 
 	@Override
 	public JointPurchaseBean update(JointPurchaseBean bean) {
@@ -309,7 +259,9 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 			stmt.setInt(8, bean.getJpFreight());
 			stmt.setInt(9, bean.getMiscViaId());
 			stmt.setInt(10, bean.getMisc());
-			stmt.setInt(11, bean.getJpId());
+			stmt.setString(11, bean.getBankAccount());
+			stmt.setString(12, bean.getBankName());
+			stmt.setInt(13, bean.getJpId());
 			int i = stmt.executeUpdate();
 			if (i == 1) {
 				result = bean;
@@ -325,8 +277,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 
 	@Override
 	public boolean delete(int jpId) {
-		try (Connection conn = dataSource.getConnection(); 
-				PreparedStatement stmt = conn.prepareStatement(DELETE);) {
+		try (Connection conn = dataSource.getConnection(); PreparedStatement stmt = conn.prepareStatement(DELETE);) {
 			stmt.setInt(1, jpId);
 			int i = stmt.executeUpdate();
 			if (i == 1) {
@@ -337,14 +288,13 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 		}
 		return false;
 	}
-	
+
 	private static final String SELECT_JPID_BY_SELLERID = "SELECT JointPurchase.JPID FROM JPDetail JOIN Product ON JPDetail.productId = Product.productId JOIN JointPurchase ON JPDetail.JPID = JointPurchase.JPID WHERE sellerId=? AND JPStatusID = 4101";
 
 	public List<JointPurchaseBean> selectJpIdBySellerId(int sellerId) {
 		List<JointPurchaseBean> result = null;
 		try (Connection conn = dataSource.getConnection();
-				PreparedStatement stmt = conn.prepareStatement(SELECT_JPID_BY_SELLERID);) 
-		{
+				PreparedStatement stmt = conn.prepareStatement(SELECT_JPID_BY_SELLERID);) {
 			stmt.setInt(1, sellerId);
 			ResultSet rset = stmt.executeQuery();
 			result = new ArrayList<JointPurchaseBean>();
@@ -359,14 +309,13 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 		return result;
 
 	}
-	
+
 	private static final String SELECT_JPID_BY_INITID = "SELECT * FROM JointPurchase WHERE InitID=?";
 
 	public List<JointPurchaseBean> selectByInitId(int initId) {
 		List<JointPurchaseBean> result = null;
 		try (Connection conn = dataSource.getConnection();
-				PreparedStatement stmt = conn.prepareStatement(SELECT_JPID_BY_INITID);) 
-		{
+				PreparedStatement stmt = conn.prepareStatement(SELECT_JPID_BY_INITID);) {
 			stmt.setInt(1, initId);
 			ResultSet rset = stmt.executeQuery();
 			result = new ArrayList<JointPurchaseBean>();
@@ -383,6 +332,8 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 				bean.setJpFreight(rset.getInt("jpFreight"));
 				bean.setMiscViaId(rset.getInt("MiscViaId"));
 				bean.setMisc(rset.getInt("Misc"));
+				bean.setBankAccount(rset.getString("bankAccount"));
+				bean.setBankName(rset.getString("bankName"));
 				result.add(bean);
 			}
 		} catch (SQLException e) {
@@ -391,7 +342,5 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 		return result;
 
 	}
-	
-	
-	
+
 }
