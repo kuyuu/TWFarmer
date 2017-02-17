@@ -3,7 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:if test="${empty LoginOK}">
-	<c:set var="target" value="/ProductServlet?productId=${productBean.productId}"
+	<c:set var="target"
+		value="/ProductServlet?productId=${productBean.productId}"
 		scope="session" />
 </c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -54,7 +55,7 @@
 }
 
 * /
-	/* The dots/bullets/indicators */      
+	/* The dots/bullets/indicators */               
 .dot {
 	height: 13px;
 	width: 13px;
@@ -109,104 +110,107 @@ to {
 <body>
 	<div class="container">
 		<jsp:include page="/common/menuProduct.jsp" />
-		<div class="row jumbotron" >
-<!-- 			<div class="jumbotron"> -->
-				<div class="col-md-4">
-					<%-- <c:forEach items="${picList}" var="x">
+		<div class="row jumbotron">
+			<!-- 			<div class="jumbotron"> -->
+			<div class="col-md-4">
+				<%-- <c:forEach items="${picList}" var="x">
 								<img src="img/${x.pictureName}" style="width: 100%;" />
 							</c:forEach> --%>
-					<div class="ThisIsTheSlider">
-						<div class="text"
-							style="color: #7C630F; font-weight: bold; font-size: 25px">商品寫真</div>
-						<br>
-						<!-- 								<div class="text" -->
-						<!-- 									style="color: #6133FF; font-weight: bold; font-size: 16px">୧༼✿ -->
-						<!-- 									͡◕ д ◕͡ ༽୨商品皆為賣方提供，恕不代表本站立場୧༼✿ ͡◕ д ◕͡ ༽୨</div> -->
-						<!-- 								<div class="text" style="color: #0F7C58; font-weight: bold">(q^-^)q貨比三家不吃虧下單前請先充分聯繫賣家 -->
-						<!-- 									(p^-^)p</div> -->
-						<c:forEach items="${picList}" var="x" varStatus="y">
+				<div class="ThisIsTheSlider">
+					<div class="text"
+						style="color: #7C630F; font-weight: bold; font-size: 25px">商品寫真</div>
+					<br>
+					<!-- 								<div class="text" -->
+					<!-- 									style="color: #6133FF; font-weight: bold; font-size: 16px">୧༼✿ -->
+					<!-- 									͡◕ д ◕͡ ༽୨商品皆為賣方提供，恕不代表本站立場୧༼✿ ͡◕ д ◕͡ ༽୨</div> -->
+					<!-- 								<div class="text" style="color: #0F7C58; font-weight: bold">(q^-^)q貨比三家不吃虧下單前請先充分聯繫賣家 -->
+					<!-- 									(p^-^)p</div> -->
+					<c:forEach items="${picList}" var="x" varStatus="y">
 
-							<div class="mySlides fadeAlt">
-								<%-- <center>
+						<div class="mySlides fadeAlt">
+							<%-- <center>
 										<div class="numbertext"></div>
 									</center> --%>
-								<div class="text">${x.pictureIntro}</div>
-								<img src="img/${x.pictureName}" style="width: 80%"> <br>
-								<br>
+							<div class="text">${x.pictureIntro}</div>
+							<img src="img/${x.pictureName}" style="width: 80%"> <br>
+							<br>
 
 
-							</div>
-							<c:if test="${y.last}">
-								<c:set var="count" value="${y.count}" />
-							</c:if>
-						</c:forEach>
-						<div style="text-align: center">
-							<c:forEach begin="1" end="${count}">
-								<span class="dot"></span>
-							</c:forEach>
 						</div>
+						<c:if test="${y.last}">
+							<c:set var="count" value="${y.count}" />
+						</c:if>
+					</c:forEach>
+					<div style="text-align: center">
+						<c:forEach begin="1" end="${count}">
+							<span class="dot"></span>
+						</c:forEach>
 					</div>
 				</div>
-				<div class="col-md-8">
-					<h1>${productBean.productName}</h1>
-					<p>${productBean.productIntro }</p>
-					<p>${productBean.price }/${productBean.unit }</p>
-					<p>
-						<a
-							href="<c:url value="Order/NewOrderServlet?productId=${productBean.productId}&sellerId=${productBean.sellerId}" />"
-							class="btn btn-default">購買商品</a> <a
-							href="JointPurchase/NewJointPurchaseServlet?memberId=${LoginOK.memberId}&productId=${productBean.productId}"><button
-								type="button" class="btn btn-default">發起合購</button></a>
-						<button type="button" class="btn btn-default">我想跟團</button>
-						<button type="button" class="btn btn-default">加入購物車</button>
-						<a
-							href="Violation/violationForm.jsp?productId=${productBean.productId}"><button
-								type="button" class="btn btn-danger">檢舉商品</button></a>
-					</p>
-					<form action="/TWFarmer/QnAInsertServlet"
-						style="border: 1px solid; border-radius: 20px; padding: 15px"
-						method="POST">
-						<c:if test="${empty QnA}">
-							<h4>目前沒有問與答</h4>
-						</c:if>
-						<c:if test="${not empty QnA}">
-							<h3>問與答</h3>
-							<c:forEach var="row" items="${QnA}">
-								<div>
-									<%-- 									<p style="background: #DDDDDD">賣家提問:${row.qnAContent}</p> --%>
-									<%-- 									<p>　　${row.reQnA}</p> --%>
-									<table style="line-height: 35px">
-										<tr style="background: #DDDDDD">
-											<td style="width: 70%; font-size: 20px">賣家提問:${row.qnAContent}</td>
-											<td style="width: 30%"><fmt:formatDate
-													value="${row.queryDate}" pattern="yyyy-MM-dd HH:mm" /></td>
-										</tr>
-										<tr>
-											<td style="width: 80%; font-size: 20px">${row.reQnA}</td>
-											<td style="width: 20%"><fmt:formatDate
-													value="${row.reDate}" pattern="yyyy-MM-dd HH:mm" /></td>
-										</tr>
-									</table>
-								</div>
-							</c:forEach>
-						</c:if>
-						<input type="hidden" name="memberId" value="${LoginOK.memberId}" />
-						<input type="hidden" name="productId"
-							value="${productBean.productId}" />
-						<div class="form-group">
-							<label class="">我要發問</label>
-							<textarea id="QnA" name="QnA" class="form-control" rows="5"></textarea>
-							<h4>${errors.QnAerror}</h4>
-							<button type="submit" class="btn btn-default">送出</button>
-							<button type="button" class="btn btn-default" id="clearQnA"
-								onclick="ClearFields();">清除</button>
-						</div>
-					</form>
-				</div>
-<!-- 			</div> -->
+			</div>
+			<div class="col-md-8">
+				<h1>${productBean.productName}</h1>
+				<p>${productBean.productIntro }</p>
+				<p>${productBean.price }/${productBean.unit }</p>
+				<p>
+					<a
+						href="<c:url value="Order/NewOrderServlet?productId=${productBean.productId}&sellerId=${productBean.sellerId}" />"
+						class="btn btn-default">購買商品</a> <a
+						href="JointPurchase/NewJointPurchaseServlet?memberId=${LoginOK.memberId}&productId=${productBean.productId}"><button
+							type="button" class="btn btn-default">發起合購</button></a>
+					<button type="button" class="btn btn-default">我想跟團</button>
+					<button type="button" class="btn btn-default" id="cart">加入購物車</button>
+					<a
+						href="Violation/violationForm.jsp?productId=${productBean.productId}"><button
+							type="button" class="btn btn-danger">檢舉商品</button></a>
+				</p>
+				<form action="/TWFarmer/QnAInsertServlet"
+					style="border: 1px solid; border-radius: 20px; padding: 15px"
+					method="POST">
+					<c:if test="${empty QnA}">
+						<h4>目前沒有問與答</h4>
+					</c:if>
+					<c:if test="${not empty QnA}">
+						<h3>問與答</h3>
+						<c:forEach var="row" items="${QnA}">
+							<div>
+								<%-- 									<p style="background: #DDDDDD">賣家提問:${row.qnAContent}</p> --%>
+								<%-- 									<p>　　${row.reQnA}</p> --%>
+								<table style="line-height: 35px">
+									<tr style="background: #DDDDDD">
+										<td style="width: 70%; font-size: 20px">賣家提問:${row.qnAContent}</td>
+										<td style="width: 30%"><fmt:formatDate
+												value="${row.queryDate}" pattern="yyyy-MM-dd HH:mm" /></td>
+									</tr>
+									<tr>
+										<td style="width: 80%; font-size: 20px">${row.reQnA}</td>
+										<td style="width: 20%"><fmt:formatDate
+												value="${row.reDate}" pattern="yyyy-MM-dd HH:mm" /></td>
+									</tr>
+								</table>
+							</div>
+						</c:forEach>
+					</c:if>
+					<input type="hidden" name="memberId" value="${LoginOK.memberId}" />
+					<input type="hidden" name="productId" id="productId"
+						value="${productBean.productId}" />
+					<div class="form-group">
+						<label class="">我要發問</label>
+						<textarea id="QnA" name="QnA" class="form-control" rows="5"></textarea>
+						<h4>${errors.QnAerror}</h4>
+						<button type="submit" class="btn btn-default">送出</button>
+						<button type="button" class="btn btn-default" id="clearQnA"
+							onclick="ClearFields();">清除</button>
+					</div>
+				</form>
+			</div>
+			<!-- 			</div> -->
 		</div>
 
 	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/scripts.js"></script>
 	<script>
 		var slideIndex = 0;
 		showSlides();
@@ -233,9 +237,13 @@ to {
 		function ClearFields() {
 			document.getElementById("QnA").value = "";
 		}
+		//購物車
+		$(function() {
+			$('#cart').click(function() {
+				$.get('shoppingCart/AddShoppingCartServlet', {"productId":$('#productId').val()});
+			});
+		});
 	</script>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/scripts.js"></script>
+
 </body>
 </html>
