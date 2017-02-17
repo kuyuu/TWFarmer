@@ -16,13 +16,7 @@
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
 			<div class="col-md-3">
-				<div class="list-group">
-					<a href="#" class="list-group-item active">管理商品</a> <a
-						href="../BackStage/SelectQnaServlet" class="list-group-item">商品問與答</a>
-					<a href="FarmerCheckJpServlet" class="list-group-item">審核合購</a> <a
-						href="#" class="list-group-item">管理賣場資料</a> <a href="#"
-						class="list-group-item">管理個人資料</a>
-				</div>
+				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
@@ -45,12 +39,12 @@
 								</tr>
 							</thead>
 							<tbody>
-							<c:set var="delete" value="刪除" />
+								<c:set var="delete" value="刪除" />
 								<c:forEach var="row" items="${productList}">
 									<c:url value="/BackStage/ToProductServlet" var="path">
 										<c:param name="productId" value="${row.productId}" />
 									</c:url>
-									
+
 									<c:choose>
 										<c:when test="${row.productStatusName != delete}">
 
@@ -63,13 +57,13 @@
 												<td>${row.freight}</td>
 												<td>${row.productStatusName}</td>
 											</tr>
-											
+
 										</c:when>
-										
+
 										<c:otherwise>
-										
+
 										</c:otherwise>
-										
+
 									</c:choose>
 								</c:forEach>
 							</tbody>
