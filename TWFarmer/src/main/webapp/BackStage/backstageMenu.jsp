@@ -30,8 +30,9 @@
 		</div>
 		<c:if test="${LoginOK.idType==2}">
 			<div class="panel panel-default">
-				<div class="panel-heading" role="tab" id="headingTwo" style="background:#4078b0;color: #FFFFFF">
-					<h4 class="panel-title" >
+				<div class="panel-heading" role="tab" id="headingTwo"
+					style="background: #4078b0; color: #FFFFFF">
+					<h4 class="panel-title">
 						<a class="collapsed" data-toggle="collapse"
 							data-parent="#accordion" href="#collapseTwo"
 							aria-expanded="false" aria-controls="collapseTwo">小農</a>
@@ -42,7 +43,7 @@
 					<ul class="list-group">
 						<li class="list-group-item"><a href="/TWFarmer/BackStage/BackStageServlet">管理商品</a></li>
 						<li class="list-group-item"><a href="/TWFarmer/BackStage/SelectQnaServlet">商品問與答</a></li>
-						<li class="list-group-item"><a href="#">審核合購</a></li>
+						<li class="list-group-item"><a href="FarmerCheckJpServlet">審核合購</a></li>
 						<li class="list-group-item"><a href="#">管理小農資料</a></li>
 					</ul>
 				</div>

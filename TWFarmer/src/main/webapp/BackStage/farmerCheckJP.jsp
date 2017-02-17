@@ -16,13 +16,7 @@
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
 			<div class="col-md-3">
-				<div class="list-group">
-					<a href="#" class="list-group-item">管理商品</a>
-					<a href="#" class="list-group-item">商品問與答</a>
-					<a href="FarmerCheckJpServlet" class="list-group-item active">審核合購</a>
-					<a href="#" class="list-group-item">管理賣場資料</a>
-					<a href="#" class="list-group-item">管理個人資料</a>
-				</div>
+				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
@@ -64,5 +58,12 @@
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
+	<script>
+		$(function() {
+			$('#collapseOne').removeClass("in");
+			$('#collapseTwo').addClass("in");
+			$("#collapseTwo>ul>li:eq(2)").addClass("list-group-item-info");
+		});
+	</script>
 </body>
 </html>

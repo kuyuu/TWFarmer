@@ -1,4 +1,4 @@
-package controller.jointpurchase;
+package controller.jpfollower;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -22,25 +22,20 @@ public class FarmerCheckJPDetailServlet extends HttpServlet {
 		String temp = request.getParameter("jpId");
 		String value = request.getParameter("value");
 
-		Map<String, String> errors = new HashMap<String, String>();
-		request.setAttribute("errors", errors);
-
 		int jpId = 0;
 		if (temp != null && temp.length() != 0) {
 			try {
 				jpId = Integer.parseInt(temp);
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
-				errors.put("jpId", "jpId必須是整數");
 			}
 		}
-		
 		JointPurchaseDAOjdbc dao = new JointPurchaseDAOjdbc();
 		JointPurchaseBean bean = dao.select(jpId);
 		if ("accept".equals(value)) {
 			bean.setJpStatusId(4102);
 			dao.update(bean);
-		} else if("reject".equals(value)) {
+		} else if ("reject".equals(value)) {
 			bean.setJpStatusId(4105);
 			dao.update(bean);
 		}
