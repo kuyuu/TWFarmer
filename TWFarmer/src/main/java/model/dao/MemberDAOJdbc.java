@@ -176,48 +176,35 @@ public class MemberDAOJdbc implements MemberDAO {
 			+ "MemberPic=? "
 			+ "WHERE MemberId=?";
 	@Override
-	public MemberBean update(
-			int memberId,
-			String account,
-			String password,
-			String name,
-			String postalCode,
-			String district,
-			String address,
-			String phone,
-			String email,
-			String idNumber,
-			java.util.Date birthDate,
-			String gender,
-			int idType,
-			int rating,
-			String memberPic) {
+	public MemberBean update(MemberBean bean) {
 		MemberBean result = null;
 		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
-			stmt.setString(1, account);
-			stmt.setString(2, password);
-			stmt.setString(3, name);
-			stmt.setString(4, postalCode);
-			stmt.setString(5,district);
-			stmt.setString(6, address);
-			stmt.setString(7, phone);
-			stmt.setString(8, email);
-			stmt.setString(9,idNumber);
+			stmt.setString(1,bean.getAccount());
+			stmt.setString(2,bean.getPassword());
+			stmt.setString(3,bean.getName());
+			stmt.setString(4,bean.getPostalCode());
+			stmt.setString(5,bean.getDistrict());
+			stmt.setString(6,bean.getAddress());
+			stmt.setString(7,bean.getPhone());
+			stmt.setString(8,bean.getEmail());
+			stmt.setString(9,bean.getIdNumber());
+
+			java.util.Date birthDate = bean.getBirthDate();
 			if(birthDate!=null) {
 				long time = birthDate.getTime();
 				stmt.setDate(10, new java.sql.Date(time));
 			} else {
 				stmt.setDate(10, null);				
 			}
-			stmt.setString(11, gender);
-			stmt.setInt(12, idType);
-			stmt.setInt(13,rating);
-			stmt.setString(14, memberPic);
-			stmt.setInt(15, memberId);
+			stmt.setString(11, bean.getGender());
+			stmt.setInt(12, bean.getIdType());
+			stmt.setInt(13, bean.getRating());
+			stmt.setString(14, bean.getMemberPic());
+			stmt.setInt(15, bean.getMemberId());
 			int i = stmt.executeUpdate();
 			if(i==1) {
-				result = this.select(memberId);
+				result = this.select(bean.getMemberId());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
