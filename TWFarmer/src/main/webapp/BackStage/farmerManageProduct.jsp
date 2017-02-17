@@ -80,5 +80,15 @@
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
+	<script>
+		$(function() {
+			$("#collapseOne").removeClass("panel-collapse collapse in")
+					.addClass("panel-collapse collapse")
+			$("#collapseTwo").removeClass("panel-collapse collapse").addClass(
+					"panel-collapse collapse in")
+			$("#collapseTwo>ul>li:eq(0)").removeClass("list-group-item")
+					.addClass("list-group-item list-group-item-info")
+		})
+	</script>
 </body>
 </html>
