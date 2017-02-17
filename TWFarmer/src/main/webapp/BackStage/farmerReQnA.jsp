@@ -23,8 +23,8 @@
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<%-- 					<c:if test="${not empty update}"> --%>
 					<form action="/TWFarmer/BackStage/ReQnaServlet">
+					
 						<div class="form-group">
 							<input type="hidden" name="qnAId" value="${param.qnAId}" />
 							<h4>問與答編號：${param.qnAId}</h4>
@@ -36,7 +36,6 @@
 								onclick="ClearFields();">清除</button>
 						</div>
 					</form>
-					<%-- 					</c:if> --%>
 				</div>
 			</div>
 		</div>
@@ -53,7 +52,7 @@
 		$(function(){
 			$("#collapseOne").removeClass("panel-collapse collapse in").addClass("panel-collapse collapse")
 			$("#collapseTwo").removeClass("panel-collapse collapse").addClass("panel-collapse collapse in")
-			$("#collapseTwo>ul>li:eq(1)").removeClass("list-group-item").addClass("list-group-item list-group-item-success")
+			$("#collapseTwo>ul>li:eq(1)").removeClass("list-group-item").addClass("list-group-item list-group-item-info")
 		})
 	</script>
 </body>

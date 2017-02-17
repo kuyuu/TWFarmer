@@ -1,4 +1,4 @@
-package controller;
+package control.qnA;
 
 import java.io.IOException;
 import java.util.List;
@@ -17,8 +17,8 @@ import model.QnABean;
 import model.dao.ProductDAOjdbc;
 
 @WebServlet(
-		urlPatterns={"/BackStage/SelectQnaServlet"})
-public class SelectQnaServlet extends HttpServlet {
+		urlPatterns={"/BackStage/SelectAllQnaServlet"})
+public class SelectAllQnaServlet extends HttpServlet {
 	private ProductDAOjdbc productDAOjdbc = new ProductDAOjdbc();
 	
 	@Override
