@@ -265,11 +265,11 @@ public class DeleteTheProductServlet extends HttpServlet {
 			ProductDAOjdbc dao = new ProductDAOjdbc();
 			ProductBean bean1 = dao.select(productId);
 			bean1.setProductStatusName("下架");
-			// bean1.setRemoveDate(removeDate.format(today));
+			bean1.setRemoveDate(today);
 			ProductBean bean = dao.update(bean1); // 將Product的狀態改為"下架"
 
 			request.setAttribute("productBean", bean);
-			
+
 			// 5.挑選適當頁面=>按下刪除鈕，導向ProductDiscontinueSuccess頁面
 			request.getRequestDispatcher("../ProductMaintain/ProductDiscontinueSuccess.jsp").forward(request, response);
 		} else if ("修改".equals(prodaction)) {
@@ -281,10 +281,24 @@ public class DeleteTheProductServlet extends HttpServlet {
 			// request.setAttribute("productBean", bean);
 
 			// 4.呼叫Model
-			ProductBean productBean = new ProductBean();
+//			ProductBean productBean = new ProductBean();
 			ProductDAOjdbc dao1 = new ProductDAOjdbc();
-			productBean = dao1.update(productBean);
-
+//			productBean = dao1.update(productBean);
+			
+			ProductBean productBean = dao1.select(productId);
+			productBean.setOrigin(origin);
+			productBean.setProductName(productName);
+			productBean.setInventory(inventory);
+			productBean.setPrice(price);
+			productBean.setUnit(unit);
+			productBean.setProductTypeName(productTypeName);
+			productBean.setProductIntro(productIntro);
+			productBean.setFreight(freight);
+			productBean.setAddDate(addDate);
+			productBean.setRemoveEstDate(removeEstDate);
+			productBean.setProductStatusName(productStatusName);
+			dao1.update(productBean);
+			
 			ProductPicBean productPicBean = new ProductPicBean();
 			productPicBean.setProductId(productBean.getProductId());
 			// 商品圖片介紹
