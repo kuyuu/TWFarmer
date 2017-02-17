@@ -1,4 +1,4 @@
-package control.qnA;
+package controller.qnA;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/QnAInsertServlet")
+@WebServlet("")
 public class SelectQnAServlet extends HttpServlet{
 
 	@Override
