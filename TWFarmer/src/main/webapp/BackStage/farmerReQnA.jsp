@@ -23,20 +23,22 @@
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<%-- 					<c:if test="${not empty update}"> --%>
 					<form action="/TWFarmer/BackStage/ReQnaServlet">
+					
 						<div class="form-group">
-							<input type="hidden" name="qnAId" value="${param.qnAId}" />
-							<h4>問與答編號：${param.qnAId}</h4>
+							<input type="hidden" name="qnAId" value="${select.qnAId}" />
+							<h4>問與答編號：${select.qnAId}</h4>
+							<h5>賣家提問：${select.qnAContent}</h5>
+							<br>
 							<label class="">回答問題</label>
 							<textarea id="ReQnA" name="ReQnA" class="form-control" rows="5"></textarea>
 							<h4>${errors.QnAerror}</h4>
-							<button type="submit" class="btn btn-default">送出</button>
-							<button type="button" class="btn btn-default" id="clearQnA"
+							<button name="button" class="btn btn-primary" value="submit">送出回覆</button>
+							<button name="button" class="btn btn-danger" value="delete">刪除問題</button>
+							<button type="submit" class="btn btn-default" id="clearQnA"
 								onclick="ClearFields();">清除</button>
 						</div>
 					</form>
-					<%-- 					</c:if> --%>
 				</div>
 			</div>
 		</div>
@@ -53,7 +55,7 @@
 		$(function(){
 			$("#collapseOne").removeClass("panel-collapse collapse in").addClass("panel-collapse collapse")
 			$("#collapseTwo").removeClass("panel-collapse collapse").addClass("panel-collapse collapse in")
-			$("#collapseTwo>ul>li:eq(1)").removeClass("list-group-item").addClass("list-group-item list-group-item-success")
+			$("#collapseTwo>ul>li:eq(1)").removeClass("list-group-item").addClass("list-group-item list-group-item-info")
 		})
 	</script>
 </body>

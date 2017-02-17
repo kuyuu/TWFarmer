@@ -257,13 +257,13 @@
 
 
 										<td width=140>
-											<c:forEach items="${productPicList}" var="row">
+											<c:forEach items="${productPicList}" var="row" varStatus="name">
 												<div class="col-md-8">
 													<div class="thumbnail">
 														<img src="../img/${row.pictureName}">
 														<div class="caption">
 															<h4>${row.pictureIntro}</h4>
-															<input class='InputClass' type="file" name="picture1" />
+															<input class='InputClass' type="file" name="picture${name.index}" />
 														</div>
 													</div>
 												</div>
