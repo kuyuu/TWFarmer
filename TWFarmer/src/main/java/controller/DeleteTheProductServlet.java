@@ -29,13 +29,13 @@ import model.dao.ProductPicDAOJdbc;
 @MultipartConfig(location = "C:/TWFarmer/repository/TWFarmer/src/main/webapp/img/") // 圖片存放路徑
 public class DeleteTheProductServlet extends HttpServlet {
 	Date today = new Date();
-	SimpleDateFormat removeDate = new SimpleDateFormat("yyyy-MM-dd");
+
 	private SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd");
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("DeleteTheProductServlet hahahahah");
+		
 		// 輸入資料編碼
 		request.setCharacterEncoding("UTF-8");
 		// 1.接收資料===========================================
