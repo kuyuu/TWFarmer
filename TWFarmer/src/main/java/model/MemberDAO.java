@@ -27,5 +27,7 @@ public interface MemberDAO {
 	//2017/02/17 新增以下方法供會員搜尋功能使用
 	public abstract List<MemberBean> selectByAccName(String keyword);
 
+	public abstract List<MemberBean> selectByAccNameCheat();
+
 
 }
