@@ -39,7 +39,7 @@
 										<td>${row.initDate}</td>
 										<td>${row.endDate}</td>
 										<td>${row.jpLocation}</td>
-										<td><c:if test="${row.jpStatusId==4102}"> 
+										<td><c:if test="${row.jpStatusId==4102}">
 												<a href="PublicJpServlet?jpId=${row.jpId}"><button
 														type="button" class="btn btn-default">發佈開團</button></a>
 											</c:if></td>
@@ -57,5 +57,10 @@
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
+	<script>
+		$(function() {
+			$('#collapseOne>ul>li:eq(1)').addClass("list-group-item-success");
+		});
+	</script>
 </body>
 </html>

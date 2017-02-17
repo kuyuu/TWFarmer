@@ -1,4 +1,4 @@
-package controller;
+package controller.shoppingcart;
 
 import java.io.IOException;
 
@@ -8,15 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-@WebServlet("/common/ShoppingCartServlet")
-public class ShoppingCartServlet extends HttpServlet {
-	
+@WebServlet("/shoppingCart/ClearShoppingCartServlet")
+public class ClearShoppingCartServlet extends HttpServlet {
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		
-		
+		session.removeAttribute("cartMap");
+		session.removeAttribute("cart");
 	}
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}

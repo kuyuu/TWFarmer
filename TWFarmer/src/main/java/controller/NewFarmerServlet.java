@@ -40,20 +40,9 @@ public class NewFarmerServlet extends HttpServlet {
     	String farmerId = request.getParameter("farmerId");
     	String bank = request.getParameter("bank");
     	String bankAccount = request.getParameter("bankAccount");
-//    	String temp6 = request.getParameter("memberId");
-//		String account  = request.getParameter("account") ;
-		//String password  = request.getParameter("password");
-//		String name  = request.getParameter("name");
-//		String postalcode  = request.getParameter("postalCode");
-//		String district  = request.getParameter("district");
-//		String address  = request.getParameter("address");
-//		String phone  = request.getParameter("phone");
-//		String email  = request.getParameter("email");
 		String farmerIntro =request.getParameter("farmerIntro");
-		//String idnumber  = request.getParameter("idNumber");
-		//String birthdate  = request.getParameter("birthDate");
-		//String gender  = request.getParameter("gender");
-		System.out.println("farmerId=" + farmerId + ";bank=" + bank + ";bankAccount=" + bankAccount + ";farmerIntro=" + farmerIntro);
+//		System.out.println("farmerId=" + farmerId + ";bank=" + bank + ";bankAccount=" + bankAccount + ";farmerIntro=" + farmerIntro);
+		
 		//驗證資料
 		Map<String, String> errors = new HashMap<String, String>();
 		request.setAttribute("errors", errors);
@@ -85,46 +74,9 @@ public class NewFarmerServlet extends HttpServlet {
 					"/ToBeFarmer/UpToFarmer.jsp").forward(request, response);
 			return;
 		}
-				
-				
+							
 		//轉換資料
-		
-//		java.util.Date birthDate = null;
-		/*if(birthdate!=null && birthdate.length()!=0) {
-			try {
-				birthDate = sFormat.parse(birthdate);
-			} catch (ParseException e) {
-				e.printStackTrace();
-				errors.put("birthDate", "生日日期格式必須是yyyy-mm-dd");
-			}
-		}*/
 
-//		int memberId = 0;
-//		if (temp6 != null && temp6.length() != 0) {
-//			try {
-//				memberId = Integer.parseInt(temp6);
-//			} catch (NumberFormatException e) {
-//				e.printStackTrace();
-//				errors.put("memberId", "必須是已註冊會員的編號");
-//			}
-//		}	
-
-			
-//			// 4. 進行 Business Logic 運算
-//			MemberSubmitService mss = new MemberSubmitService();
-//			if (mss.idExists(account)) {
-//				errorMsg.add("該代號 (" +  account  + ") 已經存在，請換新的代號");
-//			} else {
-//				try {
-//					MemberBean mem = new MemberBean(account, password, name, postalcode, district, address, phone, email, idnumber, birthDate, gender);
-//					mss.insert(mem);
-//				} catch (SQLException e) {
-//					errorMsg.add("儲存資料時發生錯誤，請檢查，例外=" + e.getMessage());
-//					e.printStackTrace();
-//				}
-//			}
-		
-        
 		//呼叫Model
 		FarmerBean farmerBean = new FarmerBean();
 		farmerBean.setMemberId(mb.getMemberId());
@@ -135,11 +87,13 @@ public class NewFarmerServlet extends HttpServlet {
 		
 		MemberBean memberBean = memberDAOJdbc.select(mb.getMemberId());
 		memberBean.setIdType(4);
-        
-        if(farmerBean != null){
+		
+        if(farmerBean != null ){
         	FarmerBean result = farmerDAOJdbc.insert(farmerBean);
-        	System.out.println(farmerBean);
-        	request.setAttribute("insert", result);
+        	MemberBean result2= memberDAOJdbc.update(memberBean);
+        	request.setAttribute("farmerBean", result);
+        	request.setAttribute("memberBean", result2);
+        	session.setAttribute("LoginOK", memberBean);
         	request.getRequestDispatcher("farmerSuccess.jsp").forward(request,response);
         }
 		

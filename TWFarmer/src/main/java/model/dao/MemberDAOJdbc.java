@@ -1,12 +1,15 @@
 package model.dao;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -16,6 +19,8 @@ import javax.sql.DataSource;
 import model.JointPurchaseBean;
 import model.MemberBean;
 import model.MemberDAO;
+import model.ProductBean;
+import model.ProductPicBean;
 
 
 public class MemberDAOJdbc implements MemberDAO {
@@ -176,48 +181,35 @@ public class MemberDAOJdbc implements MemberDAO {
 			+ "MemberPic=? "
 			+ "WHERE MemberId=?";
 	@Override
-	public MemberBean update(
-			int memberId,
-			String account,
-			String password,
-			String name,
-			String postalCode,
-			String district,
-			String address,
-			String phone,
-			String email,
-			String idNumber,
-			java.util.Date birthDate,
-			String gender,
-			int idType,
-			int rating,
-			String memberPic) {
+	public MemberBean update(MemberBean bean) {
 		MemberBean result = null;
 		try (Connection conn = dataSource.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
-			stmt.setString(1, account);
-			stmt.setString(2, password);
-			stmt.setString(3, name);
-			stmt.setString(4, postalCode);
-			stmt.setString(5,district);
-			stmt.setString(6, address);
-			stmt.setString(7, phone);
-			stmt.setString(8, email);
-			stmt.setString(9,idNumber);
+			stmt.setString(1,bean.getAccount());
+			stmt.setString(2,bean.getPassword());
+			stmt.setString(3,bean.getName());
+			stmt.setString(4,bean.getPostalCode());
+			stmt.setString(5,bean.getDistrict());
+			stmt.setString(6,bean.getAddress());
+			stmt.setString(7,bean.getPhone());
+			stmt.setString(8,bean.getEmail());
+			stmt.setString(9,bean.getIdNumber());
+
+			java.util.Date birthDate = bean.getBirthDate();
 			if(birthDate!=null) {
 				long time = birthDate.getTime();
 				stmt.setDate(10, new java.sql.Date(time));
 			} else {
 				stmt.setDate(10, null);				
 			}
-			stmt.setString(11, gender);
-			stmt.setInt(12, idType);
-			stmt.setInt(13,rating);
-			stmt.setString(14, memberPic);
-			stmt.setInt(15, memberId);
+			stmt.setString(11, bean.getGender());
+			stmt.setInt(12, bean.getIdType());
+			stmt.setInt(13, bean.getRating());
+			stmt.setString(14, bean.getMemberPic());
+			stmt.setInt(15, bean.getMemberId());
 			int i = stmt.executeUpdate();
 			if(i==1) {
-				result = this.select(memberId);
+				result = this.select(bean.getMemberId());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -401,4 +393,78 @@ public class MemberDAOJdbc implements MemberDAO {
 		return result;
 	}
 	//民國106年02月15日 方法至以上為止
+	
+	//民國106年02月17日 以下 新增一方法供會員搜尋功能使用 --小巫
+	private static final String SELECT_BY_ACCNAME = "Select * FROM Member Where account LIKE ? or name like ?";
+	@Override
+	public List<MemberBean> selectByAccName(String keyword) {
+		List<MemberBean> result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ACCNAME);
+				){
+			stmt.setString(1, "%" + keyword + "%");
+			stmt.setString(2, "%" + keyword + "%");
+			ResultSet rset = stmt.executeQuery(); 
+			result = new ArrayList<MemberBean>();
+			while(rset.next()) {
+				MemberBean bean = new MemberBean();
+				bean.setMemberId(rset.getInt("memberId"));
+				bean.setAccount(rset.getString("account"));
+				bean.setPassword(rset.getString("password"));
+				bean.setName(rset.getString("name"));
+				bean.setPostalCode(rset.getString("postalCode"));
+				bean.setDistrict(rset.getString("district"));
+				bean.setAddress(rset.getString("address"));
+				bean.setPhone(rset.getString("phone"));
+				bean.setEmail(rset.getString("email"));
+				bean.setIdNumber(rset.getString("idNumber"));
+				bean.setBirthDate(rset.getDate("BirthDate"));
+				bean.setGender(rset.getString("gender"));
+				bean.setIdType(rset.getInt("idType"));
+				bean.setRating(rset.getInt("rating"));
+				bean.setMemberPic(rset.getString("memberPic"));
+				result.add(bean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	private static final String SELECT_MEMBERID2 = "select * from ProductPic WHERE ProductID=?";
+
+	@Override
+	public List<MemberBean> selectById2(int memberId) {
+		List<MemberBean> result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_MEMBERID2);
+				) {
+			stmt.setInt(1, memberId);
+			ResultSet rset = stmt.executeQuery();
+			result = new ArrayList<MemberBean>();
+			while (rset.next()) {
+				MemberBean memberBean = new MemberBean();
+				memberBean.setMemberId(rset.getInt("memberId"));
+				memberBean.setAccount(rset.getString("account"));
+				memberBean.setPassword(rset.getString("password"));
+				memberBean.setName(rset.getString("name"));
+				memberBean.setPostalCode(rset.getString("postalCode"));
+				memberBean.setDistrict(rset.getString("district"));
+				memberBean.setAddress(rset.getString("address"));
+				memberBean.setPhone(rset.getString("phone"));
+				memberBean.setEmail(rset.getString("email"));
+				memberBean.setIdNumber(rset.getString("idNumber"));
+				memberBean.setBirthDate(rset.getDate("BirthDate"));
+				memberBean.setGender(rset.getString("gender"));
+				memberBean.setRating(rset.getInt("rating"));
+				memberBean.setMemberPic(rset.getString("memberPic"));
+				result.add(memberBean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	//民國106年02月17日 會員搜尋方法至以上為止
 }

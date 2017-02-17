@@ -10,17 +10,21 @@
 </head>
 <body>
 	<div class="container">
-		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
 			<div class="col-md-3">
 				<jsp:include page="backstageMenu.jsp" />
 			</div>
-			<div class="col-md-9">
-			</div>
+			<div class="col-md-9"></div>
 		</div>
 	</div>
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
+	<script>
+		$(function(){
+			$("#collapseOne>ul>li:eq(0)").removeClass("list-group-item").addClass("list-group-item list-group-item-success")
+			
+		})
+	</script>
 </body>
 </html>
