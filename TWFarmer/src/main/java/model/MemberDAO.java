@@ -20,22 +20,7 @@ public interface MemberDAO {
 
 	public abstract MemberBean insert(MemberBean bean);
 	
-	public abstract MemberBean update(
-			int memberId,
-			String account,
-			String password,
-			String name,
-			String postalCode,
-			String district,
-			String address,
-			String phone,
-			String email,
-			String idNumber,
-			java.util.Date birthDate,
-			String gender,
-			int idType,
-			int rating,
-			String memberPic);
+	public abstract MemberBean update(MemberBean bean);
 
 	public abstract boolean delete(int memberId);
 

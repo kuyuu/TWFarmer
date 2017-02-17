@@ -16,13 +16,7 @@
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
 			<div class="col-md-3">
-				<div class="list-group">
-					<a href="#" class="list-group-item">管理訂單</a> <a href="#"
-						class="list-group-item active">管理開團</a> <a href="#"
-						class="list-group-item">管理跟團</a><a href="#"
-						class="list-group-item">管理追蹤商品</a> <a href="#"
-						class="list-group-item">管理個人資料</a>
-				</div>
+				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
@@ -32,7 +26,6 @@
 							<thead>
 								<tr>
 									<th>合購編號</th>
-									<th>合購發起人</th>
 									<th>開始日期</th>
 									<th>結束日期</th>
 									<th>合購地點</th>
@@ -43,7 +36,6 @@
 								<c:forEach var="row" items="${initJpList}">
 									<tr>
 										<td>${row.jpId}</td>
-										<td>${row.initId}</td>
 										<td>${row.initDate}</td>
 										<td>${row.endDate}</td>
 										<td>${row.jpLocation}</td>

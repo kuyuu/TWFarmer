@@ -5,23 +5,25 @@ import java.util.Date;
 
 public class JointPurchaseBean implements Serializable {
 
-	int jpId;
-	int initId;
-	String jpName;
-	String jpIntro;
-	Date initDate;
-	Date endDate;
-	String jpLocation;
-	int jpStatusId;
-	int jpFreight;
-	int miscViaId;
-	int misc;
-	
+	private int jpId;
+	private int initId;
+	private String jpName;
+	private String jpIntro;
+	private Date initDate;
+	private Date endDate;
+	private String jpLocation;
+	private int jpStatusId;
+	private int jpFreight;
+	private int miscViaId;
+	private int misc;
+	private String bankAccount;
+	private String bankName;
+
 	@Override
 	public boolean equals(Object obj) {
-		if(obj!=null && (obj instanceof JointPurchaseBean)) {
+		if (obj != null && (obj instanceof JointPurchaseBean)) {
 			JointPurchaseBean temp = (JointPurchaseBean) obj;
-			if(this.jpId == temp.jpId) {
+			if (this.jpId == temp.jpId) {
 				return true;
 			}
 		}
@@ -30,9 +32,10 @@ public class JointPurchaseBean implements Serializable {
 
 	@Override
 	public String toString() {
-		return "{"+jpId+":"+initId+":"+jpIntro+":"+initDate+":"+endDate+":"+jpLocation+":"+jpStatusId+":"+jpFreight+":"+miscViaId+":"+misc+"}";
+		return "{" + jpId + ":" + initId + ":" + jpIntro + ":" + initDate + ":" + endDate + ":" + jpLocation + ":"
+				+ jpStatusId + ":" + jpFreight + ":" + miscViaId + ":" + misc + "}";
 	}
-	
+
 	public int getJpId() {
 		return jpId;
 	}
@@ -121,7 +124,20 @@ public class JointPurchaseBean implements Serializable {
 		this.misc = misc;
 	}
 
+	public String getBankAccount() {
+		return bankAccount;
+	}
 
+	public void setBankAccount(String bankAccount) {
+		this.bankAccount = bankAccount;
+	}
 
-	
+	public String getBankName() {
+		return bankName;
+	}
+
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
+	}
+
 }

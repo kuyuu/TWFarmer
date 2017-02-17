@@ -4,21 +4,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>臺灣小農</title>
-<meta name="description"
-	content="Source code generated using layoutit.com">
-<meta name="author" content="LayoutIt!">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
 	<!-- 上方選單start -->
 	<div class="container">
-		<jsp:include page="../common/menuJp.jsp" />
+		<jsp:include page="../common/menu.jsp" />
 		<div class="col-md-3">
 			<div class="list-group">
 				<a href="#" class="list-group-item">管理訂單</a> <a href="#"
@@ -28,7 +21,7 @@
 					class="list-group-item active">會員升級</a>
 			</div>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-8">
 			<div style="font-weight: bold; color: #ff0000; font-size: 2em;">升級小農</div>
 			<br><span style="color: #ff0000">${errors.farmer}</span>
 			<form action="<c:url value="NewFarmerServlet" />" method="post">
