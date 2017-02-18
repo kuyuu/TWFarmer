@@ -19,7 +19,7 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a
 						href="/TWFarmer/ProductSelect/ProductSelect.jsp">購買蔬果</a></li>
-					<li><a href="/TWFarmer/BackStage/WelcomeMember.jsp">合購專區</a></li>
+					<li><a href="/TWFarmer/PurchaseSelect/PurchaseSelect.jsp">合購專區</a></li>
 					<li><a href="/TWFarmer/shoppingCart/ShowShoppingCartServlet">購物車</a></li>
 				</ul>
 				<c:choose>
