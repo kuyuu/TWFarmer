@@ -22,25 +22,86 @@
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<h4>${LoginOK.name}</h4>
-					<c:if test="${LoginOK.gender=='M'}">
-						<h4>先生，您好</h4>
-					</c:if>
-					<c:if test="${LoginOK.gender=='F'}">
-						<h4>小姐，您好</h4>
-					</c:if>
-					<div class="row">
-						<div class="col-xs-6 col-md-3">
-							<img src="MemberPic/${LoginOK.memberPic}">
+					<div class="col-md-8">
+						<h2>您的會員資料為：</h2>
+						<table>
+							<tr>
+								<td><h4>帳號：</h4></td>
+								<td><h4>${LoginOK.account}</h4></td>
+							</tr>
+							<tr>
+								<td><h4>郵遞區號：</h4></td>
+								<td><h4>${LoginOK.postalCode}</h4></td>
+							</tr>
+							<tr>
+								<td><h4>地址：</h4></td>
+								<td><h4>${LoginOK.district}${LoginOK.address}</h4></td>
+							</tr>
+							<tr>
+								<td><h4>電話：</h4></td>
+								<td><h4>${LoginOK.phone}</h4></td>
+							</tr>
+							<tr>
+								<td><h4>電子信箱：</h4></td>
+								<td><h4>${LoginOK.email}</h4></td>
+							</tr>
+							<tr>
+								<td><h4>身分證字號：</h4></td>
+								<td><h4>${LoginOK.idNumber}</h4></td>
+							</tr>
+							<tr>
+								<td><h4>生日：</h4></td>
+								<td><h4>${LoginOK.birthDate}</h4></td>
+							</tr>
+							<tr>
+								<td><h4>性別：</h4></td>
+								<td><c:if test="${LoginOK.gender=='M'}">
+										<h4>男性</h4>
+									</c:if> <c:if test="${LoginOK.gender=='F'}">
+										<h4>女性</h4>
+									</c:if></td>
+							</tr>
+							<tr>
+								<td><h4>身分別：</h4></td>
+								<td><c:if test="${LoginOK.idType==1}">
+										<h4>會員</h4>
+									</c:if> <c:if test="${LoginOK.idType==2}">
+										<h4>小農</h4>
+									</c:if> <c:if test="${LoginOK.idType==3}">
+										<h4>管理員</h4>
+									</c:if></td>
+							</tr>
+							<tr>
+								<td><h4>評價：</h4></td>
+								<td><h4>${LoginOK.rating}</h4></td>
+							</tr>
+						</table>
+						<br>
+						<button type="button" class="btn btn-default">修改</button>
+					</div>
+					<div class="col-md-3">
+						<h4>${LoginOK.name}</h4>
+						<c:if test="${LoginOK.gender=='M'}">
+							<h5>先生，您好</h5>
+						</c:if>
+						<c:if test="${LoginOK.gender=='F'}">
+							<h5>小姐，您好</h5>
+						</c:if>
+						<img src="../MemberPic/${LoginOK.memberPic}" class="img-thumbnail">
 
-						</div>
+						<input class='InputClass' type="file" name="picture" />
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/scripts.js"></script>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/scripts.js"></script>
+		<script>
+			$(function() {
+				$("#collapseOne>ul>li:eq(4)").removeClass("list-group-item")
+						.addClass("list-group-item list-group-item-success")
+			})
+		</script>
 </body>
 </html>

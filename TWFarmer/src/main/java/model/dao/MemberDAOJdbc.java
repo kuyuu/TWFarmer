@@ -334,7 +334,7 @@ public class MemberDAOJdbc implements MemberDAO {
 				result.setGender(rset.getString("gender"));
 				result.setIdType(rset.getInt("idType"));
 				result.setRating(rset.getInt("rating"));
-				
+				result.setMemberPic(rset.getString("memberPic"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
