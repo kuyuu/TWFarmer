@@ -277,180 +277,180 @@ GO
 
 --Member
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('a001','password','·|­ûA',235,'·s¥_¥«¤¤©M°Ï','·|­ûAªº®a','0911111111','memberA@gmail.com','A111111111','1990-01-01','M',1,0,'P1001.jpg');
+	        VALUES ('a001','password','æœƒå“¡A',235,'æ–°åŒ—å¸‚ä¸­å’Œå€','æœƒå“¡Açš„å®¶','0911111111','memberA@gmail.com','A111111111','1990-01-01','M',1,0,'P1001.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('b001','password','·|­ûB',106,'¥x¥_¥«¤j¦w°Ï','·|­ûBªº®a','0922222222','memberB@gmail.com','B222222222','1988-02-02','F',1,10,'P1002.jpg');
+	        VALUES ('b001','password','æœƒå“¡B',106,'å°åŒ—å¸‚å¤§å®‰å€','æœƒå“¡Bçš„å®¶','0922222222','memberB@gmail.com','B222222222','1988-02-02','F',1,10,'P1002.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('c002','password','¤p¹AA',367,'­]®ß¿¤¤T¸q¶m','¤p¹AAªº®a','0933333333','memberA@gmail.com','A333333333','1944-04-04','M',2,100,'P1003.jpg');
+	        VALUES ('c002','password','å°è¾²A',367,'è‹—æ —ç¸£ä¸‰ç¾©é„‰','å°è¾²Açš„å®¶','0933333333','memberA@gmail.com','A333333333','1944-04-04','M',2,100,'P1003.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-            VALUES ('d002','password','¤p¹AB',904,'«ÌªF¿¤¤E¦p¶m','¤p¹ABªº®a','0944444444','memberB@gmail.com','B444444444','1955-05-05','M',2,30,'P1004.jpg');
+            VALUES ('d002','password','å°è¾²B',904,'å±æ±ç¸£ä¹å¦‚é„‰','å°è¾²Bçš„å®¶','0944444444','memberB@gmail.com','B444444444','1955-05-05','M',2,30,'P1004.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('c001','password','·|­ûC',106,'¥x¥_¥«¤j¦w°Ï','·|­ûCªº®a','0933333333','memberB@gmail.com','C222222222','1988-02-02','F',1,10,'P1005.jpg');
+	        VALUES ('c001','password','æœƒå“¡C',106,'å°åŒ—å¸‚å¤§å®‰å€','æœƒå“¡Cçš„å®¶','0933333333','memberB@gmail.com','C222222222','1988-02-02','F',1,10,'P1005.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('d001','password','·|­ûD',106,'¥x¥_¥«¤j¦w°Ï','·|­ûDªº®a','0944444444','memberB@gmail.com','D222222222','1988-02-02','F',1,10,'P1006.jpg');
+	        VALUES ('d001','password','æœƒå“¡D',106,'å°åŒ—å¸‚å¤§å®‰å€','æœƒå“¡Dçš„å®¶','0944444444','memberB@gmail.com','D222222222','1988-02-02','F',1,10,'P1006.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('e001','password','·|­ûE',106,'¥x¥_¥«¤j¦w°Ï','·|­ûEªº®a','0955555555','memberB@gmail.com','E222222222','1988-02-02','F',1,10,'P1007.jpg');
+	        VALUES ('e001','password','æœƒå“¡E',106,'å°åŒ—å¸‚å¤§å®‰å€','æœƒå“¡Eçš„å®¶','0955555555','memberB@gmail.com','E222222222','1988-02-02','F',1,10,'P1007.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('f001','password','·|­ûF',106,'¥x¥_¥«¤j¦w°Ï','·|­ûFªº®a','0966666666','memberB@gmail.com','F222222222','1988-02-02','F',1,10,'P1008.jpg');
+	        VALUES ('f001','password','æœƒå“¡F',106,'å°åŒ—å¸‚å¤§å®‰å€','æœƒå“¡Fçš„å®¶','0966666666','memberB@gmail.com','F222222222','1988-02-02','F',1,10,'P1008.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('c002','password','¤p¹AC',367,'­]®ß¿¤¤T¸q¶m','¤p¹ACªº®a','0933333333','memberC@gmail.com','C333333333','1944-04-04','M',2,100,'P1009.jpg');
+	        VALUES ('c002','password','å°è¾²C',367,'è‹—æ —ç¸£ä¸‰ç¾©é„‰','å°è¾²Cçš„å®¶','0933333333','memberC@gmail.com','C333333333','1944-04-04','M',2,100,'P1009.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('d002','password','¤p¹AD',904,'«ÌªF¿¤¤E¦p¶m','¤p¹ADªº®a','0944444444','memberD@gmail.com','D444444444','1955-05-05','M',2,30,'P1010.jpg');
+	        VALUES ('d002','password','å°è¾²D',904,'å±æ±ç¸£ä¹å¦‚é„‰','å°è¾²Dçš„å®¶','0944444444','memberD@gmail.com','D444444444','1955-05-05','M',2,30,'P1010.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('micky','123','¦Ì¤p¹«',555,'«n§ë¿¤³½¦À¶m','®H§À¸ô215¸¹','0912345678','micky@gmail.com','M125943647','1962-08-25','M',2,126,'P1011.jpg');
+	        VALUES ('micky','123','ç±³å°é¼ ',555,'å—æŠ•ç¸£é­šæ± é„‰','åŸ”å°¾è·¯215è™Ÿ','0912345678','micky@gmail.com','M125943647','1962-08-25','M',2,126,'P1011.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-          	VALUES ('kitty','123','³Í¸¦¿ß',973,'ªá½¬¿¤¦N¦w¶m','·O¶³¸ô52¸¹','0987416423','kitty@gmail.com','U235974118','1973-06-16','M',2,95,'P1012.jpg');
+          	VALUES ('kitty','123','å‡±è’‚è²“',973,'èŠ±è“®ç¸£å‰å®‰é„‰','æ…ˆé›²è·¯52è™Ÿ','0987416423','kitty@gmail.com','U235974118','1973-06-16','M',2,95,'P1012.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        values ('sunmary', '123', '®]¤p¬ü', 206, '°ò¶©¥«¤C°ô°Ï', 'ºÖ¤@µó172«Ñ22¸¹', '0912766281', 'sunmary@gmail.com', 'C223456724', '1988-10-08', 'F',1, 25,'P1013.jpg');
+	        values ('sunmary', '123', 'å­«å°ç¾', 206, 'åŸºéš†å¸‚ä¸ƒå µå€', 'ç¦ä¸€è¡—172å··22è™Ÿ', '0912766281', 'sunmary@gmail.com', 'C223456724', '1988-10-08', 'F',1, 25,'P1013.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        values ('arrtuu', '123', '±iªü¤g', 950, '¥xªF¿¤¥xªF¥«', '«C®ü¸ô¤G¬q581«Ñ', '0933268953', 'arrtuu@gmail.com', 'V116456724', '1963-05-30', 'M',2, 130,'P1014.jpg');
+	        values ('arrtuu', '123', 'å¼µé˜¿åœŸ', 950, 'å°æ±ç¸£å°æ±å¸‚', 'é’æµ·è·¯äºŒæ®µ581å··', '0933268953', 'arrtuu@gmail.com', 'V116456724', '1963-05-30', 'M',2, 130,'P1014.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        values ('missmoney', '123', '¿ú¤Ò¤H', 106, '¥x¥_¥«¤j¦w°Ï', 'Á{¦¿µó40«Ñ65¸¹3¼Ó', '0957923581', 'missmoney@gmail.com', 'A213583216', '1976-05-20', 'F',1, 32,'P1015.jpg');
+	        values ('missmoney', '123', 'éŒ¢å¤«äºº', 106, 'å°åŒ—å¸‚å¤§å®‰å€', 'è‡¨æ±Ÿè¡—40å··65è™Ÿ3æ¨“', '0957923581', 'missmoney@gmail.com', 'A213583216', '1976-05-20', 'F',1, 32,'P1015.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('p001','iloveopen','open±N',654,'¶³ªL¿¤¥|´ò¶m','open±N¤§®a','0977777777','open@gmail.com','O177777777','1966-06-06','M',2,30,'P1016.jpg');
+	        VALUES ('p001','iloveopen','openå°‡',654,'é›²æ—ç¸£å››æ¹–é„‰','openå°‡ä¹‹å®¶','0977777777','open@gmail.com','O177777777','1966-06-06','M',2,30,'P1016.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('p002','ilovedoraemon','ÎG°ÕA¹Ú',840,'°ª¶¯¥«¤j¾ğ°Ï','ÎG°ÕA¹Ú¤§®a','0988888888','doraemon@gmail.com','E133333333','1978-09-03','M',2,65,'P1017.jpg');
+	        VALUES ('p002','ilovedoraemon','å“†å•¦Aå¤¢',840,'é«˜é›„å¸‚å¤§æ¨¹å€','å“†å•¦Aå¤¢ä¹‹å®¶','0988888888','doraemon@gmail.com','E133333333','1978-09-03','M',2,65,'P1017.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('p003','ilovesonic','­µ³t¤p¤l',238,'·s¥_¥«¾ğªL°Ï','­µ³t¤p¤l¤§®a','0999000123','sonic@gmail.com','F133333333','1987-08-05','M',1,53,'P1018.jpg');
+	        VALUES ('p003','ilovesonic','éŸ³é€Ÿå°å­',238,'æ–°åŒ—å¸‚æ¨¹æ—å€','éŸ³é€Ÿå°å­ä¹‹å®¶','0999000123','sonic@gmail.com','F133333333','1987-08-05','M',1,53,'P1018.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('skyYo','123456','¥Û¦b¤Ñ',906,'«ÌªF¿¤°ª¾ğ¶m','¤¤¥¡¸ô96¸¹','0908997955','strongyo@gmail.com','A136854479','1988-08-08','M',1,100,'P1019.jpg');
+	        VALUES ('skyYo','123456','çŸ³åœ¨å¤©',906,'å±æ±ç¸£é«˜æ¨¹é„‰','ä¸­å¤®è·¯96è™Ÿ','0908997955','strongyo@gmail.com','A136854479','1988-08-08','M',1,100,'P1019.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('draconicwu','123456','§Å¥¿Às',221,'·s¥_¥«¦Á¤î°Ï','·s¥x¤­¸ô¤@¬q866¸¹','0970579136','draconicwu@gmail.com','F136854132','1996-12-23','M',1,0,'P1020.jpg');
+	        VALUES ('draconicwu','123456','å·«æ­£é¾',221,'æ–°åŒ—å¸‚æ±æ­¢å€','æ–°å°äº”è·¯ä¸€æ®µ866è™Ÿ','0970579136','draconicwu@gmail.com','F136854132','1996-12-23','M',1,0,'P1020.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('verysilent','123456','¨H¾å¯u',266,'©yÄõ¿¤¤T¬P¶m','©|ªZ§ø°·´I¸ô¤G¬q704¸¹','0979254186','truesilence50@gmail.com','G236854479','1987-07-04','F',2,105,'P1021.jpg');
+	        VALUES ('verysilent','123456','æ²ˆæ›‰çœŸ',266,'å®œè˜­ç¸£ä¸‰æ˜Ÿé„‰','å°šæ­¦æ‘å¥å¯Œè·¯äºŒæ®µ704è™Ÿ','0979254186','truesilence50@gmail.com','G236854479','1987-07-04','F',2,105,'P1021.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('littleli','123456','§õ¤p­Å',110,'¥x¥_¥««H¸q°Ï','ªQ¤s¸ô999¸¹','0971270920','chienchien999@gmail.com','F206854185','1998-03-06','F',2,299,'P1022.jpg');
+	        VALUES ('littleli','123456','æå°å€©',110,'å°åŒ—å¸‚ä¿¡ç¾©å€','æ¾å±±è·¯999è™Ÿ','0971270920','chienchien999@gmail.com','F206854185','1998-03-06','F',2,299,'P1022.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('furry','123456','³°¦Ğ±á',106,'¥x¥_¥«¤j¦w°Ï','«Ø°ê«n¸ô¤G¬q79«Ñ100¸¹','0974180520','thisrealmneedsme@gmail.com','F276854479','1992-01-01','F',1,240,'P1023.jpg');
+	        VALUES ('furry','123456','é™¸ç¾½æ™¨',106,'å°åŒ—å¸‚å¤§å®‰å€','å»ºåœ‹å—è·¯äºŒæ®µ79å··100è™Ÿ','0974180520','thisrealmneedsme@gmail.com','F276854479','1992-01-01','F',1,240,'P1023.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('shinhuei','123456','³¯¥É´@',241,'·s¥_¥«¤T­«°Ï','¤¤¥¿¥_¸ô111¸¹','0947240785','tintinyuli@gmail.com','F243054423','1987-09-06','F',1,340,'P1024.jpg');
+	        VALUES ('shinhuei','123456','é™³ç‰å©·',241,'æ–°åŒ—å¸‚ä¸‰é‡å€','ä¸­æ­£åŒ—è·¯111è™Ÿ','0947240785','tintinyuli@gmail.com','F243054423','1987-09-06','F',1,340,'P1024.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('reginelu','123456','§f­Y¥P',106,'¥x¥_¥«¤j¦w°Ï','Ã¹´µºÖ¸ô¥|¬q1¸¹','0955520520','storiesuntold@gmail.com','A270012591','1994-12-23','F',1,500,'P1025.jpg');
+	        VALUES ('reginelu','123456','å‘‚è‹¥ä»™',106,'å°åŒ—å¸‚å¤§å®‰å€','ç¾…æ–¯ç¦è·¯å››æ®µ1è™Ÿ','0955520520','storiesuntold@gmail.com','A270012591','1994-12-23','F',1,500,'P1025.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('vladpussy','123456','¤B´¶®u',106,'¥x¥_¥«¤j¦w°Ï','Ã¹´µºÖ¸ô¤T¬q333«Ñ9487¸¹','0957383322','TrumpIsMyBro@gmail.com','VP19521007','1952-10-07','F',1,10,'P1026.jpg');
+	        VALUES ('vladpussy','123456','ä¸æ™®å¸­',106,'å°åŒ—å¸‚å¤§å®‰å€','ç¾…æ–¯ç¦è·¯ä¸‰æ®µ333å··9487è™Ÿ','0957383322','TrumpIsMyBro@gmail.com','VP19521007','1952-10-07','F',1,10,'P1026.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('usaisdead','USAUSA','­ğ¤t§B',904,'¥x¥_¥«¤j¦w°Ï','«H¸q¸ô¤T¬q134«Ñ9487¸¹','0940439206','ILovePutin@gmail.com','DT19460614','1946-06-14','M',2,-100,'P1027.jpg');
+	        VALUES ('usaisdead','USAUSA','å”å·ä¼¯',904,'å°åŒ—å¸‚å¤§å®‰å€','ä¿¡ç¾©è·¯ä¸‰æ®µ134å··9487è™Ÿ','0940439206','ILovePutin@gmail.com','DT19460614','1946-06-14','M',2,-100,'P1027.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('kai9487','123456','§û¸¦³Í',973,'ªá½¬¿¤¦N¦w¶m','·O¶³¸ô52¸¹','0987416423','kitty@gmail.com','U235974118','1973-06-16','F',2,95,'P1028.jpg');
+	        VALUES ('kai9487','123456','æè’‚å‡±',973,'èŠ±è“®ç¸£å‰å®‰é„‰','æ…ˆé›²è·¯52è™Ÿ','0987416423','kitty@gmail.com','U235974118','1973-06-16','F',2,95,'P1028.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('GuanGong','123456','Ãö¦Ğ¼Ú',807,'°ª¶¯¥«¤T¥Á°Ï','«Ø¤u¸ô415¸¹','0937282706','guangong@gmail.com','E136859487','1917-01-31','M',3,1000,'P1029.jpg');
+	        VALUES ('GuanGong','123456','é—œç¾½æ­',807,'é«˜é›„å¸‚ä¸‰æ°‘å€','å»ºå·¥è·¯415è™Ÿ','0937282706','guangong@gmail.com','E136859487','1917-01-31','M',3,1000,'P1029.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('tentacool','123','°¨­^¤E',116,'¥x¥_¥«¤å¤s°Ï','¿³¶©¸ô¤G¬q96«Ñ15¸¹3¼Ó','0987416423','mamaisbest@gmail.com','A119301548','1950-07-13','M',1,-10,'P1030.jpg');
+	        VALUES ('tentacool','123','é¦¬è‹±ä¹',116,'å°åŒ—å¸‚æ–‡å±±å€','èˆˆéš†è·¯äºŒæ®µ96å··15è™Ÿ3æ¨“','0987416423','mamaisbest@gmail.com','A119301548','1950-07-13','M',1,-10,'P1030.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-         	VALUES ('walkman','123','³¯¤ô«ó',721,'¥x«n¥«³Â¨§°Ï','¿j¤l¤«33¸¹','0957963584','ilovemoney@gmail.com','D105095174','1950-10-12','M',2,-99,'P1031.jpg');
+         	VALUES ('walkman','123','é™³æ°´æ‰',721,'å°å—å¸‚éº»è±†å€','ç£šå­äº•33è™Ÿ','0957963584','ilovemoney@gmail.com','D105095174','1950-10-12','M',2,-99,'P1031.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('liangrandpa','123','³s¾Ô',721,' ¥x«n¥«³Â¨§°Ï','¦w·~¨½79¤§3¸¹','0912586429','chinesegood@gmail.com','D110724799','1936-8-27','M',2,-10,'P1032.jpg');
+	        VALUES ('liangrandpa','123','é€£æˆ°',721,' å°å—å¸‚éº»è±†å€','å®‰æ¥­é‡Œ79ä¹‹3è™Ÿ','0912586429','chinesegood@gmail.com','D110724799','1936-8-27','M',2,-10,'P1032.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('chingte','123','¿à²M¼w',721,'¥x«n¥«³Â¨§°Ï','¿j¤l¤«137¤§1¸¹','0999888777','laichingte@gmail.com','D184618560','1959-10-6','M',2,-10,'P1033.jpg');
+	        VALUES ('chingte','123','è³´æ¸…å¾·',721,'å°å—å¸‚éº»è±†å€','ç£šå­äº•137ä¹‹1è™Ÿ','0999888777','laichingte@gmail.com','D184618560','1959-10-6','M',2,-10,'P1033.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('english','123','½²­^¤å',234,'·s¥_¥«¥Ã©M°Ï','ÀôªeªF¸ô¥|¬q106¸¹10¼Ó','0941558778','greatamerica@gmail.com','L219759723','1956-08-31','F',1,-80,'P1034.jpg');
+	        VALUES ('english','123','è”¡è‹±æ–‡',234,'æ–°åŒ—å¸‚æ°¸å’Œå€','ç’°æ²³æ±è·¯å››æ®µ106è™Ÿ10æ¨“','0941558778','greatamerica@gmail.com','L219759723','1956-08-31','F',1,-80,'P1034.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('ptt5566','123','56¤£¯à¤`',109,'¥x¥_¥««H¸q°Ï','«H¸q¸ô¥|¬q56¸¹56¼Ó','0956555666','ptt5566@gmail.com','A129555666','1956-05-06','M',1,-56,'P1035.jpg');
+	        VALUES ('ptt5566','123','56ä¸èƒ½äº¡',109,'å°åŒ—å¸‚ä¿¡ç¾©å€','ä¿¡ç¾©è·¯å››æ®µ56è™Ÿ56æ¨“','0956555666','ptt5566@gmail.com','A129555666','1956-05-06','M',1,-56,'P1035.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('mango','123','§õ³p»»',906,'«ÌªF¿¤°ª¾ğ¶m','«ÌªF¿¤°ª¾ğ¶m¤¤¥¡¸ô60¸¹','0988168168','mango168@gmail.com','T127168168','1988-1-06','M',2,-68,'P1036.jpg');
+	        VALUES ('mango','123','æé€é™',906,'å±æ±ç¸£é«˜æ¨¹é„‰','å±æ±ç¸£é«˜æ¨¹é„‰ä¸­å¤®è·¯60è™Ÿ','0988168168','mango168@gmail.com','T127168168','1988-1-06','M',2,-68,'P1036.jpg');
 
 --Farmer
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
-	VALUES ('Z000000001', 1003, '¤p¹AAºØ¾ï¤l');
+	VALUES ('Z000000001', 1003, 'å°è¾²Aç¨®æ©˜å­');
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
-	VALUES ('Z000000002', 1004, '¤p¹ABºØ·R¤å¨~ªG');
+	VALUES ('Z000000002', 1004, 'å°è¾²Bç¨®æ„›æ–‡èŠ’æœ');
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
-	VALUES ('Z000000003', 1009, '¤p¹ACºØ');
+	VALUES ('Z000000003', 1009, 'å°è¾²Cç¨®');
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
-	VALUES ('Z000000004', 1010, '¤p¹ADºØ');
+	VALUES ('Z000000004', 1010, 'å°è¾²Dç¨®');
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
-	VALUES ('Z000000005', 1011, '¦Ì¤p¹««n§ë¥Ğ¶é¹A²ø');
+	VALUES ('Z000000005', 1011, 'ç±³å°é¼ å—æŠ•ç”°åœ’è¾²èŠ');
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
-	VALUES ('Z000000006', 1012, 'ªá½¬¦N¦w³Í¸¦¿ßÆ[¥úªG¶é');
+	VALUES ('Z000000006', 1012, 'èŠ±è“®å‰å®‰å‡±è’‚è²“è§€å…‰æœåœ’');
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
-	VALUES ('N261870375', 1031, 'ªü«ó³g¦¾...­İ½æ¤å¥¹');
+	VALUES ('N261870375', 1031, 'é˜¿æ‰è²ªæ±™...å…¼è³£æ–‡æ—¦');
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
-	VALUES ('S185803332', 1032, '³s·İ·İ¤å¥¹');
+	VALUES ('S185803332', 1032, 'é€£çˆºçˆºæ–‡æ—¦');
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
-	VALUES ('J166180504', 1033, '¿à²M¼w¤]¥i¥H½æ¤å¥¹³áªÈ«}');
---2017/02/13 §Å
+	VALUES ('J166180504', 1033, 'è³´æ¸…å¾·ä¹Ÿå¯ä»¥è³£æ–‡æ—¦å–”ç³¾å’ª');
+--2017/02/13 å·«
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
-	VALUES ('Z000009487', 1027, '­ğ¤t§B´N¬O¨g¡A¬ü°ê¤H¤]¥i¥H¦b¥x½æ½­ªG!');
+	VALUES ('Z000009487', 1027, 'å”å·ä¼¯å°±æ˜¯ç‹‚ï¼Œç¾åœ‹äººä¹Ÿå¯ä»¥åœ¨å°è³£è”¬æœ!');
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
-	VALUES ('Z000009999', 1028, '§û¸¦³Í¡A§û¸¦³Í!');
+	VALUES ('Z000009999', 1028, 'æè’‚å‡±ï¼Œæè’‚å‡±!');
 
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
-	VALUES ('Z333666999', 1036, '«ÌªF§õ³p»»¡AÆF¨à¸ò¤ë¦p³£·R¦Y§Úªº¨~ªG!');
+	VALUES ('Z333666999', 1036, 'å±æ±æé€é™ï¼Œéˆå…’è·Ÿæœˆå¦‚éƒ½æ„›åƒæˆ‘çš„èŠ’æœ!');
 
 
 --ProductType
 
-	INSERT INTO ProductType (Type) VALUES ('¤¯ªGÃş');
-INSERT INTO ProductType (Type) VALUES ('®ÖªGÃş');
-INSERT INTO ProductType (Type) VALUES ('°íªGÃş');
-INSERT INTO ProductType (Type) VALUES ('¼ßªGÃş');
-INSERT INTO ProductType (Type) VALUES ('¬a¾ïÃş');
-INSERT INTO ProductType (Type) VALUES ('¥ÊÃş');
-INSERT INTO ProductType (Type) VALUES ('®ÚµæÃş');
-INSERT INTO ProductType (Type) VALUES ('²ôµæÃş');
-INSERT INTO ProductType (Type) VALUES ('ªáµæÃş');
-INSERT INTO ProductType (Type) VALUES ('ªGµæÃş');
-INSERT INTO ProductType (Type) VALUES ('¸­µæÃş');
-INSERT INTO ProductType (Type) VALUES ('­»¨¯Ãş');
-INSERT INTO ProductType (Type) VALUES ('µßÄ¦Ãş');
-INSERT INTO ProductType (Type) VALUES ('µßÄ¦Ãş');
-INSERT INTO ProductType (Type) VALUES ('¨§Ãş');
+	INSERT INTO ProductType (Type) VALUES ('ä»æœé¡');
+INSERT INTO ProductType (Type) VALUES ('æ ¸æœé¡');
+INSERT INTO ProductType (Type) VALUES ('å …æœé¡');
+INSERT INTO ProductType (Type) VALUES ('æ¼¿æœé¡');
+INSERT INTO ProductType (Type) VALUES ('æŸ‘æ©˜é¡');
+INSERT INTO ProductType (Type) VALUES ('ç“œé¡');
+INSERT INTO ProductType (Type) VALUES ('æ ¹èœé¡');
+INSERT INTO ProductType (Type) VALUES ('è–èœé¡');
+INSERT INTO ProductType (Type) VALUES ('èŠ±èœé¡');
+INSERT INTO ProductType (Type) VALUES ('æœèœé¡');
+INSERT INTO ProductType (Type) VALUES ('è‘‰èœé¡');
+INSERT INTO ProductType (Type) VALUES ('é¦™è¾›é¡');
+INSERT INTO ProductType (Type) VALUES ('èŒè—»é¡');
+INSERT INTO ProductType (Type) VALUES ('èŒè—»é¡');
+INSERT INTO ProductType (Type) VALUES ('è±†é¡');
 
 --ProductStatus
---INSERT INTO ProductStatus (ProductStatusName) VALUES ('¤W¬[');
---INSERT INTO ProductStatus (ProductStatusName) VALUES ('¤U¬[');
---INSERT INTO ProductStatus (ProductStatusName) VALUES ('«ÊÂê');
+--INSERT INTO ProductStatus (ProductStatusName) VALUES ('ä¸Šæ¶');
+--INSERT INTO ProductStatus (ProductStatusName) VALUES ('ä¸‹æ¶');
+--INSERT INTO ProductStatus (ProductStatusName) VALUES ('å°é–');
 
 --Product
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, ProductStatusName) 
-	VALUES (1003, '­]®ß¿¤¤T¸q¶m', '¾ï¤l', 200, 35, '¤½¤ç', '¬a¾ïÃş', '³Ì¤Ö6¤½¤ç¥X³f«Ü²¢«Ü¦h¥Ä', 10, '2017-01-20', '2017-03-20', '¤W¬[');
+	VALUES (1003, 'è‹—æ —ç¸£ä¸‰ç¾©é„‰', 'æ©˜å­', 200, 35, 'å…¬æ–¤', 'æŸ‘æ©˜é¡', 'æœ€å°‘6å…¬æ–¤å‡ºè²¨å¾ˆç”œå¾ˆå¤šæ±', 10, '2017-01-20', '2017-03-20', 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1004, '«ÌªF¿¤¤E¦p¶m', '·R¤å¨~ªG', 100, 600, '½c', '®ÖªGÃş', '¨C½c10¤ç¤£²¢¤£­n¿ú', 100, '2016-06-05', '2016-07-20', '2016-07-25', '¤U¬[');
+	VALUES (1004, 'å±æ±ç¸£ä¹å¦‚é„‰', 'æ„›æ–‡èŠ’æœ', 100, 600, 'ç®±', 'æ ¸æœé¡', 'æ¯ç®±10æ–¤ä¸ç”œä¸è¦éŒ¢', 100, '2016-06-05', '2016-07-20', '2016-07-25', 'ä¸‹æ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1009, 'C', 'C', 100, 600, '½c', '®ÖªGÃş', 'C', 100, '2016-06-05', '2016-07-20', '2016-07-25', '¤U¬[');
+	VALUES (1009, 'C', 'C', 100, 600, 'ç®±', 'æ ¸æœé¡', 'C', 100, '2016-06-05', '2016-07-20', '2016-07-25', 'ä¸‹æ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1010, 'D', 'D', 100, 600, '½c', '®ÖªGÃş', 'D', 100, '2016-06-05', '2016-07-20', '2016-07-25', '¤U¬[');
+	VALUES (1010, 'D', 'D', 100, 600, 'ç®±', 'æ ¸æœé¡', 'D', 100, '2016-06-05', '2016-07-20', '2016-07-25', 'ä¸‹æ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1012, 'ªá½¬¿¤¦N¦w¶m', '¥Õ¬c', 0, 30, '¤ç', '¬a¾ïÃş', '§Ö¨Ó·mÁÊ¤µ¦~³Ì«áªº¬c¤l³á¡A³Ì¤Ö10¤ç¥X³f!!', 10, '2016-08-18', '2016-11-30', '2016-11-30', '¤U¬[');
+	VALUES (1012, 'èŠ±è“®ç¸£å‰å®‰é„‰', 'ç™½æŸš', 0, 30, 'æ–¤', 'æŸ‘æ©˜é¡', 'å¿«ä¾†æ¶è³¼ä»Šå¹´æœ€å¾Œçš„æŸšå­å–”ï¼Œæœ€å°‘10æ–¤å‡ºè²¨!!', 10, '2016-08-18', '2016-11-30', '2016-11-30', 'ä¸‹æ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1011, '«n§ë¿¤³½¦À¶m', 'ªá·¦µæ', 60, 350, '½c', 'ªáµæÃş', '¦n¦Y«K©yªá·¦µæ¡A10¤ç¸Ë', 80, '2016-12-05', '2017-05-25', null, '¤W¬[');
+	VALUES (1011, 'å—æŠ•ç¸£é­šæ± é„‰', 'èŠ±æ¤°èœ', 60, 350, 'ç®±', 'èŠ±èœé¡', 'å¥½åƒä¾¿å®œèŠ±æ¤°èœï¼Œ10æ–¤è£', 80, '2016-12-05', '2017-05-25', null, 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1012, 'ªá½¬¿¤¦N¦w¶m', '¸²µå', 300, 70, '¤ç', '¼ßªGÃş', '¦n¦Yªº¥¨®p¸²µå¡A5¤ç¥X³f', 10, '2016-12-25', '2017-02-17', null, '¤W¬[');
+	VALUES (1012, 'èŠ±è“®ç¸£å‰å®‰é„‰', 'è‘¡è„', 300, 70, 'æ–¤', 'æ¼¿æœé¡', 'å¥½åƒçš„å·¨å³°è‘¡è„ï¼Œ5æ–¤å‡ºè²¨', 10, '2016-12-25', '2017-02-17', null, 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1011, '«n§ë¿¤³½¦À¶m', 'ª÷°wÛ£', 60, 350, '½c', 'µßÄ¦Ãş', '¹L¦~¤õÁç³òÄl¡A¥²³Æª÷°wÛ£', 80, '2017-01-10', '2017-03-25', null, '¤W¬[');
+	VALUES (1011, 'å—æŠ•ç¸£é­šæ± é„‰', 'é‡‘é‡è‡', 60, 350, 'ç®±', 'èŒè—»é¡', 'éå¹´ç«é‹åœçˆï¼Œå¿…å‚™é‡‘é‡è‡', 80, '2017-01-10', '2017-03-25', null, 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1003, '­]®ß¿¤¤T¸q¶m', '¬h¾í', 400, 45, '¤½¤ç', '¬a¾ïÃş', '³Ì¤Ö6¤½¤ç¥X³f¡AÂA²¢¬ü¨ı', 10, '2017-01-18', '2017-05-03', null, '¤W¬[');
+	VALUES (1003, 'è‹—æ —ç¸£ä¸‰ç¾©é„‰', 'æŸ³æ©™', 400, 45, 'å…¬æ–¤', 'æŸ‘æ©˜é¡', 'æœ€å°‘6å…¬æ–¤å‡ºè²¨ï¼Œé®®ç”œç¾å‘³', 10, '2017-01-18', '2017-05-03', null, 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1003, '­]®ß¿¤¤T¸q¶m', 'Ä«ªG', 200, 50, '¤½¤ç', '¤¯ªGÃş', '¤@¤Ñ¤@¤ÑÄ«ªG¡AÂå¥Í»·Â÷§Ú', 10, '2017-01-22', '2017-04-21', null, '¤W¬[');
+	VALUES (1003, 'è‹—æ —ç¸£ä¸‰ç¾©é„‰', 'è˜‹æœ', 200, 50, 'å…¬æ–¤', 'ä»æœé¡', 'ä¸€å¤©ä¸€å¤©è˜‹æœï¼Œé†«ç”Ÿé é›¢æˆ‘', 10, '2017-01-22', '2017-04-21', null, 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1011, '«n§ë¿¤³½¦À¶m', '°¨¹aÁ¦', 35, 500, '½c', '®ÚµæÃş', '°¨¹aÁ¦¤@½c20¤ç¡A¦~«á¥X³f', 100, '2017-01-26', '2017-03-18', null, '¤W¬[');
+	VALUES (1011, 'å—æŠ•ç¸£é­šæ± é„‰', 'é¦¬éˆ´è–¯', 35, 500, 'ç®±', 'æ ¹èœé¡', 'é¦¬éˆ´è–¯ä¸€ç®±20æ–¤ï¼Œå¹´å¾Œå‡ºè²¨', 100, '2017-01-26', '2017-03-18', null, 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1003, '­]®ß¿¤¤T¸q¶m', '¯ó²ù', 30, 600, '½c', '¼ßªGÃş', '·|¤p¤ß«OÅ@Á×§K¸I¼²¡A10¤ç¸Ë', 100, '2017-02-01', '2017-03-31', null, '¤W¬[');
+	VALUES (1003, 'è‹—æ —ç¸£ä¸‰ç¾©é„‰', 'è‰è“', 30, 600, 'ç®±', 'æ¼¿æœé¡', 'æœƒå°å¿ƒä¿è­·é¿å…ç¢°æ’ï¼Œ10æ–¤è£', 100, '2017-02-01', '2017-03-31', null, 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1011, '«n§ë¿¤³½¦À¶m', '°ªÄRµæ', 75, 300, '½c', '¸­µæÃş', '°ªÄRµæ¤j¶^»ù¡A½Ğ¤@°_À°À°µæ¹A', 80, '2017-02-02', '2017-03-25', null, '¤W¬[');
+	VALUES (1011, 'å—æŠ•ç¸£é­šæ± é„‰', 'é«˜éº—èœ', 75, 300, 'ç®±', 'è‘‰èœé¡', 'é«˜éº—èœå¤§è·Œåƒ¹ï¼Œè«‹ä¸€èµ·å¹«å¹«èœè¾²', 80, '2017-02-02', '2017-03-25', null, 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1011, '«n§ë¿¤³½¦À¶m', '¦a¥Ê¸­', 50, 300, '½c', '¸­µæÃş', '¤j¤À¶q¦a¥Ê¸­¡AÅwªï¾÷Ãö¹ÎÅéª½±µ§å³f', 80, '2017-02-05', '2017-04-05', null, '¤W¬[');
+	VALUES (1011, 'å—æŠ•ç¸£é­šæ± é„‰', 'åœ°ç“œè‘‰', 50, 300, 'ç®±', 'è‘‰èœé¡', 'å¤§åˆ†é‡åœ°ç“œè‘‰ï¼Œæ­¡è¿æ©Ÿé—œåœ˜é«”ç›´æ¥æ‰¹è²¨', 80, '2017-02-05', '2017-04-05', null, 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1012, 'ªá½¬¿¤¦N¦w¶m', 'Äå®ç', 20, 800, '½c', '®ÖªGÃş', '¹L¦~À³´º¤ôªG¡A«OÃÒ¤jÁû¤S¦n¦Y³á', 100, '2017-01-11', '2017-02-28', null, '¤W¬[');
+	VALUES (1012, 'èŠ±è“®ç¸£å‰å®‰é„‰', 'æ«»æ¡ƒ', 20, 800, 'ç®±', 'æ ¸æœé¡', 'éå¹´æ‡‰æ™¯æ°´æœï¼Œä¿è­‰å¤§é¡†åˆå¥½åƒå–”', 100, '2017-01-11', '2017-02-28', null, 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1012, 'ªá½¬¿¤¦N¦w¶m', '¶}¤ßªG', 200, 280, '¤ç', '°íªGÃş', '¹L¦~´N¬O­n¶}¤ßªG¡A¤T¤ç¥X³f³á', 20, '2017-01-03', '2017-02-17', null, '¤W¬[');
+	VALUES (1012, 'èŠ±è“®ç¸£å‰å®‰é„‰', 'é–‹å¿ƒæœ', 200, 280, 'æ–¤', 'å …æœé¡', 'éå¹´å°±æ˜¯è¦é–‹å¿ƒæœï¼Œä¸‰æ–¤å‡ºè²¨å–”', 20, '2017-01-03', '2017-02-17', null, 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1031, '¥x«n¥«³Â¨§°Ï', '¤å¥¹', 300, 100, 'Áû', '¬a¾ïÃş', '²£¦a¦Û°â¤¤¬î¸`°eÂ§«~¨ı³Ì¨Îªº©u¸`²£«~¡AÃä½à¤ëÃä¦Y¤å¥¹¡ã³Ì¯à·P¨ü¤¤¬î¸`®ğ®§', 10, '2017-08-10', '2017-10-30', null, '¤W¬[');
+	VALUES (1031, 'å°å—å¸‚éº»è±†å€', 'æ–‡æ—¦', 300, 100, 'é¡†', 'æŸ‘æ©˜é¡', 'ç”¢åœ°è‡ªå”®ä¸­ç§‹ç¯€é€ç¦®å“å‘³æœ€ä½³çš„å­£ç¯€ç”¢å“ï¼Œé‚Šè³æœˆé‚Šåƒæ–‡æ—¦ï½æœ€èƒ½æ„Ÿå—ä¸­ç§‹ç¯€æ°£æ¯', 10, '2017-08-10', '2017-10-30', null, 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1032, '¥x«n¥«³Â¨§°Ï', '¤å¥¹', 400, 110, 'Áû', '¬a¾ïÃş', '¤¤¬î¸`°eÂ§³Ì¨Îªº¦ñ¤âÂ§¡ã½à¤ë¤@©w­n¨Ó¤@Áû°Õ!!', 10, '2017-08-20', '2017-09-30', null, '¤W¬[');
+	VALUES (1032, 'å°å—å¸‚éº»è±†å€', 'æ–‡æ—¦', 400, 110, 'é¡†', 'æŸ‘æ©˜é¡', 'ä¸­ç§‹ç¯€é€ç¦®æœ€ä½³çš„ä¼´æ‰‹ç¦®ï½è³æœˆä¸€å®šè¦ä¾†ä¸€é¡†å•¦!!', 10, '2017-08-20', '2017-09-30', null, 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1033, '¥x«n¥«³Â¨§°Ï', '¤å¥¹', 350, 105, 'Áû', '¬a¾ïÃş', '°í«ù¯ó¥Í®â°öºŞ²z¥B³q¹L¦w¥ş½­ªG¦N¶é®E»{ÃÒ¡A©Ò²£¥XªºªG¹ê¥Ä¦h¦×¹àÁÙ±a¦³¥Ì²¢ªº´ş¨ı¡A®ø¶OªÌ¥i¦w¤ß­¹¥Î!', 5, '2017-08-01', '2017-10-05', null, '¤W¬[');
---2017/02/13 §Å
+	VALUES (1033, 'å°å—å¸‚éº»è±†å€', 'æ–‡æ—¦', 350, 105, 'é¡†', 'æŸ‘æ©˜é¡', 'å …æŒè‰ç”Ÿæ ½åŸ¹ç®¡ç†ä¸”é€šéå®‰å…¨è”¬æœå‰åœ’åœƒèªè­‰ï¼Œæ‰€ç”¢å‡ºçš„æœå¯¦æ±å¤šè‚‰å«©é‚„å¸¶æœ‰ç”˜ç”œçš„æ»‹å‘³ï¼Œæ¶ˆè²»è€…å¯å®‰å¿ƒé£Ÿç”¨!', 5, '2017-08-01', '2017-10-05', null, 'ä¸Šæ¶');
+--2017/02/13 å·«
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1027, '¥x¥_¥«¤j¦w°Ï', '¬ü«Ò¶Â¾L®ß', 200, 400, '½c', '¼ßªGÃş', '¦aªí³Ì¨g¡AÁ`²Î¯Å¶i¤f¾L®ß¡AªÅ­°»O¥_¡A¤ÓªÅ¨t¨¾»G§Ş³N¡A¤£¦B¤]¯à©ñ¤T¦~¡AÅı§A¹Á¹Á¥Õ¬üªº¼F®`!', 2000, '2017-01-20', '2021-01-20', null, '¤W¬[');
+	VALUES (1027, 'å°åŒ—å¸‚å¤§å®‰å€', 'ç¾å¸é»‘é†‹æ —', 200, 400, 'ç®±', 'æ¼¿æœé¡', 'åœ°è¡¨æœ€ç‹‚ï¼Œç¸½çµ±ç´šé€²å£é†‹æ —ï¼Œç©ºé™è‡ºåŒ—ï¼Œå¤ªç©ºç³»é˜²è…æŠ€è¡“ï¼Œä¸å†°ä¹Ÿèƒ½æ”¾ä¸‰å¹´ï¼Œè®“ä½ å˜—å˜—ç™½ç¾çš„å²å®³!', 2000, '2017-01-20', '2021-01-20', null, 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1028, 'ªá½¬¿¤¦N¦w¶m', 'Á÷¹Äªàµæ', 40, 800, '¤ç', '¸­µæÃş', '»´Ä²§A¨º¨IºÎ¤w¤[ªº¨ıÁ¢¡A¤f·P¦p¦¹¦B²D¡A¡A¬O¦]¬°»ş¥V¦b§Ú²ô¸­¤W¦R®§ªº¥ÕÁ÷©|¥¼¤Æ¥h¡C', 200, '2017-02-09', '2017-05-28', null, '¤W¬[');
+	VALUES (1028, 'èŠ±è“®ç¸£å‰å®‰é„‰', 'éœœå˜†èŠ¹èœ', 40, 800, 'æ–¤', 'è‘‰èœé¡', 'è¼•è§¸ä½ é‚£æ²‰ç¡å·²ä¹…çš„å‘³è•¾ï¼Œå£æ„Ÿå¦‚æ­¤å†°æ¶¼ï¼Œï¼Œæ˜¯å› ç‚ºå‡œå†¬åœ¨æˆ‘è–è‘‰ä¸Šåæ¯çš„ç™½éœœå°šæœªåŒ–å»ã€‚', 200, '2017-02-09', '2017-05-28', null, 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-	VALUES (1011, '«n§ë¿¤³½¦À¶m', '¥_¥É¤s½¬Ãú', 60, 400, '½c', 'ªGµæÃş', '°ª¤sªºÄY»Å´N¬O§Ú­Ìªº·Å«Ç¡A¹s«×ªºµ´¹ï´N¹³§Ú­Ìªº«~½è¡C', 80, '2017-02-11', '2017-05-05', null, '¤W¬[');
+	VALUES (1011, 'å—æŠ•ç¸£é­šæ± é„‰', 'åŒ—ç‰å±±è“®éœ§', 60, 400, 'ç®±', 'æœèœé¡', 'é«˜å±±çš„åš´é…·å°±æ˜¯æˆ‘å€‘çš„æº«å®¤ï¼Œé›¶åº¦çš„çµ•å°å°±åƒæˆ‘å€‘çš„å“è³ªã€‚', 80, '2017-02-11', '2017-05-05', null, 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-    VALUES (1036, '«ÌªF¿¤°ª¾ğ¶m', '³p»»¨~ªG', 100, 1000, '½c', '®ÖªGÃş', 'ÆF¨à¸ò¤ë¦p¦Y¤F¨~ªG³£¤£·R§Ú¤F¡C', 100, '2017-02-11', '2017-08-05', null, '¤W¬[');
+    VALUES (1036, 'å±æ±ç¸£é«˜æ¨¹é„‰', 'é€é™èŠ’æœ', 100, 1000, 'ç®±', 'æ ¸æœé¡', 'éˆå…’è·Ÿæœˆå¦‚åƒäº†èŠ’æœéƒ½ä¸æ„›æˆ‘äº†ã€‚', 100, '2017-02-11', '2017-08-05', null, 'ä¸Šæ¶');
 INSERT INTO Product (SellerID, Origin, ProductName, Inventory, Price, Unit, ProductTypeName, ProductIntro, Freight, AddDate, RemoveEstDate, RemoveDate, ProductStatusName) 
-    VALUES (1028, 'ªá½¬¿¤¦N¦w¶m', 'ªá½¬§õ¤l', 200, 100, '½c', '®ÖªGÃş', '¤@½c¬ù32~35Áû¡A¬ù7.5¥x¤ç¡C', 100, '2017-02-11', '2017-08-05', null, '¤W¬[');
+    VALUES (1028, 'èŠ±è“®ç¸£å‰å®‰é„‰', 'èŠ±è“®æå­', 200, 100, 'ç®±', 'æ ¸æœé¡', 'ä¸€ç®±ç´„32~35é¡†ï¼Œç´„7.5å°æ–¤ã€‚', 100, '2017-02-11', '2017-08-05', null, 'ä¸Šæ¶');
 
 
 --ProductDiscount
@@ -504,204 +504,204 @@ INSERT INTO ProductDiscount (ProductID, MinThreshold, MaxThreshold,DiscountPrice
 
 --ProductPic
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2001,'2401.jpg','¾ï¤lªº·Ó¤ù1' );
+	VALUES ( 2001,'2401.jpg','æ©˜å­çš„ç…§ç‰‡1' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2001,'2402.jpg','¾ï¤lªº·Ó¤ù2' );
+	VALUES ( 2001,'2402.jpg','æ©˜å­çš„ç…§ç‰‡2' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2002,'2403.jpg','¨~ªGªº·Ó¤ù1' );
+	VALUES ( 2002,'2403.jpg','èŠ’æœçš„ç…§ç‰‡1' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2002,'2404.jpg','¨~ªGªº·Ó¤ù2' );
+	VALUES ( 2002,'2404.jpg','èŠ’æœçš„ç…§ç‰‡2' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
 	VALUES ( 2003,'2405.jpg',null );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
 	VALUES ( 2004,'2406.jpg',null );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2005,'2407.jpg','¥Ä¦h¨ı¬üªº¥Õ¬c' );
+	VALUES ( 2005,'2407.jpg','æ±å¤šå‘³ç¾çš„ç™½æŸš' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2006,'2408.jpg','ºñ¦âªá·¦µæ§ÜÀù³á' );
+	VALUES ( 2006,'2408.jpg','ç¶ è‰²èŠ±æ¤°èœæŠ—ç™Œå–”' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2007,'2409.jpg','¸²µå¬[¤Wªº¸²µå' );
+	VALUES ( 2007,'2409.jpg','è‘¡è„æ¶ä¸Šçš„è‘¡è„' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2008,'2410.jpg','¤õÁç©±¥²³Æª÷°wÛ£' );
+	VALUES ( 2008,'2410.jpg','ç«é‹åº—å¿…å‚™é‡‘é‡è‡' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2009,'2411.jpg','°eÂ§¤]«Ü¤j¤è' );
+	VALUES ( 2009,'2411.jpg','é€ç¦®ä¹Ÿå¾ˆå¤§æ–¹' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2010,'2412.jpg','¤@¤Ñ¤@¤ÑÄ«ªG¡AÂå¥Í»·Â÷§Ú' );
+	VALUES ( 2010,'2412.jpg','ä¸€å¤©ä¸€å¤©è˜‹æœï¼Œé†«ç”Ÿé é›¢æˆ‘' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2011,'2413.jpg','¦b¦aªº°¨¹aÁ¦' );
+	VALUES ( 2011,'2413.jpg','åœ¨åœ°çš„é¦¬éˆ´è–¯' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2012,'2414.jpg','·sÂA²{ºKªº¯ó²ù' );
+	VALUES ( 2012,'2414.jpg','æ–°é®®ç¾æ‘˜çš„è‰è“' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2013,'2415.jpg','¥V¤Ñ°ªÄRµæÂA²¢¬ü¨ı' );
+	VALUES ( 2013,'2415.jpg','å†¬å¤©é«˜éº—èœé®®ç”œç¾å‘³' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2014,'2416.jpg','¦a¥Ê¸­¥Ğ' );
+	VALUES ( 2014,'2416.jpg','åœ°ç“œè‘‰ç”°' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2015,'2417.jpg','Äå®ç°eÂ§¶W¤j¤è' );
+	VALUES ( 2015,'2417.jpg','æ«»æ¡ƒé€ç¦®è¶…å¤§æ–¹' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2016,'2418.jpg','¦~¸`¥²³Æ¶}¤ßªG' );
+	VALUES ( 2016,'2418.jpg','å¹´ç¯€å¿…å‚™é–‹å¿ƒæœ' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2017,'2419.jpg','¤S²¢¤S¦n¦Yªº¤å¥¹' );
+	VALUES ( 2017,'2419.jpg','åˆç”œåˆå¥½åƒçš„æ–‡æ—¦' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2017,'2420.jpg','·sÂA¦n¦Yªº¤å¥¹' );
+	VALUES ( 2017,'2420.jpg','æ–°é®®å¥½åƒçš„æ–‡æ—¦' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2018,'2421.jpg','¤¤¬î³Ì¨Î¦ñ¤âÂ§' );
+	VALUES ( 2018,'2421.jpg','ä¸­ç§‹æœ€ä½³ä¼´æ‰‹ç¦®' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2018,'2422.jpg','¤£²¢¤£­n¿ú¡ã¦Y¹L´Nª¾¹D' );
+	VALUES ( 2018,'2422.jpg','ä¸ç”œä¸è¦éŒ¢ï½åƒéå°±çŸ¥é“' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2019,'2423.jpg','¦n¦Y¤å¥¹¸õ¼Ó¤j©ç½æing' );
---2017/02/13 §Å
+	VALUES ( 2019,'2423.jpg','å¥½åƒæ–‡æ—¦è·³æ¨“å¤§æ‹è³£ing' );
+--2017/02/13 å·«
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2020,'2424.jpg','¬ü«Òªº±j¡]Àğ¡^¡AÀ³¸Ó¤£¥Î§Ú§i¶D§A¤F§a' );
+	VALUES ( 2020,'2424.jpg','ç¾å¸çš„å¼·ï¼ˆç‰†ï¼‰ï¼Œæ‡‰è©²ä¸ç”¨æˆ‘å‘Šè¨´ä½ äº†å§' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2020,'2425.jpg','¨S¨Æ¬İ¬İ¶®ªê·s»D¡A´Nª¾¹D§Ú©ñ¸Ü¸ò½æµæ³£«Ü»{¯u' );
+	VALUES ( 2020,'2425.jpg','æ²’äº‹çœ‹çœ‹é›…è™æ–°èï¼Œå°±çŸ¥é“æˆ‘æ”¾è©±è·Ÿè³£èœéƒ½å¾ˆèªçœŸ' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2020,'2426.jpg','§Ú­Ì¸Ó¥ß°¨Åı³oºô¯¸¤U½uºû­×¡A¨Ã§â¯¸ªø¤j¦ì¥æµ¹§Ú' );
+	VALUES ( 2020,'2426.jpg','æˆ‘å€‘è©²ç«‹é¦¬è®“é€™ç¶²ç«™ä¸‹ç·šç¶­ä¿®ï¼Œä¸¦æŠŠç«™é•·å¤§ä½äº¤çµ¦æˆ‘' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2020,'2427.jpg','¬ü«Ò¶Â¾L®ß¡A¤£¥Î¬İ´Nª¾¹D¸ò§Ú¤@¼Ë±jO¥×O' );
+	VALUES ( 2020,'2427.jpg','ç¾å¸é»‘é†‹æ —ï¼Œä¸ç”¨çœ‹å°±çŸ¥é“è·Ÿæˆ‘ä¸€æ¨£å¼·Oçš¿O' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2021,'2428.jpg','²Ï¹êªº®Ú¡A¥Nªí§Ú­Ì¯Ñ§@ªººë¯«' );
+	VALUES ( 2021,'2428.jpg','ç´®å¯¦çš„æ ¹ï¼Œä»£è¡¨æˆ‘å€‘è€•ä½œçš„ç²¾ç¥' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2021,'2429.jpg','¤£¥´§é¦©¡A¬O¦]¬°¹ï«~½èªºµ´¹ï­n¨D' );
+	VALUES ( 2021,'2429.jpg','ä¸æ‰“æŠ˜æ‰£ï¼Œæ˜¯å› ç‚ºå°å“è³ªçš„çµ•å°è¦æ±‚' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2021,'2430.jpg','¨Ó¶R§a¡A¶XµÛ·í©uªº®É­Ô¡I' );
+	VALUES ( 2021,'2430.jpg','ä¾†è²·å§ï¼Œè¶è‘—ç•¶å­£çš„æ™‚å€™ï¼' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2022,'2431.jpg','¦n¤ñ¤@¶ô¥Õ¥É¡A¦B¯Ü³sÂù²´³£¬İ±oÀ´' );
+	VALUES ( 2022,'2431.jpg','å¥½æ¯”ä¸€å¡Šç™½ç‰ï¼Œå†°è„†é€£é›™çœ¼éƒ½çœ‹å¾—æ‡‚' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2022,'2432.jpg','³o¼Ëªº²n¯Ü¡A³£²¢¨ì¤F§A§Úªº¤ß§¢¸Ì' );
+	VALUES ( 2022,'2432.jpg','é€™æ¨£çš„çˆ½è„†ï¼Œéƒ½ç”œåˆ°äº†ä½ æˆ‘çš„å¿ƒåè£¡' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2022,'2433.jpg','¿W®a¯S¿ïªº¥_¥É¤s¥Õ½¬Ãú¡A§O¦Aµ¥¤F¡A±a¦^®a§a!' );
+	VALUES ( 2022,'2433.jpg','ç¨å®¶ç‰¹é¸çš„åŒ—ç‰å±±ç™½è“®éœ§ï¼Œåˆ¥å†ç­‰äº†ï¼Œå¸¶å›å®¶å§!' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2023,'2434.jpg','³p»»¨~ªG¡A²`±o±z¤ß' );
+	VALUES ( 2023,'2434.jpg','é€é™èŠ’æœï¼Œæ·±å¾—æ‚¨å¿ƒ' );
 INSERT INTO ProductPic ( ProductID, PictureName,PictureIntro)
-	VALUES ( 2024,'2435.jpg','ªá½¬§õ¤lº¡¤Ñ¤U' );
+	VALUES ( 2024,'2435.jpg','èŠ±è“®æå­æ»¿å¤©ä¸‹' );
 
 
 --ProductTrackProduct
 INSERT INTO TrackProduct (MemberID, ProductID, TrackDate)
 	VALUES ( 1001,2001,'2017-01-21' );
---OrderStatus(¹ï·Óªí)
-INSERT INTO OrderStatus (OrderStatusName) values('¥¼¥I´Ú')
-INSERT INTO OrderStatus (OrderStatusName) values('¤w¥I´Ú')
-INSERT INTO OrderStatus (OrderStatusName) values('¥X³f¤¤')
-INSERT INTO OrderStatus (OrderStatusName) values('¤w¥X³f')
+--OrderStatus(å°ç…§è¡¨)
+INSERT INTO OrderStatus (OrderStatusName) values('æœªä»˜æ¬¾')
+INSERT INTO OrderStatus (OrderStatusName) values('å·²ä»˜æ¬¾')
+INSERT INTO OrderStatus (OrderStatusName) values('å‡ºè²¨ä¸­')
+INSERT INTO OrderStatus (OrderStatusName) values('å·²å‡ºè²¨')
 
 --Orders
 INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1003 , 1001 , 100,450,'2017-01-03 20:51:29','2017-01-06 13:20:01','·|­ûA',235,'·s¥_¥«¤¤©M°Ï','·|­ûAªº®a',3101, 1 , 1);
+	VALUES (1003 , 1001 , 100,450,'2017-01-03 20:51:29','2017-01-06 13:20:01','æœƒå“¡A',235,'æ–°åŒ—å¸‚ä¸­å’Œå€','æœƒå“¡Açš„å®¶',3101, 1 , 1);
 INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1003 , 1002 , 100,550,'2017-01-15 18:20:05','2017-01-20 11:48:32','·|­ûB',106,'¥x¥_¥«¤j¦w°Ï','·|­ûAªº®a',3101, 1, null);
+	VALUES (1003 , 1002 , 100,550,'2017-01-15 18:20:05','2017-01-20 11:48:32','æœƒå“¡B',106,'å°åŒ—å¸‚å¤§å®‰å€','æœƒå“¡Açš„å®¶',3101, 1, null);
  INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1011 , 1005 , 160,860,'2017-01-23 09:02:31','2017-01-25 15:13:21','·|­ûC',106,'¥x¥_¥«¤j¦w°Ï','·|­ûCªº®a',3101,null,null);
+	VALUES (1011 , 1005 , 160,860,'2017-01-23 09:02:31','2017-01-25 15:13:21','æœƒå“¡C',106,'å°åŒ—å¸‚å¤§å®‰å€','æœƒå“¡Cçš„å®¶',3101,null,null);
 INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1011 , 1006 , 160, 860,'2017-03-08 17:42:51','2017-03-09 17:42:51','·|­ûD',106,'¥x¥_¥«¤j¦w°Ï','·|­ûDªº®a',3103,null,null);
+	VALUES (1011 , 1006 , 160, 860,'2017-03-08 17:42:51','2017-03-09 17:42:51','æœƒå“¡D',106,'å°åŒ—å¸‚å¤§å®‰å€','æœƒå“¡Dçš„å®¶',3103,null,null);
  INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1012 , 1007 , 100, 800,'2017-01-31 12:42:17','2017-02-01 17:22:34','·|­ûE',106,'¥x¥_¥«¤j¦w°Ï','·|­ûEªº®a',3104,1,-1);
+	VALUES (1012 , 1007 , 100, 800,'2017-01-31 12:42:17','2017-02-01 17:22:34','æœƒå“¡E',106,'å°åŒ—å¸‚å¤§å®‰å€','æœƒå“¡Eçš„å®¶',3104,1,-1);
  INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1012 , 1008 ,100, 900,'2017-01-10 00:08:53','2017-01-14 15:32:47','·|­ûF',106,'¥x¥_¥«¤j¦w°Ï','·|­ûFªº®a',3104,1,1);
---2017/02/13 §Å
+	VALUES (1012 , 1008 ,100, 900,'2017-01-10 00:08:53','2017-01-14 15:32:47','æœƒå“¡F',106,'å°åŒ—å¸‚å¤§å®‰å€','æœƒå“¡Fçš„å®¶',3104,1,1);
+--2017/02/13 å·«
 INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1027 , 1026 , 4000,4800,'2017-01-24 20:50:49','2017-01-26 14:40:07','¤B´¶®u',235,'¥x¥_¥«¤j¦w°Ï','Ã¹´µºÖ¸ô¤T¬q333«Ñ9487¸¹',3104, 10 ,-100);
+	VALUES (1027 , 1026 , 4000,4800,'2017-01-24 20:50:49','2017-01-26 14:40:07','ä¸æ™®å¸­',235,'å°åŒ—å¸‚å¤§å®‰å€','ç¾…æ–¯ç¦è·¯ä¸‰æ®µ333å··9487è™Ÿ',3104, 10 ,-100);
 INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1028 , 1025 ,400,2000,'2017-02-15 18:20:00','2017-02-20 11:48:50','§f­Y¥P',235,'¥x¥_¥«¤j¦w°Ï','Ã¹´µºÖ¸ô¥|¬q1¸¹',3103, 501, null);
+	VALUES (1028 , 1025 ,400,2000,'2017-02-15 18:20:00','2017-02-20 11:48:50','å‘‚è‹¥ä»™',235,'å°åŒ—å¸‚å¤§å®‰å€','ç¾…æ–¯ç¦è·¯å››æ®µ1è™Ÿ',3103, 501, null);
 INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1011 , 1024 ,160, 960,'2017-02-23 09:00:37','2017-02-25 15:13:27','³¯¥É´@',106,'·s¥_¥«¤T­«°Ï','¤¤¥¿¥_¸ô111¸¹',3101,null,null);
+	VALUES (1011 , 1024 ,160, 960,'2017-02-23 09:00:37','2017-02-25 15:13:27','é™³ç‰å©·',106,'æ–°åŒ—å¸‚ä¸‰é‡å€','ä¸­æ­£åŒ—è·¯111è™Ÿ',3101,null,null);
 INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1036 , 1035 ,100, 1100,'2017-02-13 09:00:37','2017-02-14 15:13:27','56¤£¯à¤`',109,'¥x¥_¥««H¸q°Ï','«ÌªF¿¤°ª¾ğ¶m¤¤¥¡¸ô60¸¹',3101,null,null);
+	VALUES (1036 , 1035 ,100, 1100,'2017-02-13 09:00:37','2017-02-14 15:13:27','56ä¸èƒ½äº¡',109,'å°åŒ—å¸‚ä¿¡ç¾©å€','å±æ±ç¸£é«˜æ¨¹é„‰ä¸­å¤®è·¯60è™Ÿ',3101,null,null);
 
 
 
 --OrderDetail
-Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3001,2001,'¤½¤ç',35,10,10);
-Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3002,2009,'¤½¤ç',45,10,10);
-Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3003,2006,'½c',350,2,80);
-Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3004,2008,'½c',350,2,80);
-Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3005,2007,'¤ç',70,10,10);
-Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3006,2015,'½c',800,1,100);
---2017/02/13 §Å
-Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3007,2020,'½c',400,2,2000);
-Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3008,2021,'¤ç',800,2,200);
-Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3009,2022,'½c',400,2,80);
-Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3010,2023,'½c',1000,1,100);
+Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3001,2001,'å…¬æ–¤',35,10,10);
+Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3002,2009,'å…¬æ–¤',45,10,10);
+Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3003,2006,'ç®±',350,2,80);
+Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3004,2008,'ç®±',350,2,80);
+Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3005,2007,'æ–¤',70,10,10);
+Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3006,2015,'ç®±',800,1,100);
+--2017/02/13 å·«
+Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3007,2020,'ç®±',400,2,2000);
+Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3008,2021,'æ–¤',800,2,200);
+Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3009,2022,'ç®±',400,2,80);
+Insert into OrderDetail (OrderID, ProductID, Unit, UnitPrice, OrderQuantity, UnitFreight)values (3010,2023,'ç®±',1000,1,100);
 
 
 --MiscVia
-INSERT INTO MiscVia (MiscViaWay) VALUES ('¤£¦¬');
-INSERT INTO MiscVia (MiscViaWay) VALUES ('¨Ì¤HÀY');
-INSERT INTO MiscVia (MiscViaWay) VALUES ('¨Ì¤ñ¨Ò');
+INSERT INTO MiscVia (MiscViaWay) VALUES ('ä¸æ”¶');
+INSERT INTO MiscVia (MiscViaWay) VALUES ('ä¾äººé ­');
+INSERT INTO MiscVia (MiscViaWay) VALUES ('ä¾æ¯”ä¾‹');
 
 --JPStatus
-INSERT INTO JPStatus (JPStatusName) VALUES ('¼f®Ö¤¤');
-INSERT INTO JPStatus (JPStatusName) VALUES ('¤w¼f®Ö');
-INSERT INTO JPStatus (JPStatusName) VALUES ('¤w¶}¹Î');
-INSERT INTO JPStatus (JPStatusName) VALUES ('¤w¦¨¹Î');
-INSERT INTO JPStatus (JPStatusName) VALUES ('¬y¹Î');
+INSERT INTO JPStatus (JPStatusName) VALUES ('å¯©æ ¸ä¸­');
+INSERT INTO JPStatus (JPStatusName) VALUES ('å·²å¯©æ ¸');
+INSERT INTO JPStatus (JPStatusName) VALUES ('å·²é–‹åœ˜');
+INSERT INTO JPStatus (JPStatusName) VALUES ('å·²æˆåœ˜');
+INSERT INTO JPStatus (JPStatusName) VALUES ('æµåœ˜');
 
 --JointPurchase
 INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc) 
-	VALUES (1001, '¦n£©¾ï¤l¦XÁÊ~3/10ºI¤î', '¤T¸q¶m¦W²£~~Å¥»¡³o§å¾ï¤l¶W¦n¦Y¶W²¢,·Q¶Rªº¤H§Ö¤@°_¥[¤J, ¥Ø¼Ğ´êº¡10½c«÷§é»ù³á~~~', '2017-01-15', '2017-01-25', '·s¥_¥«¤¤©M°Ï',4103,80,4202,20);
+	VALUES (1001, 'å¥½ã„˜æ©˜å­åˆè³¼~3/10æˆªæ­¢', 'ä¸‰ç¾©é„‰åç”¢~~è½èªªé€™æ‰¹æ©˜å­è¶…å¥½åƒè¶…ç”œ,æƒ³è²·çš„äººå¿«ä¸€èµ·åŠ å…¥, ç›®æ¨™æ¹Šæ»¿10ç®±æ‹¼æŠ˜åƒ¹å–”~~~', '2017-01-15', '2017-01-25', 'æ–°åŒ—å¸‚ä¸­å’Œå€',4103,80,4202,20);
 INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc)
-	VALUES (1001, '¾ï¤l¦XÁÊ¹Î', '¾ï¤l¦XÁÊ¹Î¼f®Ö', '2017-02-20', '2017-03-20',	'¥x¥_¥«¤j¦w°Ï',	4101, 200, 4201, 0);
+	VALUES (1001, 'æ©˜å­åˆè³¼åœ˜', 'æ©˜å­åˆè³¼åœ˜å¯©æ ¸', '2017-02-20', '2017-03-20',	'å°åŒ—å¸‚å¤§å®‰å€',	4101, 200, 4201, 0);
 INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc)
-	VALUES (1002, '¾ï¤l¦XÁÊ¹Î', '¾ï¤l¦XÁÊ¹Î¶}¹Î', '2017-01-20', '2017-03-20',	'·s¥_¥«ªO¾ô°Ï',	4103, 200, 4201, 0);
+	VALUES (1002, 'æ©˜å­åˆè³¼åœ˜', 'æ©˜å­åˆè³¼åœ˜é–‹åœ˜', '2017-01-20', '2017-03-20',	'æ–°åŒ—å¸‚æ¿æ©‹å€',	4103, 200, 4201, 0);
 INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc)
-	VALUES (1030, '¶R­Ó¤å¥¹ §Ö³t¹Î~~´êº¡20Áû´N½ÄÅo~~¤£¯à°t¦X¤Å¸ò', '³o®a¤å¥¹¯uªº¶W¦n¦Y  ¦Y¤FÁÙ·Q¦A¦Y ¦Y¤FÁÙ·Q¦A¦Y ¦Y¤FÁÙ·Q¦A¦Y ¦Y¤FÁÙ·Q¦A¦Y ¦Y¤FÁÙ·Q¦A¦Y »°§Ö¨Ó¸ò¹Î¤K!!!', '2017-02-10', '2017-02-17',	'¥x¥_¥«¤å¤s°Ï',	4104, 100, 4202, 10);
+	VALUES (1030, 'è²·å€‹æ–‡æ—¦ å¿«é€Ÿåœ˜~~æ¹Šæ»¿20é¡†å°±è¡å›‰~~ä¸èƒ½é…åˆå‹¿è·Ÿ', 'é€™å®¶æ–‡æ—¦çœŸçš„è¶…å¥½åƒ  åƒäº†é‚„æƒ³å†åƒ åƒäº†é‚„æƒ³å†åƒ åƒäº†é‚„æƒ³å†åƒ åƒäº†é‚„æƒ³å†åƒ åƒäº†é‚„æƒ³å†åƒ è¶•å¿«ä¾†è·Ÿåœ˜å…«!!!', '2017-02-10', '2017-02-17',	'å°åŒ—å¸‚æ–‡å±±å€',	4104, 100, 4202, 10);
 INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc)
-	VALUES (1030, '¬ğµM¦n·Q¦YÄ«ªG~§Ö¨Ó¤@°_¶RÄ«ªG£t', '­n5¤ç¤~¥X³f~~©Ò¥H5¤ç´N¤£¦¬Åo §Ö¨Ó¤@°_¦YÄ«ªG¬ü®e£t', '2017-03-01', '2017-03-10',	'¥x¥_¥«¤å¤s°Ï',	4103, 0, 4201, 0);
+	VALUES (1030, 'çªç„¶å¥½æƒ³åƒè˜‹æœ~å¿«ä¾†ä¸€èµ·è²·è˜‹æœã„…', 'è¦5æ–¤æ‰å‡ºè²¨~~æ‰€ä»¥5æ–¤å°±ä¸æ”¶å›‰ å¿«ä¾†ä¸€èµ·åƒè˜‹æœç¾å®¹ã„…', '2017-03-01', '2017-03-10',	'å°åŒ—å¸‚æ–‡å±±å€',	4103, 0, 4201, 0);
 INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc)
-	VALUES (1030, '¯ó²ù¦XÁÊ¡A³Ì¤Ö´ê¤@½c!!!', '¦XÁÊ¯ó²ù³Ì¤Ö´êº¡1½c¡A¨C½c10¤ç¡A³Ì¦h3½c´N¤£¦¬Åo¡A­n¸ò­n§Ö~~~', '2017-02-28', '2017-03-07',	'¥x¥_¥«¤å¤s°Ï',	4104, 300, 4201, 0);
---2017/02/13 §Å
---¥»ÀÉ®×¤¤·|­û½s¸¹1019ªº"¥Û¦b¤Ñ"¬İ¨ì­ğ¤t§Bªº½æ³õ¡A¨M©wµ¹¥L¦XÁÊ¹Î¶}¤U¥h~Á`»ù$3600¡A·í¤¤$1600¬°4½c¾L®ß¡A$2000¬°¹B¶O¡C
+	VALUES (1030, 'è‰è“åˆè³¼ï¼Œæœ€å°‘æ¹Šä¸€ç®±!!!', 'åˆè³¼è‰è“æœ€å°‘æ¹Šæ»¿1ç®±ï¼Œæ¯ç®±10æ–¤ï¼Œæœ€å¤š3ç®±å°±ä¸æ”¶å›‰ï¼Œè¦è·Ÿè¦å¿«~~~', '2017-02-28', '2017-03-07',	'å°åŒ—å¸‚æ–‡å±±å€',	4104, 300, 4201, 0);
+--2017/02/13 å·«
+--æœ¬æª”æ¡ˆä¸­æœƒå“¡ç·¨è™Ÿ1019çš„"çŸ³åœ¨å¤©"çœ‹åˆ°å”å·ä¼¯çš„è³£å ´ï¼Œæ±ºå®šçµ¦ä»–åˆè³¼åœ˜é–‹ä¸‹å»~ç¸½åƒ¹$3600ï¼Œç•¶ä¸­$1600ç‚º4ç®±é†‹æ —ï¼Œ$2000ç‚ºé‹è²»ã€‚
 INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc) 
-	VALUES (1019, '¤@°_¶R¶Â¾L®ß!4/15ºI¤î', '¶Â¾L®ß¥i¥HÆC¬õ°s¶WÆgªº!~ÁÙ¬O¬ü°ê³f!¥Ø¼Ğ´ê»ô4½c~¨C¤H1½c¡A¦UÅu¹B¶O$500', '2017-02-15', '2017-04-25', '«ÌªF¿¤°ª¾ğ¶m',4104,2000,4202,0);
+	VALUES (1019, 'ä¸€èµ·è²·é»‘é†‹æ —!4/15æˆªæ­¢', 'é»‘é†‹æ —å¯ä»¥é‡€ç´…é…’è¶…è®šçš„!~é‚„æ˜¯ç¾åœ‹è²¨!ç›®æ¨™æ¹Šé½Š4ç®±~æ¯äºº1ç®±ï¼Œå„æ”¤é‹è²»$500', '2017-02-15', '2017-04-25', 'å±æ±ç¸£é«˜æ¨¹é„‰',4104,2000,4202,0);
 
 --JPDetail
 INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight,JPUnit) 
-	VALUES (4001, 2001, 6, 10, 1, 35, 10,'¤½¤ç');
+	VALUES (4001, 2001, 6, 10, 1, 35, 10,'å…¬æ–¤');
 INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight,JPUnit) 
-	VALUES (4004, 2019, 20, 20, 1, 97, 10,'Áû');
+	VALUES (4004, 2019, 20, 20, 1, 97, 10,'é¡†');
 INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight,JPUnit) 
-	VALUES (4005, 2010, 5, 5, 1, 50, 10,'¤½¤ç');
+	VALUES (4005, 2010, 5, 5, 1, 50, 10,'å…¬æ–¤');
 INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight,JPUnit) 
-	VALUES (4006, 2009, 1, 3, 1, 60, 10,'¤½¤ç');
---2017/02/13 §Å
---¾L®ß¦XÁÊ¹Î¦¨¥ß¡A¼g¤J¥»ªí®æ¤¤
---»İ°Q½×¡G³o®É­ÔªºJPID ¨ì©³¬O¶}¹Îªº½s¸¹¦n©O¡HÁÙ¬O¦¨¹Îªº½s¸¹©O¡H
+	VALUES (4006, 2009, 1, 3, 1, 60, 10,'å…¬æ–¤');
+--2017/02/13 å·«
+--é†‹æ —åˆè³¼åœ˜æˆç«‹ï¼Œå¯«å…¥æœ¬è¡¨æ ¼ä¸­
+--éœ€è¨è«–ï¼šé€™æ™‚å€™çš„JPID åˆ°åº•æ˜¯é–‹åœ˜çš„ç·¨è™Ÿå¥½å‘¢ï¼Ÿé‚„æ˜¯æˆåœ˜çš„ç·¨è™Ÿå‘¢ï¼Ÿ
 INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight,JPUnit) 
-	VALUES (4007, 2020, 4, 4, 1, 400, 2000,'½c');
+	VALUES (4007, 2020, 4, 4, 1, 400, 2000,'ç®±');
 
 
 --F2F
-INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4001, '±¶¹B¥Ã¦w¥«³õ¯¸¥X¤f','2017-01-31 12:00');
-INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4001, '¤¤©M»·ªF¥@¬ö¼s³õ(J´É¼Ó¤U¥ş®a)','2017-01-31 14:00');
-INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4001, '·s¥_¥«¤¤©M°Ï¤¤¥¿¸ô753¸¹(ªO«H»È¦æªù¤f)','2017-01-31 16:00');
-INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4004, '¬F¤j³Á°¼','2017-02-25 16:00');
-INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4004, '¦Ò¸Õ°|ªù¤f','2017-02-25 17:00');
-INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4004, '´º¬ü¤k¤¤®Õªù¤f','2017-02-25 18:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4001, 'æ·é‹æ°¸å®‰å¸‚å ´ç«™å‡ºå£','2017-01-31 12:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4001, 'ä¸­å’Œé æ±ä¸–ç´€å»£å ´(Jæ£Ÿæ¨“ä¸‹å…¨å®¶)','2017-01-31 14:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4001, 'æ–°åŒ—å¸‚ä¸­å’Œå€ä¸­æ­£è·¯753è™Ÿ(æ¿ä¿¡éŠ€è¡Œé–€å£)','2017-01-31 16:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4004, 'æ”¿å¤§éº¥å´','2017-02-25 16:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4004, 'è€ƒè©¦é™¢é–€å£','2017-02-25 17:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4004, 'æ™¯ç¾å¥³ä¸­æ ¡é–€å£','2017-02-25 18:00');
 --2017/02/13
-INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4007, '«ÌªF¿¤°ª¾ğ¶m«n¿³¸ô143¸¹ (¹A·|¤jÆU¤º)','2017-03-05 15:00');
-INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4007, '¥x¥_¥«¤j¦w°Ï´_¿³«n¸ô¤@¬q390¸¹14¼Ó(¥x¥_¹A·|)','2017-03-12 15:00');
-INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4007, '«ÌªF¿¤°ª¾ğ¶m¿³¤¤¸ô330¸¹(¶m¤½©Ò¤jªù¤f)','2017-03-19 15:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4007, 'å±æ±ç¸£é«˜æ¨¹é„‰å—èˆˆè·¯143è™Ÿ (è¾²æœƒå¤§å»³å…§)','2017-03-05 15:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4007, 'å°åŒ—å¸‚å¤§å®‰å€å¾©èˆˆå—è·¯ä¸€æ®µ390è™Ÿ14æ¨“(å°åŒ—è¾²æœƒ)','2017-03-12 15:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4007, 'å±æ±ç¸£é«˜æ¨¹é„‰èˆˆä¸­è·¯330è™Ÿ(é„‰å…¬æ‰€å¤§é–€å£)','2017-03-19 15:00');
 
 --JPFollower
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-	VALUES (1001, 4301, 4001, 100, null, '2011-11-11', 100, 'bank', 12345, 0, 0, '·PÁÂ¥DÁÊ');
+	VALUES (1001, 4301, 4001, 100, null, '2011-11-11', 100, 'bank', 12345, 0, 0, 'æ„Ÿè¬ä¸»è³¼');
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-	VALUES (1032, 4302, 4003, 100, null, '2011-12-12', 100, '¤¤°ê«H°U', 33333, 0, 0, 'You are my Sunshine');
+	VALUES (1032, 4302, 4003, 100, null, '2011-12-12', 100, 'ä¸­åœ‹ä¿¡è¨—', 33333, 0, 0, 'You are my Sunshine');
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-	VALUES (1030, 4304, 4005, 100, null, '2017-03-31', 100, '¥x¥_´I¨¹', 74125, 0, 0, '¤Ñ¨Ï!!');
---2017/02/13 §Å
+	VALUES (1030, 4304, 4005, 100, null, '2017-03-31', 100, 'å°åŒ—å¯Œé‚¦', 74125, 0, 0, 'å¤©ä½¿!!');
+--2017/02/13 å·«
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-VALUES (1020, 4307, 4007, 400, null, '2017-02-27', 400, '¶l¬Fª÷¿Ä', 70624, 0, 500, '$500¹B¶O¦³ÂI¨g°Ú~¥S§Ì§Ú®¼§A');
+VALUES (1020, 4307, 4007, 400, null, '2017-02-27', 400, 'éƒµæ”¿é‡‘è', 70624, 0, 500, '$500é‹è²»æœ‰é»ç‹‚å•Š~å…„å¼Ÿæˆ‘æŒºä½ ');
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-VALUES (1026, 4308, 4007, 400, null, '2017-02-28', 400, '¥É¤s»È¦æ', 02089, 0, 500, '§Úªº¤pÄ_¨©ªü¤t¯uªº¦b¥xÆW¶}½æ¤F°Ú´µ°ò¡C¥»Á`²z´N¤jµo·O´d¡A³­§A­Ì³o¨Ç¤p¥«¥Á¶R¶R§a«Â°ò~');
+VALUES (1026, 4308, 4007, 400, null, '2017-02-28', 400, 'ç‰å±±éŠ€è¡Œ', 02089, 0, 500, 'æˆ‘çš„å°å¯¶è²é˜¿å·çœŸçš„åœ¨å°ç£é–‹è³£äº†å•Šæ–¯åŸºã€‚æœ¬ç¸½ç†å°±å¤§ç™¼æ…ˆæ‚²ï¼Œé™ªä½ å€‘é€™äº›å°å¸‚æ°‘è²·è²·å§å¨åŸº~');
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-VALUES (1022, 4309, 4007, 400, null, '2017-03-01', 400, 'µØ«n»È¦æ', 51501, 0, 500, '­Y¥i¤@¸Õ¦XÁÊ¡AÄ@§é¹Ø¤Q¦~¡A­Y§ó¤@¹Á¾L®ß¡AÄ@²×¨­¦uÂN¡C');
+VALUES (1022, 4309, 4007, 400, null, '2017-03-01', 400, 'è¯å—éŠ€è¡Œ', 51501, 0, 500, 'è‹¥å¯ä¸€è©¦åˆè³¼ï¼Œé¡˜æŠ˜å£½åå¹´ï¼Œè‹¥æ›´ä¸€å˜—é†‹æ —ï¼Œé¡˜çµ‚èº«å®ˆé½‹ã€‚');
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-	VALUES (1030, 4305, 4004, 100, null, null, null, null, null, 0, 0, '¤Ñ¨Ï!!');
+	VALUES (1030, 4305, 4004, 100, null, null, null, null, null, 0, 0, 'å¤©ä½¿!!');
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-	VALUES (1030, 4305, 4007, 100, null, null, null, null, null, 0, 0, '¤Ñ¨Ï!!');
+	VALUES (1030, 4305, 4007, 100, null, null, null, null, null, 0, 0, 'å¤©ä½¿!!');
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-	VALUES (1030, 4305, 4001, 100, null, null, null, null, null, 0, 0, '¤Ñ¨Ï!!');
+	VALUES (1030, 4305, 4001, 100, null, null, null, null, null, 0, 0, 'å¤©ä½¿!!');
 
 --JPFollowerDetail
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4402, 2019, 3, 291);
@@ -711,7 +711,7 @@ INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4408, 2007, 9, 180);
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4409, 2007, 9, 180);
 
---2017/02/13 §Å
+--2017/02/13 å·«
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4404, 2020, 1, 400);
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4405, 2020, 1, 400);
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4406, 2020, 1, 400);
@@ -719,99 +719,99 @@ INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (
 
 --QnA
 INSERT INTO QnA(QueryID, ProductID, QnATitle, QnAContent, QueryDate, ReQnA, ReDate, ReStatus)
-	values(1001 ,2001, '§Ú·Q°İÃö©ó¦¬¾Úªº°İÃD...', '½Ğ°İ¦¬¾Ú¥i¥H¶}106¦~ªº¶Ü? ­Y³o¬P´Á¤U­q¶×´Ú§¹¦¨¡A1¤ë13¤é«e¥i¥H¨ì³f¶Ü?', '2016-12-28 08:28:50', '¦nªº¡AÀ°±z¦w±Æ', '2016-12-28 14:28:50','1');
+	values(1001 ,2001, 'æˆ‘æƒ³å•é—œæ–¼æ”¶æ“šçš„å•é¡Œ...', 'è«‹å•æ”¶æ“šå¯ä»¥é–‹106å¹´çš„å—? è‹¥é€™æ˜ŸæœŸä¸‹è¨‚åŒ¯æ¬¾å®Œæˆï¼Œ1æœˆ13æ—¥å‰å¯ä»¥åˆ°è²¨å—?', '2016-12-28 08:28:50', 'å¥½çš„ï¼Œå¹«æ‚¨å®‰æ’', '2016-12-28 14:28:50','1');
 INSERT INTO QnA(QueryID, ProductID, QnATitle, QnAContent, QueryDate, ReQnA, ReDate, ReStatus)
-	values(1002 ,2002, '·Q½Ğ°İÃö©ó¤U¼Ğ¥I´Úªº°İÃD...', '½Ğ°İ§Ú­n­q7½c¡A¹w­p¦ó®É¥i¨ì³f? »ù®æ¬O2800¤¸§K¹B¶Ü?', '2016-12-30 12:18:33', '±z¦n...¦w±Æ¨ì¤¸¥¹«á¤F', '2016-12-30 18:24:09','1');
+	values(1002 ,2002, 'æƒ³è«‹å•é—œæ–¼ä¸‹æ¨™ä»˜æ¬¾çš„å•é¡Œ...', 'è«‹å•æˆ‘è¦è¨‚7ç®±ï¼Œé è¨ˆä½•æ™‚å¯åˆ°è²¨? åƒ¹æ ¼æ˜¯2800å…ƒå…é‹å—?', '2016-12-30 12:18:33', 'æ‚¨å¥½...å®‰æ’åˆ°å…ƒæ—¦å¾Œäº†', '2016-12-30 18:24:09','1');
 INSERT INTO QnA(QueryID, ProductID, QnATitle, QnAContent, QueryDate, ReQnA, ReDate, ReStatus)
-	VALUES(1030 ,2019, null, '½Ğ°İ¶R20£}¥i¤£¥i¥H§é¦©¦h¤@ÂI', '2016-02-03 18:00:42', '¥Ø«e20Áûªº»ù®æ½Ğ±z°Ñ¦Ò§Ú­Ìºô¯¸¤W´£¨Ñªº§é¦©³á', '2016-02-03 18:12:44',1);
+	VALUES(1030 ,2019, null, 'è«‹å•è²·20ã„å¯ä¸å¯ä»¥æŠ˜æ‰£å¤šä¸€é»', '2016-02-03 18:00:42', 'ç›®å‰20é¡†çš„åƒ¹æ ¼è«‹æ‚¨åƒè€ƒæˆ‘å€‘ç¶²ç«™ä¸Šæä¾›çš„æŠ˜æ‰£å–”', '2016-02-03 18:12:44',1);
 INSERT INTO QnA(QueryID, ProductID, QnATitle, QnAContent, QueryDate, ReQnA, ReDate, ReStatus)
-	VALUES(1031 ,2019, null, '§A¶ıª¾¹D§A¦b½æ¤å¥¹¶Ü', '2016-03-09 19:52:24', null, null,0);
+	VALUES(1031 ,2019, null, 'ä½ åª½çŸ¥é“ä½ åœ¨è³£æ–‡æ—¦å—', '2016-03-09 19:52:24', null, null,0);
 INSERT INTO QnA(QueryID, ProductID, QnATitle, QnAContent, QueryDate, ReQnA, ReDate, ReStatus)
-	VALUES(1011 ,2019, null, '½Ğ°İ³o§å¤å¥¹¤j·§¥i¥H©ñ¨ì¦h¤[', '2016-03-01 21:33:07', '±z¦n¡A¥X³f«á¬ù¥i©ñ¥|¶g¡A¥¼§K¼vÅT·sÂA­·¨ı¡AÁÙ½ĞºÉ§Ö­¹¥Î¡A·PÁÂ±z', '2016-03-02 08:22:43',1);
---2017-02/13 §Å
+	VALUES(1011 ,2019, null, 'è«‹å•é€™æ‰¹æ–‡æ—¦å¤§æ¦‚å¯ä»¥æ”¾åˆ°å¤šä¹…', '2016-03-01 21:33:07', 'æ‚¨å¥½ï¼Œå‡ºè²¨å¾Œç´„å¯æ”¾å››é€±ï¼Œæœªå…å½±éŸ¿æ–°é®®é¢¨å‘³ï¼Œé‚„è«‹ç›¡å¿«é£Ÿç”¨ï¼Œæ„Ÿè¬æ‚¨', '2016-03-02 08:22:43',1);
+--2017-02/13 å·«
 insert into QnA(QueryID, ProductID, QnATitle, QnAContent, QueryDate, ReQnA, ReDate, ReStatus)
-values(1026 ,2020, '¶¶«KªÅ¹B¨Ó«X°ê§a?', '§Ú»¡ªü¤t°Ú~³£¶}¤F³o¸ó¤Ó¥­¬vªº$2000¹B¶O´µ°ò~­n¤£­n¶¶«K¹B¤@½c¨Ó²ö´µ¬ì¡A§µ·q§µ·q¥»Á`²z«Â°ò', '2017-01-28 08:30:02', '¨º¦³¬Æ»ò°İÃD¡A§Ú¤U­Ó¤ë·fªÅ­x¤@¸¹¿Ë°e©²¤W!', '2017-01-28 20:30:02','1');
+values(1026 ,2020, 'é †ä¾¿ç©ºé‹ä¾†ä¿„åœ‹å§?', 'æˆ‘èªªé˜¿å·å•Š~éƒ½é–‹äº†é€™è·¨å¤ªå¹³æ´‹çš„$2000é‹è²»æ–¯åŸº~è¦ä¸è¦é †ä¾¿é‹ä¸€ç®±ä¾†è«æ–¯ç§‘ï¼Œå­æ•¬å­æ•¬æœ¬ç¸½ç†å¨åŸº', '2017-01-28 08:30:02', 'é‚£æœ‰ç”šéº¼å•é¡Œï¼Œæˆ‘ä¸‹å€‹æœˆæ­ç©ºè»ä¸€è™Ÿè¦ªé€åºœä¸Š!', '2017-01-28 20:30:02','1');
 insert into QnA(QueryID, ProductID, QnATitle, QnAContent, QueryDate, ReQnA, ReDate, ReStatus)
-values(1024 ,2020, '¬O§_¯à´£¨Ñ¹ê»Ú°Ó«~¹Ï¤ù?', '§A¦n¡A¨C¤@±i°Ó«~¹Ï¤ù³£¬O½æ®aªº­Ó¤H·Ó¡A³o¼Ë¤l¦³ÂIÃøª¾¹D¹ê»Ú«~½è¡C¬O§_¯à´«¶Â¾L®ßªº·Ó¤ù¤W¨Ó©O??', '2017-02-01 12:20:50', '¤k¤HÀ´¬Æ»ò!¤£­n°İÄø°İÃD¡A¤p¤ß§Ú¥sºŞ²z­û«Ê±ş©p O¥×O', '2017-02-02 09:48:07','1');
+values(1024 ,2020, 'æ˜¯å¦èƒ½æä¾›å¯¦éš›å•†å“åœ–ç‰‡?', 'ä½ å¥½ï¼Œæ¯ä¸€å¼µå•†å“åœ–ç‰‡éƒ½æ˜¯è³£å®¶çš„å€‹äººç…§ï¼Œé€™æ¨£å­æœ‰é»é›£çŸ¥é“å¯¦éš›å“è³ªã€‚æ˜¯å¦èƒ½æ›é»‘é†‹æ —çš„ç…§ç‰‡ä¸Šä¾†å‘¢??', '2017-02-01 12:20:50', 'å¥³äººæ‡‚ç”šéº¼!ä¸è¦å•è ¢å•é¡Œï¼Œå°å¿ƒæˆ‘å«ç®¡ç†å“¡å°æ®ºå¦³ Oçš¿O', '2017-02-02 09:48:07','1');
 insert into QnA(QueryID, ProductID, QnATitle, QnAContent, QueryDate, ReQnA, ReDate, ReStatus)
-values(1023 ,2021, '¥x¥_¥«°Ï¦h¤[¨ì³f?', '«¢Åo¡A§Ú¦í¤j¦w°Ï¡A¤µ¤Ñ­q³o©P¥½¥H«e°e±o¨ì¶Ü?ÁÂÁÂ', '2017-02-08 08:30:45', '±z¦n!¦~°²­èµ²§ô¡Aªá½¬¥æ³q¸û¾Ã¶ë¡A¤]³\µLªk³á¡C', '2017-02-08 11:30:47','1');
+values(1023 ,2021, 'å°åŒ—å¸‚å€å¤šä¹…åˆ°è²¨?', 'å“ˆå›‰ï¼Œæˆ‘ä½å¤§å®‰å€ï¼Œä»Šå¤©è¨‚é€™å‘¨æœ«ä»¥å‰é€å¾—åˆ°å—?è¬è¬', '2017-02-08 08:30:45', 'æ‚¨å¥½!å¹´å‡å‰›çµæŸï¼ŒèŠ±è“®äº¤é€šè¼ƒå£…å¡ï¼Œä¹Ÿè¨±ç„¡æ³•å–”ã€‚', '2017-02-08 11:30:47','1');
 insert into QnA(QueryID, ProductID, QnATitle, QnAContent, QueryDate, ReQnA, ReDate, ReStatus)
-values(1020 ,2022, '¯à§_¤p¶qÁÊ¶R?', '±z¦n!^^Å¥¤H®a»¡¥_¥É¤s½¬Ãú¯uªº«Ü¦n¦Y¡A¥i¬O§Ú­Ì®a­G¤f¶W¤p¡A·Q¶R¤S©È¶R¤F¤@½c¦Y¤£§¹¡A«ç»ò¿ì©O?', '2017-02-16 11:20:50', '±z¦n!¬İ¨Ó¦XÁÊ¥\¯à¥¿¦n¯àº¡¨¬±zªº»İ¨D¡A§Ú­Ì®a¤]¾A¥Î³á!¥i¥Hµ¥¨ä¥L«È¤H¶}¹Î«á¸ò¶i¡A©ÎªÌ¦Û¤v³Ğ¹Î¡C :D', '2017-02-16 19:48:07','1');
+values(1020 ,2022, 'èƒ½å¦å°é‡è³¼è²·?', 'æ‚¨å¥½!^^è½äººå®¶èªªåŒ—ç‰å±±è“®éœ§çœŸçš„å¾ˆå¥½åƒï¼Œå¯æ˜¯æˆ‘å€‘å®¶èƒƒå£è¶…å°ï¼Œæƒ³è²·åˆæ€•è²·äº†ä¸€ç®±åƒä¸å®Œï¼Œæ€éº¼è¾¦å‘¢?', '2017-02-16 11:20:50', 'æ‚¨å¥½!çœ‹ä¾†åˆè³¼åŠŸèƒ½æ­£å¥½èƒ½æ»¿è¶³æ‚¨çš„éœ€æ±‚ï¼Œæˆ‘å€‘å®¶ä¹Ÿé©ç”¨å–”!å¯ä»¥ç­‰å…¶ä»–å®¢äººé–‹åœ˜å¾Œè·Ÿé€²ï¼Œæˆ–è€…è‡ªå·±å‰µåœ˜ã€‚ :D', '2017-02-16 19:48:07','1');
 
 
 
 --Violation
 insert into Violation(ReportedID, ReporterID, VioTitle, VioContent, CreateDate, ProcessDate, TicketResult, TicketStatue)
-	values(2002,1001,'°e¨Óªº¤£¬O·R¤å¨~ªG','§Ú­qÁÊªº¬O·R¤å¨~ªG¡Aµ²ªG°Ó®a³ºµM°e¤g¨~ªGµ¹§Ú¡A½ĞÀ°¦£³B²z¤@¤U','2016-06-20 09:12:07','2016-06-21 10:10:10','¸g¬dÃÒÄİ¹ê¡A¤w±N¸Ó°Ó«~¤U¬[',1);
+	values(2002,1001,'é€ä¾†çš„ä¸æ˜¯æ„›æ–‡èŠ’æœ','æˆ‘è¨‚è³¼çš„æ˜¯æ„›æ–‡èŠ’æœï¼Œçµæœå•†å®¶ç«Ÿç„¶é€åœŸèŠ’æœçµ¦æˆ‘ï¼Œè«‹å¹«å¿™è™•ç†ä¸€ä¸‹','2016-06-20 09:12:07','2016-06-21 10:10:10','ç¶“æŸ¥è­‰å±¬å¯¦ï¼Œå·²å°‡è©²å•†å“ä¸‹æ¶',1);
 insert into Violation(ReportedID, ReporterID, VioTitle, VioContent, CreateDate, TicketStatue)
-	values(2001,1002,'¾ï¤l¥şÄê±¼¤F','¾ï¤l°e¨Ó®É³ºµM¥şÄê±¼¤F¡A³o¬O§ÚÀY¤@¦¸¹J¨ì³oºØ±¡§Î¡A¤Ó¸Ø±i¤F§a¡I½ĞºŞ²z­û³B²z¤@¤U¡AÁÂÁÂ¡I','2017-01-13 19:22:35',0);
+	values(2001,1002,'æ©˜å­å…¨çˆ›æ‰äº†','æ©˜å­é€ä¾†æ™‚ç«Ÿç„¶å…¨çˆ›æ‰äº†ï¼Œé€™æ˜¯æˆ‘é ­ä¸€æ¬¡é‡åˆ°é€™ç¨®æƒ…å½¢ï¼Œå¤ªèª‡å¼µäº†å§ï¼è«‹ç®¡ç†å“¡è™•ç†ä¸€ä¸‹ï¼Œè¬è¬ï¼','2017-01-13 19:22:35',0);
 INSERT INTO Violation(ReportedID, ReporterID, VioTitle, VioContent, CreateDate, TicketStatue)
-	VALUES(2018,1030,'¦¬¨ìÄê¤ôªG¡A¤]¤£³B²z°h³f','¶R¤F¦n´XÁû¤å¥¹¨ä¤¤¤@ÁûÄê¤F¡A¯¸¤º«H¥L³ºµM¤wÅª¤£¦^¡AºV¥L¤]¸Ë¦º¡A«ãÀËÁ|RRRRRR','2017-02-13 14:32:07',0);
---2017/02/13 §Å
+	VALUES(2018,1030,'æ”¶åˆ°çˆ›æ°´æœï¼Œä¹Ÿä¸è™•ç†é€€è²¨','è²·äº†å¥½å¹¾é¡†æ–‡æ—¦å…¶ä¸­ä¸€é¡†çˆ›äº†ï¼Œç«™å…§ä¿¡ä»–ç«Ÿç„¶å·²è®€ä¸å›ï¼Œæ•²ä»–ä¹Ÿè£æ­»ï¼Œæ€’æª¢èˆ‰RRRRRR','2017-02-13 14:32:07',0);
+--2017/02/13 å·«
 insert into Violation(ReportedID, ReporterID, VioTitle, VioContent, CreateDate, ProcessDate, TicketResult, TicketStatue)
-values(2020,1024,'³o½æ³õ¤Ó¹L¤À~','§Ú©ó2¤ë1¤é®É¦b½æ®aªº°İ»Pµªª©¤W¸ß°İ¬O§_¥i¥H´£¨Ñ°Ó«~¹ê»Ú¹Ï¤ù¡Aµ²ªG¥Lª[µø¤k©ÊÁÙ«Â¯Ù­n§äºŞ²z­û¡A³o¬O¤£¬O¤Ó¶W¹L?½Ğ³B²z','2017-02-03 09:10:00','2017-02-03 10:10:10','±z¦n!¸Ó·|­û¦bªO¤Wªºµo¨¥¸g¬dÃÒªº½T¹H³W¡A¤w¸g­n¨D¨ä§R°£¯d¨¥¨Ã§ó´«°Ó«~¹Ï¤ù¡CÁÂÁÂ±z¨Ï¥Î«ÈªA¨t²Î :)',1);
+values(2020,1024,'é€™è³£å ´å¤ªéåˆ†~','æˆ‘æ–¼2æœˆ1æ—¥æ™‚åœ¨è³£å®¶çš„å•èˆ‡ç­”ç‰ˆä¸Šè©¢å•æ˜¯å¦å¯ä»¥æä¾›å•†å“å¯¦éš›åœ–ç‰‡ï¼Œçµæœä»–æ­§è¦–å¥³æ€§é‚„å¨è„…è¦æ‰¾ç®¡ç†å“¡ï¼Œé€™æ˜¯ä¸æ˜¯å¤ªè¶…é?è«‹è™•ç†','2017-02-03 09:10:00','2017-02-03 10:10:10','æ‚¨å¥½!è©²æœƒå“¡åœ¨æ¿ä¸Šçš„ç™¼è¨€ç¶“æŸ¥è­‰çš„ç¢ºé•è¦ï¼Œå·²ç¶“è¦æ±‚å…¶åˆªé™¤ç•™è¨€ä¸¦æ›´æ›å•†å“åœ–ç‰‡ã€‚è¬è¬æ‚¨ä½¿ç”¨å®¢æœç³»çµ± :)',1);
 insert into Violation(ReportedID, ReporterID, VioTitle, VioContent, CreateDate, ProcessDate, TicketResult, TicketStatue)
-values(2020,1022,'²ö½Ì¤§¡AÄYÃg¤§!','´±±N¤Q«ü©î¯È¥]¡A«o§âÂù¬ÜÀü¤F«ã¡F­W«ë¤ë¤ë¦s¥x¹ô¡AÁÙ¬°¤H§@¥Õ¦Ñ¹«¡C','2017-03-10 22:19:00','2017-03-10 23:59:10','­±¥æ´²ºÉ¹C¤H¥h¡A²ö·W²ö«æ±z¦³§Ú¡C¤w¥O¸Ó­û±N´Ú°h¡A©ú¤éÀ³¥iª¾µ²ªG¡C :)',1);
+values(2020,1022,'è«è«’ä¹‹ï¼Œåš´æ‡²ä¹‹!','æ•¢å°‡åæŒ‡æ‹†ç´™åŒ…ï¼Œå»æŠŠé›™çœ‰çªäº†æ€’ï¼›è‹¦æ¨æœˆæœˆå­˜å°å¹£ï¼Œé‚„ç‚ºäººä½œç™½è€é¼ ã€‚','2017-03-10 22:19:00','2017-03-10 23:59:10','é¢äº¤æ•£ç›¡éŠäººå»ï¼Œè«æ…Œè«æ€¥æ‚¨æœ‰æˆ‘ã€‚å·²ä»¤è©²å“¡å°‡æ¬¾é€€ï¼Œæ˜æ—¥æ‡‰å¯çŸ¥çµæœã€‚ :)',1);
 insert into Violation(ReportedID, ReporterID, VioTitle, VioContent, CreateDate, ProcessDate, TicketResult, TicketStatue)
-values(2020,1019,'³o¤£¬O¶Â¾L®ß!!','®¢«×µL¤U­­ÕÙ!®³¨ì³f¤@¶i®aªù¥´¶}¬İ¡A©ú©ú¬O¸²µå°®¹À!Ãø©Ç»¡¥i¥H©ñ¤T¦~...','2017-03-11 19:22:35','2017-03-11 23:10:10','±z¦n!¦P¹Î¤¤¤w¦³¹Î¤Í¤Ï¬M°Ó«~°İÃD¡A§Ú­Ì¤w±N½æ®a¬I¥H°±Åv³B¤À¡A¨ú®ø¨ä¤p¹A¸ê®æ¡C³ÌºC³o¨â¤Ñ´N¯à¦b±zªº±b¤á¤¤¦¬¨ì°h´ÚÅo¡CÁÂÁÂ±z¨Ï¥Î«ÈªA¨t²Î :)',1);
+values(2020,1019,'é€™ä¸æ˜¯é»‘é†‹æ —!!','æ¥åº¦ç„¡ä¸‹é™æ¬¸!æ‹¿åˆ°è²¨ä¸€é€²å®¶é–€æ‰“é–‹çœ‹ï¼Œæ˜æ˜æ˜¯è‘¡è„ä¹¾å˜›!é›£æ€ªèªªå¯ä»¥æ”¾ä¸‰å¹´...','2017-03-11 19:22:35','2017-03-11 23:10:10','æ‚¨å¥½!åŒåœ˜ä¸­å·²æœ‰åœ˜å‹åæ˜ å•†å“å•é¡Œï¼Œæˆ‘å€‘å·²å°‡è³£å®¶æ–½ä»¥åœæ¬Šè™•åˆ†ï¼Œå–æ¶ˆå…¶å°è¾²è³‡æ ¼ã€‚æœ€æ…¢é€™å…©å¤©å°±èƒ½åœ¨æ‚¨çš„å¸³æˆ¶ä¸­æ”¶åˆ°é€€æ¬¾å›‰ã€‚è¬è¬æ‚¨ä½¿ç”¨å®¢æœç³»çµ± :)',1);
 
 
 --ChatRoom
 insert into ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
-	values(1001,1004,'½Ğ°İ¾ï¤l¤@¤ç¦h¤Ö¿ú¡H','2016-12-26 08:15:50');
+	values(1001,1004,'è«‹å•æ©˜å­ä¸€æ–¤å¤šå°‘éŒ¢ï¼Ÿ','2016-12-26 08:15:50');
 insert into ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
-	values(1004,1004,'¤@¤½¤ç35¤¸³á~~','2016-12-26 09:11:30');
+	values(1004,1004,'ä¸€å…¬æ–¤35å…ƒå–”~~','2016-12-26 09:11:30');
 insert into ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
-	values(1002,1003,'¨~ªG¦³²{³f¶Ü¡H¡H¡H','2016-12-28 18:22:30');
+	values(1002,1003,'èŠ’æœæœ‰ç¾è²¨å—ï¼Ÿï¼Ÿï¼Ÿ','2016-12-28 18:22:30');
 insert into ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
-	values(1003,1002,'¥Ø«e³f«Ü¥R¨¬¡AÅwªï¤U­q³á^^','2016-12-28 20:11:07');
+	values(1003,1002,'ç›®å‰è²¨å¾ˆå……è¶³ï¼Œæ­¡è¿ä¸‹è¨‚å–”^^','2016-12-28 20:11:07');
 INSERT INTO ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
-	VALUES(1030,1032,'¦b£v','2017-02-09 14:47:52');
+	VALUES(1030,1032,'åœ¨ã„‡','2017-02-09 14:47:52');
 INSERT INTO ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
-	VALUES(1030,1032,'¦³¦¬¯¸¤º«H¶Ü','2017-02-09 14:48:12');
+	VALUES(1030,1032,'æœ‰æ”¶ç«™å…§ä¿¡å—','2017-02-09 14:48:12');
 INSERT INTO ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
-	VALUES(1030,1032,'¦b£v','2017-02-09 14:49:03');
+	VALUES(1030,1032,'åœ¨ã„‡','2017-02-09 14:49:03');
 INSERT INTO ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
-	VALUES(1030,1032,'¦b£v','2017-02-09 14:49:04');
+	VALUES(1030,1032,'åœ¨ã„‡','2017-02-09 14:49:04');
 INSERT INTO ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
-	VALUES(1030,1032,'¦b£v','2017-02-09 14:49:05');
+	VALUES(1030,1032,'åœ¨ã„‡','2017-02-09 14:49:05');
 INSERT INTO ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
-	VALUES(1030,1032,'¦b£v¦b£v¦b£v¦b£v¦b£v¦b£v¦b£v¦b£v¦b£v¦b£v¦b£v','2017-02-09 14:50:42');
---2017/02/13 §Å
---1027­ğ¤t§B ¤w¸g¥¢¥h¤p¹A¸ê®æ ¦b²á¤Ñ«Ç¤W¸ò 1026¤B´¶®u °Q©ç©ç~
+	VALUES(1030,1032,'åœ¨ã„‡åœ¨ã„‡åœ¨ã„‡åœ¨ã„‡åœ¨ã„‡åœ¨ã„‡åœ¨ã„‡åœ¨ã„‡åœ¨ã„‡åœ¨ã„‡åœ¨ã„‡','2017-02-09 14:50:42');
+--2017/02/13 å·«
+--1027å”å·ä¼¯ å·²ç¶“å¤±å»å°è¾²è³‡æ ¼ åœ¨èŠå¤©å®¤ä¸Šè·Ÿ 1026ä¸æ™®å¸­ è¨æ‹æ‹~
 insert into ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
-	values(1027,1026,'³o¨Ç¥xÆW¥J¡A©~µMÃÑ¯}§ÚªºÉ«­Ç¡C','2017-03-12 08:15:50');
+	values(1027,1026,'é€™äº›å°ç£ä»”ï¼Œå±…ç„¶è­˜ç ´æˆ‘çš„ä¼å€†ã€‚','2017-03-12 08:15:50');
 insert into ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
-	values(1026,1027,'§Ú«nÃäªºµØ¦@¤W¥@¬ö´N¦bª±ºôÁÊ¤F´µ°ò¡F§A¥H¬°¨È¬w¤H«Ü¦nÄF¶Ü«Â°ò?','2017-03-12 08:16:10');
+	values(1026,1027,'æˆ‘å—é‚Šçš„è¯å…±ä¸Šä¸–ç´€å°±åœ¨ç©ç¶²è³¼äº†æ–¯åŸºï¼›ä½ ä»¥ç‚ºäºæ´²äººå¾ˆå¥½é¨™å—å¨åŸº?','2017-03-12 08:16:10');
 insert into ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
-	values(1027,1026,'¤£¥Ì¤ß!ÄF±o¤F¤¤³¡¦{¿ï¥Á¡AÄF¤£¤F¥xÆW°ê¶m¥Á O¥×O','2017-03-12 08:22:30');
+	values(1027,1026,'ä¸ç”˜å¿ƒ!é¨™å¾—äº†ä¸­éƒ¨å·é¸æ°‘ï¼Œé¨™ä¸äº†å°ç£åœ‹é„‰æ°‘ Oçš¿O','2017-03-12 08:22:30');
 insert into ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
-	values(1026,1027,'§AÁÙ¬O§â¿ú°h¤@°h¡A­¸¨Ó§J¨½©iªL®c¸ò§Ú³Ü¤U¤È¯ù§a´µ°ò¡C','2017-03-12 09:11:07');
+	values(1026,1027,'ä½ é‚„æ˜¯æŠŠéŒ¢é€€ä¸€é€€ï¼Œé£›ä¾†å…‹é‡Œå§†æ—å®®è·Ÿæˆ‘å–ä¸‹åˆèŒ¶å§æ–¯åŸºã€‚','2017-03-12 09:11:07');
 
 
 --Msg
 insert into Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
-values(1002,1004,'½Ğ°İ¨~ªG¦ó®É·|¥X³f¡H','³Ìªñ¦n·Q¦Y¨~ªG¡A½Ğ°İ¦ó®É¦³³f©O¡H','2017-01-23 09:07:43',0);
+values(1002,1004,'è«‹å•èŠ’æœä½•æ™‚æœƒå‡ºè²¨ï¼Ÿ','æœ€è¿‘å¥½æƒ³åƒèŠ’æœï¼Œè«‹å•ä½•æ™‚æœ‰è²¨å‘¢ï¼Ÿ','2017-01-23 09:07:43',0);
 INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
-	VALUES(1030,1031,'½Ğ°İ¤j·§¦h¤[¯à¦¬¨ì³f','­è­è¤U­q¤F§A­Ì®aªº¤å¥¹¡A½Ğ°İ¤j·§¤°»ò®É­Ô¯à¦¬¨ì©O??§Ú«Ü«æ«ô°UÀ°À°¦£!!!','2017-03-08 18:04:11',0);
+	VALUES(1030,1031,'è«‹å•å¤§æ¦‚å¤šä¹…èƒ½æ”¶åˆ°è²¨','å‰›å‰›ä¸‹è¨‚äº†ä½ å€‘å®¶çš„æ–‡æ—¦ï¼Œè«‹å•å¤§æ¦‚ä»€éº¼æ™‚å€™èƒ½æ”¶åˆ°å‘¢??æˆ‘å¾ˆæ€¥æ‹œè¨—å¹«å¹«å¿™!!!','2017-03-08 18:04:11',0);
 INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
-	VALUES(1030,1032,'¦³Áû¤å¥¹Ãa¤F','§A­Ì¦³¤@Áû¤å¥¹·PÄ±®Ú¥»´NÃa¤F!!!¶W¯Å°®§¹¥ş¨S¤ô¥÷«D±`Ãø¦Y!!!§Ú­n¨D°h³f³B²z!!!¤£µMÀËÁ|§A³á!!!','2017-02-08 11:14:22',1);
+	VALUES(1030,1032,'æœ‰é¡†æ–‡æ—¦å£äº†','ä½ å€‘æœ‰ä¸€é¡†æ–‡æ—¦æ„Ÿè¦ºæ ¹æœ¬å°±å£äº†!!!è¶…ç´šä¹¾å®Œå…¨æ²’æ°´ä»½éå¸¸é›£åƒ!!!æˆ‘è¦æ±‚é€€è²¨è™•ç†!!!ä¸ç„¶æª¢èˆ‰ä½ å–”!!!','2017-02-08 11:14:22',1);
 INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
-	VALUES(1030,1033,'½Ğ°İ¤°»ò®É­Ô¦³¤U¤@§å³f','«Ü¦n¦Y¡AÁÙ·Q¶R¡A½Ğ°İ§A­Ì¤°»ò®É­ÔÁÙ¦³³f?','2017-01-22 12:22:39',1);	
+	VALUES(1030,1033,'è«‹å•ä»€éº¼æ™‚å€™æœ‰ä¸‹ä¸€æ‰¹è²¨','å¾ˆå¥½åƒï¼Œé‚„æƒ³è²·ï¼Œè«‹å•ä½ å€‘ä»€éº¼æ™‚å€™é‚„æœ‰è²¨?','2017-01-22 12:22:39',1);	
 INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
-	VALUES(1033,1030,'¤U¤@§å¤å¥¹¹w­p02/02¨ì³f','·PÁÂ±zªº¤ä«ù»P¹ªÀy~~~¤U¤@§å¤å¥¹±N©ó02/02¨ì³f¡A¦³¥ô¦ó»İ­nÅwªïÀH®É»P§Ú­ÌÁpÃ´³á0.<','2017-01-22 21:55:11',1);	
---2017/02/13 §Å 
---1022§õ¤p­Å »P 1028 §û¸¦³Í
+	VALUES(1033,1030,'ä¸‹ä¸€æ‰¹æ–‡æ—¦é è¨ˆ02/02åˆ°è²¨','æ„Ÿè¬æ‚¨çš„æ”¯æŒèˆ‡é¼“å‹µ~~~ä¸‹ä¸€æ‰¹æ–‡æ—¦å°‡æ–¼02/02åˆ°è²¨ï¼Œæœ‰ä»»ä½•éœ€è¦æ­¡è¿éš¨æ™‚èˆ‡æˆ‘å€‘è¯ç¹«å–”0.<','2017-01-22 21:55:11',1);	
+--2017/02/13 å·« 
+--1022æå°å€© èˆ‡ 1028 æè’‚å‡±
 insert into Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
-values(1022,1028,'§Ú´d§r!','¬°¤°»ò¡A¥u¬O·Q¹Á¹Á¬v¤Hªº¶Â¾L®ß¡A«oµ¹¤HÄF¤F±¡¡A°½¤F¿ú©O¡H','2017-03-23 21:07:43',0);
+values(1022,1028,'æˆ‘æ‚²å‘€!','ç‚ºä»€éº¼ï¼Œåªæ˜¯æƒ³å˜—å˜—æ´‹äººçš„é»‘é†‹æ —ï¼Œå»çµ¦äººé¨™äº†æƒ…ï¼Œå·äº†éŒ¢å‘¢ï¼Ÿ','2017-03-23 21:07:43',0);
 insert into Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
-values(1028,1022,'§O¶Ë¤ß¡A¾L®ß§Ú¤]¦³','­Å©n§Ö§O­ú¤F¡A¿ú¦³°Q¦^¨Ó§a?±¡¶Ë¤F¡A¦A§ä¤F´N¦³¡A·Q¶Rªº½­ªG¤]¬O¡C§Ú­Ì®a¤w¸g¦b¹êÅç¤F¡A¯Ã¦èÄõ«n®q²£ªº¦³¾÷¶Â¾L®ß¡A¦b¥xÆWªº¤gÄ[ºØ±o°_¨Ó!¤U­Ó¤ë»¡¤£©w´N¯à¶}½æ³õ¤F¡C','2017-03-24 10:14:26',0);
+values(1028,1022,'åˆ¥å‚·å¿ƒï¼Œé†‹æ —æˆ‘ä¹Ÿæœ‰','å€©å§Šå¿«åˆ¥å“­äº†ï¼ŒéŒ¢æœ‰è¨å›ä¾†å§?æƒ…å‚·äº†ï¼Œå†æ‰¾äº†å°±æœ‰ï¼Œæƒ³è²·çš„è”¬æœä¹Ÿæ˜¯ã€‚æˆ‘å€‘å®¶å·²ç¶“åœ¨å¯¦é©—äº†ï¼Œç´è¥¿è˜­å—å³¶ç”¢çš„æœ‰æ©Ÿé»‘é†‹æ —ï¼Œåœ¨å°ç£çš„åœŸå£¤ç¨®å¾—èµ·ä¾†!ä¸‹å€‹æœˆèªªä¸å®šå°±èƒ½é–‹è³£å ´äº†ã€‚','2017-03-24 10:14:26',0);
 insert into Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
-values(1022,1028,'ÁÙ¬O©pÀ´§Ú','§û©f©fªGµM¬O§Úªºª¾¤ß¡Cµ¥©p¤É¯Å¤p¹A¤F¡A¨Ó§Ú®a§a¡Cªö¦Ú³Ìªñ¶R¤Fªk°êªiº¸¦h¬õ°s¡A§ä©p¤@°_«~¨ı¡C','2017-03-24 12:14:10',0);
+values(1022,1028,'é‚„æ˜¯å¦³æ‡‚æˆ‘','æå¦¹å¦¹æœç„¶æ˜¯æˆ‘çš„çŸ¥å¿ƒã€‚ç­‰å¦³å‡ç´šå°è¾²äº†ï¼Œä¾†æˆ‘å®¶å§ã€‚é‡‡è‡£æœ€è¿‘è²·äº†æ³•åœ‹æ³¢çˆ¾å¤šç´…é…’ï¼Œæ‰¾å¦³ä¸€èµ·å“å‘³ã€‚','2017-03-24 12:14:10',0);
 	
 --Unit
---INSERT INTO Unit (UnitName) VALUES ('½c');
---INSERT INTO Unit (UnitName) VALUES ('Áû');
---INSERT INTO Unit (UnitName) VALUES ('¤ç');
---INSERT INTO Unit (UnitName) VALUES ('¤½¤ç');
+--INSERT INTO Unit (UnitName) VALUES ('ç®±');
+--INSERT INTO Unit (UnitName) VALUES ('é¡†');
+--INSERT INTO Unit (UnitName) VALUES ('æ–¤');
+--INSERT INTO Unit (UnitName) VALUES ('å…¬æ–¤');
 
