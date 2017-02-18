@@ -16,13 +16,14 @@
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
 			<div class="col-md-3">
-				<div class="list-group">
-					<a href="#" class="list-group-item active">處理違規</a>
-				</div>
+				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<c:if test="${not empty violationList}">
+					<h2>處理違規</h2>
+					<h3>待處理</h3>
+					<c:if test="${empty untreated}">沒有未處理違規</c:if>
+					<c:if test="${not empty untreated}">
 						<table class="table table-bordered">
 							<thead>
 								<tr>
@@ -33,7 +34,31 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="row" items="${violationList}">
+								<c:forEach var="row" items="${untreated}">
+									<tr>
+										<td>${row.ticketId}</td>
+										<td>${row.reporterId}</td>
+										<td>${row.reportedId}</td>
+										<td>${row.vioTitle}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</c:if>
+					<h3>已處理</h3>
+					<c:if test="${empty treated}">沒有已處理違規</c:if>
+					<c:if test="${not empty treated}">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>檢舉ID</th>
+									<th>檢舉人</th>
+									<th>被檢舉商品</th>
+									<th>主旨</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="row" items="${treated}">
 									<tr>
 										<td>${row.ticketId}</td>
 										<td>${row.reporterId}</td>
@@ -53,5 +78,12 @@
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
+	<script>
+		$(function() {
+			$('#collapseOne').removeClass("in");
+			$('#collapseThree').addClass("in");
+			$("#collapseThree>ul>li:eq(1)").addClass("list-group-item-info");
+		});
+	</script>
 </body>
 </html>

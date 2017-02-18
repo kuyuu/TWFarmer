@@ -14,10 +14,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.JPDetailBean;
 import model.JointPurchaseBean;
+import model.MemberBean;
 import model.ProductBean;
 import model.ProductPicBean;
-import model.dao.ProductDAOjdbc;
+import model.dao.JPDetailDAOjdbc;
+import model.dao.JointPurchaseDAOjdbc;
 
 @WebServlet("/JointPurchase/CheckJointPurchaseServlet")
 public class CheckJointPurchaseServlet extends HttpServlet {
@@ -26,6 +29,7 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
 		String jpName = request.getParameter("jpName");
 		String jpIntro = request.getParameter("jpIntro");
 		String temp1 = request.getParameter("initDate");
@@ -97,7 +101,9 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 		}
 
 		JointPurchaseBean jpBean = new JointPurchaseBean();
-		
+		JointPurchaseDAOjdbc dao = new JointPurchaseDAOjdbc();
+		MemberBean mb = (MemberBean)session.getAttribute("LoginOK");
+		jpBean.setInitId(mb.getMemberId());
 		jpBean.setJpName(jpName);
 		if (jpIntro != null && jpIntro.length() != 0) {
 			jpBean.setJpIntro(jpIntro);
@@ -108,10 +114,17 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 		jpBean.setJpStatusId(4101);
 		jpBean.setMiscViaId(miscViaWay);
 		jpBean.setMisc(misc);
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("jpBean", jpBean);
-		request.getRequestDispatcher("selectJpProduct.jsp").forward(request, response);
+		jpBean = dao.insert(jpBean);
+
+		Map<JPDetailBean, Map<ProductBean, List<ProductPicBean>>> map = (Map<JPDetailBean, Map<ProductBean, List<ProductPicBean>>>) session
+				.getAttribute("jpdBeanMap");
+		JPDetailDAOjdbc dao2 = new JPDetailDAOjdbc();
+		for (JPDetailBean jpdBean : map.keySet()) {
+			jpdBean.setJpId(jpBean.getJpId());
+			dao2.insert(jpdBean);
+		}
+		// request.getRequestDispatcher("selectJpProduct.jsp").forward(request,
+		// response);
 
 	}
 

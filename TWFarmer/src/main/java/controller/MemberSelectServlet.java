@@ -34,7 +34,7 @@ public class MemberSelectServlet extends HttpServlet {
 			return;
 		}
 
-		// 如果使用者成功輸入密碼，就可顯示所有會員(還沒做出來...我以為是Select * from Member就成了～)
+		// 如果使用者成功輸入密碼，就可顯示所有會員(還沒做出來)
 		if (keyword == "ShowMeTheMinions") {
 			List<MemberBean> result = memberDAOjdbc.selectByAccNameCheat();
 			request.setAttribute("keyword", result);
