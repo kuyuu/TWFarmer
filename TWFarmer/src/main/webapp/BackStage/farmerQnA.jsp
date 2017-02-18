@@ -45,7 +45,7 @@
 							<tbody>
 								<c:forEach var="row" items="${Qna}">
 									<c:forEach items="${row.value}" var="x">
-										<c:url value="/BackStage/farmerReQnA.jsp" var="path">
+										<c:url value="/BackStage/SelectQnaServlet" var="path">
 											<c:param name="qnAId" value="${x.qnAId}" />
 										</c:url>
 										<tr>
