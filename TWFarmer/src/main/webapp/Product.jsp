@@ -247,6 +247,7 @@ to {
 					"productId" : $('#productId').val()
 				});
 			});
+			//發起合購
 			$('#newJp').click(
 					function() {
 							$.get('shoppingCart/AddShoppingCartServlet', {
@@ -255,7 +256,7 @@ to {
 									window.location = 'JointPurchase/NewJointPurchaseServlet?productId='
 										+ $('#productId').val();
 							})
-					});
+			});
 		});
 	</script>
 

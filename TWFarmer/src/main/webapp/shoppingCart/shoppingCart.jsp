@@ -9,7 +9,7 @@
 <link href="../css/style.css" rel="stylesheet">
 <style>
 </style>
-<title>Insert title here</title>
+<title>台灣小農</title>
 </head>
 <body>
 	<div class="container">
@@ -20,15 +20,19 @@
 			<c:if test="${not empty cartMap}">
 				<c:forEach items="${cartMap}" var="x">
 					<div class="col-md-12">
-						<h3>${x.key.account}</h3>
+						<h2>${x.key.name}(${x.key.account})</h2>
 						<br>
 						<c:forEach items="${x.value}" var="y">
-							<div class="col-md-4">
-								<img src="../img/${y.value[0].pictureName}" style="width: 100%" />
-							</div>
-							<div class="col-md-8">
-								<h4>${y.key.productName}</h4>
-								<p>${y.key.productIntro}</p>
+							<div class="row">
+								<div class="col-md-4">
+									<img src="../img/${y.value[0].pictureName}" class="img-responsive thumbnail" style="width: 100%" />
+								</div>
+								<div class="col-md-8">
+									<h4>${y.key.productName}</h4>
+									<p>${y.key.productIntro}<br>價格：${y.key.price}/${y.key.unit}
+									</p>
+									<a href="../JointPurchase/NewJointPurchaseServlet?productId=${y.key.productId}"><button type="button" class="btn btn-default" name="newJp">發起合購</button></a>
+								</div>
 							</div>
 						</c:forEach>
 						<hr>
@@ -49,7 +53,6 @@
 					window.location.reload();
 				});
 			});
-		});
 	</script>
 </body>
 </html>
