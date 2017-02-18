@@ -25,6 +25,15 @@
 	<!-- 上方選單start -->
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
+		<div class="thumbnail" style="height: 200px">
+													<img src="../MemberPic/${sessionScope.LoginOK.memberPic}"
+														style="height: 150px" class="img-circle"
+														>
+													<div class="caption">
+														<h3>${sessionScope.LoginOK.account}</h3>
+													</div>
+												</div>
+		<div class="text" style="color: #0F7C58; font-weight: bold">${sessionScope.LoginOK.name}，歡迎回家！</div>請選擇一項功能<br>
 		<div class="row">
 			<div class="col-md-6">
 				<div class="list-group">

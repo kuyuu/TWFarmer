@@ -16,6 +16,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import model.FriendBean;
 import model.JointPurchaseBean;
 import model.MemberBean;
 import model.MemberDAO;
@@ -505,6 +506,13 @@ public class MemberDAOJdbc implements MemberDAO {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+
+	@Override
+	public List<MemberBean> selectByFriendId(List<FriendBean> friendList) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 		
 	//民國106年02月17日 會員搜尋方法至以上為止
