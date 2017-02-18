@@ -22,8 +22,10 @@
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<div class="col-md-8">
-						<h2>您的會員資料為：</h2>
+					<div class="col-md-8" style="font-family:monospace,Microsoft JhengHei">
+						<center>
+							<h2>您的會員資料為：</h2>
+						</center>
 						<table>
 							<tr>
 								<td><h4>帳號：</h4></td>
@@ -77,9 +79,11 @@
 							</tr>
 						</table>
 						<br>
-						<button type="button" class="btn btn-default">修改</button>
+						<button type="button" class="btn btn-default">修改會員資料</button>
+						<button type="button" class="btn btn-default">修改密碼</button>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-3" style="font-family:monospace,Microsoft JhengHei">
+						<br>
 						<h4>${LoginOK.name}</h4>
 						<c:if test="${LoginOK.gender=='M'}">
 							<h5>先生，您好</h5>
@@ -88,20 +92,20 @@
 							<h5>小姐，您好</h5>
 						</c:if>
 						<img src="../MemberPic/${LoginOK.memberPic}" class="img-thumbnail">
-
 						<input class='InputClass' type="file" name="picture" />
 					</div>
 				</div>
 			</div>
 		</div>
-		<script src="../js/jquery.min.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
-		<script src="../js/scripts.js"></script>
-		<script>
-			$(function() {
-				$("#collapseOne>ul>li:eq(4)").removeClass("list-group-item")
-						.addClass("list-group-item list-group-item-success")
-			})
-		</script>
+	</div>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/scripts.js"></script>
+	<script>
+		$(function() {
+			$("#collapseOne>ul>li:eq(0)").removeClass("list-group-item")
+					.addClass("list-group-item list-group-item-success")
+		})
+	</script>
 </body>
 </html>
