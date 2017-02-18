@@ -231,6 +231,18 @@ public class FriendDAOJdbc implements FriendDAO {
 		return false;
 	}
 
+	@Override
+	public List<FriendBean> selectByFriendStatus1() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<FriendBean> selectByFriendStatus0() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 }
