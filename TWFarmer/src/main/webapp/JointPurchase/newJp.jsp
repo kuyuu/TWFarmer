@@ -21,7 +21,6 @@
 				<div class="jumbotron">
 					<form action="<c:url value="CheckJointPurchaseServlet"/>"
 						method="POST" class="form-horizontal">
-						<div class="col-md-6">
 							<div class="form-group">
 								<label for="jpName" class="control-label">合購團名</label> <input
 									type="text" id="jpName" name="jpName" class="form-control"
@@ -60,48 +59,43 @@
 									type="text" id="misc" name="misc" class="form-control"
 									value="${param.misc}" />
 							</div>
-						</div>
-						<div class="col-md-6">
 							<div class="form-group">
-								<label for="productId" class="col-sm-2 control-label">商品ID</label>
-								<div class="col-sm-6">
-									<p id="productId" class="form-control-static">${sessionScope.JPDetail.productId}</p>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="jpPrice" class="col-sm-2 control-label">合購價格</label>
-								<div class="col-sm-6">
-									<input type="text" id="jpPrice" name="jpPrice"
-										class="form-control" value="${param.jpPrice}">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="jpFreight" class="col-sm-2 control-label">單位運費</label>
-								<div class="col-sm-6">
-									<input type="text" id="jpFreight" name="jpFreight"
-										class="form-control" value="${param.jpFreight}">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="jpPopulationMin" class="col-sm-2 control-label">最小購買量</label>
-								<div class="col-sm-6">
-									<input type="text" id="jpPopulationMin" name="jpPopulationMin"
-										class="form-control" value="${param.jpPopulationMin}">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="jpPopulationMax" class="col-sm-2 control-label">最大購買量</label>
-								<div class="col-sm-6">
-									<input type="text" id="jpPopulationMax" name="jpPopulationMax"
-										class="form-control" value="${param.jpPopulationMax}">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-sm-offset-2 col-sm-4">
 									<button type="submit" class="btn btn-default">送出</button>
-								</div>
 							</div>
-						</div>
+<!-- 							<div class="form-group"> -->
+<!-- 								<label for="productId" class="col-sm-2 control-label">商品ID</label> -->
+<!-- 								<div class="col-sm-6"> -->
+<%-- 									<p id="productId" class="form-control-static">${sessionScope.JPDetail.productId}</p> --%>
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="form-group"> -->
+<!-- 								<label for="jpPrice" class="col-sm-2 control-label">合購價格</label> -->
+<!-- 								<div class="col-sm-6"> -->
+<!-- 									<input type="text" id="jpPrice" name="jpPrice" -->
+<%-- 										class="form-control" value="${param.jpPrice}"> --%>
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="form-group"> -->
+<!-- 								<label for="jpFreight" class="col-sm-2 control-label">單位運費</label> -->
+<!-- 								<div class="col-sm-6"> -->
+<!-- 									<input type="text" id="jpFreight" name="jpFreight" -->
+<%-- 										class="form-control" value="${param.jpFreight}"> --%>
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="form-group"> -->
+<!-- 								<label for="jpPopulationMin" class="col-sm-2 control-label">最小購買量</label> -->
+<!-- 								<div class="col-sm-6"> -->
+<!-- 									<input type="text" id="jpPopulationMin" name="jpPopulationMin" -->
+<%-- 										class="form-control" value="${param.jpPopulationMin}"> --%>
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="form-group"> -->
+<!-- 								<label for="jpPopulationMax" class="col-sm-2 control-label">最大購買量</label> -->
+<!-- 								<div class="col-sm-6"> -->
+<!-- 									<input type="text" id="jpPopulationMax" name="jpPopulationMax" -->
+<%-- 										class="form-control" value="${param.jpPopulationMax}"> --%>
+<!-- 								</div> -->
+<!-- 							</div> -->
 					</form>
 				</div>
 			</div>

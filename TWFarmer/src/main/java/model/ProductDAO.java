@@ -25,5 +25,7 @@ public interface ProductDAO {
 	List<ProductBean> selectBySellerId(int sellerId);
 
 	Map<JPDetailBean, ProductBean> selectByJpId(int jpId);
+
+	Map<ProductBean, List<ProductPicBean>> selectBySellerIdWithPic(int sellerId);
 	
 }

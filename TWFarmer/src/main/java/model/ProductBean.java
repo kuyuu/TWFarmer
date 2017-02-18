@@ -22,15 +22,16 @@ public class ProductBean {
 	private static SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 	@Override
-	// public boolean equals(Object obj) {
-	// if(obj!=null && (obj instanceof ProductBean)) {
-	// ProductBean temp = (ProductBean) obj;
-	// if(this.ProductId == temp.ProductId) {
-	// return true;
-	// }
-	// }
-	// return false;
-	// }
+	public boolean equals(Object obj) {
+		if (obj != null && (obj instanceof ProductBean)) {
+			ProductBean temp = (ProductBean) obj;
+			if (this.productId == temp.productId) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public String toString() {
 		return "{" + productId + ":" + sellerId + ":" + origin + ":" + productName + ":" + inventory + ":" + price + ":"
 				+ unit + ":" + productTypeName + ":" + productIntro + ":" + freight + ":" + addDate + ":"
@@ -156,7 +157,7 @@ public class ProductBean {
 	// public void setProductStatusId(int productStatusId) {
 	// this.productStatusId = productStatusId;
 	// }
-	
+
 	// public int getproductTypeId() {
 	// return productTypeId;
 	// }
