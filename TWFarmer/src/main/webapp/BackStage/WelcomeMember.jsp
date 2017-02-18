@@ -13,7 +13,7 @@
 <title>Insert title here</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body >
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
@@ -21,7 +21,7 @@
 				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
-				<div class="jumbotron">
+				<div class="row jumbotron" style="background-color:#FFE6FF;">
 					<div class="col-md-8" style="font-family:monospace,Microsoft JhengHei">
 						<center>
 							<h2>您的會員資料為：</h2>
@@ -30,14 +30,6 @@
 							<tr>
 								<td><h4>帳號：</h4></td>
 								<td><h4>${LoginOK.account}</h4></td>
-							</tr>
-							<tr>
-								<td><h4>郵遞區號：</h4></td>
-								<td><h4>${LoginOK.postalCode}</h4></td>
-							</tr>
-							<tr>
-								<td><h4>地址：</h4></td>
-								<td><h4>${LoginOK.district}${LoginOK.address}</h4></td>
 							</tr>
 							<tr>
 								<td><h4>電話：</h4></td>
@@ -64,6 +56,14 @@
 									</c:if></td>
 							</tr>
 							<tr>
+								<td><h4>郵遞區號：</h4></td>
+								<td><h4>${LoginOK.postalCode}</h4></td>
+							</tr>
+							<tr>
+								<td><h4>地址：</h4></td>
+								<td><h4>${LoginOK.district}${LoginOK.address}</h4></td>
+							</tr>
+							<tr>
 								<td><h4>身分別：</h4></td>
 								<td><c:if test="${LoginOK.idType==1}">
 										<h4>會員</h4>
@@ -79,7 +79,7 @@
 							</tr>
 						</table>
 						<br>
-						<button type="button" class="btn btn-default">修改會員資料</button>
+						<a href="changeMemberInfo.jsp"><button type="button" class="btn btn-default">修改會員資料</button></a>
 						<button type="button" class="btn btn-default">修改密碼</button>
 					</div>
 					<div class="col-md-3" style="font-family:monospace,Microsoft JhengHei">
