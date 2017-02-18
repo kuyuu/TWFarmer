@@ -315,6 +315,27 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 		return result;
 
 	}
+	
+	private static final String SELECT_JPID_BY_SELLERID2 = "SELECT DISTINCT JointPurchase.JPID FROM JPDetail JOIN Product ON JPDetail.productId = Product.productId JOIN JointPurchase ON JPDetail.JPID = JointPurchase.JPID WHERE sellerId=? AND JPStatusID != 4101";
+
+	public List<JointPurchaseBean> selectJpIdBySellerId2(int sellerId) {
+		List<JointPurchaseBean> result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_JPID_BY_SELLERID2);) {
+			stmt.setInt(1, sellerId);
+			ResultSet rset = stmt.executeQuery();
+			result = new ArrayList<JointPurchaseBean>();
+			while (rset.next()) {
+				JointPurchaseBean bean = new JointPurchaseBean();
+				bean = select(rset.getInt("jpId"));
+				result.add(bean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+
+	}
 
 	private static final String SELECT_JPID_BY_INITID = "SELECT * FROM JointPurchase WHERE InitID=?";
 

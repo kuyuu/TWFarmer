@@ -19,9 +19,10 @@ public class FarmerCheckJpServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		MemberBean mb = (MemberBean)session.getAttribute("LoginOK");
 		JointPurchaseDAOjdbc dao2 = new JointPurchaseDAOjdbc();
-		List<JointPurchaseBean> list2 = dao2.selectJpIdBySellerId(mb.getMemberId());
-		System.out.println(list2);
-		request.setAttribute("jpList", list2);
+		List<JointPurchaseBean> list = dao2.selectJpIdBySellerId(mb.getMemberId());
+		request.setAttribute("jpList", list);
+		List<JointPurchaseBean> list2 = dao2.selectJpIdBySellerId2(mb.getMemberId());
+		request.setAttribute("jpList2", list2);
 		request.getRequestDispatcher("/BackStage/farmerCheckJP.jsp").forward(request, response);
 	
 	}

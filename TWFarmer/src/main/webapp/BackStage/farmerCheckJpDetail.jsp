@@ -21,10 +21,11 @@
 			<div class="col-md-9">
 				<div class="jumbotron">
 					<div class="row">
-						<div class="col-md-6 col-md-offset-3">
-							<h3>${jpBean.jpName}</h3>
+						<div class="col-md-4">
+							<img src="../img/${jpBean.pictureName}" style="width:100%" class="img-responsive img-thumbnail" />
 						</div>
-						<div class="col-md-10 col-md-offset-1">
+						<div class="col-md-8">
+							<h3>${jpBean.jpName}</h3>
 							<p>${jpBean.jpIntro}</p>
 							<p>開始日期：${jpBean.initDate}</p>
 							<p>截止日期：${jpBean.endDate}</p>
@@ -50,7 +51,7 @@
 								<tbody>
 									<c:forEach var="row" items="${map}">
 										<tr>
-											<td>${row.key.jpId}</td>
+											<td>${row.key.productId}</td>
 											<td>${row.value.productName}</td>
 											<td>${row.value.inventory}</td>
 											<td>${row.value.unit}</td>
