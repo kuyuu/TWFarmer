@@ -179,7 +179,7 @@ CREATE TABLE JointPurchase(
 	MiscViaID int REFERENCES MiscVia(MiscViaID),
 	Misc int,
 	BankAccount varchar(20),
-	BankName varchar(20)
+	BankName varchar(20),
 	PictureName varchar(100),
 )
 GO
