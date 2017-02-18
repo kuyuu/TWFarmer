@@ -56,6 +56,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 				result.setMisc(rset.getInt("Misc"));
 				result.setBankAccount(rset.getString("bankAccount"));
 				result.setBankName(rset.getString("bankName"));
+				result.setPictureName(rset.getString("pictureName"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -96,6 +97,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 				bean.setMisc(rset.getInt("Misc"));
 				bean.setBankAccount(rset.getString("bankAccount"));
 				bean.setBankName(rset.getString("bankName"));
+				bean.setPictureName(rset.getString("pictureName"));
 
 				result.add(bean);
 			}
@@ -133,6 +135,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 				bean.setMisc(rset.getInt("Misc"));
 				bean.setBankAccount(rset.getString("bankAccount"));
 				bean.setBankName(rset.getString("bankName"));
+				bean.setPictureName(rset.getString("pictureName"));
 
 				result.add(bean);
 
@@ -168,6 +171,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 				bean.setMisc(rset.getInt("Misc"));
 				bean.setBankAccount(rset.getString("bankAccount"));
 				bean.setBankName(rset.getString("bankName"));
+				bean.setPictureName(rset.getString("pictureName"));
 
 				result.add(bean);
 			}
@@ -178,8 +182,8 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 	}
 
 	// 新增
-	private static final String INSERT = "insert into JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc, BankAccount, BankName) "
-			+ "OUTPUT INSERTED.JPID " + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+	private static final String INSERT = "insert into JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc, BankAccount, BankName, PictureName) "
+			+ "OUTPUT INSERTED.JPID " + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 	@Override
 	public JointPurchaseBean insert(JointPurchaseBean bean) {
@@ -213,6 +217,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 				stmt.setInt(10, bean.getMisc());
 				stmt.setString(11, bean.getBankAccount());
 				stmt.setString(12, bean.getBankName());
+				stmt.setString(13, bean.getPictureName());
 
 				ResultSet rs = stmt.executeQuery();
 
@@ -230,7 +235,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 	// 修改
 	private static final String UPDATE = "UPDATE JointPurchase " + "SET InitId=?, " + "JPName=?, " + "JPIntro=?, "
 			+ "InitDate=?, " + "EndDate=?, " + "JPLocation=?, " + "JPStatusID=?, " + "JPFreight=?, " + "MiscViaID=?, "
-			+ "Misc=?, " + "BankAccount=?, " + "BankName=? " + "WHERE JPId=?";
+			+ "Misc=?, " + "BankAccount=?, " + "BankName=?, "+ "PictureName=? " + "WHERE JPId=?";
 
 	@Override
 	public JointPurchaseBean update(JointPurchaseBean bean) {
@@ -261,7 +266,8 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 			stmt.setInt(10, bean.getMisc());
 			stmt.setString(11, bean.getBankAccount());
 			stmt.setString(12, bean.getBankName());
-			stmt.setInt(13, bean.getJpId());
+			stmt.setString(13, bean.getPictureName());
+			stmt.setInt(14, bean.getJpId());
 			int i = stmt.executeUpdate();
 			if (i == 1) {
 				result = bean;
@@ -334,6 +340,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 				bean.setMisc(rset.getInt("Misc"));
 				bean.setBankAccount(rset.getString("bankAccount"));
 				bean.setBankName(rset.getString("bankName"));
+				bean.setPictureName(rset.getString("pictureName"));
 				result.add(bean);
 			}
 		} catch (SQLException e) {

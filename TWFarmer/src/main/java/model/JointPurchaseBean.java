@@ -18,6 +18,7 @@ public class JointPurchaseBean implements Serializable {
 	private int misc;
 	private String bankAccount;
 	private String bankName;
+	private String pictureName;
 
 	@Override
 	public boolean equals(Object obj) {
@@ -139,6 +140,14 @@ public class JointPurchaseBean implements Serializable {
 
 	public void setBankName(String bankName) {
 		this.bankName = bankName;
+	}
+
+	public String getPictureName() {
+		return pictureName;
+	}
+
+	public void setPictureName(String pictureName) {
+		this.pictureName = pictureName;
 	}
 
 }

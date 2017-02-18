@@ -37,6 +37,7 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 		String jpLocation = request.getParameter("jpLocation");
 		String temp3 = request.getParameter("miscViaWay");
 		String temp4 = request.getParameter("misc");
+		String picture = request.getParameter("picture");
 
 		Map<String, String> errors = new HashMap<String, String>();
 		request.setAttribute("errors", errors);
@@ -114,6 +115,7 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 		jpBean.setJpStatusId(4101);
 		jpBean.setMiscViaId(miscViaWay);
 		jpBean.setMisc(misc);
+		jpBean.setPictureName(picture);
 		jpBean = dao.insert(jpBean);
 
 		Map<JPDetailBean, Map<ProductBean, List<ProductPicBean>>> map = (Map<JPDetailBean, Map<ProductBean, List<ProductPicBean>>>) session
@@ -123,6 +125,7 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 			jpdBean.setJpId(jpBean.getJpId());
 			dao2.insert(jpdBean);
 		}
+		session.removeAttribute("jpdBeanMap");
 		// request.getRequestDispatcher("selectJpProduct.jsp").forward(request,
 		// response);
 
