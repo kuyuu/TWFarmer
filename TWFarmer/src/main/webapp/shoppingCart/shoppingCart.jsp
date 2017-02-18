@@ -19,12 +19,20 @@
 			<button type="button" class="btn btn-default" id="clear">清空購物車</button>
 			<c:if test="${not empty cartMap}">
 				<c:forEach items="${cartMap}" var="x">
-					<h3>${x.key.account}</h3>
-					<br>
-					<c:forEach items="${x.value}" var="y">
-				${y}<br>
-					</c:forEach>
-					<hr>
+					<div class="col-md-12">
+						<h3>${x.key.account}</h3>
+						<br>
+						<c:forEach items="${x.value}" var="y">
+							<div class="col-md-4">
+								<img src="../img/${y.value[0].pictureName}" style="width: 100%" />
+							</div>
+							<div class="col-md-8">
+								<h4>${y.key.productName}</h4>
+								<p>${y.key.productIntro}</p>
+							</div>
+						</c:forEach>
+						<hr>
+					</div>
 				</c:forEach>
 			</c:if>
 		</div>

@@ -16,9 +16,7 @@
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
 			<div class="col-md-3">
-				<div class="list-group">
-					<a href="#" class="list-group-item active">處理違規</a>
-				</div>
+				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">

@@ -65,7 +65,7 @@ public class NewJointPurchaseServlet extends HttpServlet {
 			}
 			request.setAttribute("cartProductMap", cartProductMap);
 		}
-
+		request.setAttribute("productId", productId);
 		request.setAttribute("farmerProductMap", farmerProductMap);
 		request.getRequestDispatcher("selectJpProduct.jsp").forward(request, response);
 	}
