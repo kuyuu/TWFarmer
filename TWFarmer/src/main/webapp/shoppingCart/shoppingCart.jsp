@@ -25,13 +25,16 @@
 						<c:forEach items="${x.value}" var="y">
 							<div class="row">
 								<div class="col-md-4">
-									<img src="../img/${y.value[0].pictureName}" class="img-responsive thumbnail" style="width: 100%" />
+									<img src="../img/${y.value[0].pictureName}"
+										class="img-responsive thumbnail" style="width: 100%" />
 								</div>
 								<div class="col-md-8">
 									<h4>${y.key.productName}</h4>
 									<p>${y.key.productIntro}<br>價格：${y.key.price}/${y.key.unit}
 									</p>
-									<a href="../JointPurchase/NewJointPurchaseServlet?productId=${y.key.productId}"><button type="button" class="btn btn-default" name="newJp">發起合購</button></a>
+									<a
+										href="../JointPurchase/NewJointPurchaseServlet?productId=${y.key.productId}"><button
+											type="button" class="btn btn-default" name="newJp">發起合購</button></a>
 								</div>
 							</div>
 						</c:forEach>
@@ -53,6 +56,7 @@
 					window.location.reload();
 				});
 			});
+		});
 	</script>
 </body>
 </html>
