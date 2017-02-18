@@ -1,7 +1,6 @@
 package model.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,6 +30,7 @@ public class MsgDAOJdbc implements MsgDAO {
 	public static void main(String[] args) {
 		MsgDAO dao = new MsgDAOJdbc();
 
+		
 		// 新增
 		// MsgBean msgBean1 = new MsgBean();
 		//
