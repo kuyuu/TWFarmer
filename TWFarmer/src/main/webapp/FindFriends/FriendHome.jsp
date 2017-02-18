@@ -26,33 +26,42 @@
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
 		<div class="thumbnail" style="height: 200px">
-													<img src="../MemberPic/${sessionScope.LoginOK.memberPic}"
-														style="height: 150px" class="img-circle"
-														>
-													<div class="caption">
-														<h3>${sessionScope.LoginOK.account}</h3>
-													</div>
-												</div>
-		<div class="text" style="color: #0F7C58; font-weight: bold">${sessionScope.LoginOK.name}，歡迎回家！</div>請選擇一項功能<br>
-		<div class="row">
-			<div class="col-md-6">
-				<div class="list-group">
-					<a href="/TWFarmer/FindFriends/MemberSelect.jsp"
-						class="list-group-item active">新增好友</a> 
+			<div class="thumbnail" style="height: 320px">
+				<img src="../MemberPic/${LoginOK.memberPic}" style="height: 300px"
+					class="img-circle" alt="Cinque Terre">
+				<div class="caption">
+					<center>
+						<h3>${LoginOK.account}</h3>
+					</center>
 				</div>
 			</div>
-
-<div class="col-md-6">
-				<div class="list-group">
-				 <a href="/TWFarmer/FindFriends/FriendList.jsp" class="list-group-item active">好友及黑名單</a>
-
-				</div>
+			<div class="text" style="color: #0F7C58; font-weight: bold">${LoginOK.name}<c:if
+					test="${LoginOK.gender=='M'}">帥哥</c:if>
+				<c:if test="${LoginOK.gender=='F'}">美女
+		</c:if>
+				，歡迎回家！
 			</div>
+			請選擇一項功能<br>
 
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="list-group">
+						<a href="/TWFarmer/FindFriends/MemberSelect.jsp"
+							class="list-group-item active">新增好友</a>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="list-group">
+						<a href="/TWFarmer/FindFriends/FriendCheckingServlet"
+						class="list-group-item active">好友及黑名單</a>
+
+					</div>
+				</div>
+
+			</div>
 		</div>
-	</div>
-	<!-- 上方選單 End -->
-
 </body>
 </html>
 

@@ -24,67 +24,56 @@
 
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
-		<form action="<c:url value="/FindFriends/FriendCheckingServlet" />"
-			method="get" class="">
-			<div class="row">
-				<div class="container">
-					<div class="row">
+		<div class="row">
+			<div class="container">
+				<div class="row">
 
-						<div class="col-md-12">
-							<h3>好友及封鎖名單</h3>
-							<h2></h2>
-							<h3></h3>
-							<c:choose>
-					<c:when test="${not empty friendList}">
-						<div class="text" style="color: #0F7C58; font-weight: bold">${sessionScope.LoginOK.name}，歡迎回家！</div>以下是您的好友清單<br>
-						<br>
-						<c:forEach var='msgBean' items='${friendList}' varStatus='vs'>
-							<c:if test="${vs.first}">
-								<c:out value="<table class='table'>" escapeXml='false' />
-								<tr>
-									<th style="width: 80px">流水號</th>
-									<th style="width: 80px">寄件者姓名</th>
-									<th style="width: 80px">帳號</th>
-									<th style="width: 80px">標題</th>
-									<th style="width: 250px">內文</th>
-									<th style="width: 80px">回覆訊息</th>
-									<th style="width: 80px">刪除訊息</th>
-								</tr>
-							</c:if>
+					<div class="col-md-12">
+						<h3>好友及封鎖名單</h3>
+						<h2></h2>
+						<h3></h3>
+						<c:choose>
+							<c:when test="${not empty friendList}">
+								<c:forEach var="row" items="${friendList}">
+									<div class="col-md-4">
+										<div class="thumbnail" style="height: 320px">
+											<img src="../MemberPic/${row.friendPic}" style="height: 180px"
+												class="img-circle" alt="Cinque Terre">
+											<div class="caption">
+												<h3>${row.friendName}</h3>
+												<p>${row.friendAccount}</p>
+												<p>
+													<a
+														href="<c:url value="../FindFriends/AddFriendServlet?friendId=${row.memberId}&value=add" />"
+														class="btn btn-primary" role="button">站內信件</a> <a
+														href="<c:url value="../FindFriends/AddFriendServlet?friendId=${row.memberId}&value=block" />"
+														class="btn btn-warning" role="button">刪除好友</a>
 
-							<tr>
-								<td style="width: 80px">${msgBean.msgId}</td>
-								<td style="width: 80px">${msgBean.writerName}</td>
-								<td style="width: 80px">${msgBean.writerAccount}</td>
-								<td style="width: 80px">${msgBean.msgTitle}</td>
-								</td>
-								<td style="width: 250px; text-align: left">${msgBean.msgContent}</td>
-								<td><button type="button" class="btn btn-primary" onclick="location.href='/TWFarmer/Msg/MsgCheckingDetail?msgId=${msgBean.msgId}&value=reply'">回覆</button></td>
-								<td><button type="button" class="btn btn-danger" onclick="location.href='/TWFarmer/Msg/MsgCheckingDetail?msgId=${msgBean.msgId}&value=torch'">刪除</button></td>
-							</tr>
-							<c:if test="${vs.last}">
-								<c:out value="</table>" escapeXml='false' />
-							</c:if>
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-					<div class="text" style="color: #0F7C58; font-weight: bold">${sessionScope.LoginOK.name}，歡迎回家！</div>
-						<center>您目前沒有任何好友或封鎖對象</center>
-						<div class="list-group">
-					<a href="/TWFarmer/FindFriends/MemberSelect.jsp"
-						class="list-group-item active">請按此 開始搜尋及新增好友！</a> 
-				</div>
-					</c:otherwise>
-				</c:choose>
-						</div>
+												</p>
+											</div>
+										</div>
+									</div>
 
+								</c:forEach>
+							</c:when>
 
+							<c:otherwise>
+								<div class="text" style="color: #0F7C58; font-weight: bold">${sessionScope.LoginOK.name}，歡迎回家！</div>
+								<center>您目前沒有任何好友或封鎖對象</center>
+								<div class="list-group">
+									<a href="/TWFarmer/FindFriends/MemberSelect.jsp"
+										class="list-group-item active">請按此 開始搜尋及新增好友！</a>
+								</div>
+							</c:otherwise>
+						</c:choose>
 					</div>
+
 
 				</div>
 
 			</div>
-		</form>
+
+		</div>
 	</div>
 
 	<script
@@ -94,37 +83,34 @@
 </html>
 
 <!-- 備份區域 -->
-		<c:choose>
-								<c:when test="${not empty keyword}">
-									<c:forEach var="row" items="${keyword}">
-										<center>
-											<div class="col-md--offset-4">
-												<%-- <a href="../ProductServlet?productId=${row.key.productId}"> --%>
-												<div class="thumbnail" style="height: 320px">
-													<img src="../MemberPic/${row.memberPic}"
-														style="height: 300px" class="img-circle"
-														alt="Cinque Terre">
-													<div class="caption">
-														<h3>${row.name}</h3>
-														<p>${row.account}</p>
-														<p>
-															<a
-																href="<c:url value="../FindFriends/AddFriendServlet?friendId=${row.memberId}&value=add" />"
-																class="btn btn-primary" role="button">加為好友</a> <a
-																href="<c:url value="../FindFriends/AddFriendServlet?friendId=${row.memberId}&value=block" />"
-																class="btn btn-warning" role="button">拒絕往來</a>
+<%-- 
 
-														</p>
-													</div>
-												</div>
-												<!-- </a> -->
-											</div>
-										</center>
-									</c:forEach>
-								</c:when>
-								<c:otherwise>
-									<center>
-									
-									</center>
-								</c:otherwise>
-							</c:choose>
+
+<c:when test="${not empty friendList}">
+	<div class="text" style="color: #0F7C58; font-weight: bold">${sessionScope.LoginOK.name}，歡迎回家！以下是您的好友清單<br>
+		<br>
+	</div>
+	<c:forEach var='row' items='${friendList}' varStatus='vs'>
+		<div class="col-md--offset-4">
+			<a href="../ProductServlet?productId=${row.key.productId}">
+			<div class="thumbnail" style="height: 120px">
+				<img src="../MemberPic/${row.friendPic}" style="height: 100px"
+					class="img-circle" alt="Cinque Terre">
+				<div class="caption">
+					<h3>${row.friendName}</h3>
+					<p>${row.friendAccount}</p>
+					<p>
+						<a
+							href="<c:url value="../FindFriends/AddFriendServlet?friendId=${row.memberId}&value=add" />"
+							class="btn btn-primary" role="button">加為好友</a> <a
+							href="<c:url value="../FindFriends/AddFriendServlet?friendId=${row.memberId}&value=block" />"
+							class="btn btn-warning" role="button">拒絕往來</a>
+
+					</p>
+				</div>
+			</div>
+
+		</div>
+
+	</c:forEach>
+</c:when> --%>
