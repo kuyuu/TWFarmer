@@ -41,7 +41,7 @@
 				<div id="collapseTwo" class="panel-collapse collapse"
 					role="tabpanel" aria-labelledby="headingTwo">
 					<ul class="list-group">
-						<li class="list-group-item"><a href="BackStageServlet">管理商品</a></li>
+						<li class="list-group-item"><a href="SelectAllProductMaintainServlet">管理商品</a></li>
 						<li class="list-group-item"><a href="SelectAllQnaServlet">商品問與答</a></li>
 						<li class="list-group-item"><a href="FarmerCheckJpServlet">審核合購</a></li>
 						<li class="list-group-item"><a href="#">管理小農資料</a></li>
