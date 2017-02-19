@@ -9,7 +9,14 @@
 <title>台灣小農</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/style.css" rel="stylesheet">
-
+<style>
+body {
+	padding-top: 70px;
+}
+html {
+    overflow-y:scroll;
+}
+</style>
 </head>
 <body>
 
@@ -39,7 +46,7 @@
 								<input type="hidden" name="msgTitle"
 									value="RE: ${msgBean.msgTitle}" /> <input type="hidden"
 									name="msgContent" value="${msgBean.msgContent}" />
-								<button type="submit" class="btn btn-default" id="reply">回覆信件</button>
+								<button type="submit" class="btn btn-primary" id="reply">回覆信件</button>
 							</form>
 						</div>
 						<div class="col-md-4">
@@ -49,16 +56,16 @@
 									<img src="../MemberPic/${msgBean.writerMemberPic}"
 										class="img-responsive img-thumbnail" style="width: 100%;" />
 							${msgBean.writerName}(${msgBean.writerAccount})<br>
-									<button type="button" class="btn btn-default">加為好友</button>
-									<button type="button" class="btn btn-default">封鎖此人</button>
+									<button type="button" class="btn btn-success">加為好友</button>
+									<button type="button" class="btn btn-danger">封鎖此人</button>
 								</c:when>
 								<c:otherwise>
 									收件人：<br>
 									<img src="../MemberPic/${msgBean.readerMemberPic}"
 										class="img-responsive img-thumbnail" style="width: 100%;" />
 							${msgBean.readerName}(${msgBean.readerAccount})<br>
-									<button type="button" class="btn btn-default">加為好友</button>
-									<button type="button" class="btn btn-default">封鎖此人</button>
+									<button type="button" class="btn btn-success">加為好友</button>
+									<button type="button" class="btn btn-danger">封鎖此人</button>
 								</c:otherwise>
 							</c:choose>
 						</div>

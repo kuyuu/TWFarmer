@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>臺灣小農-註冊會員</title>
+<title>臺灣小農</title>
 <meta name="description"
 	content="Source code generated using layoutit.com">
 <meta name="author" content="LayoutIt!">
@@ -16,6 +16,7 @@
 <link href="../css/style.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>body { padding-top: 70px; }</style>
 </head>
 <body>
 <!-- 上方選單start -->

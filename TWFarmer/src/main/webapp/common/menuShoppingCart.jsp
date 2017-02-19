@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="row">
 	<div class="col-md-12">
-		<nav class="navbar navbar-default" role="navigation">
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#bs-example-navbar-collapse-1">

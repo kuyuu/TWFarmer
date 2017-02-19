@@ -15,6 +15,7 @@
 <link href="/TWFarmer/css/bootstrap.min.css" rel="stylesheet">
 <link href="/TWFarmer/css/jquery.bootstrap-touchspin.css"
 	rel="stylesheet">
+<style>body { padding-top: 70px; }</style>
 </head>
 <body>
 	<div class="container">

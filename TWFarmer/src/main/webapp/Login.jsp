@@ -14,6 +14,7 @@
 <meta name="author" content="LayoutIt!">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
+<style>body { padding-top: 70px; }</style>
 </head>
 <body>
 	<!-- 上方選單start -->

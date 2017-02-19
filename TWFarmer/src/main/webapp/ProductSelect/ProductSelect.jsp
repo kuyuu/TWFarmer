@@ -6,7 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="/TWFarmer/css/bootstrap.min.css" rel="stylesheet">
-<title>購買蔬果</title>
+<title>台灣小農</title>
+<style>
+body {
+	padding-top: 70px;
+}
+html {
+    overflow-y:scroll;
+}
+</style>
 </head>
 <body>
 
