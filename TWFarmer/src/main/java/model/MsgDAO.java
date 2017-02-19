@@ -9,4 +9,5 @@ public interface MsgDAO {
 	public abstract MsgBean select(int msgId);
 	public abstract List<MsgBean> selectByReaderId(int msgReaderId);
 	public abstract List<MsgBean> select();
+	public abstract List<MsgBean> selectByWriterId(int writerId);
 }

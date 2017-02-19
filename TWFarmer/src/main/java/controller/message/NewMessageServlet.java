@@ -58,6 +58,8 @@ public class NewMessageServlet extends HttpServlet {
 		msgBean.setMsgStatus(0);
 		dao.insert(msgBean);
 		
+		request.getRequestDispatcher("MsgHomeServlet").forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

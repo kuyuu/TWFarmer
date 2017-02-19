@@ -26,6 +26,9 @@ public class MsgHomeServlet extends HttpServlet {
 		List<MsgBean> list = dao.selectByReaderId(mb.getMemberId());
 		request.setAttribute("msgList", list);
 		
+		List<MsgBean> list2 = dao.selectByWriterId(mb.getMemberId());
+		request.setAttribute("msgList2", list2);
+		
 		request.getRequestDispatcher("msgHome.jsp").forward(request, response);
 	}
 

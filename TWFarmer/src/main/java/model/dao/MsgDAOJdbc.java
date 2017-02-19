@@ -205,7 +205,7 @@ public class MsgDAOJdbc implements MsgDAO {
 		return result;
 	}
 
-	private static final String SELECT_BY_READER_ID = "select * from Msg where MsgReaderID=?";
+	private static final String SELECT_BY_READER_ID = "select * from Msg where MsgReaderID=? order by msgTime desc";
 
 	@Override
 	public List<MsgBean> selectByReaderId(int msgReaderId) {
@@ -243,6 +243,35 @@ public class MsgDAOJdbc implements MsgDAO {
 				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL);
 				ResultSet rset = stmt.executeQuery();) {
 
+			result = new ArrayList<MsgBean>();
+			while (rset.next()) {
+				MsgBean msgBean = new MsgBean();
+				msgBean.setMsgId(rset.getInt("msgId"));
+				msgBean.setMsgWriterId(rset.getInt("msgWriterId"));
+				msgBean.setMsgReaderId(rset.getInt("msgReaderId"));
+				msgBean.setMsgTitle(rset.getString("msgTitle"));
+				msgBean.setMsgContent(rset.getString("msgContent"));
+				msgBean.setMsgTime(rset.getTimestamp("msgTime"));
+				msgBean.setMsgStatus(rset.getInt("msgStatus"));
+
+				result.add(msgBean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	private static final String SELECT_BY_WRITERID = "select * from Msg where msgWriterId=? order by msgTime desc";
+	
+	@Override
+	public List<MsgBean> selectByWriterId(int writerId) {
+		List<MsgBean> result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_WRITERID);
+				) {
+			stmt.setInt(1, writerId);
+			ResultSet rset = stmt.executeQuery();
 			result = new ArrayList<MsgBean>();
 			while (rset.next()) {
 				MsgBean msgBean = new MsgBean();

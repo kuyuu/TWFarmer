@@ -23,7 +23,7 @@
 				<div class="jumbotron">
 					<div class="row">
 						<div class="col-md-4">
-							<img src="../MemberPic/${msgBean.memberPic }"
+							<img src="../MemberPic/${msgBean.writerMemberPic}"
 								class="img-responsive img-thumbnail" style="width: 100%;" />
 								${msgBean.writerName}(${msgBean.writerAccount})<br>
 							<button type="button" class="btn btn-default">加為好友</button>

@@ -52,7 +52,7 @@
 	<script src="../js/scripts.js"></script>
 	<script>
 		$(function() {
-			$("#collapseOne>ul>li:eq(4)").addClass("list-group-item-success");
+			$("#collapseOne>ul>li:eq(5)").addClass("list-group-item-success");
 		});
 	</script>
 </body>

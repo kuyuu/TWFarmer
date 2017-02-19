@@ -21,8 +21,8 @@
 					<li class="list-group-item"><a href="#">管理訂單</a></li>
 					<li class="list-group-item"><a href="MemberCheckJpServlet">管理開團</a></li>
 					<li class="list-group-item"><a href="MemberCheckJpFollowerServlet">管理跟團</a></li>
-					<li class="list-group-item"><a href="../Message/MsgHomeServlet">站內信</a></li>
 					<li class="list-group-item"><a href="#">管理追蹤商品</a></li>
+					<li class="list-group-item"><a href="../Message/MsgHomeServlet">站內信</a></li>
 					<c:if test="${LoginOK.idType==1}">
 					<li class="list-group-item"><a href="#">會員升級</a></li>
 					</c:if>

@@ -22,7 +22,9 @@
 			<div class="col-md-9">
 				<div class="jumbotron">
 					<h2>站內信</h2>
-					<a href="newMessage.jsp"><button type="button" class="btn btn-default">寫新信件</button></a>
+					<a href="newMessage.jsp"><button type="button"
+							class="btn btn-default">寫新信件</button></a>
+					<h3>收件匣</h3>
 					<table class="table">
 						<tr>
 							<td>寄件人</td>
@@ -45,7 +47,28 @@
 									pattern="yyyy/MM/dd HH:mm" /></td>
 							<td><a href="ReadMessageServlet?msgId=${x.msgId}"><button
 										type="button" class="btn btn-primary" name="read${x.msgId}">讀取信件</button></a>
-								<a href="DeleteMessageServlet?msgId=${x.msgId}"><button type="button" class="btn btn-danger">刪除信件</button></a>
+								<a href="DeleteMessageServlet?msgId=${x.msgId}"><button
+										type="button" class="btn btn-danger">刪除信件</button></a>
+							</tr>
+
+						</c:forEach>
+					</table>
+					<h3>寄件備份</h3>
+					<table class="table">
+						<tr>
+							<td>收件人</td>
+							<td>主旨</td>
+							<td>寄送時間</td>
+							<td></td>
+						</tr>
+						<c:forEach items="${msgList2}" var="x">
+							<tr>
+								<td>${x.readerName}(${x.readerAccount})</td>
+								<td>${x.msgTitle}</td>
+								<td><fmt:formatDate value="${x.msgTime}"
+										pattern="yyyy/MM/dd HH:mm" /></td>
+								<td><a href="ReadMessageServlet?msgId=${x.msgId}"><button
+											type="button" class="btn btn-primary" name="read${x.msgId}">讀取信件</button></a>
 							</tr>
 
 						</c:forEach>
@@ -60,7 +83,7 @@
 	<script src="../js/scripts.js"></script>
 	<script>
 		$(function() {
-			$("#collapseOne>ul>li:eq(4)").addClass("list-group-item-success");
+			$("#collapseOne>ul>li:eq(5)").addClass("list-group-item-success");
 		});
 	</script>
 </body>

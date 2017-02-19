@@ -12,8 +12,11 @@ public class MsgBean {
 	private java.util.Date msgTime;
 	private int msgStatus;
 	private String writerName;
+	private String readerName;
 	private String writerAccount;
-	private String memberPic;
+	private String readerAccount;
+	private String writerMemberPic;
+	private String readerMemberPic;
 
 	@Override
 	public String toString() {
@@ -86,6 +89,14 @@ public class MsgBean {
 		this.writerName = writerName;
 	}
 
+	public String getReaderName() {
+		return dao.select(msgReaderId).getName();
+	}
+
+	public void setReaderName(String readerName) {
+		this.readerName = readerName;
+	}
+
 	public String getWriterAccount() {
 		return dao.select(msgWriterId).getAccount();
 	}
@@ -94,12 +105,28 @@ public class MsgBean {
 		this.writerAccount = writerAccount;
 	}
 
-	public String getMemberPic() {
+	public String getReaderAccount() {
+		return dao.select(msgReaderId).getAccount();
+	}
+
+	public void setReaderAccount(String readerAccount) {
+		this.readerAccount = readerAccount;
+	}
+
+	public String getWriterMemberPic() {
 		return dao.select(msgWriterId).getMemberPic();
 	}
 
-	public void setMemberPic(String memberPic) {
-		this.memberPic = memberPic;
+	public void setWriterMemberPic(String writerMemberPic) {
+		this.writerMemberPic = writerMemberPic;
+	}
+
+	public String getReaderMemberPic() {
+		return dao.select(msgReaderId).getMemberPic();
+	}
+
+	public void setReaderMemberPic(String readerMemberPic) {
+		this.readerMemberPic = readerMemberPic;
 	}
 
 }
