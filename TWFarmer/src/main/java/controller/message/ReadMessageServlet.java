@@ -10,10 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import model.MsgBean;
 import model.dao.MsgDAOJdbc;
 
-
 @WebServlet("/Message/ReadMessageServlet")
 public class ReadMessageServlet extends HttpServlet {
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String temp = request.getParameter("msgId");
@@ -23,9 +22,10 @@ public class ReadMessageServlet extends HttpServlet {
 		MsgBean bean = dao.select(msgId);
 		bean.setMsgStatus(1);
 		bean = dao.update(bean);
-		
+
 		request.setAttribute("msgBean", bean);
 		request.getRequestDispatcher("readMessage.jsp").forward(request, response);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

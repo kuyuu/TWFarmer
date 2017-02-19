@@ -69,6 +69,7 @@
 										pattern="yyyy/MM/dd HH:mm" /></td>
 								<td><a href="ReadMessageServlet?msgId=${x.msgId}"><button
 											type="button" class="btn btn-primary" name="read${x.msgId}">讀取信件</button></a>
+									<button type="button" class="btn btn-danger">刪除信件</button>
 							</tr>
 
 						</c:forEach>
