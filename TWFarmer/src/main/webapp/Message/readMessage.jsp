@@ -25,15 +25,22 @@
 						<div class="col-md-4">
 							<img src="../MemberPic/${msgBean.writerMemberPic}"
 								class="img-responsive img-thumbnail" style="width: 100%;" />
-								${msgBean.writerName}(${msgBean.writerAccount})<br>
+							${msgBean.writerName}(${msgBean.writerAccount})<br>
 							<button type="button" class="btn btn-default">加為好友</button>
-							
+
 							<button type="button" class="btn btn-default">封鎖此人</button>
 
 						</div>
 						<div class="col-md-8">
-							<h2>${msgBean.msgTitle }</h2>
-							<p>${msgBean.msgContent }</p>
+							<h2>${msgBean.msgTitle}</h2>
+							<p>${msgBean.msgContent}</p>
+							<form action="newMessage.jsp" method="POST">
+								<input type="hidden" name="readerAccount"
+									value="${msgBean.writerAccount}" /> <input type="hidden"
+									name="msgTitle" value="RE: ${msgBean.msgTitle}" /> <input
+									type="hidden" name="msgContent" value="${msgBean.msgContent}" />
+								<button type="submit" class="btn btn-default" id="reply">回覆信件</button>
+							</form>
 						</div>
 
 					</div>
@@ -47,7 +54,7 @@
 	<script src="../js/scripts.js"></script>
 	<script>
 		$(function() {
-			$("#collapseOne>ul>li:eq(4)").addClass("list-group-item-success");
+			$("#collapseOne>ul>li:eq(5)").addClass("list-group-item-success");
 		});
 	</script>
 </body>

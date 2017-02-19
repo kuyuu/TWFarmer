@@ -27,6 +27,8 @@ public class NewMessageServlet extends HttpServlet {
 		String readerAccount = request.getParameter("readerAccount");
 		String msgTitle = request.getParameter("msgTitle");
 		String msgContent = request.getParameter("msgContent");
+		MsgDAOJdbc msgdao = new MsgDAOJdbc();
+		MemberDAOJdbc mdao = new MemberDAOJdbc();
 
 		Map<String, String> errors = new HashMap<String, String>();
 		request.setAttribute("errors", errors);
@@ -40,26 +42,28 @@ public class NewMessageServlet extends HttpServlet {
 		if (msgContent == null || msgContent.trim().length() == 0) {
 			errors.put("msgContent", "請輸入內容");
 		}
-		
+
+		if (mdao.selectByAccount(readerAccount) == null) {
+			errors.put("readerAccount", "帳號不存在");
+		}
+
 		if (errors != null && !errors.isEmpty()) {
 			request.getRequestDispatcher("newMessage.jsp").forward(request, response);
 			return;
 		}
-		
-		MsgDAOJdbc dao = new MsgDAOJdbc();
-		MemberDAOJdbc dao2 = new MemberDAOJdbc();
+
 		MsgBean msgBean = new MsgBean();
 		msgBean.setMsgWriterId(mb.getMemberId());
-		msgBean.setMsgReaderId(dao2.selectByAccount(readerAccount).getMemberId());
+		msgBean.setMsgReaderId(mdao.selectByAccount(readerAccount).getMemberId());
 		msgBean.setMsgTitle(msgTitle);
 		msgBean.setMsgContent(msgContent);
 		Date date = new Date();
 		msgBean.setMsgTime(date);
 		msgBean.setMsgStatus(0);
-		dao.insert(msgBean);
-		
+		msgdao.insert(msgBean);
+
 		request.getRequestDispatcher("MsgHomeServlet").forward(request, response);
-		
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -26,7 +26,7 @@
 						<div class="form-group">
 							<label for="readerAccount" class="control-label">收件人</label> <input
 								type="text" id="readerAccount" name="readerAccount"
-								class="form-control" value="${param.writerAccount}">
+								class="form-control" value="${param.readerAccount}">
 						</div>
 						<div class="form-group">
 							<label for="msgTitle" class="control-label">主旨</label> <input
@@ -36,7 +36,7 @@
 						<div class="form-group">
 							<label for="msgContent" class="control-label">內容</label>
 							<textarea class="form-control" rows="5" id="msgContent"
-								name="msgContent" value="${param.msgContent}"></textarea>
+								name="msgContent" placeholder="${param.msgContent}"></textarea>
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-default">送出</button>
