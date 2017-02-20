@@ -22,7 +22,8 @@
 					<!-- 上傳圖片的form表單，要增加enctype="multipart/form-data" -->
 					<form
 						action="<c:url value="/BackStage/DeleteTheProductServlet?productId=${productBean.productId}" />"
-						method="POST" class="form-horizontal" enctype="multipart/form-data">
+						method="POST" class="form-horizontal"
+						enctype="multipart/form-data">
 						<center>
 							<table>
 								<thead>
@@ -163,6 +164,10 @@
 									<!-- 					</tr> -->
 
 									<c:forEach items="${productDiscountList}" var="x">
+
+										<td><input type="hidden" value="${x.discountId}"
+											name="discountId" /></td>
+
 										<tr height=60>
 											<td><strong>最小件數</strong></td>
 											<td><input id='minThreshold' name="minThreshold"
@@ -204,30 +209,30 @@
 										<td><strong>商品圖片及介紹</strong></td>
 
 
-										<td width=140>
-											<c:forEach items="${productPicList}" var="row" varStatus="name">
+										<td width=140><c:forEach items="${productPicList}"
+												var="row" varStatus="name">
 												<div class="col-md-8">
 													<div class="thumbnail">
 														<img src="../img/${row.pictureName}">
 														<div class="caption">
 															<h4>${row.pictureIntro}</h4>
-															<input class='InputClass' type="file" name="picture${name.index}" />
+															<input class='InputClass' type="file"
+																name="picture${name.index}" />
 														</div>
 													</div>
 												</div>
-											</c:forEach>
-										</td>
+											</c:forEach></td>
 									</tr>
 
 									<tr>
-										<td height="100" colspan="2" align="center">
-											<input class="btn btn-default" type="submit" value="修改"
-										name="prodaction"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
-										class="btn btn-default" type="submit" value="刪除"
-										name="prodaction">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-										class="btn btn-default" type="submit" value="下架"
-										name="prodaction">
-										</td>
+										<td height="100" colspan="2" align="center"><input
+											class="btn btn-default" type="submit" value="修改"
+											name="prodaction">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<input class="btn btn-default" type="submit" value="刪除"
+											name="prodaction">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+											class="btn btn-default" type="submit" value="下架"
+											name="prodaction"></td>
 									</tr>
 								</tbody>
 							</table>
