@@ -13,6 +13,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
+<style>
+body {
+	padding-top: 70px;
+}
+
+html {
+	overflow-y: scroll;
+}
+</style>
 </head>
 <body>
 	<div class="container">
@@ -28,12 +37,13 @@
 						<h3>請修改需變更欄位</h3>
 					</center>
 					<form class="form-horizontal col-md-10" role="form"
-						action="/BackStage/ChangeMemberServlet" method="put">
+						action="/TWFarmer/BackStage/ChangeMemberServlet" method="put">
 						<div class="form-group">
 							<label for="inputName" class="col-sm-2 control-label">姓名</label>
 							<div class="col-sm-10">
 								<input class="form-control" id="inputName" name="name"
 									value="${LoginOK.name}">
+								<span style="color: #ff0000">${errors.name}</span>
 							</div>
 						</div>
 						<div class="form-group">
@@ -41,6 +51,7 @@
 							<div class="col-sm-10">
 								<input class="form-control" id="inputPhone" name="phone"
 									value="${LoginOK.phone}">
+								<span style="color: #ff0000">${errors.phone}</span>
 							</div>
 						</div>
 						<div class="form-group">
@@ -48,14 +59,7 @@
 							<div class="col-sm-10">
 								<input class="form-control" id="inputEmail" name="email"
 									value="${LoginOK.email}">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="inputIdNumber" class="col-sm-2 control-label">身分證字號</label>
-							<div class="col-sm-10">
-								<input class="form-control" id="inputIdNumber" name="idNumber"
-									value="${LoginOK.idNumber}">
+								<span style="color: #ff0000">${errors.email}</span>
 							</div>
 						</div>
 						<div class="form-group">
@@ -63,14 +67,16 @@
 							<div class="col-sm-10">
 								<input class="form-control" id="inputBirthDate" name="birthDate"
 									value="${LoginOK.birthDate}">
+								<span style="color: #ff0000">${errors.birthDate}</span>
 							</div>
 						</div>
-						<div class="form-group">
+						<div class="form-group form-inline">
 							<label for="inputGender" class="col-sm-2 control-label">性別</label>
 							<div class="col-sm-10">
-								<input class="form-control" id="inputGender" name="gender"
-									value="<c:if test="${LoginOK.gender=='M'}">男性</c:if>
-							<c:if test="${LoginOK.gender=='F'}">女性</c:if>">
+								<input type="radio" name="gender" value="M" class="form-control"
+									id="exampleInputEmail1">男 <input type="radio"
+									name="gender" value="F" class="form-control"
+									id="exampleInputEmail1">女 <span style="color: #ff0000">${errors.gender}</span>
 							</div>
 						</div>
 						<!-- 						<div class="form-group form-inline"> -->
@@ -87,13 +93,15 @@
 							<div class="col-sm-10">
 								<input class="form-control" id="inputPostalCode"
 									name="postalCode" value="${LoginOK.postalCode}">
+								<span style="color: #ff0000">${errors.postalCode}</span>
 							</div>
-						</div>
+						</div> 
 						<div class="form-group">
 							<label for="inputDistrict" class="col-sm-2 control-label">居住地區</label>
 							<div class="col-sm-10">
 								<input class="form-control" id="inputDistrict" name="district"
 									value="${LoginOK.district}">
+								<span style="color: #ff0000">${errors.district}</span>
 							</div>
 						</div>
 						<div class="form-group">
@@ -101,12 +109,13 @@
 							<div class="col-sm-10">
 								<input class="form-control" id="inputAddress" name="address"
 									value="${LoginOK.address}">
+								<span style="color: #ff0000">${errors.address}</span>
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
-								<button type="submit" class="btn btn-primary">確認</button>
-								<button type="submit" class="btn btn-danger">取消</button>
+								<button name="submit" class="btn btn-primary" value="change">送出修改</button>
+								<button name="submit" class="btn btn-danger" value="cancel">取消</button>
 							</div>
 						</div>
 					</form>

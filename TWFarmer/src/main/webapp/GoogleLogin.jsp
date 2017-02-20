@@ -7,6 +7,14 @@
 <meta name="google-signin-client_id"
 	content="254091740583-o5r8vhtnuu7fub66rm12j6c75u5tbahu.apps.googleusercontent.com">
 <script src="https://apis.google.com/js/platform.js" async defer></script>
+<style>
+body {
+ padding-top: 70px;
+}
+html {
+    overflow-y:scroll;
+}
+</style>
 </head>
 <body>
 	<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>

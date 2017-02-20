@@ -19,6 +19,14 @@
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <title>好友及封鎖名單</title>
+<style>
+body {
+ padding-top: 70px;
+}
+html {
+    overflow-y:scroll;
+}
+</style>
 </head>
 <body>
 

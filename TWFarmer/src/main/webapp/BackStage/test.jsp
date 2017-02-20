@@ -7,6 +7,14 @@
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/style.css" rel="stylesheet">
 <title>台灣小農</title>
+<style>
+body {
+ padding-top: 70px;
+}
+html {
+    overflow-y:scroll;
+}
+</style>
 </head>
 <body>
 	<div class="container">

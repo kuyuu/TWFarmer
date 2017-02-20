@@ -55,7 +55,7 @@
 }
 
 * /
-	/* The dots/bullets/indicators */                         
+	/* The dots/bullets/indicators */                          
 .dot {
 	height: 13px;
 	width: 13px;
@@ -104,6 +104,16 @@ to {
 	.text {
 		font-size: 11px
 	}
+}
+
+body {
+	padding-top: 70px;
+}
+body {
+ padding-top: 70px;
+}
+html {
+    overflow-y:scroll;
 }
 </style>
 </head>
@@ -248,15 +258,22 @@ to {
 				});
 			});
 			//發起合購
-			$('#newJp').click(
-					function() {
-							$.get('shoppingCart/AddShoppingCartServlet', {
-								"productId" : $('#productId').val()
-							}, function() {
-									window.location = 'JointPurchase/NewJointPurchaseServlet?productId='
-										+ $('#productId').val();
-							})
-			});
+			$('#newJp')
+					.click(
+							function() {
+								$
+										.get(
+												'shoppingCart/AddShoppingCartServlet',
+												{
+													"productId" : $(
+															'#productId').val()
+												},
+												function() {
+													window.location = 'JointPurchase/NewJointPurchaseServlet?productId='
+															+ $('#productId')
+																	.val();
+												})
+							});
 		});
 	</script>
 

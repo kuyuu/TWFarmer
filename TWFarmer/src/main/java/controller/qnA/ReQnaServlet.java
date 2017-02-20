@@ -35,7 +35,6 @@ public class ReQnaServlet extends HttpServlet {
 		String temp1 = request.getParameter("qnAId");
 		String reQnA = request.getParameter("ReQnA");
 		String button = request.getParameter("button");
-		System.out.println(temp1 + reQnA + button);
 
 		int qnAId = 0;
 		if (temp1 != null && temp1.length() != 0) {
