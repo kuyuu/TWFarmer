@@ -95,7 +95,7 @@ public class ChangeMemberServlet extends HttpServlet {
 				errors.put("birthDate", "生日格式必須是yyyy-mm-dd");
 			}
 		}
-		
+		 
 		if(errors!=null && !errors.isEmpty()) {
 			request.getRequestDispatcher(
 					"/BackStage/changeMemberInfo.jsp").forward(request, response);
