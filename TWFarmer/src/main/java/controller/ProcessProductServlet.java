@@ -379,10 +379,12 @@ public class ProcessProductServlet extends HttpServlet {
 		productDiscountBean.setMinThreshold(minThreshold);
 		productDiscountBean.setProductId(productBean.getProductId());
 		dao3.insert(productDiscountBean);
+//		List<ProductDiscountBean> list2 = dao3.selectByProductId(productBean.getProductId());
 
 		// 5.挑選適當頁面============================================
 		request.setAttribute("productBean", productBean);
 		request.setAttribute("productPicList", list);
+		request.setAttribute("productDiscountBean", productDiscountBean);
 
 		request.getRequestDispatcher("ProductInsertSuccess.jsp").forward(request, response);
 		// 不能用=>這樣等於說client重新送出request 存的一堆productBean都沒了) 不然就要塞到session裡面
