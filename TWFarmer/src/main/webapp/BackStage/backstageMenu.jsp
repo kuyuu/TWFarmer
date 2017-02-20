@@ -21,7 +21,6 @@
 					<li class="list-group-item"><a href="ListOrderServlet">管理訂單</a></li>
 
 					<li class="list-group-item"><a href="WelcomeMember.jsp">管理個人資料</a></li>
-					<li class="list-group-item"><a href="#">管理訂單</a></li>
 
 					<li class="list-group-item"><a href="MemberCheckJpServlet">管理開團</a></li>
 					<li class="list-group-item"><a href="MemberCheckJpFollowerServlet">管理跟團</a></li>
