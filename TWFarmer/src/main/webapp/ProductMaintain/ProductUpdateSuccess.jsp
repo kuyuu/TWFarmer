@@ -21,8 +21,7 @@
 				<div class="jumbotron">
 					<center>
 						<h2>商品修改成功</h2>
-						<br> <br><div><a class="btn btn-default"
-							href="../BackStage/BackStageServlet" role="button">回商品管理頁面</a></div><br><br>
+						<br> <br>
 						<center>
 							<table class="table">
 
@@ -148,7 +147,9 @@
 											</div>
 										</c:forEach>
 
-						</table>
+						</table><br><br>
+						<a class="btn btn-default"
+							href="../BackStage/SelectAllProductMaintainServlet" role="button">回商品管理頁面</a></div>
 						</center>
 					</center>
 					<script src="../js/jquery.min.js"></script>
