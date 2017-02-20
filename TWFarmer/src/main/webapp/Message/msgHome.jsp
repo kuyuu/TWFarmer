@@ -13,8 +13,9 @@
 body {
 	padding-top: 70px;
 }
+
 html {
-    overflow-y:scroll;
+	overflow-y: scroll;
 }
 </style>
 </head>
