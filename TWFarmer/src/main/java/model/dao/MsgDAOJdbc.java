@@ -79,7 +79,7 @@ public class MsgDAOJdbc implements MsgDAO {
 
 	}
 
-	private static final String INSERT = "insert into Msg (MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus) values (?, ?, ?, ?, ?, ?)";
+	private static final String INSERT = "insert into Msg (MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus, WriterDelete, ReaderDelete) values (?, ?, ?, ?, ?, ?, ?, ?)";
 
 	@Override
 	public MsgBean insert(MsgBean msgBean) {
@@ -104,6 +104,8 @@ public class MsgDAOJdbc implements MsgDAO {
 				}
 
 				stmt.setInt(6, msgBean.getMsgStatus());
+				stmt.setInt(7, msgBean.getWriterDelete());
+				stmt.setInt(8, msgBean.getReaderDelete());
 
 				int i = stmt.executeUpdate();
 				if (i == 1) {
@@ -118,7 +120,7 @@ public class MsgDAOJdbc implements MsgDAO {
 		return result;
 	}
 
-	private static final String UPDATE = "update Msg set MsgWriterID=?, MsgReaderID=?, MsgTitle=?, MsgContent=?, MsgTime=?, MsgStatus=? where MsgID=?";
+	private static final String UPDATE = "update Msg set MsgWriterID=?, MsgReaderID=?, MsgTitle=?, MsgContent=?, MsgTime=?, MsgStatus=?, WriterDelete=?, ReaderDelete=? where MsgID=?";
 
 	@Override
 	public MsgBean update(MsgBean msgBean) {
@@ -140,8 +142,10 @@ public class MsgDAOJdbc implements MsgDAO {
 			}
 
 			stmt.setInt(6, msgBean.getMsgStatus());
+			stmt.setInt(7, msgBean.getWriterDelete());
+			stmt.setInt(8, msgBean.getReaderDelete());
 
-			stmt.setInt(7, msgBean.getMsgId());
+			stmt.setInt(9, msgBean.getMsgId());
 
 			int i = stmt.executeUpdate();
 			if (i == 1) {
@@ -190,6 +194,8 @@ public class MsgDAOJdbc implements MsgDAO {
 				result.setMsgContent(rset.getString("msgContent"));
 				result.setMsgTime(rset.getTimestamp("msgTime"));
 				result.setMsgStatus(rset.getInt("msgStatus"));
+				result.setWriterDelete(rset.getInt("WriterDelete"));
+				result.setReaderDelete(rset.getInt("ReaderDelete"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -205,7 +211,7 @@ public class MsgDAOJdbc implements MsgDAO {
 		return result;
 	}
 
-	private static final String SELECT_BY_READER_ID = "select * from Msg where MsgReaderID=? order by msgTime desc";
+	private static final String SELECT_BY_READER_ID = "select * from Msg where MsgReaderID=? and readerDelete=0 order by msgTime desc";
 
 	@Override
 	public List<MsgBean> selectByReaderId(int msgReaderId) {
@@ -224,6 +230,8 @@ public class MsgDAOJdbc implements MsgDAO {
 				msgBean.setMsgContent(rset.getString("msgContent"));
 				msgBean.setMsgTime(rset.getTimestamp("msgTime"));
 				msgBean.setMsgStatus(rset.getInt("msgStatus"));
+				msgBean.setWriterDelete(rset.getInt("WriterDelete"));
+				msgBean.setReaderDelete(rset.getInt("ReaderDelete"));
 
 				result.add(msgBean);
 			}
@@ -253,6 +261,8 @@ public class MsgDAOJdbc implements MsgDAO {
 				msgBean.setMsgContent(rset.getString("msgContent"));
 				msgBean.setMsgTime(rset.getTimestamp("msgTime"));
 				msgBean.setMsgStatus(rset.getInt("msgStatus"));
+				msgBean.setWriterDelete(rset.getInt("WriterDelete"));
+				msgBean.setReaderDelete(rset.getInt("ReaderDelete"));
 
 				result.add(msgBean);
 			}
@@ -262,7 +272,7 @@ public class MsgDAOJdbc implements MsgDAO {
 		return result;
 	}
 	
-	private static final String SELECT_BY_WRITERID = "select * from Msg where msgWriterId=? order by msgTime desc";
+	private static final String SELECT_BY_WRITERID = "select * from Msg where msgWriterId=? and writerDelete=0 order by msgTime desc";
 	
 	@Override
 	public List<MsgBean> selectByWriterId(int writerId) {
@@ -282,7 +292,9 @@ public class MsgDAOJdbc implements MsgDAO {
 				msgBean.setMsgContent(rset.getString("msgContent"));
 				msgBean.setMsgTime(rset.getTimestamp("msgTime"));
 				msgBean.setMsgStatus(rset.getInt("msgStatus"));
-
+				msgBean.setWriterDelete(rset.getInt("WriterDelete"));
+				msgBean.setReaderDelete(rset.getInt("ReaderDelete"));
+				
 				result.add(msgBean);
 			}
 		} catch (SQLException e) {
