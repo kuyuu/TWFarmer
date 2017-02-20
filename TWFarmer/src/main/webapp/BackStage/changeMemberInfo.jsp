@@ -95,7 +95,7 @@ html {
 									name="postalCode" value="${LoginOK.postalCode}">
 								<span style="color: #ff0000">${errors.postalCode}</span>
 							</div>
-						</div>
+						</div> 
 						<div class="form-group">
 							<label for="inputDistrict" class="col-sm-2 control-label">居住地區</label>
 							<div class="col-sm-10">
