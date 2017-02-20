@@ -638,22 +638,22 @@ INSERT INTO JPStatus (JPStatusName) VALUES ('已成團');
 INSERT INTO JPStatus (JPStatusName) VALUES ('流團');
 
 --JointPurchase
-INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc) 
-	VALUES (1001, '好ㄘ橘子合購~3/10截止', '三義鄉名產~~聽說這批橘子超好吃超甜,想買的人快一起加入, 目標湊滿10箱拼折價喔~~~', '2017-01-15', '2017-01-25', '新北市中和區',4103,80,4202,20);
-INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc)
-	VALUES (1001, '橘子合購團', '橘子合購團審核', '2017-02-20', '2017-03-20',	'台北市大安區',	4101, 200, 4201, 0);
-INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc)
-	VALUES (1002, '橘子合購團', '橘子合購團開團', '2017-01-20', '2017-03-20',	'新北市板橋區',	4103, 200, 4201, 0);
-INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc)
-	VALUES (1030, '買個文旦 快速團~~湊滿20顆就衝囉~~不能配合勿跟', '這家文旦真的超好吃  吃了還想再吃 吃了還想再吃 吃了還想再吃 吃了還想再吃 吃了還想再吃 趕快來跟團八!!!', '2017-02-10', '2017-02-17',	'台北市文山區',	4104, 100, 4202, 10);
-INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc)
-	VALUES (1030, '突然好想吃蘋果~快來一起買蘋果ㄅ', '要5斤才出貨~~所以5斤就不收囉 快來一起吃蘋果美容ㄅ', '2017-03-01', '2017-03-10',	'台北市文山區',	4103, 0, 4201, 0);
-INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc)
-	VALUES (1030, '草莓合購，最少湊一箱!!!', '合購草莓最少湊滿1箱，每箱10斤，最多3箱就不收囉，要跟要快~~~', '2017-02-28', '2017-03-07',	'台北市文山區',	4104, 300, 4201, 0);
+INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc, PictureName) 
+	VALUES (1001, '好ㄘ橘子合購~3/10截止', '三義鄉名產~~聽說這批橘子超好吃超甜,想買的人快一起加入, 目標湊滿10箱拼折價喔~~~', '2017-01-15', '2017-01-25', '新北市中和區',4103,80,4202,20, '2401.jpg');
+INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc, PictureName)
+	VALUES (1001, '橘子合購團', '橘子合購團審核', '2017-02-20', '2017-03-20',	'台北市大安區',	4101, 200, 4201, 0, '2401.jpg');
+INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc, PictureName)
+	VALUES (1002, '橘子合購團', '橘子合購團開團', '2017-01-20', '2017-03-20',	'新北市板橋區',	4103, 200, 4201, 0, '2401.jpg');
+INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc, PictureName)
+	VALUES (1030, '買個文旦 快速團~~湊滿20顆就衝囉~~不能配合勿跟', '這家文旦真的超好吃  吃了還想再吃 吃了還想再吃 吃了還想再吃 吃了還想再吃 吃了還想再吃 趕快來跟團八!!!', '2017-02-10', '2017-02-17',	'台北市文山區',	4104, 100, 4202, 10, '2423.jpg');
+INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc, PictureName)
+	VALUES (1030, '突然好想吃蘋果~快來一起買蘋果ㄅ', '要5斤才出貨~~所以5斤就不收囉 快來一起吃蘋果美容ㄅ', '2017-03-01', '2017-03-10',	'台北市文山區',	4103, 0, 4201, 0, '2412.jpg');
+INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocation,	JPStatusID,	JPFreight, MiscViaID, Misc, PictureName)
+	VALUES (1030, '草莓合購，最少湊一箱!!!', '合購草莓最少湊滿1箱，每箱10斤，最多3箱就不收囉，要跟要快~~~', '2017-02-28', '2017-03-07',	'台北市文山區',	4104, 300, 4201, 0, '2414.jpg');
 --2017/02/13 巫
 --本檔案中會員編號1019的"石在天"看到唐川伯的賣場，決定給他合購團開下去~總價$3600，當中$1600為4箱醋栗，$2000為運費。
 INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc) 
-	VALUES (1019, '一起買黑醋栗!4/15截止', '黑醋栗可以釀紅酒超讚的!~還是美國貨!目標湊齊4箱~每人1箱，各攤運費$500', '2017-02-15', '2017-04-25', '屏東縣高樹鄉',4104,2000,4202,0);
+	VALUES (1019, '一起買黑醋栗!4/15截止', '黑醋栗可以釀紅酒超讚的!~還是美國貨!目標湊齊4箱~每人1箱，各攤運費$500', '2017-02-15', '2017-04-25', '屏東縣高樹鄉',4104,2000,4202,0, '2424.jpg');
 
 --JPDetail
 INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight,JPUnit) 
