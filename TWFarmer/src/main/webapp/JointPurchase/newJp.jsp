@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="/TWFarmer/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <title>台灣小農</title>
 <style>
 body {
@@ -27,7 +29,7 @@ body {
 								<div class="btn-group" data-toggle="buttons">
 									<c:forEach items="${jpdBeanMap}" var="x" varStatus="z">
 										<c:forEach items="${x.value}" var="y">
-											<div class="col-md-6">
+<!-- 											<div class="col-md-6"> -->
 												<div class="thumbnail" style="height: 320px">
 													<img src="../img/${y.value[0].pictureName}"
 														style="height: 160px" />
@@ -46,7 +48,7 @@ body {
 														</font>
 													</div>
 												</div>
-											</div>
+<!-- 											</div> -->
 										</c:forEach>
 									</c:forEach>
 								</div>
@@ -110,5 +112,15 @@ body {
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="/TWFarmer/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$(function() {
+			$("#initDate").datepicker({
+				altField : "#datepicker",
+				altFormat : "yy-mm-dd",
+				dateFormat : "yy-mm-dd"
+			});
+		});
+	</script>
 </body>
 </html>
