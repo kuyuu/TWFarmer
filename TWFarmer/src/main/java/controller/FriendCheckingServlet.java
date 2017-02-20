@@ -26,14 +26,14 @@ public class FriendCheckingServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		//得到當前使用者的登入狀態
-		HttpSession session = request.getSession();
-		MemberBean bean = (MemberBean)session.getAttribute("LoginOK");
-		
-		int friendCheckerId = bean.getMemberId();
-		FriendDAOJdbc daof = new FriendDAOJdbc();	
-		List<FriendBean> initList = daof.selectByMemberId(friendCheckerId);
-		request.setAttribute("friendList", initList);
-		request.getRequestDispatcher("FriendList.jsp").forward(request, response);
+//		HttpSession session = request.getSession();
+//		MemberBean bean = (MemberBean)session.getAttribute("LoginOK");
+//		
+//		int friendCheckerId = bean.getMemberId();
+//		FriendDAOJdbc daof = new FriendDAOJdbc();	
+//		List<FriendBean> initList = daof.selectByMemberId(friendCheckerId);
+//		request.setAttribute("friendList", initList);
+//		request.getRequestDispatcher("FriendList.jsp").forward(request, response);
 		
 		//抓取當前使用者的ID，產生帶有該成員編號的清單：intList
 		//initList是最一開始的總表，內容包括該會員的 好友(friendStatus = 1） 以及 拒絕往來戶(friendStatus = 0）
