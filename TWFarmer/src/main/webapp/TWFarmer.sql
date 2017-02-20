@@ -30,7 +30,7 @@ CREATE TABLE Member(
 	Password varchar(20) NOT NULL,
 	Name varchar(20),
 	PostalCode char(3),
-	District char(20),
+	District varchar(20),
 	Address varchar(100) ,
 	Phone varchar(20), 
 	Email varchar(50),
