@@ -111,6 +111,14 @@ public class ChangeMemberServlet extends HttpServlet {
 		bean.setPostalCode(postalCode);
 		bean.setDistrict(district);
 		bean.setAddress(address);
+		
+		if("change".equals(submit)){
+			MemberBean result= memberDAOJdbc.update(bean);
+			request.setAttribute("Memberbean", result);
+			session.setAttribute("LoginOK", result);
+			request.getRequestDispatcher(
+					"/BackStage/WelcomeMember.jsp").forward(request, response);
+		}
 	}
 
 }

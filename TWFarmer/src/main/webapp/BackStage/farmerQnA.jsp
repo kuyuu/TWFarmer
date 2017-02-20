@@ -81,7 +81,7 @@ html {
 					.addClass("panel-collapse collapse")
 			$("#collapseTwo").removeClass("panel-collapse collapse").addClass(
 					"panel-collapse collapse in")
-			$("#collapseTwo>ul>li:eq(1)").removeClass("list-group-item")
+			$("#collapseTwo>ul>li:eq(2)").removeClass("list-group-item")
 					.addClass("list-group-item list-group-item-info")
 		})
 	</script>
