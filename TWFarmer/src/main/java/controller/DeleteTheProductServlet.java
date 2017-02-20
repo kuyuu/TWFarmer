@@ -55,6 +55,8 @@ public class DeleteTheProductServlet extends HttpServlet {
 		String temp8 = request.getParameter("minThreshold");
 		String temp9 = request.getParameter("maxThreshold");
 		String temp10 = request.getParameter("discountPrice");
+		String temp11 = request.getParameter("discountId");
+//		System.out.println(temp11);
 		Part part = request.getPart("picture1");
 		Part part2 = request.getPart("picture2");
 		Part part3 = request.getPart("picture3");
@@ -219,6 +221,16 @@ public class DeleteTheProductServlet extends HttpServlet {
 				errorMessage.put("discountPrice", "折扣後價格必須是整數");
 			}
 		}
+		
+		int discountId = 0;
+		if (temp11 != null && temp11.length() != 0) {
+			try {
+				discountId = Integer.parseInt(temp11);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+				errorMessage.put("discountId", "折扣編號必須是整數");
+			}
+		}
 
 		// 如果有錯誤訊息，就顯示在ProductDelete.jsp(錯誤訊息顯示在欄位旁邊)
 		if (!errorMessage.isEmpty()) {
@@ -335,6 +347,8 @@ public class DeleteTheProductServlet extends HttpServlet {
 				}
 			}
 			ProductPicDAOJdbc dao2 = new ProductPicDAOJdbc();
+//			productPicBean.setPictureName();
+//			dao2.update(productPicBean);
 			List<ProductPicBean> list = dao2.selectByProductId(productBean.getProductId());
 
 			/*
@@ -342,18 +356,22 @@ public class DeleteTheProductServlet extends HttpServlet {
 			 * 可以再從這個bean裡面拿出商品折扣編號
 			 */
 			ProductDiscountBean productDiscountBean = new ProductDiscountBean();
+			
 			ProductDiscountDAOjdbc dao3 = new ProductDiscountDAOjdbc();
+			List<ProductDiscountBean> list2 = dao3.selectByProductId(productBean.getProductId());
 			productDiscountBean.setDiscountPrice(discountPrice);
 			productDiscountBean.setMaxThreshold(maxThreshold);
 			productDiscountBean.setMinThreshold(minThreshold);
-			List<ProductDiscountBean> list2 = dao3.selectByProductId(productBean.getProductId());
-			// productDiscountBean.setProductId(productBean.getProductId());
+			productDiscountBean.setDiscountId(discountId);
+			productDiscountBean.setProductId(productBean.getProductId());		
+			
 			dao3.update(productDiscountBean);
 
 			// 5.挑選適當頁面============================================
 			request.setAttribute("productBean", productBean);
 			request.setAttribute("productPicList", list);
 			request.setAttribute("productDiscountList", list2);
+//			request.setAttribute("productDiscountBean", productDiscountBean);
 
 			request.getRequestDispatcher("../ProductMaintain/ProductUpdateSuccess.jsp").forward(request, response);
 

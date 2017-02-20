@@ -109,6 +109,24 @@ html {
 								<!-- 					<br> -->
 								<%-- 				</c:forEach> --%>
 								<!-- 			</tr> -->
+								
+								<c:forEach items="${productDiscountList}" var="x">
+										
+										<tr>
+											<td><strong>最小件數</strong></td>
+											<td>${x.minThreshold}</td>
+										</tr>
+
+										<tr>
+											<td><strong>最大件數</strong></td>
+											<td>${x.maxThreshold}</td>
+										</tr>
+
+										<tr>
+											<td><strong>折扣後價格</strong></td>
+											<td>${x.discountPrice}</td>
+										</tr>
+									</c:forEach>
 
 <!-- 								<tr> -->
 <!-- 									<td><strong>最小件數</strong></td> -->
