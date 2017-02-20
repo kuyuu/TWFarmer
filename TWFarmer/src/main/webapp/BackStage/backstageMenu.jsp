@@ -18,12 +18,17 @@
 			<div id="collapseOne" class="panel-collapse collapse in"
 				role="tabpanel" aria-labelledby="headingOne">
 				<ul class="list-group">
-					<li class="list-group-item"><a href="WelcomeMember.jsp">管理個人資料</a></li>
-					<li class="list-group-item"><a href="ListOrderServlet">管理訂單</a></li>
-					<li class="list-group-item"><a href="MemberCheckJpServlet">管理開團</a></li>
 					<li class="list-group-item"><a
-						href="MemberCheckJpFollowerServlet">管理跟團</a></li>
+						href="../BackStage/WelcomeMember.jsp">管理個人資料</a></li>
+					<li class="list-group-item"><a
+						href="../BackStage/ListOrderServlet">管理訂單</a></li>
+					<li class="list-group-item"><a
+						href="../BackStage/MemberCheckJpServlet">管理開團</a></li>
+					<li class="list-group-item"><a
+						href="../BackStage/MemberCheckJpFollowerServlet">管理跟團</a></li>
 					<li class="list-group-item"><a href="#">管理追蹤商品</a></li>
+					<li class="list-group-item"><a href="../Message/MsgHomeServlet">站內信</a></li>
+					<li class="list-group-item"><a href="#">好友 / 黑名單</a></li>
 					<c:if test="${LoginOK.idType==1}">
 						<li class="list-group-item"><a href="#">申請成為小農</a></li>
 					</c:if>
@@ -42,31 +47,17 @@
 				</div>
 				<div id="collapseTwo" class="panel-collapse collapse"
 					role="tabpanel" aria-labelledby="headingTwo">
-
 					<ul class="list-group">
+						<li class="list-group-item"><a
+							href="../BackStage/SelectAllProductMaintainServlet">管理商品</a></li>
 						<li class="list-group-item"><a
 							href="/TWFarmer/BackStage/FarmerCheckOrderServlet">訂單管理</a></li>
 						<li class="list-group-item"><a
-							href="/TWFarmer/BackStage/SelectAllProductMaintainServlet">管理商品</a></li>
+							href="../BackStage/SelectAllQnaServlet">商品問與答</a></li>
 						<li class="list-group-item"><a
-							href="/TWFarmer/BackStage/SelectQnaServlet">商品問與答</a></li>
-
-						<ul class="list-group">
-							<<<<<<< HEAD
-							<li class="list-group-item"><a
-								href="../BackStage/BackStageServlet">管理商品</a></li>
-							<li class="list-group-item"><a
-								href="../BackStage/SelectAllQnaServlet">商品問與答</a></li>
-							<li class="list-group-item"><a
-								href="../BackStage/FarmerCheckJpServlet">審核合購</a></li> =======
-							<li class="list-group-item"><a
-								href="SelectAllProductMaintainServlet">管理商品</a></li>
-							<li class="list-group-item"><a href="SelectAllQnaServlet">商品問與答</a></li>
-
-							<li class="list-group-item"><a href="FarmerCheckJpServlet">審核合購</a></li>
-							>>>>>>> branch 'master' of https://github.com/kuyuu/TWFarmer.git
-							<li class="list-group-item"><a href="#">管理小農資料</a></li>
-						</ul>
+							href="../BackStage/FarmerCheckJpServlet">審核合購</a></li>
+						<li class="list-group-item"><a href="#">管理小農資料</a></li>
+					</ul>
 				</div>
 			</div>
 		</c:if>
