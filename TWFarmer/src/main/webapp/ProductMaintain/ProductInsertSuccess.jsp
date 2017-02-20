@@ -89,6 +89,23 @@
 									<td>${productBean.productStatusName}</td>
 								</tr>
 
+
+								<tr>
+									<td><strong>最小件數</strong></td>
+									<td>${productDiscountBean.minThreshold}</td>
+								</tr>
+
+
+								<tr>
+									<td><strong>最大件數</strong></td>
+									<td>${productDiscountBean.maxThreshold}</td>
+								</tr>
+
+								<tr>
+									<td><strong>折扣後價格</strong></td>
+									<td>${productDiscountBean.discountPrice}</td>
+								</tr>
+
 								<!-- 			<tr> -->
 								<!-- 				<td>商品圖片及介紹：</td> -->
 								<%-- 				<c:forEach items="${productPicList}" var="row"> --%>
@@ -99,22 +116,22 @@
 								<%-- 				</c:forEach> --%>
 								<!-- 			</tr> -->
 
-									<c:forEach items="${productPicList}"
-											var="row">
-											<div class="col-md-4">
-												<div class="thumbnail">
-													<img src="../img/${row.pictureName}">
-													<div class="caption">
-														<h4>${row.pictureIntro}</h4>
-														
-													</div>
-												</div>
-											</div>
-										</c:forEach>
+								<c:forEach items="${productPicList}" var="row">
+									<div class="col-md-4">
+										<div class="thumbnail">
+											<img src="../img/${row.pictureName}">
+											<div class="caption">
+												<h4>${row.pictureIntro}</h4>
 
-							</table><br><br>
-							<a class="btn btn-default"
-							href="../BackStage/SelectAllProductMaintainServlet" role="button">回商品管理頁面</a>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+
+							</table>
+							<br> <br> <a class="btn btn-default"
+								href="../BackStage/SelectAllProductMaintainServlet"
+								role="button">回商品管理頁面</a>
 						</center>
 					</center>
 					<script src="../js/jquery.min.js"></script>
