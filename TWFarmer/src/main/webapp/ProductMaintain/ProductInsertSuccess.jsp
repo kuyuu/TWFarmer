@@ -99,24 +99,22 @@
 								<%-- 				</c:forEach> --%>
 								<!-- 			</tr> -->
 
-								<tr>
-									<td><strong>商品圖片及介紹</strong></td>
-
-
-									<td width=140><c:forEach items="${productPicList}"
+									<c:forEach items="${productPicList}"
 											var="row">
-											<div class="col-md-8">
+											<div class="col-md-4">
 												<div class="thumbnail">
 													<img src="../img/${row.pictureName}">
 													<div class="caption">
 														<h4>${row.pictureIntro}</h4>
-														<input class='InputClass' type="file" name="picture1" />
+														
 													</div>
 												</div>
 											</div>
-										</c:forEach></td>
-								</tr>
-							</table>
+										</c:forEach>
+
+							</table><br><br>
+							<a class="btn btn-default"
+							href="../BackStage/SelectAllProductMaintainServlet" role="button">回商品管理頁面</a>
 						</center>
 					</center>
 					<script src="../js/jquery.min.js"></script>
