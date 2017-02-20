@@ -8,11 +8,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="/TWFarmer/css/bootstrap.min.css" rel="stylesheet">
 <title>台灣小農</title>
-<style>body { padding-top: 70px; }</style>
+<style>
+body {
+	padding-top: 70px;
+}
+</style>
 </head>
 <body>
+	<jsp:include page="../common/menuJp.jsp" />
 	<div class="container">
-		<jsp:include page="../common/menuJp.jsp" />
 		<div class="row">
 			<div class="col-md-12">
 				<div class="jumbotron">
@@ -22,7 +26,6 @@
 							<div class="col-md-6">
 								<div class="btn-group" data-toggle="buttons">
 									<c:forEach items="${jpdBeanMap}" var="x" varStatus="z">
-
 										<c:forEach items="${x.value}" var="y">
 											<div class="col-md-6">
 												<div class="thumbnail" style="height: 320px">
