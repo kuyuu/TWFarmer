@@ -46,7 +46,7 @@
 
 					<ul class="list-group">
 						<li class="list-group-item"><a href="/TWFarmer/BackStage/FarmerCheckOrderServlet">訂單管理</a></li>
-						<li class="list-group-item"><a href="/TWFarmer/BackStage/BackStageServlet">管理商品</a></li>
+						<li class="list-group-item"><a href="/TWFarmer/BackStage/SelectAllProductMaintainServlet">管理商品</a></li>
 						<li class="list-group-item"><a href="/TWFarmer/BackStage/SelectQnaServlet">商品問與答</a></li>
 
 					<ul class="list-group">
