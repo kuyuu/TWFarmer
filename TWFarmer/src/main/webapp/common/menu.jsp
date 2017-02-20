@@ -26,12 +26,14 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="/TWFarmer/MemberSubmit/MemberSubmit.jsp">註冊</a></li>
 					<li><a href="/TWFarmer/Login.jsp">登入</a></li>
+					<li><a></a></li>
 				</ul>
 			</c:when>
 			<c:otherwise>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="/TWFarmer/BackStage/WelcomeMember.jsp">會員專區</a></li>
 					<li><a href="/TWFarmer/logout.jsp">登出</a></li>
+					<li><a></a></li>
 				</ul>
 			</c:otherwise>
 		</c:choose>

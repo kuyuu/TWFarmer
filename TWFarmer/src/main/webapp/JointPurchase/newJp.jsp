@@ -14,6 +14,10 @@
 body {
 	padding-top: 70px;
 }
+
+html {
+	overflow-y: scroll;
+}
 </style>
 </head>
 <body>
@@ -29,26 +33,26 @@ body {
 								<div class="btn-group" data-toggle="buttons">
 									<c:forEach items="${jpdBeanMap}" var="x" varStatus="z">
 										<c:forEach items="${x.value}" var="y">
-<!-- 											<div class="col-md-6"> -->
-												<div class="thumbnail" style="height: 320px">
-													<img src="../img/${y.value[0].pictureName}"
-														style="height: 160px" />
-													<div class="caption">
-														<h3>${y.key.productName}
-															<label class="btn btn-default"> <input
-																type="radio" name="picture"
-																value="${y.value[0].pictureName}" autocomplete="off">
-																設為合購圖片
-															</label>
+											<!-- 											<div class="col-md-6"> -->
+											<div class="thumbnail" style="height: 320px">
+												<img src="../img/${y.value[0].pictureName}"
+													style="height: 160px" />
+												<div class="caption">
+													<h3>${y.key.productName}
+														<label class="btn btn-default"> <input
+															type="radio" name="picture"
+															value="${y.value[0].pictureName}" autocomplete="off">
+															設為合購圖片
+														</label>
 
-														</h3>
-														<font size="2"> 價格：${x.key.jpPrice}<br>
-															運費：${x.key.jpFreight}<br>最小購買：${x.key.jpPopulationMin}<br>
-															最大購買：${x.key.jpPopulationMax}
-														</font>
-													</div>
+													</h3>
+													<font size="2"> 價格：${x.key.jpPrice}<br>
+														運費：${x.key.jpFreight}<br>最小購買：${x.key.jpPopulationMin}<br>
+														最大購買：${x.key.jpPopulationMax}
+													</font>
 												</div>
-<!-- 											</div> -->
+											</div>
+											<!-- 											</div> -->
 										</c:forEach>
 									</c:forEach>
 								</div>
