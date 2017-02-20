@@ -33,8 +33,14 @@
   } );
   </script>
    -->
-
-
+<style>
+body {
+ padding-top: 70px;
+}
+html {
+    overflow-y:scroll;
+}
+</style>
 </head>
 <body>
 	<!-- 上方選單start -->

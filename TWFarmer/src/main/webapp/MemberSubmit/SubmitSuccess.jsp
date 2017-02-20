@@ -5,7 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>臺灣小農</title>
-<style>body { padding-top: 70px; }</style>
+<style>
+body {
+ padding-top: 70px;
+}
+html {
+    overflow-y:scroll;
+}
+</style>
 </head>
 <body>
 <h1>會員註冊成功</h1>

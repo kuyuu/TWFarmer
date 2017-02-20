@@ -109,6 +109,12 @@ to {
 body {
 	padding-top: 70px;
 }
+body {
+ padding-top: 70px;
+}
+html {
+    overflow-y:scroll;
+}
 </style>
 </head>
 <body>

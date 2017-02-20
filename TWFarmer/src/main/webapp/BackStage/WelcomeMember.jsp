@@ -12,7 +12,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
-<style>body { padding-top: 70px; }</style>
+<style>
+body {
+ padding-top: 70px;
+}
+html {
+    overflow-y:scroll;
+}
+</style>
 </head>
 <body >
 	<div class="container">
