@@ -35,9 +35,11 @@
   	
 	
 </head>
+
 <body>
 <!-- 上方選單start -->
 	<div class="container-fluid">
+	<jsp:include page="../common/menu.jsp" />
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-default" role="navigation">

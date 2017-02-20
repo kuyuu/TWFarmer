@@ -17,7 +17,7 @@
 			<div id="collapseOne" class="panel-collapse collapse in"
 				role="tabpanel" aria-labelledby="headingOne">
 				<ul class="list-group">
-					<li class="list-group-item"><a href="#">管理訂單</a></li>
+					<li class="list-group-item"><a href="ListOrderServlet">管理訂單</a></li>
 					<li class="list-group-item"><a href="MemberCheckJpServlet">管理開團</a></li>
 					<li class="list-group-item"><a href="MemberCheckJpFollowerServlet">管理跟團</a></li>
 					<li class="list-group-item"><a href="#">管理追蹤商品</a></li>
@@ -41,6 +41,7 @@
 				<div id="collapseTwo" class="panel-collapse collapse"
 					role="tabpanel" aria-labelledby="headingTwo">
 					<ul class="list-group">
+						<li class="list-group-item"><a href="/TWFarmer/BackStage/FarmerCheckOrderServlet">訂單管理</a></li>
 						<li class="list-group-item"><a href="/TWFarmer/BackStage/BackStageServlet">管理商品</a></li>
 						<li class="list-group-item"><a href="/TWFarmer/BackStage/SelectQnaServlet">商品問與答</a></li>
 						<li class="list-group-item"><a href="FarmerCheckJpServlet">審核合購</a></li>

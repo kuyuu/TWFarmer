@@ -13,7 +13,8 @@ public class OrdersBean {
 	private String shipPostalCode;
 	private String shipDistrict;
 	private String shipAddress;
-	private int orderStatusId;
+	private int buyerOrderStatusId;
+	private int sellerOrderStatusId;
 	private int ratingBuyer;
 	private int ratingSeller;
 	private int remittance;
@@ -21,18 +22,22 @@ public class OrdersBean {
 	private String remittanceBank;
 	private String remittanceAcc;
 	
+	
+
 	@Override
 	public String toString() {
 		return "OrdersBean [orderId=" + orderId + ", sellerId=" + sellerId + ", buyerId=" + buyerId + ", totalFreight="
 				+ totalFreight + ", totalPrice=" + totalPrice + ", orderDate=" + orderDate + ", shipDate=" + shipDate
 				+ ", shipName=" + shipName + ", shipPostalCode=" + shipPostalCode + ", shipDistrict=" + shipDistrict
-				+ ", shipAddress=" + shipAddress + ", orderStatusId=" + orderStatusId + ", ratingBuyer=" + ratingBuyer
-				+ ", ratingSeller=" + ratingSeller + "]";
+				+ ", shipAddress=" + shipAddress + ", buyerOrderStatusId=" + buyerOrderStatusId
+				+ ", sellerOrderStatusId=" + sellerOrderStatusId + ", ratingBuyer=" + ratingBuyer + ", ratingSeller="
+				+ ratingSeller + ", remittance=" + remittance + ", remittanceDate=" + remittanceDate
+				+ ", remittanceBank=" + remittanceBank + ", remittanceAcc=" + remittanceAcc + "]";
 	}
 
 	public OrdersBean(int orderId, int sellerId, int buyerId, int totalFreight, int totalPrice, Date orderDate,
 			Date shipDate, String shipName, String shipPostalCode, String shipDistrict, String shipAddress,
-			int orderStatusId, int ratingBuyer, int ratingSeller) {
+			int buyerOrderStatusId,int sellerOrderStatusId, int ratingBuyer, int ratingSeller) {
 		super();
 		this.orderId = orderId;
 		this.sellerId = sellerId;
@@ -45,9 +50,18 @@ public class OrdersBean {
 		this.shipPostalCode = shipPostalCode;
 		this.shipDistrict = shipDistrict;
 		this.shipAddress = shipAddress;
-		this.orderStatusId = orderStatusId;
+		this.buyerOrderStatusId = buyerOrderStatusId;
+		this.sellerOrderStatusId= sellerOrderStatusId;
 		this.ratingBuyer = ratingBuyer;
 		this.ratingSeller = ratingSeller;
+	}
+
+	public int getSellerOrderStatusId() {
+		return sellerOrderStatusId;
+	}
+
+	public void setSellerOrderStatusId(int sellerOrderStatusId) {
+		this.sellerOrderStatusId = sellerOrderStatusId;
 	}
 
 	public OrdersBean() {
@@ -141,12 +155,12 @@ public class OrdersBean {
 		this.shipAddress = shipAddress;
 	}
 
-	public int getOrderStatusId() {
-		return orderStatusId;
+	public int getBuyerOrderStatusId() {
+		return buyerOrderStatusId;
 	}
 
-	public void setOrderStatusId(int orderStatusId) {
-		this.orderStatusId = orderStatusId;
+	public void setBuyerOrderStatusId(int buyerOrderStatusId) {
+		this.buyerOrderStatusId = buyerOrderStatusId;
 	}
 
 	public int getRatingBuyer() {

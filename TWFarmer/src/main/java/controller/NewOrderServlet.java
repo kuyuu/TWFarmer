@@ -60,8 +60,7 @@ public class NewOrderServlet extends HttpServlet {
 		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		Date current = new Date();
 		System.out.println(sdFormat.format(current));
-		 
-		
+		 	
 		Date shipDate = new Date();		
 		Calendar c = Calendar.getInstance(); 
 		c.setTime(shipDate); 

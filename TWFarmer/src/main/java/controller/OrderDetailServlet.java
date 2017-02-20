@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.MemberBean;
+import model.OrderDetailBean;
 import model.OrdersBean;
 import model.dao.MemberDAOJdbc;
 import model.dao.OrderDetailDAOJdbc;
@@ -31,16 +34,24 @@ public class OrderDetailServlet extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// MemberBean member = (MemberBean)request.getSession().getAttribute("LoginOK");
-		 //memberDAOJdbc.select(memberId)
+		 //MemberBean member = (MemberBean)request.getSession().getAttribute("LoginOK");
+		// memberDAOJdbc.select(memberId)
 		//request.getParameter(arg0)
+		
+		int orderId = Integer.parseInt(request.getParameter("orderId")); 
+
+
+		
 		 
-		//OrdersBean order = ordersDAOJdbc.select(member.getMemberId());
+		OrdersBean orderResult = ordersDAOJdbc.select(orderId);
+		request.setAttribute("orderResult", orderResult);
 		
-		//Object orderdetail = orderDetailDAOJdbc.select(orderId, productId);
-		//request.setAttribute("order", order);
+		List<OrderDetailBean> orderDetails = orderDetailDAOJdbc.selectByOrderId(orderId);
+		request.setAttribute("orderDetails", orderDetails);
 		
-		//request.getRequestDispatcher("OrderDetail.jsp").forward(request, response);
+		
+		
+		request.getRequestDispatcher("OrderForPayment.jsp").forward(request, response);
 	}
 
 
