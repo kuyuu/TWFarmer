@@ -17,11 +17,15 @@
 			<div id="collapseOne" class="panel-collapse collapse in"
 				role="tabpanel" aria-labelledby="headingOne">
 				<ul class="list-group">
+
 					<li class="list-group-item"><a href="ListOrderServlet">管理訂單</a></li>
+
+					<li class="list-group-item"><a href="WelcomeMember.jsp">管理個人資料</a></li>
+					<li class="list-group-item"><a href="#">管理訂單</a></li>
+
 					<li class="list-group-item"><a href="MemberCheckJpServlet">管理開團</a></li>
 					<li class="list-group-item"><a href="MemberCheckJpFollowerServlet">管理跟團</a></li>
 					<li class="list-group-item"><a href="#">管理追蹤商品</a></li>
-					<li class="list-group-item"><a href="#">管理個人資料</a></li>
 					<c:if test="${LoginOK.idType==1}">
 					<li class="list-group-item"><a href="#">會員升級</a></li>
 					</c:if>
@@ -40,10 +44,16 @@
 				</div>
 				<div id="collapseTwo" class="panel-collapse collapse"
 					role="tabpanel" aria-labelledby="headingTwo">
+
 					<ul class="list-group">
 						<li class="list-group-item"><a href="/TWFarmer/BackStage/FarmerCheckOrderServlet">訂單管理</a></li>
 						<li class="list-group-item"><a href="/TWFarmer/BackStage/BackStageServlet">管理商品</a></li>
 						<li class="list-group-item"><a href="/TWFarmer/BackStage/SelectQnaServlet">商品問與答</a></li>
+
+					<ul class="list-group">
+						<li class="list-group-item"><a href="SelectAllProductMaintainServlet">管理商品</a></li>
+						<li class="list-group-item"><a href="SelectAllQnaServlet">商品問與答</a></li>
+
 						<li class="list-group-item"><a href="FarmerCheckJpServlet">審核合購</a></li>
 						<li class="list-group-item"><a href="#">管理小農資料</a></li>
 					</ul>
@@ -63,7 +73,7 @@
 					role="tabpanel" aria-labelledby="headingThree">
 					<ul class="list-group">
 						<li class="list-group-item"><a href="#">審核小農升級</a></li>
-						<li class="list-group-item"><a href="#">處理違規</a></li>
+						<li class="list-group-item"><a href="ShowAllViolationServlet">處理違規</a></li>
 					</ul>
 				</div>
 			</div>

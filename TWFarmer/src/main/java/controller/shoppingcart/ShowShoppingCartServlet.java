@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,8 +17,10 @@ import javax.servlet.http.HttpSession;
 
 import model.MemberBean;
 import model.ProductBean;
+import model.ProductPicBean;
 import model.dao.MemberDAOJdbc;
 import model.dao.ProductDAOjdbc;
+import model.dao.ProductPicDAOJdbc;
 
 @WebServlet("/shoppingCart/ShowShoppingCartServlet")
 public class ShowShoppingCartServlet extends HttpServlet {
@@ -29,18 +30,22 @@ public class ShowShoppingCartServlet extends HttpServlet {
 		Map<Integer, Set<Integer>> cart = (Map<Integer, Set<Integer>>) session.getAttribute("cart");
 
 		if (cart != null) {
-			Map<MemberBean, List<ProductBean>> cartMap = new HashMap<MemberBean, List<ProductBean>>();
+			Map<MemberBean, Map<ProductBean, List<ProductPicBean>>> cartMap = new HashMap<MemberBean, Map<ProductBean, List<ProductPicBean>>>();
 			MemberDAOJdbc mdao = new MemberDAOJdbc();
 			ProductDAOjdbc pdao = new ProductDAOjdbc();
+			ProductPicDAOJdbc ppdao = new ProductPicDAOJdbc();
 			for (Map.Entry entry : cart.entrySet()) {
 				MemberBean mb = mdao.select((Integer) entry.getKey());
-				List<ProductBean> list = new ArrayList<ProductBean>();
+				Map<ProductBean, List<ProductPicBean>> map = new HashMap<ProductBean, List<ProductPicBean>>();
 				Set<Integer> set = (Set) entry.getValue();
 				Iterator it = set.iterator();
+				List<ProductPicBean> list = new ArrayList<ProductPicBean>();
 				while (it.hasNext()) {
-					list.add(pdao.select((Integer) it.next()));
+					int productId = (Integer) it.next();
+					list = ppdao.selectByProductId(productId);
+					map.put(pdao.select(productId), list);
 				}
-				cartMap.put(mb, list);
+				cartMap.put(mb, map);
 			}
 			request.setAttribute("cartMap", cartMap);
 		}

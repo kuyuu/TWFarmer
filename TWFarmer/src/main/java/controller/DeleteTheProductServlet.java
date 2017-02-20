@@ -29,13 +29,13 @@ import model.dao.ProductPicDAOJdbc;
 @MultipartConfig(location = "C:/TWFarmer/repository/TWFarmer/src/main/webapp/img/") // 圖片存放路徑
 public class DeleteTheProductServlet extends HttpServlet {
 	Date today = new Date();
-	SimpleDateFormat removeDate = new SimpleDateFormat("yyyy-MM-dd");
+
 	private SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd");
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("DeleteTheProductServlet hahahahah");
+		
 		// 輸入資料編碼
 		request.setCharacterEncoding("UTF-8");
 		// 1.接收資料===========================================
@@ -281,10 +281,10 @@ public class DeleteTheProductServlet extends HttpServlet {
 			// request.setAttribute("productBean", bean);
 
 			// 4.呼叫Model
-//			ProductBean productBean = new ProductBean();
+			// ProductBean productBean = new ProductBean();
 			ProductDAOjdbc dao1 = new ProductDAOjdbc();
-//			productBean = dao1.update(productBean);
-			
+			// productBean = dao1.update(productBean);
+
 			ProductBean productBean = dao1.select(productId);
 			productBean.setOrigin(origin);
 			productBean.setProductName(productName);
@@ -298,7 +298,7 @@ public class DeleteTheProductServlet extends HttpServlet {
 			productBean.setRemoveEstDate(removeEstDate);
 			productBean.setProductStatusName(productStatusName);
 			dao1.update(productBean);
-			
+
 			ProductPicBean productPicBean = new ProductPicBean();
 			productPicBean.setProductId(productBean.getProductId());
 			// 商品圖片介紹
@@ -306,21 +306,33 @@ public class DeleteTheProductServlet extends HttpServlet {
 				productPicBean.setPictureIntro(pictureIntro1);
 				ProductPicService.uploadPic(productPicBean, part);
 			}
-			if (part2.getSize() != 0) {
-				productPicBean.setPictureIntro(pictureIntro2);
-				ProductPicService.uploadPic(productPicBean, part2);
+
+			if (part2 != null) {
+				if (part2.getSize() != 0) {
+					productPicBean.setPictureIntro(pictureIntro2);
+					ProductPicService.uploadPic(productPicBean, part2);
+				}
 			}
-			if (part3.getSize() != 0) {
-				productPicBean.setPictureIntro(pictureIntro3);
-				ProductPicService.uploadPic(productPicBean, part3);
+
+			if (part3 != null) {
+				if (part3.getSize() != 0) {
+					productPicBean.setPictureIntro(pictureIntro3);
+					ProductPicService.uploadPic(productPicBean, part3);
+				}
 			}
-			if (part4.getSize() != 0) {
-				productPicBean.setPictureIntro(pictureIntro4);
-				ProductPicService.uploadPic(productPicBean, part4);
+
+			if (part4 != null) {
+				if (part4.getSize() != 0) {
+					productPicBean.setPictureIntro(pictureIntro4);
+					ProductPicService.uploadPic(productPicBean, part4);
+				}
 			}
-			if (part5.getSize() != 0) {
-				productPicBean.setPictureIntro(pictureIntro5);
-				ProductPicService.uploadPic(productPicBean, part5);
+
+			if (part5 != null) {
+				if (part5.getSize() != 0) {
+					productPicBean.setPictureIntro(pictureIntro5);
+					ProductPicService.uploadPic(productPicBean, part5);
+				}
 			}
 			ProductPicDAOJdbc dao2 = new ProductPicDAOJdbc();
 			List<ProductPicBean> list = dao2.selectByProductId(productBean.getProductId());
@@ -343,7 +355,7 @@ public class DeleteTheProductServlet extends HttpServlet {
 			request.setAttribute("productPicList", list);
 			request.setAttribute("productDiscountList", list2);
 
-			request.getRequestDispatcher("ProductUpdateSuccess.jsp").forward(request, response);
+			request.getRequestDispatcher("../ProductMaintain/ProductUpdateSuccess.jsp").forward(request, response);
 
 		}
 

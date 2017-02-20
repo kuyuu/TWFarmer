@@ -20,7 +20,7 @@
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<h3>審核合購</h3>
+					<h3>未審核合購</h3>
 					<c:if test="${not empty jpList}">
 						<table class="table table-bordered">
 							<thead>
@@ -47,6 +47,31 @@
 									</tr>
 								</c:forEach>
 
+							</tbody>
+						</table>
+					</c:if>
+					<h3>已審核合購</h3>
+					<c:if test="${not empty jpList2}">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>合購編號</th>
+									<th>合購發起人</th>
+									<th>開始日期</th>
+									<th>結束日期</th>
+									<th>合購地點</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="row" items="${jpList2}">
+									<tr>
+										<td>${row.jpId}</td>
+										<td>${row.initId}</td>
+										<td>${row.initDate}</td>
+										<td>${row.endDate}</td>
+										<td>${row.jpLocation}</td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</c:if>

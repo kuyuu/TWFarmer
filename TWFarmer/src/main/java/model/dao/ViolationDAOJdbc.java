@@ -1,7 +1,6 @@
 package model.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -204,15 +203,16 @@ public class ViolationDAOJdbc implements ViolationDAO {
 		return result;
 	}
 	
-	private static final String SELECT_ALL_UNTREATED = "select * from Violation where TicketStatue=0";
+	private static final String SELECT_ALL_TREAT = "select * from Violation where TicketStatue=?";
 	
 	@Override
-	public List<ViolationBean> selectAllUntreated() {
+	public List<ViolationBean> selectTreat(int ticketStatus) {
 		List<ViolationBean> result = null;
 		try (Connection conn = dataSource.getConnection(); 
-				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL_UNTREATED);
-				ResultSet rset = stmt.executeQuery();) {
-
+				PreparedStatement stmt = conn.prepareStatement(SELECT_ALL_TREAT);
+				) {
+			stmt.setInt(1, ticketStatus);
+			ResultSet rset = stmt.executeQuery();
 			result = new ArrayList<ViolationBean>();
 			while (rset.next()) {
 				ViolationBean violationBean = new ViolationBean();

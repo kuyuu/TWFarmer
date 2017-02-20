@@ -146,6 +146,48 @@ public class ProductDAOjdbc implements ProductDAO {
 		}
 		return result;
 	}
+	
+	private static final String SELECT_BY_SELLERID_WITH_PIC = "Select * FROM Product Where SellerId=?";
+	@Override
+	public Map<ProductBean, List<ProductPicBean>> selectBySellerIdWithPic(int sellerId) {
+		Map<ProductBean, List<ProductPicBean>> result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_SELLERID_WITH_PIC);) {
+
+			stmt.setInt(1, sellerId);
+			ResultSet rset = stmt.executeQuery();
+			result = new HashMap<ProductBean, List<ProductPicBean>>();
+			ProductPicDAOJdbc dao = new ProductPicDAOJdbc();
+			while (rset.next()) {
+				ProductBean productBean = new ProductBean();
+				productBean.setProductId(rset.getInt("productId"));
+				productBean.setSellerId(rset.getInt("sellerId"));
+				productBean.setOrigin(rset.getString("origin"));
+				productBean.setProductName(rset.getString("productName"));
+				productBean.setInventory(rset.getInt("inventory"));
+				productBean.setPrice(rset.getInt("price"));
+				productBean.setUnit(rset.getString("unit"));
+				productBean.setProductTypeName(rset.getString("productTypeName"));
+				productBean.setProductIntro(rset.getString("productIntro"));
+				productBean.setFreight(rset.getInt("freight"));
+				productBean.setAddDate(rset.getDate("addDate"));
+				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
+				productBean.setRemoveDate(rset.getDate("removeDate"));
+				// productBean.setProductStatusId(rset.getInt("productStatusId"));
+				productBean.setAddDate(rset.getDate("addDate"));
+				productBean.setRemoveEstDate(rset.getDate("removeEstDate"));
+				productBean.setRemoveDate(rset.getDate("removeDate"));
+				productBean.setProductStatusName(rset.getString("productStatusName"));
+				List<ProductPicBean> list = new ArrayList<ProductPicBean>();
+				list = dao.selectByProductId(rset.getInt("productId"));
+				result.put(productBean, list);
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 
 	private static final String SELECT_BY_PRODUCTNAME = "Select * FROM Product Where  ProductStatusName='上架'and (origin LIKE ? or ProductName like ?)";
 	@Override

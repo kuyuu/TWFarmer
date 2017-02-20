@@ -13,6 +13,7 @@ public class JPDetailBean implements Serializable {
 	private int jpMinQEach;
 	private int jpPrice;
 	private int jpFreight;
+	private String jpUnit;
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -90,6 +91,14 @@ public class JPDetailBean implements Serializable {
 	public String getProductName() {
 		ProductDAO dao = new ProductDAOjdbc();
 		return dao.select(productId).getProductName();
+	}
+
+	public String getJpUnit() {
+		return jpUnit;
+	}
+
+	public void setJpUnit(String jpUnit) {
+		this.jpUnit = jpUnit;
 	}
 	
 }

@@ -20,5 +20,8 @@ public interface FriendDAO {
 	public abstract boolean delete(int memberId, int friendId);
 	public abstract boolean deleteByMemberId(int memberId);
 	public abstract boolean deleteByFriendId(int friendId);
-
+	
+	//Sorting FriendList by friendStatus
+	public abstract List<FriendBean> selectByFriendStatus1();
+	public abstract List<FriendBean> selectByFriendStatus0();
 }

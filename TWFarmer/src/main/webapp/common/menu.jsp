@@ -20,6 +20,7 @@
 					<li><a href="/TWFarmer/ProductSelect/ProductSelect.jsp">購買蔬果</a></li>
 					<li><a href="/TWFarmer/PurchaseSelect/PurchaseSelect.jsp">合購專區</a></li>
 					<li><a href="/TWFarmer/shoppingCart/ShowShoppingCartServlet">購物車</a></li>
+					
 				</ul>
 				<c:choose>
 					<c:when test="${empty LoginOK}">
@@ -32,7 +33,8 @@
 					<c:otherwise>
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/TWFarmer/Msg/MsgCheckingServlet">站內信</a></li>
-							<li><a href="/TWFarmer/BackStage/BackStageServlet">會員專區</a></li>
+							<li><a href="/TWFarmer/BackStage/WelcomeMember.jsp">會員專區</a></li>
+							<li><a href="/TWFarmer/FindFriends/FriendHome.jsp">社群管理</a></li>
 							<li><a href="/TWFarmer/logout.jsp">登出</a></li>
 						</ul>
 					</c:otherwise>

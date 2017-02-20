@@ -55,7 +55,7 @@
 }
 
 * /
-	/* The dots/bullets/indicators */                  
+	/* The dots/bullets/indicators */                         
 .dot {
 	height: 13px;
 	width: 13px;
@@ -155,9 +155,8 @@ to {
 				<p>
 					<a
 						href="<c:url value="Order/NewOrderServlet?productId=${productBean.productId}&sellerId=${productBean.sellerId}" />"
-						class="btn btn-default">購買商品</a> <a
-						href="JointPurchase/NewJointPurchaseServlet?memberId=${LoginOK.memberId}&productId=${productBean.productId}"><button
-							type="button" class="btn btn-default">發起合購</button></a>
+						class="btn btn-default">購買商品</a>
+					<button type="button" class="btn btn-default" id="newJp">發起合購</button>
 					<button type="button" class="btn btn-default">我想跟團</button>
 					<button type="button" class="btn btn-default" id="cart"
 						data-trigger="focus" data-placement="top" data-toggle="popover"
@@ -239,16 +238,24 @@ to {
 		function ClearFields() {
 			document.getElementById("QnA").value = "";
 		}
-		//購物車
+
 		$(function() {
 			$('[data-toggle="popover"]').popover();
+			//購物車
 			$('#cart').click(function() {
 				$.get('shoppingCart/AddShoppingCartServlet', {
 					"productId" : $('#productId').val()
-				}, function() {
-					// 					$('#cart').attr("data-toggle", "popover");
-					// 					$('#cart').attr("title", "popover");
 				});
+			});
+			//發起合購
+			$('#newJp').click(
+					function() {
+							$.get('shoppingCart/AddShoppingCartServlet', {
+								"productId" : $('#productId').val()
+							}, function() {
+									window.location = 'JointPurchase/NewJointPurchaseServlet?productId='
+										+ $('#productId').val();
+							})
 			});
 		});
 	</script>

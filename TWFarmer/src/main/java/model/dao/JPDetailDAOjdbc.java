@@ -24,93 +24,6 @@ public class JPDetailDAOjdbc implements JPDetailDAO {
 		 e.printStackTrace();
 		 }
 	 }
-
-//	//測試程式
-//	public static void main(String[] args) {
-//		JPDetailDAO dao = new JPDetailDAOjdbc();
-////		查詢所有資料
-//		List<JPDetailBean> beans = dao.select();
-//		System.out.println("bean="+beans);
-//		//依JPID查詢資料
-//		List<JPDetailBean> selectByJpIds = dao.selectByJpId(4001);
-//		for (JPDetailBean selectByJpId :selectByJpIds) {
-//			System.out.print(selectByJpId.getJpId()+",");
-//			System.out.print(selectByJpId.getProductId()+",");
-//			System.out.print(selectByJpId.getJpPopulationMin()+",");
-//			System.out.print(selectByJpId.getJpPopulationMax()+",");
-//			System.out.print(selectByJpId.getJpMinQEach()+",");
-//			System.out.print(selectByJpId.getJpPrice()+",");
-//			System.out.print(selectByJpId.getJpFreight());
-//		}
-
-//		//依ProductID查詢資料
-//		List<JPDetailBean> selectByProductIDs = dao.selectByProductId(2001);
-//		for (JPDetailBean selectByProductId :selectByProductIDs) {
-//			System.out.print(selectByProductId.getJpId()+",");
-//			System.out.print(selectByProductId.getProductId()+",");
-//			System.out.print(selectByProductId.getJpPopulationMin()+",");
-//			System.out.print(selectByProductId.getJpPopulationMax()+",");
-//			System.out.print(selectByProductId.getJpMinQEach()+",");
-//			System.out.print(selectByProductId.getJpPrice()+",");
-//			System.out.print(selectByProductId.getJpFreight());
-//		}
-		
-//		//依PK值查詢資料
-//		JPDetailBean selectByPk = dao.select(4001,2001);
-//
-//		System.out.print(selectByPk.getJpId()+",");
-//		System.out.print(selectByPk.getProductId()+",");
-//		System.out.print(selectByPk.getJpPopulationMin()+",");
-//		System.out.print(selectByPk.getJpPopulationMax()+",");
-//		System.out.print(selectByPk.getJpMinQEach()+",");
-//		System.out.print(selectByPk.getJpPrice()+",");
-//		System.out.print(selectByPk.getJpFreight());
-
-		 //新增
-//		JPDetailBean jpDetailInsert = new JPDetailBean();
-//
-//		jpDetailInsert.setJpId(4002);
-//		jpDetailInsert.setProductId(2002);
-//		jpDetailInsert.setJpPopulationMin(10);
-//		jpDetailInsert.setJpPopulationMax(20);
-//		jpDetailInsert.setJpMinQEach(2);
-//		jpDetailInsert.setJpPrice(25);
-//		jpDetailInsert.setJpFreight(10);
-//		
-//		JPDetailBean JPDetailadd = dao.insert(jpDetailInsert);
-//		System.out.println(JPDetailadd);
-//
-//		 修改
-//		JPDetailBean jpDetailUpdate = new JPDetailBean();
-//
-//		jpDetailUpdate.setJpId(4003);
-//		jpDetailUpdate.setProductId(2002);
-//		jpDetailUpdate.setJpPopulationMin(15);
-//		jpDetailUpdate.setJpPopulationMax(25);
-//		jpDetailUpdate.setJpMinQEach(5);
-//		jpDetailUpdate.setJpPrice(22);
-//		jpDetailUpdate.setJpFreight(5);
-//		
-//		JPDetailBean jpDetailChange = dao.update(jpDetailUpdate);
-//		System.out.println(jpDetailChange);
-//
-		// 刪除
-//		dao.deleteByJpId(4002);
-//		System.out.println("資料已刪除");
-//		
-//		dao.deleteByProductId(2002);
-//		System.out.println("資料已刪除");
-//		
-//		dao.delete(4001, 2002);
-//		System.out.println("資料已刪除");
-//
-//	}
-
-	
-	
-	
-	//查詢
-	 
 		private static final String SELECT_BY_PK = "select * from JPDetail where JPId=? and ProductId=?";
 
 		@Override
@@ -133,6 +46,7 @@ public class JPDetailDAOjdbc implements JPDetailDAO {
 					result.setJpMinQEach(rset.getInt("JpMinQEach"));
 					result.setJpPrice(rset.getInt("JpPrice"));
 					result.setJpFreight(rset.getInt("JpFreight"));
+					result.setJpUnit(rset.getString("JpUnit"));
 
 				}
 			} catch (SQLException e) {
@@ -171,6 +85,7 @@ public class JPDetailDAOjdbc implements JPDetailDAO {
 				bean.setJpMinQEach(rset.getInt("JpMinQEach"));
 				bean.setJpPrice(rset.getInt("JpPrice"));
 				bean.setJpFreight(rset.getInt("JpFreight"));
+				bean.setJpUnit(rset.getString("JpUnit"));
 				result.add(bean);
 			}
 		} catch (SQLException e) {
@@ -200,7 +115,7 @@ public class JPDetailDAOjdbc implements JPDetailDAO {
 				bean.setJpMinQEach(rset.getInt("JpMinQEach"));
 				bean.setJpPrice(rset.getInt("JpPrice"));
 				bean.setJpFreight(rset.getInt("JpFreight"));
-
+				bean.setJpUnit(rset.getString("JpUnit"));
 				result.add(bean);
 				
 			}
@@ -229,6 +144,7 @@ public class JPDetailDAOjdbc implements JPDetailDAO {
 				bean.setJpMinQEach(rset.getInt("JpMinQEach"));
 				bean.setJpPrice(rset.getInt("JpPrice"));
 				bean.setJpFreight(rset.getInt("JpFreight"));
+				bean.setJpUnit(rset.getString("JpUnit"));
 				result.add(bean);
 			}
 		} catch (SQLException e) {
@@ -238,7 +154,7 @@ public class JPDetailDAOjdbc implements JPDetailDAO {
 	}
 
 	private static final String INSERT = 
-			"insert into JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight)  VALUES (?, ?, ?, ?, ?, ?, ?)";
+			"insert into JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight, JPUnit)  VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 	@Override
 	public JPDetailBean insert(JPDetailBean JPDetailBean) {
@@ -253,6 +169,7 @@ public class JPDetailDAOjdbc implements JPDetailDAO {
 				stmt.setInt(5, JPDetailBean.getJpMinQEach());
 				stmt.setInt(6, JPDetailBean.getJpPrice());
 				stmt.setInt(7, JPDetailBean.getJpFreight());
+				stmt.setString(8, JPDetailBean.getJpUnit());
 				int i = stmt.executeUpdate();
 				if (i == 1) {
 					result = JPDetailBean;
@@ -269,7 +186,8 @@ public class JPDetailDAOjdbc implements JPDetailDAO {
 			+ "JPPopulationMax=?, "
 			+ "JPMinQEach=?, "
 			+ "JPPrice=?, "
-			+ "JPFreight=? "
+			+ "JPFreight=?, "
+			+ "JPUnit=? "
 			+ "WHERE JPId=? AND ProductId=?";
 
 	@Override
@@ -282,9 +200,10 @@ public class JPDetailDAOjdbc implements JPDetailDAO {
 			stmt.setInt(3, JPDetailBean.getJpMinQEach());
 			stmt.setInt(4, JPDetailBean.getJpPrice());
 			stmt.setInt(5, JPDetailBean.getJpFreight());
-			stmt.setInt(6, JPDetailBean.getJpId());
-			stmt.setInt(7, JPDetailBean.getProductId());
-
+			stmt.setString(6, JPDetailBean.getJpUnit());
+			stmt.setInt(7, JPDetailBean.getJpId());
+			stmt.setInt(8, JPDetailBean.getProductId());
+			
 			int i = stmt.executeUpdate();
 			if (i == 1) {
 				result = this.select(JPDetailBean.getJpId(), JPDetailBean.getProductId());

@@ -10,8 +10,11 @@ public class FriendBean implements Serializable {
 	private int memberId;
 	private int friendId;
 	private int friendStatus;
+	//friendStatus 0 = 封鎖
+	//friendStatus 1 = 好友
 	private String friendAccount;
 	private String friendName;
+	private String friendPic;
 
 	public FriendBean() {
 
@@ -72,10 +75,18 @@ public class FriendBean implements Serializable {
 public String getFriendAccount(){
 	return dao.select(friendId).getAccount();
 			}
-	public void setFriendAccount(){
+
+	public void setFriendAccount(String friendAccount){
 		this.friendAccount = friendAccount;
 	}
 	
+	public String getFriendPic() {
+		return dao.select(friendId).getMemberPic();
+	}
+	
+	public void setFriendPic(String friendPic) {
+		this.friendPic = friendPic;
+	}
 	
 
 }

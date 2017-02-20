@@ -88,7 +88,6 @@ public class LoginServlet extends HttpServlet {
 		if (mb != null) {
 			// OK, 將mb物件放入Session範圍內，識別字串為"LoginOK"，表示此使用者已經登入
 			session.setAttribute("LoginOK", mb);
-
 			if (mb.getIdType() == 2) {
 				FarmerDAOJdbc dao = new FarmerDAOJdbc();
 				FarmerBean fb = dao.selectByMemberId(mb.getMemberId());

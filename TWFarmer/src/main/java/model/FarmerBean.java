@@ -1,11 +1,16 @@
 package model;
 
+import model.dao.MemberDAOJdbc;
+
 public class FarmerBean {
 	private String farmerId;
 	private int memberId;
 	private String farmerIntro;
 	private String bank;
 	private String bankAccount;
+	private String account;
+	private String name;
+	MemberDAOJdbc dao = new MemberDAOJdbc();
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -55,6 +60,17 @@ public class FarmerBean {
 	public void setBankAccount(String bankAccount) {
 		this.bankAccount = bankAccount;
 	}
+	public String getAccount() {
+		return dao.select(memberId).getAccount();
+	}
+	public void setAccount(String account) {
+		this.account = account;
+	}
+	public String getName() {
+		return dao.select(memberId).getName();
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	
-
 }

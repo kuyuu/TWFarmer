@@ -69,9 +69,9 @@ public class MsgBean {
 	public void setWriterName(String writerName) {
 		this.writerName = writerName;
 	}
-public String getWriterAccount(){
-	return dao.select(msgWriterId).getAccount();
-			}
+	public String getWriterAccount(){
+		return dao.select(msgWriterId).getAccount();
+	}
 	public void setWriterAccount(){
 		this.writerAccount = writerAccount;
 	}

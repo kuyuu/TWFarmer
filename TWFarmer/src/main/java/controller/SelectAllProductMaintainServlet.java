@@ -1,4 +1,4 @@
-package controller.jointpurchase;
+package controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,22 +10,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.JointPurchaseBean;
 import model.MemberBean;
-import model.dao.JointPurchaseDAOjdbc;
-@WebServlet("/BackStage/FarmerCheckJpServlet")
-public class FarmerCheckJpServlet extends HttpServlet {
+import model.ProductBean;
+import model.dao.ProductDAOjdbc;
+
+@WebServlet("/BackStage/SelectAllProductMaintainServlet")
+public class SelectAllProductMaintainServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		MemberBean mb = (MemberBean)session.getAttribute("LoginOK");
-		JointPurchaseDAOjdbc dao2 = new JointPurchaseDAOjdbc();
-		List<JointPurchaseBean> list = dao2.selectJpIdBySellerId(mb.getMemberId());
-		request.setAttribute("jpList", list);
-		List<JointPurchaseBean> list2 = dao2.selectJpIdBySellerId2(mb.getMemberId());
-		request.setAttribute("jpList2", list2);
-		request.getRequestDispatcher("/BackStage/farmerCheckJP.jsp").forward(request, response);
-	
+		ProductDAOjdbc dao = new ProductDAOjdbc();
+		List<ProductBean> list = dao.selectBySellerId(mb.getMemberId());
+		request.setAttribute("productList", list);
+		request.getRequestDispatcher("/BackStage/farmerManageProduct.jsp").forward(request, response);
 	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
