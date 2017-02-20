@@ -56,7 +56,8 @@ public class OrdersDAOJdbc implements OrdersDAO {
 				bean.setShipPostalCode(rset.getString("shipPostalCode"));
 				bean.setShipDistrict(rset.getString("shipDistrict"));
 				bean.setShipAddress(rset.getString("shipAddress"));
-				bean.setOrderStatusId(rset.getInt("orderStatusId"));
+				bean.setBuyerOrderStatusId(rset.getInt("buyerOrderStatusId"));
+				bean.setSellerOrderStatusId(rset.getInt("sellerOrderStatusId"));
 				bean.setRatingBuyer(rset.getInt("ratingBuyer"));
 				bean.setRatingSeller(rset.getInt("ratingSeller"));
 				bean.setRemittance(rset.getInt("remittance"));
@@ -96,7 +97,8 @@ public class OrdersDAOJdbc implements OrdersDAO {
 				result.setShipPostalCode(rset.getString("shipPostalCode"));
 				result.setShipDistrict(rset.getString("shipDistrict"));
 				result.setShipAddress(rset.getString("shipAddress"));
-				result.setOrderStatusId(rset.getInt("orderStatusId"));
+				result.setBuyerOrderStatusId(rset.getInt("buyerOrderStatusId"));
+				result.setSellerOrderStatusId(rset.getInt("sellerOrderStatusId"));
 				result.setRatingBuyer(rset.getInt("ratingBuyer"));
 				result.setRatingSeller(rset.getInt("ratingSeller"));
 				result.setRemittance(rset.getInt("remittance"));
@@ -119,8 +121,9 @@ public class OrdersDAOJdbc implements OrdersDAO {
 		return result;
 	}
 
-	private static final String INSERT = "INSERT INTO Orders (SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, OrderStatusID, RatingBuyer, RatingSeller, Remittance, RemittanceDate, RemittanceBank, RemittanceAcc) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	private static final String INSERT = "INSERT INTO Orders (SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusId, SellerOrderStatusId, RatingBuyer, RatingSeller, Remittance, RemittanceDate, RemittanceBank, RemittanceAcc) values ( ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
+	
 	@Override
 	public OrdersBean insert(OrdersBean ordersBean) {
 		OrdersBean result = null;
@@ -151,19 +154,20 @@ public class OrdersDAOJdbc implements OrdersDAO {
 				stmt.setString(8, ordersBean.getShipPostalCode());
 				stmt.setString(9, ordersBean.getShipDistrict());
 				stmt.setString(10, ordersBean.getShipAddress());
-				stmt.setInt(11, ordersBean.getOrderStatusId());
-				stmt.setInt(12, ordersBean.getRatingBuyer());
-				stmt.setInt(13, ordersBean.getRatingSeller());
-				stmt.setInt(14, ordersBean.getRemittance());
+				stmt.setInt(11, ordersBean.getBuyerOrderStatusId());
+				stmt.setInt(12, ordersBean.getSellerOrderStatusId());
+				stmt.setInt(13, ordersBean.getRatingBuyer());
+				stmt.setInt(14, ordersBean.getRatingSeller());
+				stmt.setInt(15, ordersBean.getRemittance());
 				Date remittanceDate = ordersBean.getRemittanceDate();
 				if (remittanceDate != null) {
 					long time = remittanceDate.getTime();
-					stmt.setDate(15, new java.sql.Date(time));
+					stmt.setDate(16, new java.sql.Date(time));
 				} else {
-					stmt.setDate(15, null);
+					stmt.setDate(16, null);
 				}
-				stmt.setString(16, ordersBean.getRemittanceBank());
-				stmt.setString(17, ordersBean.getRemittanceAcc());
+				stmt.setString(17, ordersBean.getRemittanceBank());
+				stmt.setString(18, ordersBean.getRemittanceAcc());
 
 				int i = stmt.executeUpdate();
 				if (i == 1) {
@@ -181,7 +185,7 @@ public class OrdersDAOJdbc implements OrdersDAO {
 		return result;
 	}
 
-	private static final String UPDATE = "UPDATE Orders set SellerID=?, BuyerID=?, TotalFreight=?, TotalPrice=?, OrderDate=?, ShipDate=?, ShipName=?, ShipPostalCode=?, ShipDistrict=?, ShipAddress=?, OrderStatusID=?, RatingBuyer=?, RatingSeller=?, Remittance=?, RemittanceDate=?, RemittanceBank=?, RemittanceAcc=? WHERE OrderID=?";
+	private static final String UPDATE = "UPDATE Orders set SellerID=?, BuyerID=?, TotalFreight=?, TotalPrice=?, OrderDate=?, ShipDate=?, ShipName=?, ShipPostalCode=?, ShipDistrict=?, ShipAddress=?, BuyerOrderStatusId=?, SellerOrderStatusId=?, RatingBuyer=?, RatingSeller=?, Remittance=?, RemittanceDate=?, RemittanceBank=?, RemittanceAcc=? WHERE OrderID=?";
 
 	@Override
 	public OrdersBean update(OrdersBean ordersBean) {
@@ -209,20 +213,21 @@ public class OrdersDAOJdbc implements OrdersDAO {
 			stmt.setString(8, ordersBean.getShipPostalCode());
 			stmt.setString(9, ordersBean.getShipDistrict());
 			stmt.setString(10, ordersBean.getShipAddress());
-			stmt.setInt(11, ordersBean.getOrderStatusId());
-			stmt.setInt(12, ordersBean.getRatingBuyer());
-			stmt.setInt(13, ordersBean.getRatingSeller());
-			stmt.setInt(14, ordersBean.getRemittance());
+			stmt.setInt(11, ordersBean.getBuyerOrderStatusId());
+			stmt.setInt(12, ordersBean.getSellerOrderStatusId());
+			stmt.setInt(13, ordersBean.getRatingBuyer());
+			stmt.setInt(14, ordersBean.getRatingSeller());
+			stmt.setInt(15, ordersBean.getRemittance());
 			Date remittanceDate = ordersBean.getRemittanceDate();
 			if (remittanceDate != null) {
 				long time = remittanceDate.getTime();
-				stmt.setDate(15, new java.sql.Date(time));
+				stmt.setDate(16, new java.sql.Date(time));
 			} else {
-				stmt.setDate(15, null);
+				stmt.setDate(16, null);
 			}
-			stmt.setString(16, ordersBean.getRemittanceBank());
-			stmt.setString(17, ordersBean.getRemittanceAcc());
-			stmt.setInt(18, ordersBean.getOrderId());
+			stmt.setString(17, ordersBean.getRemittanceBank());
+			stmt.setString(18, ordersBean.getRemittanceAcc());
+			stmt.setInt(19, ordersBean.getOrderId());
 			
 			int i = stmt.executeUpdate();
 			if (i == 1) {
@@ -277,7 +282,8 @@ public class OrdersDAOJdbc implements OrdersDAO {
 				bean.setShipPostalCode(rset.getString("shipPostalCode"));
 				bean.setShipDistrict(rset.getString("shipDistrict"));
 				bean.setShipAddress(rset.getString("shipAddress"));
-				bean.setOrderStatusId(rset.getInt("orderStatusId"));
+				bean.setBuyerOrderStatusId(rset.getInt("buyerOrderStatusId"));
+				bean.setSellerOrderStatusId(rset.getInt("sellerOrderStatusId"));
 				bean.setRatingBuyer(rset.getInt("ratingBuyer"));
 				bean.setRatingSeller(rset.getInt("ratingSeller"));
 				bean.setRemittance(rset.getInt("remittance"));
@@ -323,7 +329,8 @@ public class OrdersDAOJdbc implements OrdersDAO {
 				bean.setShipPostalCode(rset.getString("shipPostalCode"));
 				bean.setShipDistrict(rset.getString("shipDistrict"));
 				bean.setShipAddress(rset.getString("shipAddress"));
-				bean.setOrderStatusId(rset.getInt("orderStatusId"));
+				bean.setBuyerOrderStatusId(rset.getInt("buyerOrderStatusId"));
+				bean.setSellerOrderStatusId(rset.getInt("sellerOrderStatusId"));
 				bean.setRatingBuyer(rset.getInt("ratingBuyer"));
 				bean.setRatingSeller(rset.getInt("ratingSeller"));
 				bean.setRemittance(rset.getInt("remittance"));

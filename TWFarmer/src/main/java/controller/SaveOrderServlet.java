@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -62,6 +65,42 @@ public class SaveOrderServlet extends HttpServlet {
 		int productID = Integer.parseInt(request.getParameter("productID"));
 		int price = Integer.parseInt(request.getParameter("price"));
 		int freight = Integer.parseInt(request.getParameter("freight"));
+		String unit = request.getParameter("unit");
+		
+		//驗證資料	
+		Map<String, String> errors = new HashMap<String, String>();
+		request.setAttribute("errors", errors);
+
+		System.out.println("shipName"+shipName);
+		System.out.println(shipName.trim().length());
+		if (shipName == null || shipName.trim().length()==0 ) {	
+				errors.put("shipName", "收件人必填");
+			}
+		if (shipPostalCode == null || shipPostalCode.trim().length()==0) {	
+			errors.put("shipPostalCode", "郵遞區號必填，例:115");
+		}
+		if (shipDistrict == null || shipDistrict.trim().length()==0) {	
+			errors.put("shipDistrict", "收件地區必填，例:台北市大安區");
+		}
+		if (shipAddress == null || shipAddress.trim().length()==0) {	
+			errors.put("shipAddress", "地址必填，例:忠孝東路X段X號X樓");
+		}
+		
+		if (!errors.isEmpty()) {
+			RequestDispatcher rd = request.getRequestDispatcher("/Order/NewOrder.jsp");
+			rd.forward(request, response);
+			return;
+		}
+		
+//		if (amount == 0 ) {	
+//			errors.put("amount", "數量必填，例:忠孝東路X段X號X樓");
+//		}
+//	
+
+		
+		
+		
+		
 		
 		try {
 			OrdersBean ordersBean = new OrdersBean();
@@ -71,23 +110,23 @@ public class SaveOrderServlet extends HttpServlet {
 			ordersBean.setShipDistrict(shipDistrict);	
 			ordersBean.setShipAddress(shipAddress);
 			//此處sysout 測試輸入的文字是否為亂碼
-			System.out.println("controller: shipName="+shipName);
-			System.out.println("controller: shipDistrict="+shipDistrict);
-			System.out.println("controller: shipAddress="+shipAddress);
+//			System.out.println("controller: shipName="+shipName);
+//			System.out.println("controller: shipDistrict="+shipDistrict);
+//			System.out.println("controller: shipAddress="+shipAddress);
 			ordersBean.setSellerId(sellerID);
-			System.out.println("controller: sellerID="+sellerID);
+//			System.out.println("controller: sellerID="+sellerID);
 			ordersBean.setBuyerId(buyerID);
-			System.out.println("controller: buyerID="+buyerID);
+//			System.out.println("controller: buyerID="+buyerID);
 			
 			SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");					
 			ordersBean.setOrderDate(sdFormat.parse(currentDateTime));
 			ordersBean.setShipDate(sdFormat.parse(shipDateTime));
-			//隱藏計算
+			//隱藏計算  如何顯示當下計算!?
 			ordersBean.setTotalFreight(freight*amount);
 			ordersBean.setTotalPrice((freight+price)*amount);
 			//先寫死訂單狀態
-			ordersBean.setOrderStatusId(3101);
-						
+			ordersBean.setBuyerOrderStatusId(3101);
+			ordersBean.setSellerOrderStatusId(3103);
 			OrdersBean orderResult = ordersDAOJdbc.insert(ordersBean);			
 			
 			
@@ -98,12 +137,14 @@ public class SaveOrderServlet extends HttpServlet {
 			orderDetailBean.setProductId(productID);
 			orderDetailBean.setUnitPrice(price);
 			orderDetailBean.setUnitFreight(freight);
-					
+			orderDetailBean.setUnit(unit);		
+			
 			OrderDetailBean orderDetailResult = orderDetailDAOJdbc.insert(orderDetailBean);
 			System.out.println(orderResult.getOrderId());
 		
 			request.setAttribute("orderResult", orderResult);
 			request.setAttribute("orderDetailResult", orderDetailResult);
+			request.setAttribute("errors", errors);
 			request.getRequestDispatcher("OrderDetail.jsp").forward(request, response);
 			//response.sendRedirect("/Order/OrderDetailServlet");
 			

@@ -19,7 +19,7 @@ import model.dao.ProductDAOjdbc;
 /**
  * Servlet implementation class ListOrderServlet
  */
-@WebServlet("/Order/ListOrderServlet")
+@WebServlet("/BackStage/ListOrderServlet")
 public class ListOrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -40,18 +40,24 @@ public class ListOrderServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		MemberBean member = (MemberBean) request.getSession().getAttribute("LoginOK");
 		request.setCharacterEncoding("UTF-8");
+	
 		
+		//單一測試賣家接到的訂單
 //		List<OrdersBean> sellerorders = ordersDAOJdbc.findSellerAllList(member.getMemberId());
-//		System.out.println("seller:"+sellerorders);
-//		System.out.println("memeber:"+member.getMemberId());
-//		
-		
-		List<OrdersBean> sellerorders = ordersDAOJdbc.findSellerAllList(member.getMemberId());
-		System.out.println(sellerorders);
-		request.setAttribute("sellerorders", sellerorders);
-		request.getRequestDispatcher("FarmerManergeOrderList.jsp").forward(request, response);
+//		System.out.println(sellerorders);
+//		request.setAttribute("sellerorders", sellerorders);
+//		request.getRequestDispatcher("FarmerManergeOrderList.jsp").forward(request, response);
+	
+		//單一測試買家的訂單
+		List<OrdersBean> buyerorders =  ordersDAOJdbc.findBuyerAllList(member.getMemberId());	
+		request.setAttribute("buyerorders", buyerorders);
+		getServletContext().getRequestDispatcher("/Order/OrderList.jsp").forward(request, response);
+
+			
 		
 		
 //		if (member.getIdType()==2){
@@ -68,11 +74,6 @@ public class ListOrderServlet extends HttpServlet {
 //			
 //		}
 		
-		
-//		List<OrdersBean> buyerorders =ordersDAOJdbc.findBuyerAllList(member.getMemberId());	
-//		request.setAttribute("buyerorders", buyerorders);
-//		request.getRequestDispatcher("OrderList.jsp").forward(request, response);
-
 		
 		
 //ordersDAOJdbc.selectAllOrdersWithDetail

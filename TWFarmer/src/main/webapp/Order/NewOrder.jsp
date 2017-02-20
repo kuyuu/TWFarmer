@@ -42,7 +42,7 @@ html {
 </style>
 </head>
 <body>
-
+<jsp:include page="../common/menu.jsp" />
 	<center>
 		<form action="<c:url value="SaveOrderServlet"/>" method="POST">
 			<table border="0" width="35%">
@@ -81,6 +81,10 @@ html {
 				<tr>
 					<td width="50%">商品單價：</td>
 					<td>${product.price}</td>
+				</tr>
+				<tr>
+					<td width="50%">商品單位：</td>
+					<td>${product.unit}</td>
 				</tr>
 				<tr>
 					<td width="50%">單價運費：</td>
@@ -134,45 +138,17 @@ html {
 					</td>
 					<td></td>
 				</tr>
-				<!--  暫時先遮蔽此處
-				<tr>
-					<td width="50%">總運費：</td>
-					<td><input id='totalFreight' value=""
-						type="text" name="totalFreight" size="50" />
-						<div style="color: #FF0000; display: inline">${errors.totalFreight}</div>
-					</td>
-					<td></td>
-				</tr>
-
-				<tr>
-					<td width="50%">總金額(含運費)：</td>
-					<td><input id='totalPrice' value=""
-						type="text" name="totalPrice" size="50" />
-						<div style="color: #FF0000; display: inline">${errors.totalFreight}</div>
-					</td>
-					<td></td>
-				</tr>
-				 -->
-
-				<!-- 
-    		<tr>
-				<td width="50%">總金額：</td>
-				<td><input id='totalFreight' value="${param.totalPrice}" type="text" name="totalPrice" size="50"/>
-				<div style="color:#FF0000; display:inline">${errors.totalPrice}</div>
-				</td>
-				<td></td>
-			</tr>	
-			-->
-
-
 
 
 				<tr>
-					<td colspan="2" align="center"><input type="submit" value="送出" /></td>
+					<td align="center">
+						<button type="submit" class="btn btn-primary">確認訂單</button>	
+					</td>	
+					<td>
+						<button type="button" class="btn btn-primary" onclick="location.href='<c:url value="../index.jsp" /> '">取消訂單</button>	
+					</td>			
 				</tr>
-
-
-
+				
 			</table>
 			<input type="hidden" name="sellerID" value="${member.memberId}">
 			<input type="hidden" name="buyerID" value="${sessionScope.LoginOK.memberId}">
@@ -181,7 +157,9 @@ html {
 			<input type="hidden" name="productID" value="${product.productId}">
 			<input type="hidden" name="price" value="${product.price}"> 
 			<input type="hidden" name="freight" value="${product.freight}">
+			<input type="hidden" name="unit" value="${product.unit}">
 		</form>
+		
 	</center>
 
 	<!-- NewOrderTemp End -->
