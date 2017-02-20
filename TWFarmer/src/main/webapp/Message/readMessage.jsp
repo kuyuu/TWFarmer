@@ -13,8 +13,9 @@
 body {
 	padding-top: 70px;
 }
+
 html {
-    overflow-y:scroll;
+	overflow-y: scroll;
 }
 </style>
 </head>
@@ -34,7 +35,7 @@ html {
 							<p>${msgBean.msgContent}</p>
 							<form action="newMessage.jsp" method="POST">
 								<c:choose>
-									<c:when test="${msgBean.msgReaderId==LoginOK.memberId }">
+									<c:when test="${value=='reader'}">
 										<input type="hidden" name="readerAccount"
 											value="${msgBean.writerAccount}" />
 									</c:when>
@@ -47,11 +48,13 @@ html {
 									value="RE: ${msgBean.msgTitle}" /> <input type="hidden"
 									name="msgContent" value="${msgBean.msgContent}" />
 								<button type="submit" class="btn btn-primary" id="reply">回覆信件</button>
+								<button type="button" class="btn btn-danger" id="delete"
+									value="${msgBean.msgId}">刪除信件</button>
 							</form>
 						</div>
 						<div class="col-md-4">
 							<c:choose>
-								<c:when test="${msgBean.msgReaderId==LoginOK.memberId }">
+								<c:when test="${value=='reader'}">
 									寄件人：<br>
 									<img src="../MemberPic/${msgBean.writerMemberPic}"
 										class="img-responsive img-thumbnail" style="width: 100%;" />
@@ -81,6 +84,23 @@ html {
 	<script>
 		$(function() {
 			$("#collapseOne>ul>li:eq(5)").addClass("list-group-item-success");
+			$('#delete').click(function() {
+				if ("${value}" == "reader") {
+					$.post('DeleteMessageServlet', {
+						"msgId" : $(this).val(),
+						"value" : "reader"
+					}, function() {
+						window.location = 'MsgHomeServlet';
+					});
+				} else {
+					$.post('DeleteMessageServlet', {
+						"msgId" : $(this).val(),
+						"value" : "writer"
+					}, function() {
+						window.location = 'MsgHomeServlet';
+					});
+				}
+			});
 		});
 	</script>
 </body>

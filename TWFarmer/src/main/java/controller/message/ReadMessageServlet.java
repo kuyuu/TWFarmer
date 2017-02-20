@@ -16,14 +16,21 @@ public class ReadMessageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String temp = request.getParameter("msgId");
+		String value = request.getParameter("value");
 		int msgId = Integer.parseInt(temp);
 
 		MsgDAOJdbc dao = new MsgDAOJdbc();
 		MsgBean bean = dao.select(msgId);
 		bean.setMsgStatus(1);
 		bean = dao.update(bean);
-
 		request.setAttribute("msgBean", bean);
+		
+		if ("reader".equals(value)) {
+			request.setAttribute("value", "reader");
+		} else {
+			request.setAttribute("value", "writer");
+		}
+		
 		request.getRequestDispatcher("readMessage.jsp").forward(request, response);
 
 	}

@@ -13,6 +13,7 @@
 body {
 	padding-top: 70px;
 }
+
 html {
 	overflow-y: scroll;
 }
@@ -52,10 +53,10 @@ html {
 							<td>${x.msgTitle}</td>
 							<td><fmt:formatDate value="${x.msgTime}"
 									pattern="yyyy/MM/dd HH:mm" /></td>
-							<td><a href="ReadMessageServlet?msgId=${x.msgId}"><button
+							<td><a href="ReadMessageServlet?msgId=${x.msgId}&value=reader"><button
 										type="button" class="btn btn-primary" name="read${x.msgId}">讀取信件</button></a>
-								<a href="DeleteMessageServlet?msgId=${x.msgId}"><button
-										type="button" class="btn btn-danger">刪除信件</button></a>
+								<button type="button" class="btn btn-danger" name="readerDelete"
+									value="${x.msgId}">刪除信件</button>
 							</tr>
 
 						</c:forEach>
@@ -74,9 +75,10 @@ html {
 								<td>${x.msgTitle}</td>
 								<td><fmt:formatDate value="${x.msgTime}"
 										pattern="yyyy/MM/dd HH:mm" /></td>
-								<td><a href="ReadMessageServlet?msgId=${x.msgId}"><button
+								<td><a href="ReadMessageServlet?msgId=${x.msgId}&value=writer"><button
 											type="button" class="btn btn-primary" name="read${x.msgId}">讀取信件</button></a>
-									<button type="button" class="btn btn-danger">刪除信件</button>
+									<button type="button" class="btn btn-danger"
+										name="writerDelete" value="${x.msgId}">刪除信件</button>
 							</tr>
 
 						</c:forEach>
@@ -92,6 +94,20 @@ html {
 	<script>
 		$(function() {
 			$("#collapseOne>ul>li:eq(5)").addClass("list-group-item-success");
+			$('button[name="readerDelete"]').click(function() {
+				$(this).parent().parent().remove();
+				$.post('DeleteMessageServlet', {
+					"msgId" : $(this).val(),
+					"value" : "reader"
+				});
+			})
+			$('button[name="writerDelete"]').click(function() {
+				$(this).parent().parent().remove();
+				$.post('DeleteMessageServlet', {
+					"msgId" : $(this).val(),
+					"value" : "writer"
+				});
+			})
 		});
 	</script>
 </body>
