@@ -50,10 +50,14 @@ html {
 								<img src="../MemberPic/${x.friendPic}" width="100%"
 									class="img-circle" />
 								<p class="text-center">${x.friendName}(${x.friendAccount})<br>
-									<a href="#" class="btn btn-primary"><span
-										class="glyphicon glyphicon-envelope"></span></a><a href="#"
-										class="btn btn-danger"><span
-										class="glyphicon glyphicon-remove"></span></a>
+									<a
+										href="../Message/NewMessageServlet?readerAccount=${x.friendAccount}"
+										class="btn btn-primary"><span
+										class="glyphicon glyphicon-envelope"></span></a>
+									<button class="btn btn-danger" name="delete"
+										value="${x.friendId}">
+										<span class="glyphicon glyphicon-remove"></span>
+									</button>
 							</div>
 						</c:forEach>
 					</div>
@@ -63,7 +67,12 @@ html {
 							<div class="col-md-4">
 								<img src="../MemberPic/${x.friendPic}" width="100%"
 									class="img-circle" />
-								<p class="text-center">${x.friendName}(${x.friendAccount})
+								<p class="text-center">${x.friendName}(${x.friendAccount})<br>
+									<button class="btn btn-danger" name="delete"
+										value="${x.friendId}">
+										<span class="glyphicon glyphicon-remove"></span>
+									</button>
+								</p>
 							</div>
 						</c:forEach>
 					</div>
@@ -78,6 +87,12 @@ html {
 	<script>
 		$(function() {
 			$("#collapseOne>ul>li:eq(6)").addClass("list-group-item-success");
+			$('button[name="delete"]').click(function() {
+				$(this).parent().parent().remove();
+				$.get('DeleteFriendServlet', {
+					"friendId" : $(this).val()
+				});
+			});
 
 		});
 	</script>
