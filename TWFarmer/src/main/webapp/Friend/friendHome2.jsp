@@ -29,8 +29,7 @@ html {
 			<div class="col-md-9">
 				<div class="jumbotron">
 					<h2>好友 / 黑名單</h2>
-					<form class="form-inline" role="form" method="POST"
-						action="SelectMemberServlet">
+					<form class="form-inline" role="form" method="POST" action="SelectMemberServlet">
 						<div class="form-group">
 							<div class="input-group">
 								<label class="sr-only" for="account">會員帳號</label> <input
@@ -43,30 +42,13 @@ html {
 						</button>
 					</form>
 					<h3>好友名單</h3>
-					<div class="row">
-						<c:forEach items="${whiteList}" var="x">
-
-							<div class="col-md-4">
-								<img src="../MemberPic/${x.friendPic}" width="100%"
-									class="img-circle" />
-								<p class="text-center">${x.friendName}(${x.friendAccount})<br>
-									<a href="#" class="btn btn-primary"><span
-										class="glyphicon glyphicon-envelope"></span></a><a href="#"
-										class="btn btn-danger"><span
-										class="glyphicon glyphicon-remove"></span></a>
-							</div>
-						</c:forEach>
-					</div>
+					<c:forEach items="${whiteList}" var="x">
+						${x.friendName}(${x.friendAccount})<br>
+					</c:forEach>
 					<h3>黑名單</h3>
-					<div class="row">
-						<c:forEach items="${blackList}" var="x">
-							<div class="col-md-4">
-								<img src="../MemberPic/${x.friendPic}" width="100%"
-									class="img-circle" />
-								<p class="text-center">${x.friendName}(${x.friendAccount})
-							</div>
-						</c:forEach>
-					</div>
+					<c:forEach items="${blackList}" var="x">
+						${x.friendName}(${x.friendAccount})<br>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
