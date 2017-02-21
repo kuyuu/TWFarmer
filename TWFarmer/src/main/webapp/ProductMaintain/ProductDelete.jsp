@@ -219,13 +219,16 @@ html {
 
 										<td width=140><c:forEach items="${productPicList}"
 												var="row" varStatus="name">
+												<input type="text" value="${row.productPicId}"
+											name="productPicId" />
 												<div class="col-md-8">
 													<div class="thumbnail">
 														<img src="../img/${row.pictureName}">
 														<div class="caption">
+<%-- 														<input type="text" value="${row.pictureIntro}" name="pictureIntro"> --%>
 															<h4>${row.pictureIntro}</h4>
 															<input class='InputClass' type="file"
-																name="picture${name.index}" />
+																name="picture${name.count}" />
 														</div>
 													</div>
 												</div>

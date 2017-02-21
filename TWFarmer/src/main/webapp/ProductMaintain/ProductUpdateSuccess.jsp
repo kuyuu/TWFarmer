@@ -166,7 +166,8 @@ html {
 												<div class="thumbnail">
 													<img src="../img/${row.pictureName}">
 													<div class="caption">
-														<h4>${row.pictureIntro}</h4>
+													<input type="text" value="${row.pictureIntro}" name="pictureIntro">
+<%-- 														<h4>${row.pictureIntro}</h4> --%>
 														
 													</div>
 												</div>
