@@ -803,6 +803,8 @@ INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStat
 	VALUES(1030,1033,'請問什麼時候有下一批貨','很好吃，還想買，請問你們什麼時候還有貨?','2017-01-22 12:22:39',1, 0, 0);	
 INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus, WriterDelete, ReaderDelete)
 	VALUES(1033,1030,'下一批文旦預計02/02到貨','感謝您的支持與鼓勵~~~下一批文旦將於02/02到貨，有任何需要歡迎隨時與我們聯繫喔0.<','2017-01-22 21:55:11',1, 0, 0);	
+INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus, WriterDelete, ReaderDelete)
+	VALUES(1032,1030,'有4ㄇ87','一顆文旦壞掉而已，4在大驚小怪什麼辣','2017-02-11 11:11:22',0, 0, 0);	
 --2017/02/13 巫 
 --1022李小倩 與 1028 杞蒂凱
 insert into Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus, WriterDelete, ReaderDelete)
@@ -817,4 +819,11 @@ values(1022,1028,'還是妳懂我','杞妹妹果然是我的知心。等妳升�
 --INSERT INTO Unit (UnitName) VALUES ('顆');
 --INSERT INTO Unit (UnitName) VALUES ('斤');
 --INSERT INTO Unit (UnitName) VALUES ('公斤');
+
+--Friend
+INSERT INTO Friend (MemberId, FriendId, FriendStatus) VALUES (1030, 1001, 0);
+INSERT INTO Friend (MemberId, FriendId, FriendStatus) VALUES (1030, 1002, 0);
+INSERT INTO Friend (MemberId, FriendId, FriendStatus) VALUES (1030, 1033, 0);
+INSERT INTO Friend (MemberId, FriendId, FriendStatus) VALUES (1030, 1032, 1);
+
 
