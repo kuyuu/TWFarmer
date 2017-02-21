@@ -16,6 +16,13 @@ body {
 html {
 	overflow-y: scroll;
 }
+
+.center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+}
 </style>
 </head>
 <body>
@@ -29,7 +36,9 @@ html {
 			<div class="col-md-9">
 				<div class="jumbotron">
 					<h2>好友 / 黑名單</h2>
-					<form class="form-inline" role="form" method="POST" action="SelectMemberServlet">
+					<div class="test"></div>
+					<form class="form-inline" role="form" method="POST"
+						action="SelectMemberServlet">
 						<div class="form-group">
 							<div class="input-group">
 								<label class="sr-only" for="account">會員帳號</label> <input
@@ -41,14 +50,20 @@ html {
 							<span class="glyphicon glyphicon-search"></span> 搜尋會員
 						</button>
 					</form>
-					<h3>好友名單</h3>
-					<c:forEach items="${whiteList}" var="x">
-						${x.friendName}(${x.friendAccount})<br>
-					</c:forEach>
-					<h3>黑名單</h3>
-					<c:forEach items="${blackList}" var="x">
-						${x.friendName}(${x.friendAccount})<br>
-					</c:forEach>
+					<br>
+					<div class="center-block">
+						<img src="../MemberPic/${memberBean.memberPic}"
+							class="img-responsive img-thumbnail" style="width: 100%;" />
+						<p class="text-center">${memberBean.name}(${memberBean.account})</p>
+						<div class="col-md-6">
+							<button type="button" class="btn btn-success btn-block">加為好友</button>
+						</div>
+						<div class="col-md-6">
+							<button type="button" class="btn btn-danger btn-block">封鎖此人</button>
+						</div>
+
+
+					</div>
 				</div>
 			</div>
 		</div>
