@@ -95,4 +95,54 @@ public class FriendDAOJdbc implements FriendDAO {
 		return result;
 	}
 
+	private static final String SELECT_BY_PK = "SELECT * from Friend where MemberId=? and FriendId=?";
+
+	@Override
+	public FriendBean select(int memberId, int friendId) {
+		FriendBean result = null;
+		ResultSet rset = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_PK);) {
+			stmt.setInt(1, memberId);
+			stmt.setInt(2, friendId);
+			rset = stmt.executeQuery();
+			if (rset.next()) {
+				result = new FriendBean();
+				result.setMemberId(rset.getInt("memberId"));
+				result.setFriendId(rset.getInt("friendId"));
+				result.setFriendStatus(rset.getInt("friendStatus"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (rset != null) {
+				try {
+					rset.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return result;
+	}
+	
+	private static final String UPDATE = "UPDATE Friend SET FriendStatus=? WHERE MemberId=? AND FriendId=?";
+
+	@Override
+	public FriendBean update(FriendBean bean) {
+		FriendBean  result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
+			stmt.setInt(1, bean.getFriendStatus());
+			stmt.setInt(2, bean.getMemberId());
+			stmt.setInt(3, bean.getFriendId());
+			int i = stmt.executeUpdate();
+			if (i == 1) {
+				result = this.select(bean.getMemberId(), bean.getFriendId());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
