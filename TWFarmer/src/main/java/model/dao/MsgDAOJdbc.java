@@ -211,7 +211,7 @@ public class MsgDAOJdbc implements MsgDAO {
 		return result;
 	}
 
-	private static final String SELECT_BY_READER_ID = "select * from Msg where MsgReaderID=? and readerDelete=0 order by msgTime desc";
+	private static final String SELECT_BY_READER_ID = "SELECT [MsgID],[MsgWriterID],[MsgReaderID],[MsgTitle],[MsgContent],[MsgTime],[MsgStatus] ,[WriterDelete],[ReaderDelete] FROM Msg m  INNER JOIN Friend f ON m.MsgReaderID=f.MemberId AND m.MsgWriterID=f.FriendId WHERE f.FriendStatus!=1 AND MsgReaderID=? and readerDelete=0 ORDER BY msgTime DESC";
 
 	@Override
 	public List<MsgBean> selectByReaderId(int msgReaderId) {
