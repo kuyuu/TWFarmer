@@ -110,23 +110,23 @@ html {
 								<%-- 				</c:forEach> --%>
 								<!-- 			</tr> -->
 								
-								<c:forEach items="${productDiscountList}" var="x">
+<%-- 								<c:forEach items="${productDiscountList}" var="x"> --%>
 										
 										<tr>
 											<td><strong>最小件數</strong></td>
-											<td>${x.minThreshold}</td>
+											<td>${productDiscountBean.minThreshold}</td>
 										</tr>
 
 										<tr>
 											<td><strong>最大件數</strong></td>
-											<td>${x.maxThreshold}</td>
+											<td>${productDiscountBean.maxThreshold}</td>
 										</tr>
 
 										<tr>
 											<td><strong>折扣後價格</strong></td>
-											<td>${x.discountPrice}</td>
+											<td>${productDiscountBean.discountPrice}</td>
 										</tr>
-									</c:forEach>
+<%-- 									</c:forEach> --%>
 
 <!-- 								<tr> -->
 <!-- 									<td><strong>最小件數</strong></td> -->
@@ -166,8 +166,8 @@ html {
 												<div class="thumbnail">
 													<img src="../img/${row.pictureName}">
 													<div class="caption">
-													<input type="text" value="${row.pictureIntro}" name="pictureIntro">
-<%-- 														<h4>${row.pictureIntro}</h4> --%>
+<%-- 													<input type="text" value="${row.pictureIntro}" name="pictureIntro"> --%>
+														<h4>${row.pictureIntro}</h4>
 														
 													</div>
 												</div>

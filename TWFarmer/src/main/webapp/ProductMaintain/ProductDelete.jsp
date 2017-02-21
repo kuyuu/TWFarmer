@@ -219,14 +219,14 @@ html {
 
 										<td width=140><c:forEach items="${productPicList}"
 												var="row" varStatus="name">
-												<input type="text" value="${row.productPicId}"
-											name="productPicId" />
+<%-- 												<input type="text" value="${row.productPicId}" --%>
+<!-- 											name="productPicId" /> -->
 												<div class="col-md-8">
 													<div class="thumbnail">
 														<img src="../img/${row.pictureName}">
 														<div class="caption">
-<%-- 														<input type="text" value="${row.pictureIntro}" name="pictureIntro"> --%>
-															<h4>${row.pictureIntro}</h4>
+														<input type="text" value="${row.pictureIntro}" name="pictureIntro${name.count}">
+<%-- 															<h4>${row.pictureIntro}</h4> --%>
 															<input class='InputClass' type="file"
 																name="picture${name.count}" />
 														</div>
@@ -256,6 +256,27 @@ html {
 			<script src="../js/jquery.min.js"></script>
 			<script src="../js/bootstrap.min.js"></script>
 			<script src="../js/scripts.js"></script>
+			<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="/TWFarmer/js/bootstrap.min.js"></script>
+	<script src="/TWFarmer/js/jquery.bootstrap-touchspin.js"></script>
+			<script>
+		$("input[name*='unit']").TouchSpin({
+			initval : 0
+		});
+		$(function() {
+			var list = $('input[name^="20"]')
+			for (var x = 0; x < list.size(); x++) {
+				var list2 = $(list[x]).parent().children('select').children(
+						'option');
+				for (var y = 0; y < list2.size(); y++) {
+					if ($(list[x]).val() == $(list2[y]).val()) {
+						$(list2[y]).attr("selected", "value");
+					}
+				}
+			}
+		});
+	</script>
 </body>
 </body>
 </html>

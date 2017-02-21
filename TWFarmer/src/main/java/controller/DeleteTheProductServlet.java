@@ -57,9 +57,7 @@ public class DeleteTheProductServlet extends HttpServlet {
 		String temp10 = request.getParameter("discountPrice");
 		String temp11 = request.getParameter("discountId");
 		String temp12 = request.getParameter("productPicId");
-		String[] tempPic = request.getParameterValues("productPicId");
-		String pictureIntro = request.getParameter("pictureIntro");
-		System.out.println(pictureIntro);
+		String[] tempPic = request.getParameterValues("productPicId");	//陣列取多張圖片
 //		System.out.println(temp12);
 //		for(String aaa: tempPic){
 //			System.out.println(aaa);
@@ -74,6 +72,11 @@ public class DeleteTheProductServlet extends HttpServlet {
 		String pictureIntro3 = request.getParameter("pictureIntro3");
 		String pictureIntro4 = request.getParameter("pictureIntro4");
 		String pictureIntro5 = request.getParameter("pictureIntro5");
+//		System.out.println(pictureIntro1);
+//		System.out.println(pictureIntro2);
+//		System.out.println(pictureIntro3);
+//		System.out.println(pictureIntro4);
+//		System.out.println(pictureIntro5);
 		String prodaction = request.getParameter("prodaction"); // 按鈕
 
 		// 存放錯誤訊息============================================
@@ -413,8 +416,8 @@ public class DeleteTheProductServlet extends HttpServlet {
 			// 5.挑選適當頁面============================================
 			request.setAttribute("productBean", productBean);
 			request.setAttribute("productPicList", list);
-			request.setAttribute("productDiscountList", list2);
-			// request.setAttribute("productDiscountBean", productDiscountBean);
+//			request.setAttribute("productDiscountList", list2);
+			request.setAttribute("productDiscountBean", productDiscountBean);
 
 			request.getRequestDispatcher("../ProductMaintain/ProductUpdateSuccess.jsp").forward(request, response);
 
