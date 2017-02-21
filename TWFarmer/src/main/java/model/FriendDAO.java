@@ -8,4 +8,5 @@ public interface FriendDAO {
 	public abstract FriendBean insert(FriendBean friendBean);
 	public abstract FriendBean select(int memberId, int friendId);
 	public abstract FriendBean update(FriendBean bean);
+	public abstract boolean delete(int memberId, int friendId);
 }

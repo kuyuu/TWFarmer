@@ -145,4 +145,21 @@ public class FriendDAOJdbc implements FriendDAO {
 		}
 		return result;
 	}
+	
+	private static final String DELETE_BY_PK = "delete from Friend where MemberID=? and FriendID=?";
+	@Override
+	public boolean delete(int memberId, int friendId) {
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(DELETE_BY_PK);) {
+			stmt.setInt(1, memberId);
+			stmt.setInt(2, friendId);
+			int i = stmt.executeUpdate();
+			if (i == 1) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }
