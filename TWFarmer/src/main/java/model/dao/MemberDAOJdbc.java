@@ -121,7 +121,7 @@ public class MemberDAOJdbc implements MemberDAO {
 		return result;
 	}
 
-	private static final String INSERT = "INSERT INTO MEMBER (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IdType, Rating, MemberPic) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	private static final String INSERT = "INSERT INTO MEMBER (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IdType, Rating, MemberPic) OUTPUT INSERTED.MemberID values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 	@Override
 	public MemberBean insert(MemberBean bean) {
@@ -150,9 +150,10 @@ public class MemberDAOJdbc implements MemberDAO {
 				stmt.setInt(12, bean.getIdType());
 				stmt.setInt(13, bean.getRating());
 				stmt.setString(14, bean.getMemberPic());
-				int i = stmt.executeUpdate();
-				if (i == 1) {
-					result = bean;
+				ResultSet rs = stmt.executeQuery();
+				if (rs.next()) {
+					result = new MemberBean();
+					result = select(rs.getInt("MemberId"));
 				}
 			}
 		} catch (SQLException e) {

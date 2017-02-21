@@ -50,8 +50,8 @@ public class MemberSubmitServlet extends HttpServlet {
 		String birthdate  = request.getParameter("birthDate");
 		String gender  = request.getParameter("gender");
 
-		System.out.println(account+":"+password+":"+name+":"+postalcode+":"+district+":"+address+":"+phone+":"+email+":"+idnumber+":"+birthdate+":"+gender);
-		System.out.println("接收資料");
+//		System.out.println(account+":"+password+":"+name+":"+postalcode+":"+district+":"+address+":"+phone+":"+email+":"+idnumber+":"+birthdate+":"+gender);
+//		System.out.println("接收資料");
 		
 		//驗證資料
 		Map<String, String> errors = new HashMap<String, String>();
@@ -107,7 +107,7 @@ public class MemberSubmitServlet extends HttpServlet {
 			return;
 		}
 				
-		System.out.println("驗證資料");
+//		System.out.println("驗證資料");
 				
 		//轉換資料
 		
@@ -178,15 +178,16 @@ public class MemberSubmitServlet extends HttpServlet {
 			} else {
 				request.setAttribute("insert", result);
 			}
+			request.setAttribute("memberBean", result);
 			request.getRequestDispatcher(
 					"/MemberSubmit/SubmitSuccess.jsp").forward(request, response);
-			System.out.println("成功");
+//			System.out.println("成功");
 			return ; 
 
 		}  else {
 			RequestDispatcher rd = request.getRequestDispatcher("/MemberSubmit/MemberSubmit.jsp");
 			rd.forward(request, response);
-			System.out.println("失敗");
+//			System.out.println("失敗");
 			return;
 		}
 
