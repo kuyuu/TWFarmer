@@ -58,17 +58,33 @@ html {
 									寄件人：<br>
 									<img src="../MemberPic/${msgBean.writerMemberPic}"
 										class="img-responsive img-thumbnail" style="width: 100%;" />
-							${msgBean.writerName}(${msgBean.writerAccount})<br>
-									<button type="button" class="btn btn-success">加為好友</button>
-									<button type="button" class="btn btn-danger">封鎖此人</button>
+									<p class="text-center">${msgBean.writerName}(${msgBean.writerAccount})</p>
+									<%-- 									<c:if test="${!friend}"> --%>
+									<div class="col-md-6">
+										<button type="button" class="btn btn-success btn-block"
+											value="${msgBean.msgWriterId}" name="white">加為好友</button>
+									</div>
+									<%-- 									</c:if> --%>
+									<div class="col-md-6">
+										<button type="button" class="btn btn-danger btn-block"
+											value="${msgBean.msgWriterId}" name="black">封鎖此人</button>
+									</div>
 								</c:when>
 								<c:otherwise>
 									收件人：<br>
 									<img src="../MemberPic/${msgBean.readerMemberPic}"
 										class="img-responsive img-thumbnail" style="width: 100%;" />
-							${msgBean.readerName}(${msgBean.readerAccount})<br>
-									<button type="button" class="btn btn-success">加為好友</button>
-									<button type="button" class="btn btn-danger">封鎖此人</button>
+									<p class="text-center">${msgBean.readerName}(${msgBean.readerAccount})</p>
+									<%-- 									<c:if test="${!friend}"> --%>
+									<div class="col-md-6">
+										<button type="button" class="btn btn-success btn-block"
+											value="${msgBean.msgReaderId}" name="white">加為好友</button>
+									</div>
+									<%-- 									</c:if> --%>
+									<div class="col-md-6">
+										<button type="button" class="btn btn-danger btn-block"
+											value="${msgBean.msgReaderId}" name="black">封鎖此人</button>
+									</div>
 								</c:otherwise>
 							</c:choose>
 						</div>
@@ -101,6 +117,23 @@ html {
 					});
 				}
 			});
+			$('button[name="white"]').click(function() {
+				$.post('../Friend/AddFriendServlet', {
+					"whiteId" : $(this).val()
+				}, function() {
+					$('button[name="white"]').attr("disabled", "disabled");
+				});
+			});
+			$('button[name="black"]').click(function() {
+				$.post('../Friend/AddFriendServlet', {
+					"blackId" : $(this).val()
+				}, function() {
+					window.location = "MsgHomeServlet";
+				});
+			});
+			if ("${friend}" == "true") {
+				$('button[name="white"]').attr("disabled", "disabled");
+			}
 		});
 	</script>
 </body>

@@ -1,6 +1,7 @@
 package controller.friend;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -64,9 +65,6 @@ public class AddFriendServlet extends HttpServlet {
 				dao.insert(bean);
 			}
 		}
-		
-		request.getRequestDispatcher("FriendHomeServlet").forward(request, response);
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

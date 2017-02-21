@@ -56,12 +56,12 @@ html {
 							class="img-responsive img-thumbnail" style="width: 100%;" />
 						<p class="text-center">${memberBean.name}(${memberBean.account})</p>
 						<div class="col-md-6">
-							<a href="AddFriendServlet?whiteId=${memberBean.memberId}"><button
-									type="button" class="btn btn-success btn-block">加為好友</button></a>
+							<button type="button" class="btn btn-success btn-block"
+								name="white">加為好友</button>
 						</div>
 						<div class="col-md-6">
-							<a href="AddFriendServlet?blackId=${memberBean.memberId}"><button
-									type="button" class="btn btn-danger btn-block">封鎖此人</button></a>
+							<button type="button" class="btn btn-danger btn-block"
+								name="black">封鎖此人</button>
 						</div>
 
 
@@ -77,7 +77,25 @@ html {
 	<script>
 		$(function() {
 			$("#collapseOne>ul>li:eq(6)").addClass("list-group-item-success");
-
+			$('button[name="white"]').click(function() {
+				$.post('AddFriendServlet', {
+					"whiteId" : "${memberBean.memberId}"
+				}, function() {
+					window.location = "FriendHomeServlet";
+				});
+			});
+			$('button[name="black"]').click(function() {
+				$.post('AddFriendServlet', {
+					"blackId" : "${memberBean.memberId}"
+				}, function() {
+					window.location = "FriendHomeServlet";
+				});
+			});
+			if ("${friend}" == "0") {
+				$('button[name="white"]').attr("disabled", "disabled");
+			} else if ("${friend}" == "1") {
+				$('button[name="black"]').attr("disabled", "disabled");
+			}
 		});
 	</script>
 </body>
