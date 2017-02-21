@@ -56,10 +56,12 @@ html {
 							class="img-responsive img-thumbnail" style="width: 100%;" />
 						<p class="text-center">${memberBean.name}(${memberBean.account})</p>
 						<div class="col-md-6">
-							<button type="button" class="btn btn-success btn-block">加為好友</button>
+							<a href="AddFriendServlet?whiteId=${memberBean.memberId}"><button
+									type="button" class="btn btn-success btn-block">加為好友</button></a>
 						</div>
 						<div class="col-md-6">
-							<button type="button" class="btn btn-danger btn-block">封鎖此人</button>
+							<a href="AddFriendServlet?blackId=${memberBean.memberId}"><button
+									type="button" class="btn btn-danger btn-block">封鎖此人</button></a>
 						</div>
 
 

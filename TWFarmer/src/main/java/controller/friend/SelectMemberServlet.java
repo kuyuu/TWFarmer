@@ -33,7 +33,7 @@ public class SelectMemberServlet extends HttpServlet {
 		}
 
 		if (errors != null && !errors.isEmpty()) {
-			request.getRequestDispatcher("friendHome.jsp").forward(request, response);
+			request.getRequestDispatcher("FriendHomeServlet").forward(request, response);
 			return;
 		}
 		request.setAttribute("memberBean", bean);

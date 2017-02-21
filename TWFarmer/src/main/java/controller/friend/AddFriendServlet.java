@@ -24,22 +24,48 @@ public class AddFriendServlet extends HttpServlet {
 		String temp = request.getParameter("whiteId");
 		String temp2 = request.getParameter("blackId");
 
-		int whiteId = Integer.parseInt(temp);
-		int blackId = Integer.parseInt(temp2);
-
 		FriendDAOJdbc dao = new FriendDAOJdbc();
 		FriendBean bean = new FriendBean();
-		bean.setMemberId(mb.getMemberId());
+
 		if (temp != null && temp.trim().length() != 0) {
-			bean.setFriendId(whiteId);
-			bean.setFriendStatus(0);
+			int whiteId = 0;
+			try {
+				whiteId = Integer.parseInt(temp);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			}
+			bean = dao.select(mb.getMemberId(), whiteId);
+			if (bean != null) {
+				bean.setFriendStatus(0);
+				dao.update(bean);
+			} else {
+				bean = new FriendBean();
+				bean.setMemberId(mb.getMemberId());
+				bean.setFriendId(whiteId);
+				bean.setFriendStatus(0);
+				dao.insert(bean);
+			}
 		} else if (temp2 != null && temp2.trim().length() != 0) {
-			bean.setFriendId(blackId);
-			bean.setFriendStatus(1);
+			int blackId = 0;
+			try {
+				blackId = Integer.parseInt(temp2);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			}
+			bean = dao.select(mb.getMemberId(), blackId);
+			if (bean != null) {
+				bean.setFriendStatus(1);
+				dao.update(bean);
+			} else {
+				bean = new FriendBean();
+				bean.setMemberId(mb.getMemberId());
+				bean.setFriendId(blackId);
+				bean.setFriendStatus(1);
+				dao.insert(bean);
+			}
 		}
-		dao.insert(bean);
 		
-		System.out.println("add friend success!!");
+		request.getRequestDispatcher("FriendHomeServlet").forward(request, response);
 
 	}
 

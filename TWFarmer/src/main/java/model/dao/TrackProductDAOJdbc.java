@@ -198,7 +198,7 @@ public class TrackProductDAOJdbc implements TrackProductDAO {
 		return result;
 	}
 
-	private static final String UPDATE = "UPDATE Member SET TRACKDATE=? WHERE MemberId=? AND ProductId=?";
+	private static final String UPDATE = "UPDATE TrackProduct SET TrackDate=? WHERE MemberId=? AND ProductId=?";
 
 	@Override
 	public TrackProductBean update(TrackProductBean bean) {
