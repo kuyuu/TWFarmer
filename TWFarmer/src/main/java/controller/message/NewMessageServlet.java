@@ -60,6 +60,8 @@ public class NewMessageServlet extends HttpServlet {
 		Date date = new Date();
 		msgBean.setMsgTime(date);
 		msgBean.setMsgStatus(0);
+		msgBean.setWriterDelete(0);
+		msgBean.setReaderDelete(0);
 		msgdao.insert(msgBean);
 
 		request.getRequestDispatcher("MsgHomeServlet").forward(request, response);

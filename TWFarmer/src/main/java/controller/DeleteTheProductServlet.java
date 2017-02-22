@@ -35,7 +35,7 @@ public class DeleteTheProductServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		// 輸入資料編碼
 		request.setCharacterEncoding("UTF-8");
 		// 1.接收資料===========================================
@@ -56,7 +56,12 @@ public class DeleteTheProductServlet extends HttpServlet {
 		String temp9 = request.getParameter("maxThreshold");
 		String temp10 = request.getParameter("discountPrice");
 		String temp11 = request.getParameter("discountId");
-//		System.out.println(temp11);
+		String temp12 = request.getParameter("productPicId");
+		String[] tempPic = request.getParameterValues("productPicId");	//陣列取多張圖片
+//		System.out.println(temp12);
+//		for(String aaa: tempPic){
+//			System.out.println(aaa);
+//		}
 		Part part = request.getPart("picture1");
 		Part part2 = request.getPart("picture2");
 		Part part3 = request.getPart("picture3");
@@ -67,6 +72,11 @@ public class DeleteTheProductServlet extends HttpServlet {
 		String pictureIntro3 = request.getParameter("pictureIntro3");
 		String pictureIntro4 = request.getParameter("pictureIntro4");
 		String pictureIntro5 = request.getParameter("pictureIntro5");
+//		System.out.println(pictureIntro1);
+//		System.out.println(pictureIntro2);
+//		System.out.println(pictureIntro3);
+//		System.out.println(pictureIntro4);
+//		System.out.println(pictureIntro5);
 		String prodaction = request.getParameter("prodaction"); // 按鈕
 
 		// 存放錯誤訊息============================================
@@ -221,7 +231,7 @@ public class DeleteTheProductServlet extends HttpServlet {
 				errorMessage.put("discountPrice", "折扣後價格必須是整數");
 			}
 		}
-		
+
 		int discountId = 0;
 		if (temp11 != null && temp11.length() != 0) {
 			try {
@@ -229,6 +239,16 @@ public class DeleteTheProductServlet extends HttpServlet {
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 				errorMessage.put("discountId", "折扣編號必須是整數");
+			}
+		}
+
+		int productPicId = 0;
+		if (temp12 != null && temp12.length() != 0) {
+			try {
+				productPicId = Integer.parseInt(temp12);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+				errorMessage.put("productPicId", "圖片編號必須是整數");
 			}
 		}
 
@@ -294,6 +314,7 @@ public class DeleteTheProductServlet extends HttpServlet {
 
 			// 4.呼叫Model
 			// ProductBean productBean = new ProductBean();
+			ProductPicBean productPicBean = new ProductPicBean();
 			ProductDAOjdbc dao1 = new ProductDAOjdbc();
 			// productBean = dao1.update(productBean);
 
@@ -311,67 +332,92 @@ public class DeleteTheProductServlet extends HttpServlet {
 			productBean.setProductStatusName(productStatusName);
 			dao1.update(productBean);
 
-			ProductPicBean productPicBean = new ProductPicBean();
+			ProductDiscountDAOjdbc dao3 = new ProductDiscountDAOjdbc();
 			productPicBean.setProductId(productBean.getProductId());
+//			 productPicBean.setProductPicId(productPicId);
+			ProductPicDAOJdbc dao2 = new ProductPicDAOJdbc();
 			// 商品圖片介紹
-			if (part.getSize() != 0) {
-				productPicBean.setPictureIntro(pictureIntro1);
-				ProductPicService.uploadPic(productPicBean, part);
+			if (part != null) {
+				if (part.getSize() != 0) {
+					productPicBean.setPictureIntro(pictureIntro1);
+					ProductPicBean bean = ProductPicService.uploadPic(productPicBean, part);
+					System.out.println(bean.getProductPicId());
+//					productPicBean.setProductPicId(productPicId);
+					dao2.delete(Integer.parseInt(tempPic[0]));
+					System.out.println(Integer.parseInt(tempPic[0]));
+				}
 			}
 
 			if (part2 != null) {
 				if (part2.getSize() != 0) {
 					productPicBean.setPictureIntro(pictureIntro2);
-					ProductPicService.uploadPic(productPicBean, part2);
+					ProductPicBean bean = ProductPicService.uploadPic(productPicBean, part2);
+					System.out.println(bean.getProductPicId());
+//					productPicBean.setProductPicId(productPicId);
+					dao2.delete(Integer.parseInt(tempPic[1]));
+					System.out.println(Integer.parseInt(tempPic[1]));
 				}
 			}
 
 			if (part3 != null) {
 				if (part3.getSize() != 0) {
 					productPicBean.setPictureIntro(pictureIntro3);
-					ProductPicService.uploadPic(productPicBean, part3);
+					ProductPicBean bean = ProductPicService.uploadPic(productPicBean, part3);
+					System.out.println(bean.getProductPicId());
+//					productPicBean.setProductPicId(productPicId);
+					dao2.delete(Integer.parseInt(tempPic[2]));
+					System.out.println(Integer.parseInt(tempPic[2]));
 				}
 			}
 
 			if (part4 != null) {
 				if (part4.getSize() != 0) {
 					productPicBean.setPictureIntro(pictureIntro4);
-					ProductPicService.uploadPic(productPicBean, part4);
+					ProductPicBean bean = ProductPicService.uploadPic(productPicBean, part4);
+					System.out.println(bean.getProductPicId());
+//					productPicBean.setProductPicId(productPicId);
+					dao2.delete(Integer.parseInt(tempPic[3]));
+					System.out.println(Integer.parseInt(tempPic[3]));
 				}
 			}
 
 			if (part5 != null) {
 				if (part5.getSize() != 0) {
 					productPicBean.setPictureIntro(pictureIntro5);
-					ProductPicService.uploadPic(productPicBean, part5);
+					ProductPicBean bean = ProductPicService.uploadPic(productPicBean, part5);
+					System.out.println(bean.getProductPicId());
+//					productPicBean.setProductPicId(productPicId);
+					dao2.delete(Integer.parseInt(tempPic[4]));
+					System.out.println(Integer.parseInt(tempPic[4]));
 				}
 			}
-			ProductPicDAOJdbc dao2 = new ProductPicDAOJdbc();
-//			productPicBean.setPictureName();
-//			dao2.update(productPicBean);
+			
+			List<ProductDiscountBean> list2 = dao3.selectByProductId(productBean.getProductId());
+			// productPicBean.setPictureName();
+			// dao2.update(productPicBean);
 			List<ProductPicBean> list = dao2.selectByProductId(productBean.getProductId());
+			// List<ProductPicBean> list3 =
+			// dao2.selectByProductId(productPicBean.getProductPicId());
 
 			/*
 			 * insert同時回傳含有流水號的Bean(DiscountId) insert完後回傳的bean就會有流水號
 			 * 可以再從這個bean裡面拿出商品折扣編號
 			 */
 			ProductDiscountBean productDiscountBean = new ProductDiscountBean();
-			
-			ProductDiscountDAOjdbc dao3 = new ProductDiscountDAOjdbc();
-			List<ProductDiscountBean> list2 = dao3.selectByProductId(productBean.getProductId());
+
 			productDiscountBean.setDiscountPrice(discountPrice);
 			productDiscountBean.setMaxThreshold(maxThreshold);
 			productDiscountBean.setMinThreshold(minThreshold);
 			productDiscountBean.setDiscountId(discountId);
-			productDiscountBean.setProductId(productBean.getProductId());		
-			
+			productDiscountBean.setProductId(productBean.getProductId());
+
 			dao3.update(productDiscountBean);
 
 			// 5.挑選適當頁面============================================
 			request.setAttribute("productBean", productBean);
 			request.setAttribute("productPicList", list);
-			request.setAttribute("productDiscountList", list2);
-//			request.setAttribute("productDiscountBean", productDiscountBean);
+//			request.setAttribute("productDiscountList", list2);
+			request.setAttribute("productDiscountBean", productDiscountBean);
 
 			request.getRequestDispatcher("../ProductMaintain/ProductUpdateSuccess.jsp").forward(request, response);
 
