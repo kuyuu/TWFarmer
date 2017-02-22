@@ -101,7 +101,7 @@ public class ChangePWDServlet extends HttpServlet {
 			errors.put("PWD", "新舊密碼不可相同");
 			request.getRequestDispatcher("/BackStage/changePWD.jsp").forward(request, response);
 			return;
-		}
+		} 
 
 		// if ("change".equals(submit)) {
 		// if(mb.getMemberId() == oldPassword ){
