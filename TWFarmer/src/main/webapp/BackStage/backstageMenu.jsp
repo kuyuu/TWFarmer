@@ -30,7 +30,7 @@
 					<li class="list-group-item"><a href="../Message/MsgHomeServlet">站內信</a></li>
 					<li class="list-group-item"><a href="../Friend/FriendHomeServlet">好友 / 黑名單</a></li>
 					<c:if test="${LoginOK.idType==1}">
-						<li class="list-group-item"><a href="#">申請成為小農</a></li>
+						<li class="list-group-item"><a href="../ToBeFarmer/UpToFarmer.jsp">申請成為小農</a></li>
 					</c:if>
 				</ul>
 			</div>
