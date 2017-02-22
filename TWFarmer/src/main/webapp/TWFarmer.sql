@@ -701,11 +701,11 @@ VALUES (1026, 4308, 4007, 400, null, '2017-02-28', 400, '玉山銀行', 02089, 0
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
 VALUES (1022, 4309, 4007, 400, null, '2017-03-01', 400, '華南銀行', 51501, 0, 500, '若可一試合購，願折壽十年，若更一嘗醋栗，願終身守齋。');
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-	VALUES (1020, 4305, 4006, 100, null, null, null, null, null, 0, 0, '天使!!');
+	VALUES (1020, 4305, 4006, 100, 1, null, 100, null, null, 0, 0, '天使!!');
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-	VALUES (1011, 4305, 4006, 100, null, null, null, null, null, 0, 0, '天使!!');
+	VALUES (1011, 4305, 4006, 200, 0, null, null, null, null, 0, 0, '天使!!');
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-	VALUES (1021, 4305, 4006, 100, null, null, null, null, null, 0, 0, '天使!!');
+	VALUES (1021, 4305, 4006, 300, 1, null, 300, null, null, 0, 0, '天使!!');
 
 --JPFollowerDetail
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4402, 2019, 3, 291);

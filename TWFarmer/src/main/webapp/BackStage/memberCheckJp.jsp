@@ -36,7 +36,7 @@ html {
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<h3 class="text-center">管理開團</h3>
+					<h2 class="text-center">管理開團</h2>
 					<c:if test="${not empty initJpList}">
 						<c:forEach items="${initJpList}" var="row">
 							<div class="row jp">

@@ -17,8 +17,14 @@ import model.MsgBean;
 import model.TrackProductBean;
 
 public class FriendDAOJdbc implements FriendDAO {
-	private DataSource dataSource;
 
+	DataSource dataSource;
+
+	public FriendDAOJdbc(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+	// private DataSource dataSource;
+	//
 	public FriendDAOJdbc() {
 		try {
 			Context ctx = new InitialContext();
@@ -125,14 +131,13 @@ public class FriendDAOJdbc implements FriendDAO {
 		}
 		return result;
 	}
-	
+
 	private static final String UPDATE = "UPDATE Friend SET FriendStatus=? WHERE MemberId=? AND FriendId=?";
 
 	@Override
 	public FriendBean update(FriendBean bean) {
-		FriendBean  result = null;
-		try (Connection conn = dataSource.getConnection();
-				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
+		FriendBean result = null;
+		try (Connection conn = dataSource.getConnection(); PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
 			stmt.setInt(1, bean.getFriendStatus());
 			stmt.setInt(2, bean.getMemberId());
 			stmt.setInt(3, bean.getFriendId());
@@ -145,8 +150,9 @@ public class FriendDAOJdbc implements FriendDAO {
 		}
 		return result;
 	}
-	
+
 	private static final String DELETE_BY_PK = "delete from Friend where MemberID=? and FriendID=?";
+
 	@Override
 	public boolean delete(int memberId, int friendId) {
 		try (Connection conn = dataSource.getConnection();

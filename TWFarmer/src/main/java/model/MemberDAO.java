@@ -14,6 +14,8 @@ public interface MemberDAO {
 	//此功能供會員搜尋及好友使用
 //	public abstract List<MemberBean> selectById2(int memberId);
 	
+	public abstract Map<MemberBean, FarmerBean> selectByType(int idType);
+	
 	public abstract List<MemberBean> selectByTypeId(int idType);
 	
 	public abstract List<MemberBean> select();

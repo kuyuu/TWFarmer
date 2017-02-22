@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/UploadDemo")
 public class UploadImgController {
 	
-	@RequestMapping(value = "/uploadHeadImage",method = RequestMethod.POST)
+	@RequestMapping(value = "/uploadHeadImage.do",method = RequestMethod.POST)
     public String uploadHeadImage(
             HttpServletRequest request,
             @RequestParam(value = "x") String x,

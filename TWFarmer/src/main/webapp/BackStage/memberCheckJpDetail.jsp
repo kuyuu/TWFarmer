@@ -43,21 +43,50 @@ html {
 							<c:forEach items="${list}" var="x" varStatus="y">
 								<td>${x.productName}</td>
 							</c:forEach>
+							<c:if test="${jpBean.jpStatusId==4104}">
+								<td>匯款狀態</td>
+							</c:if>
+							<td></td>
 						</tr>
 
 						<c:forEach items="${map}" var="x">
+
 							<tr>
-								<td>${x.key.name}</td>
+								<td>${x.key.name}(${x.key.account})</td>
 								<c:forEach items="${x.value}" var="y">
 									<td>${y}</td>
 								</c:forEach>
+								<c:forEach items="${list2}" var="q">
+									<c:if
+										test="${x.key.memberId==q.memberId  && jpBean.jpStatusId==4104}">
+										<c:choose>
+											<c:when test="${q.remittanceStatus==0}">
+												<td><span class="glyphicon glyphicon-remove"></span></td>
+											</c:when>
+											<c:otherwise>
+												<td><span class="glyphicon glyphicon-ok"></span></td>
+											</c:otherwise>
+										</c:choose>
+									</c:if>
+								</c:forEach>
+								<td>
+									<button class="btn btn-primary" name="mail"
+										value="${x.key.account}">
+										<span class="glyphicon glyphicon-envelope"></span>
+									</button>
+								</td>
 							</tr>
+
 						</c:forEach>
 						<tr>
 							<td>累積數量</td>
 							<c:forEach items="${list4}" var="x">
 								<td><c:out value="${x}" /></td>
 							</c:forEach>
+							<c:if test="${jpBean.jpStatusId==4104}">
+								<td></td>
+							</c:if>
+							<td></td>
 						</tr>
 					</table>
 				</div>
@@ -71,6 +100,12 @@ html {
 	<script>
 		$(function() {
 			$('#collapseOne>ul>li:eq(2)').addClass("list-group-item-success");
+			$('button[name="mail"]')
+					.click(
+							function() {
+								window.location = "../Message/NewMessageServlet?readerAccount="
+										+ $(this).val();
+							});
 		});
 	</script>
 </body>

@@ -38,6 +38,8 @@ public class MemberCheckJpDetailServlet extends HttpServlet {
 
 		JPFollowerDAOJdbc dao2 = new JPFollowerDAOJdbc();
 		List<JPFollowerBean> list2 = dao2.selectByJpId(jpId);
+		
+		request.setAttribute("list2", list2);
 
 		JPFollowerDetailDAOJdbc dao3 = new JPFollowerDetailDAOJdbc();
 		Map<MemberBean, List<Integer>> map = new HashMap<MemberBean, List<Integer>>();
