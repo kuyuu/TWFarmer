@@ -17,7 +17,6 @@ body {
 html {
 	overflow-y: scroll;
 }
-
 </style>
 </head>
 <body>
@@ -37,19 +36,26 @@ html {
 									id="cutimg" /> <input type="hidden" id="x" name="x" /> <input
 									type="hidden" id="y" name="y" /> <input type="hidden" id="w"
 									name="w" /> <input type="hidden" id="h" name="h" />
+								<div class="jumbotron" style="margin: 5% auto;">
+
+
+									<div id="preview-pane" class="location">
+										<div class="preview-container">
+											<img src="" class="jcrop-preview" alt="預覽">
+										</div>
+									</div>
+								</div>
+
+
+								<div class="modal-footer">
+									<button id="submit" class="btn btn-primary btn-large"
+										onclick="">上傳</button>
+								</div>
 							</div>
+
 						</div>
 					</div>
 
-					<div id="preview-pane" class="location">
-						<div class="preview-container">
-							<img src="" class="jcrop-preview" alt="預覽">
-						</div>
-					</div>
-
-					<div class="modal-footer">
-						<button id="submit" onclick="">上傳</button>
-					</div>
 				</form>
 			</div>
 		</div>

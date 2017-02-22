@@ -8,5 +8,6 @@ public interface JPFollowerDAO {
 	public abstract JPFollowerBean insert(JPFollowerBean JPFollowerBean);
 	public abstract JPFollowerBean update(JPFollowerBean JPFollowerBean);
 	public abstract boolean delete(int JPFollowerId);
-	List<JPFollowerBean> selectByBuyerId(int buyerId);
+	public abstract List<JPFollowerBean> selectByBuyerId(int buyerId);
+	public abstract List<JPFollowerBean> selectByJpId(int jpId);
 }

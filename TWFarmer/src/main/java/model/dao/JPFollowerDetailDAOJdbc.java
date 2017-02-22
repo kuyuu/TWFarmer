@@ -1,54 +1,93 @@
 package model.dao;
 
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import hibernate.util.HibernateUtil;
 import model.JPFollowerDetailBean;
 import model.JPFollowerDetailDAO;
+import model.TrackProductBean;
 
 public class JPFollowerDetailDAOJdbc implements JPFollowerDetailDAO {
-	
-	public static void main(String[] args) {
-		JPFollowerDetailDAO dao = new JPFollowerDetailDAOJdbc();
-		JPFollowerDetailBean select = dao.select(4401, 2001);
-		System.out.println(select.getPrice());
-		
-		List<JPFollowerDetailBean> selects = dao.select();
-		for(JPFollowerDetailBean select1 : selects) {
-			System.out.println(select1.getQuantity());
+
+	DataSource dataSource;
+
+	public JPFollowerDetailDAOJdbc() {
+		try {
+			Context ctx = new InitialContext();
+			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+		} catch (NamingException e) {
+			e.printStackTrace();
 		}
-		
-		JPFollowerDetailBean insert = new JPFollowerDetailBean();
-		insert.setJPFollowerId(4402);
-		insert.setProductId(2002);
-		dao.insert(insert);
-		
-		dao.delete(4402, 2002);
 	}
-	
-	private static final String SELECT_BY_PK = "from JPFollowerDetailBean where JPFollowerId=? and productId=?";
+
+	private static final String SELECT_BY_PK = "SELECT * from JPFollowerDetail where JPFollowerID=? and ProductID=?";
 
 	@Override
 	public JPFollowerDetailBean select(int JPFollowerId, int productId) {
 		JPFollowerDetailBean result = null;
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		try {
-			session.beginTransaction();
-			Query query = session.createQuery(SELECT_BY_PK);
-			query.setParameter(0, JPFollowerId);
-			query.setParameter(1, productId);
-			List<JPFollowerDetailBean> list  = query.list();
-			result = list.get(0);
-			session.getTransaction().commit();
-		} catch (RuntimeException ex) {
-			session.getTransaction().rollback();
-			throw ex;
+		ResultSet rset = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_PK);) {
+			stmt.setInt(1, JPFollowerId);
+			stmt.setInt(2, productId);
+			rset = stmt.executeQuery();
+			if (rset.next()) {
+				result = new JPFollowerDetailBean();
+				result.setJPFollowerId(rset.getInt("JPFollowerId"));
+				result.setProductId(rset.getInt("ProductId"));
+				result.setQuantity(rset.getInt("Quantity"));
+				result.setPrice(rset.getInt("Price"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (rset != null) {
+				try {
+					rset.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		return result;
 	}
-	
+
+	// @Override
+	// public JPFollowerDetailBean select(int JPFollowerId, int productId) {
+	// JPFollowerDetailBean result = null;
+	// Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+	// try {
+	// session.beginTransaction();
+	// Query query = session.createQuery(SELECT_BY_PK);
+	// query.setParameter(0, JPFollowerId);
+	// query.setParameter(1, productId);
+	// // result = session.createQuery(SELECT_JPFId).setParameter(0,
+	// // productId).list();
+	// // for (JPFollowerDetailBean aaa : list) {
+	// // System.out.println(aaa.getJPFollowerId() + ":" +
+	// // aaa.getProductId());
+	// // }
+	// // result = list.get(0);
+	// session.getTransaction().commit();
+	// } catch (RuntimeException ex) {
+	// session.getTransaction().rollback();
+	// throw ex;
+	// }
+	// return result;
+	// }
+
 	private static final String SELECT_JPFId = "from JPFollowerDetailBean where JPFollowerId=?";
 
 	@Override
@@ -65,7 +104,7 @@ public class JPFollowerDetailDAOJdbc implements JPFollowerDetailDAO {
 		}
 		return result;
 	}
-	
+
 	private static final String SELECT_ALL = "from JPFollowerDetailBean order by JPFollowerId";
 
 	@Override
@@ -120,22 +159,22 @@ public class JPFollowerDetailDAOJdbc implements JPFollowerDetailDAO {
 	@Override
 	public boolean delete(int JPFollowerId, int productId) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		 boolean result = false;
-			try {
-				session.beginTransaction();
-				Query query = session.createQuery("delete JPFollowerDetailBean where JPFollowerId=? and productId=?");
-				query.setParameter(0, JPFollowerId);
-				query.setParameter(1, productId);
-				int i = query.executeUpdate();
-				if (i == 1) {
-					result = true;
-				}
-				session.getTransaction().commit();
-			} catch (RuntimeException ex) {
-				session.getTransaction().rollback();
-				throw ex;
+		boolean result = false;
+		try {
+			session.beginTransaction();
+			Query query = session.createQuery("delete JPFollowerDetailBean where JPFollowerId=? and productId=?");
+			query.setParameter(0, JPFollowerId);
+			query.setParameter(1, productId);
+			int i = query.executeUpdate();
+			if (i == 1) {
+				result = true;
 			}
-			return result;
+			session.getTransaction().commit();
+		} catch (RuntimeException ex) {
+			session.getTransaction().rollback();
+			throw ex;
+		}
+		return result;
 	}
 
 }

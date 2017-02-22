@@ -22,6 +22,7 @@ html {
 	border: 1px solid black;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	height: 140px;
 }
 </style>
 </head>
@@ -35,12 +36,14 @@ html {
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<h3 class="text-center">管理開團</h3>
+					<h2 class="text-center">管理開團</h2>
 					<c:if test="${not empty initJpList}">
 						<c:forEach items="${initJpList}" var="row">
 							<div class="row jp">
+								<div style="display: none">${row.jpId}</div>
 								<div class="col-md-3">
-									<img src="../img/${row.pictureName}" style="width: 100%" />
+									<img src="../img/${row.pictureName}"
+										class="img-responsive img-thumbnail" />
 								</div>
 								<div class="col-md-9">
 									<table class="table">
@@ -81,6 +84,10 @@ html {
 	<script>
 		$(function() {
 			$('#collapseOne>ul>li:eq(2)').addClass("list-group-item-success");
+			$('.jp').click(function() {
+				var x = $(this).children(":first").text();
+				window.location = "MemberCheckJpDetailServlet?jpId=" + x;
+			});
 		});
 	</script>
 </body>
