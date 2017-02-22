@@ -89,7 +89,7 @@ html {
 			$("#collapseOne>ul>li:eq(6)").addClass("list-group-item-success");
 			$('button[name="delete"]').click(function() {
 				$(this).parent().parent().remove();
-				$.get('DeleteFriendServlet', {
+				$.get('DeleteFriend.do', {
 					"friendId" : $(this).val()
 				});
 			});

@@ -11,7 +11,7 @@
 <script type="text/javascript" src="<c:url value="/resources/jcrop/js/jquery.Jcrop.js"/>"></script>
 </head>
 <body>
-	<form name="form" action="<%=request.getContextPath()%>/UploadDemo/uploadHeadImage" class="form-horizontal" method="post" enctype="multipart/form-data">
+	<form name="form" action="<%=request.getContextPath()%>/UploadDemo/uploadHeadImage.do" class="form-horizontal" method="post" enctype="multipart/form-data">
 		<div class="modal-body text-center">
 			<div class="zxx_main_con">
 				<div class="zxx_test_list">

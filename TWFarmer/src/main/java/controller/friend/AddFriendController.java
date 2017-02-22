@@ -10,31 +10,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import model.FriendBean;
 import model.MemberBean;
 import model.dao.FriendDAOJdbc;
 
-@WebServlet("/Friend/AddFriendServlet")
-public class AddFriendServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+@Controller
+@RequestMapping(path = { "/Friend/AddFriend.do" })
+public class AddFriendController {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		HttpSession session = request.getSession();
+	@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST })
+	public String doWork(HttpSession session, Integer whiteId, Integer blackId) {
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
-		String temp = request.getParameter("whiteId");
-		String temp2 = request.getParameter("blackId");
-
 		FriendDAOJdbc dao = new FriendDAOJdbc();
 		FriendBean bean = new FriendBean();
 
-		if (temp != null && temp.trim().length() != 0) {
-			int whiteId = 0;
-			try {
-				whiteId = Integer.parseInt(temp);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-			}
+		if (whiteId != null) {
 			bean = dao.select(mb.getMemberId(), whiteId);
 			if (bean != null) {
 				bean.setFriendStatus(0);
@@ -46,13 +41,7 @@ public class AddFriendServlet extends HttpServlet {
 				bean.setFriendStatus(0);
 				dao.insert(bean);
 			}
-		} else if (temp2 != null && temp2.trim().length() != 0) {
-			int blackId = 0;
-			try {
-				blackId = Integer.parseInt(temp2);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-			}
+		} else if (blackId != null) {
 			bean = dao.select(mb.getMemberId(), blackId);
 			if (bean != null) {
 				bean.setFriendStatus(1);
@@ -65,11 +54,7 @@ public class AddFriendServlet extends HttpServlet {
 				dao.insert(bean);
 			}
 		}
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
+		return null;
 	}
 
 }
