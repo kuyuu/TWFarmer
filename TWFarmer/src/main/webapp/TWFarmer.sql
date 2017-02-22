@@ -353,7 +353,7 @@ INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phon
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
 	        VALUES ('mango','123','李逍遙',906,'屏東縣高樹鄉','屏東縣高樹鄉中央路60號','0988168168','mango168@gmail.com','T127168168','1988-1-06','M',2,-68,'P1036.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
-	        VALUES ('ching','215','管理員小晴',300,'新竹市東區','新竹市站前路60號','0912345678','ching@gmail.com','D123456789','1988-1-06','F',2, null,'P1037.jpg');
+	        VALUES ('ching','215','管理員小晴',300,'新竹市東區','新竹市站前路60號','0912345678','ching@gmail.com','D123456789','1988-1-06','F',3, null,'P1037.jpg');
 
 --Farmer
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
