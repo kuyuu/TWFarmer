@@ -28,8 +28,8 @@ html {
 					<h2 style="color: blue; font-weight: 600;font-size: 50px;">申請完成</h2>
 					<h3>以下是${memberBean.name}的申請資料</h3>
 				</center>
-				<div class="col-md-3"></div>
-				<div class="col-md-9">
+				<div class="col-md-2"></div>
+				<div class="col-md-10">
 					<h3>農民證號:${farmerBean.farmerId}</h3>
 					<h3>銀行代碼:${farmerBean.bank}</h3>
 					<h3>銀行帳號:${farmerBean.bankAccount}</h3>

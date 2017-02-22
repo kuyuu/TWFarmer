@@ -16,6 +16,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import model.FarmerBean;
 import model.FriendBean;
 import model.JointPurchaseBean;
 import model.MemberBean;
@@ -509,4 +510,42 @@ public class MemberDAOJdbc implements MemberDAO {
 	// }
 	//
 	// //民國106年02月17日 會員搜尋方法至以上為止
+
+	@Override
+	public Map<MemberBean, FarmerBean> selectByType(int idType) {
+		Map<MemberBean, FarmerBean> result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_TYPEID);) {
+
+			stmt.setInt(1, idType);
+			ResultSet rset = stmt.executeQuery();
+			result = new HashMap<MemberBean, FarmerBean>();
+			while (rset.next()) {
+				MemberBean memberBean = new MemberBean();
+				memberBean.setMemberId(rset.getInt("memberId"));
+				memberBean.setAccount(rset.getString("account"));
+				memberBean.setPassword(rset.getString("password"));
+				memberBean.setName(rset.getString("name"));
+				memberBean.setPostalCode(rset.getString("postalCode"));
+				memberBean.setDistrict(rset.getString("district"));
+				memberBean.setAddress(rset.getString("address"));
+				memberBean.setPhone(rset.getString("phone"));
+				memberBean.setEmail(rset.getString("email"));
+				memberBean.setIdNumber(rset.getString("idNumber"));
+				memberBean.setBirthDate(rset.getDate("BirthDate"));
+				memberBean.setGender(rset.getString("gender"));
+				memberBean.setIdType(rset.getInt("idType"));
+				memberBean.setRating(rset.getInt("rating"));
+				memberBean.setMemberPic(rset.getString("memberPic"));
+				FarmerBean farmerBean = new FarmerBean();
+				FarmerDAOJdbc dao = new FarmerDAOJdbc();
+				farmerBean = dao.selectByMemberId(rset.getInt("memberId"));
+				result.put(memberBean, farmerBean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 }

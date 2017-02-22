@@ -74,7 +74,7 @@
 				<div id="collapseThree" class="panel-collapse collapse"
 					role="tabpanel" aria-labelledby="headingThree">
 					<ul class="list-group">
-						<li class="list-group-item"><a href="#">審核小農升級</a></li>
+						<li class="list-group-item"><a href="../BackStage/SelectFarmerUpServlet">審核小農升級</a></li>
 						<li class="list-group-item"><a href="ShowAllViolationServlet">處理違規</a></li>
 					</ul>
 				</div>
