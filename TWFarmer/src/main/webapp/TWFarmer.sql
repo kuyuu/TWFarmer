@@ -668,9 +668,8 @@ INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQE
 	VALUES (4005, 2010, 5, 5, 1, 50, 10,'公斤');
 INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight,JPUnit) 
 	VALUES (4006, 2009, 1, 3, 1, 60, 10,'公斤');
---2017/02/13 巫
---醋栗合購團成立，寫入本表格中
---需討論：這時候的JPID 到底是開團的編號好呢？還是成團的編號呢？
+	INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight,JPUnit) 
+	VALUES (4006, 2001, 1, 3, 1, 60, 10,'公斤');
 INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight,JPUnit) 
 	VALUES (4007, 2020, 4, 4, 1, 400, 2000,'箱');
 
@@ -702,19 +701,21 @@ VALUES (1026, 4308, 4007, 400, null, '2017-02-28', 400, '玉山銀行', 02089, 0
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
 VALUES (1022, 4309, 4007, 400, null, '2017-03-01', 400, '華南銀行', 51501, 0, 500, '若可一試合購，願折壽十年，若更一嘗醋栗，願終身守齋。');
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-	VALUES (1030, 4305, 4004, 100, null, null, null, null, null, 0, 0, '天使!!');
+	VALUES (1020, 4305, 4006, 100, null, null, null, null, null, 0, 0, '天使!!');
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-	VALUES (1030, 4305, 4007, 100, null, null, null, null, null, 0, 0, '天使!!');
+	VALUES (1011, 4305, 4006, 100, null, null, null, null, null, 0, 0, '天使!!');
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-	VALUES (1030, 4305, 4001, 100, null, null, null, null, null, 0, 0, '天使!!');
+	VALUES (1021, 4305, 4006, 100, null, null, null, null, null, 0, 0, '天使!!');
 
 --JPFollowerDetail
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4402, 2019, 3, 291);
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4403, 2002, 4, 80);
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4401, 2007, 9, 180);
-INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4407, 2007, 9, 180);
-INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4408, 2007, 9, 180);
-INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4409, 2007, 9, 180);
+INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4407, 2001, 1, 80);
+INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4407, 2009, 2, 80);
+INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4408, 2001, 3, 80);
+INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4409, 2001, 4, 80);
+INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4409, 2009, 5, 80);
 
 --2017/02/13 巫
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4404, 2020, 1, 400);

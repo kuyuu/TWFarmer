@@ -117,5 +117,23 @@ public class JPFollowerDAOJdbc implements JPFollowerDAO {
 		}
 		return result;
 	}
+	
+	private static final String SELECT_BY_JPID = "from JPFollowerBean where jpId=? order by JPFollowerId";
+	
+	@Override
+	public List<JPFollowerBean> selectByJpId(int jpId) {
+		List<JPFollowerBean> result = null;
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		try {
+			session.beginTransaction();
+			Query query = session.createQuery(SELECT_BY_JPID).setParameter(0, jpId);
+			result = query.list();
+			session.getTransaction().commit();
+		} catch (RuntimeException ex) {
+			session.getTransaction().rollback();
+			throw ex;
+		}
+		return result;
+	}
 
 }
