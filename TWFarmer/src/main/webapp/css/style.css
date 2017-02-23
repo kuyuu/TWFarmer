@@ -1,1 +1,11 @@
-# Empty CSS file for your own CSS
+
+/* index廣告輪播 */
+.full-screen {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.item>img{
+    display: block;
+    height: 100%;
+}

@@ -11,7 +11,7 @@
 				class="icon-bar"></span><span class="icon-bar"></span><span
 				class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="/TWFarmer/index.jsp">台灣小農</a>
+		<a class="navbar-brand" href="/TWFarmer/index.jsp"><img src="/TWFarmer/img/logo/TWFarmerLOGO-long.png" alt="TWFarmerLOGO-long" height="30px" /></a>
 	</div>
 
 	<div class="collapse navbar-collapse"

@@ -14,12 +14,15 @@
 	content="Source code generated using layoutit.com">
 <meta name="author" content="LayoutIt!">
 
+<!-- Favicon 網頁上小icon -->
+<link rel="shortcut icon" type="image/x-icon" href="img/logo/TWFarmerLOGO-little.gif" />
+
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 <style>
-body {
-	padding-top: 70px;
-}
+body { 
+ 	padding-top: 70px; 
+} 
 html {
     overflow-y:scroll;
 }
@@ -30,8 +33,8 @@ html {
 	<div class="container">
 		<jsp:include page="common/menu.jsp" />
 		<div class="container">
-			<div class="row">
-				<div class="carousel slide" id="carousel-285061">
+			<div class="row" >
+				<div class="carousel slide" id="carousel-285061" >
 					<ol class="carousel-indicators">
 						<li class="active" data-slide-to="0"
 							data-target="#carousel-285061"></li>
@@ -41,7 +44,7 @@ html {
 					<div class="carousel-inner">
 						<div class="item active">
 							<img alt="Carousel Bootstrap First"
-								src="http://lorempixel.com/output/sports-q-c-1600-500-1.jpg">
+								src="img/slides/1.JPG">
 							<div class="carousel-caption">
 								<h4>First Thumbnail label</h4>
 								<p>Cras justo odio, dapibus ac facilisis in, egestas eget
@@ -51,7 +54,7 @@ html {
 						</div>
 						<div class="item">
 							<img alt="Carousel Bootstrap Second"
-								src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg">
+								src="img/slides/5.jpg">
 							<div class="carousel-caption">
 								<h4>Second Thumbnail label</h4>
 								<p>Cras justo odio, dapibus ac facilisis in, egestas eget
@@ -61,7 +64,7 @@ html {
 						</div>
 						<div class="item">
 							<img alt="Carousel Bootstrap Third"
-								src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg">
+								src="img/slides/3.jpg">
 							<div class="carousel-caption">
 								<h4>Third Thumbnail label</h4>
 								<p>Cras justo odio, dapibus ac facilisis in, egestas eget
@@ -135,5 +138,6 @@ html {
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/scripts.js"></script>
+	
 </body>
 </html>
