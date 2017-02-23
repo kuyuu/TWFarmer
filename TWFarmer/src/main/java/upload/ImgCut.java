@@ -11,6 +11,8 @@ import java.io.File;
 
 import javax.imageio.ImageIO;
 
+import model.dao.MemberDAOJdbc;
+
 public class ImgCut {
 	/**
      * 截取图片
@@ -40,6 +42,7 @@ public class ImgCut {
                 g.dispose();
                 //输出文件
                 ImageIO.write(tag, "JPEG", new File(srcImageFile+"_cut.jpg"));
+                
             }
         } catch (Exception e) {
             e.printStackTrace();
