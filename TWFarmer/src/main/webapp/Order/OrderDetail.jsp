@@ -94,9 +94,9 @@ html {
 				</form>
 				<br>
 				
-				<button type="submit" class="btn btn-primary" onclick="location.href='<c:url value="" /> '">我要付款</button>			
+				<button type="submit" class="btn btn-primary" onclick="location.href='<c:url value="/Order/OrderDetailServlet?orderId=${orderResult.orderId}" /> '">我要付款</button>			
 				
-				<button type="submit" class="btn btn-primary"
+				<button type="button" class="btn btn-primary"
 					onclick="location.href='<c:url value="../index.jsp" /> '">下次再付款</button>
 			</center>
 
