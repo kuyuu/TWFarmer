@@ -96,7 +96,8 @@ html {
 												<option value="顆">顆</option>
 												<option value="斤">斤</option>
 												<option value="公斤">公斤</option>
-										</select>
+										</select><input type="hidden" value="${productBean.unit}"
+											name="unit" />
 											<div style="color: #FF0000; display: inline">${ErrorMsg.unitName}</div>
 									</tr>
 
@@ -166,7 +167,8 @@ html {
 												<option value="下架">下架</option>
 												<option value="刪除">刪除</option>
 												<option value="封鎖">封鎖</option>
-										</select></td>
+										</select><input type="hidden" value="${productBean.productStatusName}"
+											name="productStatusName" /></td>
 
 									</tr>
 
@@ -289,6 +291,24 @@ html {
 					for (var i = 0; i < list.size(); i++) {
 						if ($('input[name="type"]').val() == $(list[i]).val()) {
 							$(list[i]).attr("selected", "value");
+						}
+					}
+				});
+				
+				$(function() {
+					var list = $('#unit').children();
+					for (var j = 0; j < list.size(); j++) {
+						if ($('input[name="unit"]').val() == $(list[j]).val()) {
+							$(list[j]).attr("selected", "value");
+						}
+					}
+				});
+				
+				$(function() {
+					var list = $('#productStatusName').children();
+					for (var k = 0; k < list.size(); k++) {
+						if ($('input[name="productStatusName"]').val() == $(list[k]).val()) {
+							$(list[k]).attr("selected", "value");
 						}
 					}
 				});
