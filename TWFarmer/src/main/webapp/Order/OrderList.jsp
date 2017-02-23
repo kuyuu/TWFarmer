@@ -30,7 +30,7 @@ html {
 				<div class="jumbotron">
 					<h3>歷史訂單</h3>
 
-					<table class="table">
+					<table class="table table-bordered">
 						<thead>
 							<tr>
 								<th>訂單編號</th>
@@ -38,7 +38,7 @@ html {
 								<th>訂購時間</th>
 								<th>付款狀態</th>
 								<th>出貨狀態</th>
-								<th></th>
+								
 							</tr>
 						</thead>
 						<tbody>
@@ -53,8 +53,18 @@ html {
 									<td><a href="${path}">${row.orderId}</a></td>
 									<td>${row.sellerId}</td>
 									<td>${row.orderDate}</td>
-									<td>${row.buyerOrderStatusId}</td>
-									<td>${row.sellerOrderStatusId}</td>
+										<td>
+											<c:if test="${row.buyerOrderStatusId==3102}">已付款</c:if>
+											<c:if test="${row.buyerOrderStatusId==3101}">
+												<a href="${path}">
+													<button type="button" class="btn btn-danger">匯款去</button>
+												</a>   
+											</c:if> 
+										</td>
+									<td>
+										<c:if test="${row.sellerOrderStatusId==3103}">貨處理中</c:if>
+										<c:if test="${row.sellerOrderStatusId==3104}">已出貨</c:if>
+									</td>
 								</tr>
 
 							</c:forEach>
@@ -68,10 +78,13 @@ html {
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
-		<script>
+
+	<script>
 		$(function() {
-			$('#collapseOne>ul>li:eq(2)').addClass("list-group-item-success");
-		});
+			$("#collapseOne>ul>li:eq(1)").removeClass("list-group-item")
+					.addClass("list-group-item list-group-item-success")
+		})
 	</script>
+	
 </body>
 </html>

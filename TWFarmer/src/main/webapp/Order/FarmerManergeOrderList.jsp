@@ -9,6 +9,15 @@
 <title>台灣小農</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/style.css" rel="stylesheet">
+<style>
+body {
+	padding-top: 70px;
+}
+
+html {
+	overflow-y: scroll;
+}
+</style>
 
 </head>
 <body>
@@ -21,7 +30,7 @@
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<table class="table">
+					<table class="table table-bordered">
 						<thead>
 							<tr>
 								<th>訂單編號</th>
@@ -29,7 +38,6 @@
 								<th>訂購時間</th>
 								<th>付款狀態</th>
 								<th>出貨狀態</th>
-								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -44,8 +52,18 @@
 											<td><a href="${path}">${row.orderId}</td>
 											<td>${row.buyerId}</td>
 											<td>${row.orderDate}</td>
-											<td>${row.buyerOrderStatusId}</td>
-											<td>${row.sellerOrderStatusId}</td>
+											<td>
+												<c:if test="${row.buyerOrderStatusId==3101}">未付款</c:if>
+												<c:if test="${row.buyerOrderStatusId==3102}">已付款</c:if>
+											</td>
+											<td>
+												<c:if test="${row.sellerOrderStatusId==3104}">已出貨</c:if>
+												<c:if test="${row.sellerOrderStatusId==3103}">
+													<a href="${path}">
+														<button type="button" class="btn btn-danger">修改出貨狀態</button>
+													</a>   
+												</c:if> 
+											</td>
 										</tr>
 					
 							</c:forEach>
@@ -63,8 +81,13 @@
 	<script src="../js/scripts.js"></script>
 	<script>
 		$(function() {
-			$('#collapseOne>ul>li:eq(2)').addClass("list-group-item-success");
-		});
+			$("#collapseOne").removeClass("panel-collapse collapse in")
+					.addClass("panel-collapse collapse")
+			$("#collapseTwo").removeClass("panel-collapse collapse").addClass(
+					"panel-collapse collapse in")
+			$("#collapseTwo>ul>li:eq(1)").removeClass("list-group-item")
+					.addClass("list-group-item list-group-item-info")
+		})
 	</script>
 </body>
 

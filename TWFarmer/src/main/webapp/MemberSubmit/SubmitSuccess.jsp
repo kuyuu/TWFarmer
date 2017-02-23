@@ -46,7 +46,7 @@ html {
 									</div>
 								</div>
 
-
+								<input type="hidden" value="${memberBean.memberId}" name="memberId" />
 								<div class="modal-footer">
 									<button id="submit" class="btn btn-primary btn-large"
 										onclick="">上傳</button>

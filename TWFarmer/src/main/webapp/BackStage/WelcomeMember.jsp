@@ -30,9 +30,8 @@ html {
 				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
-				<div class="row jumbotron" style="background-color: #FFE6FF;">
-					<div class="col-md-8"
-						style="font-family: monospace, Microsoft JhengHei">
+				<div class="row jumbotron">
+					<div class="col-md-8" >
 						<center>
 							<c:if test="${empty Memberbean}">
 								<h2>您的會員資料為：</h2>
@@ -112,7 +111,7 @@ html {
 						<c:if test="${LoginOK.gender=='F'}">
 							<h5>小姐，您好</h5>
 						</c:if>
-						<img src="../MemberPic/${LoginOK.memberPic}" class="img-thumbnail">
+						<img src="../resources/uploadImages/${LoginOK.memberPic}" class="img-thumbnail">
 						<input class='InputClass' type="file" name="picture" />
 					</div>
 				</div>

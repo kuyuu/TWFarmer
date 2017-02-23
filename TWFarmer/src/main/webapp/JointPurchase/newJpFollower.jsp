@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:if test="${empty LoginOK}">
+	<c:set var="target"
+		value="/JointPurchase/StarJpFollower.do?jpId=${jpBean.jpId}"
+		scope="session" />
+	<c:redirect url="../Login.jsp" />
+</c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,12 +29,12 @@ html {
 			<div class="col-md-12">
 				<div class="col-md-offset-2">
 					<form
-						action="<c:url value="NewJpFollowerServlet?memberId=${memberBean.memberId}&jpId=${jpBean.jpId}"/>"
+						action="<c:url value="NewJpFollowerServlet?memberId=${LoginOK.memberId}&jpId=${jpBean.jpId}"/>"
 						method="POST" class="form-horizontal">
 						<div class="form-group">
 							<label for="memberId" class="col-sm-2 control-label">會員ID</label>
 							<div class="col-sm-6">
-								<p id="memberId" class="form-control-static">${memberBean.memberId}</p>
+								<p id="memberId" class="form-control-static">${LoginOK.memberId}</p>
 							</div>
 						</div>
 						<div class="form-group">

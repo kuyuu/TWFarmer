@@ -350,4 +350,55 @@ public class OrdersDAOJdbc implements OrdersDAO {
 
 	}
 
+	private static final String SELECT_BY_ID_WITH_ORDERSTATUS = "SELECT a.*, b.OrderStatusName FROM Orders a "
+			+ "LEFT JOIN OrderStatus b ON b.OrderStatusID = a.SellerOrderStatusID "
+			+ "WHERE a.OrderID = ?";
+
+	public Object selectWithOrderStatus(int orderID) {
+		OrdersBean result = null;
+		ResultSet rset = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_ID_WITH_ORDERSTATUS);) {
+
+			stmt.setInt(1, orderID);
+			rset = stmt.executeQuery();
+			if (rset.next()) {
+				result = new OrdersBean();
+				result.setOrderId(rset.getInt("orderId"));
+				result.setSellerId(rset.getInt("sellerId"));
+				result.setBuyerId(rset.getInt("buyerId"));
+				result.setTotalFreight(rset.getInt("totalFreight"));
+				result.setTotalPrice(rset.getInt("totalPrice"));
+				result.setOrderDate(rset.getDate("orderDate"));
+				result.setShipDate(rset.getDate("shipDate"));
+				result.setShipName(rset.getString("shipName"));
+				result.setShipPostalCode(rset.getString("shipPostalCode"));
+				result.setShipDistrict(rset.getString("shipDistrict"));
+				result.setShipAddress(rset.getString("shipAddress"));
+				result.setBuyerOrderStatusId(rset.getInt("buyerOrderStatusId"));
+				result.setSellerOrderStatusId(rset.getInt("sellerOrderStatusId"));
+				result.setRatingBuyer(rset.getInt("ratingBuyer"));
+				result.setRatingSeller(rset.getInt("ratingSeller"));
+				result.setRemittance(rset.getInt("remittance"));
+				result.setRemittanceDate(rset.getDate("remittanceDate"));
+				result.setRemittanceBank(rset.getString("remittanceBank"));
+				result.setRemittanceAcc(rset.getString("remittanceAcc"));
+				
+				result.setSellerOrderStatusName(rset.getString("OrderStatusName"));
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (rset != null) {
+				try {
+					rset.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return result;
+	}
+
 }

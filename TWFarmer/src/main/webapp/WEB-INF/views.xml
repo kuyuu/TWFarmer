@@ -7,5 +7,10 @@
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/Friend/FriendHome.do"></property>
 	</bean>
+	
+	<bean id="BackStage/ShowAllViolationServlet"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/BackStage/ShowAllViolationServlet"></property>
+	</bean>
 
 </beans>

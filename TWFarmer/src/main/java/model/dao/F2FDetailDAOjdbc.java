@@ -28,6 +28,10 @@ public class F2FDetailDAOjdbc implements F2FDetailDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public F2FDetailDAOjdbc(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
 
 	// //測試程式
 	// public static void main(String[] args) {

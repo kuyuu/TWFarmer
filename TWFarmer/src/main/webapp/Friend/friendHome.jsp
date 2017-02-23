@@ -47,7 +47,7 @@ html {
 						<c:forEach items="${whiteList}" var="x">
 
 							<div class="col-md-4">
-								<img src="../MemberPic/${x.friendPic}" width="100%"
+								<img src="../resources/uploadImages/${x.friendPic}" width="100%"
 									class="img-circle" />
 								<p class="text-center">${x.friendName}(${x.friendAccount})<br>
 									<a
@@ -65,7 +65,7 @@ html {
 					<div class="row">
 						<c:forEach items="${blackList}" var="x">
 							<div class="col-md-4">
-								<img src="../MemberPic/${x.friendPic}" width="100%"
+								<img src="../resources/uploadImages/${x.friendPic}" width="100%"
 									class="img-circle" />
 								<p class="text-center">${x.friendName}(${x.friendAccount})<br>
 									<button class="btn btn-danger" name="delete"

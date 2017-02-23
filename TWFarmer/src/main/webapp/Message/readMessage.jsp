@@ -56,7 +56,7 @@ html {
 							<c:choose>
 								<c:when test="${value=='reader'}">
 									寄件人：<br>
-									<img src="../MemberPic/${msgBean.writerMemberPic}"
+									<img src="../resources/uploadImages/${msgBean.writerMemberPic}"
 										class="img-responsive img-thumbnail" style="width: 100%;" />
 									<p class="text-center">${msgBean.writerName}(${msgBean.writerAccount})</p>
 									<div class="col-md-6">
@@ -70,7 +70,7 @@ html {
 								</c:when>
 								<c:otherwise>
 									收件人：<br>
-									<img src="../MemberPic/${msgBean.readerMemberPic}"
+									<img src="../resources/uploadImages/${msgBean.readerMemberPic}"
 										class="img-responsive img-thumbnail" style="width: 100%;" />
 									<p class="text-center">${msgBean.readerName}(${msgBean.readerAccount})</p>
 									<%-- 									<c:if test="${!friend}"> --%>

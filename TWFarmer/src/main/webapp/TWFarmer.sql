@@ -591,27 +591,27 @@ INSERT INTO OrderStatus (OrderStatusName) values('出貨中')
 INSERT INTO OrderStatus (OrderStatusName) values('已出貨')
 
 --Orders
-INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1003 , 1001 , 100,450,'2017-01-03 20:51:29','2017-01-06 13:20:01','會員A',235,'新北市中和區','會員A的家',3101, 1 , 1);
-INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1003 , 1002 , 100,550,'2017-01-15 18:20:05','2017-01-20 11:48:32','會員B',106,'台北市大安區','會員A的家',3101, 1, null);
- INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1011 , 1005 , 160,860,'2017-01-23 09:02:31','2017-01-25 15:13:21','會員C',106,'台北市大安區','會員C的家',3101,null,null);
-INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1011 , 1006 , 160, 860,'2017-03-08 17:42:51','2017-03-09 17:42:51','會員D',106,'台北市大安區','會員D的家',3103,null,null);
- INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1012 , 1007 , 100, 800,'2017-01-31 12:42:17','2017-02-01 17:22:34','會員E',106,'台北市大安區','會員E的家',3104,1,-1);
- INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1012 , 1008 ,100, 900,'2017-01-10 00:08:53','2017-01-14 15:32:47','會員F',106,'台北市大安區','會員F的家',3104,1,1);
+INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID, SellerOrderStatusID, RatingBuyer, RatingSeller)
+	VALUES (1003 , 1001 , 100,450,'2017-01-03 20:51:29','2017-01-06 13:20:01','會員A',235,'新北市中和區','會員A的家',3101,3103, 1 , 1);
+INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID,SellerOrderStatusID, RatingBuyer, RatingSeller)
+	VALUES (1003 , 1002 , 100,550,'2017-01-15 18:20:05','2017-01-20 11:48:32','會員B',106,'台北市大安區','會員A的家',3101,3103, 1, null);
+ INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID,SellerOrderStatusID, RatingBuyer, RatingSeller)
+	VALUES (1011 , 1005 , 160,860,'2017-01-23 09:02:31','2017-01-25 15:13:21','會員C',106,'台北市大安區','會員C的家',3101,3103,null,null);
+INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID,SellerOrderStatusID, RatingBuyer, RatingSeller)
+	VALUES (1011 , 1006 , 160, 860,'2017-03-08 17:42:51','2017-03-09 17:42:51','會員D',106,'台北市大安區','會員D的家',3101,3103,null,null);
+ INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID,SellerOrderStatusID, RatingBuyer, RatingSeller)
+	VALUES (1012 , 1007 , 100, 800,'2017-01-31 12:42:17','2017-02-01 17:22:34','會員E',106,'台北市大安區','會員E的家',3101,3103,1,-1);
+ INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID,SellerOrderStatusID, RatingBuyer, RatingSeller)
+	VALUES (1012 , 1008 ,100, 900,'2017-01-10 00:08:53','2017-01-14 15:32:47','會員F',106,'台北市大安區','會員F的家',3101,3103,1,1);
 --2017/02/13 巫
-INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1027 , 1026 , 4000,4800,'2017-01-24 20:50:49','2017-01-26 14:40:07','丁普席',235,'台北市大安區','羅斯福路三段333巷9487號',3104, 10 ,-100);
-INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1028 , 1025 ,400,2000,'2017-02-15 18:20:00','2017-02-20 11:48:50','呂若仙',235,'台北市大安區','羅斯福路四段1號',3103, 501, null);
-INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1011 , 1024 ,160, 960,'2017-02-23 09:00:37','2017-02-25 15:13:27','陳玉婷',106,'新北市三重區','中正北路111號',3101,null,null);
-INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID, RatingBuyer, RatingSeller)
-	VALUES (1036 , 1035 ,100, 1100,'2017-02-13 09:00:37','2017-02-14 15:13:27','56不能亡',109,'台北市信義區','屏東縣高樹鄉中央路60號',3101,null,null);
+INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID,SellerOrderStatusID, RatingBuyer, RatingSeller)
+	VALUES (1027 , 1026 , 4000,4800,'2017-01-24 20:50:49','2017-01-26 14:40:07','丁普席',235,'台北市大安區','羅斯福路三段333巷9487號',3101,3103, 10 ,-100);
+INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID,SellerOrderStatusID, RatingBuyer, RatingSeller)
+	VALUES (1028 , 1025 ,400,2000,'2017-02-15 18:20:00','2017-02-20 11:48:50','呂若仙',235,'台北市大安區','羅斯福路四段1號',3101,3103, 501, null);
+INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID,SellerOrderStatusID, RatingBuyer, RatingSeller)
+	VALUES (1011 , 1024 ,160, 960,'2017-02-23 09:00:37','2017-02-25 15:13:27','陳玉婷',106,'新北市三重區','中正北路111號',3101,3103,null,null);
+INSERT INTO Orders ( SellerID, BuyerID, TotalFreight, TotalPrice, OrderDate, ShipDate, ShipName, ShipPostalCode, ShipDistrict, ShipAddress, BuyerOrderStatusID,SellerOrderStatusID, RatingBuyer, RatingSeller)
+	VALUES (1036 , 1035 ,100, 1100,'2017-02-13 09:00:37','2017-02-14 15:13:27','56不能亡',109,'台北市信義區','屏東縣高樹鄉中央路60號',3101,3103,null,null);
 
 
 
@@ -678,9 +678,9 @@ INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQE
 INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4001, '捷運永安市場站出口','2017-01-31 12:00');
 INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4001, '中和遠東世紀廣場(J棟樓下全家)','2017-01-31 14:00');
 INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4001, '新北市中和區中正路753號(板信銀行門口)','2017-01-31 16:00');
-INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4004, '政大麥側','2017-02-25 16:00');
-INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4004, '考試院門口','2017-02-25 17:00');
-INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4004, '景美女中校門口','2017-02-25 18:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4006, '政大麥側','2017-02-25 16:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4006, '考試院門口','2017-02-25 17:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4006, '景美女中校門口','2017-02-25 18:00');
 --2017/02/13
 INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4007, '屏東縣高樹鄉南興路143號 (農會大廳內)','2017-03-05 15:00');
 INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4007, '台北市大安區復興南路一段390號14樓(台北農會)','2017-03-12 15:00');

@@ -1,8 +1,8 @@
-package controller;
+package controller.order;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.OrderStatusBean;
-import model.OrderStatusDAO;
-import model.OrdersBean;
 import model.dao.OrderStatusDAOJdbc;
 import model.dao.OrdersDAOJdbc;
 
@@ -38,16 +35,13 @@ public class NewOrderShippingServlet extends HttpServlet {
 		
 		int orderId = Integer.parseInt(request.getParameter("orderId"));
 		
-		 List<String> orderStatusOptions = new ArrayList<String>();
-		 orderStatusOptions.add("3103");
-		 orderStatusOptions.add("3104");
-		    
-		
-		
-		
+		 Map<String, String> orderStatusOptions = new HashMap<String, String>();
+		 orderStatusOptions.put("3103", "貨處理中");
+		 orderStatusOptions.put("3104", "已出貨");
+		 
 		
 
-		request.setAttribute("order", ordersDAOJdbc.select(orderId));
+		request.setAttribute("order", ordersDAOJdbc.selectWithOrderStatus(orderId));
 		request.setAttribute("orderStatusOptions", orderStatusOptions);
 		
 		getServletContext().getRequestDispatcher("/Order/UpdateShippingStatus.jsp").forward(request, response);

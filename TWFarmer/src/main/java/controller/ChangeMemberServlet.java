@@ -49,6 +49,7 @@ public class ChangeMemberServlet extends HttpServlet {
 		if("cancel".equals(submit)){
 			request.getRequestDispatcher(
 					"/BackStage/WelcomeMember.jsp").forward(request, response);
+			return;
 		}
 		
 		Map<String, String> errors = new HashMap<String, String>();
