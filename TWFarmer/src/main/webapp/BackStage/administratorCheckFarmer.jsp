@@ -34,33 +34,38 @@ html {
 			<div class="col-md-9">
 				<div class="jumbotron">
 					<h3>申請升級小農</h3>
-					<c:if test="${empty select}">
-						<h4>目前沒有人申請</h4>
-					</c:if>
-					<c:if test="${not empty select}">
-						<table class="table table-bordered">
-							<thead>
-								<tr>
-									<th>會員編號</th>
-									<th>農民證號</th>
-									<th>農場描述</th>
-									<th>是否核准</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="row" items="${select}">
+					<form action="/TWFarmer/BackStage/CheckToFarmerServlet"
+						method="get">
+						<c:if test="${empty select}">
+							<h4>目前沒有人申請</h4>
+						</c:if>
+						<c:if test="${not empty select}">
+							<table class="table table-bordered">
+								<thead>
 									<tr>
-										<td>${row.key.memberId}</td>
-										<td>${row.value.farmerId}</td>
-										<td>${row.value.farmerIntro}</td>
-										<td><button name="button" class="btn btn-primary"
-												value="OK">是</button>
-											<button name="button" class="btn btn-danger" value="OK">否</button></td>
+										<th>會員編號</th>
+										<th>農民證號</th>
+										<th>農場描述</th>
+										<th>是否核准</th>
 									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</c:if>
+								</thead>
+								<tbody>
+									<c:forEach var="row" items="${select}">
+										<input type="hidden" name="memberId" id="memberId"
+											value="${row.key.memberId}" />
+										<tr>
+											<td>${row.key.memberId}</td>
+											<td>${row.value.farmerId}</td>
+											<td>${row.value.farmerIntro}</td>
+											<td><button name="button" class="btn btn-primary"
+													value="OK">是</button>
+												<button name="button" class="btn btn-danger" value="NO">否</button></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</c:if>
+					</form>
 				</div>
 			</div>
 		</div>
