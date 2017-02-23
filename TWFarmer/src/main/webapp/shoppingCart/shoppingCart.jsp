@@ -21,6 +21,7 @@ html {
 	<div class="container">
 		<jsp:include page="../common/menuShoppingCart.jsp" />
 		<div class="row jumbotron">
+		<a href="../JointPurchase.do?jpId=4006">test</a>
 			<h2>購物車</h2>
 			<button type="button" class="btn btn-default" id="clear">清空購物車</button>
 			<c:if test="${not empty cartMap}">
