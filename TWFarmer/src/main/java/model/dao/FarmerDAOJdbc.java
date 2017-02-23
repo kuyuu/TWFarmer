@@ -27,6 +27,10 @@ public class FarmerDAOJdbc implements FarmerDAO {
 		}
 	}
 
+	public FarmerDAOJdbc(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
 	private static final String SELECT_BY_ID = "SELECT * FROM Farmer where FarmerId=?";
 
 	@Override

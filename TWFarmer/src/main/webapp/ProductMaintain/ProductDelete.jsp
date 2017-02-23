@@ -96,7 +96,8 @@ html {
 												<option value="顆">顆</option>
 												<option value="斤">斤</option>
 												<option value="公斤">公斤</option>
-										</select>
+										</select><input type="hidden" value="${productBean.unit}"
+											name="unit" />
 											<div style="color: #FF0000; display: inline">${ErrorMsg.unitName}</div>
 									</tr>
 
@@ -118,7 +119,8 @@ html {
 												<option value="香辛類">香辛類</option>
 												<option value="菌藻類">菌藻類</option>
 												<option value="豆類">豆類</option>
-										</select>
+										</select> <input type="hidden" value="${productBean.productTypeName}"
+											name="type" />
 											<div style="color: #FF0000; display: inline">${ErrorMsg.type}</div>
 									</tr>
 
@@ -165,7 +167,8 @@ html {
 												<option value="下架">下架</option>
 												<option value="刪除">刪除</option>
 												<option value="封鎖">封鎖</option>
-										</select></td>
+										</select><input type="hidden" value="${productBean.productStatusName}"
+											name="productStatusName" /></td>
 
 									</tr>
 
@@ -224,8 +227,8 @@ html {
 
 										<td width=140><c:forEach items="${productPicList}"
 												var="row" varStatus="name">
-												<%-- 												<input type="text" value="${row.productPicId}" --%>
-												<!-- 											name="productPicId" /> -->
+												<input type="hidden" value="${row.productPicId}"
+													name="productPicId" />
 												<div class="col-md-8">
 													<div class="thumbnail">
 														<img src="../img/${row.pictureName}">
@@ -274,7 +277,7 @@ html {
 						dateFormat : "yy-mm-dd"
 					});
 				});
-				
+
 				$(function() {
 					$("#datepicker2").datepicker({
 						altField : "#datepicker2",
@@ -284,16 +287,30 @@ html {
 				});
 
 				$(function() {
-					// 					var list = $('input[name^="20"]')
-					// 					for (var x = 0; x < list.size(); x++) {
-					var list2 = $(list[x]).parent().children('select')
-							.children('option');
-					for (var y = 0; y < list2.size(); y++) {
-						if ($(list[x]).val() == $(list2[y]).val()) {
-							$(list2[y]).attr("selected", "value");
+					var list = $('#productTypeName').children();
+					for (var i = 0; i < list.size(); i++) {
+						if ($('input[name="type"]').val() == $(list[i]).val()) {
+							$(list[i]).attr("selected", "value");
 						}
 					}
-					// 					}
+				});
+				
+				$(function() {
+					var list = $('#unit').children();
+					for (var j = 0; j < list.size(); j++) {
+						if ($('input[name="unit"]').val() == $(list[j]).val()) {
+							$(list[j]).attr("selected", "value");
+						}
+					}
+				});
+				
+				$(function() {
+					var list = $('#productStatusName').children();
+					for (var k = 0; k < list.size(); k++) {
+						if ($('input[name="productStatusName"]').val() == $(list[k]).val()) {
+							$(list[k]).attr("selected", "value");
+						}
+					}
 				});
 			</script>
 </body>

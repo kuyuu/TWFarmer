@@ -29,6 +29,10 @@ public class ProductPicDAOJdbc implements ProductPicDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public ProductPicDAOJdbc(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
 
 	public static void main(String[] args) {
 		ProductPicDAO ppdao = new ProductPicDAOJdbc();

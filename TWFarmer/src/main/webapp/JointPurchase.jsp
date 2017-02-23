@@ -11,8 +11,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>台灣小農</title>
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/style.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 <style>
 body {
 	padding-top: 70px;
@@ -24,20 +24,31 @@ html {
 </style>
 </head>
 <body>
-	<jsp:include page="../common/menuJp.jsp" />
+	<jsp:include page="common/menuJp.jsp" />
 	<div class="container">
 		<div class="jumbotron">
 			<div class="row">
 				<div class="col-md-4">
-					<img src="../img/${jpBean.pictureName }" style="width: 100%" />
+					<img src="img/${jpBean.pictureName}" style="width: 100%" />
 				</div>
-				<div class="col-md-8"></div>
+				<div class="col-md-8">
+					<p>小農資料：${mBean.name}(${mBean.account})</p>
+					<p>合購資料：${jpBean.jpName}</p>
+					<p>
+						<c:forEach items="${jpdMap}" var="x">
+							<c:forEach items="${x.value}" var="y">
+								<p>jpPrice:${x.key.jpPrice} productName:${y.key.productName} pictureName:${y.value[0].pictureName}</p>
+							</c:forEach>
+						</c:forEach>
+					</p>
+					<button class="btn btn-primary">我要跟團</button>
+				</div>
 			</div>
 		</div>
 	</div>
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/scripts.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/scripts.js"></script>
 	<script></script>
 </body>
 </html>
