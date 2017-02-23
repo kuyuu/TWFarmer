@@ -16,10 +16,11 @@
 <link href="../css/style.css" rel="stylesheet">
 <style>
 body {
- padding-top: 70px;
+	padding-top: 70px;
 }
+
 html {
-    overflow-y:scroll;
+	overflow-y: scroll;
 }
 </style>
 </head>
@@ -28,79 +29,74 @@ html {
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
-			<center>
-				<form action="<c:url value="OrderDetailServlet"/>" method="get">
-					<table border="0" width="35%">
-						<caption>
-							<h2>訂購成功</h2>
-						</caption>
-						<tr>
-							<td width="50%">訂單流水號:</td>
-							<td>${orderResult.orderId}</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td width="50%">賣家編號:</td>
-							<td>${orderResult.sellerId}</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td width="50%">購買時間:</td>
-							<td>${orderResult.orderDate}</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td width="50%">購買數量:</td>
-							<td>${orderDetailResult.orderQuantity}</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td width="50%">購買單位:</td>
-							<td>${orderDetailResult.unit}</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td width="50%">總運費：</td>
-							<td>${orderResult.totalFreight}</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td width="50%">總金額(含運費):</td>
-							<td>${orderResult.totalPrice}</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td width="50%">收件人:</td>
-							<td>${orderResult.shipName}</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td width="50%">郵遞區號:</td>
-							<td>${orderResult.shipPostalCode}</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td width="50%">地區:</td>
-							<td>${orderResult.shipDistrict}</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td width="50%">地址:</td>
-							<td>${orderResult.shipAddress}</td>
-							<td></td>
-						</tr>
-					</table>
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div style="padding: 5% 10% 10% 10%;">
+					<div
+						style="font-weight: bold; color: #ff0000; margin: .67em 0; font-size: 2em;">訂購成功</div>
 
-				</form>
-				<br>
-				
-				<button type="submit" class="btn btn-primary" onclick="location.href='<c:url value="/Order/OrderDetailServlet?orderId=${orderResult.orderId}" /> '">我要付款</button>			
-				
-				<button type="button" class="btn btn-primary"
-					onclick="location.href='<c:url value="../index.jsp" /> '">下次再付款</button>
-			</center>
+					<form action="<c:url value="OrderDetailServlet"/>" method="get">
 
+						<div class="form-group">
+							<label>訂單流水號:</label> ${orderResult.orderId}
+						</div>
+
+						<div class="form-group">
+							<label>賣家編號:</label> ${orderResult.sellerId}
+						</div>
+
+						<div class="form-group">
+							<label>購買時間:</label> ${orderResult.orderDate}
+						</div>
+
+						<div class="form-group">
+							<label>購買數量:</label> ${orderDetailResult.orderQuantity}
+						</div>
+
+						<div class="form-group">
+							<label>購買單位:</label> ${orderDetailResult.unit}
+						</div>
+
+						<div class="form-group">
+							<label>總運費：</label> ${orderResult.totalFreight}
+						</div>
+
+						<div class="form-group">
+							<label>總金額(含運費):</label> ${orderResult.totalPrice}
+						</div>
+
+						<div class="form-group">
+							<label>收件人:</label> ${orderResult.shipName}
+						</div>
+
+						<div class="form-group">
+							<label>郵遞區號:</label> ${orderResult.shipPostalCode}
+						</div>
+
+						<div class="form-group">
+							<label>地區:</label> ${orderResult.shipDistrict}
+						</div>
+
+						<div class="form-group">
+							<label>地址:</label> ${orderResult.shipAddress}
+						</div>
+
+													
+						<button type="submit" class="btn btn-primary" onclick="location.href='<c:url value="/Order/OrderDetailServlet?orderId=${orderResult.orderId}" /> '">我要付款</button>			
+														
+																
+						<button type="button" class="btn btn-primary"
+							onclick="location.href='<c:url value="../index.jsp" /> '">下次再付款</button>
+
+
+					</form>
+
+				</div>
+			</div>
+			<div class="col-md-4"></div>
 		</div>
+		</div>
+	</div>
 	</div>
 
 	<script src="../js/jquery.min.js"></script>
@@ -109,32 +105,3 @@ html {
 </body>
 </html>
 
-
-
-<!-- <h1>訂單訂購成功</h1> -->
-<!-- <br> -->
-<!-- 以下是您的訊息內容： -->
-<!-- <br> -->
-<!-- <br> -->
-<%-- 訂單流水號:${orderResult.orderId} --%>
-<!-- <br> -->
-<%-- 賣家編號:${orderResult.sellerId} --%>
-<!-- <br> -->
-<%-- 購買時間:${orderResult.orderDate} --%>
-<!-- <br> -->
-<%-- 購買數量:${orderDetailResult.orderQuantity} --%>
-<!-- <br> -->
-<%-- 購買單位:${orderDetailResult.unit} --%>
-<!-- <br> -->
-<%-- 總運費：${orderResult.totalFreight} --%>
-<!-- <br> -->
-<%-- 總金額(含運費):${orderResult.totalPrice} --%>
-<!-- <br> -->
-<%-- 收件人:${orderResult.shipName} --%>
-<!-- <br> -->
-<%-- 郵遞區號:${orderResult.shipPostalCode} --%>
-<!-- <br> -->
-<%-- 地區:${orderResult.shipDistrict} --%>
-<!-- <br> -->
-<%-- 地址:${orderResult.shipAddress} --%>
-<!-- <br> -->

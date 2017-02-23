@@ -1,4 +1,4 @@
-package controller;
+package controller.order;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -71,8 +71,8 @@ public class SaveOrderServlet extends HttpServlet {
 		Map<String, String> errors = new HashMap<String, String>();
 		request.setAttribute("errors", errors);
 
-		System.out.println("shipName"+shipName);
-		System.out.println(shipName.trim().length());
+//		System.out.println("shipName"+shipName);
+//		System.out.println(shipName.trim().length());
 		if (shipName == null || shipName.trim().length()==0 ) {	
 				errors.put("shipName", "收件人必填");
 			}
@@ -140,7 +140,7 @@ public class SaveOrderServlet extends HttpServlet {
 			orderDetailBean.setUnit(unit);		
 			
 			OrderDetailBean orderDetailResult = orderDetailDAOJdbc.insert(orderDetailBean);
-			System.out.println(orderResult.getOrderId());
+//			System.out.println(orderResult.getOrderId());
 		
 			request.setAttribute("orderResult", orderResult);
 			request.setAttribute("orderDetailResult", orderDetailResult);

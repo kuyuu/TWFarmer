@@ -57,7 +57,7 @@ html {
 											<c:if test="${row.buyerOrderStatusId==3102}">已付款</c:if>
 											<c:if test="${row.buyerOrderStatusId==3101}">
 												<a href="${path}">
-													<button type="button" class="btn btn-default">匯款去</button>
+													<button type="button" class="btn btn-danger">匯款去</button>
 												</a>   
 											</c:if> 
 										</td>
@@ -78,10 +78,13 @@ html {
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
-		<script>
+
+	<script>
 		$(function() {
-			$('#collapseOne>ul>li:eq(2)').addClass("list-group-item-success");
-		});
+			$("#collapseOne>ul>li:eq(1)").removeClass("list-group-item")
+					.addClass("list-group-item list-group-item-success")
+		})
 	</script>
+	
 </body>
 </html>
