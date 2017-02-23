@@ -20,11 +20,6 @@ public class FriendDAOJdbc implements FriendDAO {
 
 	DataSource dataSource;
 
-	public FriendDAOJdbc(DataSource dataSource) {
-		this.dataSource = dataSource;
-	}
-	// private DataSource dataSource;
-	//
 	public FriendDAOJdbc() {
 		try {
 			Context ctx = new InitialContext();
@@ -32,6 +27,10 @@ public class FriendDAOJdbc implements FriendDAO {
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public FriendDAOJdbc(DataSource dataSource) {
+		this.dataSource = dataSource;
 	}
 
 	private static final String SELECT_WHITE_BY_MEMBERID = "select * from Friend where memberId=? and FriendStatus=0";

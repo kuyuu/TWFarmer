@@ -10,8 +10,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import model.F2FDetailBean;
 import model.JPDetailBean;
 import model.JPFollowerBean;
 import model.JPFollowerDetailBean;
@@ -30,26 +30,14 @@ public class NewJpFollowerServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String temp = request.getParameter("memberId");
+		HttpSession session = request.getSession();
+		MemberBean mb = (MemberBean)session.getAttribute("LoginOK");
 		String temp2 = request.getParameter("jpId");
 		String temp3 = request.getParameter("f2fId");
 		String notes = request.getParameter("notes");
 
 		Map<String, String> errors = new HashMap<String, String>();
 		request.setAttribute("errors", errors);
-
-		int memberId = 0;
-		if (temp != null && temp.trim().length() != 0) {
-			try {
-				memberId = Integer.parseInt(temp);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-			}
-		}
-
-		MemberDAOJdbc dao = new MemberDAOJdbc();
-		MemberBean memberBean = dao.select(memberId);
-		request.setAttribute("memberBean", memberBean);
 
 		int jpId = 0;
 		if (temp2 != null && temp2.trim().length() != 0) {
@@ -65,10 +53,6 @@ public class NewJpFollowerServlet extends HttpServlet {
 		JPDetailDAOjdbc dao3 = new JPDetailDAOjdbc();
 		List<JPDetailBean> list = dao3.selectByJpId(jpId);
 		F2FDetailDAOjdbc dao4 = new F2FDetailDAOjdbc();
-		List<F2FDetailBean> list2 = dao4.selectByJpId(jpId);
-		request.setAttribute("jpBean", jpBean);
-		request.setAttribute("jpDetailList", list);
-		request.setAttribute("f2fList", list2);
 
 		int f2fId = 0;
 		if (temp3 != null && temp3.trim().length() != 0) {
@@ -103,7 +87,7 @@ public class NewJpFollowerServlet extends HttpServlet {
 		try {
 			JPFollowerDAOJdbc dao5 = new JPFollowerDAOJdbc();
 			JPFollowerBean bean = new JPFollowerBean();
-			bean.setMemberId(memberId);
+			bean.setMemberId(mb.getMemberId());
 			bean.setF2FId(f2fId);
 			bean.setJPId(jpId);
 			bean.setNotes(notes);

@@ -27,8 +27,7 @@ html {
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<div class="row jumbotron"
-					style="background-color: #FFE6FF; font-family: monospace, Microsoft JhengHei">
+				<div class="row jumbotron" >
 					<c:if test="${empty submit}">
 						<center>
 							<h2 style="color: red; font-weight: 600">修改密碼失敗</h2>

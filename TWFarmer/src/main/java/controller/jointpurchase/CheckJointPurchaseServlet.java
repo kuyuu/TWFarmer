@@ -103,7 +103,7 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 
 		JointPurchaseBean jpBean = new JointPurchaseBean();
 		JointPurchaseDAOjdbc dao = new JointPurchaseDAOjdbc();
-		MemberBean mb = (MemberBean)session.getAttribute("LoginOK");
+		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		jpBean.setInitId(mb.getMemberId());
 		jpBean.setJpName(jpName);
 		if (jpIntro != null && jpIntro.length() != 0) {
@@ -126,8 +126,7 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 			dao2.insert(jpdBean);
 		}
 		session.removeAttribute("jpdBeanMap");
-		// request.getRequestDispatcher("selectJpProduct.jsp").forward(request,
-		// response);
+		request.getRequestDispatcher("selectJpProduct.jsp").forward(request, response);
 
 	}
 
