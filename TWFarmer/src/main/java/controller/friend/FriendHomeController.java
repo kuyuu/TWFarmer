@@ -18,15 +18,15 @@ import model.dao.FriendDAOJdbc;
 @RequestMapping(path = { "/Friend/FriendHome.do" })
 public class FriendHomeController {
 	@Autowired
-	private FriendDAOJdbc friendDAOJdbc;
+	private FriendDAOJdbc friendDAO;
 
 	@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST })
 	public String doWork(HttpSession session, Model model) {
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
-		List<FriendBean> list = friendDAOJdbc.selectWhiteByMemberId(mb.getMemberId());
+		List<FriendBean> list = friendDAO.selectWhiteByMemberId(mb.getMemberId());
 		model.addAttribute("whiteList", list);
 
-		List<FriendBean> list2 = friendDAOJdbc.selectBlackByMemberId(mb.getMemberId());
+		List<FriendBean> list2 = friendDAO.selectBlackByMemberId(mb.getMemberId());
 		model.addAttribute("blackList", list2);
 
 		return "Friend/friendHome";
