@@ -6,14 +6,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>台灣小農-變更商品</title>
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/style.css" rel="stylesheet">
+<link href="/TWFarmer/css/bootstrap.min.css" rel="stylesheet">
+<link href="/TWFarmer/css/jquery.bootstrap-touchspin.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style>
 body {
- padding-top: 70px;
+	padding-top: 70px;
 }
+
 html {
-    overflow-y:scroll;
+	overflow-y: scroll;
 }
 </style>
 </head>
@@ -88,10 +92,10 @@ html {
 									<tr height=60>
 										<td><strong>單位</strong></td>
 										<td><select class="form-control" id='unit' name="unit">
-												<option>箱</option>
-												<option>顆</option>
-												<option>斤</option>
-												<option>公斤</option>
+												<option value="箱">箱</option>
+												<option value="顆">顆</option>
+												<option value="斤">斤</option>
+												<option value="公斤">公斤</option>
 										</select>
 											<div style="color: #FF0000; display: inline">${ErrorMsg.unitName}</div>
 									</tr>
@@ -100,20 +104,20 @@ html {
 										<td><strong>類別</strong></td>
 										<td><select class="form-control" id="productTypeName"
 											name="productTypeName">
-												<option>仁果類</option>
-												<option>核果類</option>
-												<option>堅果類</option>
-												<option>漿果類</option>
-												<option>柑橘類</option>
-												<option>瓜類</option>
-												<option>根菜類</option>
-												<option>莖菜類</option>
-												<option>花菜類</option>
-												<option>果菜類</option>
-												<option>葉菜類</option>
-												<option>香辛類</option>
-												<option>菌藻類</option>
-												<option>豆類</option>
+												<option value="仁果類">仁果類</option>
+												<option value="核果類">核果類</option>
+												<option value="堅果類">堅果類</option>
+												<option value="漿果類">漿果類</option>
+												<option value="柑橘類">柑橘類</option>
+												<option value="瓜類">瓜類</option>
+												<option value="根菜類">根菜類</option>
+												<option value="莖菜類">莖菜類</option>
+												<option value="花菜類">花菜類</option>
+												<option value="果菜類">果菜類</option>
+												<option value="葉菜類">葉菜類</option>
+												<option value="香辛類">香辛類</option>
+												<option value="菌藻類">菌藻類</option>
+												<option value="豆類">豆類</option>
 										</select>
 											<div style="color: #FF0000; display: inline">${ErrorMsg.type}</div>
 									</tr>
@@ -134,7 +138,7 @@ html {
 
 									<tr height=60>
 										<td><strong>上架日期</strong></td>
-										<td><input id='addDate' name="addDate"
+										<td><input id='datepicker' name="addDate"
 											value="${productBean.addDate}" type="text"
 											class="form-control">
 											<div style="color: #FF0000; display: inline">${ErrorMsg.addDate}</div>
@@ -142,7 +146,7 @@ html {
 
 									<tr height=60>
 										<td><strong>預估下架日期</strong></td>
-										<td><input id='removeEstDate' name="removeEstDate"
+										<td><input id='datepicker2' name="removeEstDate"
 											value="${productBean.removeEstDate}" type="text"
 											class="form-control">
 											<div style="color: #FF0000; display: inline">${ErrorMsg.removeEstDate}</div>
@@ -157,9 +161,10 @@ html {
 										<td><strong>商品狀態</strong></td>
 										<td><select class="form-control" id='productStatusName'
 											name="productStatusName">
-												<option>上架</option>
-												<option>下架</option>
-												<option>封鎖</option>
+												<option value="上架">上架</option>
+												<option value="下架">下架</option>
+												<option value="刪除">刪除</option>
+												<option value="封鎖">封鎖</option>
 										</select></td>
 
 									</tr>
@@ -219,14 +224,15 @@ html {
 
 										<td width=140><c:forEach items="${productPicList}"
 												var="row" varStatus="name">
-<%-- 												<input type="text" value="${row.productPicId}" --%>
-<!-- 											name="productPicId" /> -->
+												<%-- 												<input type="text" value="${row.productPicId}" --%>
+												<!-- 											name="productPicId" /> -->
 												<div class="col-md-8">
 													<div class="thumbnail">
 														<img src="../img/${row.pictureName}">
 														<div class="caption">
-														<input type="text" value="${row.pictureIntro}" name="pictureIntro${name.count}">
-<%-- 															<h4>${row.pictureIntro}</h4> --%>
+															<input type="text" value="${row.pictureIntro}"
+																name="pictureIntro${name.count}">
+															<%-- 															<h4>${row.pictureIntro}</h4> --%>
 															<input class='InputClass' type="file"
 																name="picture${name.count}" />
 														</div>
@@ -253,30 +259,42 @@ html {
 				</div>
 			</div>
 
-			<script src="../js/jquery.min.js"></script>
-			<script src="../js/bootstrap.min.js"></script>
-			<script src="../js/scripts.js"></script>
+
 			<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="/TWFarmer/js/bootstrap.min.js"></script>
-	<script src="/TWFarmer/js/jquery.bootstrap-touchspin.js"></script>
+				src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+			<script src="/TWFarmer/js/bootstrap.min.js"></script>
+			<script src="/TWFarmer/js/jquery.bootstrap-touchspin.js"></script>
+			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 			<script>
-		$("input[name*='unit']").TouchSpin({
-			initval : 0
-		});
-		$(function() {
-			var list = $('input[name^="20"]')
-			for (var x = 0; x < list.size(); x++) {
-				var list2 = $(list[x]).parent().children('select').children(
-						'option');
-				for (var y = 0; y < list2.size(); y++) {
-					if ($(list[x]).val() == $(list2[y]).val()) {
-						$(list2[y]).attr("selected", "value");
+				$(function() {
+					$("#datepicker").datepicker({
+						altField : "#datepicker",
+						altFormat : "yy-mm-dd",
+						dateFormat : "yy-mm-dd"
+					});
+				});
+				
+				$(function() {
+					$("#datepicker2").datepicker({
+						altField : "#datepicker2",
+						altFormat : "yy-mm-dd",
+						dateFormat : "yy-mm-dd"
+					});
+				});
+
+				$(function() {
+					// 					var list = $('input[name^="20"]')
+					// 					for (var x = 0; x < list.size(); x++) {
+					var list2 = $(list[x]).parent().children('select')
+							.children('option');
+					for (var y = 0; y < list2.size(); y++) {
+						if ($(list[x]).val() == $(list2[y]).val()) {
+							$(list2[y]).attr("selected", "value");
+						}
 					}
-				}
-			}
-		});
-	</script>
-</body>
+					// 					}
+				});
+			</script>
 </body>
 </html>
