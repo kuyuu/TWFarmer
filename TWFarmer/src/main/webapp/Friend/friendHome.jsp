@@ -30,7 +30,7 @@ html {
 				<div class="jumbotron">
 					<h2>好友 / 黑名單</h2>
 					<form class="form-inline" role="form" method="POST"
-						action="SelectMemberServlet">
+						action="SelectMember.do">
 						<div class="form-group">
 							<div class="input-group">
 								<label class="sr-only" for="account">會員帳號</label> <input

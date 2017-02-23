@@ -45,10 +45,16 @@
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		id="internalResourceViewResolver">
+		<property name="order" value="2"></property>
 		<!-- 前缀 -->
 		<property name="prefix" value="/" />
 		<!-- 后缀 -->
 		<property name="suffix" value=".jsp" />
+	</bean>
+	<bean class="org.springframework.web.servlet.view.XmlViewResolver">
+		<property name="order" value="1"></property>
+		<property name="location" value="WEB-INF/views.xml"></property>
+
 	</bean>
 	<!-- 自动扫描包 -->
 	<context:annotation-config />
