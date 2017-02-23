@@ -90,17 +90,18 @@ html {
 															<textarea id="ticketResult" name="ticketResult"
 																class="form-control" rows="3"></textarea>
 														</div>
-														<input type="text" name="ticketId" value="${row.ticketId}" />
-														<input type="text" name="vioTitle" value="${row.vioTitle}" />
-														<input type="text" name="reporterId"
-															value="${row.reporterId}" /> <input type="text"
-															name="reportedId" value="${row.reportedId}" />
+														<input type="hidden" name="ticketId"
+															value="${row.ticketId}" /> <input type="hidden"
+															name="vioTitle" value="${row.vioTitle}" /> <input
+															type="hidden" name="reporterId" value="${row.reporterId}" />
+														<input type="hidden" name="reportedId"
+															value="${row.reportedId}" />
 													</div>
 													<div class="form-group">
 														<button type="submit" class="btn btn-default">送出</button>
 													</div>
 												</form>
-											</div>
+											</div></td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -147,21 +148,11 @@ html {
 													<fmt:formatDate value="${row.createDate}"
 														pattern="yyyy年MM月dd日 HH:mm" />
 													<br> <br>檢舉內容：<br>${row.vioContent}<br>
+													<br>處理時間：<br>${row.processDate}<br>
+													<br>處理內容：<br>${row.ticketResult}
 												</p>
-												<form method="POST" action="1111">
-													<div class="form-group">
-														<label for="processWay" class="control-label">處理方式</label>
-														<select class="form-control" id="processWay"
-															name="processWay">
-															<option value="0">商品無違規</option>
-															<option value="1">口頭警告</option>
-															<option value="2">封鎖商品</option>
-														</select>
-													</div>
-													<div class="form-group">
-														<button type="submit" class="btn btn-default">送出</button>
-													</div>
-												</form>
+												<button type="button" class="btn btn-default"
+													data-dismiss="modal">關閉</button>
 											</div></td>
 									</tr>
 								</c:forEach>
@@ -187,9 +178,9 @@ html {
 				<div class="modal-body">
 					<p>Some text in the modal.</p>
 				</div>
-				<!-- 				<div class="modal-footer"> -->
-				<!-- 										<button type="button" class="btn btn-default" data-dismiss="modal">關閉</button> -->
-				<!-- 				</div> -->
+				<div class="modal-footer">
+					<!-- 					<button type="button" class="btn btn-default" data-dismiss="modal">關閉</button> -->
+				</div>
 			</div>
 
 		</div>
