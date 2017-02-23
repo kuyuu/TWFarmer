@@ -1,6 +1,11 @@
 package model;
 
+import model.dao.MemberDAOJdbc;
+import model.dao.ProductDAOjdbc;
+
 public class ViolationBean {
+	ProductDAOjdbc pdao = new ProductDAOjdbc();
+	MemberDAOJdbc mdao = new MemberDAOJdbc();
 	private int ticketId;
 	private int reportedId;
 	private int reporterId;
@@ -10,6 +15,8 @@ public class ViolationBean {
 	private java.util.Date processDate;
 	private String ticketResult;
 	private int ticketStatue;
+	private ProductBean productBean;
+	private MemberBean memberBean;
 	
 	@Override
 	public String toString() {
@@ -72,5 +79,18 @@ public class ViolationBean {
 	public void setTicketStatue(int ticketStatue) {
 		this.ticketStatue = ticketStatue;
 	}
+	public ProductBean getProductBean() {
+		return pdao.select(reportedId);
+	}
+	public void setProductBean(ProductBean productBean) {
+		this.productBean = productBean;
+	}
+	public MemberBean getMemberBean() {
+		return mdao.select(reporterId);
+	}
+	public void setMemberBean(MemberBean memberBean) {
+		this.memberBean = memberBean;
+	}
+
 
 }

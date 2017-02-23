@@ -13,8 +13,10 @@ import model.dao.FriendDAOJdbc;
 import model.dao.JPDetailDAOjdbc;
 import model.dao.JointPurchaseDAOjdbc;
 import model.dao.MemberDAOJdbc;
+import model.dao.MsgDAOJdbc;
 import model.dao.ProductDAOjdbc;
 import model.dao.ProductPicDAOJdbc;
+import model.dao.ViolationDAOJdbc;
 
 @Configuration
 public class SpringJavaConfig {
@@ -65,10 +67,20 @@ public class SpringJavaConfig {
 	public JPDetailDAOjdbc jpDetailDAO() {
 		return new JPDetailDAOjdbc(dataSource());
 	}
-	
+
 	@Bean
 	public F2FDetailDAOjdbc f2fDetailDAO() {
 		return new F2FDetailDAOjdbc(dataSource());
+	}
+
+	@Bean
+	public MsgDAOJdbc msgDAO() {
+		return new MsgDAOJdbc(dataSource());
+	}
+
+	@Bean
+	public ViolationDAOJdbc violationDAO() {
+		return new ViolationDAOJdbc(dataSource());
 	}
 
 }
