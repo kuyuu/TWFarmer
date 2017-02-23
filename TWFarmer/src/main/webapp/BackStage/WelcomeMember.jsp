@@ -111,7 +111,7 @@ html {
 						<c:if test="${LoginOK.gender=='F'}">
 							<h5>小姐，您好</h5>
 						</c:if>
-						<img src="../MemberPic/${LoginOK.memberPic}" class="img-thumbnail">
+						<img src="../resources/uploadImages/${LoginOK.memberPic}" class="img-thumbnail">
 						<input class='InputClass' type="file" name="picture" />
 					</div>
 				</div>

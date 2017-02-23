@@ -52,7 +52,7 @@ html {
 					</form>
 					<br>
 					<div class="center-block">
-						<img src="../MemberPic/${memberBean.memberPic}"
+						<img src="../resources/uploadImages/${memberBean.memberPic}"
 							class="img-responsive img-thumbnail" style="width: 100%;" />
 						<p class="text-center">${memberBean.name}(${memberBean.account})</p>
 						<div class="col-md-6">
