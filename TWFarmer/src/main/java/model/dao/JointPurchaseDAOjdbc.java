@@ -29,6 +29,10 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 		}
 	}
 
+	public JointPurchaseDAOjdbc(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
 	// 查詢
 	private static final String SELECT_BY_ID = "SELECT * from JointPurchase where JPId=?";
 
@@ -235,7 +239,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 	// 修改
 	private static final String UPDATE = "UPDATE JointPurchase " + "SET InitId=?, " + "JPName=?, " + "JPIntro=?, "
 			+ "InitDate=?, " + "EndDate=?, " + "JPLocation=?, " + "JPStatusID=?, " + "JPFreight=?, " + "MiscViaID=?, "
-			+ "Misc=?, " + "BankAccount=?, " + "BankName=?, "+ "PictureName=? " + "WHERE JPId=?";
+			+ "Misc=?, " + "BankAccount=?, " + "BankName=?, " + "PictureName=? " + "WHERE JPId=?";
 
 	@Override
 	public JointPurchaseBean update(JointPurchaseBean bean) {
@@ -315,7 +319,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 		return result;
 
 	}
-	
+
 	private static final String SELECT_JPID_BY_SELLERID2 = "SELECT DISTINCT JointPurchase.JPID FROM JPDetail JOIN Product ON JPDetail.productId = Product.productId JOIN JointPurchase ON JPDetail.JPID = JointPurchase.JPID WHERE sellerId=? AND JPStatusID != 4101";
 
 	public List<JointPurchaseBean> selectJpIdBySellerId2(int sellerId) {

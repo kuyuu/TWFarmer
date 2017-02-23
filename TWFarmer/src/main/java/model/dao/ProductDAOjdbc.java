@@ -31,6 +31,10 @@ public class ProductDAOjdbc implements ProductDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public ProductDAOjdbc(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
 
 	public static void main(String[] args) {
 //		ProductDAO dao = new ProductDAOjdbc();
