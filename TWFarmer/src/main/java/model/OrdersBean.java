@@ -22,8 +22,8 @@ public class OrdersBean {
 	private String remittanceBank;
 	private String remittanceAcc;
 	
+	private String sellerOrderStatusName;
 	
-
 	@Override
 	public String toString() {
 		return "OrdersBean [orderId=" + orderId + ", sellerId=" + sellerId + ", buyerId=" + buyerId + ", totalFreight="
@@ -32,7 +32,8 @@ public class OrdersBean {
 				+ ", shipAddress=" + shipAddress + ", buyerOrderStatusId=" + buyerOrderStatusId
 				+ ", sellerOrderStatusId=" + sellerOrderStatusId + ", ratingBuyer=" + ratingBuyer + ", ratingSeller="
 				+ ratingSeller + ", remittance=" + remittance + ", remittanceDate=" + remittanceDate
-				+ ", remittanceBank=" + remittanceBank + ", remittanceAcc=" + remittanceAcc + "]";
+				+ ", remittanceBank=" + remittanceBank + ", remittanceAcc=" + remittanceAcc + ", orderStatusName="
+				+ sellerOrderStatusName + "]";
 	}
 
 	public OrdersBean(int orderId, int sellerId, int buyerId, int totalFreight, int totalPrice, Date orderDate,
@@ -210,5 +211,18 @@ public class OrdersBean {
 	public void setRemittanceAcc(String remittanceAcc) {
 		this.remittanceAcc = remittanceAcc;
 	}
+
+	public void setSellerOrderStatusName(String sellerOrderStatusName) {
+		this.sellerOrderStatusName = sellerOrderStatusName;
+	}
 	
+	public String getSellerOrderStatusName() {
+		return this.sellerOrderStatusName;
+	}
+	
+//	public String getSellerOrderStatusName() {
+//		SELECT  OrderStatusName FROM orderStatusName WHERE orderID = this.orderId
+	
+	
+//	}
 }

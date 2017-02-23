@@ -32,11 +32,12 @@
 						method="POST">
 						<input type="hidden" name="orderId" value="${order.orderId}" />
 						<div class="form-group">
+							<h2>修改出貨狀態</h2>
 							<select name="sellerOrderStatusId">
-								<option value="${order.sellerOrderStatusId}" selected>${order.sellerOrderStatusId}</option>
+								<option value="${order.sellerOrderStatusId}" selected>${order.sellerOrderStatusName}</option>
 								<c:forEach items="${orderStatusOptions}" var="option">
-									<c:if test="${option != order.sellerOrderStatusId}">
-										<option value="${option}"> ${option}</option>
+									<c:if test="${option.key != order.sellerOrderStatusId}">
+										<option value="${option.key}"> ${option.value}</option>
 									</c:if>
 								</c:forEach>
 							</select>
@@ -44,7 +45,7 @@
 
 						<div class="form-group">
 							<div class="col-sm-offset-3 col-sm-9">
-								<button type="submit" class="btn btn-default">送出</button>
+								<button type="submit" class="btn btn-default">確認修改</button>
 							</div>
 						</div>
 					</form>
