@@ -10,18 +10,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>台灣小農</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <style>
 body {
- padding-top: 70px;
+	padding-top: 70px;
 }
+
 html {
-    overflow-y:scroll;
+	overflow-y: scroll;
 }
 </style>
 </head>
-<body >
+<body>
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
@@ -29,10 +30,16 @@ html {
 				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
-				<div class="row jumbotron" style="background-color:#FFE6FF;">
-					<div class="col-md-8" style="font-family:monospace,Microsoft JhengHei">
+				<div class="row jumbotron" style="background-color: #FFE6FF;">
+					<div class="col-md-8"
+						style="font-family: monospace, Microsoft JhengHei">
 						<center>
-							<h2>您的會員資料為：</h2>
+							<c:if test="${empty Memberbean}">
+								<h2>您的會員資料為：</h2>
+							</c:if>
+							<c:if test="${not empty Memberbean}">
+								<h2>您修改後的會員資料為：</h2>
+							</c:if>
 						</center>
 						<table>
 							<tr>
@@ -86,11 +93,17 @@ html {
 								<td><h4>${LoginOK.rating}</h4></td>
 							</tr>
 						</table>
-						<br>
-						<a href="changeMemberInfo.jsp"><button type="button" class="btn btn-default">修改會員資料</button></a>
-						<button type="button" class="btn btn-default">修改密碼</button>
+						<div class="form-group">
+							<div class="col-sm-offset-6 col-sm-10">
+								<a href="changeMemberInfo.jsp"><button type="button"
+										class="btn btn-primary">修改會員資料</button></a> <a
+									href="changePWD.jsp"><button type="button"
+										class="btn btn-danger" value="cancel">修改密碼</button></a>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-3" style="font-family:monospace,Microsoft JhengHei">
+					<div class="col-md-3"
+						style="font-family: monospace, Microsoft JhengHei">
 						<br>
 						<h4>${LoginOK.name}</h4>
 						<c:if test="${LoginOK.gender=='M'}">

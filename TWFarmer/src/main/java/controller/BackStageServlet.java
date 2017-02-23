@@ -24,7 +24,7 @@ public class BackStageServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		if (mb != null) {
-			request.getRequestDispatcher("MemberCheckJpServlet").forward(request, response);
+			request.getRequestDispatcher("WelcomeMember.jsp").forward(request, response);
 //			if (mb.getIdType() == 2) {
 //				ProductDAOjdbc dao1 = new ProductDAOjdbc();
 //				List<ProductBean> list1 = dao1.selectBySellerId(mb.getMemberId());

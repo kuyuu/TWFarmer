@@ -37,7 +37,6 @@ html {
 						<h4>目前沒有人提問</h4>
 					</c:if>
 					<c:if test="${not empty Qna}">
-						<h1>${Qna.value[0].qnAId}</h1>
 						<table class="table table-bordered">
 							<thead>
 								<tr>
@@ -81,7 +80,7 @@ html {
 					.addClass("panel-collapse collapse")
 			$("#collapseTwo").removeClass("panel-collapse collapse").addClass(
 					"panel-collapse collapse in")
-			$("#collapseTwo>ul>li:eq(1)").removeClass("list-group-item")
+			$("#collapseTwo>ul>li:eq(2)").removeClass("list-group-item")
 					.addClass("list-group-item list-group-item-info")
 		})
 	</script>

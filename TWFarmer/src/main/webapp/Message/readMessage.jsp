@@ -13,8 +13,9 @@
 body {
 	padding-top: 70px;
 }
+
 html {
-    overflow-y:scroll;
+	overflow-y: scroll;
 }
 </style>
 </head>
@@ -34,7 +35,7 @@ html {
 							<p>${msgBean.msgContent}</p>
 							<form action="newMessage.jsp" method="POST">
 								<c:choose>
-									<c:when test="${msgBean.msgReaderId==LoginOK.memberId }">
+									<c:when test="${value=='reader'}">
 										<input type="hidden" name="readerAccount"
 											value="${msgBean.writerAccount}" />
 									</c:when>
@@ -47,25 +48,41 @@ html {
 									value="RE: ${msgBean.msgTitle}" /> <input type="hidden"
 									name="msgContent" value="${msgBean.msgContent}" />
 								<button type="submit" class="btn btn-primary" id="reply">回覆信件</button>
+								<button type="button" class="btn btn-danger" id="delete"
+									value="${msgBean.msgId}">刪除信件</button>
 							</form>
 						</div>
 						<div class="col-md-4">
 							<c:choose>
-								<c:when test="${msgBean.msgReaderId==LoginOK.memberId }">
+								<c:when test="${value=='reader'}">
 									寄件人：<br>
 									<img src="../MemberPic/${msgBean.writerMemberPic}"
 										class="img-responsive img-thumbnail" style="width: 100%;" />
-							${msgBean.writerName}(${msgBean.writerAccount})<br>
-									<button type="button" class="btn btn-success">加為好友</button>
-									<button type="button" class="btn btn-danger">封鎖此人</button>
+									<p class="text-center">${msgBean.writerName}(${msgBean.writerAccount})</p>
+									<div class="col-md-6">
+										<button type="button" class="btn btn-success btn-block"
+											value="${msgBean.msgWriterId}" name="white">加為好友</button>
+									</div>
+									<div class="col-md-6">
+										<button type="button" class="btn btn-danger btn-block"
+											value="${msgBean.msgWriterId}" name="black">封鎖此人</button>
+									</div>
 								</c:when>
 								<c:otherwise>
 									收件人：<br>
 									<img src="../MemberPic/${msgBean.readerMemberPic}"
 										class="img-responsive img-thumbnail" style="width: 100%;" />
-							${msgBean.readerName}(${msgBean.readerAccount})<br>
-									<button type="button" class="btn btn-success">加為好友</button>
-									<button type="button" class="btn btn-danger">封鎖此人</button>
+									<p class="text-center">${msgBean.readerName}(${msgBean.readerAccount})</p>
+									<%-- 									<c:if test="${!friend}"> --%>
+									<div class="col-md-6">
+										<button type="button" class="btn btn-success btn-block"
+											value="${msgBean.msgReaderId}" name="white">加為好友</button>
+									</div>
+									<%-- 									</c:if> --%>
+									<div class="col-md-6">
+										<button type="button" class="btn btn-danger btn-block"
+											value="${msgBean.msgReaderId}" name="black">封鎖此人</button>
+									</div>
 								</c:otherwise>
 							</c:choose>
 						</div>
@@ -81,6 +98,50 @@ html {
 	<script>
 		$(function() {
 			$("#collapseOne>ul>li:eq(5)").addClass("list-group-item-success");
+			$('#delete').click(function() {
+				if ("${value}" == "reader") {
+					$.post('DeleteMessageServlet', {
+						"msgId" : $(this).val(),
+						"value" : "reader"
+					}, function() {
+						window.location = 'MsgHomeServlet';
+					});
+				} else {
+					$.post('DeleteMessageServlet', {
+						"msgId" : $(this).val(),
+						"value" : "writer"
+					}, function() {
+						window.location = 'MsgHomeServlet';
+					});
+				}
+			});
+			$('button[name="white"]').click(function() {
+				$.ajax({
+					url : '../Friend/AddFriend.do',
+					type : "POST",
+					data : {
+						"whiteId" : $(this).val()
+					},
+					complete : function() {
+						$('button[name="white"]').attr("disabled", "disabled");
+					}
+				});
+			});
+			$('button[name="black"]').click(function() {
+				$.ajax({
+					url : '../Friend/AddFriend.do',
+					type : "POST",
+					data : {
+						"blackId" : $(this).val()
+					},
+					complete : function() {
+						window.location = "MsgHomeServlet";
+					}
+				});
+			});
+			if ("${friend}" == "true") {
+				$('button[name="white"]').attr("disabled", "disabled");
+			}
 		});
 	</script>
 </body>

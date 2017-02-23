@@ -274,6 +274,8 @@ CREATE TABLE Msg(
 	MsgContent nvarchar(500),
 	MsgTime datetime,
 	MsgStatus int,
+	WriterDelete int,
+	ReaderDelete int,
 )
 GO
 
@@ -350,6 +352,8 @@ INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phon
 	        VALUES ('ptt5566','123','56不能亡',109,'台北市信義區','信義路四段56號56樓','0956555666','ptt5566@gmail.com','A129555666','1956-05-06','M',1,-56,'P1035.jpg');
 INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
 	        VALUES ('mango','123','李逍遙',906,'屏東縣高樹鄉','屏東縣高樹鄉中央路60號','0988168168','mango168@gmail.com','T127168168','1988-1-06','M',2,-68,'P1036.jpg');
+INSERT INTO Member (Account, Password, Name, PostalCode, District, Address, Phone, Email, IDNumber, BirthDate, Gender, IDType, Rating, MemberPic)
+	        VALUES ('ching','215','管理員小晴',300,'新竹市東區','新竹市站前路60號','0912345678','ching@gmail.com','D123456789','1988-1-06','F',3, null,'P1037.jpg');
 
 --Farmer
 INSERT INTO Farmer (FarmerID, MemberID,	FarmerIntro)
@@ -652,7 +656,7 @@ INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate,	JPLocatio
 	VALUES (1030, '草莓合購，最少湊一箱!!!', '合購草莓最少湊滿1箱，每箱10斤，最多3箱就不收囉，要跟要快~~~', '2017-02-28', '2017-03-07',	'台北市文山區',	4104, 300, 4201, 0, '2414.jpg');
 --2017/02/13 巫
 --本檔案中會員編號1019的"石在天"看到唐川伯的賣場，決定給他合購團開下去~總價$3600，當中$1600為4箱醋栗，$2000為運費。
-INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc) 
+INSERT INTO JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc, PictureName) 
 	VALUES (1019, '一起買黑醋栗!4/15截止', '黑醋栗可以釀紅酒超讚的!~還是美國貨!目標湊齊4箱~每人1箱，各攤運費$500', '2017-02-15', '2017-04-25', '屏東縣高樹鄉',4104,2000,4202,0, '2424.jpg');
 
 --JPDetail
@@ -664,9 +668,8 @@ INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQE
 	VALUES (4005, 2010, 5, 5, 1, 50, 10,'公斤');
 INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight,JPUnit) 
 	VALUES (4006, 2009, 1, 3, 1, 60, 10,'公斤');
---2017/02/13 巫
---醋栗合購團成立，寫入本表格中
---需討論：這時候的JPID 到底是開團的編號好呢？還是成團的編號呢？
+	INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight,JPUnit) 
+	VALUES (4006, 2001, 1, 3, 1, 60, 10,'公斤');
 INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight,JPUnit) 
 	VALUES (4007, 2020, 4, 4, 1, 400, 2000,'箱');
 
@@ -698,19 +701,21 @@ VALUES (1026, 4308, 4007, 400, null, '2017-02-28', 400, '玉山銀行', 02089, 0
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
 VALUES (1022, 4309, 4007, 400, null, '2017-03-01', 400, '華南銀行', 51501, 0, 500, '若可一試合購，願折壽十年，若更一嘗醋栗，願終身守齋。');
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-	VALUES (1030, 4305, 4004, 100, null, null, null, null, null, 0, 0, '天使!!');
+	VALUES (1020, 4305, 4006, 100, 1, null, 100, null, null, 0, 0, '天使!!');
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-	VALUES (1030, 4305, 4007, 100, null, null, null, null, null, 0, 0, '天使!!');
+	VALUES (1011, 4305, 4006, 200, 0, null, null, null, null, 0, 0, '天使!!');
 INSERT INTO JPFollower (MemberID, F2FID, JPID, TotalPrice, RemittanceStatus, RemittanceDate, Remittance, RemittanceBank, RemittanceAcc, Misc, SplitFreight, Notes) 
-	VALUES (1030, 4305, 4001, 100, null, null, null, null, null, 0, 0, '天使!!');
+	VALUES (1021, 4305, 4006, 300, 1, null, 300, null, null, 0, 0, '天使!!');
 
 --JPFollowerDetail
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4402, 2019, 3, 291);
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4403, 2002, 4, 80);
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4401, 2007, 9, 180);
-INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4407, 2007, 9, 180);
-INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4408, 2007, 9, 180);
-INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4409, 2007, 9, 180);
+INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4407, 2001, 1, 80);
+INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4407, 2009, 2, 80);
+INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4408, 2001, 3, 80);
+INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4409, 2001, 4, 80);
+INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4409, 2009, 5, 80);
 
 --2017/02/13 巫
 INSERT INTO JPFollowerDetail (JPFollowerID, ProductID, Quantity, Price) VALUES (4404, 2020, 1, 400);
@@ -791,28 +796,37 @@ insert into ChatRoom(WriterID, ReaderID, ChatMsgContent, ChatMsgTime)
 
 
 --Msg
-insert into Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
-values(1002,1004,'請問芒果何時會出貨？','最近好想吃芒果，請問何時有貨呢？','2017-01-23 09:07:43',0);
-INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
-	VALUES(1030,1031,'請問大概多久能收到貨','剛剛下訂了你們家的文旦，請問大概什麼時候能收到呢??我很急拜託幫幫忙!!!','2017-03-08 18:04:11',0);
-INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
-	VALUES(1030,1032,'有顆文旦壞了','你們有一顆文旦感覺根本就壞了!!!超級乾完全沒水份非常難吃!!!我要求退貨處理!!!不然檢舉你喔!!!','2017-02-08 11:14:22',1);
-INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
-	VALUES(1030,1033,'請問什麼時候有下一批貨','很好吃，還想買，請問你們什麼時候還有貨?','2017-01-22 12:22:39',1);	
-INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
-	VALUES(1033,1030,'下一批文旦預計02/02到貨','感謝您的支持與鼓勵~~~下一批文旦將於02/02到貨，有任何需要歡迎隨時與我們聯繫喔0.<','2017-01-22 21:55:11',1);	
+insert into Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus, WriterDelete, ReaderDelete)
+values(1002,1004,'請問芒果何時會出貨？','最近好想吃芒果，請問何時有貨呢？','2017-01-23 09:07:43',0, 0, 0);
+INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus, WriterDelete, ReaderDelete)
+	VALUES(1030,1031,'請問大概多久能收到貨','剛剛下訂了你們家的文旦，請問大概什麼時候能收到呢??我很急拜託幫幫忙!!!','2017-03-08 18:04:11',0, 0, 0);
+INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus, WriterDelete, ReaderDelete)
+	VALUES(1030,1032,'有顆文旦壞了','你們有一顆文旦感覺根本就壞了!!!超級乾完全沒水份非常難吃!!!我要求退貨處理!!!不然檢舉你喔!!!','2017-02-08 11:14:22',1, 0, 0);
+INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus, WriterDelete, ReaderDelete)
+	VALUES(1030,1033,'請問什麼時候有下一批貨','很好吃，還想買，請問你們什麼時候還有貨?','2017-01-22 12:22:39',1, 0, 0);	
+INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus, WriterDelete, ReaderDelete)
+	VALUES(1033,1030,'下一批文旦預計02/02到貨','感謝您的支持與鼓勵~~~下一批文旦將於02/02到貨，有任何需要歡迎隨時與我們聯繫喔0.<','2017-01-22 21:55:11',1, 0, 0);	
+INSERT INTO Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus, WriterDelete, ReaderDelete)
+	VALUES(1032,1030,'有4ㄇ87','一顆文旦壞掉而已，4在大驚小怪什麼辣','2017-02-11 11:11:22',0, 0, 0);	
 --2017/02/13 巫 
 --1022李小倩 與 1028 杞蒂凱
-insert into Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
-values(1022,1028,'我悲呀!','為什麼，只是想嘗嘗洋人的黑醋栗，卻給人騙了情，偷了錢呢？','2017-03-23 21:07:43',0);
-insert into Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
-values(1028,1022,'別傷心，醋栗我也有','倩姊快別哭了，錢有討回來吧?情傷了，再找了就有，想買的蔬果也是。我們家已經在實驗了，紐西蘭南島產的有機黑醋栗，在台灣的土壤種得起來!下個月說不定就能開賣場了。','2017-03-24 10:14:26',0);
-insert into Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus)
-values(1022,1028,'還是妳懂我','杞妹妹果然是我的知心。等妳升級小農了，來我家吧。采臣最近買了法國波爾多紅酒，找妳一起品味。','2017-03-24 12:14:10',0);
+insert into Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus, WriterDelete, ReaderDelete)
+values(1022,1028,'我悲呀!','為什麼，只是想嘗嘗洋人的黑醋栗，卻給人騙了情，偷了錢呢？','2017-03-23 21:07:43',0, 0, 0);
+insert into Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus, WriterDelete, ReaderDelete)
+values(1028,1022,'別傷心，醋栗我也有','倩姊快別哭了，錢有討回來吧?情傷了，再找了就有，想買的蔬果也是。我們家已經在實驗了，紐西蘭南島產的有機黑醋栗，在台灣的土壤種得起來!下個月說不定就能開賣場了。','2017-03-24 10:14:26',0, 0, 0);
+insert into Msg(MsgWriterID, MsgReaderID, MsgTitle, MsgContent, MsgTime, MsgStatus, WriterDelete, ReaderDelete)
+values(1022,1028,'還是妳懂我','杞妹妹果然是我的知心。等妳升級小農了，來我家吧。采臣最近買了法國波爾多紅酒，找妳一起品味。','2017-03-24 12:14:10',0, 0, 0);
 	
 --Unit
 --INSERT INTO Unit (UnitName) VALUES ('箱');
 --INSERT INTO Unit (UnitName) VALUES ('顆');
 --INSERT INTO Unit (UnitName) VALUES ('斤');
 --INSERT INTO Unit (UnitName) VALUES ('公斤');
+
+--Friend
+INSERT INTO Friend (MemberId, FriendId, FriendStatus) VALUES (1030, 1001, 0);
+INSERT INTO Friend (MemberId, FriendId, FriendStatus) VALUES (1030, 1002, 0);
+INSERT INTO Friend (MemberId, FriendId, FriendStatus) VALUES (1030, 1033, 0);
+INSERT INTO Friend (MemberId, FriendId, FriendStatus) VALUES (1030, 1032, 1);
+
 

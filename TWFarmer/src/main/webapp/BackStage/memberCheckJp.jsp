@@ -10,10 +10,19 @@
 <link href="../css/style.css" rel="stylesheet">
 <style>
 body {
- padding-top: 70px;
+	padding-top: 70px;
 }
+
 html {
-    overflow-y:scroll;
+	overflow-y: scroll;
+}
+
+.jp {
+	padding: 10px;
+	border: 1px solid black;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 140px;
 }
 </style>
 </head>
@@ -27,34 +36,42 @@ html {
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<h3>管理開團</h3>
+					<h2 class="text-center">管理開團</h2>
 					<c:if test="${not empty initJpList}">
-						<table class="table table-bordered">
-							<thead>
-								<tr>
-									<th>合購編號</th>
-									<th>開始日期</th>
-									<th>結束日期</th>
-									<th>合購地點</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="row" items="${initJpList}">
-									<tr>
-										<td>${row.jpId}</td>
-										<td>${row.initDate}</td>
-										<td>${row.endDate}</td>
-										<td>${row.jpLocation}</td>
-										<td><c:if test="${row.jpStatusId==4102}">
-												<a href="PublicJpServlet?jpId=${row.jpId}"><button
-														type="button" class="btn btn-default">發佈開團</button></a>
-											</c:if></td>
-									</tr>
-								</c:forEach>
-
-							</tbody>
-						</table>
+						<c:forEach items="${initJpList}" var="row">
+							<div class="row jp">
+								<div style="display: none">${row.jpId}</div>
+								<div class="col-md-3">
+									<img src="../img/${row.pictureName}"
+										class="img-responsive img-thumbnail" />
+								</div>
+								<div class="col-md-9">
+									<table class="table">
+										<thead>
+											<tr>
+												<td colspan="3">${row.jpName}</td>
+												<td><c:if test="${row.jpStatusId==4102}">
+														<a href="PublicJpServlet?jpId=${row.jpId}"><button
+																type="button" class="btn btn-default btn-sm">發佈開團</button></a>
+													</c:if></td>
+											</tr>
+										</thead>
+										<tr>
+											<td>開始日期</td>
+											<td>結束日期</td>
+											<td>合購地點</td>
+											<td>狀態</td>
+										</tr>
+										<tr>
+											<td>${row.initDate}</td>
+											<td>${row.endDate}</td>
+											<td>${row.jpLocation}</td>
+											<td>${row.jpStatusName}</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</c:forEach>
 					</c:if>
 				</div>
 			</div>
@@ -67,6 +84,10 @@ html {
 	<script>
 		$(function() {
 			$('#collapseOne>ul>li:eq(2)').addClass("list-group-item-success");
+			$('.jp').click(function() {
+				var x = $(this).children(":first").text();
+				window.location = "MemberCheckJpDetailServlet?jpId=" + x;
+			});
 		});
 	</script>
 </body>

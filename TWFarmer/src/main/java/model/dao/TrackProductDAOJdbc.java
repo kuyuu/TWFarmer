@@ -22,58 +22,62 @@ import model.TrackProductDAO;
 
 public class TrackProductDAOJdbc implements TrackProductDAO {
 	DataSource dataSource;
-	 public TrackProductDAOJdbc() {
-	 try {
-	 Context ctx = new InitialContext();
-	 dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
-	 } catch (NamingException e) {
-	 e.printStackTrace();
-	 }
-	 }
 
-//	public static void main(String[] args) {
-//		TrackProductDAO ppdao = new TrackProductDAOJdbc();
-//		System.out.println("Select By Member ID:");
-//		List<TrackProductBean> selectByMemberIds = ppdao.selectByMemberId(1001);
-//		for (TrackProductBean selectByMemberId : selectByMemberIds) {
-//			System.out.println(selectByMemberId.getMemberId());
-//		}
-//		
-//		System.out.println("Select By Product ID:");
-//		List<TrackProductBean> selectByProductIds = ppdao.selectByProductId(2001);
-//		for (TrackProductBean selectByProductId : selectByProductIds) {
-//			System.out.println(selectByProductId.getProductId());
-//		}
-//		
-//		System.out.println("Select All:");
-//		List<TrackProductBean> selectAll = ppdao.select();
-//		for (TrackProductBean select : selectAll) {
-//			System.out.println(select.getMemberId() + ":" + select.getProductId() + ":" + select.getTrackDate());
-//		}
-//		
-//		System.out.println("Select By PrimaryKey:");
-//		TrackProductBean selectByPk = ppdao.select(1001, 2001);
-//		System.out
-//				.println(selectByPk.getMemberId() + ":" + selectByPk.getProductId() + ":" + selectByPk.getTrackDate());
-//		
-//		System.out.println("Insert:");
-//		TrackProductBean update = new TrackProductBean();
-//		update.setMemberId(1002);
-//		update.setProductId(2003);
-//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//		try {
-//			update.setTrackDate(sdf.parse("2001-11-11"));
-//		} catch (ParseException e) {
-//			e.printStackTrace();
-//		}
-//		ppdao.insert(update);
-//		System.out.println(update.getTrackDate());
-//		
-//		ppdao.deleteByMemberId(1001);
-//		ppdao.deleteByProductId(2002);
-//		ppdao.delete(1002, 2003);
-//		
-//	}
+	public TrackProductDAOJdbc() {
+		try {
+			Context ctx = new InitialContext();
+			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
+
+	// public static void main(String[] args) {
+	// TrackProductDAO ppdao = new TrackProductDAOJdbc();
+	// System.out.println("Select By Member ID:");
+	// List<TrackProductBean> selectByMemberIds = ppdao.selectByMemberId(1001);
+	// for (TrackProductBean selectByMemberId : selectByMemberIds) {
+	// System.out.println(selectByMemberId.getMemberId());
+	// }
+	//
+	// System.out.println("Select By Product ID:");
+	// List<TrackProductBean> selectByProductIds =
+	// ppdao.selectByProductId(2001);
+	// for (TrackProductBean selectByProductId : selectByProductIds) {
+	// System.out.println(selectByProductId.getProductId());
+	// }
+	//
+	// System.out.println("Select All:");
+	// List<TrackProductBean> selectAll = ppdao.select();
+	// for (TrackProductBean select : selectAll) {
+	// System.out.println(select.getMemberId() + ":" + select.getProductId() +
+	// ":" + select.getTrackDate());
+	// }
+	//
+	// System.out.println("Select By PrimaryKey:");
+	// TrackProductBean selectByPk = ppdao.select(1001, 2001);
+	// System.out
+	// .println(selectByPk.getMemberId() + ":" + selectByPk.getProductId() + ":"
+	// + selectByPk.getTrackDate());
+	//
+	// System.out.println("Insert:");
+	// TrackProductBean update = new TrackProductBean();
+	// update.setMemberId(1002);
+	// update.setProductId(2003);
+	// SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	// try {
+	// update.setTrackDate(sdf.parse("2001-11-11"));
+	// } catch (ParseException e) {
+	// e.printStackTrace();
+	// }
+	// ppdao.insert(update);
+	// System.out.println(update.getTrackDate());
+	//
+	// ppdao.deleteByMemberId(1001);
+	// ppdao.deleteByProductId(2002);
+	// ppdao.delete(1002, 2003);
+	//
+	// }
 
 	private static final String SELECT_BY_PK = "SELECT * from TrackProduct where MemberId=? and ProductId=?";
 
@@ -180,8 +184,7 @@ public class TrackProductDAOJdbc implements TrackProductDAO {
 	@Override
 	public TrackProductBean insert(TrackProductBean trackProductBean) {
 		TrackProductBean result = null;
-		try (Connection conn = dataSource.getConnection();
-				PreparedStatement stmt = conn.prepareStatement(INSERT);) {
+		try (Connection conn = dataSource.getConnection(); PreparedStatement stmt = conn.prepareStatement(INSERT);) {
 			if (trackProductBean != null) {
 				stmt.setInt(1, trackProductBean.getMemberId());
 				stmt.setInt(2, trackProductBean.getProductId());
@@ -198,13 +201,12 @@ public class TrackProductDAOJdbc implements TrackProductDAO {
 		return result;
 	}
 
-	private static final String UPDATE = "UPDATE Member SET TRACKDATE=? WHERE MemberId=? AND ProductId=?";
+	private static final String UPDATE = "UPDATE TrackProduct SET TrackDate=? WHERE MemberId=? AND ProductId=?";
 
 	@Override
 	public TrackProductBean update(TrackProductBean bean) {
 		TrackProductBean result = null;
-		try (Connection conn = dataSource.getConnection();
-				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
+		try (Connection conn = dataSource.getConnection(); PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
 			java.sql.Date date = new java.sql.Date(bean.getTrackDate().getTime());
 			stmt.setDate(1, date);
 			stmt.setInt(2, bean.getMemberId());
@@ -252,7 +254,9 @@ public class TrackProductDAOJdbc implements TrackProductDAO {
 		}
 		return false;
 	}
+
 	private static final String DELETE_BY_PK = "delete from TrackProduct where MemberID=? and ProductID=?";
+
 	@Override
 	public boolean delete(int memberId, int productId) {
 		try (Connection conn = dataSource.getConnection();

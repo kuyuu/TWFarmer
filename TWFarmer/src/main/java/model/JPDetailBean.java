@@ -14,6 +14,7 @@ public class JPDetailBean implements Serializable {
 	private int jpPrice;
 	private int jpFreight;
 	private String jpUnit;
+	private String productName;
 	
 	@Override
 	public boolean equals(Object obj) {

@@ -41,28 +41,47 @@ html {
 						action="<c:url value="/MemberSubmit/MemberSubmit.controller" />"
 						method="post" role="form">
 						<div class="form-group ">
-							<label for="exampleInputEmail1">帳號</label> <input type="text"
-								name="account" value="" class="form-control"
-								id="exampleInputEmail1"> <span style="color: #ff0000">${errors.account}</span>
+							<label for="exampleInputEmail1">帳號</label> 
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+								<input type="text" name="account" value="${param.account}" class="form-control"
+								id="exampleInputEmail1"> 
+							</div>
+							<span style="color: #ff0000">${errors.account}</span>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputPassword1">密碼</label> <input
-								type="password" name="password" value="" class="form-control"
-								id="exampleInputPassword1" /> <span style="color: #ff0000">${errors.password}</span>
+							<label for="exampleInputPassword1">密碼</label> 
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+								<input type="password" name="password" value="${param.password}" class="form-control"
+								id="exampleInputPassword1" /> 
+							</div>
+							<span style="color: #ff0000">${errors.password}</span>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">名字</label> <input type="text"
-								name="name" value="" class="form-control"
-								id="exampleInputEmail1"> <span style="color: #ff0000">${errors.name}</span>
+							<label for="exampleInputEmail1">名字</label> 
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+								<input type="text" name="name" value="${param.name}" class="form-control"
+								id="exampleInputEmail1"> 
+							</div>
+							<span style="color: #ff0000">${errors.name}</span>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">手機</label> <input type="text"
-								name="phone" value="" class="form-control"
-								id="exampleInputEmail1"> <span style="color: #ff0000">${errors.phone}</span>
+							<label for="exampleInputEmail1">手機</label> 
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+								<input type="text" name="phone" value="${param.phone}" class="form-control"
+								id="exampleInputEmail1"> 
+							</div>
+							<span style="color: #ff0000">${errors.phone}</span>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">生日</label> <input type="text"
-								name="birthDate" value="" class="form-control" id="datepicker">
+							<label for="exampleInputEmail1">生日</label> 
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+								<input type="text" name="birthDate" value="${param.birthDate}" class="form-control" id="datepicker">
+							</div>
 							<span style="color: #ff0000">${errors.birthDate}</span>
 						</div>
 						<div class="form-group form-inline">
@@ -73,33 +92,53 @@ html {
 								id="exampleInputEmail1">女 <span style="color: #ff0000">${errors.gender}</span>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">E-mail</label> <input type="text"
-								name="email" value="" class="form-control"
-								id="exampleInputEmail1"> <span style="color: #ff0000">${errors.email}</span>
+							<label for="exampleInputEmail1">E-mail</label> 
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+								<input type="text" name="email" value="${param.email}" class="form-control"
+								id="exampleInputEmail1"> 
+							</div>
+							<span style="color: #ff0000">${errors.email}</span>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">身分證字號</label> <input type="text"
-								name="idnumber" value="" class="form-control"
-								id="exampleInputEmail1"> <span style="color: #ff0000">${errors.idnumber}</span>
+							<label for="exampleInputEmail1">身分證字號</label> 
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+								<input type="text" name="idnumber" value="${param.idnumber}" class="form-control"
+								id="exampleInputEmail1"> 
+							</div>
+							<span style="color: #ff0000">${errors.idnumber}</span>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">郵遞區號</label> <input type="text"
-								name="postalcode" value="" class="form-control"
-								id="exampleInputEmail1" value="請輸入郵遞區號"> <span
-								style="color: #ff0000">${errors.postalcode}</span>
+							<label for="exampleInputEmail1">郵遞區號</label> 
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+								<input type="text" name="postalcode" value="${param.postalcode}" class="form-control"
+								id="exampleInputEmail1"> 
+							</div>
+							<span style="color: #ff0000">${errors.postalcode}</span>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">居住的縣市及鄉鎮市區</label> <input
-								type="text" name="district" value="" class="form-control"
-								id="exampleInputEmail1" value="請輸入您居住的縣市及鄉鎮市區"> <span
-								style="color: #ff0000">${errors.district}</span>
+							<label for="exampleInputEmail1">居住的縣市及鄉鎮市區</label> 
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+								<input type="text" name="district" value="${param.district}" class="form-control"
+								id="exampleInputEmail1" value="請輸入您居住的縣市及鄉鎮市區"> 
+							</div>
+							<span style="color: #ff0000">${errors.district}</span>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">地址</label> <input type="text"
-								name="address" value="" class="form-control"
-								id="exampleInputEmail1"> <span style="color: #ff0000">${errors.address}</span>
+							<label for="exampleInputEmail1">地址</label> 
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+								<input type="text" name="address" value="${param.address}" class="form-control"
+								id="exampleInputEmail1"> 
+							</div>
+							<span style="color: #ff0000">${errors.address}</span>
 						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
+						<div class="form-group">
+							<button type="submit" class="btn btn-success" style="float: right;">Submit</button>
+						</div>
 					</form>
 				</div>
 
@@ -110,6 +149,8 @@ html {
 		</div>
 	</div>
 	<!-- 上方選單 End -->
+	
+	
 
 
 	<script src="../js/jquery.min.js"></script>

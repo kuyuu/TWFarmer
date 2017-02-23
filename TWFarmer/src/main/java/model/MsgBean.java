@@ -11,6 +11,8 @@ public class MsgBean {
 	private String msgContent;
 	private java.util.Date msgTime;
 	private int msgStatus;
+	private int writerDelete;
+	private int readerDelete;
 	private String writerName;
 	private String readerName;
 	private String writerAccount;
@@ -79,6 +81,22 @@ public class MsgBean {
 
 	public void setMsgStatus(int msgStatus) {
 		this.msgStatus = msgStatus;
+	}
+
+	public int getWriterDelete() {
+		return writerDelete;
+	}
+
+	public void setWriterDelete(int writerDelete) {
+		this.writerDelete = writerDelete;
+	}
+
+	public int getReaderDelete() {
+		return readerDelete;
+	}
+
+	public void setReaderDelete(int readerDelete) {
+		this.readerDelete = readerDelete;
 	}
 
 	public String getWriterName() {
