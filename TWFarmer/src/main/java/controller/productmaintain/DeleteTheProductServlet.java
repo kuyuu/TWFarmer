@@ -1,4 +1,4 @@
-package controller;
+package controller.productmaintain;
 
 import java.io.IOException;
 import java.text.ParseException;

@@ -9,22 +9,22 @@
 <title>台灣小農</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/style.css" rel="stylesheet">
+<!-- 以下兩個為date的link -->
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<link rel="stylesheet" href="../css/jquery-ui-timepicker-addon.css">
+
+
 
 </head>
 <body>
 
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
-
 		<div class="row">
 			<div class="col-md-3">
-				<div class="list-group">
-					<a href="#" class="list-group-item">管理訂單</a> <a href="#"
-						class="list-group-item">管理開團</a> <a href="#"
-						class="list-group-item active">管理跟團</a><a href="#"
-						class="list-group-item">管理追蹤商品</a> <a href="#"
-						class="list-group-item">管理個人資料</a>
-				</div>
+				<jsp:include page="../BackStage/backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
@@ -40,7 +40,7 @@
 						<div class="form-group">
 							<label for="remittanceAcc" class="col-sm-3 control-label">匯款帳號後5碼</label>
 							<div class="col-sm-9">
-								<input type="text" name="remittanceAcc" class="form-control"  />
+								<input type="text" name="remittanceAcc" class="form-control" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -52,12 +52,13 @@
 						<div class="form-group">
 							<label for="remittanceDate" class="col-sm-3 control-label">匯款時間</label>
 							<div class="col-sm-9">
-								<input type="text" name="remittanceDate" class="form-control" />
+								<input type="text" id="datepicker" name="remittanceDate"
+									class="form-control" />
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-offset-3 col-sm-9">
-								<button type="submit" class="btn btn-default">送出</button>
+								<button type="submit" class="btn btn-default">匯款確認</button>
 							</div>
 						</div>
 					</form>
@@ -69,5 +70,29 @@
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/scripts.js"></script>
+	<script>
+		$(function() {
+			$('#collapseOne>ul>li:eq(2)').addClass("list-group-item-success");
+		});
+	</script>
+<!-- 以下為datepicker -->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="../js/jquery-ui-timepicker-addon.js"></script>
+	<script>
+		$(function() {
+			
+			$("#datepicker").datetimepicker({
+				dateFormat : "yy-mm-dd",
+				timeFormat: "HH:mm",
+			});
+			
+			
+			//$('#datepicker').timepicker({"timeFormat": "HH:mm"}); 
+		});
+	</script>
+
+
+
 </body>
 </html>

@@ -26,8 +26,12 @@ import model.ProductPicBean;
 
 public class MemberDAOJdbc implements MemberDAO {
 
-	DataSource dataSource;
+	private DataSource dataSource;
 
+	public MemberDAOJdbc( DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+	
 	public MemberDAOJdbc() {
 		try {
 			Context ctx = new InitialContext();
@@ -37,13 +41,14 @@ public class MemberDAOJdbc implements MemberDAO {
 		}
 	}
 
-	// public static void main(String[] args) {
-	// MemberDAO dao = new MemberDAOJdbc();
-	// List<MemberBean> beans = dao.select();
-	// System.out.println("bean="+beans);
-	//
-	// System.out.println(dao.select(1001).getAccount());
-	// }
+
+//	public static void main(String[] args) {
+//		MemberDAO dao = new MemberDAOJdbc();
+//		List<MemberBean> beans = dao.select();
+//		System.out.println("bean=" + beans);
+//
+//		System.out.println(dao.select(1001).getAccount());
+//	}
 	private static final String SELECT_BY_ID = "SELECT * from Member where MemberId=?";
 
 	@Override

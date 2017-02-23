@@ -77,20 +77,18 @@ html {
 	<script>
 		$(function() {
 			$("#collapseOne>ul>li:eq(6)").addClass("list-group-item-success");
+
 			$('button[name="white"]').click(function() {
-				$.post('AddFriendServlet', {
-					"whiteId" : "${memberBean.memberId}"
-				}, function() {
-					window.location = "FriendHomeServlet";
-				});
+				$.ajax({url:'AddFriend.do',type:"POST", data:{"whiteId" : "${memberBean.memberId}"}, complete:function(){
+						window.location = "FriendHome.do";
+				}});
 			});
 			$('button[name="black"]').click(function() {
-				$.post('AddFriendServlet', {
-					"blackId" : "${memberBean.memberId}"
-				}, function() {
-					window.location = "FriendHomeServlet";
-				});
+				$.ajax({url:'AddFriend.do',type:"POST", data:{"blackId" : "${memberBean.memberId}"}, complete:function(){
+						window.location = "FriendHome.do";
+				}});
 			});
+			
 			if ("${friend}" == "0") {
 				$('button[name="white"]').attr("disabled", "disabled");
 			} else if ("${friend}" == "1") {

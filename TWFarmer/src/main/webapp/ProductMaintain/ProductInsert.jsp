@@ -8,12 +8,15 @@
 <title>台灣小農-新增商品</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/style.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style>
 body {
- padding-top: 70px;
+	padding-top: 70px;
 }
+
 html {
-    overflow-y:scroll;
+	overflow-y: scroll;
 }
 </style>
 </head>
@@ -53,8 +56,7 @@ html {
 										<tr height=60>
 											<td><strong>產地</strong></td>
 											<%-- value=${param.name屬性值} --%>
-											<td>
-												<input id='origin' name="origin"
+											<td><input id='origin' name="origin"
 												value="${param.origin}" type="text" class="form-control">
 												<%-- ${ErrorMsg(Map的key).origin(put的name)} --%>
 												<div style="color: #FF0000; display: inline">${ErrorMsg.origin}</div>
@@ -131,14 +133,14 @@ html {
 
 										<tr height=60>
 											<td><strong>上架日期</strong></td>
-											<td><input id='addDate' name="addDate"
+											<td><input id="datepicker" name="addDate"
 												value="${param.addDate}" type="text" class="form-control">
 												<div style="color: #FF0000; display: inline">${ErrorMsg.addDate}</div>
 										</tr>
 
 										<tr height=60>
 											<td><strong>預估下架日期</strong></td>
-											<td><input id='removeEstDate' name="removeEstDate"
+											<td><input id="datepicker2" name="removeEstDate"
 												value="${param.removeEstDate}" type="text"
 												class="form-control">
 												<div style="color: #FF0000; display: inline">${ErrorMsg.removeEstDate}</div>
@@ -247,5 +249,25 @@ html {
 					<script src="../js/jquery.min.js"></script>
 					<script src="../js/bootstrap.min.js"></script>
 					<script src="../js/scripts.js"></script>
+					<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+					<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+					
+					<script>
+		$(function() {
+			$("#datepicker").datepicker({
+				altField : "#datepicker",
+				altFormat : "yy-mm-dd",
+				dateFormat : "yy-mm-dd"
+			});
+		});
+		
+		$(function() {
+			$("#datepicker2").datepicker({
+				altField : "#datepicker2",
+				altFormat : "yy-mm-dd",
+				dateFormat : "yy-mm-dd"
+			});
+		});
+	</script>
 </body>
 </html>

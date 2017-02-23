@@ -43,16 +43,14 @@ public class UpdateForPaymentOfOrder extends HttpServlet {
 		String remittanceBank = request.getParameter("remittanceBank");
 		String remittanceAcc = request.getParameter("remittanceAcc");
 
-		
 		try {
 //			OrdersBean ordersBean = new OrdersBean();
 //			ordersBean.setOrderId(orderId);
 			OrdersBean ordersBean = ordersDAOJdbc.select(orderId);
 			ordersBean.setRemittance(remittance);
 
-			SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+			SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 			ordersBean.setRemittanceDate(sdFormat.parse(remittanceDate));
-
 			ordersBean.setRemittanceBank(remittanceBank);
 			ordersBean.setRemittanceAcc(remittanceAcc);
 			ordersBean.setBuyerOrderStatusId(3102);

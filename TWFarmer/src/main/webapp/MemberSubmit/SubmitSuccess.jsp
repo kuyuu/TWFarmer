@@ -26,7 +26,7 @@ html {
 			<div class="row jumbotron">
 				<h2>上傳會員頭像</h2>
 				<form name="form"
-					action="<%=request.getContextPath()%>/UploadDemo/uploadHeadImage"
+					action="<%=request.getContextPath()%>/UploadDemo/uploadHeadImage.do"
 					class="form-horizontal" method="post" enctype="multipart/form-data">
 					<div class="modal-body text-center">
 						<div class="zxx_main_con">
