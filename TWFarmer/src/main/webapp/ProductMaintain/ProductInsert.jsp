@@ -88,6 +88,7 @@ html {
 										<tr height=60>
 											<td><strong>單位</strong></td>
 											<td><select class="form-control" id='unit' name="unit">
+													<option>請選擇單位</option>
 													<option>箱</option>
 													<option>顆</option>
 													<option>斤</option>
@@ -100,6 +101,7 @@ html {
 											<td><strong>類別</strong></td>
 											<td><select class="form-control" id="productTypeName"
 												name="productTypeName">
+													<option>請選擇類別</option>
 													<option>仁果類</option>
 													<option>核果類</option>
 													<option>堅果類</option>
@@ -155,6 +157,7 @@ html {
 											<td><strong>商品狀態</strong></td>
 											<td><select class="form-control" id='productStatusName'
 												name="productStatusName">
+													<option>請選擇商品狀態</option>
 													<option>上架</option>
 													<option>下架</option>
 													<option>封鎖</option>
@@ -251,23 +254,23 @@ html {
 					<script src="../js/scripts.js"></script>
 					<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 					<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-					
+
 					<script>
-		$(function() {
-			$("#datepicker").datepicker({
-				altField : "#datepicker",
-				altFormat : "yy-mm-dd",
-				dateFormat : "yy-mm-dd"
-			});
-		});
-		
-		$(function() {
-			$("#datepicker2").datepicker({
-				altField : "#datepicker2",
-				altFormat : "yy-mm-dd",
-				dateFormat : "yy-mm-dd"
-			});
-		});
-	</script>
+						$(function() {
+							$("#datepicker").datepicker({
+								altField : "#datepicker",
+								altFormat : "yy-mm-dd",
+								dateFormat : "yy-mm-dd"
+							});
+						});
+
+						$(function() {
+							$("#datepicker2").datepicker({
+								altField : "#datepicker2",
+								altFormat : "yy-mm-dd",
+								dateFormat : "yy-mm-dd"
+							});
+						});
+					</script>
 </body>
 </html>
