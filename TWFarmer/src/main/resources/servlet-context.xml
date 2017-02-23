@@ -56,9 +56,12 @@
 		<property name="location" value="WEB-INF/views.xml"></property>
 
 	</bean>
+	<!-- 導入Bean設定 -->
+	<bean class="config.SpringJavaConfig" />
+	
 	<!-- 自动扫描包 -->
 	<context:annotation-config />
-	<context:component-scan base-package="upload, controller.friend, model" />
+	<context:component-scan base-package="upload, controller, model" />
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<mvc:default-servlet-handler />
 </beans>

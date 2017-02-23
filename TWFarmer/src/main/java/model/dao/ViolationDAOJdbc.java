@@ -26,6 +26,11 @@ public class ViolationDAOJdbc implements ViolationDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public ViolationDAOJdbc(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
 
 	private static final String INSERT = "insert into Violation (ReportedID, ReporterID, VioTitle, VioContent, CreateDate, ProcessDate, TicketResult, TicketStatue) values (?, ?, ?, ?, ?, ?, ?, ?)";
 

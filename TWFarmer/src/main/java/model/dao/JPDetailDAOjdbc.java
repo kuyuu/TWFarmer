@@ -14,57 +14,61 @@ import model.JPDetailBean;
 import model.JPDetailDAO;
 
 public class JPDetailDAOjdbc implements JPDetailDAO {
-	
+
 	DataSource dataSource;
-	 public JPDetailDAOjdbc() {
-		 try {
-		 Context ctx = new InitialContext();
-		 dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
-		 } catch (NamingException e) {
-		 e.printStackTrace();
-		 }
-	 }
-		private static final String SELECT_BY_PK = "select * from JPDetail where JPId=? and ProductId=?";
 
-		@Override
-		public JPDetailBean select(int jpId, int productId) {
-			JPDetailBean result = null;
-			ResultSet rset = null;
-			try (Connection conn = dataSource.getConnection();
-					PreparedStatement stmt = conn.prepareStatement(SELECT_BY_PK);) {
+	public JPDetailDAOjdbc() {
+		try {
+			Context ctx = new InitialContext();
+			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
 
-				stmt.setInt(1, jpId);
-				stmt.setInt(2, productId);
-				
-				rset = stmt.executeQuery();
-				if (rset.next()) {
-					result = new JPDetailBean();
-					result.setJpId(rset.getInt("JpID"));
-					result.setProductId(rset.getInt("ProductID"));
-					result.setJpPopulationMin(rset.getInt("JpPopulationMin"));
-					result.setJpPopulationMax(rset.getInt("JpPopulationMax"));
-					result.setJpMinQEach(rset.getInt("JpMinQEach"));
-					result.setJpPrice(rset.getInt("JpPrice"));
-					result.setJpFreight(rset.getInt("JpFreight"));
-					result.setJpUnit(rset.getString("JpUnit"));
-
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				if (rset != null) {
-					try {
-						rset.close();
-					} catch (SQLException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-			return result;
+	public JPDetailDAOjdbc(DataSource dataSource) {
+			this.dataSource = dataSource;
 		}
 
-	 
-	 
+	private static final String SELECT_BY_PK = "select * from JPDetail where JPId=? and ProductId=?";
+
+	@Override
+	public JPDetailBean select(int jpId, int productId) {
+		JPDetailBean result = null;
+		ResultSet rset = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_PK);) {
+
+			stmt.setInt(1, jpId);
+			stmt.setInt(2, productId);
+
+			rset = stmt.executeQuery();
+			if (rset.next()) {
+				result = new JPDetailBean();
+				result.setJpId(rset.getInt("JpID"));
+				result.setProductId(rset.getInt("ProductID"));
+				result.setJpPopulationMin(rset.getInt("JpPopulationMin"));
+				result.setJpPopulationMax(rset.getInt("JpPopulationMax"));
+				result.setJpMinQEach(rset.getInt("JpMinQEach"));
+				result.setJpPrice(rset.getInt("JpPrice"));
+				result.setJpFreight(rset.getInt("JpFreight"));
+				result.setJpUnit(rset.getString("JpUnit"));
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (rset != null) {
+				try {
+					rset.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return result;
+	}
+
 	private static final String SELECT_BY_JPID = "select * from JPDetail where JPId=?";
 
 	@Override
@@ -117,7 +121,7 @@ public class JPDetailDAOjdbc implements JPDetailDAO {
 				bean.setJpFreight(rset.getInt("JpFreight"));
 				bean.setJpUnit(rset.getString("JpUnit"));
 				result.add(bean);
-				
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -153,14 +157,12 @@ public class JPDetailDAOjdbc implements JPDetailDAO {
 		return result;
 	}
 
-	private static final String INSERT = 
-			"insert into JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight, JPUnit)  VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+	private static final String INSERT = "insert into JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQEach, JPPrice, JPFreight, JPUnit)  VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 	@Override
 	public JPDetailBean insert(JPDetailBean JPDetailBean) {
 		JPDetailBean result = null;
-		try (Connection conn = dataSource.getConnection();
-				PreparedStatement stmt = conn.prepareStatement(INSERT);) {
+		try (Connection conn = dataSource.getConnection(); PreparedStatement stmt = conn.prepareStatement(INSERT);) {
 			if (JPDetailBean != null) {
 				stmt.setInt(1, JPDetailBean.getJpId());
 				stmt.setInt(2, JPDetailBean.getProductId());
@@ -181,20 +183,13 @@ public class JPDetailDAOjdbc implements JPDetailDAO {
 		return result;
 	}
 
-	private static final String UPDATE = "update JPDetail "
-			+ "set JPPopulationMin=?, "
-			+ "JPPopulationMax=?, "
-			+ "JPMinQEach=?, "
-			+ "JPPrice=?, "
-			+ "JPFreight=?, "
-			+ "JPUnit=? "
-			+ "WHERE JPId=? AND ProductId=?";
+	private static final String UPDATE = "update JPDetail " + "set JPPopulationMin=?, " + "JPPopulationMax=?, "
+			+ "JPMinQEach=?, " + "JPPrice=?, " + "JPFreight=?, " + "JPUnit=? " + "WHERE JPId=? AND ProductId=?";
 
 	@Override
 	public JPDetailBean update(JPDetailBean JPDetailBean) {
 		JPDetailBean result = null;
-		try (Connection conn = dataSource.getConnection();
-				PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
+		try (Connection conn = dataSource.getConnection(); PreparedStatement stmt = conn.prepareStatement(UPDATE);) {
 			stmt.setInt(1, JPDetailBean.getJpPopulationMin());
 			stmt.setInt(2, JPDetailBean.getJpPopulationMax());
 			stmt.setInt(3, JPDetailBean.getJpMinQEach());
@@ -203,7 +198,7 @@ public class JPDetailDAOjdbc implements JPDetailDAO {
 			stmt.setString(6, JPDetailBean.getJpUnit());
 			stmt.setInt(7, JPDetailBean.getJpId());
 			stmt.setInt(8, JPDetailBean.getProductId());
-			
+
 			int i = stmt.executeUpdate();
 			if (i == 1) {
 				result = this.select(JPDetailBean.getJpId(), JPDetailBean.getProductId());
@@ -230,7 +225,7 @@ public class JPDetailDAOjdbc implements JPDetailDAO {
 		}
 		return false;
 	}
-	
+
 	private static final String DELETE_BY_PRODUCTID = "delete from JPDetail where ProductID=?";
 
 	@Override
@@ -247,8 +242,9 @@ public class JPDetailDAOjdbc implements JPDetailDAO {
 		}
 		return false;
 	}
-	
+
 	private static final String DELETE_BY_PK = "delete from JPDetail where JPID=? and ProductID=?";
+
 	@Override
 	public boolean delete(int jpId, int productId) {
 		try (Connection conn = dataSource.getConnection();
@@ -264,5 +260,5 @@ public class JPDetailDAOjdbc implements JPDetailDAO {
 		}
 		return false;
 	}
-	
+
 }

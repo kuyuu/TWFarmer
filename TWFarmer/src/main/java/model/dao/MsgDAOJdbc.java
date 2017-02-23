@@ -26,6 +26,10 @@ public class MsgDAOJdbc implements MsgDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public MsgDAOJdbc(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
 
 	public static void main(String[] args) {
 		MsgDAO dao = new MsgDAOJdbc();

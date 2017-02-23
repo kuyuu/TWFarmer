@@ -9,7 +9,15 @@
 <title>台灣小農</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/style.css" rel="stylesheet">
+<style>
+body {
+	padding-top: 70px;
+}
 
+html {
+	overflow-y: scroll;
+}
+</style>
 </head>
 <body>
 
@@ -21,65 +29,63 @@
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<h3>訂單明細</h3>
-					<center>
-						<form action="<c:url value="../BackStage/NewRemittanceOfOrderServlet"/>" method="get">
-							<table border="0" width="35%">
 
-								<tr>
-									<td width="50%">訂單流水號:</td>
-									<td>${orderResult.orderId}</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td width="50%">賣家編號:</td>
-									<td>${orderResult.sellerId}</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td width="50%">購買時間:</td>
-									<td>${orderResult.orderDate}</td>
-									<td></td>
-								</tr>
-								
+					<div
+						style="font-weight: bold; color: #ff0000; margin: .67em 0; font-size: 2em;">訂單明細</div>
+
+
+					<form
+						action="<c:url value="../BackStage/NewRemittanceOfOrderServlet"/>"
+						method="get">
+				
+								<div class="form-group">
+									<label>訂單流水號:</label> ${orderResult.orderId}
+								</div>
+		
+								<div class="form-group">
+									<label>賣家編號:</label> ${orderResult.sellerId}
+								</div>
+		
+								<div class="form-group">
+									<label>購買時間:</label> ${orderResult.orderDate}
+								</div>
+		
+		
+		
 								<c:forEach var="row" items="${orderDetails}">
-									<tr>
-										<td width="50%">商品編號:</td>
-										<td>${row.productId}</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td width="50%">購買數量:</td>
-										<td>${row.orderQuantity}</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td width="50%">購買單位:</td>
-										<td>${row.unit}</td>
-										<td></td>
-									</tr>
+		
+									<div class="form-group">
+										<label>商品編號:</label> ${row.productId}
+									</div>
+		
+									<div class="form-group">
+										<label>購買數量:</label> ${row.orderQuantity}
+									</div>
+		
+									<div class="form-group">
+										<label>購買單位:</label> ${row.unit}
+									</div>
+		
 								</c:forEach>
-								
-								<tr>
-									<td width="50%">總運費：</td>
-									<td>${orderResult.totalFreight}</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td width="50%">總金額(含運費):</td>
-									<td>${orderResult.totalPrice}</td>
-									<td></td>
-								</tr>
-								
-								<tr>								
-									<td align="center">
-										<button type="submit" class="btn btn-primary">我要匯款</button>	
-									</td>	
-								</tr>
-								
-							</table>
-							<input type="hidden" name="orderId" value="${orderResult.orderId}">
-						</form>
+		
+								<div class="form-group">
+									<label>總運費：</label> ${orderResult.totalFreight}
+								</div>
+		
+								<div class="form-group">
+									<label>總金額(含運費):</label> ${orderResult.totalPrice}
+								</div>
+		
+		
+								<div class="form-group">
+									<button type="submit" class="btn btn-primary">我要匯款</button>
+								</div>
+			
+
+
+						<input type="hidden" name="orderId" value="${orderResult.orderId}">
+						
+					</form>
 				</div>
 			</div>
 		</div>
@@ -90,8 +96,9 @@
 	<script src="../js/scripts.js"></script>
 	<script>
 		$(function() {
-			$('#collapseOne>ul>li:eq(2)').addClass("list-group-item-success");
-		});
+			$("#collapseOne>ul>li:eq(1)").removeClass("list-group-item")
+					.addClass("list-group-item list-group-item-success")
+		})
 	</script>
 </body>
 </html>
