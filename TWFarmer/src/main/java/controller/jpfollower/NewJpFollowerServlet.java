@@ -65,10 +65,6 @@ public class NewJpFollowerServlet extends HttpServlet {
 		JPDetailDAOjdbc dao3 = new JPDetailDAOjdbc();
 		List<JPDetailBean> list = dao3.selectByJpId(jpId);
 		F2FDetailDAOjdbc dao4 = new F2FDetailDAOjdbc();
-		List<F2FDetailBean> list2 = dao4.selectByJpId(jpId);
-		request.setAttribute("jpBean", jpBean);
-		request.setAttribute("jpDetailList", list);
-		request.setAttribute("f2fList", list2);
 
 		int f2fId = 0;
 		if (temp3 != null && temp3.trim().length() != 0) {

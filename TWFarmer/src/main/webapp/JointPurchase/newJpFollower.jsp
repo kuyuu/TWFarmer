@@ -23,12 +23,12 @@ html {
 			<div class="col-md-12">
 				<div class="col-md-offset-2">
 					<form
-						action="<c:url value="NewJpFollowerServlet?memberId=${memberBean.memberId}&jpId=${jpBean.jpId}"/>"
+						action="<c:url value="NewJpFollowerServlet?memberId=${LoginOK.memberId}&jpId=${jpBean.jpId}"/>"
 						method="POST" class="form-horizontal">
 						<div class="form-group">
 							<label for="memberId" class="col-sm-2 control-label">會員ID</label>
 							<div class="col-sm-6">
-								<p id="memberId" class="form-control-static">${memberBean.memberId}</p>
+								<p id="memberId" class="form-control-static">${LoginOK.memberId}</p>
 							</div>
 						</div>
 						<div class="form-group">

@@ -41,7 +41,7 @@ html {
 							</c:forEach>
 						</c:forEach>
 					</p>
-					<button class="btn btn-primary">我要跟團</button>
+					<a href="JointPurchase/StarJpFollower.do?jpId=${jpBean.jpId}"><button class="btn btn-primary" id="go" value="${jpBean.jpId}">我要跟團</button></a>
 				</div>
 			</div>
 		</div>

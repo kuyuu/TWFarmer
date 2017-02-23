@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import model.dao.F2FDetailDAOjdbc;
 import model.dao.FarmerDAOJdbc;
 import model.dao.FriendDAOJdbc;
 import model.dao.JPDetailDAOjdbc;
@@ -63,6 +64,11 @@ public class SpringJavaConfig {
 	@Bean
 	public JPDetailDAOjdbc jpDetailDAO() {
 		return new JPDetailDAOjdbc(dataSource());
+	}
+	
+	@Bean
+	public F2FDetailDAOjdbc f2fDetailDAO() {
+		return new F2FDetailDAOjdbc(dataSource());
 	}
 
 }
