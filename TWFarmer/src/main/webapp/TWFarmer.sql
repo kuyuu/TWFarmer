@@ -678,9 +678,9 @@ INSERT INTO JPDetail (JPID, ProductID, JPPopulationMin, JPPopulationMax, JPMinQE
 INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4001, '捷運永安市場站出口','2017-01-31 12:00');
 INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4001, '中和遠東世紀廣場(J棟樓下全家)','2017-01-31 14:00');
 INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4001, '新北市中和區中正路753號(板信銀行門口)','2017-01-31 16:00');
-INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4004, '政大麥側','2017-02-25 16:00');
-INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4004, '考試院門口','2017-02-25 17:00');
-INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4004, '景美女中校門口','2017-02-25 18:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4006, '政大麥側','2017-02-25 16:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4006, '考試院門口','2017-02-25 17:00');
+INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4006, '景美女中校門口','2017-02-25 18:00');
 --2017/02/13
 INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4007, '屏東縣高樹鄉南興路143號 (農會大廳內)','2017-03-05 15:00');
 INSERT INTO F2FDetail (JPID, F2FPlace, F2FTime) VALUES (4007, '台北市大安區復興南路一段390號14樓(台北農會)','2017-03-12 15:00');
