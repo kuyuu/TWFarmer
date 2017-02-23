@@ -30,9 +30,8 @@ html {
 				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
-				<div class="row jumbotron" style="background-color: #FFE6FF;">
-					<div class="col-md-8"
-						style="font-family: monospace, Microsoft JhengHei">
+				<div class="row jumbotron">
+					<div class="col-md-8" >
 						<center>
 							<c:if test="${empty Memberbean}">
 								<h2>您的會員資料為：</h2>

@@ -43,10 +43,8 @@ html {
 								<tr>
 									<th>會員編號</th>
 									<th>農民證號</th>
-									<th>銀行</th>
-									<th>銀行帳號</th>
 									<th>農場描述</th>
-									<th>回覆</th>
+									<th>是否核准</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -54,11 +52,10 @@ html {
 									<tr>
 										<td>${row.key.memberId}</td>
 										<td>${row.value.farmerId}</td>
-										<td>${row.value.bank}</td>
-										<td>${row.value.bankAccount}</td>
 										<td>${row.value.farmerIntro}</td>
-										<td><a href="${path}"><button name="button"
-													class="btn btn-primary" value="reply">回覆</button></a></td>
+										<td><button name="button" class="btn btn-primary"
+												value="OK">是</button>
+											<button name="button" class="btn btn-danger" value="OK">否</button></td>
 									</tr>
 								</c:forEach>
 							</tbody>

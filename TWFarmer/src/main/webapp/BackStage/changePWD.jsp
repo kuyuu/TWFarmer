@@ -30,8 +30,7 @@ html {
 				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
-				<div class="row jumbotron"
-					style="background-color: #FFE6FF; font-family: monospace, Microsoft JhengHei">
+				<div class="row jumbotron" >
 					<center>
 						<h3>更改密碼</h3>
 					</center>
