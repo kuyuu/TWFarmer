@@ -12,8 +12,9 @@
 body {
 	padding-top: 70px;
 }
+
 html {
-    overflow-y:scroll;
+	overflow-y: scroll;
 }
 </style>
 </head>
@@ -21,7 +22,7 @@ html {
 	<div class="container">
 		<jsp:include page="../common/menuShoppingCart.jsp" />
 		<div class="row jumbotron">
-		<a href="../JointPurchase.do?jpId=4006">test</a>
+			<a href="../JointPurchase.do?jpId=4006">test</a>
 			<h2>購物車</h2>
 			<button type="button" class="btn btn-default" id="clear">清空購物車</button>
 			<c:if test="${not empty cartMap}">
@@ -59,8 +60,12 @@ html {
 	<script>
 		$(function() {
 			$('#clear').click(function() {
-				$.get('ClearShoppingCartServlet', function() {
-					window.location.reload();
+				$.ajax({
+					url : 'ClearShoppingCart.do',
+					type : "POST",
+					complete : function() {
+						window.location.reload();
+					}
 				});
 			});
 		});

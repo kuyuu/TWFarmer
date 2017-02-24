@@ -253,7 +253,7 @@ html {
 			$('[data-toggle="popover"]').popover();
 			//購物車
 			$('#cart').click(function() {
-				$.get('shoppingCart/AddShoppingCartServlet', {
+				$.get('shoppingCart/AddShoppingCart.do', {
 					"productId" : $('#productId').val()
 				});
 			});
@@ -263,7 +263,7 @@ html {
 							function() {
 								$
 										.get(
-												'shoppingCart/AddShoppingCartServlet',
+												'shoppingCart/AddShoppingCart.do',
 												{
 													"productId" : $(
 															'#productId').val()

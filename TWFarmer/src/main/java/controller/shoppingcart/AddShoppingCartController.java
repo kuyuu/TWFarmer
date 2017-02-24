@@ -14,18 +14,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import model.daojdbc.ProductDAOjdbc;
 
-@WebServlet("/shoppingCart/AddShoppingCartServlet")
-public class AddShoppingCartServlet extends HttpServlet {
+@Controller
+@RequestMapping(path = { "/shoppingCart/AddShoppingCart.do" })
+public class AddShoppingCartController {
+	@Autowired
+	private ProductDAOjdbc productDAO;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST })
+	public void doWork(HttpSession session, Integer productId)
 			throws ServletException, IOException {
-		String temp = request.getParameter("productId");
-		int productId = Integer.parseInt(temp);
-		ProductDAOjdbc dao = new ProductDAOjdbc();
-		int sellerId = dao.select(productId).getSellerId();
-		HttpSession session = request.getSession();
+		int sellerId = productDAO.select(productId).getSellerId();
 		Map<Integer, Set<Integer>> cart = (Map<Integer, Set<Integer>>) session.getAttribute("cart");
 
 		Map<Integer, Set<Integer>> map = null;
@@ -47,15 +52,6 @@ public class AddShoppingCartServlet extends HttpServlet {
 		map.put(sellerId, set);
 
 		session.setAttribute("cart", map);
-//		for (Map.Entry entry : map.entrySet()) {
-//			System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
-//		}
-
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 }

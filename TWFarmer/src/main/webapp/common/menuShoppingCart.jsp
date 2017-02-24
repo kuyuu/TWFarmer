@@ -20,7 +20,7 @@
 			<li><a
 				href="/TWFarmer/ProductSelect/ProductSelect.jsp">購買蔬果</a></li>
 			<li><a href="/TWFarmer/PurchaseSelect/PurchaseSelect.jsp">合購專區</a></li>
-			<li class="active"><a href="/TWFarmer/shoppingCart/ShowShoppingCartServlet">購物車</a></li>
+			<li class="active"><a href="/TWFarmer/shoppingCart/ShowShoppingCart.do">購物車</a></li>
 		</ul>
 		<c:choose>
 		<c:when test="${empty LoginOK}">
