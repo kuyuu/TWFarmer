@@ -16,7 +16,7 @@ import model.bean.FarmerBean;
 import model.dao.FarmerDAO;
 
 public class FarmerDAOJdbc implements FarmerDAO {
-	DataSource dataSource;
+	private DataSource dataSource;
 
 	public FarmerDAOJdbc() {
 		try {

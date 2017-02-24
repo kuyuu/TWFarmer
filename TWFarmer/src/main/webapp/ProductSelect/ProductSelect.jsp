@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="/TWFarmer/css/bootstrap.min.css" rel="stylesheet">
+<link href="/TWFarmer/css/bootstrap.css" rel="stylesheet">
 <title>台灣小農</title>
 <style>
 body {
@@ -152,6 +152,6 @@ html {
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="/TWFarmer/js/bootstrap.min.js"></script>
+	<script src="/TWFarmer/js/bootstrap.js"></script>
 </body>
 </html>

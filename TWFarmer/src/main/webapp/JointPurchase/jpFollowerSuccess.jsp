@@ -14,7 +14,7 @@
 	content="Source code generated using layoutit.com">
 <meta name="author" content="LayoutIt!">
 
-<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/bootstrap.css" rel="stylesheet">
 <link href="../css/style.css" rel="stylesheet">
 <style>
 body {
@@ -67,7 +67,7 @@ html {
 	</div>
 
 	<script src="../js/jquery.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
 	<script src="../js/scripts.js"></script>
 </body>
 </html>

@@ -1,14 +1,12 @@
 package model.daojdbc;
 
 import java.sql.Connection;
-
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.naming.Context;
@@ -16,16 +14,14 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import model.bean.FarmerBean;
-import model.bean.FriendBean;
-import model.bean.JointPurchaseBean;
 import model.bean.MemberBean;
-import model.bean.ProductBean;
-import model.bean.ProductPicBean;
 import model.dao.MemberDAO;
 
 public class MemberDAOJdbc implements MemberDAO {
-
 	private DataSource dataSource;
 
 	public MemberDAOJdbc() {
@@ -36,6 +32,7 @@ public class MemberDAOJdbc implements MemberDAO {
 			e.printStackTrace();
 		}
 	}
+
 
 	public MemberDAOJdbc(DataSource dataSource) {
 		this.dataSource = dataSource;

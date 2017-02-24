@@ -20,7 +20,7 @@ html {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>台灣小農</title>
-<link href="/TWFarmer/css/bootstrap.min.css" rel="stylesheet">
+<link href="/TWFarmer/css/bootstrap.css" rel="stylesheet">
 <link href="/TWFarmer/css/jquery.bootstrap-touchspin.css"
 	rel="stylesheet">
 <style>
@@ -171,7 +171,7 @@ body {
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="/TWFarmer/js/bootstrap.min.js"></script>
+	<script src="/TWFarmer/js/bootstrap.js"></script>
 	<script src="/TWFarmer/js/jquery.bootstrap-touchspin.js"></script>
 	<script>
 		$("input[name*='jpPopulation']").TouchSpin({

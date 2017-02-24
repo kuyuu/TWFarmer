@@ -27,7 +27,7 @@
 					<li class="list-group-item"><a
 						href="../BackStage/MemberCheckJpFollowerServlet">管理跟團</a></li>
 					<li class="list-group-item"><a href="#">管理追蹤商品</a></li>
-					<li class="list-group-item"><a href="../Message/MsgHomeServlet">站內信</a></li>
+					<li class="list-group-item"><a href="../Message/MsgHome.do">站內信</a></li>
 					<li class="list-group-item"><a href="../Friend/FriendHome.do">好友 / 黑名單</a></li>
 					<c:if test="${LoginOK.idType==1}">
 						<li class="list-group-item"><a href="../ToBeFarmer/UpToFarmer.jsp">申請成為小農</a></li>

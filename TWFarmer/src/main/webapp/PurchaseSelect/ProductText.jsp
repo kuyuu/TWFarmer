@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="/TWFarmer/css/bootstrap.min.css" rel="stylesheet">
+<link href="/TWFarmer/css/bootstrap.css" rel="stylesheet">
 <style>
 body {
  padding-top: 70px;
@@ -178,6 +178,6 @@ html {
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="/TWFarmer/js/bootstrap.min.js"></script>
+	<script src="/TWFarmer/js/bootstrap.js"></script>
 </body>
 </html>

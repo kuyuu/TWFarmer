@@ -17,7 +17,7 @@
 <!-- Favicon 網頁上小icon -->
 <link rel="shortcut icon" type="image/x-icon" href="img/logo/TWFarmerLOGO-little.gif" />
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 <style>
 body { 
@@ -136,7 +136,7 @@ html {
 
 
 	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.js"></script>
 	<script src="js/scripts.js"></script>
 	
 </body>

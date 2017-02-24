@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="/TWFarmer/css/bootstrap.min.css" rel="stylesheet">
+<link href="/TWFarmer/css/bootstrap.css" rel="stylesheet">
 <title>合購專區</title>
 <style type="text/css">
 td {
@@ -77,6 +77,6 @@ html {
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="/TWFarmer/js/bootstrap.min.js"></script>
+	<script src="/TWFarmer/js/bootstrap.js"></script>
 </body>
 </html>

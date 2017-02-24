@@ -19,15 +19,10 @@ import model.dao.FriendDAO;
 
 public class FriendDAOJdbc implements FriendDAO {
 
-	DataSource dataSource;
+	private DataSource dataSource;
 
 	public FriendDAOJdbc() {
-		try {
-			Context ctx = new InitialContext();
-			dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/TestDB");
-		} catch (NamingException e) {
-			e.printStackTrace();
-		}
+
 	}
 
 	public FriendDAOJdbc(DataSource dataSource) {
