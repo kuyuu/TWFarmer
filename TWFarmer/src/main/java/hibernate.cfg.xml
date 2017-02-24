@@ -29,8 +29,8 @@
 		<property name="hibernate.current_session_context_class">thread</property>
 
 		<!--Java物件與資料庫表格的映射檔 -->
-		<mapping class="model.JPFollowerBean" />
-		<mapping class="model.JPFollowerDetailBean" />
+		<mapping class="model.bean.JPFollowerBean" />
+		<mapping class="model.bean.JPFollowerDetailBean" />
 
 	</session-factory>
 
