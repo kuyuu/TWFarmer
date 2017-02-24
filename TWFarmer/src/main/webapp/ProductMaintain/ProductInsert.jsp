@@ -21,8 +21,9 @@ html {
 </style>
 </head>
 <body>
+	<jsp:include page="../common/menu.jsp" />
 	<div class="container">
-		<jsp:include page="../common/menu.jsp" />
+
 		<div class="row">
 			<div class="col-md-3">
 				<jsp:include page="../BackStage/backstageMenu.jsp" />
@@ -31,14 +32,15 @@ html {
 				<div class="jumbotron">
 					<center>
 						<!-- 上傳圖片的form表單，要增加enctype="multipart/form-data" -->
+						<h2>新增商品資料</h2>
+						<br>
 						<form action="<c:url value="ProcessProductServlet" />"
 							method="POST" enctype="multipart/form-data">
 							<center>
 								<table>
 									<thead>
 										<%-- 									<center> --%>
-										<h2>新增商品資料</h2>
-										<br>
+
 										<%-- 									</center> --%>
 									</thead>
 									<tbody>
@@ -210,11 +212,32 @@ html {
 										<tr height=60>
 											<td><strong>商品圖片</strong></td>
 											<td><br>圖片1<input class='InputClass' type="file"
-												name="picture1" /><br> 圖片2<input class='InputClass'
-												type="file" name="picture2" /><br> 圖片3<input
-												class='InputClass' type="file" name="picture3" /><br>
-												圖片4<input class='InputClass' type="file" name="picture4" /><br>
-												圖片5<input class='InputClass' type="file" name="picture5" /><br>
+												name="picture1" /><br>
+												<div>
+													<img class="preview"
+														style="max-width: 150px; max-height: 150px;">
+													<div class="size"></div>
+												</div> 圖片2<input class='InputClass' type="file" name="picture2" /><br>
+												<div>
+													<img class="preview"
+														style="max-width: 150px; max-height: 150px;">
+													<div class="size"></div>
+												</div>圖片3<input class='InputClass' type="file" name="picture3" /><br>
+												<div>
+													<img class="preview"
+														style="max-width: 150px; max-height: 150px;">
+													<div class="size"></div>
+												</div>圖片4<input class='InputClass' type="file" name="picture4" /><br>
+												<div>
+													<img class="preview"
+														style="max-width: 150px; max-height: 150px;">
+													<div class="size"></div>
+												</div>圖片5<input class='InputClass' type="file" name="picture5" /><br>
+												<div>
+													<img class="preview"
+														style="max-width: 150px; max-height: 150px;">
+													<div class="size"></div>
+												</div>
 												<div style="color: #FF0000; display: inline">${ErrorMsg.picture}</div>
 										</tr>
 
@@ -222,7 +245,7 @@ html {
 											<td><strong>商品圖片介紹</strong></td>
 											<td><br>圖片1<input id='pictureIntro'
 												name="pictureIntro1" value="${param.pictureIntro1}"
-												type="text" class="form-control"><br> 圖片2<input
+												type="text" class="form-control"> <br>圖片2<input
 												id='pictureIntro' name="pictureIntro2"
 												value="${param.pictureIntro2}" type="text"
 												class="form-control"><br> 圖片3<input
@@ -248,29 +271,64 @@ html {
 								</table>
 							</center>
 						</form>
+
 					</center>
-					<script src="../js/jquery.min.js"></script>
-					<script src="../js/bootstrap.js"></script>
-					<script src="../js/scripts.js"></script>
-					<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-					<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+				</div>
+			</div>
+		</div>
+	</div>
 
-					<script>
-						$(function() {
-							$("#datepicker").datepicker({
-								altField : "#datepicker",
-								altFormat : "yy-mm-dd",
-								dateFormat : "yy-mm-dd"
-							});
-						});
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/scripts.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-						$(function() {
-							$("#datepicker2").datepicker({
-								altField : "#datepicker2",
-								altFormat : "yy-mm-dd",
-								dateFormat : "yy-mm-dd"
-							});
-						});
-					</script>
+	<script>
+		$(function() {
+			$("#datepicker").datepicker({
+				altField : "#datepicker",
+				altFormat : "yy-mm-dd",
+				dateFormat : "yy-mm-dd"
+			});
+		});
+
+		$(function() {
+			$("#datepicker2").datepicker({
+				altField : "#datepicker2",
+				altFormat : "yy-mm-dd",
+				dateFormat : "yy-mm-dd"
+			});
+		});
+	</script>
+	<script>
+		//顯示預覽圖
+		$(function() {
+			function format_float(num, pos) {
+				var size = Math.pow(10, pos);
+				return Math.round(num * size) / size;
+			}
+
+			function preview(input, p) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+					reader.onload = function(e) {
+						p.attr('src', e.target.result);
+
+						var KB = format_float(e.total / 1024, 2);
+						$('.size').text("檔案大小：" + KB + " KB");
+					}
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
+
+			$("body").on("change", ".InputClass", function() {
+				var pre = $(this).next().next().children();
+				console.log(pre);
+				preview(this, pre);
+			})
+
+		})
+	</script>
 </body>
 </html>
