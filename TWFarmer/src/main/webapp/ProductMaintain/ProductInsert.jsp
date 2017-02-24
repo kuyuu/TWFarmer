@@ -309,14 +309,14 @@ html {
 				return Math.round(num * size) / size;
 			}
 
-			function preview(input, p) {
+			function preview(input, p, s) {
 				if (input.files && input.files[0]) {
 					var reader = new FileReader();
 					reader.onload = function(e) {
 						p.attr('src', e.target.result);
 
 						var KB = format_float(e.total / 1024, 2);
-						$('.size').text("檔案大小：" + KB + " KB");
+						s.text("檔案大小：" + KB + " KB");
 					}
 					reader.readAsDataURL(input.files[0]);
 				}
@@ -324,8 +324,9 @@ html {
 
 			$("body").on("change", ".InputClass", function() {
 				var pre = $(this).next().next().children();
+				var siz = $(this).next().next().children().next();
 				console.log(pre);
-				preview(this, pre);
+				preview(this, pre, siz);
 			})
 
 		})
