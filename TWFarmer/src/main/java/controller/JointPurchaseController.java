@@ -13,17 +13,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import model.FarmerBean;
-import model.JPDetailBean;
-import model.JointPurchaseBean;
-import model.MemberBean;
-import model.ProductBean;
-import model.ProductPicBean;
-import model.dao.FarmerDAOJdbc;
-import model.dao.JointPurchaseDAOjdbc;
-import model.dao.MemberDAOJdbc;
-import model.dao.ProductDAOjdbc;
-import model.dao.ProductPicDAOJdbc;
+import model.bean.FarmerBean;
+import model.bean.JPDetailBean;
+import model.bean.JointPurchaseBean;
+import model.bean.MemberBean;
+import model.bean.ProductBean;
+import model.bean.ProductPicBean;
+import model.daojdbc.FarmerDAOJdbc;
+import model.daojdbc.JointPurchaseDAOjdbc;
+import model.daojdbc.MemberDAOJdbc;
+import model.daojdbc.ProductDAOjdbc;
+import model.daojdbc.ProductPicDAOJdbc;
 
 @Controller
 @RequestMapping(path = { "/JointPurchase.do" })

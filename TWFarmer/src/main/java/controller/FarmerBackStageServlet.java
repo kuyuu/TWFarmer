@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.JPFollowerBean;
-import model.JointPurchaseBean;
-import model.ProductBean;
-import model.dao.JPFollowerDAOJdbc;
-import model.dao.JointPurchaseDAOjdbc;
-import model.dao.ProductDAOjdbc;
+import model.bean.JPFollowerBean;
+import model.bean.JointPurchaseBean;
+import model.bean.ProductBean;
+import model.daojdbc.JPFollowerDAOJdbc;
+import model.daojdbc.JointPurchaseDAOjdbc;
+import model.daojdbc.ProductDAOjdbc;
 
 @WebServlet("/BackStage/FarmerBackStageServlet")
 public class FarmerBackStageServlet extends HttpServlet {

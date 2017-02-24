@@ -11,7 +11,7 @@ import java.io.File;
 
 import javax.imageio.ImageIO;
 
-import model.dao.MemberDAOJdbc;
+import model.daojdbc.MemberDAOJdbc;
 
 public class ImgCut {
 	/**

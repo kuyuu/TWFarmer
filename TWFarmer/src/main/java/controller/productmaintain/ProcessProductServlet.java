@@ -17,15 +17,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-import model.MemberBean;
-import model.ProductBean;
-import model.ProductDiscountBean;
-import model.ProductPicBean;
-import model.ProductPicService;
-import model.ProductStatusBean;
-import model.dao.ProductDAOjdbc;
-import model.dao.ProductDiscountDAOjdbc;
-import model.dao.ProductPicDAOJdbc;
+import model.bean.MemberBean;
+import model.bean.ProductBean;
+import model.bean.ProductDiscountBean;
+import model.bean.ProductPicBean;
+import model.bean.ProductStatusBean;
+import model.dao.ProductPicService;
+import model.daojdbc.ProductDAOjdbc;
+import model.daojdbc.ProductDiscountDAOjdbc;
+import model.daojdbc.ProductPicDAOJdbc;
 
 @WebServlet("/ProductMaintain/ProcessProductServlet")
 @MultipartConfig(location = "C:/TWFarmer/repository/TWFarmer/src/main/webapp/img/") // 圖片存放路徑

@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.MemberBean;
-import model.ViolationBean;
-import model.dao.ViolationDAOJdbc;
+import model.bean.MemberBean;
+import model.bean.ViolationBean;
+import model.daojdbc.ViolationDAOJdbc;
 
 @WebServlet("/Violation/NewViolationServlet")
 public class NewViolationServlet extends HttpServlet {

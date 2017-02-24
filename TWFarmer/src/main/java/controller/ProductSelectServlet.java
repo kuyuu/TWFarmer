@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.ProductBean;
-import model.ProductPicBean;
-import model.dao.ProductDAOjdbc;
+import model.bean.ProductBean;
+import model.bean.ProductPicBean;
+import model.daojdbc.ProductDAOjdbc;
 
 @WebServlet(urlPatterns = { "/ProductSelect/ProductSelect.controller" })
 public class ProductSelectServlet extends HttpServlet {

@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.OrdersBean;
-import model.dao.OrderDetailDAOJdbc;
-import model.dao.OrdersDAOJdbc;
+import model.bean.OrdersBean;
+import model.daojdbc.OrderDetailDAOJdbc;
+import model.daojdbc.OrdersDAOJdbc;
 
 /**
  * Servlet implementation class UpdateForPaymentOfOrder

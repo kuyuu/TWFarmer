@@ -9,8 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import model.MemberBean;
-import model.dao.FriendDAOJdbc;
+import model.bean.MemberBean;
+import model.daojdbc.FriendDAOJdbc;
 
 @Controller
 @RequestMapping(path = { "/Friend/DeleteFriend.do" })

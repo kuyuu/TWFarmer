@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.JPFollowerBean;
-import model.dao.JPFollowerDAOJdbc;
+import model.bean.JPFollowerBean;
+import model.daojdbc.JPFollowerDAOJdbc;
 
 @WebServlet("/BackStage/RemittanceServlet")
 public class RemittanceServlet extends HttpServlet {

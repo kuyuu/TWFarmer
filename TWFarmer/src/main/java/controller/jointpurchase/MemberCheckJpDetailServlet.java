@@ -12,16 +12,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.JPDetailBean;
-import model.JPFollowerBean;
-import model.JPFollowerDetailBean;
-import model.JointPurchaseBean;
-import model.MemberBean;
-import model.dao.JPDetailDAOjdbc;
-import model.dao.JPFollowerDAOJdbc;
-import model.dao.JPFollowerDetailDAOJdbc;
-import model.dao.JointPurchaseDAOjdbc;
-import model.dao.MemberDAOJdbc;
+import model.bean.JPDetailBean;
+import model.bean.JPFollowerBean;
+import model.bean.JPFollowerDetailBean;
+import model.bean.JointPurchaseBean;
+import model.bean.MemberBean;
+import model.daojdbc.JPDetailDAOjdbc;
+import model.daojdbc.JPFollowerDAOJdbc;
+import model.daojdbc.JPFollowerDetailDAOJdbc;
+import model.daojdbc.JointPurchaseDAOjdbc;
+import model.daojdbc.MemberDAOJdbc;
 
 @WebServlet("/BackStage/MemberCheckJpDetailServlet")
 public class MemberCheckJpDetailServlet extends HttpServlet {

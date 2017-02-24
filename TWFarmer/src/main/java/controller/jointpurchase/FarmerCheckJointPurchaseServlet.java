@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.JPDetailBean;
-import model.JointPurchaseBean;
-import model.ProductBean;
-import model.dao.JPDetailDAOjdbc;
-import model.dao.JointPurchaseDAOjdbc;
-import model.dao.ProductDAOjdbc;
+import model.bean.JPDetailBean;
+import model.bean.JointPurchaseBean;
+import model.bean.ProductBean;
+import model.daojdbc.JPDetailDAOjdbc;
+import model.daojdbc.JointPurchaseDAOjdbc;
+import model.daojdbc.ProductDAOjdbc;
 @WebServlet("/BackStage/FarmerCheckJointPurchaseServlet")
 public class FarmerCheckJointPurchaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

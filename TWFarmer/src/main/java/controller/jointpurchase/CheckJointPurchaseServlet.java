@@ -14,13 +14,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.JPDetailBean;
-import model.JointPurchaseBean;
-import model.MemberBean;
-import model.ProductBean;
-import model.ProductPicBean;
-import model.dao.JPDetailDAOjdbc;
-import model.dao.JointPurchaseDAOjdbc;
+import model.bean.JPDetailBean;
+import model.bean.JointPurchaseBean;
+import model.bean.MemberBean;
+import model.bean.ProductBean;
+import model.bean.ProductPicBean;
+import model.daojdbc.JPDetailDAOjdbc;
+import model.daojdbc.JointPurchaseDAOjdbc;
 
 @WebServlet("/JointPurchase/CheckJointPurchaseServlet")
 public class CheckJointPurchaseServlet extends HttpServlet {

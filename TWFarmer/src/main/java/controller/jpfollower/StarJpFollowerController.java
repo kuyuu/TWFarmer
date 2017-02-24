@@ -8,12 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import model.F2FDetailBean;
-import model.JPDetailBean;
-import model.JointPurchaseBean;
-import model.dao.F2FDetailDAOjdbc;
-import model.dao.JPDetailDAOjdbc;
-import model.dao.JointPurchaseDAOjdbc;
+import model.bean.F2FDetailBean;
+import model.bean.JPDetailBean;
+import model.bean.JointPurchaseBean;
+import model.daojdbc.F2FDetailDAOjdbc;
+import model.daojdbc.JPDetailDAOjdbc;
+import model.daojdbc.JointPurchaseDAOjdbc;
 
 @Controller
 @RequestMapping(path = { "/JointPurchase/StarJpFollower.do" })

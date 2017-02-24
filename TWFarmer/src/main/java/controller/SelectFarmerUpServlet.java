@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.FarmerBean;
-import model.MemberBean;
-import model.dao.MemberDAOJdbc;
+import model.bean.FarmerBean;
+import model.bean.MemberBean;
+import model.daojdbc.MemberDAOJdbc;
 
 @WebServlet(urlPatterns="/BackStage/SelectFarmerUpServlet")
 public class SelectFarmerUpServlet extends HttpServlet {

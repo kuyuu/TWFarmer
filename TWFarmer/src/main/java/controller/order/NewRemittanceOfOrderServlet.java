@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.OrdersBean;
-import model.dao.MemberDAOJdbc;
-import model.dao.OrdersDAOJdbc;
-import model.dao.ProductDAOjdbc;
+import model.bean.OrdersBean;
+import model.daojdbc.MemberDAOJdbc;
+import model.daojdbc.OrdersDAOJdbc;
+import model.daojdbc.ProductDAOjdbc;
 
 /**
  * Servlet implementation class NewRemittanceOfOrderServlet

@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.JPFollowerBean;
-import model.MemberBean;
-import model.dao.JPFollowerDAOJdbc;
+import model.bean.JPFollowerBean;
+import model.bean.MemberBean;
+import model.daojdbc.JPFollowerDAOJdbc;
 
 @WebServlet("/BackStage/MemberCheckJpFollowerServlet")
 public class MemberCheckJpFollowerServlet extends HttpServlet {

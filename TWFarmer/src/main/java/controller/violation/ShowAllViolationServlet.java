@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.ViolationBean;
-import model.dao.ViolationDAOJdbc;
+import model.bean.ViolationBean;
+import model.daojdbc.ViolationDAOJdbc;
 
 @WebServlet("/BackStage/ShowAllViolationServlet")
 public class ShowAllViolationServlet extends HttpServlet {

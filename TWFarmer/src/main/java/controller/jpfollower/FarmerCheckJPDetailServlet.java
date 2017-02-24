@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.JointPurchaseBean;
-import model.dao.JointPurchaseDAOjdbc;
+import model.bean.JointPurchaseBean;
+import model.daojdbc.JointPurchaseDAOjdbc;
 
 @WebServlet("/BackStage/FarmerCheckJPDetailServlet")
 public class FarmerCheckJPDetailServlet extends HttpServlet {

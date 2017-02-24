@@ -15,16 +15,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.MemberBean;
-import model.MsgBean;
-import model.OrderStatusDAO;
-import model.OrdersBean;
-import model.dao.MemberDAOJdbc;
-import model.dao.MsgDAOJdbc;
-import model.dao.OrdersDAOJdbc;
-import model.ProductDAO;
-import model.ProductBean;
-import model.dao.ProductDAOjdbc;
+import model.bean.MemberBean;
+import model.bean.MsgBean;
+import model.bean.OrdersBean;
+import model.bean.ProductBean;
+import model.dao.OrderStatusDAO;
+import model.dao.ProductDAO;
+import model.daojdbc.MemberDAOJdbc;
+import model.daojdbc.MsgDAOJdbc;
+import model.daojdbc.OrdersDAOJdbc;
+import model.daojdbc.ProductDAOjdbc;
 
 /**
  * Servlet implementation class InsertOrdersIServlet

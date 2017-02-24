@@ -10,8 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.MemberBean;
-import model.dao.MemberDAOJdbc;
+
+import model.bean.MemberBean;
+import model.daojdbc.MemberDAOJdbc;
 
 @WebServlet(urlPatterns = { "/FindFriends/MemberSelect.controller" })
 public class MemberSelectServlet extends HttpServlet {

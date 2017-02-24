@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.MemberBean;
-import model.OrderDetailBean;
-import model.OrdersBean;
-import model.dao.OrderDetailDAOJdbc;
-import model.dao.OrdersDAOJdbc;
-import model.dao.ProductDAOjdbc;
+import model.bean.MemberBean;
+import model.bean.OrderDetailBean;
+import model.bean.OrdersBean;
+import model.daojdbc.OrderDetailDAOJdbc;
+import model.daojdbc.OrdersDAOJdbc;
+import model.daojdbc.ProductDAOjdbc;
 
 /**
  * Servlet implementation class ListOrderServlet

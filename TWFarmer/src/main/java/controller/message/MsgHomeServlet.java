@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.MemberBean;
-import model.MsgBean;
-import model.dao.MsgDAOJdbc;
+import model.bean.MemberBean;
+import model.bean.MsgBean;
+import model.daojdbc.MsgDAOJdbc;
 
 @WebServlet("/Message/MsgHomeServlet")
 public class MsgHomeServlet extends HttpServlet {

@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.QnABean;
-import model.dao.QnADAOJdbc;
+import model.bean.QnABean;
+import model.daojdbc.QnADAOJdbc;
 
 @WebServlet(
 		urlPatterns={"/BackStage/SelectQnaServlet"})

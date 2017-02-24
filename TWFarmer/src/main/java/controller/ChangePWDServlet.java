@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.MemberBean;
-import model.dao.MemberDAOJdbc;
+import model.bean.MemberBean;
+import model.daojdbc.MemberDAOJdbc;
 
 @WebServlet(urlPatterns = { "/BackStage/ChangePWDServlet" })
 public class ChangePWDServlet extends HttpServlet {

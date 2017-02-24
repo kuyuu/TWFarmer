@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.JointPurchaseBean;
-import model.MemberBean;
-import model.dao.JointPurchaseDAOjdbc;
+import model.bean.JointPurchaseBean;
+import model.bean.MemberBean;
+import model.daojdbc.JointPurchaseDAOjdbc;
 @WebServlet("/BackStage/FarmerCheckJpServlet")
 public class FarmerCheckJpServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

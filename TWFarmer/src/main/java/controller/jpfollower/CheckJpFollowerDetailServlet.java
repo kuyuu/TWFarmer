@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.F2FDetailBean;
-import model.JPFollowerBean;
-import model.JPFollowerDetailBean;
-import model.JPFollowerDetailDAO;
-import model.JointPurchaseBean;
-import model.dao.F2FDetailDAOjdbc;
-import model.dao.JPFollowerDAOJdbc;
-import model.dao.JPFollowerDetailDAOJdbc;
-import model.dao.JointPurchaseDAOjdbc;
+import model.bean.F2FDetailBean;
+import model.bean.JPFollowerBean;
+import model.bean.JPFollowerDetailBean;
+import model.bean.JointPurchaseBean;
+import model.dao.JPFollowerDetailDAO;
+import model.daojdbc.F2FDetailDAOjdbc;
+import model.daojdbc.JPFollowerDAOJdbc;
+import model.daojdbc.JPFollowerDetailDAOJdbc;
+import model.daojdbc.JointPurchaseDAOjdbc;
 @WebServlet("/BackStage/CheckJpFollowerDetailServlet")
 public class CheckJpFollowerDetailServlet extends HttpServlet {
 

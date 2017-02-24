@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.FriendBean;
-import model.MsgBean;
-import model.dao.FriendDAOJdbc;
-import model.dao.MsgDAOJdbc;
+import model.bean.FriendBean;
+import model.bean.MsgBean;
+import model.daojdbc.FriendDAOJdbc;
+import model.daojdbc.MsgDAOJdbc;
 
 @WebServlet("/Message/ReadMessageServlet")
 public class ReadMessageServlet extends HttpServlet {

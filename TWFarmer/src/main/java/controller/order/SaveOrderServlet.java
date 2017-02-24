@@ -14,12 +14,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.OrderDetailBean;
-import model.OrderStatusBean;
-import model.OrdersBean;
-import model.dao.OrderDetailDAOJdbc;
-import model.dao.OrderStatusDAOJdbc;
-import model.dao.OrdersDAOJdbc;
+import model.bean.OrderDetailBean;
+import model.bean.OrderStatusBean;
+import model.bean.OrdersBean;
+import model.daojdbc.OrderDetailDAOJdbc;
+import model.daojdbc.OrderStatusDAOJdbc;
+import model.daojdbc.OrdersDAOJdbc;
 
 /**
  * Servlet implementation class SaveOrderServlet

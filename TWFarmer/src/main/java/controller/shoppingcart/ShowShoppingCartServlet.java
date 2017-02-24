@@ -15,12 +15,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.MemberBean;
-import model.ProductBean;
-import model.ProductPicBean;
-import model.dao.MemberDAOJdbc;
-import model.dao.ProductDAOjdbc;
-import model.dao.ProductPicDAOJdbc;
+import model.bean.MemberBean;
+import model.bean.ProductBean;
+import model.bean.ProductPicBean;
+import model.daojdbc.MemberDAOJdbc;
+import model.daojdbc.ProductDAOjdbc;
+import model.daojdbc.ProductPicDAOJdbc;
 
 @WebServlet("/shoppingCart/ShowShoppingCartServlet")
 public class ShowShoppingCartServlet extends HttpServlet {

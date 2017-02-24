@@ -14,12 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.FarmerBean;
-import model.ProductBean;
-import model.ProductPicBean;
-import model.dao.FarmerDAOJdbc;
-import model.dao.ProductDAOjdbc;
-import model.dao.ProductPicDAOJdbc;
+import model.bean.FarmerBean;
+import model.bean.ProductBean;
+import model.bean.ProductPicBean;
+import model.daojdbc.FarmerDAOJdbc;
+import model.daojdbc.ProductDAOjdbc;
+import model.daojdbc.ProductPicDAOJdbc;
 
 @WebServlet(urlPatterns = "/JointPurchase/NewJointPurchaseServlet")
 public class NewJointPurchaseServlet extends HttpServlet {

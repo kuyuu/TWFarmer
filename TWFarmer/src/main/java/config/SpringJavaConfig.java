@@ -7,16 +7,16 @@ import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import model.dao.F2FDetailDAOjdbc;
-import model.dao.FarmerDAOJdbc;
-import model.dao.FriendDAOJdbc;
-import model.dao.JPDetailDAOjdbc;
-import model.dao.JointPurchaseDAOjdbc;
-import model.dao.MemberDAOJdbc;
-import model.dao.MsgDAOJdbc;
-import model.dao.ProductDAOjdbc;
-import model.dao.ProductPicDAOJdbc;
-import model.dao.ViolationDAOJdbc;
+import model.daojdbc.F2FDetailDAOjdbc;
+import model.daojdbc.FarmerDAOJdbc;
+import model.daojdbc.FriendDAOJdbc;
+import model.daojdbc.JPDetailDAOjdbc;
+import model.daojdbc.JointPurchaseDAOjdbc;
+import model.daojdbc.MemberDAOJdbc;
+import model.daojdbc.MsgDAOJdbc;
+import model.daojdbc.ProductDAOjdbc;
+import model.daojdbc.ProductPicDAOJdbc;
+import model.daojdbc.ViolationDAOJdbc;
 
 @Configuration
 public class SpringJavaConfig {

@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.MemberBean;
-import model.ProductBean;
-import model.ViolationBean;
-import model.dao.ProductDAOjdbc;
-import model.dao.ViolationDAOJdbc;
+import model.bean.MemberBean;
+import model.bean.ProductBean;
+import model.bean.ViolationBean;
+import model.daojdbc.ProductDAOjdbc;
+import model.daojdbc.ViolationDAOJdbc;
 
 @WebServlet("/BackStage/BackStageServlet")
 public class BackStageServlet extends HttpServlet {

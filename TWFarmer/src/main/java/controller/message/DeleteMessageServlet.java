@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.MsgBean;
-import model.dao.MsgDAOJdbc;
+import model.bean.MsgBean;
+import model.daojdbc.MsgDAOJdbc;
 
 @WebServlet("/Message/DeleteMessageServlet")
 public class DeleteMessageServlet extends HttpServlet {

@@ -17,13 +17,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import model.ProductBean;
-import model.ProductDiscountBean;
-import model.ProductPicBean;
-import model.ProductPicService;
-import model.dao.ProductDAOjdbc;
-import model.dao.ProductDiscountDAOjdbc;
-import model.dao.ProductPicDAOJdbc;
+import model.bean.ProductBean;
+import model.bean.ProductDiscountBean;
+import model.bean.ProductPicBean;
+import model.dao.ProductPicService;
+import model.daojdbc.ProductDAOjdbc;
+import model.daojdbc.ProductDiscountDAOjdbc;
+import model.daojdbc.ProductPicDAOJdbc;
 
 @WebServlet("/BackStage/DeleteTheProductServlet")
 @MultipartConfig(location = "C:/TWFarmer/repository/TWFarmer/src/main/webapp/img/") // 圖片存放路徑

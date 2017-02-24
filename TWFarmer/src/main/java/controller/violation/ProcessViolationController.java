@@ -9,13 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import model.MemberBean;
-import model.MsgBean;
-import model.ProductBean;
-import model.ViolationBean;
-import model.dao.MsgDAOJdbc;
-import model.dao.ProductDAOjdbc;
-import model.dao.ViolationDAOJdbc;
+import model.bean.MemberBean;
+import model.bean.MsgBean;
+import model.bean.ProductBean;
+import model.bean.ViolationBean;
+import model.daojdbc.MsgDAOJdbc;
+import model.daojdbc.ProductDAOjdbc;
+import model.daojdbc.ViolationDAOJdbc;
 
 @Controller
 @RequestMapping(path = { "/Violation/ProcessViolation.do" })

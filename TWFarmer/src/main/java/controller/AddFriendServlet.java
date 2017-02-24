@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.MemberBean;
-import model.dao.MemberDAOJdbc;
-import model.FriendBean;
-import model.dao.FriendDAOJdbc;
+import model.bean.FriendBean;
+import model.bean.MemberBean;
+import model.daojdbc.FriendDAOJdbc;
+import model.daojdbc.MemberDAOJdbc;
 
 @WebServlet("/FindFriends/AddFriendServlet")
 public class AddFriendServlet extends HttpServlet {

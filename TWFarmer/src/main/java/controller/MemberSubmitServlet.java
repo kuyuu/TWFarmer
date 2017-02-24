@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.MemberBean;
-import model.MemberService;
-import model.dao.MemberDAOJdbc;
-import model.dao.MsgDAOJdbc;
+import model.bean.MemberBean;
+import model.dao.MemberService;
+import model.daojdbc.MemberDAOJdbc;
+import model.daojdbc.MsgDAOJdbc;
 
 @WebServlet(
 		urlPatterns={"/MemberSubmit/MemberSubmit.controller"}

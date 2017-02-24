@@ -15,10 +15,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import model.FriendBean;
-import model.MemberBean;
-import model.dao.FriendDAOJdbc;
-import model.dao.MemberDAOJdbc;
+import model.bean.FriendBean;
+import model.bean.MemberBean;
+import model.daojdbc.FriendDAOJdbc;
+import model.daojdbc.MemberDAOJdbc;
 
 @Controller
 @RequestMapping(path = { "/Friend/SelectMember.do" })

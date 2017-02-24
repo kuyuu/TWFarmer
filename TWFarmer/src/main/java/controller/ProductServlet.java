@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.ProductBean;
-import model.ProductPicBean;
-import model.QnABean;
-import model.dao.ProductDAOjdbc;
-import model.dao.ProductPicDAOJdbc;
-import model.dao.QnADAOJdbc;
+import model.bean.ProductBean;
+import model.bean.ProductPicBean;
+import model.bean.QnABean;
+import model.daojdbc.ProductDAOjdbc;
+import model.daojdbc.ProductPicDAOJdbc;
+import model.daojdbc.QnADAOJdbc;
 
 @WebServlet("/ProductServlet")
 public class ProductServlet extends HttpServlet {

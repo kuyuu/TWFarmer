@@ -12,18 +12,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.JPDetailBean;
-import model.JPFollowerBean;
-import model.JPFollowerDetailBean;
-import model.JPFollowerDetailDAO;
-import model.JointPurchaseBean;
-import model.MemberBean;
-import model.dao.F2FDetailDAOjdbc;
-import model.dao.JPDetailDAOjdbc;
-import model.dao.JPFollowerDAOJdbc;
-import model.dao.JPFollowerDetailDAOJdbc;
-import model.dao.JointPurchaseDAOjdbc;
-import model.dao.MemberDAOJdbc;
+import model.bean.JPDetailBean;
+import model.bean.JPFollowerBean;
+import model.bean.JPFollowerDetailBean;
+import model.bean.JointPurchaseBean;
+import model.bean.MemberBean;
+import model.dao.JPFollowerDetailDAO;
+import model.daojdbc.F2FDetailDAOjdbc;
+import model.daojdbc.JPDetailDAOjdbc;
+import model.daojdbc.JPFollowerDAOJdbc;
+import model.daojdbc.JPFollowerDetailDAOJdbc;
+import model.daojdbc.JointPurchaseDAOjdbc;
+import model.daojdbc.MemberDAOJdbc;
 
 @WebServlet("/JointPurchase/NewJpFollowerServlet")
 public class NewJpFollowerServlet extends HttpServlet {

@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.MemberBean;
-import model.ProductBean;
-import model.dao.ProductDAOjdbc;
+import model.bean.MemberBean;
+import model.bean.ProductBean;
+import model.daojdbc.ProductDAOjdbc;
 
 @WebServlet("/ProductMaintain/InsertProductServlet")
 public class InsertProductServlet extends HttpServlet {
