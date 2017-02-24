@@ -121,7 +121,7 @@ html {
 										<td><fmt:formatDate value="${x.msgTime}"
 												pattern="yyyy/MM/dd HH:mm" /></td>
 										<td><a
-											href="ReadMessageServlet?msgId=${x.msgId}&value=reader"><button
+											href="ReadMessage.do?msgId=${x.msgId}&value=reader"><button
 													type="button" class="btn btn-primary" name="read${x.msgId}">讀取信件</button></a>
 											<button type="button" class="btn btn-danger"
 												name="readerDelete" value="${x.msgId}">刪除信件</button>
@@ -145,7 +145,7 @@ html {
 											<td><fmt:formatDate value="${x.msgTime}"
 													pattern="yyyy/MM/dd HH:mm" /></td>
 											<td><a
-												href="ReadMessageServlet?msgId=${x.msgId}&value=writer"><button
+												href="ReadMessage.do?msgId=${x.msgId}&value=writer"><button
 														type="button" class="btn btn-primary"
 														name="read${x.msgId}">讀取信件</button></a>
 												<button type="button" class="btn btn-danger"
@@ -170,14 +170,14 @@ html {
 			$("#collapseOne>ul>li:eq(5)").addClass("list-group-item-success");
 			$('button[name="readerDelete"]').click(function() {
 				$(this).parent().parent().remove();
-				$.post('DeleteMessageServlet', {
+				$.post('DeleteMessage.do', {
 					"msgId" : $(this).val(),
 					"value" : "reader"
 				});
 			})
 			$('button[name="writerDelete"]').click(function() {
 				$(this).parent().parent().remove();
-				$.post('DeleteMessageServlet', {
+				$.post('DeleteMessage.do', {
 					"msgId" : $(this).val(),
 					"value" : "writer"
 				});

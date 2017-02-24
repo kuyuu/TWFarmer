@@ -1,6 +1,5 @@
 package controller.friend;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,17 +13,15 @@ import model.daojdbc.FriendDAOJdbc;
 
 @Controller
 @RequestMapping(path = { "/Friend/DeleteFriend.do" })
-public class DeleteFriendController extends HttpServlet {
+public class DeleteFriendController {
 	@Autowired
 	private FriendDAOJdbc friendDAO;
 
 	@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST })
-	public String doWork(HttpSession session, Integer friendId, Model model) {
+	public void doWork(HttpSession session, Integer friendId, Model model) {
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 
 		friendDAO.delete(mb.getMemberId(), friendId);
-		
-		return null;
 	}
 
 }

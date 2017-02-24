@@ -29,7 +29,7 @@ html {
 			<div class="col-md-9">
 				<div class="jumbotron">
 					<h3>撰寫新信</h3>
-					<form action="NewMessageServlet" method="POST">
+					<form action="NewMessage.do" method="POST">
 						<div class="form-group">
 							<label for="readerAccount" class="control-label">收件人</label> <input
 								type="text" id="readerAccount" name="readerAccount"
