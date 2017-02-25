@@ -6,30 +6,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import model.bean.MemberBean;
 import model.bean.ViolationBean;
 import model.daojdbc.ViolationDAOJdbc;
 
-@WebServlet("/Violation/NewViolationServlet")
-public class NewViolationServlet extends HttpServlet {
+@Controller
+@RequestMapping(path = { "/Violation/NewViolation.do" })
+public class NewViolationController {
+	@Autowired
+	private ViolationDAOJdbc violationDAO;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST })
+	public String doWork(HttpSession session, Integer productId, String vioTitle, String vioContent, Model model)
 			throws ServletException, IOException {
-		String temp = request.getParameter("productId");
-		int productId = Integer.parseInt(temp);
-		HttpSession session = request.getSession();
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
-		String vioTitle = request.getParameter("vioTitle");
-		String vioContent = request.getParameter("vioContent");
 
 		Map<String, String> errors = new HashMap<String, String>();
-		request.setAttribute("errors", errors);
+		model.addAttribute("errors", errors);
 		if (vioTitle == null || vioTitle.trim().length() == 0) {
 			errors.put("vioTitle", "主旨不可為空");
 		}
@@ -37,11 +38,9 @@ public class NewViolationServlet extends HttpServlet {
 			errors.put("vioContent", "內容不可為空");
 		}
 		if (errors != null && !errors.isEmpty()) {
-			request.getRequestDispatcher("violationForm.jsp").forward(request, response);
-			return;
+			return "Violation/violationForm";
 		}
 
-		ViolationDAOJdbc dao = new ViolationDAOJdbc();
 		ViolationBean vb = new ViolationBean();
 		vb.setReporterId(mb.getMemberId());
 		vb.setReportedId(productId);
@@ -50,15 +49,10 @@ public class NewViolationServlet extends HttpServlet {
 		vb.setTicketStatue(0);
 		Date date = new Date();
 		vb.setCreateDate(date);
-		dao.insert(vb);
+		violationDAO.insert(vb);
 		session.removeAttribute("reportedId");
-		
-		request.getRequestDispatcher("success.jsp").forward(request, response);
-	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
+		return "Violation/success";
 	}
 
 }

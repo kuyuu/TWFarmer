@@ -30,7 +30,7 @@ html {
 		<div class="row">
 			<div class="col-md-12">
 				<div class="col-md-offset-2">
-					<form action="<c:url value="NewViolationServlet"/>" method="POST"
+					<form action="<c:url value="NewViolation.do"/>" method="POST"
 						class="form-horizontal">
 						<c:choose>
 							<c:when test="${not empty LoginOK && not empty reportedId}">

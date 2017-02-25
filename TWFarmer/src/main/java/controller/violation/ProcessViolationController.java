@@ -66,7 +66,7 @@ public class ProcessViolationController {
 			productDAO.update(pBean);
 		}
 
-		return "BackStage/ShowAllViolationServlet";
+		return "BackStage/ShowAllViolation.do";
 	}
 
 }
