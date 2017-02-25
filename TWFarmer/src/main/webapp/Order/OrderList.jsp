@@ -44,7 +44,7 @@ html {
 						<tbody>
 							
 							<c:forEach var="row" items="${buyerorders}">
-								<c:url value="/Order/OrderDetailServlet" var="path">
+								<c:url value="/Order/MemberOrderDetail.do" var="path">
 									<c:param name="orderId" value="${row.orderId}" />
 										
 								</c:url>

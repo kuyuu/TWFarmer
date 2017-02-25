@@ -1,13 +1,17 @@
 package model.bean;
+
 import java.util.Date;
 
+import model.daojdbc.MemberDAOJdbc;
+
 public class OrdersBean {
+	MemberDAOJdbc memberDAO = new MemberDAOJdbc();
 	private int orderId;
 	private int sellerId;
 	private int buyerId;
 	private int totalFreight;
 	private int totalPrice;
-	private Date orderDate ;
+	private Date orderDate;
 	private Date shipDate;
 	private String shipName;
 	private String shipPostalCode;
@@ -21,9 +25,10 @@ public class OrdersBean {
 	private Date remittanceDate;
 	private String remittanceBank;
 	private String remittanceAcc;
-	
+
 	private String sellerOrderStatusName;
-	
+	private MemberBean memberBean;
+
 	@Override
 	public String toString() {
 		return "OrdersBean [orderId=" + orderId + ", sellerId=" + sellerId + ", buyerId=" + buyerId + ", totalFreight="
@@ -38,7 +43,7 @@ public class OrdersBean {
 
 	public OrdersBean(int orderId, int sellerId, int buyerId, int totalFreight, int totalPrice, Date orderDate,
 			Date shipDate, String shipName, String shipPostalCode, String shipDistrict, String shipAddress,
-			int buyerOrderStatusId,int sellerOrderStatusId, int ratingBuyer, int ratingSeller) {
+			int buyerOrderStatusId, int sellerOrderStatusId, int ratingBuyer, int ratingSeller) {
 		super();
 		this.orderId = orderId;
 		this.sellerId = sellerId;
@@ -52,7 +57,7 @@ public class OrdersBean {
 		this.shipDistrict = shipDistrict;
 		this.shipAddress = shipAddress;
 		this.buyerOrderStatusId = buyerOrderStatusId;
-		this.sellerOrderStatusId= sellerOrderStatusId;
+		this.sellerOrderStatusId = sellerOrderStatusId;
 		this.ratingBuyer = ratingBuyer;
 		this.ratingSeller = ratingSeller;
 	}
@@ -215,14 +220,21 @@ public class OrdersBean {
 	public void setSellerOrderStatusName(String sellerOrderStatusName) {
 		this.sellerOrderStatusName = sellerOrderStatusName;
 	}
-	
+
 	public String getSellerOrderStatusName() {
 		return this.sellerOrderStatusName;
 	}
+
+	// public String getSellerOrderStatusName() {
+	// SELECT OrderStatusName FROM orderStatusName WHERE orderID = this.orderId
+	// }
 	
-//	public String getSellerOrderStatusName() {
-//		SELECT  OrderStatusName FROM orderStatusName WHERE orderID = this.orderId
-	
-	
-//	}
+	public MemberBean getMemberBean() {
+		return memberDAO.select(sellerId);
+	}
+
+	public void setMemberBean(MemberBean memberBean) {
+		this.memberBean = memberBean;
+	}
+
 }
