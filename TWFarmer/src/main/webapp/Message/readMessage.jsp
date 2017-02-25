@@ -100,18 +100,26 @@ html {
 			$("#collapseOne>ul>li:eq(5)").addClass("list-group-item-success");
 			$('#delete').click(function() {
 				if ("${value}" == "reader") {
-					$.post('DeleteMessage.do', {
-						"msgId" : $(this).val(),
-						"value" : "reader"
-					}, function() {
-						window.location = 'MsgHome.do';
+					$.ajax({
+						url : 'DeleteMessage.do',
+						data : {
+							"msgId" : $(this).val(),
+							"value" : "reader"
+						},
+						complete : function() {
+							window.location = 'MsgHome.do';
+						}
 					});
 				} else {
-					$.post('DeleteMessage.do', {
-						"msgId" : $(this).val(),
-						"value" : "writer"
-					}, function() {
-						window.location = 'MsgHome.do';
+					$.ajax({
+						url : 'DeleteMessage.do',
+						data : {
+							"msgId" : $(this).val(),
+							"value" : "writer"
+						},
+						complete : function() {
+							window.location = 'MsgHome.do';
+						}
 					});
 				}
 			});
