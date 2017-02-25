@@ -25,8 +25,7 @@ public class NewViolationController {
 	private ViolationDAOJdbc violationDAO;
 
 	@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST })
-	public String doWork(HttpSession session, Integer productId, String vioTitle, String vioContent, Model model)
-			throws ServletException, IOException {
+	public String doWork(HttpSession session, Integer productId, String vioTitle, String vioContent, Model model) {
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 
 		Map<String, String> errors = new HashMap<String, String>();

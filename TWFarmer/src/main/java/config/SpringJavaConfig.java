@@ -14,6 +14,8 @@ import model.daojdbc.JPDetailDAOjdbc;
 import model.daojdbc.JointPurchaseDAOjdbc;
 import model.daojdbc.MemberDAOJdbc;
 import model.daojdbc.MsgDAOJdbc;
+import model.daojdbc.OrderDetailDAOJdbc;
+import model.daojdbc.OrdersDAOJdbc;
 import model.daojdbc.ProductDAOjdbc;
 import model.daojdbc.ProductPicDAOJdbc;
 import model.daojdbc.ViolationDAOJdbc;
@@ -31,7 +33,7 @@ public class SpringJavaConfig {
 			e.printStackTrace();
 		}
 		return dataSource;
-		
+
 	}
 
 	@Bean
@@ -57,6 +59,16 @@ public class SpringJavaConfig {
 	@Bean
 	public ProductPicDAOJdbc productPicDAO() {
 		return new ProductPicDAOJdbc(dataSource());
+	}
+
+	@Bean
+	public OrdersDAOJdbc orderDAO() {
+		return new OrdersDAOJdbc(dataSource());
+	}
+
+	@Bean
+	public OrderDetailDAOJdbc orderDetailDAO() {
+		return new OrderDetailDAOJdbc(dataSource());
 	}
 
 	@Bean

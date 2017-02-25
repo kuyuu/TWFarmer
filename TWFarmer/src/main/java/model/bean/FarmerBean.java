@@ -10,6 +10,7 @@ public class FarmerBean {
 	private String bankAccount;
 	private String account;
 	private String name;
+	private MemberBean memberBean;
 	MemberDAOJdbc dao = new MemberDAOJdbc();
 	
 	@Override
@@ -71,6 +72,12 @@ public class FarmerBean {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public MemberBean getMemberBean() {
+		return dao.select(memberId);
+	}
+	public void setMemberBean(MemberBean memberBean) {
+		this.memberBean = memberBean;
 	}
 	
 }

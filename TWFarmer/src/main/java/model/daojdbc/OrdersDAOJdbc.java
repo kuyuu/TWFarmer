@@ -22,7 +22,7 @@ public class OrdersDAOJdbc implements OrdersDAO {
 	// "jdbc:sqlserver://localhost:1433;database=TWFarmer";
 	// private static final String USERNAME = "sa";
 	// private static final String PASSWORD = "P@ssw0rd";
-	DataSource dataSource;
+	private DataSource dataSource;
 
 	public OrdersDAOJdbc() {
 		try {
@@ -31,6 +31,10 @@ public class OrdersDAOJdbc implements OrdersDAO {
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public OrdersDAOJdbc(DataSource dataSource) {
+		this.dataSource = dataSource;
 	}
 
 	private static final String SELECT_ALL = "SELECT * FROM Orders";

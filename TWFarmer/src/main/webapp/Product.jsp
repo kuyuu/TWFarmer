@@ -55,7 +55,7 @@
 }
 
 * /
-	/* The dots/bullets/indicators */                          
+	/* The dots/bullets/indicators */                              
 .dot {
 	height: 13px;
 	width: 13px;
@@ -109,11 +109,13 @@ to {
 body {
 	padding-top: 70px;
 }
+
 body {
- padding-top: 70px;
+	padding-top: 70px;
 }
+
 html {
-    overflow-y:scroll;
+	overflow-y: scroll;
 }
 </style>
 </head>
@@ -166,6 +168,7 @@ html {
 					<a
 						href="<c:url value="Order/NewOrderServlet?productId=${productBean.productId}&sellerId=${productBean.sellerId}" />"
 						class="btn btn-default">購買商品</a>
+					<button type="button" class="btn btn-default" id="newOrder">購買商品2</button>
 					<button type="button" class="btn btn-default" id="newJp">發起合購</button>
 					<button type="button" class="btn btn-default">我想跟團</button>
 					<button type="button" class="btn btn-default" id="cart"
@@ -187,14 +190,14 @@ html {
 							<div>
 								<%-- 									<p style="background: #DDDDDD">賣家提問:${row.qnAContent}</p> --%>
 								<%-- 									<p>　　${row.reQnA}</p> --%>
-								<table style="line-height: 35px;width: 620px">
+								<table style="line-height: 35px; width: 620px">
 									<tr style="background: #DDDDDD">
 										<td style="width: 70%; font-size: 20px">賣家提問:${row.qnAContent}</td>
 										<td style="width: 30%"><fmt:formatDate
-												value="${row.queryDate}" pattern="yyyy-MM-dd HH:mm"/></td>
+												value="${row.queryDate}" pattern="yyyy-MM-dd HH:mm" /></td>
 									</tr>
 									<tr>
-										<td style="width: 80%; font-size: 20px">　回覆：${row.reQnA}</td>
+										<td style="width: 80%; font-size: 20px">回覆：${row.reQnA}</td>
 										<td style="width: 20%"><fmt:formatDate
 												value="${row.reDate}" pattern="yyyy-MM-dd HH:mm" /></td>
 									</tr>
@@ -258,22 +261,25 @@ html {
 				});
 			});
 			//發起合購
-			$('#newJp')
-					.click(
-							function() {
-								$
-										.get(
-												'shoppingCart/AddShoppingCart.do',
-												{
-													"productId" : $(
-															'#productId').val()
-												},
-												function() {
-													window.location = 'JointPurchase/NewJointPurchaseServlet?productId='
-															+ $('#productId')
-																	.val();
-												})
-							});
+			$('#newJp').click(function() {
+				$.ajax({
+					url : 'shoppingCart/AddShoppingCart.do',
+					data : {"productId" : $('#productId').val()},
+					complete : function() {
+						window.location = 'JointPurchase/NewJointPurchaseServlet?productId='+ $('#productId').val();
+					}
+				});
+			});
+			//購買商品2
+			$('#newOrder').click(function(){
+				$.ajax({
+					url : 'shoppingCart/AddShoppingCart.do',
+					data : {"productId" : $('#productId').val()},
+					complete : function() {
+						window.location = 'Order/StarOrder.do?productId='+ $('#productId').val();
+					}
+				});
+			});
 		});
 	</script>
 
