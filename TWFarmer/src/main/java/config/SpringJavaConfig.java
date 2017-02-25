@@ -18,6 +18,7 @@ import model.daojdbc.OrderDetailDAOJdbc;
 import model.daojdbc.OrdersDAOJdbc;
 import model.daojdbc.ProductDAOjdbc;
 import model.daojdbc.ProductPicDAOJdbc;
+import model.daojdbc.TrackProductDAOJdbc;
 import model.daojdbc.ViolationDAOJdbc;
 
 @Configuration
@@ -94,6 +95,11 @@ public class SpringJavaConfig {
 	@Bean
 	public ViolationDAOJdbc violationDAO() {
 		return new ViolationDAOJdbc(dataSource());
+	}
+
+	@Bean
+	public TrackProductDAOJdbc trackProductDAO() {
+		return new TrackProductDAOJdbc(dataSource());
 	}
 
 }

@@ -55,7 +55,7 @@
 }
 
 * /
-	/* The dots/bullets/indicators */                              
+	/* The dots/bullets/indicators */                                    
 .dot {
 	height: 13px;
 	width: 13px;
@@ -174,6 +174,7 @@ html {
 					<button type="button" class="btn btn-default" id="cart"
 						data-trigger="focus" data-placement="top" data-toggle="popover"
 						data-content="已加入購物車">加入購物車</button>
+					<button type="button" class="btn btn-default" id="track">追蹤商品</button>
 					<a
 						href="Violation/violationForm.jsp?productId=${productBean.productId}"><button
 							type="button" class="btn btn-danger">檢舉商品</button></a>
@@ -261,22 +262,48 @@ html {
 				});
 			});
 			//發起合購
-			$('#newJp').click(function() {
-				$.ajax({
-					url : 'shoppingCart/AddShoppingCart.do',
-					data : {"productId" : $('#productId').val()},
-					complete : function() {
-						window.location = 'JointPurchase/NewJointPurchaseServlet?productId='+ $('#productId').val();
-					}
-				});
-			});
+			$('#newJp')
+					.click(
+							function() {
+								$
+										.ajax({
+											url : 'shoppingCart/AddShoppingCart.do',
+											data : {
+												"productId" : $('#productId')
+														.val()
+											},
+											complete : function() {
+												window.location = 'JointPurchase/NewJointPurchaseServlet?productId='
+														+ $('#productId').val();
+											}
+										});
+							});
 			//購買商品2
-			$('#newOrder').click(function(){
+			$('#newOrder')
+					.click(
+							function() {
+								$
+										.ajax({
+											url : 'shoppingCart/AddShoppingCart.do',
+											data : {
+												"productId" : $('#productId')
+														.val()
+											},
+											complete : function() {
+												window.location = 'Order/StarOrder.do?productId='
+														+ $('#productId').val();
+											}
+										});
+							});
+			$('#track').click(function() {
 				$.ajax({
-					url : 'shoppingCart/AddShoppingCart.do',
-					data : {"productId" : $('#productId').val()},
+					url : 'TrackProduct/AddTrackProduct.do',
+					type : 'POST',
+					data : {
+						"productId" : $('#productId').val()
+					},
 					complete : function() {
-						window.location = 'Order/StarOrder.do?productId='+ $('#productId').val();
+						alert('Add TrackProduct');
 					}
 				});
 			});

@@ -31,6 +31,10 @@ public class TrackProductDAOJdbc implements TrackProductDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public TrackProductDAOJdbc(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
 
 	// public static void main(String[] args) {
 	// TrackProductDAO ppdao = new TrackProductDAOJdbc();
