@@ -96,8 +96,7 @@ html {
 												<option value="顆">顆</option>
 												<option value="斤">斤</option>
 												<option value="公斤">公斤</option>
-										</select><input type="hidden" value="${productBean.unit}"
-											name="unit" />
+										</select><input type="hidden" value="${productBean.unit}" name="unit" />
 											<div style="color: #FF0000; display: inline">${ErrorMsg.unitName}</div>
 									</tr>
 
@@ -258,60 +257,91 @@ html {
 							</table>
 						</center>
 					</form>
-					</center>
 				</div>
 			</div>
+		</div>
+	</div>
 
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="/TWFarmer/js/bootstrap.js"></script>
+	<script src="/TWFarmer/js/jquery.bootstrap-touchspin.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$(function() {
+			$("#datepicker").datepicker({
+				altField : "#datepicker",
+				altFormat : "yy-mm-dd",
+				dateFormat : "yy-mm-dd"
+			});
+		});
 
-			<script
-				src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-			<script src="/TWFarmer/js/bootstrap.js"></script>
-			<script src="/TWFarmer/js/jquery.bootstrap-touchspin.js"></script>
-			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-			<script>
-				$(function() {
-					$("#datepicker").datepicker({
-						altField : "#datepicker",
-						altFormat : "yy-mm-dd",
-						dateFormat : "yy-mm-dd"
-					});
-				});
+		$(function() {
+			$("#datepicker2").datepicker({
+				altField : "#datepicker2",
+				altFormat : "yy-mm-dd",
+				dateFormat : "yy-mm-dd"
+			});
+		});
 
-				$(function() {
-					$("#datepicker2").datepicker({
-						altField : "#datepicker2",
-						altFormat : "yy-mm-dd",
-						dateFormat : "yy-mm-dd"
-					});
-				});
+		$(function() {
+			var list = $('#productTypeName').children();
+			for (var i = 0; i < list.size(); i++) {
+				if ($('input[name="type"]').val() == $(list[i]).val()) {
+					$(list[i]).attr("selected", "value");
+				}
+			}
+		});
 
-				$(function() {
-					var list = $('#productTypeName').children();
-					for (var i = 0; i < list.size(); i++) {
-						if ($('input[name="type"]').val() == $(list[i]).val()) {
-							$(list[i]).attr("selected", "value");
-						}
+		$(function() {
+			var list = $('#unit').children();
+			for (var j = 0; j < list.size(); j++) {
+				if ($('input[name="unit"]').val() == $(list[j]).val()) {
+					$(list[j]).attr("selected", "value");
+				}
+			}
+		});
+
+		$(function() {
+			var list = $('#productStatusName').children();
+			for (var k = 0; k < list.size(); k++) {
+				if ($('input[name="productStatusName"]').val() == $(list[k])
+						.val()) {
+					$(list[k]).attr("selected", "value");
+				}
+			}
+		});
+	</script>
+	<script>
+		//顯示預覽圖
+		$(function() {
+			function format_float(num, pos) {
+				var size = Math.pow(10, pos);
+				return Math.round(num * size) / size;
+			}
+
+			function preview(input, p) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+					reader.onload = function(e) {
+						p.attr('src', e.target.result);
+
+// 						var KB = format_float(e.total / 1024, 2);
+// 						s.text("檔案大小：" + KB + " KB");
 					}
-				});
-				
-				$(function() {
-					var list = $('#unit').children();
-					for (var j = 0; j < list.size(); j++) {
-						if ($('input[name="unit"]').val() == $(list[j]).val()) {
-							$(list[j]).attr("selected", "value");
-						}
-					}
-				});
-				
-				$(function() {
-					var list = $('#productStatusName').children();
-					for (var k = 0; k < list.size(); k++) {
-						if ($('input[name="productStatusName"]').val() == $(list[k]).val()) {
-							$(list[k]).attr("selected", "value");
-						}
-					}
-				});
-			</script>
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
+
+			$("body").on("change", ".InputClass", function() {
+				var pre = $(this).parent().parent().children();
+// 				var siz = $(this).next().next().children().next();
+				console.log(pre);
+				preview(this, pre);
+			})
+
+		})
+	</script>
 </body>
 </html>
