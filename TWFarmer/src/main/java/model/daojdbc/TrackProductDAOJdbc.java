@@ -114,7 +114,7 @@ public class TrackProductDAOJdbc implements TrackProductDAO {
 		return result;
 	}
 
-	private static final String SELECT_BY_MEMBERID = "select * from TrackProduct where memberId=?";
+	private static final String SELECT_BY_MEMBERID = "select * from TrackProduct where memberId=? order by trackDate desc";
 
 	@Override
 	public List<TrackProductBean> selectByMemberId(int memberId) {

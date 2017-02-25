@@ -1,9 +1,11 @@
 package model.bean;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
+
+import model.daojdbc.MemberDAOJdbc;
 
 public class ProductBean {
+	MemberDAOJdbc memberDAO = new MemberDAOJdbc();
 	private int productId;
 	private int sellerId;
 	private String origin;
@@ -20,6 +22,7 @@ public class ProductBean {
 	// private int productStatusId;
 	private String productStatusName;
 	private static SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd");
+	private MemberBean memberBean;
 
 	@Override
 	public boolean equals(Object obj) {
@@ -148,6 +151,14 @@ public class ProductBean {
 
 	public void setProductStatusName(String productStatusName) {
 		this.productStatusName = productStatusName;
+	}
+
+	public MemberBean getMemberBean() {
+		return memberDAO.select(sellerId);
+	}
+
+	public void setMemberBean(MemberBean memberBean) {
+		this.memberBean = memberBean;
 	}
 
 	// public int getProductStatusId() {

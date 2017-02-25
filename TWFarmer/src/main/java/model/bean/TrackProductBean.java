@@ -3,10 +3,14 @@ package model.bean;
 import java.io.Serializable;
 import java.util.Date;
 
+import model.daojdbc.ProductDAOjdbc;
+
 public class TrackProductBean implements Serializable {
+	ProductDAOjdbc productDAO = new ProductDAOjdbc();
 	private int memberId;
 	private int productId;
 	private Date trackDate;
+	private ProductBean productBean;
 
 	public TrackProductBean() {
 
@@ -57,6 +61,14 @@ public class TrackProductBean implements Serializable {
 
 	public void setTrackDate(Date trackDate) {
 		this.trackDate = trackDate;
+	}
+
+	public ProductBean getProductBean() {
+		return productDAO.select(productId);
+	}
+
+	public void setProductBean(ProductBean productBean) {
+		this.productBean = productBean;
 	}
 
 }
