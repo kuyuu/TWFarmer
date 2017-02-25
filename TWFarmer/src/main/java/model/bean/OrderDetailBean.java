@@ -1,12 +1,16 @@
 package model.bean;
 
+import model.daojdbc.ProductDAOjdbc;
 public class OrderDetailBean {
+	
+	ProductDAOjdbc productDAO = new ProductDAOjdbc();
 	private int orderId;
 	private int productId;
 	private String unit;
 	private int unitPrice;
 	private int orderQuantity;
 	private int unitFreight;
+	private ProductBean productBean;
 	
 	@Override
 	public String toString() {
@@ -74,6 +78,14 @@ public class OrderDetailBean {
 
 	public void setUnitFreight(int unitFreight) {
 		this.unitFreight = unitFreight;
+	}
+
+	public ProductBean getProductBean() {
+		return productDAO.select(productId);
+	}
+
+	public void setProductBean(ProductBean productBean) {
+		this.productBean = productBean;
 	}
 	
 }

@@ -1,7 +1,9 @@
 package controller.orders;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -49,7 +51,7 @@ public class NewOrderController {
 		if (shipAddress == null || shipAddress.trim().length() == 0) {
 			errors.put("shipAddress", "shipAddress");
 		}
-		
+
 		if (errors != null && !errors.isEmpty()) {
 			return "Order/StarOrder.do";
 		}
@@ -67,6 +69,9 @@ public class NewOrderController {
 		oBean.setSellerOrderStatusId(3103);
 		oBean = orderDAO.insert(oBean);
 
+		int totalPrice = 0;
+		int totalFreight = 0;
+		List<OrderDetailBean> orderDetailList = new ArrayList<OrderDetailBean>();
 		for (int i = 0; i < productId.length; i++) {
 			ProductBean pBean = productDAO.select(productId[i]);
 			OrderDetailBean odBean = new OrderDetailBean();
@@ -77,7 +82,19 @@ public class NewOrderController {
 			odBean.setOrderQuantity(count[i]);
 			odBean.setUnitFreight(pBean.getFreight());
 			orderDetailDAO.insert(odBean);
+			orderDetailList.add(odBean);
+
+			totalPrice = totalPrice + pBean.getPrice() * count[i];
+			totalFreight = totalFreight + pBean.getFreight() * count[i];
 		}
+		
+		model.addAttribute("orderDetailList", orderDetailList);
+		
+		oBean.setTotalFreight(totalFreight);
+		oBean.setTotalPrice(totalPrice);
+		orderDAO.update(oBean);
+
+		model.addAttribute("orderBean", oBean);
 
 		return "Orders/success";
 	}
