@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="/TWFarmer/css/bootstrap.css" rel="stylesheet">
+<link href="../css/bootstrap.css" rel="stylesheet">
 <title>台灣小農</title>
 <style>
 body {
@@ -28,6 +28,7 @@ html {
 			${farmerBean.memberBean.name}(${farmerBean.memberBean.account})<br>${farmerBean.farmerIntro}
 			<form action="NewOrder.do" method="POST">
 				<input type="hidden" value="${farmerBean.memberId}" name="sellerId" />
+
 				<c:forEach items="${cartProductMap}" var="x">
 					<div class="order row">
 						<div class="col-md-3">
@@ -42,42 +43,95 @@ html {
 							<div class="form-group">
 								<label for="count" class="control-label">購買數量</label> <input
 									type="text" id="count" name="count" class="form-control"
-									value=""><input type="hidden"
+									value="0"><input type="hidden"
 									value="${x.key.productId}" name="productId" />
 							</div>
 						</div>
-						<div class="col-md-3">金額小計：</div>
+						<input type="hidden" value="${x.key.price}" name="price" /> <input
+							type="hidden" value="" name="price2" />
+						<div class="col-md-3">
+							金額小計：
+							<div class="price"></div>
+						</div>
 					</div>
 				</c:forEach>
+				<div id="totalPrice"></div>
+				<div class="checkbox">
+					<label> <input type="checkbox" id="checkbox1" />套用會員資料
+					</label>
+				</div>
 				<div class="form-group">
-					<label>收件人：</label> <input id='shipName'
-						value="${sessionScope.LoginOK.name}" type="text" name="shipName"
-						class="form-control" />
+					<label>收件人：</label> <input id='shipName' value="" type="text"
+						name="shipName" class="form-control" />
+					<div>${errors.shipName}</div>
 				</div>
 
 				<div class="form-group">
-					<label>收件郵遞區號：</label> <input id='shipPostalCode'
-						value="${sessionScope.LoginOK.postalCode}" type="text"
-						name="shipPostalCode" class="form-control" />
+					<label>收件郵遞區號：</label> <input id='shipPostalCode' value=""
+						type="text" name="shipPostalCode" class="form-control" />
+					<div>${errors.shipPostalCode}</div>
 				</div>
 
 				<div class="form-group">
-					<label>收件地區：</label> <input id='shipDistrict'
-						value="${sessionScope.LoginOK.district}" type="text"
+					<label>收件地區：</label> <input id='shipDistrict' value="" type="text"
 						name="shipDistrict" class="form-control" />
+					<div>${errors.shipDistrict}</div>
 				</div>
 
 				<div class="form-group">
-					<label>收件地址：</label> <input id='shipAddress'
-						value="${sessionScope.LoginOK.address}" type="text"
+					<label>收件地址：</label> <input id='shipAddress' value="" type="text"
 						name="shipAddress" class="form-control" />
+					<div>${errors.shipAddress}</div>
 				</div>
 
 				<div class="form-group">
-					<button type="submit">確認訂單</button>
+					<button type="submit" class="btn btn-primary">確認訂單</button>
 				</div>
 			</form>
 		</div>
 	</div>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/scripts.js"></script>
+	<script>
+		$(function() {
+
+			$('#checkbox1').change(
+					function() {
+						if ($(this).is(":checked")) {
+							$('#shipName').val('${sessionScope.LoginOK.name}');
+							$('#shipPostalCode').val(
+									'${sessionScope.LoginOK.postalCode}');
+							$('#shipDistrict').val(
+									'${sessionScope.LoginOK.district}');
+							$('#shipAddress').val(
+									'${sessionScope.LoginOK.address}');
+						} else {
+							$('#shipName').val('');
+							$('#shipPostalCode').val('');
+							$('#shipDistrict').val('');
+							$('#shipAddress').val('');
+						}
+					});
+			$('input[name="count"]').change(
+					function() {
+						var price = $(this).parent().parent().next().val();
+						var price2 = $(this).parent().parent().next().next();
+						var count = $(this).val();
+						var mult = price * count;
+						$(this).parent().parent().next().next().next().html(
+								'金額小計：<br>' + mult);
+						price2.val(mult);
+
+						var tp = 0;
+						$('input[name="price2"]').each(function() {
+							tp = tp + Number($(this).val());
+						});
+
+						$('#totalPrice').html('總金額：' + tp);
+					});
+
+		});
+	</script>
 </body>
 </html>

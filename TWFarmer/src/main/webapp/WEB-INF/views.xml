@@ -12,10 +12,15 @@
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/BackStage/ShowAllViolation.do"></property>
 	</bean>
-	
-		<bean id="Message/MsgHome.do"
+
+	<bean id="Message/MsgHome.do"
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/Message/MsgHome.do"></property>
+	</bean>
+	
+	<bean id="Order/StarOrder.do"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/Order/StarOrder.do"></property>
 	</bean>
 
 </beans>
