@@ -57,7 +57,7 @@ html {
 							</c:forEach>
 						</table>
 						
-						<div class="form-group">
+								<div class="form-group">
 									<button type="submit" class="btn btn-primary">我要匯款</button>
 								</div>
 						<input type="hidden" name="orderId" value="${orderBean.orderId}">
