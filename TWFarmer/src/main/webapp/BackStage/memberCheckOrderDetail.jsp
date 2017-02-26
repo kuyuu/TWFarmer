@@ -32,32 +32,42 @@ html {
 						賣家：${orderBean.memberBean.name}(${orderBean.memberBean.account})<br>
 						訂購時間：${orderBean.orderDate}<br>
 					</p>
-					<table class="table">
-						<tr>
-							<td>商品名稱</td>
-							<td>價格</td>
-							<td>運費</td>
-							<td>購買數量</td>
-							<td>商品總價</td>
-							<td>商品總運費</td>
-						</tr>
-						<c:forEach items="${orderDetailList}" var="x">
+
+					<form
+						action="<c:url value="../BackStage/NewRemittanceOfOrderServlet"/>"
+						method="get">
+						<table class="table">
 							<tr>
-								<td>${x.productBean.productName}</td>
-								<td>${x.unitPrice}/${x.unit}</td>
-								<td>${x.unitFreight}/${x.unit}</td>
-								<td>${x.orderQuantity}${x.unit}</td>
-								<td>${x.unitPrice * x.orderQuantity}</td>
-								<td>${x.unitFreight * x.orderQuantity}</td>
+								<td>商品名稱</td>
+								<td>價格</td>
+								<td>運費</td>
+								<td>購買數量</td>
+								<td>商品總價</td>
+								<td>商品總運費</td>
 							</tr>
-						</c:forEach>
-					</table>
+							<c:forEach items="${orderDetailList}" var="x">
+								<tr>
+									<td>${x.productBean.productName}</td>
+									<td>${x.unitPrice}/${x.unit}</td>
+									<td>${x.unitFreight}/${x.unit}</td>
+									<td>${x.orderQuantity}${x.unit}</td>
+									<td>${x.unitPrice * x.orderQuantity}</td>
+									<td>${x.unitFreight * x.orderQuantity}</td>
+								</tr>
+							</c:forEach>
+						</table>
+						
+						<div class="form-group">
+									<button type="submit" class="btn btn-primary">我要匯款</button>
+								</div>
+						<input type="hidden" name="orderId" value="${orderBean.orderId}">
+						
+					</form>
 					<p>
 						總金額(含運費)：${orderBean.totalPrice+orderBean.totalFreight}<br>
 						收件人：${orderBean.shipName}<br>
 						郵遞區號：${orderBean.shipPostalCode}<br>
-						地區：${orderBean.shipDistrict}<br> 
-						地址：${orderBean.shipAddress}<br>
+						地區：${orderBean.shipDistrict}<br> 地址：${orderBean.shipAddress}<br>
 					</p>
 				</div>
 			</div>
