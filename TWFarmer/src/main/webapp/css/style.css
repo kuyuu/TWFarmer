@@ -9,3 +9,24 @@
     display: block;
     height: 100%;
 }
+
+/* title底線 */
+.border {
+    border-top: 1px solid #808080;
+    height: 1px;
+    margin: 15px auto 0;
+    position: relative;
+    width: 35%;
+}
+
+.title h2 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 38px;
+    color: #004040;
+}
+
+.color {
+    color: #6CB670;
+}
+

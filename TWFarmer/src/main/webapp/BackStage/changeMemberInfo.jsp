@@ -11,13 +11,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>台灣小農</title>
-<link href="../css/bootstrap.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
+
+<!-- Favicon 網頁上小icon -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="/TWFarmer/img/logo/TWFarmerLOGO-little.gif" />
+
+<link href="/TWFarmer/css/bootstrap.css" rel="stylesheet">
+<link href="/TWFarmer/css/style.css" rel="stylesheet">
 <style>
 body {
 	padding-top: 70px;
+	background-color:#fcf5e0;
 }
 
 html {
