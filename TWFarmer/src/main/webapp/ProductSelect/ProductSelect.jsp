@@ -16,7 +16,7 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
 
 html {
@@ -182,9 +182,19 @@ html {
 			$('[data-toggle="popover"]').popover();
 			//購物車
 			$('#cart').click(function() {
-				$.get('shoppingCart/AddShoppingCart.do', {
+				$.get('/TWFarmer/shoppingCart/AddShoppingCart.do', {
 					"productId" : $('#productId').val()
 				});
+			});
+		});
+
+		$(document).ready(function() {
+			$("#selectBy>ul>li").click(function() {
+				var val = $(this).text();
+				$.get('/TWFarmer/ProductSelect/ProductSelect.controller', {
+					"selectBy" : val
+				});
+				history.go(0)
 			});
 		});
 	</script>

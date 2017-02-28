@@ -24,7 +24,7 @@ public class ProductSelectServlet extends HttpServlet {
 		// 接收資料
 		String keyword = request.getParameter("keyword");
 		String selectBy = request.getParameter("selectBy");
-		String selectBy2 = request.getParameter("selectBy2");
+		System.out.println("keyword=" + keyword + ",selectBy=" + selectBy);
 
 		// 驗證資料
 		// Map<String, String> errors = new HashMap<String, String>();
@@ -47,7 +47,11 @@ public class ProductSelectServlet extends HttpServlet {
 		// bean.setProductTypeName(selectBy);
 
 		// 根據Model執行結果，決定需要顯示的View元件
-		if (keyword != null) {
+		if (selectBy != null) {
+			Map<ProductBean, List<ProductPicBean>> result = productDAOjdbc.selectByType(selectBy);
+			request.setAttribute("keyword", result);
+			request.getRequestDispatcher("/ProductSelect/ProductSelect.jsp").forward(request, response);
+		}else if (keyword != null) {
 			Map<ProductBean, List<ProductPicBean>> result = productDAOjdbc.selectByName(keyword);
 			request.setAttribute("keyword", result);
 			request.getRequestDispatcher("/ProductSelect/ProductSelect.jsp").forward(request, response);
