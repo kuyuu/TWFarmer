@@ -46,7 +46,7 @@ html {
 							</div>
 							<div id="collapseOne" class="panel-collapse collapse in"
 								role="tabpanel" aria-labelledby="headingOne">
-								<ul class="list-group">
+								<ul class="list-group" id="selectBy">
 									<li class="list-group-item">瓜類</li>
 									<li class="list-group-item">豆類</li>
 									<li class="list-group-item">根菜類</li>
@@ -82,7 +82,7 @@ html {
 							</div>
 							<div id="collapseTwo" class="panel-collapse collapse"
 								role="tabpanel" aria-labelledby="headingTwo">
-								<ul class="list-group">
+								<ul class="list-group" id="selectBy2">
 									<li class="list-group-item">仁果類</li>
 									<li class="list-group-item">核果類</li>
 									<li class="list-group-item">堅果類</li>
@@ -147,7 +147,6 @@ html {
 							<c:if test="${not empty keyword}">
 								<c:forEach var="row" items="${keyword}">
 									<div class="col-md-4">
-									<input type="hidden" id="productId" name="productId" value="${row.key.productId}">
 										<a href="../ProductServlet?productId=${row.key.productId}">
 											<div class="thumbnail" style="height: 320px">
 												<img src="../img/${row.value[0].pictureName}"

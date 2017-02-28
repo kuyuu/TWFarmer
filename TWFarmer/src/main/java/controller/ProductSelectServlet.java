@@ -47,27 +47,42 @@ public class ProductSelectServlet extends HttpServlet {
 		// bean.setProductTypeName(selectBy);
 
 		// 根據Model執行結果，決定需要顯示的View元件
-		if (selectBy.length() == 0 && selectBy2.length() == 0) {
+		if (keyword != null) {
 			Map<ProductBean, List<ProductPicBean>> result = productDAOjdbc.selectByName(keyword);
 			request.setAttribute("keyword", result);
 			request.getRequestDispatcher("/ProductSelect/ProductSelect.jsp").forward(request, response);
-		} else if ( keyword.length() == 0 && selectBy2.length() == 0){
-			Map<ProductBean, List<ProductPicBean>> result = productDAOjdbc.selectByType(selectBy);
-			request.setAttribute("keyword", result);
-			request.getRequestDispatcher("/ProductSelect/ProductSelect.jsp").forward(request, response);
-		} else if ( keyword.length() == 0 && selectBy.length() == 0){
-			Map<ProductBean, List<ProductPicBean>> result = productDAOjdbc.selectByType(selectBy2);
-			request.setAttribute("keyword", result);
-			request.getRequestDispatcher("/ProductSelect/ProductSelect.jsp").forward(request, response);
-		} else if (keyword.length() != 0 && selectBy2.length() == 0) {
-			Map<ProductBean, List<ProductPicBean>> result = productDAOjdbc.selectByTypeAndName(selectBy, keyword);
-			request.setAttribute("keyword", result);
-			request.getRequestDispatcher("/ProductSelect/ProductSelect.jsp").forward(request, response);
-		} else if (keyword.length() != 0 && selectBy.length() == 0){
-			Map<ProductBean, List<ProductPicBean>> result = productDAOjdbc.selectByTypeAndName(selectBy2, keyword);
-			request.setAttribute("keyword", result);
-			request.getRequestDispatcher("/ProductSelect/ProductSelect.jsp").forward(request, response);
 		}
+		// if (selectBy.length() == 0 && selectBy2.length() == 0) {
+		// Map<ProductBean, List<ProductPicBean>> result =
+		// productDAOjdbc.selectByName(keyword);
+		// request.setAttribute("keyword", result);
+		// request.getRequestDispatcher("/ProductSelect/ProductSelect.jsp").forward(request,
+		// response);
+		// } else if (keyword.length() == 0 && selectBy2.length() == 0) {
+		// Map<ProductBean, List<ProductPicBean>> result =
+		// productDAOjdbc.selectByType(selectBy);
+		// request.setAttribute("keyword", result);
+		// request.getRequestDispatcher("/ProductSelect/ProductSelect.jsp").forward(request,
+		// response);
+		// } else if (keyword.length() == 0 && selectBy.length() == 0) {
+		// Map<ProductBean, List<ProductPicBean>> result =
+		// productDAOjdbc.selectByType(selectBy2);
+		// request.setAttribute("keyword", result);
+		// request.getRequestDispatcher("/ProductSelect/ProductSelect.jsp").forward(request,
+		// response);
+		// } else if (keyword.length() != 0 && selectBy2.length() == 0) {
+		// Map<ProductBean, List<ProductPicBean>> result =
+		// productDAOjdbc.selectByTypeAndName(selectBy, keyword);
+		// request.setAttribute("keyword", result);
+		// request.getRequestDispatcher("/ProductSelect/ProductSelect.jsp").forward(request,
+		// response);
+		// } else if (keyword.length() != 0 && selectBy.length() == 0) {
+		// Map<ProductBean, List<ProductPicBean>> result =
+		// productDAOjdbc.selectByTypeAndName(selectBy2, keyword);
+		// request.setAttribute("keyword", result);
+		// request.getRequestDispatcher("/ProductSelect/ProductSelect.jsp").forward(request,
+		// response);
+		// }
 	}
 
 	@Override
