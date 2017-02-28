@@ -193,7 +193,7 @@ public class ProductDAOjdbc implements ProductDAO {
 		return result;
 	}
 
-	private static final String SELECT_BY_PRODUCTNAME = "Select * FROM Product Where  ProductStatusName='上架'and (origin LIKE ? or ProductName like ?)";
+	private static final String SELECT_BY_PRODUCTNAME = "Select * FROM Product Where  ProductStatusName='上架'and (origin LIKE ? or ProductName like ?) Order By ProductID";
 	@Override
 	public Map<ProductBean, List<ProductPicBean>> selectByName(String keyword) {
 		Map<ProductBean, List<ProductPicBean>> result = null;
@@ -279,7 +279,7 @@ public class ProductDAOjdbc implements ProductDAO {
 //		return result;
 //	}
 
-	private static final String SELECT_BY_PRODUCTTYPENAME = "Select * FROM Product where ProductStatusName='上架'and productTypeName=?";
+	private static final String SELECT_BY_PRODUCTTYPENAME = "Select * FROM Product where ProductStatusName='上架'and productTypeName=? Order By ProductID";
 	@Override
 	public Map<ProductBean, List<ProductPicBean>> selectByType(String type) {
 		Map<ProductBean, List<ProductPicBean>> result = null;
@@ -321,7 +321,7 @@ public class ProductDAOjdbc implements ProductDAO {
 		return result;
 	}
 	
-	private static final String SELECT_BY_TYPEANDNAME = "Select * FROM Product where ProductStatusName='上架'and productTypeName=?  and (origin LIKE ? or ProductName like ?) ";
+	private static final String SELECT_BY_TYPEANDNAME = "Select * FROM Product where ProductStatusName='上架'and productTypeName=?  and (origin LIKE ? or ProductName like ?) Order By ProductID";
 	@Override
 	public Map<ProductBean, List<ProductPicBean>> selectByTypeAndName(String type , String keyword) {
 		Map<ProductBean, List<ProductPicBean>> result = null;
