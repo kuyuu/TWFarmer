@@ -160,7 +160,7 @@ html {
 															class="btn btn-primary" role="button">直接購買</a>
 														<button type="button" class="btn btn-default" id="cart"
 															data-trigger="focus" data-placement="top"
-															data-toggle="popover" data-content="已加入購物車">加入購物車</button>
+															data-toggle="popover" data-content="已加入購物車" value="${row.key.productId}">加入購物車</button>
 													</p>
 												</div>
 											</div>
@@ -183,7 +183,7 @@ html {
 			//購物車
 			$('#cart').click(function() {
 				$.get('/TWFarmer/shoppingCart/AddShoppingCart.do', {
-					"productId" : $('#productId').val()
+					"productId" : $(this).val()
 				});
 			});
 		});

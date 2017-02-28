@@ -28,8 +28,7 @@ public class AddShoppingCartController {
 	private ProductDAOjdbc productDAO;
 
 	@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST })
-	public void doWork(HttpSession session, Integer productId)
-			throws ServletException, IOException {
+	public void doWork(HttpSession session, Integer productId) {
 		int sellerId = productDAO.select(productId).getSellerId();
 		Map<Integer, Set<Integer>> cart = (Map<Integer, Set<Integer>>) session.getAttribute("cart");
 
