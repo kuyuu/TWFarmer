@@ -12,12 +12,8 @@
 <meta name="description"
 	content="Source code generated using layoutit.com">
 <meta name="author" content="LayoutIt!">
-<link href="../css/bootstrap.css" rel="stylesheet">
-<link href="../css/style.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-  
 <!--   Date Picker for Ship Date
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -32,9 +28,17 @@
   } );
   </script>
    -->
+
+<!-- Favicon 網頁上小icon -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="/TWFarmer/img/logo/TWFarmerLOGO-little.gif" />
+
+<link href="/TWFarmer/css/bootstrap.css" rel="stylesheet">
+<link href="/TWFarmer/css/style.css" rel="stylesheet">
 <style>
 body {
- padding-top: 70px;
+	padding-top: 70px;
+	background-color:#fcf5e0;
 }
 html {
     overflow-y:scroll;

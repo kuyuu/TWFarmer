@@ -4,19 +4,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>臺灣小農</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="../css/bootstrap.css" rel="stylesheet">
-</head>
+<title>台灣小農</title>
+
+<!-- Favicon 網頁上小icon -->
+<link rel="shortcut icon" type="image/x-icon"
+	href="/TWFarmer/img/logo/TWFarmerLOGO-little.gif" />
+
+<link href="/TWFarmer/css/bootstrap.css" rel="stylesheet">
+<link href="/TWFarmer/css/style.css" rel="stylesheet">
 <style>
 body {
 	padding-top: 70px;
+	background-color:#fcf5e0;
 }
 
 html {
 	overflow-y: scroll;
 }
 </style>
+</head>
 <body>
 	<!-- 上方選單start -->
 	<div class="container">
