@@ -58,37 +58,37 @@ html {
 									<button type="submit" class="btn btn-default">搜尋</button>
 								</div>
 							</div>
-							<br>
-							<br>
-							<br>
+							<br> <br> <br>
 							<c:if test="${not empty keyword}">
 								<div class="row jumbotron">
 									<c:forEach items="${keyword}" var="row">
 										<div class="row jp">
-											<div style="display: none">${row.jpId}</div>
-											<div class="col-md-3">
-												<img src="../img/${row.pictureName}"
-													class="img-responsive img-thumbnail" />
-											</div>
-											<div class="col-md-9">
-												<table class="table">
-													<thead>
+											<a href="/TWFarmer/JointPurchase.do?jpId=${row.jpId}">
+												<div style="display: none">${row.jpId}</div>
+												<div class="col-md-3">
+													<img src="../img/${row.pictureName}"
+														class="img-responsive img-thumbnail" />
+												</div>
+												<div class="col-md-9">
+													<table class="table">
+														<thead>
+															<tr>
+																<td colspan="3">${row.jpName}</td>
+															</tr>
+														</thead>
 														<tr>
-															<td colspan="3">${row.jpName}</td>
+															<td>開始日期</td>
+															<td>結束日期</td>
+															<td>合購地點</td>
 														</tr>
-													</thead>
-													<tr>
-														<td>開始日期</td>
-														<td>結束日期</td>
-														<td>合購地點</td>
-													</tr>
-													<tr>
-														<td>${row.initDate}</td>
-														<td>${row.endDate}</td>
-														<td>${row.jpLocation}</td>
-													</tr>
-												</table>
-											</div>
+														<tr>
+															<td>${row.initDate}</td>
+															<td>${row.endDate}</td>
+															<td>${row.jpLocation}</td>
+														</tr>
+													</table>
+												</div>
+											</a>
 										</div>
 									</c:forEach>
 								</div>
