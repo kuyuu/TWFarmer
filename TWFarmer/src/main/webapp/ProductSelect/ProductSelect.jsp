@@ -41,34 +41,23 @@ html {
 								<h4 class="panel-title">
 									<a data-toggle="collapse" data-parent="#accordion"
 										href="#collapseOne" aria-expanded="true"
-										aria-controls="collapseOne">蔬菜分類</a>
+										aria-controls="collapseOne">水果分類</a>
 								</h4>
 							</div>
 							<div id="collapseOne" class="panel-collapse collapse in"
 								role="tabpanel" aria-labelledby="headingOne">
 								<ul class="list-group" id="selectBy">
-									<li class="list-group-item">瓜類</li>
-									<li class="list-group-item">豆類</li>
-									<li class="list-group-item">根菜類</li>
-									<li class="list-group-item">莖菜類</li>
-									<li class="list-group-item">花菜類</li>
-									<li class="list-group-item">果菜類</li>
-									<li class="list-group-item">葉菜類</li>
-									<li class="list-group-item">香辛類</li>
-									<li class="list-group-item">菌藻類</li>
+									<li class="list-group-item" value="仁果類"><a
+										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=仁果類">仁果類</a></li>
+									<li class="list-group-item" value="核果類"><a
+										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=核果類">核果類</a></li>
+									<li class="list-group-item" value="堅果類"><a
+										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=堅果類">堅果類</a></li>
+									<li class="list-group-item" value="漿果類"><a
+										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=漿果類">漿果類</a></li>
+									<li class="list-group-item" value="柑橘類"><a
+										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=柑橘類">柑橘類</a></li>
 								</ul>
-								<!-- 									<select class="form-control" id='selectBy' name="selectBy"> -->
-								<!-- 										<option value="">請選擇分類</option> -->
-								<!-- 										<option value="瓜類">瓜類</option> -->
-								<!-- 										<option value="豆類">豆類</option> -->
-								<!-- 										<option value="根菜類">根菜類</option> -->
-								<!-- 										<option value="莖菜類">莖菜類</option> -->
-								<!-- 										<option value="花菜類">花菜類</option> -->
-								<!-- 										<option value="果菜類">果菜類</option> -->
-								<!-- 										<option value="葉菜類">葉菜類</option> -->
-								<!-- 										<option value="香辛類">香辛類</option> -->
-								<!-- 										<option value="菌藻類">菌藻類</option> -->
-								<!-- 									</select> -->
 							</div>
 						</div>
 						<div class="panel panel-default">
@@ -77,28 +66,31 @@ html {
 								<h4 class="panel-title">
 									<a class="collapsed" data-toggle="collapse"
 										data-parent="#accordion" href="#collapseTwo"
-										aria-expanded="false" aria-controls="collapseTwo"> 水果分類 </a>
+										aria-expanded="false" aria-controls="collapseTwo">蔬菜分類 </a>
 								</h4>
 							</div>
 							<div id="collapseTwo" class="panel-collapse collapse"
 								role="tabpanel" aria-labelledby="headingTwo">
 								<ul class="list-group" id="selectBy2">
-									<li class="list-group-item">仁果類</li>
-									<li class="list-group-item">核果類</li>
-									<li class="list-group-item">堅果類</li>
-									<li class="list-group-item">漿果類</li>
-									<li class="list-group-item">柑橘類</li>
+									<li class="list-group-item" value="瓜類"><a
+										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=瓜類">瓜類</a></li>
+									<li class="list-group-item" value="豆類"><a
+										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=豆類">豆類</a></li>
+									<li class="list-group-item" value="根菜類"><a
+										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=根菜類">根菜類</a></li>
+									<li class="list-group-item" value="莖菜類"><a
+										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=莖菜類">莖菜類</a></li>
+									<li class="list-group-item" value="花菜類"><a
+										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=花菜類">花菜類</a></li>
+									<li class="list-group-item" value="果菜類"><a
+										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=果菜類">果菜類</a></li>
+									<li class="list-group-item" value="葉菜類"><a
+										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=葉菜類">葉菜類</a></li>
+									<li class="list-group-item" value="香辛類"><a
+										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=香辛類">香辛類</a></li>
+									<li class="list-group-item" value="菌藻類"><a
+										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=菌藻類">菌藻類</a></li>
 								</ul>
-								<!-- 								<div class="panel-body"> -->
-								<!-- 									<select class="form-control" id='selectBy2' name="selectBy2"> -->
-								<!-- 										<option value="">請選擇分類</option> -->
-								<!-- 										<option value="仁果類">仁果類</option> -->
-								<!-- 										<option value="核果類">核果類</option> -->
-								<!-- 										<option value="堅果類">堅果類</option> -->
-								<!-- 										<option value="漿果類">漿果類</option> -->
-								<!-- 										<option value="柑橘類">柑橘類</option> -->
-								<!-- 									</select> -->
-								<!-- 								</div> -->
 							</div>
 						</div>
 					</div>
@@ -115,28 +107,6 @@ html {
 									<input type="text" name="keyword" class="form-control" value="">
 								</div>
 							</div>
-							<!-- 							<div class="form-group"> -->
-							<!-- 								<label class="">分類搜尋</label> -->
-							<!-- 								<div class=""> -->
-							<!-- 									<select class="form-control" id='selectBy' name="selectBy"> -->
-							<!-- 										<option value="">請選擇分類</option> -->
-							<!-- 										<option value="仁果類">仁果類</option> -->
-							<!-- 										<option value="核果類">核果類</option> -->
-							<!-- 										<option value="堅果類">堅果類</option> -->
-							<!-- 										<option value="漿果類">漿果類</option> -->
-							<!-- 										<option value="柑橘類">柑橘類</option> -->
-							<!-- 										<option value="瓜類">瓜類</option> -->
-							<!-- 										<option value="根菜類">根菜類</option> -->
-							<!-- 										<option value="莖菜類">莖菜類</option> -->
-							<!-- 										<option value="花菜類">花菜類</option> -->
-							<!-- 										<option value="果菜類">果菜類</option> -->
-							<!-- 										<option value="葉菜類">葉菜類</option> -->
-							<!-- 										<option value="香辛類">香辛類</option> -->
-							<!-- 										<option value="菌藻類">菌藻類</option> -->
-							<!-- 										<option value="豆類">豆類</option> -->
-							<!-- 									</select> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
 							<div class="form-group">
 								<div class="col-md-11"></div>
 								<div class="col-md-1">
@@ -160,7 +130,8 @@ html {
 															class="btn btn-primary" role="button">直接購買</a>
 														<button type="button" class="btn btn-default" id="cart"
 															data-trigger="focus" data-placement="top"
-															data-toggle="popover" data-content="已加入購物車" value="${row.key.productId}">加入購物車</button>
+															data-toggle="popover" data-content="已加入購物車"
+															value="${row.key.productId}">加入購物車</button>
 													</p>
 												</div>
 											</div>
@@ -188,15 +159,36 @@ html {
 			});
 		});
 
-		$(document).ready(function() {
-			$("#selectBy>ul>li").click(function() {
-				var val = $(this).text();
-				$.get('/TWFarmer/ProductSelect/ProductSelect.controller', {
-					"selectBy" : val
+		$(document).ready(
+				function() {
+					if ('${param.selectBy}' == '瓜類'
+							|| '${param.selectBy}' == '豆類'
+							|| '${param.selectBy}' == '根菜類'
+							|| '${param.selectBy}' == '莖菜類'
+							|| '${param.selectBy}' == '花菜類'
+							|| '${param.selectBy}' == '果菜類'
+							|| '${param.selectBy}' == '葉菜類'
+							|| '${param.selectBy}' == '香辛類'
+							|| '${param.selectBy}' == '菌藻類') {
+						$('#collapseOne').removeClass("in");
+						$('#collapseTwo').addClass("in");
+						$("li[value='${param.selectBy}']").addClass(
+								"list-group-item-info")
+					} else {
+						$("li[value='${param.selectBy}']").addClass(
+								"list-group-item-success")
+					}
 				});
-				history.go(0)
-			});
-		});
+
+		// 		$(document).ready(function() {
+		// 			$("#accordion ul>li").click(function() {
+		// 				$(this).removeClass("list-group-item").addClass("list-group-item list-group-item-info")
+		// 				var val = $(this).text();
+		// 				$.get('/TWFarmer/ProductSelect/ProductSelect.controller', {
+		// 					"selectBy" : val
+		// 				});
+		// 			});
+		// 		});
 	</script>
 </body>
 </html>

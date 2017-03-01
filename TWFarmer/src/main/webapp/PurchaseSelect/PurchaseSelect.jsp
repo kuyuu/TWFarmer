@@ -16,19 +16,30 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
+
 td {
 	padding: 5px;
 }
+
 html {
-    overflow-y:scroll;
+	overflow-y: scroll;
+}
+
+.jp {
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 140px;
 }
 </style>
 </head>
 <body>
 	<div class="container">
-	<jsp:include page="../common/menuJp.jsp" />
+		<jsp:include page="../common/menuJp.jsp" />
 		<form
 			action="<c:url value="/PurchaseSelect/PurchaseSelect.controller" />"
 			method="get">
@@ -36,45 +47,51 @@ html {
 				<div class="col-md-3"></div>
 				<div class="container">
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-9">
 							<h3>合購搜尋</h3>
 							<h2></h2>
 							<div class="form-group">
-								<label class="">搜尋</label>
-								<div class="">
+								<div class="col-md-11">
 									<input type="text" name="keyword" class="form-control" value="">
 								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-11"></div>
 								<div class="col-md-1">
 									<button type="submit" class="btn btn-default">搜尋</button>
 								</div>
 							</div>
+							<br>
+							<br>
+							<br>
 							<c:if test="${not empty keyword}">
-								<h3>搜尋結果</h3>
-								<table class="table-bordered" width="850px">
-									<thead>
-										<tr>
-											<th>合購名稱</th>
-											<th>地區</th>
-											<th>描述</th>
-											<th>開始日期</th>
-											<th>截止日期</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach var="row" items="${keyword}">
-											<tr>
-												<td><a href="${path}">${row.jpName}</a></td>
-												<td>${row.jpLocation}</td>
-												<td>${row.jpIntro}</td>
-												<td>${row.initDate}</td>
-												<td>${row.endDate}</td>
-											</tr>
-										</c:forEach>
-									</tbody>
-								</table>
+								<div class="row jumbotron">
+									<c:forEach items="${keyword}" var="row">
+										<div class="row jp">
+											<div style="display: none">${row.jpId}</div>
+											<div class="col-md-3">
+												<img src="../img/${row.pictureName}"
+													class="img-responsive img-thumbnail" />
+											</div>
+											<div class="col-md-9">
+												<table class="table">
+													<thead>
+														<tr>
+															<td colspan="3">${row.jpName}</td>
+														</tr>
+													</thead>
+													<tr>
+														<td>開始日期</td>
+														<td>結束日期</td>
+														<td>合購地點</td>
+													</tr>
+													<tr>
+														<td>${row.initDate}</td>
+														<td>${row.endDate}</td>
+														<td>${row.jpLocation}</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</c:forEach>
+								</div>
 							</c:if>
 						</div>
 					</div>

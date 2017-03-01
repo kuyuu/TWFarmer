@@ -37,8 +37,31 @@ html {
 					<form class="form-horizontal" action="UpdateShippingOfOrder"
 						method="POST">
 						<input type="hidden" name="orderId" value="${order.orderId}" />
-				
-
+											
+			
+						<table class="table">
+							<tr>
+								<td>商品名稱</td>
+								<td>價格</td>
+								<td>運費</td>
+								<td>購買數量</td>
+								<td>商品總價</td>
+								<td>商品總運費</td>
+							</tr>
+							<c:forEach items="${odList}" var="x">
+								<tr>
+									<td>${x.productBean.productName}</td>
+									<td>${x.unitPrice}/${x.unit}</td>
+									<td>${x.unitFreight}/${x.unit}</td>
+									<td>${x.orderQuantity}${x.unit}</td>
+									<td>${x.unitPrice * x.orderQuantity}</td>
+									<td>${x.unitFreight * x.orderQuantity}</td>
+								</tr>
+							</c:forEach>
+						</table>
+			
+							
+							
 							<div class="col-md-4">
 								<div class="form-group">
 									<label>訂單編號:</label> ${order.orderId}
