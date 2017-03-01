@@ -24,7 +24,6 @@ public class ProductSelectServlet extends HttpServlet {
 		// 接收資料
 		String keyword = request.getParameter("keyword");
 		String selectBy = request.getParameter("selectBy");
-		System.out.println("keyword=" + keyword + ",selectBy=" + selectBy);
 
 		// 驗證資料
 		// Map<String, String> errors = new HashMap<String, String>();

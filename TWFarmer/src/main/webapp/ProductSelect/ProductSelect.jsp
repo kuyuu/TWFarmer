@@ -47,7 +47,7 @@ html {
 							<div id="collapseOne" class="panel-collapse collapse in"
 								role="tabpanel" aria-labelledby="headingOne">
 								<ul class="list-group" id="selectBy">
-								<li class="list-group-item" value="仁果類"><a
+									<li class="list-group-item" value="仁果類"><a
 										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=仁果類">仁果類</a></li>
 									<li class="list-group-item" value="核果類"><a
 										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=核果類">核果類</a></li>
@@ -161,18 +161,22 @@ html {
 
 		$(document).ready(
 				function() {
-					if ('${param.selectBy}' == '仁果類'
-							|| '${param.selectBy}' == '核果類'
-							|| '${param.selectBy}' == '堅果類'
-							|| '${param.selectBy}' == '漿果類'
-							|| '${param.selectBy}' == '柑橘類') {
-						$("li[value='${param.selectBy}']").addClass(
-								"list-group-item-success")
-					} else {
+					if ('${param.selectBy}' == '瓜類'
+							|| '${param.selectBy}' == '豆類'
+							|| '${param.selectBy}' == '根菜類'
+							|| '${param.selectBy}' == '莖菜類'
+							|| '${param.selectBy}' == '花菜類'
+							|| '${param.selectBy}' == '果菜類'
+							|| '${param.selectBy}' == '葉菜類'
+							|| '${param.selectBy}' == '香辛類'
+							|| '${param.selectBy}' == '菌藻類') {
 						$('#collapseOne').removeClass("in");
 						$('#collapseTwo').addClass("in");
 						$("li[value='${param.selectBy}']").addClass(
 								"list-group-item-info")
+					} else {
+						$("li[value='${param.selectBy}']").addClass(
+								"list-group-item-success")
 					}
 				});
 
