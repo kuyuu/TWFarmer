@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:if test="${empty LoginOK}">
 	<c:set var="target"
 		value="/JointPurchase/StarJpFollower.do?jpId=${jpBean.jpId}"
@@ -45,11 +46,21 @@ html {
 							<p id="jpName" class="form-control-static">${jpBean.jpName}</p>
 						</div>
 						<div class="form-group">
-							<label for="f2fId" class="control-label">面交方式</label>
+							<label for="productId" class="control-label">合購介紹</label>
+							<p id="jpName" class="form-control-static">${jpBean.jpIntro}</p>
+						</div>
+						<div class="form-group">
+							<label for="productId" class="control-label">截止日期</label>
+							<p id="jpName" class="form-control-static">${jpBean.endDate}</p>
+						</div>
+						<div class="form-group">
+							<label for="f2fId" class="control-label">面交時間/地點</label>
 							<c:forEach items="${f2fList}" var="x">
 								<div class="radio">
 									<label> <input type="radio" name="f2fId" id="f2fId"
-										value="${x.f2fId}" checked>${x.f2fTime} ${x.f2fPlace}
+										value="${x.f2fId}" checked>
+									<fmt:formatDate value="${x.f2fTime}" pattern="yyyy-MM-dd HH:mm" />
+										${x.f2fPlace}
 									</label>
 								</div>
 							</c:forEach>
@@ -116,22 +127,22 @@ html {
 		$(function() {
 			$('input[name="jpCount"]').change(function() {
 				var price = $(this).parent().parent().parent().prev().val();
-// 				console.log(price);
+				// 				console.log(price);
 				var count = $(this).val();
-// 				console.log(count);
+				// 				console.log(count);
 				var total = price * count;
 				$(this).parent().parent().next().html(total);
-				
+
 				var price2 = $(this).parent().parent().parent().prev().prev();
 				price2.val(total);
-				
+
 				var tp = 0;
 				$('input[name="price2"]').each(function() {
 					tp = tp + Number($(this).val());
 				});
-// 				console.log(tp)
+				// 				console.log(tp)
 				$('.all').text(tp)
-				
+
 			});
 		});
 	</script>
