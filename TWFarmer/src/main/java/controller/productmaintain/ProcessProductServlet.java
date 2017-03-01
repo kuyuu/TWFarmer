@@ -28,6 +28,7 @@ import model.daojdbc.ProductDiscountDAOjdbc;
 import model.daojdbc.ProductPicDAOJdbc;
 
 @WebServlet("/ProductMaintain/ProcessProductServlet")
+//@MultipartConfig(location = "D:/home/site/wwwroot/bin/apache-tomcat-8.0.41/webapps/TWFarmer/img/") // 圖片存放路徑
 @MultipartConfig(location = "C:/TWFarmer/repository/TWFarmer/src/main/webapp/img/") // 圖片存放路徑
 public class ProcessProductServlet extends HttpServlet {
 	private SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd");

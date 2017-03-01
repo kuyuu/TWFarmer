@@ -22,23 +22,24 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
+
 html {
-    overflow-y:scroll;
+	overflow-y: scroll;
 }
 </style>
 </head>
 <body>
-
+	<jsp:include page="../common/menuJp.jsp" />
 	<div class="container">
-		<jsp:include page="../common/menuJp.jsp" />
+
 
 		<div class="row">
 			<div class="col-md-12">
 				<div class="jumbotron">
 					<h3>跟團成功</h3>
-<%-- 					<p>團名：${jpBean.jpName}</p> --%>
+					<%-- 					<p>團名：${jpBean.jpName}</p> --%>
 					<p>介紹：${jpBean.jpIntro}</p>
 					<p>跟團開始日期：${jpBean.initDate}</p>
 					<p>跟團截止日期：${jpBean.endDate}</p>

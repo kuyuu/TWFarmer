@@ -53,9 +53,9 @@ html {
 										<td>${row.jpName}</td>
 										<td>${row.totalPrice + row.misc}</td>
 										<td><fmt:formatDate value="${row.initDate}"
-												pattern="yyyy-MM-dd HH:mm" /></td>
+												pattern="yyyy-MM-dd" /></td>
 										<td><fmt:formatDate value="${row.endDate}"
-												pattern="yyyy-MM-dd HH:mm" /></td>
+												pattern="yyyy-MM-dd" /></td>
 										<td>${row.jpStatusName}</td>
 
 										<td><c:if test="${row.remittanceStatus==1}">

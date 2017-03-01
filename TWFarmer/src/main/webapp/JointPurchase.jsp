@@ -21,11 +21,15 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
 
 html {
 	overflow-y: scroll;
+}
+.imgauto{
+	width:auto;
+	height:200px;
 }
 </style>
 </head>
@@ -35,19 +39,33 @@ html {
 		<div class="jumbotron">
 			<div class="row">
 				<div class="col-md-4">
-					<img src="img/${jpBean.pictureName}" style="width: 100%" />
+					<img src="img/${jpBean.pictureName}" style="width: 100%"
+						class="img-thumbnail" />
 				</div>
 				<div class="col-md-8">
 					<p>小農資料：${mBean.name}(${mBean.account})</p>
-					<p>合購資料：${jpBean.jpName}</p>
-					<p>
-						<c:forEach items="${jpdMap}" var="x">
-							<c:forEach items="${x.value}" var="y">
-								<p>jpPrice:${x.key.jpPrice} productName:${y.key.productName} pictureName:${y.value[0].pictureName}</p>
-							</c:forEach>
+					<p>合購團名：${jpBean.jpName}</p>
+					<p>合購介紹：${jpBean.jpIntro}</p>
+					<p>合購地區：${jpBean.jpLocation}</p>
+					<p>截止日期：${jpBean.endDate}</p>
+
+					<a href="JointPurchase/StarJpFollower.do?jpId=${jpBean.jpId}"><button
+							class="btn btn-primary" id="go" value="${jpBean.jpId}">我要跟團</button></a><br><br><br>
+				</div>
+				<div class="row">
+					<c:forEach items="${jpdMap}" var="x">
+						<c:forEach items="${x.value}" var="y">
+							<div class="col-md-3">
+								<div class="thumbnail" style="height:300px;">
+									<img src="img/${y.value[0].pictureName}" style="height:180px; width:auto;" />
+									<div class="caption">
+										<h3>${y.key.productName}</h3>
+										<p>${x.key.jpPrice}/${x.key.jpUnit}</p>
+									</div>
+								</div>
+							</div>
 						</c:forEach>
-					</p>
-					<a href="JointPurchase/StarJpFollower.do?jpId=${jpBean.jpId}"><button class="btn btn-primary" id="go" value="${jpBean.jpId}">我要跟團</button></a>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
