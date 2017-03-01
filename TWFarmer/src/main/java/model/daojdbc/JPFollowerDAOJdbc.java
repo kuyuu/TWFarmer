@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.sql.DataSource;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import hibernate.util.HibernateUtil;
@@ -15,6 +18,9 @@ import model.bean.JointPurchaseBean;
 import model.dao.JPFollowerDAO;
 
 public class JPFollowerDAOJdbc implements JPFollowerDAO {
+
+	public JPFollowerDAOJdbc() {
+	}
 
 	@Override
 	public JPFollowerBean select(int JPFollowerId) {
@@ -117,9 +123,9 @@ public class JPFollowerDAOJdbc implements JPFollowerDAO {
 		}
 		return result;
 	}
-	
+
 	private static final String SELECT_BY_JPID = "from JPFollowerBean where jpId=? order by JPFollowerId";
-	
+
 	@Override
 	public List<JPFollowerBean> selectByJpId(int jpId) {
 		List<JPFollowerBean> result = null;

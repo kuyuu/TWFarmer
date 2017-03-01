@@ -5,13 +5,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import model.bean.JPDetailBean;
+import model.bean.ProductBean;
 import model.dao.JPDetailDAO;
 
 public class JPDetailDAOjdbc implements JPDetailDAO {
@@ -28,8 +32,8 @@ public class JPDetailDAOjdbc implements JPDetailDAO {
 	}
 
 	public JPDetailDAOjdbc(DataSource dataSource) {
-			this.dataSource = dataSource;
-		}
+		this.dataSource = dataSource;
+	}
 
 	private static final String SELECT_BY_PK = "select * from JPDetail where JPId=? and ProductId=?";
 
