@@ -166,7 +166,7 @@ html {
 	<script src="../js/scripts.js"></script>
 	<script>
 		$(function(){
-			$("#collapseOne>ul>li:eq(5)").removeClass("list-group-item").addClass("list-group-item list-group-item-success")
+			$("#collapseOne>ul>li:eq(7)").removeClass("list-group-item").addClass("list-group-item list-group-item-success")
 			
 		})
 	</script>
