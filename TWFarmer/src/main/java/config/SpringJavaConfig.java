@@ -11,6 +11,8 @@ import model.daojdbc.F2FDetailDAOjdbc;
 import model.daojdbc.FarmerDAOJdbc;
 import model.daojdbc.FriendDAOJdbc;
 import model.daojdbc.JPDetailDAOjdbc;
+import model.daojdbc.JPFollowerDAOJdbc;
+import model.daojdbc.JPFollowerDetailDAOJdbc;
 import model.daojdbc.JointPurchaseDAOjdbc;
 import model.daojdbc.MemberDAOJdbc;
 import model.daojdbc.MsgDAOJdbc;
@@ -80,6 +82,14 @@ public class SpringJavaConfig {
 	@Bean
 	public JPDetailDAOjdbc jpDetailDAO() {
 		return new JPDetailDAOjdbc(dataSource());
+	}
+	@Bean
+	public JPFollowerDAOJdbc jpfDAO() {
+		return new JPFollowerDAOJdbc();
+	}
+	@Bean
+	public JPFollowerDetailDAOJdbc jpfDetailDAO() {
+		return new JPFollowerDetailDAOJdbc(dataSource());
 	}
 
 	@Bean

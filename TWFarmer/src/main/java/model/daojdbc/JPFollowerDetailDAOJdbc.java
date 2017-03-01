@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.naming.Context;
@@ -14,9 +15,10 @@ import javax.sql.DataSource;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+
 import hibernate.util.HibernateUtil;
 import model.bean.JPFollowerDetailBean;
-import model.bean.TrackProductBean;
+import model.bean.ProductPicBean;
 import model.dao.JPFollowerDetailDAO;
 
 public class JPFollowerDetailDAOJdbc implements JPFollowerDetailDAO {
@@ -30,6 +32,10 @@ public class JPFollowerDetailDAOJdbc implements JPFollowerDetailDAO {
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public JPFollowerDetailDAOJdbc(DataSource dataSource) {
+		this.dataSource = dataSource;
 	}
 
 	private static final String SELECT_BY_PK = "SELECT * from JPFollowerDetail where JPFollowerID=? and ProductID=?";
@@ -101,6 +107,30 @@ public class JPFollowerDetailDAOJdbc implements JPFollowerDetailDAO {
 		} catch (RuntimeException ex) {
 			session.getTransaction().rollback();
 			throw ex;
+		}
+		return result;
+	}
+	
+	private static final String SELECT_BY_JPID = "SELECT a.JPFollowerID, ProductID, Quantity, Price FROM (SELECT JPFollowerID FROM JPFollower WHERE JPID=?)a JOIN JPFollowerDetail jpfd ON a.JPFollowerID=jpfd.JPFollowerID ";
+
+	public List<JPFollowerDetailBean> selectByJpId(int jpId) {
+		List<JPFollowerDetailBean> result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_BY_JPID);
+				) {
+			stmt.setInt(1, jpId);
+			ResultSet rset = stmt.executeQuery();
+			result = new ArrayList<JPFollowerDetailBean>();
+			while (rset.next()) {
+				JPFollowerDetailBean bean = new JPFollowerDetailBean();
+				bean.setJPFollowerId(rset.getInt("JPFollowerId"));;
+				bean.setProductId(rset.getInt("ProductId"));
+				bean.setQuantity(rset.getInt("Quantity"));
+				bean.setPrice(rset.getInt("Price"));
+				result.add(bean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		return result;
 	}

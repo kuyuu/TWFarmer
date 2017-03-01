@@ -27,9 +27,10 @@ body {
 html {
 	overflow-y: scroll;
 }
-.imgauto{
-	width:auto;
-	height:200px;
+
+.imgauto {
+	width: auto;
+	height: 200px;
 }
 </style>
 </head>
@@ -43,21 +44,73 @@ html {
 						class="img-thumbnail" />
 				</div>
 				<div class="col-md-8">
-					<p>小農資料：${mBean.name}(${mBean.account})</p>
-					<p>合購團名：${jpBean.jpName}</p>
-					<p>合購介紹：${jpBean.jpIntro}</p>
-					<p>合購地區：${jpBean.jpLocation}</p>
-					<p>截止日期：${jpBean.endDate}</p>
-
+					<h2>${jpBean.jpName}</h2>
+					<p>小農資料：${fBean.name}(${fBean.account})</p>
+					<p>主購資料：${mBean.name}(${mBean.account})</p>
 					<a href="JointPurchase/StarJpFollower.do?jpId=${jpBean.jpId}"><button
-							class="btn btn-primary" id="go" value="${jpBean.jpId}">我要跟團</button></a><br><br><br>
+							class="btn btn-primary" id="go" value="${jpBean.jpId}">我要跟團</button></a><br>
+					<br>
+					<div role="tabpanel">
+
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#home"
+								aria-controls="home" role="tab" data-toggle="tab">合購資訊</a></li>
+							<li role="presentation"><a href="#profile"
+								aria-controls="profile" role="tab" data-toggle="tab">合購統計</a></li>
+						</ul>
+
+						<!-- Tab panes -->
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="home">
+								<br>
+								<p>合購介紹：${jpBean.jpIntro}</p>
+								<p>合購地區：${jpBean.jpLocation}</p>
+								<p>截止日期：${jpBean.endDate}</p>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="profile">
+								<table class="table">
+									<tr>
+										<td>商品名稱</td>
+										<td>價格</td>
+										<td>運費</td>
+										<td>數量</td>
+										<td>金額</td>
+									</tr>
+									<c:set var="total" value="0" />
+									<c:forEach begin="0" end="${size-1}" var="x">
+										<tr>
+											<td>${jpdList[x].productName}</td>
+											<td>${jpdList[x].jpPrice}/${jpdList[x].jpUnit}</td>
+											<td>${jpdList[x].jpFreight}/${jpdList[x].jpUnit}</td>
+											<td>${quantity[x]}</td>
+											<td>${jpdList[x].jpPrice*quantity[x]+jpdList[x].jpFreight*quantity[x]}</td>
+											<c:set var="total" value="${total+jpdList[x].jpPrice*quantity[x]+jpdList[x].jpFreight*quantity[x]}" />
+										</tr>
+									</c:forEach>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td>總計</td>
+										<td>${total}</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+
+					</div>
+
+
+					<br> <br> <br>
 				</div>
 				<div class="row">
 					<c:forEach items="${jpdMap}" var="x">
 						<c:forEach items="${x.value}" var="y">
 							<div class="col-md-3">
-								<div class="thumbnail" style="height:300px;">
-									<img src="img/${y.value[0].pictureName}" style="height:180px; width:auto;" />
+								<div class="thumbnail" style="height: 300px;">
+									<img src="img/${y.value[0].pictureName}"
+										style="height: 180px; width: auto;" />
 									<div class="caption">
 										<h3>${y.key.productName}</h3>
 										<p>${x.key.jpPrice}/${x.key.jpUnit}</p>
@@ -67,6 +120,7 @@ html {
 						</c:forEach>
 					</c:forEach>
 				</div>
+				<h2>合購統計</h2>
 			</div>
 		</div>
 	</div>
