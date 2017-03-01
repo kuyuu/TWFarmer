@@ -42,15 +42,49 @@ html {
 
 					<form action="<c:url value="OrderDetailServlet"/>" method="get">
 
-
-						<br>${orderBean.totalPrice}<br>
-						<c:forEach items="${orderDetailList}" var="x">${x.productBean.productName}${x.orderQuantity}<br>
+						
+						<div class="form-group">
+							<label>訂單編號:</label> ${orderBean.orderId}
+						</div>
+						
+						<div class="form-group">
+							<label>訂購時間:</label> ${orderBean.orderDate}
+						</div>
+						
+											
+						<div class="form-group">
+							<label>總金額(含運費):</label> ${orderBean.totalPrice}
+						</div>
+						
+						
+						<c:forEach items="${orderDetailList}" var="x">
+						
+						<div class="form-group">
+							<label>產品名稱:</label> ${x.productBean.productName}
+						</div>
+						
+						<div class="form-group">
+							<label>購買數量:</label> ${x.orderQuantity}
+						</div>
+						
+						<div class="form-group">
+							<label>購買單位:</label> ${x.unit}
+						</div>
+						
+						<div class="form-group">
+							<label>金額/每單位:</label> ${x.unitPrice}
+						</div>
+						
+						<div class="form-group">
+							<label>運費/每單位:</label> ${x.unitFreight}
+						</div>
+						
 						</c:forEach>
 
 
 
 						<button type="submit" class="btn btn-primary"
-							onclick="location.href='<c:url value="/Order/OrderDetailServlet?orderId=${orderResult.orderId}" /> '">我要付款</button>
+							onclick="location.href='<c:url value="/Order/OrderDetailServlet?orderId=${orderBean.orderId}" /> '">我要付款</button>
 
 
 						<button type="button" class="btn btn-primary"
