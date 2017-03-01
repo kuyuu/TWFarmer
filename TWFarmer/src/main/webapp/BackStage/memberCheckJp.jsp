@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="UTF-8">
 <head>
@@ -16,9 +17,8 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
-
 
 html {
 	overflow-y: scroll;
@@ -70,8 +70,10 @@ html {
 											<td>狀態</td>
 										</tr>
 										<tr>
-											<td>${row.initDate}</td>
-											<td>${row.endDate}</td>
+											<td><fmt:formatDate value="${row.initDate}"
+													pattern="yyyy-MM-dd" /></td>
+											<td><fmt:formatDate value="${row.endDate}"
+													pattern="yyyy-MM-dd" /></td>
 											<td>${row.jpLocation}</td>
 											<td>${row.jpStatusName}</td>
 										</tr>
