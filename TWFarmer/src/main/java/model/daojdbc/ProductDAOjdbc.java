@@ -484,6 +484,7 @@ public class ProductDAOjdbc implements ProductDAO {
 				jpdBean.setJpMinQEach(rset.getInt("JpMinQEach"));
 				jpdBean.setJpPrice(rset.getInt("JpPrice"));
 				jpdBean.setJpFreight(rset.getInt("JpFreight"));
+				jpdBean.setJpUnit(rset.getString("JpUnit"));
 
 				result.put(jpdBean, productBean);
 			}
