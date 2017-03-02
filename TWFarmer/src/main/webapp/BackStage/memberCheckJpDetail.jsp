@@ -44,7 +44,7 @@ html {
 					</div>
 					<table class="table table-bordered text-center">
 						<tr class="">
-							<td></td>
+							<td>跟團會員</td>
 							<c:forEach items="${list}" var="x" varStatus="y">
 								<td>${x.productName}</td>
 							</c:forEach>

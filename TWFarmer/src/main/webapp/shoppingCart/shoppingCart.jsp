@@ -30,7 +30,7 @@ html {
 		<div class="row jumbotron">
 			<a href="../JointPurchase.do?jpId=4006">test</a>
 			<h2>購物車</h2>
-			<button type="button" class="btn btn-default" id="clear">清空購物車</button>
+			<button type="button" class="btn btn-danger" id="clear">清空購物車</button>
 			<c:if test="${not empty cartMap}">
 				<c:forEach items="${cartMap}" var="x">
 					<div class="col-md-12">
