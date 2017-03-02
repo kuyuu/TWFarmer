@@ -128,7 +128,7 @@ html {
 														<a
 															href="<c:url value="../Order/NewOrderServlet?productId=${row.key.productId}&sellerId=${row.key.sellerId}" />"
 															class="btn btn-primary" role="button">直接購買</a>
-														<button type="button" class="btn btn-default" id="cart"
+														<button type="button" class="btn btn-default" name="cart"
 															data-trigger="focus" data-placement="top"
 															data-toggle="popover" data-content="已加入購物車"
 															value="${row.key.productId}">加入購物車</button>
@@ -152,7 +152,7 @@ html {
 		$(function() {
 			$('[data-toggle="popover"]').popover();
 			//購物車
-			$('#cart').click(function() {
+			$('button[name="cart"]').click(function() {
 				$.get('/TWFarmer/shoppingCart/AddShoppingCart.do', {
 					"productId" : $(this).val()
 				});
