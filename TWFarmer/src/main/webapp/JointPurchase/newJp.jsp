@@ -19,9 +19,8 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
-
 
 html {
 	overflow-y: scroll;
@@ -35,32 +34,6 @@ html {
 			<form action="<c:url value="CheckJointPurchaseServlet"/>"
 				method="POST" class="form-horizontal">
 				<div class="row">
-<!-- 					<div class="col-md-6"> -->
-						<div class="btn-group col-md-6" data-toggle="buttons">
-							<c:forEach items="${jpdBeanMap}" var="x" varStatus="z">
-								<c:forEach items="${x.value}" var="y">
-									<div class="col-md-6">
-										<div class="thumbnail" style="height: 400x">
-											<img src="../img/${y.value[0].pictureName}"
-												style="height: 160px" />
-											<div class="caption">
-												<h3>${y.key.productName}</h3>
-												<label class="btn btn-default"> <input type="radio"
-													name="picture" value="${y.value[0].pictureName}"
-													autocomplete="off"> 設為合購圖片
-												</label>
-												<p>
-													<font size="2"> 價格：${x.key.jpPrice}<br>
-														運費：${x.key.jpFreight}<br>最小購買：${x.key.jpPopulationMin}<br>
-														最大購買：${x.key.jpPopulationMax}
-													</font>
-												</p>
-											</div>
-										</div>
-									</div>
-								</c:forEach>
-							</c:forEach>
-						</div>
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="jpName" class="control-label">合購團名</label> <input
@@ -106,6 +79,32 @@ html {
 							</div>
 						</div>
 					</div>
+					<!-- 					<div class="col-md-6"> -->
+					<div class="btn-group col-md-6" data-toggle="buttons">
+						<c:forEach items="${jpdBeanMap}" var="x" varStatus="z">
+							<c:forEach items="${x.value}" var="y">
+								<div class="col-md-6">
+									<div class="thumbnail" style="height: 400x">
+										<img src="../img/${y.value[0].pictureName}"
+											style="height: 160px" />
+										<div class="caption">
+											<h3>${y.key.productName}</h3>
+											<label class="btn btn-default"> <input type="radio"
+												name="picture" value="${y.value[0].pictureName}"
+												autocomplete="off"> 設為合購圖片
+											</label>
+											<p>
+												<font size="2"> 價格：${x.key.jpPrice}/${x.key.jpUnit}<br>
+													運費：${x.key.jpFreight}/${x.key.jpUnit}<br>預計購買量：${x.key.jpPopulationMin}${x.key.jpUnit}
+												</font>
+											</p>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+						</c:forEach>
+					</div>
+
 				</div>
 
 			</form>
