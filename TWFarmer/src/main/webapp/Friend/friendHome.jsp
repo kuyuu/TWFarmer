@@ -56,7 +56,7 @@ html {
 									class="img-circle" />
 								<p class="text-center">${x.friendName}(${x.friendAccount})<br>
 									<a
-										href="../Message/NewMessageServlet?readerAccount=${x.friendAccount}"
+										href="../Message/NewMessage.do?readerAccount=${x.friendAccount}"
 										class="btn btn-primary"><span
 										class="glyphicon glyphicon-envelope"></span></a>
 									<button class="btn btn-danger" name="delete"
