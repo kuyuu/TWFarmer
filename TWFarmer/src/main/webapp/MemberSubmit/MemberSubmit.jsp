@@ -46,7 +46,7 @@ html {
 						style="font-weight: bold; color: #ff0000; margin: .67em 0; font-size: 2em;">註冊會員</div>
 					<form
 						action="<c:url value="/MemberSubmit/MemberSubmit.controller" />"
-						method="post" role="form" name="submitform">
+						method="post" role="form" name="submitform" id="submitform">
 						<div class="form-group ">
 							<label for="ACCOUNT">帳號</label>
 							<div class="input-group">
@@ -108,9 +108,9 @@ html {
 						</div>
 						<div class="form-group form-inline">
 							<label for="GENDER">性別</label> <input type="radio" name="gender"
-								value="M" class="form-control" id="exampleInputEmail1">男
+								value="M" class="form-control" id="GENDERM">男
 							<input type="radio" name="gender" value="F" class="form-control"
-								id="exampleInputEmail1">女 <span style="color: #ff0000">${errors.gender}</span>
+								id="GENDERF">女 <span style="color: #ff0000">${errors.gender}</span>
 						</div>
 						<div class="form-group">
 							<label for="EMAIL">E-mail</label>
@@ -130,7 +130,7 @@ html {
 									src="/TWFarmer/img/submit-icon/submit-idnumber.png"
 									height="20px" width="20px"></span> <input type="text"
 									name="idnumber" value="${param.idnumber}" class="form-control"
-									id="idnumber" placeholder="請輸入您的身分證字號" > <span
+									id="idnumber" placeholder="請輸入您的身分證字號"> <span
 									class="input-group-addon"> <span
 									class="glyphicon glyphicon-question-sign" id="idnumbericon"></span>
 								</span>
@@ -173,6 +173,9 @@ html {
 						<div class="form-group">
 							<button type="submit" class="btn btn-success"
 								style="float: right;">Submit</button>
+							<button type="button" class="btn btn-primary"
+								style="float: right; margin-right: 30px;"
+								onclick="insertfile();">一鍵輸入</button>
 						</div>
 					</form>
 				</div>
@@ -257,6 +260,24 @@ html {
 		}
 	</script>
 
+	<!-- 	一鍵輸入 -->
+
+	<script type="text/javascript">
+		function insertfile() {
+			document.submitform.account.value="eeit9115";
+			document.submitform.password.value="123";
+			document.submitform.name.value="劉昱岑";
+			document.submitform.phone.value="0987654321";
+			document.submitform.datepicker.value="1988-04-09";
+			document.submitform.gender[1].checked=true;
+			document.submitform.email.value="eeit9115@gmail.com";
+			document.submitform.idnumber.value="C123456789";
+			document.submitform.postalcode.value="206";
+			document.submitform.district.value="台北市大安區";
+			document.submitform.address.value="復興南路一段133號2樓";
+
+		}
+	</script>
 
 
 </body>
