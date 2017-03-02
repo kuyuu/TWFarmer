@@ -35,7 +35,7 @@ html {
 		<jsp:include page="common/menu.jsp" />
 		<div class="container">
 			<div class="row">
-				<div class="carousel slide" id="carousel-285061">
+				<div class="carousel slide" id="carousel-285061" style="margin-right:2%;">
 					<ol class="carousel-indicators">
 						<li class="active" data-slide-to="0"
 							data-target="#carousel-285061"></li>
@@ -98,7 +98,7 @@ html {
 								<h3>蔬果購買區</h3>
 								<p>台灣在地小農親自培育的各式蔬果任君挑選!</p>
 								<p>
-									<a class="btn btn-primary" href="/TWFarmer/ProductSelect/ProductSelect.jsp">馬上選購</a>
+									<a class="btn btn-primary" href="/TWFarmer/ProductSelect/ProductSelectAllServlet">馬上選購</a>
 								</p>
 							</div>
 						</div>

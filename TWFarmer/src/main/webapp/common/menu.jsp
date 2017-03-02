@@ -37,12 +37,12 @@
 										<form action='<c:url value="/LittleLogin.controller" />'
 											method="post" role="form">
 											<div class="form-group">
-												<label class="sr-only" for="account">帳號</label> <input
+												<div class="sr-only">帳號</div> <input
 													type="text" name="account" value="" class="form-control"
 													id="account" placeholder="請輸入您的帳號" required> <div style="color: #ff0000">${errors.account}</div>
 											</div>
 											<div class="form-group">
-												<label class="sr-only" for="password">密碼</label> <input
+												<div class="sr-only">密碼</div> <input
 													type="password" name="password" value=""
 													class="form-control" id="password" placeholder="請輸入您的密碼"
 													required> <div style="color: #ff0000">${errors.password}</div>
@@ -56,7 +56,6 @@
 								</div>
 							</li>
 						</ul></li>
-
 					<li><a></a></li>
 				</ul>
 			</c:when>

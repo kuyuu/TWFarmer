@@ -52,14 +52,17 @@ html {
 							<div class="input-group">
 								<span class="input-group-addon"><img
 									src="/TWFarmer/img/submit-icon/submit-account.png"
-									height="20px" width="20px"></span> <input type="text"
-									name="account" value="${param.account}" class="form-control"
-									id="account" placeholder="請輸入您的帳號"> <span
-									class="input-group-addon"> <span
+									height="20px" width="20px"></span> 
+									<input type="text" id="newaccount" 
+									name="newaccount" value="${param.account}" class="form-control"
+									placeholder="請輸入您的帳號" > 
+									<span
+									class="input-group-addon"> 
+									<span
 									class="glyphicon glyphicon-question-sign" id="accounticon"></span>
 								</span>
 							</div>
-							<div style="color: #ff0000" id="message">${msg.account}</div>
+							<div style="color: #ff0000" id="message">${msg.newaccount}</div>
 							<div style="color: #ff0000">${errors.account}</div>
 						</div>
 						<div class="form-group">
@@ -209,17 +212,18 @@ html {
 	<!-- 	驗證帳號是否重複	 -->
 	<script>
 		//當使用者移開account欄位後才去執行Ajax的程式
-		var account = document.getElementById("account");
+		var newaccount = document.getElementById("newaccount");
 		var xhr = null;
-		account.addEventListener("blur", load);
+		newaccount.addEventListener("blur", load);
 
 		//blur事件發生執行的函式
 		//Ajax的程式從這裡開始
 		function load() {
-			if (account.value == "") {
+			if (newaccount.value == "") {
 				document.getElementById("message").innerHTML = "未輸入帳號";
 				document.getElementById("accounticon").className = "glyphicon glyphicon-remove-sign";
 				return;
+
 			}
 			//步驟一建立Ajax物件
 			xhr = new XMLHttpRequest();
@@ -230,8 +234,8 @@ html {
 				xhr.open('POST', 'AccountCheckServlet', true);
 				xhr.setRequestHeader("Content-Type",
 						"application/x-www-form-urlencoded");
-				xhr.send("account=" + account.value);
-				// 				alert("account=" + account.value);
+				xhr.send("newaccount=" + newaccount.value);
+// 				alert("newaccount=" + newaccount.value);
 			} else {
 				alert("您的瀏覽器不支援Ajax功能!!");
 			}
@@ -239,19 +243,19 @@ html {
 
 		function callback() {
 			if (xhr.readyState == 4) { //4表示資料完全傳回到client端了
-				// 				alert("資料完全傳回到client端了");
+// 				alert("資料完全傳回到client端了");
 				if (xhr.status == 200) { //表示server端程式沒有錯誤
-					// 					alert("server端程式沒有錯誤");
+// 					alert("server端程式沒有錯誤");
 					//步驟三接收Server端回應的結果
 					var data = xhr.responseText;
 					//將資料顯示在網頁上	
 					document.getElementById("message").innerHTML = data;
 					if (data == "帳號已存在") { //檢查失敗後換上 glyphicon glyphicon-remove-sign 圖示
 						document.getElementById("accounticon").className = "glyphicon glyphicon-remove-sign";
-						// 						alert("data="+data);
+// 						alert("data="+data);
 					} else { //檢查通過後換上 glyphicon glyphicon-ok-sign 圖示
 						document.getElementById("accounticon").className = "glyphicon glyphicon-ok-sign";
-						// 						alert("data="+data);
+// 						alert("data="+data);
 					}
 				} else {
 					alert(xhr.status + ":" + xhr.statusText);
