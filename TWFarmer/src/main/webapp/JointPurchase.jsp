@@ -161,6 +161,7 @@ html {
 
 							</div>
 						</c:forEach>
+						<br>
 						<div>
 							<c:choose>
 								<c:when test="${not empty LoginOK}">
@@ -204,7 +205,7 @@ html {
 							'jpId' : $('#jpId').val()
 						},
 						complete : function() {
-							alert('${jpBean.jpId}');
+// 							alert('${jpBean.jpId}');
 							window.location = 'JointPurchase.do?jpId='
 									+ $('#jpId').val();
 						}

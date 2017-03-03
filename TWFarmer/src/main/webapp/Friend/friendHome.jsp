@@ -16,8 +16,9 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
+
 html {
 	overflow-y: scroll;
 }
@@ -33,7 +34,7 @@ html {
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<h2>好友 / 黑名單</h2>
+					<h2 class="text-center">好友 / 黑名單</h2>
 					<form class="form-inline" role="form" method="POST"
 						action="SelectMember.do">
 						<div class="form-group">
