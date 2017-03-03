@@ -1,6 +1,7 @@
 USE TWFarmer
 GO
 
+DROP TABLE MsgBoard
 DROP TABLE Msg
 DROP TABLE ChatRoom
 DROP TABLE Violation
@@ -276,6 +277,15 @@ CREATE TABLE Msg(
 	MsgStatus int,
 	WriterDelete int,
 	ReaderDelete int,
+)
+GO
+
+CREATE TABLE MsgBoard(
+	MsgBoardID int PRIMARY KEY IDENTITY(5301, 1) NOT NULL,
+	WriterID int REFERENCES Member (MemberID) NOT NULL, 
+	JPID int REFERENCES JointPurchase (JPID) NOT NULL, 
+	Content nvarchar(500),
+	MsgTime datetime,
 )
 GO
 
