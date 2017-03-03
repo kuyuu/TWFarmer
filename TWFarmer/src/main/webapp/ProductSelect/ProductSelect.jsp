@@ -123,7 +123,7 @@ html {
 													style="height: 180px">
 												<div class="caption">
 													<h3>${row.key.productName}</h3>
-													<p>${row.key.origin}</p>
+													<p>產地:${row.key.origin}　價格:${row.key.price}/${row.key.unit}</p>
 													<p>
 														<a
 															href="<c:url value="../Order/NewOrderServlet?productId=${row.key.productId}&sellerId=${row.key.sellerId}" />"
