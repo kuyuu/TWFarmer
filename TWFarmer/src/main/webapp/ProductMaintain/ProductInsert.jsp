@@ -33,9 +33,9 @@ html {
 </style>
 </head>
 <body>
-	<jsp:include page="../common/menu.jsp" />
+	
 	<div class="container">
-
+		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
 			<div class="col-md-3">
 				<jsp:include page="../BackStage/backstageMenu.jsp" />
@@ -295,6 +295,17 @@ html {
 	<script src="../js/scripts.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<script>
+		$(function() {
+			$("#collapseOne").removeClass("panel-collapse collapse in")
+					.addClass("panel-collapse collapse")
+			$("#collapseTwo").removeClass("panel-collapse collapse").addClass(
+					"panel-collapse collapse in")
+			$("#collapseTwo>ul>li:eq(0)").removeClass("list-group-item")
+					.addClass("list-group-item list-group-item-info")
+		})
+	</script>
 
 	<script>
 		$(function() {
