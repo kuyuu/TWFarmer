@@ -169,7 +169,7 @@ html {
 										<textarea id="content" name="content" class="form-control"
 											rows="4"></textarea>
 									</div>
-									<input type="text" value="${jpBean.jpId}" id="jpId" />
+									<input type="hidden" value="${jpBean.jpId}" id="jpId" />
 									<div class="col-md-1 col-md-offset-11">
 										<div class="form-group">
 											<button id="submit" type="submit" class="btn btn-default">送出</button>

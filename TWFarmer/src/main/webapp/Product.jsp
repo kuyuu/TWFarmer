@@ -61,7 +61,7 @@
 }
 
 * /
-	/* The dots/bullets/indicators */                                    
+	/* The dots/bullets/indicators */                                     
 .dot {
 	height: 13px;
 	width: 13px;
@@ -114,8 +114,9 @@ to {
 
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
+
 html {
 	overflow-y: scroll;
 }
