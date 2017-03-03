@@ -15,55 +15,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import model.bean.MemberBean;
 import model.bean.MsgBean;
 import model.daojdbc.MemberDAOJdbc;
-import model.daojdbc.MsgDAOJdbc;
+import model.daojdbc.MsgBoardDAOJdbc;
 
 @Controller
-@RequestMapping(path = { "/Message/NewMessage.do" })
+@RequestMapping(path = { "/MessageBoard/NewMessage.do" })
 public class NewMessageController {
 	@Autowired
-	private MsgDAOJdbc msgDAO;
-	@Autowired
-	private MemberDAOJdbc memberDAO;
+	private MsgBoardDAOJdbc msgDAO;
 
 	@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST })
-	public String doWord(HttpSession session, String readerAccount, String msgTitle, String msgContent, Model model) {
-		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
-
-		Map<String, String> errors = new HashMap<String, String>();
-		model.addAttribute("errors", errors);
-
-		if (readerAccount == null || readerAccount.trim().length() == 0) {
-			errors.put("readerAccount", "請輸入收件人帳號");
-		}
-		if (msgTitle == null || msgTitle.trim().length() == 0) {
-			errors.put("msgTitle", "請輸入信件主旨");
-		}
-		if (msgContent == null || msgContent.trim().length() == 0) {
-			errors.put("msgContent", "請輸入內容");
-		}
-
-		if (memberDAO.selectByAccount(readerAccount) == null) {
-			errors.put("readerAccount", "帳號不存在");
-		}
-
-		if (errors != null && !errors.isEmpty()) {
-			return "Message/newMessage";
-		}
-
-		MsgBean msgBean = new MsgBean();
-		msgBean.setMsgWriterId(mb.getMemberId());
-		msgBean.setMsgReaderId(memberDAO.selectByAccount(readerAccount).getMemberId());
-		msgBean.setMsgTitle(msgTitle);
-		msgBean.setMsgContent(msgContent);
-		Date date = new Date();
-		msgBean.setMsgTime(date);
-		msgBean.setMsgStatus(0);
-		msgBean.setWriterDelete(0);
-		msgBean.setReaderDelete(0);
-		msgDAO.insert(msgBean);
-
-		return "Message/MsgHome.do";
-
+	public String doWord() {
+		return "";
 	}
 
 }

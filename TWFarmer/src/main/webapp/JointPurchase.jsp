@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:if test="${empty LoginOK}">
 	<c:set var="target"
-		value="/PurchaseServlet?jpId=${productBean.productId}" scope="session" />
+		value="/JointPurchase.do?jpId=${jpBean.jpId}" scope="session" />
 </c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -32,6 +32,10 @@ html {
 	width: auto;
 	height: 200px;
 }
+
+.hr {
+	border-top: 1px solid gray;
+}
 </style>
 </head>
 <body>
@@ -54,6 +58,7 @@ html {
 					<a href="JointPurchase/StarJpFollower.do?jpId=${jpBean.jpId}"><button
 							class="btn btn-primary" id="go" value="${jpBean.jpId}">我要跟團</button></a><br>
 					<br>
+
 				</div>
 				<div>
 					<div class="row">
@@ -91,7 +96,14 @@ html {
 													<td>${jpdList[x].productName}</td>
 													<td>${jpdList[x].jpPrice}/${jpdList[x].jpUnit}</td>
 													<td>${jpdList[x].jpFreight}/${jpdList[x].jpUnit}</td>
-													<td>${quantity[x]}</td>
+													<c:choose>
+														<c:when test="${jpdList[x].jpPopulationMin<=quantity[x]}">
+															<td>${quantity[x]}(達標)</td>
+														</c:when>
+														<c:otherwise>
+															<td>${quantity[x]}</td>
+														</c:otherwise>
+													</c:choose>
 													<td>${jpdList[x].jpPrice*quantity[x]+jpdList[x].jpFreight*quantity[x]}</td>
 													<c:set var="total"
 														value="${total+jpdList[x].jpPrice*quantity[x]+jpdList[x].jpFreight*quantity[x]}" />
@@ -113,23 +125,60 @@ html {
 					</div>
 					<div class="col-md-12">
 						<h2>可合購商品：</h2>
+						<div class="hr"></div>
 						<c:forEach items="${jpdMap}" var="x">
 							<c:forEach items="${x.value}" var="y">
-								<div class="col-md-3">
-									<div class="thumbnail" style="height: 300px;">
-										<img src="img/${y.value[0].pictureName}"
-											style="height: 180px; width: auto;" />
-										<div class="caption">
-											<h3>${y.key.productName}</h3>
-											<p>${x.key.jpPrice+x.key.jpFreight}/${x.key.jpUnit}(含運)</p>
+								<a href="ProductServlet?productId=${y.key.productId}"><div
+										class="col-md-3">
+										<div class="thumbnail" style="height: 320px;">
+											<img src="img/${y.value[0].pictureName}"
+												style="height: 150px; width: auto;" />
+											<div class="caption">
+												<h3>${y.key.productName}</h3>
+												<p>${x.key.jpPrice+x.key.jpFreight}/${x.key.jpUnit}(含運)</p>
+												<p>${x.key.jpPopulationMin}${x.key.jpUnit}成團</p>
+											</div>
 										</div>
-									</div>
-								</div>
+									</div></a>
 							</c:forEach>
 						</c:forEach>
 					</div>
 					<div class="col-md-12">
 						<h2>合購留言板</h2>
+						<div class="hr"></div>
+						<div class="media">
+							<a class="media-left media-middle" href="#"> <img
+								data-src="..." alt="...">
+							</a>
+							<div class="media-body">
+								<h4 class="media-heading">Middle aligned media</h4>
+								...
+							</div>
+						</div>
+						<div>
+							<form action="MessageBoard/NewMessageBoard.do" method="POST">
+								<c:choose>
+									<c:when test="${not empty LoginOK}">
+										<div class="form-group">
+											<label for="msg" class="ontrol-label">我要留言</label>
+											<textarea id="msg" name="msg" class="form-control" rows="4"></textarea>
+										</div>
+										<div class="col-md-1 col-md-offset-11">
+											<div class="form-group">
+												<button type="submit" class="btn btn-default">送出</button>
+											</div>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div class="col-md-12">
+											<div class="form-group">
+												<p>請先登入才可留言</p>
+											</div>
+										</div>
+									</c:otherwise>
+								</c:choose>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>

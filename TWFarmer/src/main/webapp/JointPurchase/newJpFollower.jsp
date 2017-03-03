@@ -73,6 +73,7 @@ html {
 										<td>商品名稱</td>
 										<td>單價</td>
 										<td>運費</td>
+										<td>含運價</td>
 										<td>購買數量</td>
 										<td>總價</td>
 									</tr>
@@ -85,15 +86,14 @@ html {
 											<td>${row.productName}</td>
 											<td>${row.jpPrice}/${row.jpUnit}</td>
 											<td>${row.jpFreight}/${row.jpUnit}</td>
+											<td>${row.jpPrice+row.jpFreight}/${row.jpUnit}</td>
 											<td class="col-md-2"><input type="text" name="jpCount"
 												class="form-control" value="0" /></td>
 											<td>0</td>
 										</tr>
 									</c:forEach>
 									<tr>
-										<td></td>
-										<td></td>
-										<td></td>
+										<td colspan="4"></td>
 										<td>合計</td>
 										<td class="all">0</td>
 									</tr>
