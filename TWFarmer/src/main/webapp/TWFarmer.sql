@@ -228,6 +228,7 @@ CREATE TABLE JPFollowerDetail(
 	ProductID int REFERENCES Product(ProductID) NOT NULL,
 	Quantity int,
 	Price int,
+	Freight int, 
 	PRIMARY KEY(JPFollowerID,ProductID)
 )
 GO
@@ -281,10 +282,10 @@ CREATE TABLE Msg(
 GO
 
 CREATE TABLE MsgBoard(
-	MsgBoardID int PRIMARY KEY IDENTITY(5301, 1) NOT NULL,
+	MsgBoardID int PRIMARY KEY IDENTITY(9001, 1) NOT NULL,
 	WriterID int REFERENCES Member (MemberID) NOT NULL, 
 	JPID int REFERENCES JointPurchase (JPID) NOT NULL, 
-	Content nvarchar(500),
+	Content nvarchar(1000),
 	MsgTime datetime,
 )
 GO
@@ -839,4 +840,6 @@ INSERT INTO Friend (MemberId, FriendId, FriendStatus) VALUES (1030, 1002, 0);
 INSERT INTO Friend (MemberId, FriendId, FriendStatus) VALUES (1030, 1033, 0);
 INSERT INTO Friend (MemberId, FriendId, FriendStatus) VALUES (1030, 1032, 1);
 
+--MsgBoard
+INSERT INTO MsgBoard(WriterID,JPID,Content,MsgTime) VALUES (1029,4006,'test','2017-02-11 11:11:22')
 
