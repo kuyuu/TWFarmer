@@ -16,8 +16,9 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
+
 html {
 	overflow-y: scroll;
 }
@@ -41,6 +42,7 @@ html {
 					<div class="col-md-8">
 						<h3>${jpBean.jpName}</h3>
 						<p>${jpBean.jpIntro}</p>
+						<p>截止日期：${jpBean.endDate}</p>
 					</div>
 					<table class="table table-bordered text-center">
 						<tr class="">
@@ -84,6 +86,16 @@ html {
 
 						</c:forEach>
 						<tr>
+							<td>預計成團數量</td>
+							<c:forEach items="${list}" var="x" varStatus="y">
+								<td>${x.jpPopulationMin}</td>
+							</c:forEach>
+							<c:if test="${jpBean.jpStatusId==4104}">
+								<td></td>
+							</c:if>
+							<td></td>
+						</tr>
+						<tr>
 							<td>累積數量</td>
 							<c:forEach items="${list4}" var="x">
 								<td><c:out value="${x}" /></td>
@@ -108,7 +120,7 @@ html {
 			$('button[name="mail"]')
 					.click(
 							function() {
-								window.location = "../Message/NewMessageServlet?readerAccount="
+								window.location = "../Message/NewMessage.do?readerAccount="
 										+ $(this).val();
 							});
 		});
