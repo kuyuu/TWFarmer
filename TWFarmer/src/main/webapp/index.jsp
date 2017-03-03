@@ -20,14 +20,10 @@
 <link href="/TWFarmer/css/bootstrap.css" rel="stylesheet">
 <link href="/TWFarmer/css/style.css" rel="stylesheet">
 <style>
-/* body { */
-/* 	padding-top: 70px; */
-/* 	background-color: #fcf5e0; */
-/* 	font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft JhengHei", */
-/* 		sans-serif; */
-/* 	font-size: 14px; */
-/* 	line-height: 20px; */
-/* } */
+body {
+	padding-top: 70px;
+	background-color:#fcf5e0;
+}
 
 html {
 	overflow-y: scroll;
@@ -37,9 +33,9 @@ html {
 <body>
 	<div class="container">
 		<jsp:include page="common/menu.jsp" />
-		<div class="container" style="margin-right: 5%;">
+		<div class="container">
 			<div class="row">
-				<div class="carousel slide" id="carousel-285061">
+				<div class="carousel slide" id="carousel-285061" style="margin-right:2%;">
 					<ol class="carousel-indicators">
 						<li class="active" data-slide-to="0"
 							data-target="#carousel-285061"></li>
@@ -102,8 +98,7 @@ html {
 								<h3>蔬果購買區</h3>
 								<p>台灣在地小農親自培育的各式蔬果任君挑選!</p>
 								<p>
-									<a class="btn btn-primary"
-										href="/TWFarmer/ProductSelect/ProductSelectAllServlet">馬上選購</a>
+									<a class="btn btn-primary" href="/TWFarmer/ProductSelect/ProductSelectAllServlet">馬上選購</a>
 								</p>
 							</div>
 						</div>
@@ -114,11 +109,11 @@ html {
 								src="/TWFarmer/img/index/index-JP.jpg">
 							<div class="caption">
 								<h3>合購專區</h3>
-								<p>有喜歡的水果卻找不到朋友與您分享嗎? 合購專區幫您找到您匯總所在區域的合購團,
-									讓您與附近的鄰居一起分享健康美味好蔬果!</p>
+								<p>有喜歡的水果卻找不到朋友與您分享嗎? 
+								合購專區幫您找到您匯總所在區域的合購團, 
+								讓您與附近的鄰居一起分享健康美味好蔬果!</p>
 								<p>
-									<a class="btn btn-primary"
-										href="/TWFarmer/PurchaseSelect/PurchaseSelect.jsp">尋找合購</a>
+									<a class="btn btn-primary" href="/TWFarmer/PurchaseSelect/PurchaseSelect.jsp">尋找合購</a>
 								</p>
 							</div>
 						</div>
@@ -129,10 +124,10 @@ html {
 								src="/TWFarmer/img/index/index-member.jpg">
 							<div class="caption">
 								<h3>會員專區</h3>
-								<p>會員專區匯總所有關於您的帳號資訊, 幫助您確認訂單. 修改資料一目了然</p>
+								<p>會員專區匯總所有關於您的帳號資訊, 
+								幫助您確認訂單. 修改資料一目了然</p>
 								<p>
-									<a class="btn btn-primary"
-										href="/TWFarmer/BackStage/WelcomeMember.jsp">進入會員專區</a>
+									<a class="btn btn-primary" href="/TWFarmer/BackStage/WelcomeMember.jsp">進入會員專區</a>
 								</p>
 							</div>
 						</div>

@@ -50,7 +50,6 @@ html {
 	<div class="container">
 		<div class="jumbotron">
 			${farmerBean.memberBean.name}(${farmerBean.memberBean.account})<br>${farmerBean.farmerIntro}
-<!-- 			小農名字()小農帳號) <br>小農介紹 -->
 			<form action="NewOrder.do" method="POST">
 				<input type="hidden" value="${farmerBean.memberId}" name="sellerId" />
 
