@@ -54,7 +54,7 @@ html {
 									src="/TWFarmer/img/submit-icon/submit-account.png"
 									height="20px" width="20px"></span> 
 									<input type="text" id="newaccount" 
-									name="newaccount" value="${param.account}" class="form-control"
+									name="newaccount" value="${param.newaccount}" class="form-control"
 									placeholder="請輸入您的帳號" > 
 									<span
 									class="input-group-addon"> 
@@ -63,7 +63,7 @@ html {
 								</span>
 							</div>
 							<div style="color: #ff0000" id="message">${msg.newaccount}</div>
-							<div style="color: #ff0000">${errors.account}</div>
+							<div style="color: #ff0000">${errors.newaccount}</div>
 						</div>
 						<div class="form-group">
 							<label for="PASSWORD">密碼</label>
@@ -268,7 +268,7 @@ html {
 
 	<script type="text/javascript">
 		function insertfile() {
-			document.submitform.account.value="eeit9115";
+			document.submitform.newaccount.value="eeit9115";
 			document.submitform.password.value="123";
 			document.submitform.name.value="劉昱岑";
 			document.submitform.phone.value="0987654321";

@@ -38,7 +38,7 @@ public class MemberSubmitServlet extends HttpServlet {
 		
     	request.setCharacterEncoding("UTF-8");
 		//接收資料
-		String account  = request.getParameter("account") ;
+		String newaccount  = request.getParameter("newaccount") ;
 		String password  = request.getParameter("password");
 		String name  = request.getParameter("name");
 		String postalcode  = request.getParameter("postalcode");
@@ -57,7 +57,7 @@ public class MemberSubmitServlet extends HttpServlet {
 		Map<String, String> errors = new HashMap<String, String>();
 		request.setAttribute("errors", errors);
 			
-		if(account==null||account.length()==0){
+		if(newaccount==null||newaccount.length()==0){
 			errors.put("account", "請輸入帳號");
 		}
 
@@ -146,7 +146,7 @@ public class MemberSubmitServlet extends HttpServlet {
 		//呼叫Model
 		
 		MemberBean bean = new MemberBean();
-		bean.setAccount(account);
+		bean.setAccount(newaccount);
 		bean.setPassword(password);
 		bean.setName(name);
 		bean.setPostalCode(postalcode);
@@ -168,7 +168,7 @@ public class MemberSubmitServlet extends HttpServlet {
 		
 		
 		// 5.依照 Business Logic 運算結果來挑選適當的畫面
-		request.setAttribute("account", account);
+		request.setAttribute("newaccount", newaccount);
 		MemberBean memberBean = null;
 
 		if (errors.isEmpty())	{	
