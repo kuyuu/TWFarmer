@@ -268,7 +268,7 @@ html {
 
 	<script type="text/javascript">
 		function insertfile() {
-			document.submitform.account.value="eeit9115";
+			document.submitform.newaccount.value="eeit9115";
 			document.submitform.password.value="123";
 			document.submitform.name.value="劉昱岑";
 			document.submitform.phone.value="0987654321";
