@@ -47,6 +47,8 @@ html {
 							<div id="collapseOne" class="panel-collapse collapse in"
 								role="tabpanel" aria-labelledby="headingOne">
 								<ul class="list-group" id="selectBy">
+									<li class="list-group-item" value="瓜類"><a
+										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=瓜類">瓜類</a></li>
 									<li class="list-group-item" value="仁果類"><a
 										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=仁果類">仁果類</a></li>
 									<li class="list-group-item" value="核果類"><a
@@ -72,8 +74,6 @@ html {
 							<div id="collapseTwo" class="panel-collapse collapse"
 								role="tabpanel" aria-labelledby="headingTwo">
 								<ul class="list-group" id="selectBy2">
-									<li class="list-group-item" value="瓜類"><a
-										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=瓜類">瓜類</a></li>
 									<li class="list-group-item" value="豆類"><a
 										href="/TWFarmer/ProductSelect/ProductSelect.controller?selectBy=豆類">豆類</a></li>
 									<li class="list-group-item" value="根菜類"><a
@@ -100,20 +100,20 @@ html {
 
 						<div class="col-md-9">
 							<h3>商品搜尋</h3>
-							<h2></h2>
+							<br>
 							<div class="form-group">
-								<label class="">搜尋</label>
-								<div class="">
-									<input type="text" name="keyword" class="form-control" value="">
+								<div class="col-md-11">
+									<div class="">
+										<input type="text" name="keyword" class="form-control"
+											value="">
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-11"></div>
 								<div class="col-md-1">
 									<button type="submit" class="btn btn-default">搜尋</button>
 								</div>
+								<br>
+								<br>
 							</div>
-							<h3></h3>
 							<c:if test="${not empty keyword}">
 								<c:forEach var="row" items="${keyword}">
 									<div class="col-md-4">
@@ -123,7 +123,8 @@ html {
 													style="height: 180px">
 												<div class="caption">
 													<h3>${row.key.productName}</h3>
-													<p>產地:${row.key.origin}　價格:${row.key.price}/${row.key.unit}</p>
+													<p>產地:${row.key.origin}
+														價格:${row.key.price}/${row.key.unit}</p>
 													<p>
 														<a
 															href="<c:url value="../Order/NewOrderServlet?productId=${row.key.productId}&sellerId=${row.key.sellerId}" />"
@@ -161,8 +162,7 @@ html {
 
 		$(document).ready(
 				function() {
-					if ('${param.selectBy}' == '瓜類'
-							|| '${param.selectBy}' == '豆類'
+					if ('${param.selectBy}' == '豆類'
 							|| '${param.selectBy}' == '根菜類'
 							|| '${param.selectBy}' == '莖菜類'
 							|| '${param.selectBy}' == '花菜類'
