@@ -36,7 +36,7 @@ public class SelectJpProductServlet extends HttpServlet {
 		String tempJpPrice = "jpPrice";
 		String tempJpFreight = "jpFreight";
 		String tempJpPopulationMin = "jpPopulationMin";
-		String tempJpPopulationMax = "jpPopulationMax";
+//		String tempJpPopulationMax = "jpPopulationMax";
 		String tempJpUnit = "jpUnit";
 		String tempJpPrice2;
 		String tempJpFreight2;
@@ -53,13 +53,13 @@ public class SelectJpProductServlet extends HttpServlet {
 			tempJpPrice = tempJpPrice + productId;
 			tempJpFreight = tempJpFreight + productId;
 			tempJpPopulationMin = tempJpPopulationMin + productId;
-			tempJpPopulationMax = tempJpPopulationMax + productId;
+//			tempJpPopulationMax = tempJpPopulationMax + productId;
 			tempJpUnit = tempJpUnit + productId;
 
 			tempJpPrice2 = request.getParameter(tempJpPrice);
 			tempJpFreight2 = request.getParameter(tempJpFreight);
 			tempJpPopulationMin2 = request.getParameter(tempJpPopulationMin);
-			tempJpPopulationMax2 = request.getParameter(tempJpPopulationMax);
+//			tempJpPopulationMax2 = request.getParameter(tempJpPopulationMax);
 			jpUnit = request.getParameter(tempJpUnit);
 
 			int jpPrice = 0;
@@ -89,28 +89,28 @@ public class SelectJpProductServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
-			int jpPopulationMax = 0;
-			if (tempJpPopulationMax2 != null && tempJpPopulationMax2.trim().length() != 0) {
-				try {
-					jpPopulationMax = Integer.parseInt(tempJpPopulationMax2);
-				} catch (NumberFormatException e) {
-					errors.put(tempJpPopulationMax, "請輸入整數");
-					e.printStackTrace();
-				}
-			}
+//			int jpPopulationMax = 0;
+//			if (tempJpPopulationMax2 != null && tempJpPopulationMax2.trim().length() != 0) {
+//				try {
+//					jpPopulationMax = Integer.parseInt(tempJpPopulationMax2);
+//				} catch (NumberFormatException e) {
+//					errors.put(tempJpPopulationMax, "請輸入整數");
+//					e.printStackTrace();
+//				}
+//			}
 
-			if (jpPopulationMin > jpPopulationMax) {
-				errors.put(tempJpPopulationMin, "最大購買量須大於最小購買量");
-			}
+//			if (jpPopulationMin > jpPopulationMax) {
+//				errors.put(tempJpPopulationMin, "最大購買量須大於最小購買量");
+//			}
 
-			if (jpPopulationMin > 0 && jpPopulationMax > 0) {
+			if (jpPopulationMin > 0) {
 				Map<ProductBean, List<ProductPicBean>> map2 = new HashMap<ProductBean, List<ProductPicBean>>();
 				list2 = dao2.selectByProductId(productId);
 				map2.put(pBean, list2);
 				jpdBean.setProductId(productId);
 				jpdBean.setJpPrice(jpPrice);
 				jpdBean.setJpFreight(jpFreight);
-				jpdBean.setJpPopulationMax(jpPopulationMax);
+//				jpdBean.setJpPopulationMax(jpPopulationMax);
 				jpdBean.setJpPopulationMin(jpPopulationMin);
 				jpdBean.setJpUnit(jpUnit);
 				map.put(jpdBean, map2);
@@ -119,7 +119,7 @@ public class SelectJpProductServlet extends HttpServlet {
 			tempJpPrice = "jpPrice";
 			tempJpFreight = "jpFreight";
 			tempJpPopulationMin = "jpPopulationMin";
-			tempJpPopulationMax = "jpPopulationMax";
+//			tempJpPopulationMax = "jpPopulationMax";
 			tempJpUnit = "jpUnit";
 		}
 

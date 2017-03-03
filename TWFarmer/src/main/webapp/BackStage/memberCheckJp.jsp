@@ -26,10 +26,14 @@ html {
 
 .jp {
 	padding: 10px;
-	border: 1px solid black;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	border: 2px solid gray;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	height: 140px;
+	border-radius: 5px;
+}
+.jp:hover{
+	border: 2px solid black;
 }
 </style>
 </head>
