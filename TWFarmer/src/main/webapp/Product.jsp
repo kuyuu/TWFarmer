@@ -173,7 +173,7 @@ html {
 						class="btn btn-default">購買商品</a>
 					<button type="button" class="btn btn-default" id="newOrder">購買商品2</button>
 					<button type="button" class="btn btn-default" id="newJp">發起合購</button>
-					<button type="button" class="btn btn-default">我想跟團</button>
+<!-- 					<button type="button" class="btn btn-default">我想跟團</button> -->
 					<button type="button" class="btn btn-default" id="cart"
 						data-trigger="focus" data-placement="top" data-toggle="popover"
 						data-content="已加入購物車">加入購物車</button>

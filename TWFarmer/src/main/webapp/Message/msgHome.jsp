@@ -17,8 +17,9 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
+
 html {
 	overflow-y: scroll;
 }
@@ -89,11 +90,11 @@ html {
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<h2>
-						站內信<a href="newMessage.jsp"><button type="button"
-								class="btn btn-default">撰寫</button></a>
-					</h2>
-
+					<h2 class="text-center">站內信</h2>
+					<p class="text-right">
+						<a href="newMessage.jsp"><button type="button"
+								class="btn btn-default">撰寫新信</button></a>
+					</p>
 					<div class="card">
 						<ul class="nav nav-tabs" role="tablist">
 							<li role="presentation" class="active"><a href="#home"

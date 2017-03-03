@@ -33,7 +33,7 @@ html {
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<h2>追蹤商品</h2>
+					<h2 class="text-center">追蹤商品</h2>
 					<table class="table">
 						<tr>
 							<td>商品名稱</td>

@@ -22,18 +22,18 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
+
 html {
-    overflow-y:scroll;
+	overflow-y: scroll;
 }
 </style>
 </head>
 <body>
-
+	<jsp:include page="../common/menu.jsp" />
 	<div class="container">
-		<jsp:include page="../common/menu.jsp" />
-		<div class="row">
+		<div class="row jumbotron">
 			<div class="col-md-12">
 				<div class="col-md-offset-2">
 					<form action="<c:url value="NewViolation.do"/>" method="POST"
