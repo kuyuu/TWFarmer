@@ -28,36 +28,40 @@ html {
 	<div class="container">
 		<jsp:include page="../common/menuShoppingCart.jsp" />
 		<div class="row jumbotron">
-			<a href="../JointPurchase.do?jpId=4006">test</a>
-			<h2>購物車</h2>
-			<button type="button" class="btn btn-danger" id="clear">清空購物車</button>
-			<c:if test="${not empty cartMap}">
-				<c:forEach items="${cartMap}" var="x">
-					<div class="col-md-12">
-						<h2>${x.key.name}(${x.key.account})</h2>
-						<br>
-						<c:forEach items="${x.value}" var="y">
-							<div class="row">
-								<div class="col-md-4">
-									<img src="../img/${y.value[0].pictureName}"
-										class="img-responsive thumbnail" style="width: 100%" />
+			<div class="col-md-10 col-md-offset-1">
+				<a href="../JointPurchase.do?jpId=4006">test</a>
+				<h2 class="text-center">購物車</h2>
+				<p class="text-right">
+					<button type="button" class="btn btn-danger" id="clear">清空購物車</button>
+				</p>
+				<c:if test="${not empty cartMap}">
+					<c:forEach items="${cartMap}" var="x">
+						<div class="col-md-12">
+							<h2>${x.key.name}(${x.key.account})</h2>
+							<br>
+							<c:forEach items="${x.value}" var="y">
+								<div class="row">
+									<div class="col-md-4">
+										<img src="../img/${y.value[0].pictureName}"
+											class="img-responsive thumbnail" style="width: 100%" />
+									</div>
+									<div class="col-md-8">
+										<h4>${y.key.productName}</h4>
+										<p>${y.key.productIntro}<br>價格：${y.key.price}/${y.key.unit}
+										</p>
+										<a href="../Order/StarOrder.do?productId=${y.key.productId}"><button
+												type="button" class="btn btn-default" name="newJp">購買商品</button></a>
+										<a
+											href="../JointPurchase/NewJointPurchaseServlet?productId=${y.key.productId}"><button
+												type="button" class="btn btn-default" name="newJp">發起合購</button></a>
+									</div>
 								</div>
-								<div class="col-md-8">
-									<h4>${y.key.productName}</h4>
-									<p>${y.key.productIntro}<br>價格：${y.key.price}/${y.key.unit}
-									</p>
-									<a href="../Order/StarOrder.do?productId=${y.key.productId}"><button
-											type="button" class="btn btn-default" name="newJp">購買商品</button></a>
-									<a
-										href="../JointPurchase/NewJointPurchaseServlet?productId=${y.key.productId}"><button
-											type="button" class="btn btn-default" name="newJp">發起合購</button></a>
-								</div>
-							</div>
-						</c:forEach>
-						<hr>
-					</div>
-				</c:forEach>
-			</c:if>
+							</c:forEach>
+							<hr>
+						</div>
+					</c:forEach>
+				</c:if>
+			</div>
 		</div>
 	</div>
 

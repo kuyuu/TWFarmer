@@ -11,6 +11,12 @@ html {
 }
 body {
   margin: 0;
+	padding-top: 70px;
+	background-color: #fcf5e0;
+	font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft JhengHei",
+		sans-serif;
+	font-size: 14px;
+	line-height: 20px;
   
 }
 article,

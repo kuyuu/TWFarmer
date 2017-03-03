@@ -33,9 +33,9 @@ html {
 <body>
 	<div class="container">
 		<jsp:include page="common/menu.jsp" />
-		<div class="container" style="margin-right:5%;">
+		<div class="container">
 			<div class="row">
-				<div class="carousel slide" id="carousel-285061">
+				<div class="carousel slide" id="carousel-285061" style="margin-right:2%;">
 					<ol class="carousel-indicators">
 						<li class="active" data-slide-to="0"
 							data-target="#carousel-285061"></li>

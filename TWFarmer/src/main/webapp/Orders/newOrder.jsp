@@ -2,11 +2,22 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<c:if test="${empty LoginOK}">
-	<c:set var="target" value="/Order/StarOrder.do?productId=${productId}"
-		scope="session" />
-	<c:redirect url="../Login.jsp" />
+
+<c:if test="${empty LoginOK}"> 
+   <c:set var="target" value="${pageContext.request.servletPath}" scope="session" />
+   <c:redirect url="../Login.jsp" />
 </c:if>
+
+<c:if test="${empty LoginOK}">
+	<c:set var="target"
+		value="/ProductServlet?productId=${productBean.productId}" 
+		scope="session" /> --%>
+	<c:redirect url="../Login.jsp" />	
+ </c:if>
+
+
+
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -23,9 +34,8 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color: #fcf5e0;
+	background-color:#fcf5e0;
 }
-
 html {
 	overflow-y: scroll;
 }
@@ -44,7 +54,6 @@ html {
 				<input type="hidden" value="${farmerBean.memberId}" name="sellerId" />
 
 				<c:forEach items="${cartProductMap}" var="x">
-				<c:set value="${x.key.productId}" var="productId"/>
 					<div class="order row">
 						<div class="col-md-3">
 							<img src="../img/${x.value[0].pictureName}" style="width: 100%" />
@@ -148,9 +157,9 @@ html {
 
 		});
 	</script>
-
-
-
-
+	
+	
+	
+	
 </body>
 </html>

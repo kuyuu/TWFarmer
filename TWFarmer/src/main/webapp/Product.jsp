@@ -61,7 +61,7 @@
 }
 
 * /
-	/* The dots/bullets/indicators */                                    
+	/* The dots/bullets/indicators */                                     
 .dot {
 	height: 13px;
 	width: 13px;
@@ -114,8 +114,9 @@ to {
 
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
+
 html {
 	overflow-y: scroll;
 }
@@ -167,16 +168,23 @@ html {
 				<p>${productBean.productIntro }</p>
 				<p>${productBean.price }/${productBean.unit }</p>
 				<p>
-					<a
-						href="<c:url value="Order/NewOrderServlet?productId=${productBean.productId}&sellerId=${productBean.sellerId}" />"
-						class="btn btn-default">購買商品</a>
-					<button type="button" class="btn btn-default" id="newOrder">購買商品2</button>
-					<button type="button" class="btn btn-default" id="newJp">發起合購</button>
-					<button type="button" class="btn btn-default">我想跟團</button>
-					<button type="button" class="btn btn-default" id="cart"
+
+
+					
+
+<!-- 					<a -->
+<%-- 						href="<c:url value="Order/NewOrderServlet?productId=${productBean.productId}&sellerId=${productBean.sellerId}" />" --%>
+<!-- 						class="btn btn-default">購買商品</a> -->
+					<button type="button" class="btn btn-default" id="newOrder">購買商品</button>
+					<button type="button" class="btn btn-primary" id="newJp">發起合購</button>
+					<button type="button" class="btn btn-success">我想跟團</button>
+					
+					
+					<button type="button" class="btn btn-info" id="cart"
+
 						data-trigger="focus" data-placement="top" data-toggle="popover"
 						data-content="已加入購物車">加入購物車</button>
-					<button type="button" class="btn btn-default" id="track">追蹤商品</button>
+					<button type="button" class="btn btn-warning" id="track">追蹤商品</button>
 					<a
 						href="Violation/violationForm.jsp?productId=${productBean.productId}"><button
 							type="button" class="btn btn-danger">檢舉商品</button></a>

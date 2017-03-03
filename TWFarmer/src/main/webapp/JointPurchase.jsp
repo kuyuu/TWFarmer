@@ -43,26 +43,29 @@ html {
 	<div class="container">
 		<div class="jumbotron">
 			<div class="row">
-				<div class="col-md-4">
-					<img src="img/${jpBean.pictureName}" style="width: 100%"
-						class="img-thumbnail" />
-				</div>
-				<div class="col-md-8">
-					<h2>${jpBean.jpName}</h2>
-					<p>
-						小農：<img src="resources/uploadImages/${fBean.memberBean.memberPic}"
-							height="40px" />${fBean.name}(${fBean.account})</p>
-					<p>
-						主購：<img src="resources/uploadImages/${mBean.memberPic}"
-							height="40px" />${mBean.name}(${mBean.account})</p>
-					<a href="JointPurchase/StarJpFollower.do?jpId=${jpBean.jpId}"><button
-							class="btn btn-primary" id="go" value="${jpBean.jpId}">我要跟團</button></a><br>
-					<br>
+				<div class="col-md-10 col-md-offset-1">
+					<div class="col-md-4">
+						<img src="img/${jpBean.pictureName}" style="width: 100%"
+							class="img-thumbnail" />
+					</div>
+					<div class="col-md-8">
+						<h2>${jpBean.jpName}</h2>
+						<p>
+							小農：<img
+								src="resources/uploadImages/${fBean.memberBean.memberPic}"
+								height="40px" />${fBean.name}(${fBean.account})</p>
+						<p>
+							主購：<img src="resources/uploadImages/${mBean.memberPic}"
+								height="40px" />${mBean.name}(${mBean.account})</p>
+						<a href="JointPurchase/StarJpFollower.do?jpId=${jpBean.jpId}"><button
+								class="btn btn-primary" id="go" value="${jpBean.jpId}">我要跟團</button></a><br>
+						<br>
 
+					</div>
 				</div>
 				<div>
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-md-10 col-md-offset-1">
 							<div role="tabpanel">
 
 								<!-- Nav tabs -->
@@ -123,44 +126,49 @@ html {
 							</div>
 						</div>
 					</div>
-					<div class="col-md-12">
-						<h2>可合購商品：</h2>
+					<div class="col-md-10 col-md-offset-1">
+						<h2 class="text-center">可合購商品</h2>
 						<div class="hr"></div>
 						<c:forEach items="${jpdMap}" var="x">
 							<c:forEach items="${x.value}" var="y">
-								<a href="ProductServlet?productId=${y.key.productId}"><div
-										class="col-md-3">
+								<a href="ProductServlet?productId=${y.key.productId}">
+									<div class="col-md-3">
 										<div class="thumbnail" style="height: 320px;">
 											<img src="img/${y.value[0].pictureName}"
-												style="height: 150px; width: auto;" />
+												style="height: 120px; width: auto;" />
 											<div class="caption">
 												<h3>${y.key.productName}</h3>
 												<p>${x.key.jpPrice+x.key.jpFreight}/${x.key.jpUnit}(含運)</p>
 												<p>${x.key.jpPopulationMin}${x.key.jpUnit}成團</p>
 											</div>
 										</div>
-									</div></a>
+									</div>
+								</a>
 							</c:forEach>
 						</c:forEach>
 					</div>
-					<div class="col-md-12">
-						<h2>合購留言板</h2>
+					<div class="col-md-10 col-md-offset-1">
+						<h2 class="text-center">合購留言板</h2>
 						<div class="hr"></div>
 						<c:forEach items="${msgBoardList}" var="x">
 							<div class="media">
 
-								<a class="media-left media-middle" href="#"> <img
+								<a class="media-left media-top" href="#"> <img
 									src="resources/uploadImages/${x.memberBean.memberPic}"
 									alt="..." width="50px">
 								</a>
 								<div class="media-body">
 									<%-- 									<h4 class="media-heading">${x.content}</h4> --%>
-									${x.content}<br>
-									<fmt:formatDate value="${x.msgTime}" pattern="yyyy-MM-dd HH:mm" />
+									<p>${x.content}</p>
+									<p class="text-right">
+										<fmt:formatDate value="${x.msgTime}"
+											pattern="yyyy-MM-dd HH:mm" />
+									</p>
 								</div>
 
 							</div>
 						</c:forEach>
+						<br>
 						<div>
 							<c:choose>
 								<c:when test="${not empty LoginOK}">
@@ -169,7 +177,7 @@ html {
 										<textarea id="content" name="content" class="form-control"
 											rows="4"></textarea>
 									</div>
-									<input type="text" value="${jpBean.jpId}" id="jpId" />
+									<input type="hidden" value="${jpBean.jpId}" id="jpId" />
 									<div class="col-md-1 col-md-offset-11">
 										<div class="form-group">
 											<button id="submit" type="submit" class="btn btn-default">送出</button>
@@ -204,7 +212,7 @@ html {
 							'jpId' : $('#jpId').val()
 						},
 						complete : function() {
-							alert('${jpBean.jpId}');
+							// 							alert('${jpBean.jpId}');
 							window.location = 'JointPurchase.do?jpId='
 									+ $('#jpId').val();
 						}
