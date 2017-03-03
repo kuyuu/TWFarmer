@@ -54,7 +54,7 @@ html {
 									src="/TWFarmer/img/submit-icon/submit-account.png"
 									height="20px" width="20px"></span> 
 									<input type="text" id="newaccount" 
-									name="newaccount" value="${param.account}" class="form-control"
+									name="newaccount" value="${param.newaccount}" class="form-control"
 									placeholder="請輸入您的帳號" > 
 									<span
 									class="input-group-addon"> 
@@ -63,7 +63,7 @@ html {
 								</span>
 							</div>
 							<div style="color: #ff0000" id="message">${msg.newaccount}</div>
-							<div style="color: #ff0000">${errors.account}</div>
+							<div style="color: #ff0000">${errors.newaccount}</div>
 						</div>
 						<div class="form-group">
 							<label for="PASSWORD">密碼</label>
