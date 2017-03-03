@@ -20,14 +20,14 @@
 <link href="/TWFarmer/css/bootstrap.css" rel="stylesheet">
 <link href="/TWFarmer/css/style.css" rel="stylesheet">
 <style>
-body {
-	padding-top: 70px;
-	background-color:#fcf5e0;
-}
-html {
-    overflow-y:scroll;
-}
-</style>
+ body { 
+ 	padding-top: 70px;
+ 	background-color:#fcf5e0; 
+ } 
+ html {
+     overflow-y:scroll; 
+ } 
+ </style> 
 
 </style>
 </head>

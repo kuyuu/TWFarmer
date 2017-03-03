@@ -38,7 +38,7 @@ public class AccountCheckServlet extends HttpServlet {
 		
 //		 接收資料
 //		 1. 讀取使用者輸入資料(<Input>標籤內的name屬性分別為 account
-		String account = request.getParameter("account");
+		String newaccount = request.getParameter("newaccount");
 
 		// 準備存放錯誤訊息的 Map<String, String> 物件 : msg
 		Map<String, String> msg = new HashMap<String, String>();
@@ -48,22 +48,22 @@ public class AccountCheckServlet extends HttpServlet {
 
 		MemberDAOJdbc mdj = new MemberDAOJdbc();
 		
-		MemberBean mb = mdj.selectByAccount(account);
+		MemberBean mb = mdj.selectByAccount(newaccount);
 		
-//		System.out.println(account);
+		System.out.println(newaccount);
 		
 		String strMsg = "該帳號可以使用";
 		
 		// 如果變數mb的值不等於 null,表示資料庫含有account的紀錄
 		if (mb != null) {
-			msg.put("account", "帳號已存在");
+			msg.put("newaccount", "帳號已存在");
 			strMsg = "帳號已存在";
-//			System.out.println("nnn");
+			System.out.println("nnn");
 		} else {
-			msg.put("account", "該帳號可以使用");
-//			System.out.println("yyy");
+			msg.put("newaccount", "該帳號可以使用");
+			System.out.println("yyy");
 		}
 		out.write(strMsg);
-//		System.out.println(strMsg);
+		System.out.println(strMsg);
 	}
 }
