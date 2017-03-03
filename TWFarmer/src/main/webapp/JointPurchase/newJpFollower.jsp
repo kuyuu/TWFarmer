@@ -37,7 +37,7 @@ html {
 	<div class="container">
 		<div class="jumbotron">
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-10 col-md-offset-1">
 					<form
 						action="<c:url value="NewJpFollowerServlet?memberId=${LoginOK.memberId}&jpId=${jpBean.jpId}"/>"
 						method="POST">

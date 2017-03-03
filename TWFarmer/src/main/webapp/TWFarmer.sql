@@ -47,7 +47,7 @@ GO
 CREATE TABLE Farmer (
 	FarmerID varchar(10) PRIMARY KEY NOT NULL, 
 	MemberID int REFERENCES Member(MemberID) NOT NULL,
-	FarmerIntro varchar(600),
+	FarmerIntro varchar(1000),
 	Bank nvarchar(10),
 	BankAccount varchar(20),
 )
@@ -82,7 +82,7 @@ CREATE TABLE Product(
 	Price int,
 	Unit varchar(10),
 	ProductTypeName nvarchar(40),
-	ProductIntro nvarchar(600),
+	ProductIntro nvarchar(1000),
 	Freight int,
 	AddDate datetime,
 	RemoveEstDate datetime,
@@ -172,7 +172,7 @@ CREATE TABLE JointPurchase(
 	JPID int IDENTITY(4001,1) NOT NULL PRIMARY KEY,
 	InitID int NOT NULL REFERENCES Member(MemberID),
 	JPName varchar(100),
-	JPIntro varchar(600),
+	JPIntro varchar(1000),
 	InitDate datetime,
 	EndDate datetime,
 	JPLocation nchar(10),
@@ -228,6 +228,7 @@ CREATE TABLE JPFollowerDetail(
 	ProductID int REFERENCES Product(ProductID) NOT NULL,
 	Quantity int,
 	Price int,
+	Freight int, 
 	PRIMARY KEY(JPFollowerID,ProductID)
 )
 GO
@@ -237,9 +238,9 @@ CREATE TABLE QnA(
 	QueryID int REFERENCES Member (MemberID) NOT NULL, 
 	ProductID int REFERENCES Product(ProductID) NOT NULL,
 	QnATitle nvarchar(40),
-	QnAContent  nvarchar(250), 
+	QnAContent  nvarchar(1000), 
 	QueryDate datetime,
-	ReQnA  nvarchar(250), 
+	ReQnA  nvarchar(1000), 
 	ReDate datetime,
 	ReStatus int,
 )
@@ -272,7 +273,7 @@ CREATE TABLE Msg(
 	MsgWriterID int REFERENCES Member (MemberID) NOT NULL, 
 	MsgReaderID int REFERENCES Member (MemberID) NOT NULL, 
 	MsgTitle nvarchar(50),
-	MsgContent nvarchar(500),
+	MsgContent nvarchar(1000),
 	MsgTime datetime,
 	MsgStatus int,
 	WriterDelete int,
@@ -281,10 +282,10 @@ CREATE TABLE Msg(
 GO
 
 CREATE TABLE MsgBoard(
-	MsgBoardID int PRIMARY KEY IDENTITY(5301, 1) NOT NULL,
+	MsgBoardID int PRIMARY KEY IDENTITY(9001, 1) NOT NULL,
 	WriterID int REFERENCES Member (MemberID) NOT NULL, 
 	JPID int REFERENCES JointPurchase (JPID) NOT NULL, 
-	Content nvarchar(500),
+	Content nvarchar(1000),
 	MsgTime datetime,
 )
 GO
@@ -839,4 +840,6 @@ INSERT INTO Friend (MemberId, FriendId, FriendStatus) VALUES (1030, 1002, 0);
 INSERT INTO Friend (MemberId, FriendId, FriendStatus) VALUES (1030, 1033, 0);
 INSERT INTO Friend (MemberId, FriendId, FriendStatus) VALUES (1030, 1032, 1);
 
+--MsgBoard
+INSERT INTO MsgBoard(WriterID,JPID,Content,MsgTime) VALUES (1029,4006,'test','2017-02-11 11:11:22')
 

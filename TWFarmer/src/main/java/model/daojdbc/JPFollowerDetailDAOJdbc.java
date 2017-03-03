@@ -55,6 +55,7 @@ public class JPFollowerDetailDAOJdbc implements JPFollowerDetailDAO {
 				result.setProductId(rset.getInt("ProductId"));
 				result.setQuantity(rset.getInt("Quantity"));
 				result.setPrice(rset.getInt("Price"));
+				result.setFreight(rset.getInt("Freight"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -111,7 +112,7 @@ public class JPFollowerDetailDAOJdbc implements JPFollowerDetailDAO {
 		return result;
 	}
 	
-	private static final String SELECT_BY_JPID = "SELECT a.JPFollowerID, ProductID, Quantity, Price FROM (SELECT JPFollowerID FROM JPFollower WHERE JPID=?)a JOIN JPFollowerDetail jpfd ON a.JPFollowerID=jpfd.JPFollowerID ";
+	private static final String SELECT_BY_JPID = "SELECT a.JPFollowerID, ProductID, Quantity, Price, Freight FROM (SELECT JPFollowerID FROM JPFollower WHERE JPID=?)a JOIN JPFollowerDetail jpfd ON a.JPFollowerID=jpfd.JPFollowerID ";
 
 	public List<JPFollowerDetailBean> selectByJpId(int jpId) {
 		List<JPFollowerDetailBean> result = null;
@@ -127,6 +128,7 @@ public class JPFollowerDetailDAOJdbc implements JPFollowerDetailDAO {
 				bean.setProductId(rset.getInt("ProductId"));
 				bean.setQuantity(rset.getInt("Quantity"));
 				bean.setPrice(rset.getInt("Price"));
+				bean.setFreight(rset.getInt("Freight"));
 				result.add(bean);
 			}
 		} catch (SQLException e) {

@@ -150,6 +150,9 @@ html {
 					<div class="col-md-10 col-md-offset-1">
 						<h2 class="text-center">合購留言板</h2>
 						<div class="hr"></div>
+						<c:if test="${empty msgBoardList}">
+							<p>目前沒有人留言</p>
+						</c:if>
 						<c:forEach items="${msgBoardList}" var="x">
 							<div class="media">
 
