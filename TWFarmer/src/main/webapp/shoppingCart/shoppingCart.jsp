@@ -16,7 +16,7 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
 
 html {
@@ -46,6 +46,8 @@ html {
 									<h4>${y.key.productName}</h4>
 									<p>${y.key.productIntro}<br>價格：${y.key.price}/${y.key.unit}
 									</p>
+									<a href="../Order/StarOrder.do?productId=${y.key.productId}"><button
+											type="button" class="btn btn-default" name="newJp">購買商品</button></a>
 									<a
 										href="../JointPurchase/NewJointPurchaseServlet?productId=${y.key.productId}"><button
 											type="button" class="btn btn-default" name="newJp">發起合購</button></a>

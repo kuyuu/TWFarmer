@@ -15,6 +15,7 @@ import model.daojdbc.JPFollowerDAOJdbc;
 import model.daojdbc.JPFollowerDetailDAOJdbc;
 import model.daojdbc.JointPurchaseDAOjdbc;
 import model.daojdbc.MemberDAOJdbc;
+import model.daojdbc.MsgBoardDAOJdbc;
 import model.daojdbc.MsgDAOJdbc;
 import model.daojdbc.OrderDetailDAOJdbc;
 import model.daojdbc.OrdersDAOJdbc;
@@ -100,6 +101,10 @@ public class SpringJavaConfig {
 	@Bean
 	public MsgDAOJdbc msgDAO() {
 		return new MsgDAOJdbc(dataSource());
+	}
+	@Bean
+	public MsgBoardDAOJdbc msgBoardDAO() {
+		return new MsgBoardDAOJdbc(dataSource());
 	}
 
 	@Bean
