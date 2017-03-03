@@ -34,7 +34,7 @@ public class MsgBoardDAOJdbc implements MsgBoardDAO {
 		this.dataSource = dataSource;
 	}
 
-	private static final String INSERT = "insert into MsgBoard (MsgBoardID, WriterID, JpId, Content, MsgTime) values (?, ?, ?, ?, ?)";
+	private static final String INSERT = "insert into MsgBoard (WriterID, JpId, Content, MsgTime) values (?, ?, ?, ?)";
 
 	@Override
 	public MsgBoardBean insert(MsgBoardBean msgBoardBean) {
@@ -45,14 +45,13 @@ public class MsgBoardDAOJdbc implements MsgBoardDAO {
 			PreparedStatement stmt = conn.prepareStatement(INSERT);
 			if (msgBoardBean != null) {
 
-				stmt.setInt(1, msgBoardBean.getMsgBoardID());
-				stmt.setInt(2, msgBoardBean.getWriterID());
-				stmt.setInt(3, msgBoardBean.getJpId());
-				stmt.setString(4, msgBoardBean.getContent());
+				stmt.setInt(1, msgBoardBean.getWriterID());
+				stmt.setInt(2, msgBoardBean.getJpId());
+				stmt.setString(3, msgBoardBean.getContent());
 				java.util.Date Date = msgBoardBean.getMsgTime();
 				if (Date != null) {
 					long time = Date.getTime();
-					stmt.setTimestamp(5, new java.sql.Timestamp(time));
+					stmt.setTimestamp(4, new java.sql.Timestamp(time));
 				} else {
 					stmt.setTimestamp(5, null);
 				}
@@ -71,7 +70,7 @@ public class MsgBoardDAOJdbc implements MsgBoardDAO {
 		return result;
 	}
 
-	private static final String SELECT_BY_JPID = "select * from MsgBoard where JPID=?";
+	private static final String SELECT_BY_JPID = "select * from MsgBoard where JPID=? order by msgTime desc";
 
 	@Override
 	public List<MsgBoardBean> selectByJpId(int jpId) {
