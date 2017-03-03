@@ -18,6 +18,7 @@ public class JPFollowerDetailBean implements java.io.Serializable {
 	private Integer productId;
 	private Integer quantity;
 	private Integer price;
+	private Integer freight;
 	private String productName;
 
 	public JPFollowerDetailBean() {
@@ -59,6 +60,14 @@ public class JPFollowerDetailBean implements java.io.Serializable {
 
 	public void setPrice(Integer price) {
 		this.price = price;
+	}
+	@Column(name = "Freight")
+	public Integer getFreight() {
+		return freight;
+	}
+
+	public void setFreight(Integer freight) {
+		this.freight = freight;
 	}
 
 	@Transient

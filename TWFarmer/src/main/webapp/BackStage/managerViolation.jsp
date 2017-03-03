@@ -40,8 +40,8 @@ html {
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<h2>處理違規</h2>
-					<h3>待處理</h3>
+					<h2 class="text-center">處理違規</h2>
+					<h3 class="text-center">待處理</h3>
 					<c:if test="${empty untreated}">沒有未處理違規</c:if>
 					<c:if test="${not empty untreated}">
 						<table class="table table-bordered">
@@ -114,7 +114,7 @@ html {
 							</tbody>
 						</table>
 					</c:if>
-					<h3>已處理</h3>
+					<h3 class="text-center">已處理</h3>
 					<c:if test="${empty treated}">沒有已處理違規</c:if>
 					<c:if test="${not empty treated}">
 						<table class="table table-bordered">

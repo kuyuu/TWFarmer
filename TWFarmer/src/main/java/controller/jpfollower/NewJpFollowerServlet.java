@@ -50,6 +50,7 @@ public class NewJpFollowerServlet extends HttpServlet {
 
 		JointPurchaseDAOjdbc dao2 = new JointPurchaseDAOjdbc();
 		JointPurchaseBean jpBean = dao2.select(jpId);
+		request.setAttribute("jpBean", jpBean);
 		JPDetailDAOjdbc dao3 = new JPDetailDAOjdbc();
 		List<JPDetailBean> list = dao3.selectByJpId(jpId);
 		F2FDetailDAOjdbc dao4 = new F2FDetailDAOjdbc();
@@ -108,6 +109,7 @@ public class NewJpFollowerServlet extends HttpServlet {
 				bean2.setProductId(list.get(i).getProductId());
 				bean2.setJPFollowerId(bean.getJPFollowerId());
 				bean2.setPrice(list.get(i).getJpPrice());
+				bean2.setFreight(list.get(i).getJpFreight());
 				int a = Integer.parseInt(templist[i]);
 				bean2.setQuantity(a);
 				dao6.insert(bean2);
