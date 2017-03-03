@@ -45,7 +45,7 @@ public class NewOrderServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("test");
+		//System.out.println("test");
 		doPost(request, response);
 	}
 
@@ -59,14 +59,14 @@ public class NewOrderServlet extends HttpServlet {
 
 		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		Date current = new Date();
-		System.out.println(sdFormat.format(current));
+		//System.out.println(sdFormat.format(current));
 		 	
 		Date shipDate = new Date();		
 		Calendar c = Calendar.getInstance(); 
 		c.setTime(shipDate); 
 		c.add(Calendar.DATE, 1);
 		shipDate = c.getTime();
-		System.out.println(sdFormat.format(shipDate));
+		//System.out.println(sdFormat.format(shipDate));
 		
 		request.setAttribute("member", member);
 		request.setAttribute("product", product);
