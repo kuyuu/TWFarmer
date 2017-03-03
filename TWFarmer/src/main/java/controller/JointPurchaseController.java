@@ -18,14 +18,15 @@ import model.bean.JPDetailBean;
 import model.bean.JPFollowerDetailBean;
 import model.bean.JointPurchaseBean;
 import model.bean.MemberBean;
+import model.bean.MsgBoardBean;
 import model.bean.ProductBean;
 import model.bean.ProductPicBean;
 import model.daojdbc.FarmerDAOJdbc;
 import model.daojdbc.JPDetailDAOjdbc;
-import model.daojdbc.JPFollowerDAOJdbc;
 import model.daojdbc.JPFollowerDetailDAOJdbc;
 import model.daojdbc.JointPurchaseDAOjdbc;
 import model.daojdbc.MemberDAOJdbc;
+import model.daojdbc.MsgBoardDAOJdbc;
 import model.daojdbc.ProductDAOjdbc;
 import model.daojdbc.ProductPicDAOJdbc;
 
@@ -44,10 +45,12 @@ public class JointPurchaseController {
 	private ProductPicDAOJdbc producPictDAO;
 	@Autowired
 	private JPDetailDAOjdbc jpDetailDAO;
-//	@Autowired
-//	private JPFollowerDAOJdbc jpfDAO;
+	// @Autowired
+	// private JPFollowerDAOJdbc jpfDAO;
 	@Autowired
 	private JPFollowerDetailDAOJdbc jpfDetailDAO;
+	@Autowired
+	private MsgBoardDAOJdbc msgBoardDAO;
 
 	@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST })
 	public String doWork(HttpSession session, Integer jpId, Model model) {
@@ -81,7 +84,7 @@ public class JointPurchaseController {
 		}
 		for (int i = 0; i < jpdList.size(); i++) {
 			for (int j = 0; j < jpfdList.size(); j++) {
-				if(jpdList.get(i).getProductId()==jpfdList.get(j).getProductId()){
+				if (jpdList.get(i).getProductId() == jpfdList.get(j).getProductId()) {
 					int count = 0;
 					count = quantity.get(i) + jpfdList.get(j).getQuantity();
 					quantity.remove(i);
@@ -92,6 +95,9 @@ public class JointPurchaseController {
 		model.addAttribute("size", quantity.size());
 		model.addAttribute("jpdList", jpdList);
 		model.addAttribute("quantity", quantity);
+
+		List<MsgBoardBean> msgBoardList = msgBoardDAO.selectByJpId(jpId);
+		model.addAttribute("msgBoardList", msgBoardList);
 
 		return "JointPurchase";
 	}

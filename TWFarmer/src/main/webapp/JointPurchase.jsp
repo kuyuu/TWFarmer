@@ -3,8 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:if test="${empty LoginOK}">
-	<c:set var="target"
-		value="/JointPurchase.do?jpId=${jpBean.jpId}" scope="session" />
+	<c:set var="target" value="/JointPurchase.do?jpId=${jpBean.jpId}"
+		scope="session" />
 </c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -146,38 +146,44 @@ html {
 					<div class="col-md-12">
 						<h2>合購留言板</h2>
 						<div class="hr"></div>
-						<div class="media">
-							<a class="media-left media-middle" href="#"> <img
-								data-src="..." alt="...">
-							</a>
-							<div class="media-body">
-								<h4 class="media-heading">Middle aligned media</h4>
-								...
+						<c:forEach items="${msgBoardList}" var="x">
+							<div class="media">
+
+								<a class="media-left media-middle" href="#"> <img
+									src="resources/uploadImages/${x.memberBean.memberPic}"
+									alt="..." width="50px">
+								</a>
+								<div class="media-body">
+									<%-- 									<h4 class="media-heading">${x.content}</h4> --%>
+									${x.content}<br>
+									<fmt:formatDate value="${x.msgTime}" pattern="yyyy-MM-dd HH:mm" />
+								</div>
+
 							</div>
-						</div>
+						</c:forEach>
 						<div>
-							<form action="MessageBoard/NewMessageBoard.do" method="POST">
-								<c:choose>
-									<c:when test="${not empty LoginOK}">
+							<c:choose>
+								<c:when test="${not empty LoginOK}">
+									<div class="form-group">
+										<label for="content" class="ontrol-label">我要留言</label>
+										<textarea id="content" name="content" class="form-control"
+											rows="4"></textarea>
+									</div>
+									<input type="text" value="${jpBean.jpId}" id="jpId" />
+									<div class="col-md-1 col-md-offset-11">
 										<div class="form-group">
-											<label for="msg" class="ontrol-label">我要留言</label>
-											<textarea id="msg" name="msg" class="form-control" rows="4"></textarea>
+											<button id="submit" type="submit" class="btn btn-default">送出</button>
 										</div>
-										<div class="col-md-1 col-md-offset-11">
-											<div class="form-group">
-												<button type="submit" class="btn btn-default">送出</button>
-											</div>
+									</div>
+								</c:when>
+								<c:otherwise>
+									<div class="col-md-12">
+										<div class="form-group">
+											<p>請先登入才可留言</p>
 										</div>
-									</c:when>
-									<c:otherwise>
-										<div class="col-md-12">
-											<div class="form-group">
-												<p>請先登入才可留言</p>
-											</div>
-										</div>
-									</c:otherwise>
-								</c:choose>
-							</form>
+									</div>
+								</c:otherwise>
+							</c:choose>
 						</div>
 					</div>
 				</div>
@@ -187,6 +193,24 @@ html {
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/scripts.js"></script>
-	<script></script>
+	<script>
+		$('#submit').click(
+				function() {
+					$.ajax({
+						url : 'MessageBoard/NewMessage.do',
+						type : 'POST',
+						data : {
+							'content' : $('#content').val(),
+							'jpId' : $('#jpId').val()
+						},
+						complete : function() {
+							alert('${jpBean.jpId}');
+							window.location = 'JointPurchase.do?jpId='
+									+ $('#jpId').val();
+						}
+					});
+
+				});
+	</script>
 </body>
 </html>
