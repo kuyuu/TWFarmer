@@ -34,7 +34,7 @@
 							<li>
 								<div class="row" style="margin: 10px;">
 									<div class="col-md-12">
-										<form action='<c:url value="/LittleLogin.controller" />'
+										<form action='<c:url value="/Login.controller" />'
 											method="post" role="form">
 											<div class="form-group">
 												<div class="sr-only">帳號</div> <input

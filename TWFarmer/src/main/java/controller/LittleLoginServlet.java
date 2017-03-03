@@ -124,7 +124,7 @@ public class LittleLoginServlet extends HttpServlet {
 			return;
 		} else {
 			// 如果 errorMsgMap 不是空的，表示有錯誤，停留在Login.jsp
-			RequestDispatcher rd = request.getRequestDispatcher("/common/LittleLogin.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/Login.jsp");
 			rd.forward(request, response);
 			return;
 		}
