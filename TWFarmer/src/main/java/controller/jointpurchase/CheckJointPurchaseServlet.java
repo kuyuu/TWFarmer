@@ -126,6 +126,7 @@ public class CheckJointPurchaseServlet extends HttpServlet {
 			dao2.insert(jpdBean);
 		}
 		session.removeAttribute("jpdBeanMap");
+		request.setAttribute("jpId", jpBean.getJpId());
 		request.getRequestDispatcher("newJpSuccess.jsp").forward(request, response);
 
 	}

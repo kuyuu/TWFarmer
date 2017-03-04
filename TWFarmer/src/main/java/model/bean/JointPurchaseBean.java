@@ -4,9 +4,11 @@ import java.io.Serializable;
 import java.util.Date;
 
 import model.daojdbc.JPStatusDAOjdbc;
+import model.daojdbc.MemberDAOJdbc;
 
 public class JointPurchaseBean implements Serializable {
 	JPStatusDAOjdbc dao = new JPStatusDAOjdbc();
+	MemberDAOJdbc dao2 = new MemberDAOJdbc();
 
 	private int jpId;
 	private int initId;
@@ -23,6 +25,7 @@ public class JointPurchaseBean implements Serializable {
 	private String bankName;
 	private String pictureName;
 	private String jpStatusName;
+	private MemberBean memberBean;
 
 	@Override
 	public boolean equals(Object obj) {
@@ -160,6 +163,14 @@ public class JointPurchaseBean implements Serializable {
 
 	public void setJpStatusName(String jpStatusName) {
 		this.jpStatusName = jpStatusName;
+	}
+
+	public MemberBean getMemberBean() {
+		return dao2.select(initId);
+	}
+
+	public void setMemberBean(MemberBean memberBean) {
+		this.memberBean = memberBean;
 	}
 
 }
