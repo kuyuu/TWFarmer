@@ -67,9 +67,9 @@ public class ProcessProductServlet extends HttpServlet {
 		String temp8 = request.getParameter("removeDate");
 		String productStatusName = request.getParameter("productStatusName");
 		// String discountId = request.getParameter("discountId");
-		String temp9 = request.getParameter("minThreshold");
-		String temp10 = request.getParameter("maxThreshold");
-		String temp11 = request.getParameter("discountPrice");
+//		String temp9 = request.getParameter("minThreshold");
+//		String temp10 = request.getParameter("maxThreshold");
+//		String temp11 = request.getParameter("discountPrice");
 		// String productPicId = request.getParameter("productPicId");
 		Part part = request.getPart("picture1");
 		Part part2 = request.getPart("picture2");
@@ -146,17 +146,17 @@ public class ProcessProductServlet extends HttpServlet {
 		// errorMessage.put("discountId", "折扣編號是必填欄位");
 		// }
 
-		if (temp9 == null || temp9.trim().length() == 0) {
-			errorMessage.put("minThreshold", "最小件數是必填欄位");
-		}
-
-		if (temp10 == null || temp10.trim().length() == 0) {
-			errorMessage.put("maxThreshold", "最大件數是必填欄位");
-		}
-
-		if (temp11 == null || temp11.trim().length() == 0) {
-			errorMessage.put("discountPrice", "折扣後價格是必填欄位");
-		}
+//		if (temp9 == null || temp9.trim().length() == 0) {
+//			errorMessage.put("minThreshold", "最小件數是必填欄位");
+//		}
+//
+//		if (temp10 == null || temp10.trim().length() == 0) {
+//			errorMessage.put("maxThreshold", "最大件數是必填欄位");
+//		}
+//
+//		if (temp11 == null || temp11.trim().length() == 0) {
+//			errorMessage.put("discountPrice", "折扣後價格是必填欄位");
+//		}
 
 		// if (productPicId == null || productPicId.trim().length() == 0) {
 		// errorMessage.put("productPicId", "商品圖片編號是必填欄位");
@@ -251,35 +251,35 @@ public class ProcessProductServlet extends HttpServlet {
 		// }
 		// }
 
-		int minThreshold = 0;
-		if (temp9 != null && temp9.length() != 0) {
-			try {
-				minThreshold = Integer.parseInt(temp9);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-				errorMessage.put("minThreshold", "最小件數必須是整數");
-			}
-		}
-
-		int maxThreshold = 0;
-		if (temp10 != null && temp10.length() != 0) {
-			try {
-				maxThreshold = Integer.parseInt(temp10);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-				errorMessage.put("maxThreshold", "最大件數必須是整數");
-			}
-		}
-
-		int discountPrice = 0;
-		if (temp11 != null && temp11.length() != 0) {
-			try {
-				discountPrice = Integer.parseInt(temp11);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-				errorMessage.put("discountPrice", "折扣後價格必須是整數");
-			}
-		}
+//		int minThreshold = 0;
+//		if (temp9 != null && temp9.length() != 0) {
+//			try {
+//				minThreshold = Integer.parseInt(temp9);
+//			} catch (NumberFormatException e) {
+//				e.printStackTrace();
+//				errorMessage.put("minThreshold", "最小件數必須是整數");
+//			}
+//		}
+//
+//		int maxThreshold = 0;
+//		if (temp10 != null && temp10.length() != 0) {
+//			try {
+//				maxThreshold = Integer.parseInt(temp10);
+//			} catch (NumberFormatException e) {
+//				e.printStackTrace();
+//				errorMessage.put("maxThreshold", "最大件數必須是整數");
+//			}
+//		}
+//
+//		int discountPrice = 0;
+//		if (temp11 != null && temp11.length() != 0) {
+//			try {
+//				discountPrice = Integer.parseInt(temp11);
+//			} catch (NumberFormatException e) {
+//				e.printStackTrace();
+//				errorMessage.put("discountPrice", "折扣後價格必須是整數");
+//			}
+//		}
 
 		// 如果有錯誤訊息，就顯示在ProductInsert.jsp(錯誤訊息顯示在欄位旁邊)
 		if (!errorMessage.isEmpty()) {
@@ -375,9 +375,9 @@ public class ProcessProductServlet extends HttpServlet {
 		 * 可以再從這個bean裡面拿出商品折扣編號
 		 */
 		ProductDiscountDAOjdbc dao3 = new ProductDiscountDAOjdbc();
-		productDiscountBean.setDiscountPrice(discountPrice);
-		productDiscountBean.setMaxThreshold(maxThreshold);
-		productDiscountBean.setMinThreshold(minThreshold);
+//		productDiscountBean.setDiscountPrice(discountPrice);
+//		productDiscountBean.setMaxThreshold(maxThreshold);
+//		productDiscountBean.setMinThreshold(minThreshold);
 		productDiscountBean.setProductId(productBean.getProductId());
 		dao3.insert(productDiscountBean);
 //		List<ProductDiscountBean> list2 = dao3.selectByProductId(productBean.getProductId());
