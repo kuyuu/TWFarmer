@@ -94,10 +94,10 @@ html {
 										<h4>管理員</h4>
 									</c:if></td>
 							</tr>
-							<tr>
-								<td><h4>評價：</h4></td>
-								<td><h4>${LoginOK.rating}</h4></td>
-							</tr>
+<!-- 							<tr> -->
+<!-- 								<td><h4>評價：</h4></td> -->
+<%-- 								<td><h4>${LoginOK.rating}</h4></td> --%>
+<!-- 							</tr> -->
 						</table>
 						<div class="form-group">
 							<div class="col-sm-offset-6 col-sm-10">
