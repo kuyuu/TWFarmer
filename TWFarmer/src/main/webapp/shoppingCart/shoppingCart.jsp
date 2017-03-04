@@ -22,6 +22,10 @@ body {
 html {
 	overflow-y: scroll;
 }
+.product{
+	margin-top:20px;
+	margin-bottom:20px;
+}
 </style>
 </head>
 <body>
@@ -29,7 +33,6 @@ html {
 		<jsp:include page="../common/menuShoppingCart.jsp" />
 		<div class="row jumbotron">
 			<div class="col-md-10 col-md-offset-1">
-				<a href="../JointPurchase.do?jpId=4006">test</a>
 				<h2 class="text-center">購物車</h2>
 				<p class="text-right">
 					<button type="button" class="btn btn-danger" id="clear">清空購物車</button>
@@ -40,7 +43,7 @@ html {
 							<h2>${x.key.name}(${x.key.account})</h2>
 							<br>
 							<c:forEach items="${x.value}" var="y">
-								<div class="row">
+								<div class="row product">
 									<div class="col-md-4">
 										<img src="../img/${y.value[0].pictureName}"
 											class="img-responsive thumbnail" style="width: 100%" />

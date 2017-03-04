@@ -41,6 +41,7 @@ html {
 						<div class="col-md-8">
 							<h3>${jpBean.jpName}</h3>
 							<p>${jpBean.jpIntro}</p>
+							<p>主購：${jpBean.memberBean.name}(${jpBean.memberBean.account})</p>
 							<p>開始日期：${jpBean.initDate}</p>
 							<p>截止日期：${jpBean.endDate}</p>
 							<p>合購地區：${jpBean.jpLocation}</p>
@@ -58,8 +59,7 @@ html {
 										<td>單位</td>
 										<td>原價</td>
 										<td>合購價</td>
-										<td>最小數量</td>
-										<td>最大數量</td>
+										<td>合購數量</td>
 									</tr>
 								</thead>
 								<tbody>
@@ -72,7 +72,6 @@ html {
 											<td>${row.value.price}</td>
 											<td>${row.key.jpPrice}</td>
 											<td>${row.key.jpPopulationMin}</td>
-											<td>${row.key.jpPopulationMax}</td>
 										</tr>
 									</c:forEach>
 								</tbody>

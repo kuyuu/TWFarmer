@@ -137,7 +137,13 @@ html {
 		$(function() {
 			$("#collapseOne>ul>li:eq(0)").removeClass("list-group-item")
 					.addClass("list-group-item list-group-item-success");
-					
+			
+			if('${LoginOK.gender}'=='M'){
+				$(':radio[value="M"]').attr('checked', true);
+			} else {
+				$(':radio[value="F"]').attr('checked', true);
+			}
+			
 			$("#datepicker").datepicker({
 				altField : "#datepicker",
 				altFormat : "yy-mm-dd",
