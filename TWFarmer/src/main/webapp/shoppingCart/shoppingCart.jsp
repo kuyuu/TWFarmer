@@ -22,6 +22,10 @@ body {
 html {
 	overflow-y: scroll;
 }
+.product{
+	margin-top:20px;
+	margin-bottom:20px;
+}
 </style>
 </head>
 <body>
@@ -40,7 +44,7 @@ html {
 							<h2>${x.key.name}(${x.key.account})</h2>
 							<br>
 							<c:forEach items="${x.value}" var="y">
-								<div class="row">
+								<div class="row product">
 									<div class="col-md-4">
 										<img src="../img/${y.value[0].pictureName}"
 											class="img-responsive thumbnail" style="width: 100%" />
