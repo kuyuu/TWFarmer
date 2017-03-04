@@ -31,6 +31,7 @@ html {
 	<jsp:include page="../common/menuJp.jsp" />
 	<div class="container">
 		<div class="jumbotron">
+			<img src="../img/img/002.png" style="width: 100%" />
 			<form action="<c:url value="CheckJointPurchaseServlet"/>"
 				method="POST" class="form-horizontal">
 				<div class="row">
