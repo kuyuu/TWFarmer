@@ -58,8 +58,7 @@ html {
 										<td>單位</td>
 										<td>原價</td>
 										<td>合購價</td>
-										<td>最小數量</td>
-										<td>最大數量</td>
+										<td>合購數量</td>
 									</tr>
 								</thead>
 								<tbody>
@@ -72,7 +71,6 @@ html {
 											<td>${row.value.price}</td>
 											<td>${row.key.jpPrice}</td>
 											<td>${row.key.jpPopulationMin}</td>
-											<td>${row.key.jpPopulationMax}</td>
 										</tr>
 									</c:forEach>
 								</tbody>

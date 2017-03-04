@@ -33,7 +33,6 @@ html {
 		<jsp:include page="../common/menuShoppingCart.jsp" />
 		<div class="row jumbotron">
 			<div class="col-md-10 col-md-offset-1">
-				<a href="../JointPurchase.do?jpId=4006">test</a>
 				<h2 class="text-center">購物車</h2>
 				<p class="text-right">
 					<button type="button" class="btn btn-danger" id="clear">清空購物車</button>
