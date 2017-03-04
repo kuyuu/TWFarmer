@@ -53,10 +53,10 @@ public class DeleteTheProductServlet extends HttpServlet {
 		String temp6 = request.getParameter("removeEstDate");
 		// String temp7 = request.getParameter("removeDate");
 		String productStatusName = request.getParameter("productStatusName");
-		String temp8 = request.getParameter("minThreshold");
-		String temp9 = request.getParameter("maxThreshold");
-		String temp10 = request.getParameter("discountPrice");
-		String temp11 = request.getParameter("discountId");
+//		String temp8 = request.getParameter("minThreshold");
+//		String temp9 = request.getParameter("maxThreshold");
+//		String temp10 = request.getParameter("discountPrice");
+//		String temp11 = request.getParameter("discountId");
 		String temp12 = request.getParameter("productPicId");
 		String[] tempPic = request.getParameterValues("productPicId");	//陣列取多張圖片
 //		System.out.println(temp12);
@@ -129,17 +129,17 @@ public class DeleteTheProductServlet extends HttpServlet {
 			errorMessage.put("productStatusName", "商品狀態是必填欄位");
 		}
 
-		if (temp8 == null || temp8.trim().length() == 0) {
-			errorMessage.put("minThreshold", "最小件數是必填欄位");
-		}
-
-		if (temp9 == null || temp9.trim().length() == 0) {
-			errorMessage.put("maxThreshold", "最大件數是必填欄位");
-		}
-
-		if (temp10 == null || temp10.trim().length() == 0) {
-			errorMessage.put("discountPrice", "折扣後價格是必填欄位");
-		}
+//		if (temp8 == null || temp8.trim().length() == 0) {
+//			errorMessage.put("minThreshold", "最小件數是必填欄位");
+//		}
+//
+//		if (temp9 == null || temp9.trim().length() == 0) {
+//			errorMessage.put("maxThreshold", "最大件數是必填欄位");
+//		}
+//
+//		if (temp10 == null || temp10.trim().length() == 0) {
+//			errorMessage.put("discountPrice", "折扣後價格是必填欄位");
+//		}
 
 		// 3.轉換資料===========================================
 
@@ -203,45 +203,45 @@ public class DeleteTheProductServlet extends HttpServlet {
 			}
 		}
 
-		int minThreshold = 0;
-		if (temp8 != null && temp8.length() != 0) {
-			try {
-				minThreshold = Integer.parseInt(temp8);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-				errorMessage.put("minThreshold", "最小件數必須是整數");
-			}
-		}
-
-		int maxThreshold = 0;
-		if (temp9 != null && temp9.length() != 0) {
-			try {
-				maxThreshold = Integer.parseInt(temp9);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-				errorMessage.put("maxThreshold", "最大件數必須是整數");
-			}
-		}
-
-		int discountPrice = 0;
-		if (temp10 != null && temp10.length() != 0) {
-			try {
-				discountPrice = Integer.parseInt(temp10);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-				errorMessage.put("discountPrice", "折扣後價格必須是整數");
-			}
-		}
-
-		int discountId = 0;
-		if (temp11 != null && temp11.length() != 0) {
-			try {
-				discountId = Integer.parseInt(temp11);
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-				errorMessage.put("discountId", "折扣編號必須是整數");
-			}
-		}
+//		int minThreshold = 0;
+//		if (temp8 != null && temp8.length() != 0) {
+//			try {
+//				minThreshold = Integer.parseInt(temp8);
+//			} catch (NumberFormatException e) {
+//				e.printStackTrace();
+//				errorMessage.put("minThreshold", "最小件數必須是整數");
+//			}
+//		}
+//
+//		int maxThreshold = 0;
+//		if (temp9 != null && temp9.length() != 0) {
+//			try {
+//				maxThreshold = Integer.parseInt(temp9);
+//			} catch (NumberFormatException e) {
+//				e.printStackTrace();
+//				errorMessage.put("maxThreshold", "最大件數必須是整數");
+//			}
+//		}
+//
+//		int discountPrice = 0;
+//		if (temp10 != null && temp10.length() != 0) {
+//			try {
+//				discountPrice = Integer.parseInt(temp10);
+//			} catch (NumberFormatException e) {
+//				e.printStackTrace();
+//				errorMessage.put("discountPrice", "折扣後價格必須是整數");
+//			}
+//		}
+//
+//		int discountId = 0;
+//		if (temp11 != null && temp11.length() != 0) {
+//			try {
+//				discountId = Integer.parseInt(temp11);
+//			} catch (NumberFormatException e) {
+//				e.printStackTrace();
+//				errorMessage.put("discountId", "折扣編號必須是整數");
+//			}
+//		}
 
 		int productPicId = 0;
 		if (temp12 != null && temp12.length() != 0) {
@@ -406,10 +406,10 @@ public class DeleteTheProductServlet extends HttpServlet {
 			 */
 			ProductDiscountBean productDiscountBean = new ProductDiscountBean();
 
-			productDiscountBean.setDiscountPrice(discountPrice);
-			productDiscountBean.setMaxThreshold(maxThreshold);
-			productDiscountBean.setMinThreshold(minThreshold);
-			productDiscountBean.setDiscountId(discountId);
+//			productDiscountBean.setDiscountPrice(discountPrice);
+//			productDiscountBean.setMaxThreshold(maxThreshold);
+//			productDiscountBean.setMinThreshold(minThreshold);
+//			productDiscountBean.setDiscountId(discountId);
 			productDiscountBean.setProductId(productBean.getProductId());
 
 			dao3.update(productDiscountBean);
