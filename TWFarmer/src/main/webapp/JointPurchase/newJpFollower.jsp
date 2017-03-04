@@ -100,14 +100,14 @@ html {
 								</tbody>
 							</table>
 						</div>
+<!-- 						<div class="form-group"> -->
+<!-- 							<label for="jpIntro" class="control-label">留言給主購</label> -->
+<!-- 							<textarea id="notes" name="notes" class="form-control" rows="3"></textarea> -->
+<!-- 							<p class="help-block">限制200字</p> -->
+<!-- 						</div> -->
 						<div class="form-group">
-							<label for="jpIntro" class="control-label">留言給主購</label>
-							<textarea id="notes" name="notes" class="form-control" rows="3"></textarea>
-							<p class="help-block">限制200字</p>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-offset-2 col-sm-4">
-								<button type="submit" class="btn btn-default">送出</button>
+							<div class="col-md-1 col-md-offset-11">
+								<button type="submit" class="btn btn-primary">送出</button>
 							</div>
 						</div>
 					</form>

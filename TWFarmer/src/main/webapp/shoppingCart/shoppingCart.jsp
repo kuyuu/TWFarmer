@@ -53,10 +53,10 @@ html {
 										<p>${y.key.productIntro}<br>價格：${y.key.price}/${y.key.unit}
 										</p>
 										<a href="../Order/StarOrder.do?productId=${y.key.productId}"><button
-												type="button" class="btn btn-default" name="newJp">購買商品</button></a>
+												type="button" class="btn btn-primary" name="newJp">購買商品</button></a>
 										<a
 											href="../JointPurchase/NewJointPurchaseServlet?productId=${y.key.productId}"><button
-												type="button" class="btn btn-default" name="newJp">發起合購</button></a>
+												type="button" class="btn btn-success" name="newJp">發起合購</button></a>
 									</div>
 								</div>
 							</c:forEach>

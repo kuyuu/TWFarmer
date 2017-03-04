@@ -34,7 +34,7 @@ public class NewJpFollowerServlet extends HttpServlet {
 		MemberBean mb = (MemberBean)session.getAttribute("LoginOK");
 		String temp2 = request.getParameter("jpId");
 		String temp3 = request.getParameter("f2fId");
-		String notes = request.getParameter("notes");
+//		String notes = request.getParameter("notes");
 
 		Map<String, String> errors = new HashMap<String, String>();
 		request.setAttribute("errors", errors);
@@ -91,7 +91,7 @@ public class NewJpFollowerServlet extends HttpServlet {
 			bean.setMemberId(mb.getMemberId());
 			bean.setF2FId(f2fId);
 			bean.setJPId(jpId);
-			bean.setNotes(notes);
+//			bean.setNotes(notes);
 			bean.setTotalPrice(totalPrice);
 			bean.setRemittanceStatus(0);
 			bean.setMisc(0);
