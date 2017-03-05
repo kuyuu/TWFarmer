@@ -29,6 +29,7 @@ html {
 	<jsp:include page="../common/menuJp.jsp" />
 	<div class="container">
 		<div class="jumbotron col-md-12">
+		<img src="../img/img/003.png" style="width:100%" />
 			<form action="F2F.do" method="POST">
 				<input type="hidden" value="${jpId}" name="jpId" />
 				<div class="form-group col-md-5 col-md-offset-1">

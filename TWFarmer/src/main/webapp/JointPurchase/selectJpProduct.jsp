@@ -28,7 +28,8 @@ body {
 html {
 	overflow-y: scroll;
 }
-.product{
+
+.product {
 	border: 1px solid black;
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -42,6 +43,7 @@ html {
 		<div class="row">
 			<div class="col-md-12">
 				<div class="jumbotron">
+					<img src="../img/img/001.png" style="width: 100%" />
 					<h2>${fBean.name}(${fBean.account})</h2>
 					<p>${fBean.farmerIntro}</p>
 					<h2>設定欲合購之商品</h2>
@@ -156,8 +158,8 @@ html {
 								</div>
 							</div>
 						</c:forEach>
-						
-						
+
+
 
 
 						<c:if test="${not empty farmerProductMap}">

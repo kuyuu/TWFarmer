@@ -186,29 +186,29 @@ html {
 
 										<!-- 					</tr> -->
 
-										<tr height=60>
-											<td><strong>最小件數</strong></td>
-											<td><input class="form-control" id='minThreshold'
-												name="minThreshold" value="${param.minThreshold}"
-												type="text">
-												<div style="color: #FF0000; display: inline">${ErrorMsg.minThreshold}</div>
-										</tr>
+<!-- 										<tr height=60> -->
+<!-- 											<td><strong>最小件數</strong></td> -->
+<!-- 											<td><input class="form-control" id='minThreshold' -->
+<%-- 												name="minThreshold" value="${param.minThreshold}" --%>
+<!-- 												type="text"> -->
+<%-- 												<div style="color: #FF0000; display: inline">${ErrorMsg.minThreshold}</div> --%>
+<!-- 										</tr> -->
 
-										<tr height=60>
-											<td><strong>最大件數</strong></td>
-											<td><input class="form-control" id='maxThreshold'
-												name="maxThreshold" value="${param.maxThreshold}"
-												type="text">
-												<div style="color: #FF0000; display: inline">${ErrorMsg.maxThreshold}</div>
-										</tr>
+<!-- 										<tr height=60> -->
+<!-- 											<td><strong>最大件數</strong></td> -->
+<!-- 											<td><input class="form-control" id='maxThreshold' -->
+<%-- 												name="maxThreshold" value="${param.maxThreshold}" --%>
+<!-- 												type="text"> -->
+<%-- 												<div style="color: #FF0000; display: inline">${ErrorMsg.maxThreshold}</div> --%>
+<!-- 										</tr> -->
 
-										<tr height=60>
-											<td width=140><strong>折扣後價格</strong></td>
-											<td><input class="form-control" id='discountPrice'
-												name="discountPrice" value="${param.discountPrice}"
-												type="text">
-												<div style="color: #FF0000; display: inline">${ErrorMsg.discountPrice}</div>
-										</tr>
+<!-- 										<tr height=60> -->
+<!-- 											<td width=140><strong>折扣後價格</strong></td> -->
+<!-- 											<td><input class="form-control" id='discountPrice' -->
+<%-- 												name="discountPrice" value="${param.discountPrice}" --%>
+<!-- 												type="text"> -->
+<%-- 												<div style="color: #FF0000; display: inline">${ErrorMsg.discountPrice}</div> --%>
+<!-- 										</tr> -->
 
 										<!-- 					<tr> -->
 										<!-- 						<td>商品圖片編號：<br>*商品資料填寫完會產生，無需填寫 -->

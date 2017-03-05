@@ -190,35 +190,35 @@ html {
 
 									<!-- 					</tr> -->
 
-									<c:forEach items="${productDiscountList}" var="x">
+<%-- 									<c:forEach items="${productDiscountList}" var="x"> --%>
 
-										<td><input type="hidden" value="${x.discountId}"
-											name="discountId" /></td>
+<%-- 										<td><input type="hidden" value="${x.discountId}" --%>
+<!-- 											name="discountId" /></td> -->
 
-										<tr height=60>
-											<td><strong>最小件數</strong></td>
-											<td><input id='minThreshold' name="minThreshold"
-												value="${x.minThreshold}" type="text" class="form-control">
-												<div style="color: #FF0000; display: inline">${ErrorMsg.minThreshold}</div>
-											</td>
-										</tr>
+<!-- 										<tr height=60> -->
+<!-- 											<td><strong>最小件數</strong></td> -->
+<!-- 											<td><input id='minThreshold' name="minThreshold" -->
+<%-- 												value="${x.minThreshold}" type="text" class="form-control"> --%>
+<%-- 												<div style="color: #FF0000; display: inline">${ErrorMsg.minThreshold}</div> --%>
+<!-- 											</td> -->
+<!-- 										</tr> -->
 
-										<tr height=60>
-											<td><strong>最大件數</strong></td>
-											<td><input id='maxThreshold' name="maxThreshold"
-												value="${x.maxThreshold}" type="text" class="form-control">
-												<div style="color: #FF0000; display: inline">${ErrorMsg.maxThreshold}</div>
-											</td>
-										</tr>
+<!-- 										<tr height=60> -->
+<!-- 											<td><strong>最大件數</strong></td> -->
+<!-- 											<td><input id='maxThreshold' name="maxThreshold" -->
+<%-- 												value="${x.maxThreshold}" type="text" class="form-control"> --%>
+<%-- 												<div style="color: #FF0000; display: inline">${ErrorMsg.maxThreshold}</div> --%>
+<!-- 											</td> -->
+<!-- 										</tr> -->
 
-										<tr height=60>
-											<td><strong>折扣後價格</strong></td>
-											<td><input id='discountPrice' name="discountPrice"
-												value="${x.discountPrice}" type="text" class="form-control">
-												<div style="color: #FF0000; display: inline">${ErrorMsg.discountPrice}</div>
-											</td>
-										</tr>
-									</c:forEach>
+<!-- 										<tr height=60> -->
+<!-- 											<td><strong>折扣後價格</strong></td> -->
+<!-- 											<td><input id='discountPrice' name="discountPrice" -->
+<%-- 												value="${x.discountPrice}" type="text" class="form-control"> --%>
+<%-- 												<div style="color: #FF0000; display: inline">${ErrorMsg.discountPrice}</div> --%>
+<!-- 											</td> -->
+<!-- 										</tr> -->
+<%-- 									</c:forEach> --%>
 
 
 									<!-- 					<tr> -->

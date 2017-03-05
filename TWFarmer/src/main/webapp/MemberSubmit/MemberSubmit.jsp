@@ -133,10 +133,7 @@ html {
 									src="/TWFarmer/img/submit-icon/submit-idnumber.png"
 									height="20px" width="20px"></span> <input type="text"
 									name="idnumber" value="${param.idnumber}" class="form-control"
-									id="idnumber" placeholder="請輸入您的身分證字號"> <span
-									class="input-group-addon"> <span
-									class="glyphicon glyphicon-question-sign" id="idnumbericon"></span>
-								</span>
+									id="idnumber" placeholder="請輸入您的身分證字號"> 
 							</div>
 							<span style="color: #ff0000">${errors.idnumber}</span>
 						</div>
@@ -269,13 +266,13 @@ html {
 	<script type="text/javascript">
 		function insertfile() {
 			document.submitform.newaccount.value="eeit9115";
-			document.submitform.password.value="123";
+			document.submitform.password.value="password";
 			document.submitform.name.value="劉昱岑";
 			document.submitform.phone.value="0987654321";
 			document.submitform.datepicker.value="1988-04-09";
 			document.submitform.gender[1].checked=true;
 			document.submitform.email.value="eeit9115@gmail.com";
-			document.submitform.idnumber.value="C123456789";
+			document.submitform.idnumber.value="C223456789";
 			document.submitform.postalcode.value="206";
 			document.submitform.district.value="台北市大安區";
 			document.submitform.address.value="復興南路一段133號2樓";
