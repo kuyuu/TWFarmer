@@ -29,11 +29,25 @@ html {
 
 .jp {
 	padding: 10px;
-	border: 1px solid black;
+	/* 	border: 1px solid black; */
 	border-radius: 20px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	height: 140px;
+	background: #FFFFFF;
+}
+
+.divbox {
+	background: #ffffff;
+	border: solid 1px #ccc;
+}
+
+/*  滑入時變換底色樣式 */
+.divOver {
+	background: #EEFFBB;
+	border: solid 1px #d2dce3;
+	position: relative; /* 當滑鼠經過超連結時，超連結往上位移5像素 */
+	bottom: 5px;
 }
 </style>
 </head>
@@ -62,7 +76,7 @@ html {
 							<c:if test="${not empty keyword}">
 								<div class="row jumbotron">
 									<c:forEach items="${keyword}" var="row">
-										<div class="row jp">
+										<div class="row jp divbox">
 											<a href="/TWFarmer/JointPurchase.do?jpId=${row.jpId}">
 												<div style="display: none">${row.jpId}</div>
 												<div class="col-md-3">
@@ -89,6 +103,7 @@ html {
 													</table>
 												</div>
 											</a>
+											<hr>
 										</div>
 									</c:forEach>
 								</div>
@@ -102,5 +117,17 @@ html {
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="/TWFarmer/js/bootstrap.js"></script>
+	<script src="https://code.jquery.com/jquery-1.4.1.min.js"></script>
+	<script language="javascript">
+		$(function() {
+			//當滑鼠滑入時將div的class換成divOver
+			$('.divbox').hover(function() {
+				$(this).addClass('divOver');
+			}, function() {
+				//滑開時移除divOver樣式
+				$(this).removeClass('divOver');
+			});
+		});
+	</script>
 </body>
 </html>

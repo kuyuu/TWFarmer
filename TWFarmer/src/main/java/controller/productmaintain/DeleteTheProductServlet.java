@@ -28,6 +28,7 @@ import model.daojdbc.ProductPicDAOJdbc;
 @WebServlet("/BackStage/DeleteTheProductServlet")
 //@MultipartConfig(location = "D:/home/site/wwwroot/bin/apache-tomcat-8.0.41/webapps/TWFarmer/img/") // 圖片存放路徑
 @MultipartConfig(location = "C:/TWFarmer/repository/TWFarmer/src/main/webapp/img/") // 圖片存放路徑
+//@MultipartConfig(location = "C:/TWFarmer/tomcat8/webapps/TWFarmer/img/") // 圖片存放路徑
 public class DeleteTheProductServlet extends HttpServlet {
 	Date today = new Date();
 
