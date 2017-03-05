@@ -17,8 +17,9 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
+
 html {
 	overflow-y: scroll;
 }
@@ -29,10 +30,15 @@ html {
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
 			<div class="row jumbotron">
-				<h2>上傳會員頭像</h2>
+
 				<form name="form"
 					action="<%=request.getContextPath()%>/UploadDemo/uploadHeadImage.do"
 					class="form-horizontal" method="post" enctype="multipart/form-data">
+					
+						<h2>上傳會員頭像<button id="submit" class="btn btn-primary btn-large" onclick="" style="margin-left:10px;">上傳</button></h2>
+						
+					<div class="modal-footer"></div>
+
 					<div class="modal-body text-center">
 						<div class="zxx_main_con">
 							<div class="zxx_test_list">
@@ -51,11 +57,8 @@ html {
 									</div>
 								</div>
 
-								<input type="hidden" value="${memberBean.memberId}" name="memberId" />
-								<div class="modal-footer">
-									<button id="submit" class="btn btn-primary btn-large"
-										onclick="">上傳</button>
-								</div>
+								<input type="hidden" value="${memberBean.memberId}"
+									name="memberId" />
 							</div>
 
 						</div>

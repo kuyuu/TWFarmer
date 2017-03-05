@@ -84,7 +84,7 @@ html {
 				<div class="row" id="ourservice">
 					<div class="title text-center" style="margin: 5%;">
 						<h2>
-							OUR <span class="color">SERVICE</span>
+							OUR <span style="color: #6CB670;">SERVICE</span>
 						</h2>
 						<div class="border"></div>
 					</div>

@@ -11,12 +11,6 @@ html {
 }
 body {
   margin: 0;
-	padding-top: 70px;
-	background-color: #fcf5e0;
-	font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft JhengHei",
-		sans-serif;
-	font-size: 14px;
-	line-height: 20px;
   
 }
 article,
@@ -5028,6 +5022,7 @@ a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
   border-color: #337ab7;
+  
 }
 .thumbnail .caption {
   padding: 9px;
