@@ -10,7 +10,9 @@
 <!-- Favicon 網頁上小icon -->
 <link rel="shortcut icon" type="image/x-icon"
 	href="/TWFarmer/img/logo/TWFarmerLOGO-little.gif" />
-
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
 <link href="/TWFarmer/css/bootstrap.css" rel="stylesheet">
 <link href="/TWFarmer/css/style.css" rel="stylesheet">
 <style>
@@ -105,14 +107,13 @@ html {
 								<div class="col-md-11">
 									<div class="">
 										<input type="text" name="keyword" class="form-control"
-											value="">
+											id="keyword">
 									</div>
 								</div>
 								<div class="col-md-1">
 									<button type="submit" class="btn btn-default">搜尋</button>
 								</div>
-								<br>
-								<br>
+								<br> <br>
 							</div>
 							<c:if test="${not empty keyword}">
 								<c:forEach var="row" items="${keyword}">
@@ -148,6 +149,8 @@ html {
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="/TWFarmer/js/bootstrap.js"></script>
 	<script>
 		$(function() {
@@ -158,6 +161,8 @@ html {
 					"productId" : $(this).val()
 				});
 			});
+
+			$("#keyword" ).autocomplete('/TWFarmer/ProductSelect/ProductSelect.controller');
 		});
 
 		$(document).ready(
@@ -178,17 +183,8 @@ html {
 						$("li[value='${param.selectBy}']").addClass(
 								"list-group-item-success")
 					}
-				});
 
-		// 		$(document).ready(function() {
-		// 			$("#accordion ul>li").click(function() {
-		// 				$(this).removeClass("list-group-item").addClass("list-group-item list-group-item-info")
-		// 				var val = $(this).text();
-		// 				$.get('/TWFarmer/ProductSelect/ProductSelect.controller', {
-		// 					"selectBy" : val
-		// 				});
-		// 			});
-		// 		});
+				});
 	</script>
 </body>
 </html>

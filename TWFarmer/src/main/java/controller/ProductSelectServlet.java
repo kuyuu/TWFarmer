@@ -48,6 +48,7 @@ public class ProductSelectServlet extends HttpServlet {
 		// 根據Model執行結果，決定需要顯示的View元件
 		if (selectBy != null) {
 			Map<ProductBean, List<ProductPicBean>> result = productDAOjdbc.selectByType(selectBy);
+			System.out.println(result);
 			request.setAttribute("keyword", result);
 			request.getRequestDispatcher("/ProductSelect/ProductSelect.jsp").forward(request, response);
 		}else if (keyword != null) {

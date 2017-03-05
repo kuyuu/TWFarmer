@@ -67,7 +67,7 @@ html {
 												<div style="display: none">${row.jpId}</div>
 												<div class="col-md-3">
 													<img src="../img/${row.pictureName}"
-														class="img-responsive img-thumbnail" />
+														class="img-responsive img-thumbnail" style="height: 120px"/>
 												</div>
 												<div class="col-md-9">
 													<table class="table">
