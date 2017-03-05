@@ -26,11 +26,14 @@
 						href="../BackStage/MemberCheckJpServlet">管理開團</a></li>
 					<li class="list-group-item"><a
 						href="../BackStage/MemberCheckJpFollowerServlet">管理跟團</a></li>
-					<li class="list-group-item"><a href="../BackStage/ShowTrackProduct.do">管理追蹤商品</a></li>
+					<li class="list-group-item"><a
+						href="../BackStage/ShowTrackProduct.do">管理追蹤商品</a></li>
 					<li class="list-group-item"><a href="../Message/MsgHome.do">站內信</a></li>
-					<li class="list-group-item"><a href="../Friend/FriendHome.do">好友 / 黑名單</a></li>
+					<li class="list-group-item"><a href="../Friend/FriendHome.do">好友
+							/ 黑名單</a></li>
 					<c:if test="${LoginOK.idType==1}">
-						<li class="list-group-item"><a href="../ToBeFarmer/UpToFarmer.jsp">申請成為小農</a></li>
+						<li class="list-group-item"><a
+							href="../ToBeFarmer/UpToFarmer.jsp">申請成為小農</a></li>
 					</c:if>
 				</ul>
 			</div>
@@ -56,7 +59,8 @@
 							href="../BackStage/SelectAllQnaServlet">商品問與答</a></li>
 						<li class="list-group-item"><a
 							href="../BackStage/FarmerCheckJpServlet">審核合購</a></li>
-						<li class="list-group-item"><a href="#">管理小農資料</a></li>
+						<li class="list-group-item"><a
+							href="/TWFarmer/BackStage/FarmerInfo.jsp">管理小農資料</a></li>
 					</ul>
 				</div>
 			</div>
@@ -74,8 +78,10 @@
 				<div id="collapseThree" class="panel-collapse collapse"
 					role="tabpanel" aria-labelledby="headingThree">
 					<ul class="list-group">
-						<li class="list-group-item"><a href="../BackStage/SelectFarmerUpServlet">審核小農升級</a></li>
-						<li class="list-group-item"><a href="../BackStage/ShowAllViolation.do">處理違規</a></li>
+						<li class="list-group-item"><a
+							href="../BackStage/SelectFarmerUpServlet">審核小農升級</a></li>
+						<li class="list-group-item"><a
+							href="../BackStage/ShowAllViolation.do">處理違規</a></li>
 					</ul>
 				</div>
 			</div>
