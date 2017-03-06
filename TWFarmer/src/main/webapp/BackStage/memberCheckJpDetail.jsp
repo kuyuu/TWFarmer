@@ -42,6 +42,7 @@ html {
 					<div class="col-md-8">
 						<h3>${jpBean.jpName}</h3>
 						<p>${jpBean.jpIntro}</p>
+						<p>合購地區：${jpBean.jpLocation}</p>
 						<p>截止日期：${jpBean.endDate}</p>
 						<c:if test="${jpBean.jpStatusId==4103}">
 							<p>

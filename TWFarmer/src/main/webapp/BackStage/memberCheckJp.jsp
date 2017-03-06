@@ -82,7 +82,7 @@ html {
 										<tr>
 											<td>開始日期</td>
 											<td>結束日期</td>
-											<td>合購地點</td>
+											<td>合購地區</td>
 											<td>狀態</td>
 										</tr>
 										<tr>

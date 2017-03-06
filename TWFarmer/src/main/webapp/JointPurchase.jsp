@@ -35,6 +35,7 @@ html {
 
 .hr {
 	border-top: 1px solid gray;
+	margin-bottom: 20px;
 }
 </style>
 </head>
