@@ -61,7 +61,7 @@
 }
 
 * /
-	/* The dots/bullets/indicators */          
+	/* The dots/bullets/indicators */           
 	                                      
 .dot {
 	height: 13px;
@@ -160,111 +160,113 @@ html {
 					</div>
 				</div>
 				<ul class="preview-thumbnail nav nav-tabs">
-				<c:forEach items="${picList}" var="x">
-					
+					<c:forEach items="${picList}" var="x">
+
 						<li class="active"><a data-target="#pic<c:out value='${i}'/>"
-							data-toggle="tab"> <span style="height:'100px';"> <img src="img/${x.pictureName}" /></span></a></li>
-					
-				</c:forEach>
+							data-toggle="tab"> <span style="height: '100px';"> <img
+									src="img/${x.pictureName}" /></span></a></li>
+
+					</c:forEach>
 				</ul>
 			</div>
 
 
 
 			<!-- 							原始檔 -->
-<!-- 			<div class="ThisIsTheSlider"> -->
-<!-- 												<div class="text" -->
-<!-- 													style="color: #6133FF; font-weight: bold; font-size: 16px">୧༼✿ -->
-<!-- 													͡◕ д ◕͡ ༽୨商品皆為賣方提供，恕不代表本站立場୧༼✿ ͡◕ д ◕͡ ༽୨</div> -->
-<!-- 												<div class="text" style="color: #0F7C58; font-weight: bold">(q^-^)q貨比三家不吃虧下單前請先充分聯繫賣家 -->
-<!-- 													(p^-^)p</div> -->
-<%-- 				<c:forEach items="${picList}" var="x" varStatus="y"> --%>
-<!-- 					<div class="mySlides fadeAlt"> -->
-<%-- 						<center>
+			<!-- 			<div class="ThisIsTheSlider"> -->
+			<!-- 												<div class="text" -->
+			<!-- 													style="color: #6133FF; font-weight: bold; font-size: 16px">୧༼✿ -->
+			<!-- 													͡◕ д ◕͡ ༽୨商品皆為賣方提供，恕不代表本站立場୧༼✿ ͡◕ д ◕͡ ༽୨</div> -->
+			<!-- 												<div class="text" style="color: #0F7C58; font-weight: bold">(q^-^)q貨比三家不吃虧下單前請先充分聯繫賣家 -->
+			<!-- 													(p^-^)p</div> -->
+			<%-- 				<c:forEach items="${picList}" var="x" varStatus="y"> --%>
+			<!-- 					<div class="mySlides fadeAlt"> -->
+			<%-- 						<center>
 <%-- 										<div class="numbertext"></div> --%>
-<%-- 									</center> --%> 
-<%-- 						<img src="img/${x.pictureName}" style="width: 80%"> <br> --%>
-<%-- 						<div class="text">${x.pictureIntro}</div> --%>
+			<%-- 									</center> --%>
+			<%-- 						<img src="img/${x.pictureName}" style="width: 80%"> <br> --%>
+			<%-- 						<div class="text">${x.pictureIntro}</div> --%>
 
-<!-- 						<br> -->
-<!-- 					</div> -->
-<%-- 					<c:if test="${y.last}"> --%>
-<%-- 						<c:set var="count" value="${y.count}" /> --%>
-<%-- 					</c:if> --%>
-<%-- 				</c:forEach> --%>
-<!-- 				<div style="text-align: center"> -->
-<%-- 					<c:forEach begin="1" end="${count}"> --%>
-<!-- 						<span class="dot"></span> -->
-<%-- 					</c:forEach> --%>
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-		<div class="col-md-8">
-			<h1>${productBean.productName}</h1>
-			<p>${productBean.productIntro }</p>
-			<p>${productBean.price }元/${productBean.unit }</p>
-			<p>
-
-
-				<!-- 					<a -->
-				<%-- 						href="<c:url value="Order/NewOrderServlet?productId=${productBean.productId}&sellerId=${productBean.sellerId}" />" --%>
-				<!-- 						class="btn btn-default">購買商品</a> -->
-				<button type="button" class="btn btn-default" id="newOrder">購買商品</button>
-				<button type="button" class="btn btn-primary" id="newJp">發起合購</button>
-				<button type="button" class="btn btn-success">我想跟團</button>
+			<!-- 						<br> -->
+			<!-- 					</div> -->
+			<%-- 					<c:if test="${y.last}"> --%>
+			<%-- 						<c:set var="count" value="${y.count}" /> --%>
+			<%-- 					</c:if> --%>
+			<%-- 				</c:forEach> --%>
+			<!-- 				<div style="text-align: center"> -->
+			<%-- 					<c:forEach begin="1" end="${count}"> --%>
+			<!-- 						<span class="dot"></span> -->
+			<%-- 					</c:forEach> --%>
+			<!-- 				</div> -->
+			<!-- 			</div> -->
+			<!-- 		</div> -->
+			<div class="col-md-8">
+				<h1>${productBean.productName}</h1>
+				<p>${productBean.productIntro }</p>
+				<p>${productBean.price }元/${productBean.unit }</p>
+				<p>
 
 
-				<button type="button" class="btn btn-info" id="cart"
-					data-trigger="focus" data-placement="top" data-toggle="popover"
-					data-content="已加入購物車">加入購物車</button>
-				<button type="button" class="btn btn-warning" id="track">追蹤商品</button>
-				<a
-					href="Violation/violationForm.jsp?productId=${productBean.productId}"><button
-						type="button" class="btn btn-danger">檢舉商品</button></a>
-			</p>
-			<hr>
-			<form action="/TWFarmer/QnAInsertServlet"
-				style="margin: 10px"
-				method="POST">
-				<c:if test="${empty QnA}">
-					<h4>目前沒有問與答</h4>
-				</c:if>
-				<c:if test="${not empty QnA}">
-					<h3>問與答</h3>
-					<c:forEach var="row" items="${QnA}">
-						<div>
-							<%-- 									<p style="background: #DDDDDD">賣家提問:${row.qnAContent}</p> --%>
-							<%-- 									<p>　　${row.reQnA}</p> --%>
-							<table style="line-height: 35px; width: 620px">
-								<tr style="background: #FFDDAA">
-									<td style="width: 70%; font-size: 20px">買家提問：${row.qnAContent}</td>
-									<td style="width: 30%"><fmt:formatDate
-											value="${row.queryDate}" pattern="yyyy-MM-dd HH:mm" /></td>
-								</tr>
-								<tr>
-									<td style="width: 80%; font-size: 20px">回覆：${row.reQnA}</td>
-									<td style="width: 20%"><fmt:formatDate
-											value="${row.reDate}" pattern="yyyy-MM-dd HH:mm" /></td>
-								</tr>
-							</table>
-						</div>
-					</c:forEach>
-				</c:if>
-				<input type="hidden" name="memberId" value="${LoginOK.memberId}" />
-				<input type="hidden" name="productId" id="productId"
-					value="${productBean.productId}" />
-				<div class="form-group">
-					<label class="">我要發問</label>
-					<textarea id="QnA" name="QnA" class="form-control" rows="5"></textarea>
-					<h4>${errors.QnAerror}</h4>
-					<button type="submit" class="btn btn-default">送出</button>
-					<button type="button" class="btn btn-default" id="clearQnA"
-						onclick="ClearFields();">清除</button>
-				</div>
-			</form>
+					<!-- 					<a -->
+					<%-- 						href="<c:url value="Order/NewOrderServlet?productId=${productBean.productId}&sellerId=${productBean.sellerId}" />" --%>
+					<!-- 						class="btn btn-default">購買商品</a> -->
+					<button type="button" class="btn btn-default" id="newOrder">購買商品</button>
+					<button type="button" class="btn btn-primary" id="newJp">發起合購</button>
+					<button type="button" class="btn btn-success">我想跟團</button>
+
+
+					<button type="button" class="btn btn-info" id="cart"
+						data-trigger="focus" data-placement="top" data-toggle="popover"
+						data-content="已加入購物車">加入購物車</button>
+					<button type="button" class="btn btn-warning" id="track"
+						data-trigger="focus" data-placement="top" data-toggle="popover"
+						data-content="已追蹤商品">追蹤商品</button>
+					<a
+						href="Violation/violationForm.jsp?productId=${productBean.productId}"><button
+							type="button" class="btn btn-danger">檢舉商品</button></a>
+				</p>
+				<hr>
+				<form action="/TWFarmer/QnAInsertServlet" style="margin: 10px"
+					method="POST">
+					<c:if test="${empty QnA}">
+						<h4>目前沒有問與答</h4>
+					</c:if>
+					<c:if test="${not empty QnA}">
+						<h3>問與答</h3>
+						<c:forEach var="row" items="${QnA}">
+							<div>
+								<%-- 									<p style="background: #DDDDDD">賣家提問:${row.qnAContent}</p> --%>
+								<%-- 									<p>　　${row.reQnA}</p> --%>
+								<table style="line-height: 35px; width: 620px">
+									<tr style="background: #FFDDAA">
+										<td style="width: 70%; font-size: 20px">買家提問：${row.qnAContent}</td>
+										<td style="width: 30%"><fmt:formatDate
+												value="${row.queryDate}" pattern="yyyy-MM-dd HH:mm" /></td>
+									</tr>
+									<tr>
+										<td style="width: 80%; font-size: 20px">回覆：${row.reQnA}</td>
+										<td style="width: 20%"><fmt:formatDate
+												value="${row.reDate}" pattern="yyyy-MM-dd HH:mm" /></td>
+									</tr>
+								</table>
+							</div>
+						</c:forEach>
+					</c:if>
+					<input type="hidden" name="memberId" value="${LoginOK.memberId}" />
+					<input type="hidden" name="productId" id="productId"
+						value="${productBean.productId}" />
+					<div class="form-group">
+						<label class="">我要發問</label>
+						<textarea id="QnA" name="QnA" class="form-control" rows="5"></textarea>
+						<h4>${errors.QnAerror}</h4>
+						<button type="submit" class="btn btn-default">送出</button>
+						<button type="button" class="btn btn-default" id="clearQnA"
+							onclick="ClearFields();">清除</button>
+					</div>
+				</form>
+			</div>
+			<!-- 			</div> -->
 		</div>
-		<!-- 			</div> -->
-	</div>
 
 	</div>
 	<script src="js/jquery.min.js"></script>
@@ -347,7 +349,7 @@ html {
 						"productId" : $('#productId').val()
 					},
 					complete : function() {
-// 						alert('Add TrackProduct');
+						// 						alert('Add TrackProduct');
 					}
 				});
 			});
