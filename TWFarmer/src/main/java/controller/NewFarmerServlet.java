@@ -66,7 +66,7 @@ public class NewFarmerServlet extends HttpServlet {
 		}
 		
 		if(farmerIntro==null||farmerIntro.length()==0){
-			errors.put("farmerIntro", "賣場介紹必填，否則不予核准。");
+			errors.put("farmerIntro", "賣場介紹必填，否則不予核准");
 		}
 					
 		if(errors!=null && !errors.isEmpty()) {

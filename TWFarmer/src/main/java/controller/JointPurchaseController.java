@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import model.bean.F2FDetailBean;
 import model.bean.FarmerBean;
 import model.bean.JPDetailBean;
 import model.bean.JPFollowerDetailBean;
@@ -21,6 +22,7 @@ import model.bean.MemberBean;
 import model.bean.MsgBoardBean;
 import model.bean.ProductBean;
 import model.bean.ProductPicBean;
+import model.daojdbc.F2FDetailDAOjdbc;
 import model.daojdbc.FarmerDAOJdbc;
 import model.daojdbc.JPDetailDAOjdbc;
 import model.daojdbc.JPFollowerDetailDAOJdbc;
@@ -51,6 +53,8 @@ public class JointPurchaseController {
 	private JPFollowerDetailDAOJdbc jpfDetailDAO;
 	@Autowired
 	private MsgBoardDAOJdbc msgBoardDAO;
+	@Autowired
+	private F2FDetailDAOjdbc f2fDAO;
 
 	@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST })
 	public String doWork(HttpSession session, Integer jpId, Model model) {
@@ -98,6 +102,9 @@ public class JointPurchaseController {
 
 		List<MsgBoardBean> msgBoardList = msgBoardDAO.selectByJpId(jpId);
 		model.addAttribute("msgBoardList", msgBoardList);
+
+		List<F2FDetailBean> f2fList = f2fDAO.selectByJpId(jpId);
+		model.addAttribute("f2fList", f2fList);
 
 		return "JointPurchase";
 	}

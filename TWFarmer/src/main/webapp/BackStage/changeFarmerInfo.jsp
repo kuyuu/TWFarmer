@@ -1,24 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:if test="${empty LoginOK}">
-	<c:set var="target" value="/BackStage/ListOrderServlet"
+	<c:set var="target" value="${pageContext.request.servletPath}"
 		scope="session" />
 	<c:redirect url="../Login.jsp" />
 </c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="UTF-8">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>台灣小農</title>
-<!-- 以下兩個為date的link -->
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-<link rel="stylesheet" href="../css/jquery-ui-timepicker-addon.css">
-
-
 <!-- Favicon 網頁上小icon -->
 <link rel="shortcut icon" type="image/x-icon"
 	href="/TWFarmer/img/logo/TWFarmerLOGO-little.gif" />
@@ -28,42 +20,32 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
+
 html {
 	overflow-y: scroll;
 }
 </style>
-
-
 </head>
 <body>
-
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
 			<div class="col-md-3">
-				<jsp:include page="../BackStage/backstageMenu.jsp" />
+				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
-				<div class="jumbotron">
-					<form class="form-horizontal" action="UpdateForPaymentOfOrder"
-						method="POST">
-						<input type="hidden" name="orderId" value="${order.orderId}" />
-
-						<!-- 						<div class="form-group"> -->
-						<!-- 							<label for="remittanceBank" class="col-sm-3 control-label">匯款銀行</label> -->
-						<!-- 							<div class="col-sm-9"> -->
-						<!-- 								<input type="text" name="remittanceBank" class="form-control" /> -->
-						<!-- 							</div> -->
-						<!-- 						</div> -->
-
-
+				<div class="row jumbotron">
+					<center>
+						<h3>請修改需變更欄位</h3>
+					</center>
+					<form class="form-horizontal col-md-10" role="form"
+						action="/TWFarmer/BackStage/ChangeFarmerInfoServlet" method="put">
 						<div class="form-group">
-							<label for="remittanceBank" class="col-sm-3 control-label">銀行代碼</label>
-							<div class="col-sm-9">
-								 <select
-									class="form-control" name="remittanceBank">
+							<label for="bank" class="col-sm-2 control-label">銀行帳號</label>
+							<div class="col-sm-10">
+								<select class="form-control" name="bank" id="bank">
 									<option value="">請選擇銀行代碼</option>
 									<option value="004">004 - 臺灣銀行</option>
 									<option value="005">005 - 土地銀行</option>
@@ -166,32 +148,29 @@ html {
 									<option value="928">928 - 板橋農會</option>
 									<option value="951">951 - 北農中心</option>
 									<option value="954">954 - 中南部地區農漁會</option>
-								</select> 
-								<span style="color: #ff0000">${errors.bank}</span>
+								</select><span style="color: #ff0000">${errors.bank}</span>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="remittanceAcc" class="col-sm-3 control-label">匯款帳號後5碼</label>
-							<div class="col-sm-9">
-								<input type="text" name="remittanceAcc" class="form-control" />
+							<label for="inputBankAccount" class="col-sm-2 control-label">銀行密碼</label>
+							<div class="col-sm-10">
+								<input class="form-control" id="inputBankAccount" name="bankAccount"
+									value="${IsFarmer.bankAccount}"> <span
+									style="color: #ff0000">${errors.bankAccount}</span>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="remittance" class="col-sm-3 control-label">匯款金額</label>
-							<div class="col-sm-9">
-								<input type="text" name="remittance" class="form-control"  placeholder="${order.totalPrice+order.totalFreight}"/>
+							<label for="inputFarmerIntro" class="col-sm-2 control-label">農場描述</label>
+							<div class="col-sm-10">
+								<textarea class="form-control" rows="5" id="inputFarmerIntro"
+									name="farmerIntro">${IsFarmer.farmerIntro}</textarea>
+								<span style="color: #ff0000">${errors.farmerIntro}</span>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="remittanceDate" class="col-sm-3 control-label">匯款時間</label>
-							<div class="col-sm-9">
-								<input type="text" id="datepicker" name="remittanceDate"
-									class="form-control" />
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-offset-3 col-sm-9">
-								<button type="submit" class="btn btn-primary">匯款確認</button>
+							<div class="col-sm-offset-5 col-sm-10">
+								<button name="submit" class="btn btn-primary" value="change">送出修改</button>
+								<button name="submit" class="btn btn-danger" value="cancel">取消</button>
 							</div>
 						</div>
 					</form>
@@ -199,34 +178,19 @@ html {
 			</div>
 		</div>
 	</div>
-
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
 	<script src="../js/scripts.js"></script>
-	<script>
-		$(function() {
-			$("#collapseOne>ul>li:eq(1)").removeClass("list-group-item")
-					.addClass("list-group-item list-group-item-success")
-		})
-	</script>
-	<!-- 以下為datepicker -->
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script type="text/javascript"
-		src="../js/jquery-ui-timepicker-addon.js"></script>
 	<script>
 		$(function() {
-
-			$("#datepicker").datetimepicker({
-				dateFormat : "yy-mm-dd",
-				timeFormat : "HH:mm",
-			});
-
-			//$('#datepicker').timepicker({"timeFormat": "HH:mm"}); 
-		});
+			$("#collapseOne").removeClass("in")
+			$("#collapseTwo").addClass("in")
+			$("#collapseTwo>ul>li:eq(4)").addClass("list-group-item-info")
+			
+			$("#bank>option[value=${IsFarmer.bank}]").attr("selected","selected");
+		})
 	</script>
-
-
-
 </body>
 </html>

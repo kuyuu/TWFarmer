@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:if test="${empty LoginOK}">
+	<c:set var="target"
+		value="/Friend/SelectMember.do?account=${memberBean.account}"
+		scope="session" />
+	<c:redirect url="../Login.jsp" />
+</c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="UTF-8">
 <head>
@@ -16,7 +22,7 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
 
 html {
@@ -85,16 +91,30 @@ html {
 			$("#collapseOne>ul>li:eq(6)").addClass("list-group-item-success");
 
 			$('button[name="white"]').click(function() {
-				$.ajax({url:'AddFriend.do',type:"POST", data:{"whiteId" : "${memberBean.memberId}"}, complete:function(){
+				$.ajax({
+					url : 'AddFriend.do',
+					type : "POST",
+					data : {
+						"whiteId" : "${memberBean.memberId}"
+					},
+					complete : function() {
 						window.location = "FriendHome.do";
-				}});
+					}
+				});
 			});
 			$('button[name="black"]').click(function() {
-				$.ajax({url:'AddFriend.do',type:"POST", data:{"blackId" : "${memberBean.memberId}"}, complete:function(){
+				$.ajax({
+					url : 'AddFriend.do',
+					type : "POST",
+					data : {
+						"blackId" : "${memberBean.memberId}"
+					},
+					complete : function() {
 						window.location = "FriendHome.do";
-				}});
+					}
+				});
 			});
-			
+
 			if ("${friend}" == "0") {
 				$('button[name="white"]').attr("disabled", "disabled");
 			} else if ("${friend}" == "1") {

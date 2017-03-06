@@ -81,7 +81,7 @@ html {
 								</div>
 
 								<div class="form-group">
-									<label>購買金額:</label> ${order.totalPrice}
+									<label>購買金額:</label> ${order.totalPrice+order.totalFreight}
 								</div>
 							</div>
 							<div class="col-md-4">
