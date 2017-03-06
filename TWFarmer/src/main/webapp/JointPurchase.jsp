@@ -74,6 +74,8 @@ html {
 										aria-controls="home" role="tab" data-toggle="tab">合購資訊</a></li>
 									<li role="presentation"><a href="#profile"
 										aria-controls="profile" role="tab" data-toggle="tab">合購統計</a></li>
+									<li role="presentation"><a href="#profile2"
+										aria-controls="profile2" role="tab" data-toggle="tab">面交方式</a></li>
 								</ul>
 
 								<!-- Tab panes -->
@@ -120,6 +122,16 @@ html {
 												<td>${total}</td>
 											</tr>
 										</table>
+									</div>
+									<div role="tabpanel" class="tab-pane" id="profile2">
+										<br>
+										<c:forEach items="${f2fList}" var="x">
+											<p>
+												<fmt:formatDate value="${x.f2fTime}"
+													pattern="yyyy-MM-dd HH:mm" />
+												${x.f2fPlace}
+											</p>
+										</c:forEach>
 									</div>
 								</div>
 
