@@ -42,7 +42,13 @@ html {
 					<div class="col-md-8">
 						<h3>${jpBean.jpName}</h3>
 						<p>${jpBean.jpIntro}</p>
+						<p>合購地區：${jpBean.jpLocation}</p>
 						<p>截止日期：${jpBean.endDate}</p>
+						<c:if test="${jpBean.jpStatusId==4103}">
+							<p>
+								<button class="btn btn-primary" id="stop" value="${jpBean.jpId}">截止收人</button>
+							</p>
+						</c:if>
 					</div>
 					<table class="table table-bordered text-center">
 						<tr class="">
@@ -122,6 +128,25 @@ html {
 							function() {
 								window.location = "../Message/NewMessage.do?readerAccount="
 										+ $(this).val();
+							});
+			$('#stop')
+					.click(
+							function() {
+								alert('aaa')
+								$
+										.ajax({
+											url : 'StopJp.do',
+											type : 'POST',
+											data : {
+												'jpId' : $(this).val()
+											},
+											complete : function() {
+
+												window.location = 'MemberCheckJpDetailServlet?jpId='
+														+ $('#stop').val();
+											}
+										});
+
 							});
 		});
 	</script>

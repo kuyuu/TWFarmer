@@ -128,9 +128,9 @@ html {
 												pattern="yyyy/MM/dd HH:mm" /></td>
 										<td><a
 											href="ReadMessage.do?msgId=${x.msgId}&value=reader"><button
-													type="button" class="btn btn-primary" name="read${x.msgId}">讀取信件</button></a>
+													type="button" class="btn btn-primary" name="read${x.msgId}">讀取</button></a>
 											<button type="button" class="btn btn-danger"
-												name="readerDelete" value="${x.msgId}">刪除信件</button>
+												name="readerDelete" value="${x.msgId}">刪除</button>
 										</tr>
 
 									</c:forEach>
@@ -153,9 +153,9 @@ html {
 											<td><a
 												href="ReadMessage.do?msgId=${x.msgId}&value=writer"><button
 														type="button" class="btn btn-primary"
-														name="read${x.msgId}">讀取信件</button></a>
+														name="read${x.msgId}">讀取</button></a>
 												<button type="button" class="btn btn-danger"
-													name="writerDelete" value="${x.msgId}">刪除信件</button>
+													name="writerDelete" value="${x.msgId}">刪除</button>
 										</tr>
 
 									</c:forEach>

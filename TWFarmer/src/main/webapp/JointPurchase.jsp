@@ -35,6 +35,7 @@ html {
 
 .hr {
 	border-top: 1px solid gray;
+	margin-bottom: 20px;
 }
 </style>
 </head>
@@ -74,6 +75,8 @@ html {
 										aria-controls="home" role="tab" data-toggle="tab">合購資訊</a></li>
 									<li role="presentation"><a href="#profile"
 										aria-controls="profile" role="tab" data-toggle="tab">合購統計</a></li>
+									<li role="presentation"><a href="#profile2"
+										aria-controls="profile2" role="tab" data-toggle="tab">面交方式</a></li>
 								</ul>
 
 								<!-- Tab panes -->
@@ -121,6 +124,16 @@ html {
 											</tr>
 										</table>
 									</div>
+									<div role="tabpanel" class="tab-pane" id="profile2">
+										<br>
+										<c:forEach items="${f2fList}" var="x">
+											<p>
+												<fmt:formatDate value="${x.f2fTime}"
+													pattern="yyyy-MM-dd HH:mm" />
+												${x.f2fPlace}
+											</p>
+										</c:forEach>
+									</div>
 								</div>
 
 							</div>
@@ -151,7 +164,9 @@ html {
 						<h2 class="text-center">合購留言板</h2>
 						<div class="hr"></div>
 						<c:if test="${empty msgBoardList}">
-							<p>目前沒有人留言</p>
+							<div class="col-md-12">
+								<p>目前沒有人留言</p>
+							</div>
 						</c:if>
 						<c:forEach items="${msgBoardList}" var="x">
 							<div class="media">
@@ -189,9 +204,7 @@ html {
 								</c:when>
 								<c:otherwise>
 									<div class="col-md-12">
-										<div class="form-group">
-											<p>請先登入才可留言</p>
-										</div>
+										<p>請先登入才可留言</p>
 									</div>
 								</c:otherwise>
 							</c:choose>

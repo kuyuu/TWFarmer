@@ -41,9 +41,9 @@ html {
 	<jsp:include page="../common/menuJp.jsp" />
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="jumbotron">
-					<img src="../img/img/001.png" style="width: 100%" />
+			<div class="col-md-12 jumbotron">
+				<img src="../img/img/001.png" style="width: 100%" />
+				<div class="col-md-10 col-md-offset-1">
 					<h2>${fBean.name}(${fBean.account})</h2>
 					<p>${fBean.farmerIntro}</p>
 					<h2>設定欲合購之商品</h2>
@@ -158,123 +158,127 @@ html {
 								</div>
 							</div>
 						</c:forEach>
-
-
-
-
 						<c:if test="${not empty farmerProductMap}">
-							<h3>賣家的其他商品</h3>
-						</c:if>
-						<%-- 						<c:forEach var="row" items="${farmerProductMap}" varStatus="x"> --%>
-						<%-- 							<c:if test="${x.count%2!=0}"> --%>
-						<!-- 								<div class="row"> -->
-						<%-- 							</c:if> --%>
-						<!-- 							<div class="col-md-3"> -->
-						<!-- 								<div class="thumbnail" style="height: 400px"> -->
-						<%-- 									<img src="../img/${row.value[0].pictureName}" --%>
-						<!-- 										style="height: 50%"> -->
-						<!-- 									<div class="caption"> -->
-						<%-- 										<p>${row.key.productName}</p> --%>
-						<%-- 										<p>價格：${row.key.price}元/${row.key.unit}</p> --%>
-						<%-- 										<p>運費：${row.key.freight}元/${row.key.unit}</p> --%>
-						<!-- 									</div> -->
-						<!-- 								</div> -->
-						<!-- 							</div> -->
-						<!-- 							<div class="col-md-3"> -->
-						<!-- 								<div class="form-group"> -->
-						<!-- 									<label for="jpPrice" class="control-label">合購價格</label> <input -->
-						<%-- 										type="text" id="jpPrice${row.key.productId}" --%>
-						<%-- 										name="jpPrice${row.key.productId}" class="form-control" --%>
-						<%-- 										value="${row.key.price}"> --%>
-						<!-- 								</div> -->
-						<!-- 								<div class="form-group"> -->
-						<!-- 									<label for="jpFreight" class="control-label">單位運費</label> <input -->
-						<%-- 										type="text" id="jpFreight${row.key.productId}" --%>
-						<%-- 										name="jpFreight${row.key.productId}" class="form-control" --%>
-						<%-- 										value="${row.key.freight}"> --%>
-						<!-- 								</div> -->
-						<!-- 								<div class="form-group"> -->
-						<!-- 									<label for="jpPopulationMin" class="control-label">最小購買量</label> -->
-						<%-- 									<input type="text" id="jpPopulationMin${row.key.productId}" --%>
-						<%-- 										name="jpPopulationMin${row.key.productId}" --%>
-						<!-- 										class="form-control"> -->
-						<!-- 								</div> -->
-						<!-- 								<div class="form-group"> -->
-						<!-- 									<label for="jpPopulationMax" class="control-label">最大購買量</label> -->
-						<%-- 									<input type="text" id="jpPopulationMax${row.key.productId}" --%>
-						<%-- 										name="jpPopulationMax${row.key.productId}" --%>
-						<!-- 										class="form-control"> -->
-						<!-- 								</div> -->
-						<!-- 								<div class="form-group"> -->
-						<!-- 									<label for="jpUnit" class="control-label">合購單位</label> <select -->
-						<%-- 										class="form-control" id="jpUnit${row.key.productId}" --%>
-						<%-- 										name="jpUnit${row.key.productId}"> --%>
-						<!-- 										<option value="箱">箱</option> -->
-						<!-- 										<option value="顆">顆</option> -->
-						<!-- 										<option value="斤">斤</option> -->
-						<!-- 										<option value="公斤">公斤</option> -->
-						<%-- 									</select> <input type="hidden" value="${row.key.unit}" --%>
-						<%-- 										name="${row.key.productId}" /> --%>
-						<!-- 								</div> -->
-						<!-- 							</div> -->
-						<%-- 							<c:if test="${x.count%2==0}"> --%>
-						<!-- 				</div> -->
-						<%-- 				</c:if> --%>
-						<%-- 				<c:if test="${x.last  && x.count%2!=0}"> --%>
-						<!-- 			</div> -->
-						<%-- 			</c:if> --%>
-						<%-- 			</c:forEach> --%>
-
-						<c:forEach var="row" items="${farmerProductMap}" varStatus="x">
-							<div class="row product">
-								<div class="col-md-3">
-									<img src="../img/${row.value[0].pictureName}"
-										class="img-responsive img-thumbnail" />
-								</div>
-								<div class="col-md-3">
-									<p>${row.key.productName}</p>
-									<p>價格：${row.key.price}元/${row.key.unit}</p>
-									<p>運費：${row.key.freight}元/${row.key.unit}</p>
-								</div>
-								<div class="col-md-3">
-									<div class="form-group col-md-12">
-										<label for="jpPrice" class="control-label">合購價格</label> <input
-											type="text" id="jpPrice${row.key.productId}"
-											name="jpPrice${row.key.productId}" class="form-control"
-											value="${row.key.price}">
-									</div>
-									<div class="form-group col-md-12">
-										<label for="jpFreight" class="control-label">單位運費</label> <input
-											type="text" id="jpFreight${row.key.productId}"
-											name="jpFreight${row.key.productId}" class="form-control"
-											value="${row.key.freight}">
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="form-group col-md-12">
-										<label for="jpPopulationMin" class="control-label">預計合購數量</label>
-										<input type="text" id="jpPopulationMin${row.key.productId}"
-											name="jpPopulationMin${row.key.productId}"
-											class="form-control">
-									</div>
-
-									<div class="form-group col-md-12">
-										<label for="jpUnit" class="control-label">合購單位</label> <select
-											class="form-control" id="jpUnit${row.key.productId}"
-											name="jpUnit${row.key.productId}">
-											<option value="箱">箱</option>
-											<option value="顆">顆</option>
-											<option value="斤">斤</option>
-											<option value="公斤">公斤</option>
-										</select> <input type="hidden" value="${row.key.unit}"
-											name="${row.key.productId}" />
-									</div>
-								</div>
+							<div class="form-group">
+								<button class="btn btn-success" id="show" type="button">看賣家的其他商品</button>
 							</div>
-						</c:forEach>
+						</c:if>
 
+
+						<div class="hidden">
+							<c:if test="${not empty farmerProductMap}">
+								<h3>賣家的其他商品</h3>
+							</c:if>
+							<%-- 						<c:forEach var="row" items="${farmerProductMap}" varStatus="x"> --%>
+							<%-- 							<c:if test="${x.count%2!=0}"> --%>
+							<!-- 								<div class="row"> -->
+							<%-- 							</c:if> --%>
+							<!-- 							<div class="col-md-3"> -->
+							<!-- 								<div class="thumbnail" style="height: 400px"> -->
+							<%-- 									<img src="../img/${row.value[0].pictureName}" --%>
+							<!-- 										style="height: 50%"> -->
+							<!-- 									<div class="caption"> -->
+							<%-- 										<p>${row.key.productName}</p> --%>
+							<%-- 										<p>價格：${row.key.price}元/${row.key.unit}</p> --%>
+							<%-- 										<p>運費：${row.key.freight}元/${row.key.unit}</p> --%>
+							<!-- 									</div> -->
+							<!-- 								</div> -->
+							<!-- 							</div> -->
+							<!-- 							<div class="col-md-3"> -->
+							<!-- 								<div class="form-group"> -->
+							<!-- 									<label for="jpPrice" class="control-label">合購價格</label> <input -->
+							<%-- 										type="text" id="jpPrice${row.key.productId}" --%>
+							<%-- 										name="jpPrice${row.key.productId}" class="form-control" --%>
+							<%-- 										value="${row.key.price}"> --%>
+							<!-- 								</div> -->
+							<!-- 								<div class="form-group"> -->
+							<!-- 									<label for="jpFreight" class="control-label">單位運費</label> <input -->
+							<%-- 										type="text" id="jpFreight${row.key.productId}" --%>
+							<%-- 										name="jpFreight${row.key.productId}" class="form-control" --%>
+							<%-- 										value="${row.key.freight}"> --%>
+							<!-- 								</div> -->
+							<!-- 								<div class="form-group"> -->
+							<!-- 									<label for="jpPopulationMin" class="control-label">最小購買量</label> -->
+							<%-- 									<input type="text" id="jpPopulationMin${row.key.productId}" --%>
+							<%-- 										name="jpPopulationMin${row.key.productId}" --%>
+							<!-- 										class="form-control"> -->
+							<!-- 								</div> -->
+							<!-- 								<div class="form-group"> -->
+							<!-- 									<label for="jpPopulationMax" class="control-label">最大購買量</label> -->
+							<%-- 									<input type="text" id="jpPopulationMax${row.key.productId}" --%>
+							<%-- 										name="jpPopulationMax${row.key.productId}" --%>
+							<!-- 										class="form-control"> -->
+							<!-- 								</div> -->
+							<!-- 								<div class="form-group"> -->
+							<!-- 									<label for="jpUnit" class="control-label">合購單位</label> <select -->
+							<%-- 										class="form-control" id="jpUnit${row.key.productId}" --%>
+							<%-- 										name="jpUnit${row.key.productId}"> --%>
+							<!-- 										<option value="箱">箱</option> -->
+							<!-- 										<option value="顆">顆</option> -->
+							<!-- 										<option value="斤">斤</option> -->
+							<!-- 										<option value="公斤">公斤</option> -->
+							<%-- 									</select> <input type="hidden" value="${row.key.unit}" --%>
+							<%-- 										name="${row.key.productId}" /> --%>
+							<!-- 								</div> -->
+							<!-- 							</div> -->
+							<%-- 							<c:if test="${x.count%2==0}"> --%>
+							<!-- 				</div> -->
+							<%-- 				</c:if> --%>
+							<%-- 				<c:if test="${x.last  && x.count%2!=0}"> --%>
+							<!-- 			</div> -->
+							<%-- 			</c:if> --%>
+							<%-- 			</c:forEach> --%>
+
+							<c:forEach var="row" items="${farmerProductMap}" varStatus="x">
+								<div class="row product">
+									<div class="col-md-3">
+										<img src="../img/${row.value[0].pictureName}"
+											class="img-responsive img-thumbnail" />
+									</div>
+									<div class="col-md-3">
+										<p>${row.key.productName}</p>
+										<p>價格：${row.key.price}元/${row.key.unit}</p>
+										<p>運費：${row.key.freight}元/${row.key.unit}</p>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group col-md-12">
+											<label for="jpPrice" class="control-label">合購價格</label> <input
+												type="text" id="jpPrice${row.key.productId}"
+												name="jpPrice${row.key.productId}" class="form-control"
+												value="${row.key.price}">
+										</div>
+										<div class="form-group col-md-12">
+											<label for="jpFreight" class="control-label">單位運費</label> <input
+												type="text" id="jpFreight${row.key.productId}"
+												name="jpFreight${row.key.productId}" class="form-control"
+												value="${row.key.freight}">
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group col-md-12">
+											<label for="jpPopulationMin" class="control-label">預計合購數量</label>
+											<input type="text" id="jpPopulationMin${row.key.productId}"
+												name="jpPopulationMin${row.key.productId}"
+												class="form-control">
+										</div>
+
+										<div class="form-group col-md-12">
+											<label for="jpUnit" class="control-label">合購單位</label> <select
+												class="form-control" id="jpUnit${row.key.productId}"
+												name="jpUnit${row.key.productId}">
+												<option value="箱">箱</option>
+												<option value="顆">顆</option>
+												<option value="斤">斤</option>
+												<option value="公斤">公斤</option>
+											</select> <input type="hidden" value="${row.key.unit}"
+												name="${row.key.productId}" />
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+						</div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-default">送出</button>
+							<button type="submit" class="btn btn-primary">送出</button>
 						</div>
 					</form>
 				</div>
@@ -301,6 +305,12 @@ html {
 					}
 				}
 			}
+
+			$('#show').click(function() {
+
+				$('.hidden').removeClass('hidden');
+				$('#show').parent().remove();
+			});
 		});
 	</script>
 </body>
