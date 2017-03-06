@@ -179,7 +179,7 @@ html {
 						<c:forEach items="${msgBoardList}" var="x">
 							<div class="media">
 
-								<a class="media-left media-top" href="#"> <img
+								<a class="media-left media-top" href="Friend/SelectMember.do?account=${x.memberBean.account}"> <img
 									src="resources/uploadImages/${x.memberBean.memberPic}"
 									alt="..." width="50px">
 								</a>

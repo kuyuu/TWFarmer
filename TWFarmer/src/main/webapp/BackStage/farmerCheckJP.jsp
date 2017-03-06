@@ -101,7 +101,7 @@ html {
 		$(function() {
 			$('#collapseOne').removeClass("in");
 			$('#collapseTwo').addClass("in");
-			$("#collapseTwo>ul>li:eq(2)").addClass("list-group-item-info");
+			$("#collapseTwo>ul>li:eq(3)").addClass("list-group-item-info");
 		});
 	</script>
 </body>
