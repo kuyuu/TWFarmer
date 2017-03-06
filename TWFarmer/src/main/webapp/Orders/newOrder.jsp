@@ -3,17 +3,18 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
-<c:if test="${empty LoginOK}"> 
-   <c:set var="target" value="${pageContext.request.servletPath}" scope="session" />
-   <c:redirect url="../Login.jsp" />
+<c:if test="${empty LoginOK}">
+	<c:set var="target" value="${pageContext.request.servletPath}"
+		scope="session" />
+	<c:redirect url="../Login.jsp" />
 </c:if>
 
 <c:if test="${empty LoginOK}">
 	<c:set var="target"
-		value="/ProductServlet?productId=${productBean.productId}" 
+		value="/ProductServlet?productId=${productBean.productId}"
 		scope="session" /> --%>
-	<c:redirect url="../Login.jsp" />	
- </c:if>
+	<c:redirect url="../Login.jsp" />
+</c:if>
 
 
 
@@ -34,8 +35,9 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
+
 html {
 	overflow-y: scroll;
 }
@@ -48,6 +50,96 @@ html {
 <body>
 	<jsp:include page="../common/menuProduct.jsp" />
 	<div class="container">
+
+		<div class="col-sm-12 col-md-10 col-md-offset-1">
+			<form action="NewOrder.do" method="POST">
+				<input type="hidden" value="${farmerBean.memberId}" name="sellerId" />
+
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>商品名稱</th>
+							<th>數量</th>
+							<th class="text-center">價格</th>
+							<th class="text-center">小計</th>
+							<th> </th>
+						</tr>
+					</thead>
+					<tbody>
+
+						<c:forEach items="${cartProductMap}" var="x">
+
+							<tr>
+								<td class="col-sm-8 col-md-6">
+									<div class="media">
+										<a class="thumbnail pull-left" href="#" style="margin-right:3%;"> <img
+											class="media-object" src="../img/${x.value[0].pictureName}"
+											style="width: 100px; height: 72px;">
+										</a>
+										<div class="media-body">
+											<h4 class="media-heading">
+												<a href="#">${x.key.productName}</a>
+											</h4>
+											<h5 class="media-heading">
+												by ${farmerBean.memberBean.name}(${farmerBean.memberBean.account})</a>
+											</h5>
+											<span>商店名稱： </span><span class="text-success"><strong>${farmerBean.farmerIntro}</strong></span>
+										</div>
+									</div>
+								</td>
+								<td class="col-sm-1 col-md-1" style="text-align: center"><input
+									type="email" class="form-control" id="exampleInputEmail1"
+									value="3"></td>
+								<td class="col-sm-1 col-md-1 text-center"><strong>${x.key.price}/${x.key.unit}</strong></td>
+								<td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>
+								<td class="col-sm-1 col-md-1">
+									<button type="button" class="btn btn-danger">
+										<span class="glyphicon glyphicon-remove"></span> Remove
+									</button>
+								</td>
+							</tr>
+						</c:forEach>
+
+					</tbody>
+					<tfoot>
+						<tr>
+							<td> </td>
+							<td> </td>
+							<td> </td>
+							<td><h5>
+									合計：<br>運費：
+								</h5>
+								<h3>Total</h3></td>
+							<td class="text-right"><h5>
+									<strong>$24.59<br>${x.key.freight}/${x.key.unit}
+									</strong>
+								</h5>
+								<h3>$31.53</h3></td>
+						</tr>
+						<tr>
+							<td> </td>
+							<td> </td>
+							<td> </td>
+							<td>
+								<button type="button" class="btn btn-default">
+									<span class="glyphicon glyphicon-shopping-cart"></span>
+									Continue Shopping
+								</button>
+							</td>
+							<td>
+								<button type="button" class="btn btn-success">
+									Checkout <span class="glyphicon glyphicon-play"></span>
+								</button>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+		</div>
+
+
+
+		<!-- 	原始檔 -->
+
 		<div class="jumbotron">
 			${farmerBean.memberBean.name}(${farmerBean.memberBean.account})<br>${farmerBean.farmerIntro}
 			<form action="NewOrder.do" method="POST">
@@ -157,9 +249,9 @@ html {
 
 		});
 	</script>
-	
-	
-	
-	
+
+
+
+
 </body>
 </html>
