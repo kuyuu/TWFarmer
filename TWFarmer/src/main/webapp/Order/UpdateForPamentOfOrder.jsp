@@ -179,7 +179,7 @@ html {
 						<div class="form-group">
 							<label for="remittance" class="col-sm-3 control-label">匯款金額</label>
 							<div class="col-sm-9">
-								<input type="text" name="remittance" class="form-control"  placeholder="${order.totalPrice}"/>
+								<input type="text" name="remittance" class="form-control"  placeholder="${order.totalPrice+order.totalFreight}"/>
 							</div>
 						</div>
 						<div class="form-group">
