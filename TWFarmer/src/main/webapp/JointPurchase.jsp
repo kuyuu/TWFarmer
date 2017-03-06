@@ -145,8 +145,8 @@ html {
 						<c:forEach items="${jpdMap}" var="x">
 							<c:forEach items="${x.value}" var="y">
 								<a href="ProductServlet?productId=${y.key.productId}">
-									<div class="col-md-3">
-										<div class="thumbnail" style="height: 320px;">
+									<div class="col-md-4">
+										<div class="thumbnail" style="height: 280px;">
 											<img src="img/${y.value[0].pictureName}"
 												style="height: 120px; width: auto;" />
 											<div class="caption">
