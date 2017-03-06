@@ -21,7 +21,7 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
 
 html {
@@ -38,7 +38,7 @@ html {
 			</div>
 			<div class="col-md-9">
 				<div class="row jumbotron">
-					<div class="col-md-8" >
+					<div class="col-md-8">
 						<center>
 							<c:if test="${empty Memberbean}">
 								<h2>您的會員資料為：</h2>
@@ -94,10 +94,10 @@ html {
 										<h4>管理員</h4>
 									</c:if></td>
 							</tr>
-<!-- 							<tr> -->
-<!-- 								<td><h4>評價：</h4></td> -->
-<%-- 								<td><h4>${LoginOK.rating}</h4></td> --%>
-<!-- 							</tr> -->
+							<!-- 							<tr> -->
+							<!-- 								<td><h4>評價：</h4></td> -->
+							<%-- 								<td><h4>${LoginOK.rating}</h4></td> --%>
+							<!-- 							</tr> -->
 						</table>
 						<div class="form-group">
 							<div class="col-sm-offset-6 col-sm-10">
@@ -118,8 +118,15 @@ html {
 						<c:if test="${LoginOK.gender=='F'}">
 							<h5>小姐，您好</h5>
 						</c:if>
-						<img src="../resources/uploadImages/${LoginOK.memberPic}" class="img-thumbnail">
-						<input class='InputClass' type="file" name="picture" />
+						<img src="../resources/uploadImages/${LoginOK.memberPic}"
+							class="img-thumbnail">
+						<c:if test="${not empty ChangePic}">
+							<h5 style="color: #ff0000">照片修改成功</h5>
+						</c:if>
+						<center>
+							<a href="/TWFarmer/BackStage/changeMemberPic.jsp"><button
+									type="button" class="btn btn-success" value="cancel">修改照片</button></a>
+						</center>
 					</div>
 				</div>
 			</div>

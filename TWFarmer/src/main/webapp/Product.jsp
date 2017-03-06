@@ -160,13 +160,13 @@ html {
 					</div>
 				</div>
 				<ul class="preview-thumbnail nav nav-tabs">
-					<c:forEach items="${picList}" var="x">
-
-						<li class="active"><a data-target="#pic<c:out value='${i}'/>"
-							data-toggle="tab"> <span style="height: '100px';"> <img
-									src="img/${x.pictureName}" /></span></a></li>
-
-					</c:forEach>
+				<c:forEach items="${picList}" var="x">
+						<li class="active">
+<%-- 						<a data-target="#pic<c:out value='${i}'/>" data-toggle="tab">  --%>
+						<span style="height:'100px';"> <img src="img/${x.pictureName}" /></span>
+<!-- 						</a> -->
+						</li>
+				</c:forEach>
 				</ul>
 			</div>
 

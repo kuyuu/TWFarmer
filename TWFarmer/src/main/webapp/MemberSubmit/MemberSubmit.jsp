@@ -265,14 +265,14 @@ html {
 
 	<script type="text/javascript">
 		function insertfile() {
-			document.submitform.newaccount.value="eeit9115";
+			document.submitform.newaccount.value="mama99";
 			document.submitform.password.value="password";
-			document.submitform.name.value="劉昱岑";
+			document.submitform.name.value="馬英九";
 			document.submitform.phone.value="0987654321";
-			document.submitform.datepicker.value="1988-04-09";
-			document.submitform.gender[1].checked=true;
-			document.submitform.email.value="eeit9115@gmail.com";
-			document.submitform.idnumber.value="C223456789";
+			document.submitform.datepicker.value="1950-07-13";
+			document.submitform.gender[0].checked=true;
+			document.submitform.email.value="mama99@gmail.com";
+			document.submitform.idnumber.value="C123456789";
 			document.submitform.postalcode.value="206";
 			document.submitform.district.value="台北市大安區";
 			document.submitform.address.value="復興南路一段133號2樓";
