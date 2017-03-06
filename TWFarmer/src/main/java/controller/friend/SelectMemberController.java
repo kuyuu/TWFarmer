@@ -30,7 +30,7 @@ public class SelectMemberController {
 
 		Map<String, String> errors = new HashMap<String, String>();
 		model.addAttribute("errors", errors);
-		
+
 		if (account == null) {
 			errors.put("account", "請輸入帳號");
 		}
@@ -43,6 +43,10 @@ public class SelectMemberController {
 			return "Friend/FriendHome.do";
 		}
 		model.addAttribute("memberBean", bean);
+
+		if (mb == null) {
+			return "Friend/showMember";
+		}
 
 		FriendBean fBean = friendDAO.select(mb.getMemberId(), bean.getMemberId());
 		if (fBean != null) {

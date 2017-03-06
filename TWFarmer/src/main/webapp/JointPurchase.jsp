@@ -54,10 +54,18 @@ html {
 						<p>
 							小農：<img
 								src="resources/uploadImages/${fBean.memberBean.memberPic}"
-								height="40px" />${fBean.name}(${fBean.account})</p>
+								height="40px" /><a href="Friend/SelectMember.do?account=${fBean.account}">${fBean.name}(${fBean.account})</a><a
+								href="Message/NewMessage.do?readerAccount=${fBean.account}"
+								class="btn btn-primary"><span
+								class="glyphicon glyphicon-envelope"></span></a>
+						</p>
 						<p>
 							主購：<img src="resources/uploadImages/${mBean.memberPic}"
-								height="40px" />${mBean.name}(${mBean.account})</p>
+								height="40px" /><a href="Friend/SelectMember.do?account=${mBean.account}">${mBean.name}(${mBean.account})</a><a
+								href="Message/NewMessage.do?readerAccount=${mBean.account}"
+								class="btn btn-primary"><span
+								class="glyphicon glyphicon-envelope"></span></a>
+						</p>
 						<a href="JointPurchase/StarJpFollower.do?jpId=${jpBean.jpId}"><button
 								class="btn btn-primary" id="go" value="${jpBean.jpId}">我要跟團</button></a><br>
 						<br>
