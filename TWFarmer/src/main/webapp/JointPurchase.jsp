@@ -54,14 +54,16 @@ html {
 						<p>
 							小農：<img
 								src="resources/uploadImages/${fBean.memberBean.memberPic}"
-								height="40px" /><a href="Friend/SelectMember.do?account=${fBean.account}">${fBean.name}(${fBean.account})</a><a
+								height="40px" /><a
+								href="Friend/SelectMember.do?account=${fBean.account}">${fBean.name}(${fBean.account})</a><a
 								href="Message/NewMessage.do?readerAccount=${fBean.account}"
 								class="btn btn-primary"><span
 								class="glyphicon glyphicon-envelope"></span></a>
 						</p>
 						<p>
 							主購：<img src="resources/uploadImages/${mBean.memberPic}"
-								height="40px" /><a href="Friend/SelectMember.do?account=${mBean.account}">${mBean.name}(${mBean.account})</a><a
+								height="40px" /><a
+								href="Friend/SelectMember.do?account=${mBean.account}">${mBean.name}(${mBean.account})</a><a
 								href="Message/NewMessage.do?readerAccount=${mBean.account}"
 								class="btn btn-primary"><span
 								class="glyphicon glyphicon-envelope"></span></a>
@@ -133,14 +135,19 @@ html {
 										</table>
 									</div>
 									<div role="tabpanel" class="tab-pane" id="profile2">
-										<br>
-										<c:forEach items="${f2fList}" var="x">
-											<p>
-												<fmt:formatDate value="${x.f2fTime}"
-													pattern="yyyy-MM-dd HH:mm" />
-												${x.f2fPlace}
-											</p>
-										</c:forEach>
+										<table class="table">
+											<tr>
+												<td>面交時間</td>
+												<td>面交地點</td>
+											</tr>
+											<c:forEach items="${f2fList}" var="x">
+												<tr>
+													<td><fmt:formatDate value="${x.f2fTime}"
+															pattern="yyyy-MM-dd HH:mm" /></td>
+													<td>${x.f2fPlace}</td>
+												</tr>
+											</c:forEach>
+										</table>
 									</div>
 								</div>
 
@@ -179,8 +186,9 @@ html {
 						<c:forEach items="${msgBoardList}" var="x">
 							<div class="media">
 
-								<a class="media-left media-top" href="Friend/SelectMember.do?account=${x.memberBean.account}"> <img
-									src="resources/uploadImages/${x.memberBean.memberPic}"
+								<a class="media-left media-top"
+									href="Friend/SelectMember.do?account=${x.memberBean.account}">
+									<img src="resources/uploadImages/${x.memberBean.memberPic}"
 									alt="..." width="50px">
 								</a>
 								<div class="media-body">
