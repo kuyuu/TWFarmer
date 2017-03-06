@@ -164,7 +164,9 @@ html {
 						<h2 class="text-center">合購留言板</h2>
 						<div class="hr"></div>
 						<c:if test="${empty msgBoardList}">
-							<p>目前沒有人留言</p>
+							<div class="col-md-12">
+								<p>目前沒有人留言</p>
+							</div>
 						</c:if>
 						<c:forEach items="${msgBoardList}" var="x">
 							<div class="media">
@@ -202,9 +204,7 @@ html {
 								</c:when>
 								<c:otherwise>
 									<div class="col-md-12">
-										<div class="form-group">
-											<p>請先登入才可留言</p>
-										</div>
+										<p>請先登入才可留言</p>
 									</div>
 								</c:otherwise>
 							</c:choose>
