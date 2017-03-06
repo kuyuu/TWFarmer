@@ -58,21 +58,29 @@ html {
 			action="<c:url value="/PurchaseSelect/PurchaseSelect.controller" />"
 			method="get">
 			<div class="row">
-				<div class="col-md-3"></div>
+				<div class="col-md-1"></div>
 				<div class="container">
 					<div class="row">
-						<div class="col-md-9">
+						<div class="col-md-12">
 							<h3>合購搜尋</h3>
 							<h2></h2>
 							<div class="form-group">
 								<div class="col-md-11">
-									<input type="text" name="keyword" class="form-control" value="">
+									<input type="text" name="keyword" class="form-control" placeholder="請輸入關鍵字如橘子、大安區">
 								</div>
 								<div class="col-md-1">
 									<button type="submit" class="btn btn-default">搜尋</button>
 								</div>
 							</div>
-							<br> <br> <br>
+							<div class="col-md-10">
+								<div class="form-group">
+									<h4>或使用地區搜尋</h4>
+									<select name="district" value="" id="縣市1">
+									</select> <select name="district2" value="" id="鄉鎮市區1">
+									</select>
+								</div>
+							</div>
+							<br> <br> <br> <br> <br>
 							<c:if test="${not empty keyword}">
 								<div class="row jumbotron">
 									<c:forEach items="${keyword}" var="row">
@@ -81,7 +89,7 @@ html {
 												<div style="display: none">${row.jpId}</div>
 												<div class="col-md-3">
 													<img src="../img/${row.pictureName}"
-														class="img-responsive img-thumbnail" style="height: 120px"/>
+														class="img-responsive img-thumbnail" style="height: 120px" />
 												</div>
 												<div class="col-md-9">
 													<table class="table">
@@ -128,6 +136,18 @@ html {
 				$(this).removeClass('divOver');
 			});
 		});
+	</script>
+	<script src="../js/AddressSelectList.js"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			//當頁面載完之後，用AddressSeleclList.Initialize()，
+			//傳入要綁定的縣市下拉選單ID及鄉鎮市區下拉選單ID
+			AddressSeleclList.Initialize('縣市1', '鄉鎮市區1');
+		}
+		function show() {
+			//取出指定縣市及鄉鎮市區的下拉選單的值
+			alert(AddressSeleclList.ReturnSelectAddress('縣市1', '鄉鎮市區1'));
+		}
 	</script>
 </body>
 </html>
