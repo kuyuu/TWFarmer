@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -67,6 +68,7 @@ public class QnAInsertServlet extends HttpServlet {
 		bean.setProductId(productId);
 		bean.setQnAContent(qnA);
 		java.util.Date date = new java.util.Date();
+		TimeZone.setDefault(TimeZone.getTimeZone("GMT+8"));
 		bean.setQueryDate(date);;
 
 		if(bean != null){
