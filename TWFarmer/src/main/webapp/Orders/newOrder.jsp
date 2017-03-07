@@ -152,13 +152,15 @@ html {
 						<div class="col-md-3">
 							<img src="../img/${x.value[0].pictureName}" style="width: 100%" />
 						</div>
-						<div class="col-md-3">
-							<p>
-								商品名稱：${x.key.productName}<br>商品價格：${x.key.price}/${x.key.unit}<br>運費：${x.key.freight}/${x.key.unit}
-							</p>
+						<div class="col-md-3" >
+							<div  style="margin-top:50px">
+								<p>
+									商品名稱：${x.key.productName}<br>商品價格：${x.key.price}/${x.key.unit}<br>運費：${x.key.freight}/${x.key.unit}
+								</p>
+							</div>	
 						</div>
 						<div class="col-md-3">
-							<div class="form-group">
+							<div class="form-group" style="margin-top:50px">
 								<label for="count" class="control-label">購買數量</label> 
 								<input type="text" id="count" name="count" class="form-control"
 									value="0">
@@ -167,7 +169,7 @@ html {
 						</div>
 						<input type="hidden" value="${x.key.price+x.key.freight}" name="price" /> 
 						<input type="hidden" value="" name="price2" />
-						<div class="col-md-3">
+						<div class="col-md-3" style="margin-top:50px">
 							金額小計：
 							<div class="price"></div>
 						</div>

@@ -18,6 +18,11 @@
 		<property name="url" value="/Message/MsgHome.do"></property>
 	</bean>
 	
+	<bean id="BackStage/MemberCheckJpServlet"
+		class="org.springframework.web.servlet.view.InternalResourceView">
+		<property name="url" value="/BackStage/MemberCheckJpServlet"></property>
+	</bean>
+	
 	<bean id="Order/StarOrder.do"
 		class="org.springframework.web.servlet.view.InternalResourceView">
 		<property name="url" value="/Order/StarOrder.do"></property>
