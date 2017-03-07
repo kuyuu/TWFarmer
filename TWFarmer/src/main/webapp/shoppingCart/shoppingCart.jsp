@@ -45,8 +45,8 @@ html {
 							<c:forEach items="${x.value}" var="y">
 								<div class="row product">
 									<div class="col-md-4">
-										<img src="../img/${y.value[0].pictureName}"
-											class="img-responsive thumbnail" style="width: 100%" />
+										<a href="../ProductServlet?productId=${y.key.productId}"><img src="../img/${y.value[0].pictureName}"
+											class="img-responsive thumbnail" style="width: 100%" /></a>
 									</div>
 									<div class="col-md-8">
 										<h4>${y.key.productName}</h4>

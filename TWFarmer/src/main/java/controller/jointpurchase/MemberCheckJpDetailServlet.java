@@ -22,6 +22,7 @@ import model.daojdbc.JPFollowerDAOJdbc;
 import model.daojdbc.JPFollowerDetailDAOJdbc;
 import model.daojdbc.JointPurchaseDAOjdbc;
 import model.daojdbc.MemberDAOJdbc;
+import model.daojdbc.ProductDAOjdbc;
 
 @WebServlet("/BackStage/MemberCheckJpDetailServlet")
 public class MemberCheckJpDetailServlet extends HttpServlet {
@@ -38,7 +39,7 @@ public class MemberCheckJpDetailServlet extends HttpServlet {
 
 		JPFollowerDAOJdbc dao2 = new JPFollowerDAOJdbc();
 		List<JPFollowerBean> list2 = dao2.selectByJpId(jpId);
-		
+
 		request.setAttribute("list2", list2);
 
 		JPFollowerDetailDAOJdbc dao3 = new JPFollowerDetailDAOJdbc();
@@ -47,15 +48,21 @@ public class MemberCheckJpDetailServlet extends HttpServlet {
 
 		List<Integer> list4 = new ArrayList<>();
 		int i = 0;
-		for(int k = 0; k < list.size(); k++){
+		for (int k = 0; k < list.size(); k++) {
 			list4.add(0);
 		}
-
+		
 		for (JPFollowerBean bbb : list2) {
 			MemberBean mb = dao4.select(bbb.getMemberId());
 			List<Integer> list3 = new ArrayList<Integer>();
 			for (JPDetailBean aaa : list) {
-				int productId = aaa.getProductId();
+				int productId = 0;
+				productId = aaa.getProductId();
+//				System.out.println(productId);
+//				if (productId != 0) {
+//					System.out.println(productId);
+//					productId2 = productId;
+//				}
 				int jpFollowerId = bbb.getJPFollowerId();
 				JPFollowerDetailBean bean = dao3.select(jpFollowerId, productId);
 				if (bean != null) {
@@ -79,6 +86,10 @@ public class MemberCheckJpDetailServlet extends HttpServlet {
 		JointPurchaseDAOjdbc dao5 = new JointPurchaseDAOjdbc();
 		JointPurchaseBean bean = dao5.select(jpId);
 		request.setAttribute("jpBean", bean);
+		
+		ProductDAOjdbc pDAO = new ProductDAOjdbc();
+		MemberBean memberBean = dao4.select(pDAO.select(list.get(0).getProductId()).getSellerId());
+		request.setAttribute("memberBean", memberBean);
 
 		request.getRequestDispatcher("memberCheckJpDetail.jsp").forward(request, response);
 

@@ -35,6 +35,7 @@ html {
 
 .hr {
 	border-top: 1px solid gray;
+	margin-bottom: 20px;
 }
 </style>
 </head>
@@ -53,10 +54,20 @@ html {
 						<p>
 							小農：<img
 								src="resources/uploadImages/${fBean.memberBean.memberPic}"
-								height="40px" />${fBean.name}(${fBean.account})</p>
+								height="40px" /><a
+								href="Friend/SelectMember.do?account=${fBean.account}">${fBean.name}(${fBean.account})</a><a
+								href="Message/NewMessage.do?readerAccount=${fBean.account}"
+								class="btn btn-primary"><span
+								class="glyphicon glyphicon-envelope"></span></a>
+						</p>
 						<p>
 							主購：<img src="resources/uploadImages/${mBean.memberPic}"
-								height="40px" />${mBean.name}(${mBean.account})</p>
+								height="40px" /><a
+								href="Friend/SelectMember.do?account=${mBean.account}">${mBean.name}(${mBean.account})</a><a
+								href="Message/NewMessage.do?readerAccount=${mBean.account}"
+								class="btn btn-primary"><span
+								class="glyphicon glyphicon-envelope"></span></a>
+						</p>
 						<a href="JointPurchase/StarJpFollower.do?jpId=${jpBean.jpId}"><button
 								class="btn btn-primary" id="go" value="${jpBean.jpId}">我要跟團</button></a><br>
 						<br>
@@ -74,6 +85,8 @@ html {
 										aria-controls="home" role="tab" data-toggle="tab">合購資訊</a></li>
 									<li role="presentation"><a href="#profile"
 										aria-controls="profile" role="tab" data-toggle="tab">合購統計</a></li>
+									<li role="presentation"><a href="#profile2"
+										aria-controls="profile2" role="tab" data-toggle="tab">面交方式</a></li>
 								</ul>
 
 								<!-- Tab panes -->
@@ -121,6 +134,21 @@ html {
 											</tr>
 										</table>
 									</div>
+									<div role="tabpanel" class="tab-pane" id="profile2">
+										<table class="table">
+											<tr>
+												<td>面交時間</td>
+												<td>面交地點</td>
+											</tr>
+											<c:forEach items="${f2fList}" var="x">
+												<tr>
+													<td><fmt:formatDate value="${x.f2fTime}"
+															pattern="yyyy-MM-dd HH:mm" /></td>
+													<td>${x.f2fPlace}</td>
+												</tr>
+											</c:forEach>
+										</table>
+									</div>
 								</div>
 
 							</div>
@@ -132,8 +160,8 @@ html {
 						<c:forEach items="${jpdMap}" var="x">
 							<c:forEach items="${x.value}" var="y">
 								<a href="ProductServlet?productId=${y.key.productId}">
-									<div class="col-md-3">
-										<div class="thumbnail" style="height: 320px;">
+									<div class="col-md-4">
+										<div class="thumbnail" style="height: 280px;">
 											<img src="img/${y.value[0].pictureName}"
 												style="height: 120px; width: auto;" />
 											<div class="caption">
@@ -151,13 +179,16 @@ html {
 						<h2 class="text-center">合購留言板</h2>
 						<div class="hr"></div>
 						<c:if test="${empty msgBoardList}">
-							<p>目前沒有人留言</p>
+							<div class="col-md-12">
+								<p>目前沒有人留言</p>
+							</div>
 						</c:if>
 						<c:forEach items="${msgBoardList}" var="x">
 							<div class="media">
 
-								<a class="media-left media-top" href="#"> <img
-									src="resources/uploadImages/${x.memberBean.memberPic}"
+								<a class="media-left media-top"
+									href="Friend/SelectMember.do?account=${x.memberBean.account}">
+									<img src="resources/uploadImages/${x.memberBean.memberPic}"
 									alt="..." width="50px">
 								</a>
 								<div class="media-body">
@@ -189,9 +220,7 @@ html {
 								</c:when>
 								<c:otherwise>
 									<div class="col-md-12">
-										<div class="form-group">
-											<p>請先登入才可留言</p>
-										</div>
+										<p>請先登入才可留言</p>
 									</div>
 								</c:otherwise>
 							</c:choose>

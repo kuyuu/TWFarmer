@@ -14,6 +14,7 @@
 
 <link href="/TWFarmer/css/bootstrap.css" rel="stylesheet">
 <link href="/TWFarmer/css/style.css" rel="stylesheet">
+<link href="../css/jquery.datetimepicker.css" rel="stylesheet">
 <style>
 body {
 	padding-top: 70px;
@@ -86,14 +87,11 @@ html {
 	<script src="/TWFarmer/js/bootstrap.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script type="text/javascript"
-		src="../js/jquery-ui-timepicker-addon.js"></script>
+		src="../js/jquery.datetimepicker.full.js"></script>
 	<script>
 		$(function() {
-
-			$('input[name="f2fTime"]').datetimepicker({
-				dateFormat : "yy-mm-dd",
-				timeFormat : "HH:mm",
-			});
+			$.datetimepicker.setLocale('en');
+			$('input[name="f2fTime"]').datetimepicker();
 
 			//$('#datepicker').timepicker({"timeFormat": "HH:mm"}); 
 		});

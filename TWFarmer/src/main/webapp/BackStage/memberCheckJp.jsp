@@ -32,8 +32,20 @@ html {
 	height: 140px;
 	border-radius: 5px;
 }
-.jp:hover{
-	border: 2px solid black;
+/* .jp:hover{ */
+/* 	border: 2px solid black; */
+/* } */
+.divbox {
+	background: #ffffff;
+	border: solid 1px #ccc;
+}
+
+/*  滑入時變換底色樣式 */
+.divOver {
+	background: #EEFFBB;
+	border: solid 1px #d2dce3;
+	position: relative; /* 當滑鼠經過超連結時，超連結往上位移5像素 */
+	bottom: 5px;
 }
 </style>
 </head>
@@ -50,11 +62,11 @@ html {
 					<h2 class="text-center">管理開團</h2>
 					<c:if test="${not empty initJpList}">
 						<c:forEach items="${initJpList}" var="row">
-							<div class="row jp">
+							<div class="row jp divbox">
 								<div style="display: none">${row.jpId}</div>
 								<div class="col-md-3">
 									<img src="../img/${row.pictureName}"
-										class="img-responsive img-thumbnail" />
+										class="img-responsive img-thumbnail" style="height:120px" />
 								</div>
 								<div class="col-md-9">
 									<table class="table">
@@ -70,7 +82,7 @@ html {
 										<tr>
 											<td>開始日期</td>
 											<td>結束日期</td>
-											<td>合購地點</td>
+											<td>合購地區</td>
 											<td>狀態</td>
 										</tr>
 										<tr>
@@ -100,6 +112,13 @@ html {
 			$('.jp').click(function() {
 				var x = $(this).children(":first").text();
 				window.location = "MemberCheckJpDetailServlet?jpId=" + x;
+			});
+			//當滑鼠滑入時將div的class換成divOver
+			$('.divbox').hover(function() {
+				$(this).addClass('divOver');
+			}, function() {
+				//滑開時移除divOver樣式
+				$(this).removeClass('divOver');
 			});
 		});
 	</script>

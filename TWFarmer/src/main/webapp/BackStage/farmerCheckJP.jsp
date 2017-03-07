@@ -34,6 +34,7 @@ html {
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
+				<h2 class="text-center">審核合購</h2>
 					<h3>未審核合購</h3>
 					<c:if test="${not empty jpList}">
 						<table class="table table-bordered">
@@ -101,7 +102,7 @@ html {
 		$(function() {
 			$('#collapseOne').removeClass("in");
 			$('#collapseTwo').addClass("in");
-			$("#collapseTwo>ul>li:eq(2)").addClass("list-group-item-info");
+			$("#collapseTwo>ul>li:eq(3)").addClass("list-group-item-info");
 		});
 	</script>
 </body>

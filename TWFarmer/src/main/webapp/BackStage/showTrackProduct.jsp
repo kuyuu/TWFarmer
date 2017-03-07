@@ -16,8 +16,9 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
+
 html {
 	overflow-y: scroll;
 }
@@ -50,7 +51,10 @@ html {
 								<td>${x.productBean.price}/${x.productBean.unit}</td>
 								<td>${x.productBean.productStatusName}</td>
 								<td>${x.productBean.inventory}${x.productBean.unit}</td>
-								<td><button class="btn btn-danger">
+								<td><input type="hidden" value="${x.productId}"
+									name="productId" />
+									<button class="btn btn-danger" type="submit" name="delete"
+										value="${x.productId}">
 										<span class="glyphicon glyphicon-trash"></span>
 									</button></td>
 							</tr>
@@ -67,6 +71,21 @@ html {
 	<script>
 		$(function() {
 			$('#collapseOne>ul>li:eq(4)').addClass("list-group-item-success");
+
+			$('button[name="delete"]').click(function() {
+				var x = $(this)
+				$.ajax({
+					url : 'DeleteTrackProduct.do',
+					type : 'POST',
+					data : {
+						'productId' : $(this).val()
+					},
+					complete : function() {
+						x.parent().parent().remove();
+					}
+				});
+
+			});
 		});
 	</script>
 </body>

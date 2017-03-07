@@ -341,7 +341,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 
 	}
 
-	private static final String SELECT_JPID_BY_INITID = "SELECT * FROM JointPurchase WHERE InitID=?";
+	private static final String SELECT_JPID_BY_INITID = "SELECT * FROM JointPurchase WHERE InitID=? order by InitDate desc";
 
 	public List<JointPurchaseBean> selectByInitId(int initId) {
 		List<JointPurchaseBean> result = null;

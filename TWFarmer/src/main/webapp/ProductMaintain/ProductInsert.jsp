@@ -47,7 +47,7 @@ html {
 						<h2>新增商品資料</h2>
 						<br>
 						<form action="<c:url value="ProcessProductServlet" />"
-							method="POST" enctype="multipart/form-data">
+							method="POST" enctype="multipart/form-data" name="submitform">
 							<center>
 								<table>
 									<thead>
@@ -277,8 +277,12 @@ html {
 												<!-- 										<input type="submit" name="Submit" value="新增" /> -->
 												<input class="btn btn-default" type="submit" value="新增"
 												name="Submit">
+												<input class="btn btn-default" type="button" value="一鍵輸入"
+												name="Submit" onclick="insertfile();">
+												
 											</td>
 										</tr>
+										
 									</tbody>
 								</table>
 							</center>
@@ -353,6 +357,28 @@ html {
 			})
 
 		})
+	</script>
+	
+	<!-- 一鍵輸入 -->
+	<!-- document.[ form表單的name值  ].input標籤name值.value -->
+
+	<script type="text/javascript">
+		function insertfile() {
+			document.submitform.origin.value="高雄市左營區";
+			document.submitform.productName.value="皇宮菜";
+			document.submitform.inventory.value="50";
+			document.submitform.price.value="30";
+			document.submitform.unit[3].selected=true;
+			document.submitform.productTypeName[11].selected=true;
+			document.submitform.productIntro.value="皇宮菜性喜高溫，生育適溫為25∼30℃，耐熱、耐濕，對環境適應性強，全年均能生產。皇宮菜含有豐富的無機鹽和維生素，其中尤以胡蘿蔔素和維生素C及鈣最為豐富。涼拌、烹炒均可，如加蒜仁清炒，川燙後炒蝦仁，煮紅燒豆腐。";
+			document.submitform.freight.value="60";
+			document.submitform.datepicker.value="2017-03-10";
+			document.submitform.datepicker2.value="2017-10-31";
+			document.submitform.productStatusName[1].selected=true;
+			document.submitform.pictureIntro1.value="有機土壤栽種";
+			document.submitform.pictureIntro2.value="葉葉翠綠飽滿";
+
+		}
 	</script>
 </body>
 </html>

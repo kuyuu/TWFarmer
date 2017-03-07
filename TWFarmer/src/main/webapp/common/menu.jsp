@@ -19,7 +19,7 @@
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
 			<li><a href="/TWFarmer/ProductSelect/ProductSelectAllServlet">購買蔬果</a></li>
-			<li><a href="/TWFarmer/PurchaseSelect/PurchaseSelect.controller?keyword=">合購專區</a></li>
+			<li><a href="/TWFarmer/PurchaseSelect/PurchaseSelect.controller?keyword=&district=&district2=">合購專區</a></li>
 			<li><a href="/TWFarmer/shoppingCart/ShowShoppingCart.do">購物車</a></li>
 
 		</ul>
@@ -67,12 +67,12 @@
 				</ul>
 			</c:otherwise>
 		</c:choose>
-		<form class="navbar-form navbar-right" role="search">
-			<div class="form-group">
-				<input type="text" class="form-control">
-			</div>
-			<button type="submit" class="btn btn-default">搜尋</button>
-		</form>
+<!-- 		<form class="navbar-form navbar-right" role="search"> -->
+<!-- 			<div class="form-group"> -->
+<!-- 				<input type="text" class="form-control"> -->
+<!-- 			</div> -->
+<!-- 			<button type="submit" class="btn btn-default">搜尋</button> -->
+<!-- 		</form> -->
 	</div>
 </nav>
 <!-- </div> -->
