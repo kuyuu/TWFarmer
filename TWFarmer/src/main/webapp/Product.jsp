@@ -61,7 +61,7 @@
 }
 
 * /
-	/* The dots/bullets/indicators */           
+	/* The dots/bullets/indicators */             
 	                                      
 .dot {
 	height: 13px;
@@ -160,13 +160,13 @@ html {
 					</div>
 				</div>
 				<ul class="preview-thumbnail nav nav-tabs">
-				<c:forEach items="${picList}" var="x">
+					<c:forEach items="${picList}" var="x">
 						<li class="active">
-<%-- 						<a data-target="#pic<c:out value='${i}'/>" data-toggle="tab">  --%>
-						<span style="height:'100px';"> <img src="img/${x.pictureName}" /></span>
-<!-- 						</a> -->
+							<%-- 						<a data-target="#pic<c:out value='${i}'/>" data-toggle="tab">  --%>
+							<span style="height: '100px';"> <img
+								src="img/${x.pictureName}" /></span> <!-- 						</a> -->
 						</li>
-				</c:forEach>
+					</c:forEach>
 				</ul>
 			</div>
 
@@ -218,9 +218,19 @@ html {
 					<button type="button" class="btn btn-info" id="cart"
 						data-trigger="focus" data-placement="top" data-toggle="popover"
 						data-content="已加入購物車">加入購物車</button>
-					<button type="button" class="btn btn-warning" id="track"
-						data-trigger="focus" data-placement="top" data-toggle="popover"
-						data-content="已追蹤商品">追蹤商品</button>
+					<c:choose>
+						<c:when test="${not empty LoginOK}">
+							<button type="button" class="btn btn-warning" id="track"
+								data-trigger="focus" data-placement="top" data-toggle="popover"
+								data-content="已追蹤商品">追蹤商品</button>
+						</c:when>
+						<c:otherwise>
+							<button type="button" class="btn btn-warning" id="trackError"
+								data-trigger="focus" data-placement="top" data-toggle="popover"
+								data-content="請先登入">追蹤商品</button>
+						</c:otherwise>
+					</c:choose>
+
 					<a
 						href="Violation/violationForm.jsp?productId=${productBean.productId}"><button
 							type="button" class="btn btn-danger">檢舉商品</button></a>
