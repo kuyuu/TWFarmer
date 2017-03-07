@@ -33,100 +33,99 @@ html {
 			<img src="../img/img/003.png" style="width: 100%" />
 			<form action="F2F.do" method="POST">
 				<input type="hidden" value="${jpId}" name="jpId" />
-
-				<div class="form-group col-md-5 col-md-offset-1">
+				<div class="form-group col-md-3 col-md-offset-1">
 					<label for="f2fTime" class="control-label">面交時間</label> <input
 						type="text" name="f2fTime" class="form-control" />
 				</div>
-				<div class="form-group col-md-5">
+				<div class="form-group col-md-7">
 					<label for="f2fPlace" class="control-label">面交地點</label> <input
 						type="text" name="f2fPlace" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 col-md-offset-1 hidden">
+				<div class="form-group col-md-3 col-md-offset-1 hidden">
 					<label for="f2fTime" class="control-label">面交時間</label> <input
 						type="text" name="f2fTime" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 hidden">
+				<div class="form-group col-md-7 hidden">
 					<label for="f2fPlace" class="control-label">面交地點</label> <input
 						type="text" name="f2fPlace" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 col-md-offset-1  hidden">
+				<div class="form-group col-md-3 col-md-offset-1 hidden">
 					<label for="f2fTime" class="control-label">面交時間</label> <input
 						type="text" name="f2fTime" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 hidden">
+				<div class="form-group col-md-7 hidden">
 					<label for="f2fPlace" class="control-label">面交地點</label> <input
 						type="text" name="f2fPlace" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 col-md-offset-1  hidden">
+				<div class="form-group col-md-3 col-md-offset-1 hidden">
 					<label for="f2fTime" class="control-label">面交時間</label> <input
 						type="text" name="f2fTime" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 hidden">
+				<div class="form-group col-md-7 hidden">
 					<label for="f2fPlace" class="control-label">面交地點</label> <input
 						type="text" name="f2fPlace" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 col-md-offset-1 hidden">
+				<div class="form-group col-md-3 col-md-offset-1 hidden">
 					<label for="f2fTime" class="control-label">面交時間</label> <input
 						type="text" name="f2fTime" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 hidden">
+				<div class="form-group col-md-7 hidden">
 					<label for="f2fPlace" class="control-label">面交地點</label> <input
 						type="text" name="f2fPlace" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 col-md-offset-1 hidden">
+				<div class="form-group col-md-3 col-md-offset-1 hidden">
 					<label for="f2fTime" class="control-label">面交時間</label> <input
 						type="text" name="f2fTime" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 hidden">
+				<div class="form-group col-md-7 hidden">
 					<label for="f2fPlace" class="control-label">面交地點</label> <input
 						type="text" name="f2fPlace" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 col-md-offset-1 hidden">
+				<div class="form-group col-md-3 col-md-offset-1 hidden">
 					<label for="f2fTime" class="control-label">面交時間</label> <input
 						type="text" name="f2fTime" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 hidden">
+				<div class="form-group col-md-7 hidden">
 					<label for="f2fPlace" class="control-label">面交地點</label> <input
 						type="text" name="f2fPlace" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 col-md-offset-1 hidden">
+				<div class="form-group col-md-3 col-md-offset-1 hidden">
 					<label for="f2fTime" class="control-label">面交時間</label> <input
 						type="text" name="f2fTime" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 hidden">
+				<div class="form-group col-md-7 hidden">
 					<label for="f2fPlace" class="control-label">面交地點</label> <input
 						type="text" name="f2fPlace" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 col-md-offset-1 hidden">
+				<div class="form-group col-md-3 col-md-offset-1 hidden">
 					<label for="f2fTime" class="control-label">面交時間</label> <input
 						type="text" name="f2fTime" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 hidden">
+				<div class="form-group col-md-7 hidden">
 					<label for="f2fPlace" class="control-label">面交地點</label> <input
 						type="text" name="f2fPlace" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 col-md-offset-1 hidden">
+				<div class="form-group col-md-3 col-md-offset-1 hidden">
 					<label for="f2fTime" class="control-label">面交時間</label> <input
 						type="text" name="f2fTime" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 hidden">
+				<div class="form-group col-md-7 hidden">
 					<label for="f2fPlace" class="control-label">面交地點</label> <input
 						type="text" name="f2fPlace" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 col-md-offset-1 hidden">
+				<div class="form-group col-md-3 col-md-offset-1 hidden">
 					<label for="f2fTime" class="control-label">面交時間</label> <input
 						type="text" name="f2fTime" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 hidden">
+				<div class="form-group col-md-7 hidden">
 					<label for="f2fPlace" class="control-label">面交地點</label> <input
 						type="text" name="f2fPlace" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 col-md-offset-1 hidden">
+				<div class="form-group col-md-3 col-md-offset-1 hidden">
 					<label for="f2fTime" class="control-label">面交時間</label> <input
 						type="text" name="f2fTime" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 hidden">
+				<div class="form-group col-md-7 hidden">
 					<label for="f2fPlace" class="control-label">面交地點</label> <input
 						type="text" name="f2fPlace" class="form-control" />
 				</div>
