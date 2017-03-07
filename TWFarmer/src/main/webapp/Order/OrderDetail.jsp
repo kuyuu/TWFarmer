@@ -41,6 +41,8 @@ html {
 						style="font-weight: bold; color: #ff0000; margin: .67em 0; font-size: 2em;">訂購成功</div>
 
 					<form action="<c:url value="OrderDetailServlet"/>" method="get">
+					
+					
 
 						<div class="form-group">
 							<label>訂單流水號:</label> ${orderResult.orderId}

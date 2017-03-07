@@ -34,8 +34,8 @@ html {
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
-			<div class="col-md-4"></div>
-			<div class="col-md-4">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
 				<div style="padding: 5% 10% 10% 10%;">
 					<div
 						style="font-weight: bold; color: #ff0000; margin: .67em 0; font-size: 2em;">訂購成功</div>
@@ -53,33 +53,57 @@ html {
 						
 											
 						<div class="form-group">
-							<label>總金額(含運費):</label> ${orderBean.totalPrice}
+							<label>總金額(含運費):</label> ${orderBean.totalPrice+orderBean.totalFreight}
 						</div>
 						
 						
-						<c:forEach items="${orderDetailList}" var="x">
+						<table class="table">
+							<tr>
+								<td>產品名稱:</td>
+								<td>購買數量:</td>
+								<td>購買單位:</td>
+								<td>金額/每單位:</td>
+								<td>運費/每單位:</td>
+								
+							</tr>
+							<c:forEach items="${orderDetailList}" var="x">
+								<tr>
+									<td>${x.productBean.productName}</td>
+									<td>${x.orderQuantity}</td>
+									<td>${x.unit}</td>
+									<td>${x.unitPrice}</td>
+									<td>${x.unitFreight}</td>
+									
+								</tr>
+							</c:forEach>
+						</table>
 						
-						<div class="form-group">
-							<label>產品名稱:</label> ${x.productBean.productName}
-						</div>
 						
-						<div class="form-group">
-							<label>購買數量:</label> ${x.orderQuantity}
-						</div>
 						
-						<div class="form-group">
-							<label>購買單位:</label> ${x.unit}
-						</div>
 						
-						<div class="form-group">
-							<label>金額/每單位:</label> ${x.unitPrice}
-						</div>
+<%-- 						<c:forEach items="${orderDetailList}" var="x"> --%>
 						
-						<div class="form-group">
-							<label>運費/每單位:</label> ${x.unitFreight}
-						</div>
+<!-- 						<div class="form-group"> -->
+<%-- 							<label>產品名稱:</label> ${x.productBean.productName} --%>
+<!-- 						</div> -->
 						
-						</c:forEach>
+<!-- 						<div class="form-group"> -->
+<%-- 							<label>購買數量:</label> ${x.orderQuantity} --%>
+<!-- 						</div> -->
+						
+<!-- 						<div class="form-group"> -->
+<%-- 							<label>購買單位:</label> ${x.unit} --%>
+<!-- 						</div> -->
+						
+<!-- 						<div class="form-group"> -->
+<%-- 							<label>金額/每單位:</label> ${x.unitPrice} --%>
+<!-- 						</div> -->
+						
+<!-- 						<div class="form-group"> -->
+<%-- 							<label>運費/每單位:</label> ${x.unitFreight} --%>
+<!-- 						</div> -->
+						
+<%-- 						</c:forEach> --%>
 
 
 
@@ -95,7 +119,7 @@ html {
 
 				</div>
 			</div>
-			<div class="col-md-4"></div>
+			<div class="col-md-3"></div>
 		</div>
 	</div>
 	</div>
