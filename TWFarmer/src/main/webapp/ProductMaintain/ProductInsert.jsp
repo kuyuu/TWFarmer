@@ -367,7 +367,7 @@ html {
 		function insertfile() {
 // 			document.submitform.origin.value = "高雄市左營區";
 			$("#縣市1>option[value='高雄市']").attr("selected","selected");
-			$("#鄉鎮市區1").append($("<option></option>").text('左營區'));
+			$("#鄉鎮市區1").append($("<option></option>").text('813左營區'));
 			$('#鄉鎮市區1 option:last').attr('selected', true);
 			document.submitform.productName.value = "皇宮菜";
 			document.submitform.inventory.value = "50";

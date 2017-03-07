@@ -52,7 +52,11 @@ public class ProcessProductServlet extends HttpServlet {
 		ProductDiscountBean productDiscountBean = new ProductDiscountBean();
 
 		// 1.讀取使用者輸入的資料============================================
-		String origin = request.getParameter("origin");
+		//String origin = request.getParameter("origin");
+		//更改產地為下拉式選單
+		String temp9 = request.getParameter("district");
+		String temp10 = request.getParameter("district2");
+		
 		String productName = request.getParameter("productName");
 		String temp1 = request.getParameter("inventory");
 		String temp2 = request.getParameter("price");
@@ -95,8 +99,19 @@ public class ProcessProductServlet extends HttpServlet {
 		// errorMessage.put("sellerId", "賣家ID是必填欄位");
 		// }
 
-		if (origin == null || origin.trim().length() == 0) {
-			errorMessage.put("origin", "產地是必填欄位");
+//		if (origin == null || origin.trim().length() == 0) {
+//			errorMessage.put("origin", "產地是必填欄位");
+//		}
+		
+		String origin = null;
+		if (!temp10.equals("請選擇鄉鎮")){
+			try {
+				String district2 = temp10.substring(3);
+				origin = temp9 + district2 ;
+				System.out.println("temp9="+temp9+",district2="+district2);
+			} catch (Exception e) {
+				errorMessage.put("origin", "請選擇產地");
+			}
 		}
 
 		if (productName == null || productName.trim().length() == 0) {
