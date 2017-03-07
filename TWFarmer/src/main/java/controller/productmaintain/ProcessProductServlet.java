@@ -108,7 +108,6 @@ public class ProcessProductServlet extends HttpServlet {
 			try {
 				String district2 = temp10.substring(3);
 				origin = temp9 + district2 ;
-				System.out.println("temp9="+temp9+",district2="+district2);
 			} catch (Exception e) {
 				errorMessage.put("origin", "請選擇產地");
 			}
