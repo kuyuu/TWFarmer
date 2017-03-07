@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:if test="${empty LoginOK}">
-	<c:set var="target"
-		value="/BackStage/SelectAllProductMaintainServlet"
+	<c:set var="target" value="/BackStage/SelectAllProductMaintainServlet"
 		scope="session" />
 	<c:redirect url="../Login.jsp" />
-</c:if>	
+</c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
@@ -25,15 +24,16 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
+
 html {
 	overflow-y: scroll;
 }
 </style>
 </head>
 <body>
-	
+
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
@@ -70,9 +70,10 @@ html {
 										<tr height=60>
 											<td><strong>產地</strong></td>
 											<%-- value=${param.name屬性值} --%>
-											<td><input id='origin' name="origin"
-												value="${param.origin}" type="text" class="form-control">
-												<%-- ${ErrorMsg(Map的key).origin(put的name)} --%>
+											<td><select name="district" value="" id="縣市1">
+											</select> <select name="district2" value="" id="鄉鎮市區1">
+											</select> <!-- 											<input id='origin' name="origin" --> <%-- 												value="${param.origin}" type="text" class="form-control"> --%>
+												<%-- 												${ErrorMsg(Map的key).origin(put的name)} --%>
 												<div style="color: #FF0000; display: inline">${ErrorMsg.origin}</div>
 											</td>
 										</tr>
@@ -186,29 +187,29 @@ html {
 
 										<!-- 					</tr> -->
 
-<!-- 										<tr height=60> -->
-<!-- 											<td><strong>最小件數</strong></td> -->
-<!-- 											<td><input class="form-control" id='minThreshold' -->
-<%-- 												name="minThreshold" value="${param.minThreshold}" --%>
-<!-- 												type="text"> -->
-<%-- 												<div style="color: #FF0000; display: inline">${ErrorMsg.minThreshold}</div> --%>
-<!-- 										</tr> -->
+										<!-- 										<tr height=60> -->
+										<!-- 											<td><strong>最小件數</strong></td> -->
+										<!-- 											<td><input class="form-control" id='minThreshold' -->
+										<%-- 												name="minThreshold" value="${param.minThreshold}" --%>
+										<!-- 												type="text"> -->
+										<%-- 												<div style="color: #FF0000; display: inline">${ErrorMsg.minThreshold}</div> --%>
+										<!-- 										</tr> -->
 
-<!-- 										<tr height=60> -->
-<!-- 											<td><strong>最大件數</strong></td> -->
-<!-- 											<td><input class="form-control" id='maxThreshold' -->
-<%-- 												name="maxThreshold" value="${param.maxThreshold}" --%>
-<!-- 												type="text"> -->
-<%-- 												<div style="color: #FF0000; display: inline">${ErrorMsg.maxThreshold}</div> --%>
-<!-- 										</tr> -->
+										<!-- 										<tr height=60> -->
+										<!-- 											<td><strong>最大件數</strong></td> -->
+										<!-- 											<td><input class="form-control" id='maxThreshold' -->
+										<%-- 												name="maxThreshold" value="${param.maxThreshold}" --%>
+										<!-- 												type="text"> -->
+										<%-- 												<div style="color: #FF0000; display: inline">${ErrorMsg.maxThreshold}</div> --%>
+										<!-- 										</tr> -->
 
-<!-- 										<tr height=60> -->
-<!-- 											<td width=140><strong>折扣後價格</strong></td> -->
-<!-- 											<td><input class="form-control" id='discountPrice' -->
-<%-- 												name="discountPrice" value="${param.discountPrice}" --%>
-<!-- 												type="text"> -->
-<%-- 												<div style="color: #FF0000; display: inline">${ErrorMsg.discountPrice}</div> --%>
-<!-- 										</tr> -->
+										<!-- 										<tr height=60> -->
+										<!-- 											<td width=140><strong>折扣後價格</strong></td> -->
+										<!-- 											<td><input class="form-control" id='discountPrice' -->
+										<%-- 												name="discountPrice" value="${param.discountPrice}" --%>
+										<!-- 												type="text"> -->
+										<%-- 												<div style="color: #FF0000; display: inline">${ErrorMsg.discountPrice}</div> --%>
+										<!-- 										</tr> -->
 
 										<!-- 					<tr> -->
 										<!-- 						<td>商品圖片編號：<br>*商品資料填寫完會產生，無需填寫 -->
@@ -276,13 +277,13 @@ html {
 											<td height="100" colspan="2" align="center">
 												<!-- 										<input type="submit" name="Submit" value="新增" /> -->
 												<input class="btn btn-default" type="submit" value="新增"
-												name="Submit">
-												<input class="btn btn-default" type="button" value="一鍵輸入"
-												name="Submit" onclick="insertfile();">
-												
+												name="Submit"> <input class="btn btn-default"
+												type="button" value="一鍵輸入" name="Submit"
+												onclick="insertfile();">
+
 											</td>
 										</tr>
-										
+
 									</tbody>
 								</table>
 							</center>
@@ -299,7 +300,7 @@ html {
 	<script src="../js/scripts.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	
+
 	<script>
 		$(function() {
 			$("#collapseOne").removeClass("panel-collapse collapse in")
@@ -358,26 +359,36 @@ html {
 
 		})
 	</script>
-	
+
 	<!-- 一鍵輸入 -->
 	<!-- document.[ form表單的name值  ].input標籤name值.value -->
 
 	<script type="text/javascript">
 		function insertfile() {
-			document.submitform.origin.value="高雄市左營區";
-			document.submitform.productName.value="皇宮菜";
-			document.submitform.inventory.value="50";
-			document.submitform.price.value="30";
-			document.submitform.unit[3].selected=true;
-			document.submitform.productTypeName[11].selected=true;
-			document.submitform.productIntro.value="皇宮菜性喜高溫，生育適溫為25∼30℃，耐熱、耐濕，對環境適應性強，全年均能生產。皇宮菜含有豐富的無機鹽和維生素，其中尤以胡蘿蔔素和維生素C及鈣最為豐富。涼拌、烹炒均可，如加蒜仁清炒，川燙後炒蝦仁，煮紅燒豆腐。";
-			document.submitform.freight.value="60";
-			document.submitform.datepicker.value="2017-03-10";
-			document.submitform.datepicker2.value="2017-10-31";
-			document.submitform.productStatusName[1].selected=true;
-			document.submitform.pictureIntro1.value="有機土壤栽種";
-			document.submitform.pictureIntro2.value="葉葉翠綠飽滿";
-
+// 			document.submitform.origin.value = "高雄市左營區";
+			$("#縣市1>option[value='高雄市']").attr("selected","selected");
+			$("#鄉鎮市區1").append($("<option></option>").text('左營區'));
+			$('#鄉鎮市區1 option:last').attr('selected', true);
+			document.submitform.productName.value = "皇宮菜";
+			document.submitform.inventory.value = "50";
+			document.submitform.price.value = "30";
+			document.submitform.unit[3].selected = true;
+			document.submitform.productTypeName[11].selected = true;
+			document.submitform.productIntro.value = "皇宮菜性喜高溫，生育適溫為25∼30℃，耐熱、耐濕，對環境適應性強，全年均能生產。皇宮菜含有豐富的無機鹽和維生素，其中尤以胡蘿蔔素和維生素C及鈣最為豐富。涼拌、烹炒均可，如加蒜仁清炒，川燙後炒蝦仁，煮紅燒豆腐。";
+			document.submitform.freight.value = "60";
+			document.submitform.datepicker.value = "2017-03-10";
+			document.submitform.datepicker2.value = "2017-10-31";
+			document.submitform.productStatusName[1].selected = true;
+			document.submitform.pictureIntro1.value = "有機土壤栽種";
+			document.submitform.pictureIntro2.value = "葉葉翠綠飽滿";
+		}
+	</script>
+	<script src="../js/AddressSelectList.js"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			//當頁面載完之後，用AddressSeleclList.Initialize()，
+			//傳入要綁定的縣市下拉選單ID及鄉鎮市區下拉選單ID
+			AddressSeleclList.Initialize('縣市1', '鄉鎮市區1');
 		}
 	</script>
 </body>

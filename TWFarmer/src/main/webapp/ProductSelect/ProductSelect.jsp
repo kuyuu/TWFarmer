@@ -147,11 +147,11 @@ html {
 			</div>
 		</form>
 	</div>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/scripts.js"></script>
+	<!-- 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="/TWFarmer/js/bootstrap.js"></script>
 	<script>
 		$(function() {
 			$('[data-toggle="popover"]').popover();
@@ -161,8 +161,17 @@ html {
 					"productId" : $(this).val()
 				});
 			});
+		});
 
-			$("#keyword" ).autocomplete('/TWFarmer/ProductSelect/ProductSelect.controller');
+		$(function() {
+			var availableTags = [ '台中市', '新社區', '卑南鄉', '鹿野鄉', '台南市', '關廟區',
+					'柳營區', '宜蘭縣', '頭城鎮', '花蓮縣', '吉安鄉', '秀林鄉', '南投縣', '信義鄉',
+					'埔里鎮', '草屯鎮', '屏東縣', '高樹鄉', '苗栗縣', '大湖鄉', '南庄鄉', '桃園市',
+					'新屋區', '高雄市', '左營區', '雲林縣', '大埤鄉', '新竹縣', '峨眉鄉', '寶山鄉',
+					'嘉義縣', '太保市', '番路鄉', '彰化縣', '大村鄉' ];
+			$("#keyword").autocomplete({
+				source : availableTags
+			});
 		});
 
 		$(document).ready(
