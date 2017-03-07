@@ -14,6 +14,7 @@
 
 <link href="/TWFarmer/css/bootstrap.css" rel="stylesheet">
 <link href="/TWFarmer/css/style.css" rel="stylesheet">
+<link href="../css/jquery.datetimepicker.css" rel="stylesheet">
 <style>
 body {
 	padding-top: 70px;
@@ -29,9 +30,10 @@ html {
 	<jsp:include page="../common/menuJp.jsp" />
 	<div class="container">
 		<div class="jumbotron col-md-12">
-		<img src="../img/img/003.png" style="width:100%" />
+			<img src="../img/img/003.png" style="width: 100%" />
 			<form action="F2F.do" method="POST">
 				<input type="hidden" value="${jpId}" name="jpId" />
+
 				<div class="form-group col-md-5 col-md-offset-1">
 					<label for="f2fTime" class="control-label">面交時間</label> <input
 						type="text" name="f2fTime" class="form-control" />
@@ -40,43 +42,135 @@ html {
 					<label for="f2fPlace" class="control-label">面交地點</label> <input
 						type="text" name="f2fPlace" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 col-md-offset-1">
+				<div class="form-group col-md-5 col-md-offset-1 hidden">
 					<label for="f2fTime" class="control-label">面交時間</label> <input
 						type="text" name="f2fTime" class="form-control" />
 				</div>
-				<div class="form-group col-md-5">
+				<div class="form-group col-md-5 hidden">
 					<label for="f2fPlace" class="control-label">面交地點</label> <input
 						type="text" name="f2fPlace" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 col-md-offset-1">
+				<div class="form-group col-md-5 col-md-offset-1  hidden">
 					<label for="f2fTime" class="control-label">面交時間</label> <input
 						type="text" name="f2fTime" class="form-control" />
 				</div>
-				<div class="form-group col-md-5">
+				<div class="form-group col-md-5 hidden">
 					<label for="f2fPlace" class="control-label">面交地點</label> <input
 						type="text" name="f2fPlace" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 col-md-offset-1">
+				<div class="form-group col-md-5 col-md-offset-1  hidden">
 					<label for="f2fTime" class="control-label">面交時間</label> <input
 						type="text" name="f2fTime" class="form-control" />
 				</div>
-				<div class="form-group col-md-5">
+				<div class="form-group col-md-5 hidden">
 					<label for="f2fPlace" class="control-label">面交地點</label> <input
 						type="text" name="f2fPlace" class="form-control" />
 				</div>
-				<div class="form-group col-md-5 col-md-offset-1">
+				<div class="form-group col-md-5 col-md-offset-1 hidden">
 					<label for="f2fTime" class="control-label">面交時間</label> <input
 						type="text" name="f2fTime" class="form-control" />
 				</div>
-				<div class="form-group col-md-5">
+				<div class="form-group col-md-5 hidden">
 					<label for="f2fPlace" class="control-label">面交地點</label> <input
 						type="text" name="f2fPlace" class="form-control" />
 				</div>
-				<div class="col-md-1 col-md-offset-10">
+				<div class="form-group col-md-5 col-md-offset-1 hidden">
+					<label for="f2fTime" class="control-label">面交時間</label> <input
+						type="text" name="f2fTime" class="form-control" />
+				</div>
+				<div class="form-group col-md-5 hidden">
+					<label for="f2fPlace" class="control-label">面交地點</label> <input
+						type="text" name="f2fPlace" class="form-control" />
+				</div>
+				<div class="form-group col-md-5 col-md-offset-1 hidden">
+					<label for="f2fTime" class="control-label">面交時間</label> <input
+						type="text" name="f2fTime" class="form-control" />
+				</div>
+				<div class="form-group col-md-5 hidden">
+					<label for="f2fPlace" class="control-label">面交地點</label> <input
+						type="text" name="f2fPlace" class="form-control" />
+				</div>
+				<div class="form-group col-md-5 col-md-offset-1 hidden">
+					<label for="f2fTime" class="control-label">面交時間</label> <input
+						type="text" name="f2fTime" class="form-control" />
+				</div>
+				<div class="form-group col-md-5 hidden">
+					<label for="f2fPlace" class="control-label">面交地點</label> <input
+						type="text" name="f2fPlace" class="form-control" />
+				</div>
+				<div class="form-group col-md-5 col-md-offset-1 hidden">
+					<label for="f2fTime" class="control-label">面交時間</label> <input
+						type="text" name="f2fTime" class="form-control" />
+				</div>
+				<div class="form-group col-md-5 hidden">
+					<label for="f2fPlace" class="control-label">面交地點</label> <input
+						type="text" name="f2fPlace" class="form-control" />
+				</div>
+				<div class="form-group col-md-5 col-md-offset-1 hidden">
+					<label for="f2fTime" class="control-label">面交時間</label> <input
+						type="text" name="f2fTime" class="form-control" />
+				</div>
+				<div class="form-group col-md-5 hidden">
+					<label for="f2fPlace" class="control-label">面交地點</label> <input
+						type="text" name="f2fPlace" class="form-control" />
+				</div>
+				<div class="form-group col-md-5 col-md-offset-1 hidden">
+					<label for="f2fTime" class="control-label">面交時間</label> <input
+						type="text" name="f2fTime" class="form-control" />
+				</div>
+				<div class="form-group col-md-5 hidden">
+					<label for="f2fPlace" class="control-label">面交地點</label> <input
+						type="text" name="f2fPlace" class="form-control" />
+				</div>
+				<div class="form-group col-md-5 col-md-offset-1 hidden">
+					<label for="f2fTime" class="control-label">面交時間</label> <input
+						type="text" name="f2fTime" class="form-control" />
+				</div>
+				<div class="form-group col-md-5 hidden">
+					<label for="f2fPlace" class="control-label">面交地點</label> <input
+						type="text" name="f2fPlace" class="form-control" />
+				</div>
+				<div class="col-md-10 col-md-offset-1">
 					<div class="form-group">
-						<button type="submit" class="btn btn-default">送出</button>
+						<button class="btn btn-success" type="button" id="buttonAdd">增加輸入框</button>
+						<button type="submit" class="btn btn-primary">送出</button>
 					</div>
 				</div>
+				<!-- 				<div class="form-group col-md-5 col-md-offset-1"> -->
+				<!-- 					<label for="f2fTime" class="control-label">面交時間</label> <input -->
+				<!-- 						type="text" name="f2fTime" class="form-control" /> -->
+				<!-- 				</div> -->
+				<!-- 				<div class="form-group col-md-5"> -->
+				<!-- 					<label for="f2fPlace" class="control-label">面交地點</label> <input -->
+				<!-- 						type="text" name="f2fPlace" class="form-control" /> -->
+				<!-- 				</div> -->
+				<!-- 				<div class="form-group col-md-5 col-md-offset-1"> -->
+				<!-- 					<label for="f2fTime" class="control-label">面交時間</label> <input -->
+				<!-- 						type="text" name="f2fTime" class="form-control" /> -->
+				<!-- 				</div> -->
+				<!-- 				<div class="form-group col-md-5"> -->
+				<!-- 					<label for="f2fPlace" class="control-label">面交地點</label> <input -->
+				<!-- 						type="text" name="f2fPlace" class="form-control" /> -->
+				<!-- 				</div> -->
+				<!-- 				<div class="form-group col-md-5 col-md-offset-1"> -->
+				<!-- 					<label for="f2fTime" class="control-label">面交時間</label> <input -->
+				<!-- 						type="text" name="f2fTime" class="form-control" /> -->
+				<!-- 				</div> -->
+				<!-- 				<div class="form-group col-md-5"> -->
+				<!-- 					<label for="f2fPlace" class="control-label">面交地點</label> <input -->
+				<!-- 						type="text" name="f2fPlace" class="form-control" /> -->
+				<!-- 				</div> -->
+				<!-- 				<div class="form-group col-md-5 col-md-offset-1"> -->
+				<!-- 					<label for="f2fTime" class="control-label">面交時間</label> <input -->
+				<!-- 						type="text" name="f2fTime" class="form-control" /> -->
+				<!-- 				</div> -->
+				<!-- 				<div class="form-group col-md-5"> -->
+				<!-- 					<label for="f2fPlace" class="control-label">面交地點</label> <input -->
+				<!-- 						type="text" name="f2fPlace" class="form-control" /> -->
+				<!-- 				</div> -->
+				<!-- 				<div class="col-md-1 col-md-offset-10"> -->
+				<!-- 					<div class="form-group"></div> -->
+				<!-- 				</div> -->
 			</form>
 		</div>
 	</div>
@@ -86,16 +180,23 @@ html {
 	<script src="/TWFarmer/js/bootstrap.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script type="text/javascript"
-		src="../js/jquery-ui-timepicker-addon.js"></script>
+		src="../js/jquery.datetimepicker.full.js"></script>
 	<script>
 		$(function() {
-
-			$('input[name="f2fTime"]').datetimepicker({
-				dateFormat : "yy-mm-dd",
-				timeFormat : "HH:mm",
-			});
+			$.datetimepicker.setLocale('en');
+			$('input[name="f2fTime"]').datetimepicker();
 
 			//$('#datepicker').timepicker({"timeFormat": "HH:mm"}); 
+			$('#buttonAdd').click(function() {
+				var count = 0;
+				$('.hidden').each(function() {
+					$(this).removeClass('hidden');
+					count++;
+					if (count % 2 == 0) {
+						return false;
+					}
+				});
+			});
 		});
 	</script>
 </body>

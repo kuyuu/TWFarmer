@@ -159,14 +159,14 @@ html {
 						</div>
 						<div class="col-md-3">
 							<div class="form-group">
-								<label for="count" class="control-label">購買數量</label> <input
-									type="text" id="count" name="count" class="form-control"
-									value="0"><input type="hidden"
-									value="${x.key.productId}" name="productId" />
+								<label for="count" class="control-label">購買數量</label> 
+								<input type="text" id="count" name="count" class="form-control"
+									value="0">
+								<input type="hidden"value="${x.key.productId}" name="productId" />
 							</div>
 						</div>
-						<input type="hidden" value="${x.key.price}" name="price" /> <input
-							type="hidden" value="" name="price2" />
+						<input type="hidden" value="${x.key.price+x.key.freight}" name="price" /> 
+						<input type="hidden" value="" name="price2" />
 						<div class="col-md-3">
 							金額小計：
 							<div class="price"></div>
@@ -234,13 +234,16 @@ html {
 			$('input[name="count"]').change(
 					function() {
 						var price = $(this).parent().parent().next().val();
+						console.log(price);
 						var price2 = $(this).parent().parent().next().next();
+						console.log(price2);
 						var count = $(this).val();
+						console.log(count);
 						var mult = price * count;
 						$(this).parent().parent().next().next().next().html(
 								'金額小計：<br>' + mult);
 						price2.val(mult);
-
+						console.log(price2.val());
 						var tp = 0;
 						$('input[name="price2"]').each(function() {
 							tp = tp + Number($(this).val());

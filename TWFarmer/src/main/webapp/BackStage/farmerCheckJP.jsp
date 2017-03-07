@@ -34,6 +34,7 @@ html {
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
+				<h2 class="text-center">審核合購</h2>
 					<h3>未審核合購</h3>
 					<c:if test="${not empty jpList}">
 						<table class="table table-bordered">
