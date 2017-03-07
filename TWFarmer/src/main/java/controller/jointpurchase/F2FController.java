@@ -37,7 +37,7 @@ public class F2FController {
 			}
 		}
 
-		return "JointPurchase/success";
+		return "BackStage/MemberCheckJpServlet";
 
 	}
 
