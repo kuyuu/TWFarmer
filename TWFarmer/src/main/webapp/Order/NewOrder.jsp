@@ -48,15 +48,15 @@ body {
 html {
 	overflow-y: scroll;
 }
-
-#backPic{
-  position:fixed;
-  top:0;
-  z-index: -1;
-  opacity: 0.4;
-  height:100%;
-  width: 100%;
- }
+/* 加入背景定義 */
+/* #backPic{ */
+/*   position:fixed; */
+/*   top:0; */
+/*   z-index: -1; */
+/*   opacity: 0.4; */
+/*   height:100%; */
+/*   width: 100%; */
+/*  } */
 
 
 </style>
@@ -64,8 +64,8 @@ html {
 
 </head>
 <body>
-
-<img src="../img/bg/demobg3.jpg" id="backPic">
+<!-- 加入背景 -->
+<!-- <img src="../img/bg/demobg3.jpg" id="backPic"> -->
 
 	<!-- 上方選單start -->
 	<div class="container">
