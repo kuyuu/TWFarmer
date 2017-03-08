@@ -37,24 +37,24 @@ html {
 					<h2 style="color: red; font-weight: 400; font-size: 40px;">申請完成</h2>
 					<h3>以下是${memberBean.name}的申請資料</h3>
 				</center>
-				<div class="col-md-2"></div>
-				<div class="col-md-10">
+				<div class="col-md-1"></div>
+				<div class="col-md-11">
 					<table>
 						<tr>
 							<td width="100px"><h4>農民證號：</h4></td>
-							<td><h4>${IsFarmer.farmerId}</h4></td>
+							<td><h4>${farmerBean.farmerId}</h4></td>
 						</tr>
 						<tr>
 							<td width="100px"><h4>銀行代碼：</h4></td>
-							<td><h4>${IsFarmer.bank}</h4></td>
+							<td><h4>${farmerBean.bank}</h4></td>
 						</tr>
 						<tr>
 							<td width="100px"><h4>銀行帳號：</h4></td>
-							<td><h4>${IsFarmer.bankAccount}</h4></td>
+							<td><h4>${farmerBean.bankAccount}</h4></td>
 						</tr>
 						<tr>
 							<td width="100px"><h4>農場描述：</h4></td>
-							<td><h4>${IsFarmer.farmerIntro}</h4></td>
+							<td><h4>${farmerBean.farmerIntro}</h4></td>
 						</tr>
 						<tr height="30px">
 						</tr>
