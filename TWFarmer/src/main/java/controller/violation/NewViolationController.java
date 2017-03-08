@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
@@ -47,6 +48,7 @@ public class NewViolationController {
 		vb.setVioContent(vioContent);
 		vb.setTicketStatue(0);
 		Date date = new Date();
+		TimeZone.setDefault(TimeZone.getTimeZone("GMT+8"));
 		vb.setCreateDate(date);
 		violationDAO.insert(vb);
 		session.removeAttribute("reportedId");
