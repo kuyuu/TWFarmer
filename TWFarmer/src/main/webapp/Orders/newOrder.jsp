@@ -283,21 +283,14 @@ html {
 					});
 			$('input[name="count"]').change(function() {
 				var price = $(this).next().val();
-				// 						console.log(price);
 				var price2 = $(this).next().next();
-				// 						console.log(price2);
 				var count = $(this).val();
-// 				console.log(count);
 				var mult = price * count;
-// 				console.log($(this).parent().next());
 				$(this).parent().next().html(mult);
 				price2.val(mult);
-// 				console.log($('input[name="price2"]'));
 				var tp = 0;
 				$('input[name="price2"]').each(function() {
-					console.log($(this));
 					tp = tp + Number($(this).val());
-// 					console.log(tp);
 				});
 
 				$('#totalPrice').html(tp);
