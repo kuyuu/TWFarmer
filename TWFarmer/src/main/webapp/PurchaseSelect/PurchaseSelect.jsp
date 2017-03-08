@@ -95,8 +95,8 @@ html {
 													<table class="table">
 														<thead>
 															<tr>
-																<td colspan="2">${row.jpName}</td>
-																<td>主購：${row.memberBean.name}(${row.memberBean.account})</td>
+																<td colspan="2" width="65%">${row.jpName}</td>
+																<td width="35%">主購：${row.memberBean.name}(${row.memberBean.account})</td>
 															</tr>
 														</thead>
 														<tr>

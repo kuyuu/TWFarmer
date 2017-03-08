@@ -47,16 +47,13 @@ html {
 									id="cutimg" /> <input type="hidden" id="x" name="x" /> <input
 									type="hidden" id="y" name="y" /> <input type="hidden" id="w"
 									name="w" /> <input type="hidden" id="h" name="h" />
-								<div class="jumbotron" style="margin: 5% auto;">
-
-
-									<div id="preview-pane" class="location">
-										<div class="preview-container">
-											<img src="" class="jcrop-preview" alt="預覽">
-										</div>
-									</div>
-								</div>
-
+<!-- 								<div class="jumbotron" style="margin: 5% auto;"> -->
+<!-- 									<div id="preview-pane" class="location"> -->
+<!-- 										<div class="preview-container"> -->
+<!-- 											<img src="" class="jcrop-preview" alt="預覽"> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
 								<input type="hidden" value="${memberBean.memberId}"
 									name="memberId" />
 							</div>
