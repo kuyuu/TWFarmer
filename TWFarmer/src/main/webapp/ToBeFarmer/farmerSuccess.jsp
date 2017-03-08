@@ -34,19 +34,34 @@ html {
 		<div class="col-md-8">
 			<div class="row jumbotron">
 				<center>
-					<h2 style="color: blue; font-weight: 600; font-size: 50px;">申請完成</h2>
+					<h2 style="color: red; font-weight: 400; font-size: 40px;">申請完成</h2>
 					<h3>以下是${memberBean.name}的申請資料</h3>
 				</center>
 				<div class="col-md-2"></div>
 				<div class="col-md-10">
-					<h3>農民證號:${farmerBean.farmerId}</h3>
-					<h3>銀行代碼:${farmerBean.bank}</h3>
-					<h3>銀行帳號:${farmerBean.bankAccount}</h3>
-					<h3>賣場介紹:${farmerBean.farmerIntro}</h3>
-					<br> <br>
+					<table>
+						<tr>
+							<td width="100px"><h4>農民證號：</h4></td>
+							<td><h4>${IsFarmer.farmerId}</h4></td>
+						</tr>
+						<tr>
+							<td width="100px"><h4>銀行代碼：</h4></td>
+							<td><h4>${IsFarmer.bank}</h4></td>
+						</tr>
+						<tr>
+							<td width="100px"><h4>銀行帳號：</h4></td>
+							<td><h4>${IsFarmer.bankAccount}</h4></td>
+						</tr>
+						<tr>
+							<td width="100px"><h4>農場描述：</h4></td>
+							<td><h4>${IsFarmer.farmerIntro}</h4></td>
+						</tr>
+						<tr height="30px">
+						</tr>
+					</table>
 				</div>
 				<center>
-					<h2>審核需五至七日工作天，請耐心等候，謝謝您。</h2>
+					<h2>請耐心等候，謝謝您。</h2>
 				</center>
 			</div>
 		</div>
