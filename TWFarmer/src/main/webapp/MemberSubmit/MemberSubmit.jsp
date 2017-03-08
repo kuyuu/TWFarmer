@@ -273,7 +273,7 @@ html {
 			document.submitform.gender[0].checked=true;
 			document.submitform.email.value="mama99@gmail.com";
 			document.submitform.idnumber.value="C123456789";
-			document.submitform.postalcode.value="206";
+			document.submitform.postalcode.value="106";
 			document.submitform.district.value="台北市大安區";
 			document.submitform.address.value="復興南路一段133號2樓";
 
