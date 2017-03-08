@@ -52,86 +52,86 @@ html {
 	<div class="container">
 
 
-			<div class="col-sm-12 col-md-10 col-md-offset-1"
-				style="padding: 20% auto;">
-				<form action="NewOrder.do" method="POST">
-					<input type="hidden" value="${farmerBean.memberId}" name="sellerId" />
-					<!-- 											賣家名稱及帳號 -->
-					<h5 class="media-heading">
-						${farmerBean.memberBean.name}(${farmerBean.memberBean.account})</a>
-					</h5>
-					<!-- 											商店介紹 -->
-					<span>商店介紹： </span><span class="text-success"><strong>${farmerBean.farmerIntro}</strong></span>
+<!-- 			<div class="col-sm-12 col-md-10 col-md-offset-1" -->
+<!-- 				style="padding: 20% auto;"> -->
+<!-- 				<form action="NewOrder.do" method="POST"> -->
+<%-- 					<input type="hidden" value="${farmerBean.memberId}" name="sellerId" /> --%>
+<!-- 																賣家名稱及帳號 -->
+<!-- 					<h5 class="media-heading"> -->
+<%-- 						${farmerBean.memberBean.name}(${farmerBean.memberBean.account})</a> --%>
+<!-- 					</h5> -->
+<!-- 																商店介紹 -->
+<%-- 					<span>商店介紹： </span><span class="text-success"><strong>${farmerBean.farmerIntro}</strong></span> --%>
 
 
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th>商品圖片</th>
-								<th>商品名稱</th>
-								<th>購買數量</th>
-								<th class="text-center">小計</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${cartProductMap}" var="x">
-								<tr>
-									<td class="col-sm-3 col-md-2">
-										<!-- 								商品照片 -->
-										<div class="media">
-											<a class="thumbnail pull-left" style="margin: 2% 3% 0 0;">
-												<img class="media-object"
-												src="../img/${x.value[0].pictureName}"
-												style="height: 100px;">
-											</a>
-										</div>
-									</td>
-									<td class="col-sm-5 col-md-3">
-										<div class="media-body">
-											<!-- 										商品名稱 -->
-											<h3 class="media-heading" style="margin-top: 5%;">${x.key.productName}</h3>
+<!-- 					<table class="table table-hover"> -->
+<!-- 						<thead> -->
+<!-- 							<tr> -->
+<!-- 								<th>商品圖片</th> -->
+<!-- 								<th>商品名稱</th> -->
+<!-- 								<th>購買數量</th> -->
+<!-- 								<th class="text-center">小計</th> -->
+<!-- 							</tr> -->
+<!-- 						</thead> -->
+<!-- 						<tbody> -->
+<%-- 							<c:forEach items="${cartProductMap}" var="x"> --%>
+<!-- 								<tr> -->
+<!-- 									<td class="col-sm-3 col-md-2"> -->
+<!-- 																		商品照片 -->
+<!-- 										<div class="media"> -->
+<!-- 											<a class="thumbnail pull-left" style="margin: 2% 3% 0 0;"> -->
+<!-- 												<img class="media-object" -->
+<%-- 												src="../img/${x.value[0].pictureName}" --%>
+<!-- 												style="height: 100px;"> -->
+<!-- 											</a> -->
+<!-- 										</div> -->
+<!-- 									</td> -->
+<!-- 									<td class="col-sm-5 col-md-3"> -->
+<!-- 										<div class="media-body"> -->
+<!-- 																					商品名稱 -->
+<%-- 											<h3 class="media-heading" style="margin-top: 5%;">${x.key.productName}</h3> --%>
 
-											<!-- 		單價		 -->
-											<h4 class="media-heading">單價：${x.key.price}元 /
-												${x.key.unit}</h4>
-											<!-- 		運費 -->
-											<h4 class="media-heading">
-												運費： <span class="text-success"><strong>${x.key.freight}元
-														/ ${x.key.unit}</strong>
-											</h4>
-										</div>
-									</td>
-									<td class="col-sm-1 col-md-1" style="text-align: center">
-										<!-- 								購買數量 --> <input type="text" id="count"
-										name="count" class="form-control" value="0"
-										style="margin-top: 6%;"><input type="hidden"
-										value="${x.key.productId}" name="productId" />
-									</td>
-									<!-- 								小計 -->
-									<td class="col-sm-1 col-md-1 text-center"><strong>
-											<input type="hidden" value="${x.key.price+x.key.freight}"
-											name="price" /> <input type="hidden" value="" name="price2" />
-											<div class="price"></div>
-											</div>
+<!-- 													單價		 -->
+<%-- 											<h4 class="media-heading">單價：${x.key.price}元 / --%>
+<%-- 												${x.key.unit}</h4> --%>
+<!-- 													運費 -->
+<!-- 											<h4 class="media-heading"> -->
+<%-- 												運費： <span class="text-success"><strong>${x.key.freight}元 --%>
+<%-- 														/ ${x.key.unit}</strong> --%>
+<!-- 											</h4> -->
+<!-- 										</div> -->
+<!-- 									</td> -->
+<!-- 									<td class="col-sm-1 col-md-1" style="text-align: center"> -->
+<!-- 																		購買數量 <input type="text" id="count" -->
+<!-- 										name="count" class="form-control" value="0" -->
+<!-- 										style="margin-top: 6%;"><input type="hidden" -->
+<%-- 										value="${x.key.productId}" name="productId" /> --%>
+<!-- 									</td> -->
+<!-- 																	小計 -->
+<!-- 									<td class="col-sm-1 col-md-1 text-center"><strong> -->
+<%-- 											<input type="hidden" value="${x.key.price+x.key.freight}" --%>
+<!-- 											name="price" /> <input type="hidden" value="" name="price2" /> -->
+<!-- 											<div class="price"></div> -->
+<!-- 											</div> -->
 
-									</strong></td>
-								</tr>
+<!-- 									</strong></td> -->
+<!-- 								</tr> -->
 
-							</c:forEach>
+<%-- 							</c:forEach> --%>
 
-						</tbody>
-						<tfoot>
-							<tr>
-								<td> </td>
-								<td> </td>
-								<td><h3>總計</h3></td>
-								<td class="text-right"><h5>
-										<strong><div id="totalPrice"></div></strong>
-									</h5></td>
-							</tr>
-						</tfoot>
-					</table>
-			</div>
+<!-- 						</tbody> -->
+<!-- 						<tfoot> -->
+<!-- 							<tr> -->
+<!-- 								<td> </td> -->
+<!-- 								<td> </td> -->
+<!-- 								<td><h3>總計</h3></td> -->
+<!-- 								<td class="text-right"><h5> -->
+<!-- 										<strong><div id="totalPrice"></div></strong> -->
+<!-- 									</h5></td> -->
+<!-- 							</tr> -->
+<!-- 						</tfoot> -->
+<!-- 					</table> -->
+<!-- 			</div> -->
 
 
 
