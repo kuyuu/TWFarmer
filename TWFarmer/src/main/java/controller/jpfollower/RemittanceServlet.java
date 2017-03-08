@@ -2,6 +2,7 @@ package controller.jpfollower;
 
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -63,12 +64,17 @@ public class RemittanceServlet extends HttpServlet {
 //			e.printStackTrace();
 //			errors.put("remittanceDate", "格式必須為yyyy-MM-dd HH:mm");
 //		}
-		Timestamp remittanceDate = null;
+		
+		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+		Date remittanceDate = null;
 		try {
-			remittanceDate = Timestamp.valueOf(temp4+":00");
-		} catch (Exception e) {
-			e.printStackTrace();
+//			System.out.println(f2fTime[i]);
+			remittanceDate = sdFormat.parse(temp4);
+
+		} catch (ParseException e) {
+			System.out.println("時間轉換ERROR");
 		}
+		
 		JPFollowerDAOJdbc dao = new JPFollowerDAOJdbc();
 		JPFollowerBean jpfBean = dao.select(jpFollowerId);
 		jpfBean.setRemittanceBank(remittanceBank);

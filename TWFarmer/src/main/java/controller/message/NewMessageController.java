@@ -3,6 +3,7 @@ package controller.message;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 import javax.servlet.http.HttpSession;
 
@@ -56,6 +57,7 @@ public class NewMessageController {
 		msgBean.setMsgTitle(msgTitle);
 		msgBean.setMsgContent(msgContent);
 		Date date = new Date();
+		TimeZone.setDefault(TimeZone.getTimeZone("GMT+8"));
 		msgBean.setMsgTime(date);
 		msgBean.setMsgStatus(0);
 		msgBean.setWriterDelete(0);
