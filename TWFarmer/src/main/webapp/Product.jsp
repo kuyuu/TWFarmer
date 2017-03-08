@@ -203,7 +203,7 @@ html {
 			<div class="col-md-8">
 				<h1>${productBean.productName}</h1>
 				<p>${productBean.productIntro }</p>
-				<p>${productBean.price }元/${productBean.unit }</p>
+				<p>${productBean.price }元/${productBean.unit}</p>
 				<p>
 
 
@@ -212,7 +212,7 @@ html {
 					<!-- 						class="btn btn-default">購買商品</a> -->
 					<button type="button" class="btn btn-default" id="newOrder">購買商品</button>
 					<button type="button" class="btn btn-primary" id="newJp">發起合購</button>
-					<button type="button" class="btn btn-success">我想跟團</button>
+					<a href="PurchaseSelect/PurchaseSelect.controller?keyword=${productBean.productName}&district=&district2="><button type="button" class="btn btn-success">我想跟團</button></a>
 
 
 					<button type="button" class="btn btn-info" id="cart"
