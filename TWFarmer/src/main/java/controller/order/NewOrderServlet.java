@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TimeZone;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -61,7 +62,8 @@ public class NewOrderServlet extends HttpServlet {
 		Date current = new Date();
 		//System.out.println(sdFormat.format(current));
 		 	
-		Date shipDate = new Date();		
+		Date shipDate = new Date();	
+		TimeZone.setDefault(TimeZone.getTimeZone("GMT+8"));
 		Calendar c = Calendar.getInstance(); 
 		c.setTime(shipDate); 
 		c.add(Calendar.DATE, 1);

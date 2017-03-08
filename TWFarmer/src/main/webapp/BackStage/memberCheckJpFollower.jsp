@@ -17,10 +17,11 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
+
 html {
-    overflow-y:scroll;
+	overflow-y: scroll;
 }
 </style>
 </head>
@@ -58,12 +59,14 @@ html {
 												pattern="yyyy-MM-dd" /></td>
 										<td>${row.jpStatusName}</td>
 
-										<td><c:if test="${row.remittanceStatus==1}">
+										<td><a href="#" class="btn btn-primary"><span
+												class="glyphicon glyphicon-search"></span></a>
+										<c:if test="${row.remittanceStatus==1}">
 											已匯款</c:if> <c:if
 												test="${row.jpStatusId==4104 && row.remittanceStatus!=1}">
 												<a
 													href="CheckJpFollowerDetailServlet?jpFollowerId=${row.JPFollowerId}"><button
-														type="button" class="btn btn-default">匯款去</button> </a>
+														type="button" class="btn btn-success">匯款去</button> </a>
 											</c:if></td>
 									</tr>
 								</c:forEach>
@@ -79,7 +82,7 @@ html {
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
 	<script src="../js/scripts.js"></script>
-		<script>
+	<script>
 		$(function() {
 			$('#collapseOne>ul>li:eq(3)').addClass("list-group-item-success");
 		});

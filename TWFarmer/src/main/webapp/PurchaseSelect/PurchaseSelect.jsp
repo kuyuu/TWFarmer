@@ -60,7 +60,7 @@ html {
 			<div class="row">
 				<div class="col-md-1"></div>
 				<div class="container">
-					<div class="row">
+					<div class="row jumbotron">
 						<div class="col-md-12">
 							<h3>合購搜尋</h3>
 							<h2></h2>
@@ -82,7 +82,7 @@ html {
 							</div>
 							<br> <br> <br> <br> <br>
 							<c:if test="${not empty keyword}">
-								<div class="row jumbotron">
+								<div class="row">
 									<c:forEach items="${keyword}" var="row">
 										<div class="row jp divbox">
 											<a href="/TWFarmer/JointPurchase.do?jpId=${row.jpId}">
@@ -95,7 +95,8 @@ html {
 													<table class="table">
 														<thead>
 															<tr>
-																<td colspan="3">${row.jpName}</td>
+																<td colspan="2" width="65%">${row.jpName}</td>
+																<td width="35%">主購：${row.memberBean.name}(${row.memberBean.account})</td>
 															</tr>
 														</thead>
 														<tr>

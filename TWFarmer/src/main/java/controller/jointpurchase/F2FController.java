@@ -20,7 +20,7 @@ public class F2FController {
 	@RequestMapping(method = { RequestMethod.GET, RequestMethod.POST })
 	public String doWork(Integer jpId, String[] f2fTime, String[] f2fPlace) {
 
-		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 		for (int i = 0; i < f2fTime.length; i++) {
 			if (f2fTime[i] != null && f2fTime[i].trim().length() != 0 &&f2fPlace[i]!=null&&f2fPlace[i].trim().length()!=0) {
 				F2FDetailBean f2fBean = new F2FDetailBean();
@@ -37,7 +37,7 @@ public class F2FController {
 			}
 		}
 
-		return "JointPurchase/success";
+		return "BackStage/MemberCheckJpServlet";
 
 	}
 

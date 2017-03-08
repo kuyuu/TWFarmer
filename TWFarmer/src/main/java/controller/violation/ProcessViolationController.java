@@ -1,6 +1,7 @@
 package controller.violation;
 
 import java.util.Date;
+import java.util.TimeZone;
 
 import javax.servlet.http.HttpSession;
 
@@ -32,6 +33,7 @@ public class ProcessViolationController {
 			String vioTitle, Integer reporterId, Integer reportedId) {
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		Date d = new Date();
+		TimeZone.setDefault(TimeZone.getTimeZone("GMT+8"));
 		ViolationBean vBean = violationDAO.select(ticketId);
 		vBean.setTicketResult(ticketResult);
 		vBean.setProcessDate(d);

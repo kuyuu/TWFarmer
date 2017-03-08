@@ -1,6 +1,7 @@
 package controller.trackproduct;
 
 import java.util.Date;
+import java.util.TimeZone;
 
 import javax.servlet.http.HttpSession;
 
@@ -25,7 +26,9 @@ public class AddTrackProductController {
 		TrackProductBean tBean = new TrackProductBean();
 		tBean.setProductId(productId);
 		tBean.setMemberId(mb.getMemberId());
-		tBean.setTrackDate(new Date());
+		Date date = new Date();
+		TimeZone.setDefault(TimeZone.getTimeZone("GMT+8"));
+		tBean.setTrackDate(date);
 		trackProductDAO.insert(tBean);
 		
 	}

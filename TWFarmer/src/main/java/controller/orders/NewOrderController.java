@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TimeZone;
 
 import javax.servlet.http.HttpSession;
 
@@ -60,7 +61,9 @@ public class NewOrderController {
 		OrdersBean oBean = new OrdersBean();
 		oBean.setSellerId(sellerId);
 		oBean.setBuyerId(mb.getMemberId());
-		oBean.setOrderDate(new Date());
+		Date date = new Date();
+		TimeZone.setDefault(TimeZone.getTimeZone("GMT+8"));
+		oBean.setOrderDate(date);
 		oBean.setShipName(shipName);
 		oBean.setShipPostalCode(shipPostalCode);
 		oBean.setShipDistrict(shipDistrict);

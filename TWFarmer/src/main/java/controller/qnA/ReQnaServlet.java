@@ -3,6 +3,7 @@ package controller.qnA;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -68,6 +69,7 @@ public class ReQnaServlet extends HttpServlet {
 		QnABean bean = qnADAOJdbc.select(qnAId);
 		bean.setReQnA(reQnA);
 		java.util.Date date = new java.util.Date();
+		TimeZone.setDefault(TimeZone.getTimeZone("GMT+8"));
 		bean.setReDate(date);
 
 		if("submit".equals(button)){

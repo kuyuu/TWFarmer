@@ -147,11 +147,11 @@ html {
 			</div>
 		</form>
 	</div>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/scripts.js"></script>
+	<!-- 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="/TWFarmer/js/bootstrap.js"></script>
 	<script>
 		$(function() {
 			$('[data-toggle="popover"]').popover();
@@ -161,8 +161,25 @@ html {
 					"productId" : $(this).val()
 				});
 			});
+		});
 
-			$("#keyword" ).autocomplete('/TWFarmer/ProductSelect/ProductSelect.controller');
+		$(function() {
+			var availableTags = [ '台中市', '新社區', '卑南鄉', '鹿野鄉', '台南市', '關廟區',
+					'柳營區', '宜蘭縣', '頭城鎮', '花蓮縣', '吉安鄉', '秀林鄉', '南投縣', '信義鄉',
+					'埔里鎮', '草屯鎮', '屏東縣', '高樹鄉', '苗栗縣', '大湖鄉', '南庄鄉', '桃園市',
+					'新屋區', '高雄市', '左營區', '雲林縣', '大埤鄉', '新竹縣', '峨眉鄉', '寶山鄉',
+					'嘉義縣', '太保市', '番路鄉', '彰化縣', '大村鄉', '56青蔥', '56南瓜子', '56紅豆',
+					'56黃豆', '九九峰山蕉', '大力水手菠菜☀', '小白菜', '牛奶鳳梨', '四季豆', '正宗峨眉桶柑',
+					'玉女蕃茄', '玉米筍', '白花椰菜', '白蘿蔔', '有機小黃瓜', '有機花蓮地瓜葉', '有機草莓',
+					'有機絲瓜', '芹菜', '金針菇', '南瓜', '南庄美味香蕉☀', '南庄農場香甜蘋果', '洋蔥',
+					'胡蘿蔔', '苦瓜', '韭菜', '香菜', '高麗菜', '逍遙大蒜', '逍遙香蕉', '逍遙銀杏子',
+					'雲林有機高麗菜', '黃豆芽菜', '新社杏鮑菇', '新社香菇', '鼠兒果李子', '彰化早春優級葡萄',
+					'綠花椰菜', '網室紅肉木瓜', '網紋紅肉哈密瓜', '辣椒', '鳳梨', '蓮藕', '糖糖果園-大湖草莓',
+					'糖糖果園-火龍果', '糖糖果園-鮮甜木瓜', '爆甜吉園圃鳳梨釋迦', '關廟無毒金鑽鳳梨', '寶山鄉桶柑' ];
+			$("#keyword").autocomplete({
+				source : availableTags
+			});
+
 		});
 
 		$(document).ready(

@@ -3,6 +3,7 @@ package controller.message;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 import javax.servlet.http.HttpSession;
 
@@ -40,7 +41,9 @@ public class NewMessageBoardController {
 		bean.setWriterID(mb.getMemberId());
 		bean.setContent(content);
 		bean.setJpId(jpId);
-		bean.setMsgTime(new Date());
+		Date date = new Date();
+		TimeZone.setDefault(TimeZone.getTimeZone("GMT+8"));
+		bean.setMsgTime(date);
 		msgBoardDAO.insert(bean);
 
 		// return "JointPurchase.do?jpId=" + jpId;
