@@ -16,10 +16,11 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
+
 html {
-    overflow-y:scroll;
+	overflow-y: scroll;
 }
 </style>
 </head>
@@ -32,16 +33,16 @@ html {
 		</div>
 		<div class="col-md-8">
 			<div style="font-weight: bold; color: #ff0000; font-size: 2em;">升級小農</div>
-			<br><span style="color: #ff0000">${errors.farmer}</span>
+			<br> <span style="color: #ff0000">${errors.farmer}</span>
 			<form action="<c:url value="NewFarmerServlet" />" method="post">
 				<div class="form-group ">
 					<label for="">小農證號</label> <input type="text" name="farmerId"
-						placeholder="請輸入小農證號" class="form-control"> <span
-						style="color: #ff0000">${errors.farmerId}</span>
+						id="farmerId" placeholder="請輸入小農證號" class="form-control">
+					<span style="color: #ff0000">${errors.farmerId}</span>
 				</div>
 				<div class="form-group">
-					<label for="">銀行代碼</label> 
-					<select class="form-control" name="bank">
+					<label for="">銀行代碼</label> <select class="form-control" name="bank"
+						id="bank">
 						<option value="">請選擇銀行代碼</option>
 						<option value="004">004 - 臺灣銀行</option>
 						<option value="005">005 - 土地銀行</option>
@@ -148,27 +149,36 @@ html {
 				</div>
 				<div class="form-group">
 					<label for="">銀行帳號</label> <input type="text" name="bankAccount"
-						placeholder="請輸入銀行帳號" class="form-control"> <span
-						style="color: #ff0000">${errors.bankAccount}</span>
+						id="bankAccount" placeholder="請輸入銀行帳號" class="form-control">
+					<span style="color: #ff0000">${errors.bankAccount}</span>
 				</div>
 				<div class="form-group">
 					<h3>請輸入您的賣場介紹</h3>
 					<textarea class="form-control" rows="5" name="farmerIntro"
-						placeholder="請輸入賣場介紹"></textarea>
+						id="farmerIntro" placeholder="請輸入賣場介紹"></textarea>
 					<span style="color: #ff0000">${errors.farmerIntro}</span>
 				</div>
 				<button type="submit" class="btn btn-default">提出申請</button>
 			</form>
+			<button type="button" class="btn btn-primary" style="float: right;"
+				onclick="insertfile();">一鍵輸入</button>
 		</div>
 	</div>
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
 	<script src="../js/scripts.js"></script>
 	<script>
-		$(function(){
-			$("#collapseOne>ul>li:eq(7)").removeClass("list-group-item").addClass("list-group-item list-group-item-success")
-			
+		$(function() {
+			$("#collapseOne>ul>li:eq(7)").removeClass("list-group-item")
+					.addClass("list-group-item list-group-item-success")
 		})
+		
+		function insertfile() {
+			$("#farmerId").val('M9527');
+			$("#bank>option[value='004']").attr("selected","selected");
+			$("#bankAccount").val('1433808084331636');
+			$("#farmerIntro").val('在種滿四季水果的吉田觀光果園中，可以享受賞花、採果、採菜的樂趣，體驗難得的鄉村生活，尤其大人帶著小孩在果園、菜園透過實際行動體驗採收活動。園中所產水果的果粒都十分大顆，果園一旁則栽種了青翠蔬菜，通通可以讓遊客帶回家。入園不收取清潔管理費，外帶則依市價論斤計算。另有精美禮盒包裝，送禮大方實惠。');
+		}
 	</script>
 </body>
 </html>
