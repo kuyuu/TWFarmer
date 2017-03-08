@@ -59,13 +59,13 @@ html {
 												pattern="yyyy-MM-dd" /></td>
 										<td>${row.jpStatusName}</td>
 
-										<td><a href="#" class="btn btn-primary"><span
-												class="glyphicon glyphicon-search"></span></a>
-										<c:if test="${row.remittanceStatus==1}">
+										<td><a href="CheckJpFollowerDetailServlet?jpFollowerId=${row.JPFollowerId}" class="btn btn-primary"><span
+												class="glyphicon glyphicon-search"></span></a> <c:if
+												test="${row.remittanceStatus==1}">
 											已匯款</c:if> <c:if
 												test="${row.jpStatusId==4104 && row.remittanceStatus!=1}">
 												<a
-													href="CheckJpFollowerDetailServlet?jpFollowerId=${row.JPFollowerId}"><button
+													href="ToRemittanceFormServlet?jpFollowerId=${row.JPFollowerId}"><button
 														type="button" class="btn btn-success">匯款去</button> </a>
 											</c:if></td>
 									</tr>

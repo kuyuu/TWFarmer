@@ -53,6 +53,7 @@ html {
 							</p>
 						</c:if>
 					</div>
+					<p class="text-center">跟團統計</p>
 					<table class="table table-bordered text-center">
 						<tr class="">
 							<td>跟團會員</td>
@@ -115,6 +116,7 @@ html {
 							<td></td>
 						</tr>
 					</table>
+<!-- 					<p class="text-center">面交統計</p> -->
 				</div>
 			</div>
 		</div>
@@ -135,7 +137,7 @@ html {
 			$('#stop')
 					.click(
 							function() {
-// 								alert('aaa')
+								// 								alert('aaa')
 								$
 										.ajax({
 											url : 'StopJp.do',
