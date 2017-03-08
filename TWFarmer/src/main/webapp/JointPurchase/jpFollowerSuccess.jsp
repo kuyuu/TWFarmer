@@ -39,7 +39,7 @@ html {
 		<div class="row jumbotron">
 			<div class="col-md-12">
 				<div class="col-md-10 col-md-offset-1">
-					<h3>跟團成功</h3>
+					<h3>跟團成功！</h3>
 					<%-- 					<p>團名：${jpBean.jpName}</p> --%>
 					<p>介紹：${jpBean.jpIntro}</p>
 					<p>
@@ -50,15 +50,16 @@ html {
 						截止日期：
 						<fmt:formatDate value="${jpBean.endDate}" pattern="yyyy-MM-dd" />
 					</p>
-					<p>面交時間：${f2f.f2fTime}</p>
+					<p>面交時間：<fmt:formatDate value="${f2f.f2fTime}" pattern="yyyy-MM-dd HH:mm" /></p>
 					<p>面交地點：${f2f.f2fPlace}</p>
 
-					<table class="table">
+					<table class="table table-bordered">
 						<thead>
 							<tr>
 								<td>商品名稱</td>
-								<td>購買價格(含運)</td>
+								<td>單價(含運)</td>
 								<td>購買數量</td>
+								<td>總價(含運)</td>
 							</tr>
 						</thead>
 						<c:forEach items="${jpFollowerDetailList}" var="x">
@@ -66,6 +67,7 @@ html {
 								<td>${x.productName}</td>
 								<td>${x.price + x.freight}</td>
 								<td>${x.quantity}</td>
+								<td>${(x.price + x.freight)*x.quantity}</td>
 							</tr>
 						</c:forEach>
 					</table>

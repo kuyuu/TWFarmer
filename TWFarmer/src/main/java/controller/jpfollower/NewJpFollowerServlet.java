@@ -82,7 +82,7 @@ public class NewJpFollowerServlet extends HttpServlet {
 		int totalPrice = 0;
 		for (int i = 0; i < list.size(); i++) {
 			int a = Integer.parseInt(templist[i]);
-			totalPrice = list.get(0).getJpPrice() * a + totalPrice;
+			totalPrice = list.get(i).getJpPrice() * a + list.get(i).getJpFreight() * a+ totalPrice;
 		}
 
 		try {
