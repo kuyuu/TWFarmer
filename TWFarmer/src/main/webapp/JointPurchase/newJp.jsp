@@ -44,7 +44,7 @@ html {
 										<img src="../img/${y.value[0].pictureName}"
 											style="height: 160px" />
 										<div class="caption">
-											<h3>${y.key.productName}</h3>
+											<h4>${y.key.productName}</h4>
 											<label class="btn btn-default"> <input type="radio"
 												name="picture" value="${y.value[0].pictureName}"
 												autocomplete="off"> 設為合購圖片

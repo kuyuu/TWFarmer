@@ -40,7 +40,10 @@ html {
 				<c:if test="${not empty cartMap}">
 					<c:forEach items="${cartMap}" var="x">
 						<div class="col-md-12">
-							<h2>${x.key.name}(${x.key.account})</h2>
+							<h2>${x.key.name}(${x.key.account})<a
+								href="../Message/NewMessage.do?readerAccount=${x.key.account}"
+								class="btn btn-primary"><span
+								class="glyphicon glyphicon-envelope"></span></a></h2>
 							<br>
 							<c:forEach items="${x.value}" var="y">
 								<div class="row product">
@@ -49,8 +52,8 @@ html {
 											class="img-responsive thumbnail" style="width: 100%" /></a>
 									</div>
 									<div class="col-md-8">
-										<h4>${y.key.productName}</h4>
-										<p>${y.key.productIntro}<br>價格：${y.key.price}/${y.key.unit}
+										<h3>${y.key.productName}</h3>
+										<p>價格：${y.key.price}元/${y.key.unit}<br>運費：${y.key.freight}元/${y.key.unit}<br>
 										</p>
 										<a href="../Order/StarOrder.do?productId=${y.key.productId}"><button
 												type="button" class="btn btn-primary" name="newJp">購買商品</button></a>
