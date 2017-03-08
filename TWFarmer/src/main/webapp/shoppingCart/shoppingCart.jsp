@@ -40,10 +40,10 @@ html {
 				<c:if test="${not empty cartMap}">
 					<c:forEach items="${cartMap}" var="x">
 						<div class="col-md-12">
-							<h2>${x.key.name}(${x.key.account})<a
+							<h3>${x.key.name}(${x.key.account})<a
 								href="../Message/NewMessage.do?readerAccount=${x.key.account}"
-								class="btn btn-primary"><span
-								class="glyphicon glyphicon-envelope"></span></a></h2>
+								class="btn btn-default"><span
+								class="glyphicon glyphicon-envelope"></span></a></h3>
 							<br>
 							<c:forEach items="${x.value}" var="y">
 								<div class="row product">
