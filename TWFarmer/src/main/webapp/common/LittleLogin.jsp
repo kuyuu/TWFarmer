@@ -48,7 +48,7 @@
 										<h4>${errors.LoginError}</h4>
 									</span>
 								</div>
-								<button type="submit" class="btn btn-default">Login</button>
+								<button type="submit" class="btn btn-default">登入</button>
 							</form>
 						</div>
 

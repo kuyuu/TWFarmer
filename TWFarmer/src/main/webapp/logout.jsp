@@ -49,8 +49,9 @@ html {
 		<div class="row">
 			<div class="col-md-12">
 				<div class="row">
-					<div class="col-md-4"></div>
-					<div class="col-md-4">
+					<div class="col-md-3"></div>
+					<div class="col-md-6">
+					<div class="jumbotron">
 						<h3 class="text-center text-info">您已經登出</h3>
 						<h4 class="text-center text-info">
 							將在<span id='timer'>5</span>秒鐘之後跳轉回首頁。
@@ -59,8 +60,9 @@ html {
 						<a href="index.jsp" class="btn btn-success btn-default"
 							type="button">按我回首頁</a>
 						</div>
+						</div>
 					</div>
-					<div class="col-md-4"></div>
+					<div class="col-md-3"></div>
 				</div>
 			</div>
 		</div>
