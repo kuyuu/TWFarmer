@@ -66,7 +66,7 @@ html {
 							</tr>
 						</table>
 							<a href="changeFarmerInfo.jsp"><button type="button"
-									class="btn btn-primary">修改會員資料</button></a>
+									class="btn btn-primary">修改小農資料</button></a>
 					</center>
 				</div>
 			</div>
