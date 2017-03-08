@@ -111,7 +111,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 		return result;
 	}
 
-	private static final String SELECT_KEYWORD = "Select * from JointPurchase Where  JPStatusID = 4103 and (JPName Like ? or JPLocation like ?)";
+	private static final String SELECT_KEYWORD = "Select * from JointPurchase Where  JPStatusID = 4103 and (JPName Like ? or JPLocation like ?) Order By EndDate";
 
 	@Override
 	public List<JointPurchaseBean> selectByKeyword(String Keyword) {
@@ -150,7 +150,7 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 		return result;
 	}
 
-	private static final String SELECT_JPOK = "SELECT * from JointPurchase where JPStatusID = 4103";
+	private static final String SELECT_JPOK = "SELECT * from JointPurchase where JPStatusID = 4103 Order By EndDate";
 
 	@Override
 	public List<JointPurchaseBean> selectByPurchaseOk() {
