@@ -83,6 +83,8 @@ public class RemittanceServlet extends HttpServlet {
 		jpfBean.setRemittanceDate(remittanceDate);
 		jpfBean.setRemittanceStatus(1);
 		dao.update(jpfBean);
+		
+		request.getRequestDispatcher("MemberCheckJpFollowerServlet").forward(request, response);
 
 	}
 

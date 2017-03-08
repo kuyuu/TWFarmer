@@ -135,7 +135,7 @@ html {
 			$('#stop')
 					.click(
 							function() {
-								alert('aaa')
+// 								alert('aaa')
 								$
 										.ajax({
 											url : 'StopJp.do',
