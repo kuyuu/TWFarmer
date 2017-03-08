@@ -184,7 +184,44 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 		}
 		return result;
 	}
+	
+	private static final String SELECT_KnL = "Select * from JointPurchase Where  JPStatusID = 4103 and (JPName Like ? or JPLocation like ?) Order By EndDate";
+	@Override
+	public List<JointPurchaseBean> selectByKnL(String Keyword, String jpLocation) {
+		List<JointPurchaseBean> result = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(SELECT_KnL);) {
 
+			stmt.setString(1, "%" + Keyword + "%");
+			stmt.setString(2, jpLocation);
+			ResultSet rset = stmt.executeQuery();
+			result = new ArrayList<JointPurchaseBean>();
+			while (rset.next()) {
+				JointPurchaseBean bean = new JointPurchaseBean();
+
+				bean.setJpId(rset.getInt("jpId"));
+				bean.setInitId(rset.getInt("initId"));
+				bean.setJpName(rset.getString("jpName"));
+				bean.setJpIntro(rset.getString("jpIntro"));
+				bean.setInitDate(rset.getDate("initDate"));
+				bean.setEndDate(rset.getDate("endDate"));
+				bean.setJpLocation(rset.getString("jpLocation"));
+				bean.setJpStatusId(rset.getInt("jpStatusId"));
+				bean.setJpFreight(rset.getInt("jpFreight"));
+				bean.setMiscViaId(rset.getInt("MiscViaId"));
+				bean.setMisc(rset.getInt("Misc"));
+				bean.setBankAccount(rset.getString("bankAccount"));
+				bean.setBankName(rset.getString("bankName"));
+				bean.setPictureName(rset.getString("pictureName"));
+
+				result.add(bean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	// 新增
 	private static final String INSERT = "insert into JointPurchase (InitID, JPName, JPIntro, InitDate, EndDate, JPLocation, JPStatusID, JPFreight, MiscViaID, Misc, BankAccount, BankName, PictureName) "
 			+ "OUTPUT INSERTED.JPID " + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -372,7 +409,6 @@ public class JointPurchaseDAOjdbc implements JointPurchaseDAO {
 			e.printStackTrace();
 		}
 		return result;
-
 	}
 
 }

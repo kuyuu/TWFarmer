@@ -38,13 +38,17 @@ public class PurchaseSelectServlet extends HttpServlet {
 		// 轉換資料
 		
 		// 呼叫Model
-		
-		if(keyword.length() != 0){
+		if(keyword.length() != 0 && district != null){
+			List<JointPurchaseBean> result = jointPurchaseDAOjdbc.selectByKnL(keyword ,district);
+			request.setAttribute("keyword", result);
+			request.getRequestDispatcher(
+					"/PurchaseSelect/PurchaseSelect.jsp").forward(request, response);
+		} else if(keyword.length() != 0 && district == null){
 			List<JointPurchaseBean> result = jointPurchaseDAOjdbc.selectByKeyword(keyword);
 			request.setAttribute("keyword", result);
 			request.getRequestDispatcher(
 					"/PurchaseSelect/PurchaseSelect.jsp").forward(request, response);
-		} else if(district != null){
+		} else if(district != null && keyword.length() == 0){
 			List<JointPurchaseBean> result = jointPurchaseDAOjdbc.selectByKeyword(district);
 			request.setAttribute("keyword", result);
 			request.getRequestDispatcher(

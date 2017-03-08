@@ -13,6 +13,8 @@ public interface JointPurchaseDAO {
 	public abstract List<JointPurchaseBean> selectByPurchaseOk();
 	
 	public abstract List<JointPurchaseBean> selectByKeyword(String Keyword);
+	
+	public abstract List<JointPurchaseBean> selectByKnL(String Keyword, String jpLocation);
 
 	public abstract JointPurchaseBean insert(JointPurchaseBean bean);
 
