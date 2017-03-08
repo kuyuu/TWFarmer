@@ -57,7 +57,7 @@ html {
 								height="40px" /><a
 								href="Friend/SelectMember.do?account=${fBean.account}">${fBean.name}(${fBean.account})</a><a
 								href="Message/NewMessage.do?readerAccount=${fBean.account}"
-								class="btn btn-primary"><span
+								class="btn btn-default"><span
 								class="glyphicon glyphicon-envelope"></span></a>
 						</p>
 						<p>
@@ -65,7 +65,7 @@ html {
 								height="40px" /><a
 								href="Friend/SelectMember.do?account=${mBean.account}">${mBean.name}(${mBean.account})</a><a
 								href="Message/NewMessage.do?readerAccount=${mBean.account}"
-								class="btn btn-primary"><span
+								class="btn btn-default"><span
 								class="glyphicon glyphicon-envelope"></span></a>
 						</p>
 						<a href="JointPurchase/StarJpFollower.do?jpId=${jpBean.jpId}"><button

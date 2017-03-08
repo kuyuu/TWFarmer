@@ -17,10 +17,11 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
+
 html {
-    overflow-y:scroll;
+	overflow-y: scroll;
 }
 </style>
 </head>
@@ -36,9 +37,12 @@ html {
 				<div class="jumbotron">
 					<p>團名：${jpBean.jpName}</p>
 					<p>介紹：${jpBean.jpIntro}</p>
-					<p>跟團開始日期：${jpBean.initDate}</p>
-					<p>跟團截止日期：${jpBean.endDate}</p>
-					<p>面交時間：${f2f.f2fTime}</p>
+<%-- 					<p>跟團開始日期：${jpBean.initDate}</p> --%>
+					<p>合購截止日期：${jpBean.endDate}</p>
+					<p>
+						面交時間：
+						<fmt:formatDate value="${f2f.f2fTime}" pattern="yyyy-MM-dd HH:mm" />
+					</p>
 					<p>面交地點：${f2f.f2fPlace}</p>
 
 					<table class="table">
@@ -61,9 +65,21 @@ html {
 						商品總價：${jpFollowerBean.totalPrice}<br>
 						雜費：${jpFollowerBean.misc}<br> 總價：${jpFollowerBean.totalPrice + jpFollowerBean.misc}<br>
 					</p>
-					<a
-						href="ToRemittanceFormServlet?jpFollowerId=${jpFollowerBean.JPFollowerId}"><button
-							type="button" class="btn btn-default">填寫匯款資訊</button></a>
+					<!-- 					<a -->
+					<%-- 						href="ToRemittanceFormServlet?jpFollowerId=${jpFollowerBean.JPFollowerId}"><button --%>
+					<!-- 							type="button" class="btn btn-primary">填寫匯款資訊</button></a> -->
+					<c:choose>
+						<c:when
+							test="${jpFollowerBean.jpStatusId==4104 && jpFollowerBean.remittanceStatus!=1}">
+							<a
+								href="ToRemittanceFormServlet?jpFollowerId=${jpFollowerBean.JPFollowerId}"><button
+									type="button" class="btn btn-primary">填寫匯款資訊</button></a>
+						</c:when>
+						<c:otherwise>
+							<p>您已付款，請於指定時間地點取貨，如有任何更動，請盡快聯絡主購。</p>
+						</c:otherwise>
+					</c:choose>
+
 				</div>
 			</div>
 		</div>

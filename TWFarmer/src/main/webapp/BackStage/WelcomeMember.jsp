@@ -92,6 +92,8 @@ html {
 										<h4>小農</h4>
 									</c:if> <c:if test="${LoginOK.idType==3}">
 										<h4>管理員</h4>
+									</c:if><c:if test="${LoginOK.idType==4}">
+										<h4>小農審核中</h4>
 									</c:if></td>
 							</tr>
 							<!-- 							<tr> -->

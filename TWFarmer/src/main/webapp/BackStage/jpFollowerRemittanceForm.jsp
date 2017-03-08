@@ -170,7 +170,7 @@ html {
 							<label for="remittance" class="col-sm-3 control-label">匯款金額</label>
 							<div class="col-sm-9">
 								<input type="text" class="form-control" id="remittance"
-									name="remittance" />
+									name="remittance" placeholder="${jpfBean.totalPrice}" />
 							</div>
 						</div>
 						<div class="form-group">
