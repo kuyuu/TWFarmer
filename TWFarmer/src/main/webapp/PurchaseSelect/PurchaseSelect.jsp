@@ -66,7 +66,8 @@ html {
 							<h2></h2>
 							<div class="form-group">
 								<div class="col-md-11">
-									<input type="text" name="keyword" class="form-control" placeholder="請輸入關鍵字如橘子、大安區">
+									<input type="text" name="keyword" class="form-control"
+										placeholder="請輸入關鍵字如橘子、大安區">
 								</div>
 								<div class="col-md-1">
 									<button type="submit" class="btn btn-default">搜尋</button>
@@ -88,8 +89,11 @@ html {
 											<a href="/TWFarmer/JointPurchase.do?jpId=${row.jpId}">
 												<div style="display: none">${row.jpId}</div>
 												<div class="col-md-3">
-													<img src="../img/${row.pictureName}"
-														class="img-responsive img-thumbnail" style="height: 120px" />
+													<center>
+														<img src="../img/${row.pictureName}"
+															class="img-responsive img-thumbnail"
+															style="height: 120px" />
+													</center>
 												</div>
 												<div class="col-md-9">
 													<table class="table">
