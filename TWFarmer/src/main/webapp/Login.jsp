@@ -50,7 +50,7 @@ html {
 						<form action="<c:url value="/Login.controller" />" method="post"
 							role="form" class="form-2">
 							<h1>
-								<span class="log-in">Log in</span>
+								<span class="log-in">登入</span>
 							</h1>
 								<p class="float">
 									<label for="login"><i class="icon-user"></i>Account</label> <input
@@ -68,7 +68,7 @@ html {
 									<h4>${errors.LoginError}</h4>
 								</span>
 							<p class="clearfix">
-								<button type="submit" class="btn btn-success" style="float:right;">Login</button>
+								<button type="submit" class="btn btn-success" style="float:right;">登入</button>
 							</p>
 						</form>
 						</section>

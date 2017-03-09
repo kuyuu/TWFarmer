@@ -30,10 +30,12 @@ html {
 }
 
 .product {
-	border: 1px solid black;
+ 	border: 1px solid white; 
 	margin-top: 20px;
 	margin-bottom: 20px;
 	border-radius: 5px;
+	padding:20px;
+	background: rgba(255, 255, 255, 0.4); 
 }
 </style>
 </head>
@@ -114,8 +116,8 @@ html {
 						<c:forEach items="${cartProductMap}" var="row">
 							<div class="row product">
 								<div class="col-md-3">
-									<img src="../img/${row.value[0].pictureName}"
-										class="img-responsive img-thumbnail" />
+									<a href="../ProductServlet?productId=${row.key.productId}"><img src="../img/${row.value[0].pictureName}"
+										class="img-responsive img-thumbnail" /></a>
 								</div>
 								<div class="col-md-3">
 									<p>${row.key.productName}</p>
