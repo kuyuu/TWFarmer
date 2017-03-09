@@ -44,7 +44,7 @@ html {
 							將在<span id='timer'>5</span>秒鐘之後跳轉回首頁。
 						</h4>
 						<div class="text-center">
-							<a href="index.jsp" class="btn btn-success btn-default"
+							<a href="../index.jsp" class="btn btn-success btn-default"
 								type="button">按我回首頁</a>
 						</div>
 					</div>
