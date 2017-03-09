@@ -24,7 +24,7 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
 
 html {
@@ -40,7 +40,7 @@ html {
 				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
-				<div class="jumbotron" >
+				<div class="jumbotron">
 					<center>
 						<h3>請修改需變更欄位</h3>
 					</center>
@@ -137,13 +137,13 @@ html {
 		$(function() {
 			$("#collapseOne>ul>li:eq(0)").removeClass("list-group-item")
 					.addClass("list-group-item list-group-item-success");
-			
-			if('${LoginOK.gender}'=='M'){
+
+			if ('${LoginOK.gender}' == 'M') {
 				$(':radio[value="M"]').attr('checked', true);
 			} else {
 				$(':radio[value="F"]').attr('checked', true);
 			}
-			
+
 			$("#datepicker").datepicker({
 				altField : "#datepicker",
 				altFormat : "yy-mm-dd",

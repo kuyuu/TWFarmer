@@ -23,7 +23,7 @@
 body {
 	padding-top: 70px;
 	background-color: #fcf5e0;
-	background: #e1c192 url(/TWFarmer/img/submit-icon/wood_pattern.jpg);
+/* 	background: #e1c192 url(/TWFarmer/img/submit-icon/wood_pattern.jpg); */
 }
 
 html {
