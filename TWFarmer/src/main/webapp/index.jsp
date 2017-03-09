@@ -113,7 +113,7 @@ html {
 								合購專區幫您找到您匯總所在區域的合購團, 
 								讓您與附近的鄰居一起分享健康美味好蔬果!</p>
 								<p>
-									<a class="btn btn-primary" href="/TWFarmer/PurchaseSelect/PurchaseSelect.jsp">尋找合購</a>
+									<a class="btn btn-primary" href="/TWFarmer/PurchaseSelect/PurchaseSelect.controller?keyword=&district=&district2=">尋找合購</a>
 								</p>
 							</div>
 						</div>

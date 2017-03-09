@@ -30,10 +30,12 @@ html {
 }
 
 .product {
-	border: 1px solid black;
+ 	border: 1px solid white; 
 	margin-top: 20px;
 	margin-bottom: 20px;
 	border-radius: 5px;
+	padding:20px;
+	background: rgba(255, 255, 255, 0.4); 
 }
 </style>
 </head>

@@ -61,7 +61,7 @@
 }
 
 * /
-	/* The dots/bullets/indicators */             
+	/* The dots/bullets/indicators */              
 	                                      
 .dot {
 	height: 13px;
@@ -159,15 +159,15 @@ html {
 						</c:forEach>
 					</div>
 				</div>
-				<ul class="preview-thumbnail nav nav-tabs">
-					<c:forEach items="${picList}" var="x">
-						<li class="active">
-							<%-- 						<a data-target="#pic<c:out value='${i}'/>" data-toggle="tab">  --%>
-							<span style="height: '100px';"> <img
-								src="img/${x.pictureName}" /></span> <!-- 						</a> -->
-						</li>
-					</c:forEach>
-				</ul>
+<!-- 				<ul class="preview-thumbnail nav nav-tabs"> -->
+<%-- 					<c:forEach items="${picList}" var="x"> --%>
+<!-- 						<li class="active"> -->
+<%-- 													<a data-target="#pic<c:out value='${i}'/>" data-toggle="tab">  --%>
+<!-- 							<span style="height: '100px';"> <img -->
+<%-- 								src="img/${x.pictureName}" /></span> <!-- 						</a> --> --%>
+<!-- 						</li> -->
+<%-- 					</c:forEach> --%>
+<!-- 				</ul> -->
 			</div>
 
 
@@ -202,6 +202,12 @@ html {
 			<!-- 		</div> -->
 			<div class="col-md-8">
 				<h1>${productBean.productName}</h1>
+				<h4>
+					賣家：${productBean.memberBean.name}(${productBean.memberBean.account})<a
+						href="Message/NewMessage.do?readerAccount=${productBean.memberBean.account}"
+						class="btn btn-default"><span
+						class="glyphicon glyphicon-envelope"></span></a>
+				</h4>
 				<p>${productBean.productIntro }</p>
 				<p>${productBean.price }元/${productBean.unit}</p>
 				<p>
@@ -212,7 +218,9 @@ html {
 					<!-- 						class="btn btn-default">購買商品</a> -->
 					<button type="button" class="btn btn-default" id="newOrder">購買商品</button>
 					<button type="button" class="btn btn-primary" id="newJp">發起合購</button>
-					<a href="PurchaseSelect/PurchaseSelect.controller?keyword=${productBean.productName}&district=&district2="><button type="button" class="btn btn-success">我想跟團</button></a>
+					<a
+						href="PurchaseSelect/PurchaseSelect.controller?keyword=${productBean.productName}&district=&district2="><button
+							type="button" class="btn btn-success">我想跟團</button></a>
 
 
 					<button type="button" class="btn btn-info" id="cart"
@@ -249,12 +257,12 @@ html {
 								<%-- 									<p>　　${row.reQnA}</p> --%>
 								<table style="line-height: 35px; width: 620px">
 									<tr style="background: #FFDDAA">
-										<td style="width: 70%; font-size: 20px">買家提問：${row.qnAContent}</td>
+										<td style="width: 70%; font-size: 20px">${row.queryName}提問：${row.qnAContent}</td>
 										<td style="width: 30%"><fmt:formatDate
 												value="${row.queryDate}" pattern="yyyy-MM-dd HH:mm" /></td>
 									</tr>
 									<tr>
-										<td style="width: 80%; font-size: 20px">回覆：${row.reQnA}</td>
+										<td style="width: 80%; font-size: 20px">${productBean.memberBean.name}回覆：${row.reQnA}</td>
 										<td style="width: 20%"><fmt:formatDate
 												value="${row.reDate}" pattern="yyyy-MM-dd HH:mm" /></td>
 									</tr>

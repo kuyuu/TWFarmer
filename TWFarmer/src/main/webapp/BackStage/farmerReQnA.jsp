@@ -42,7 +42,7 @@ html {
 						<div class="form-group">
 							<input type="hidden" name="qnAId" value="${select.qnAId}" />
 							<h4>問與答編號：${select.qnAId}</h4>
-							<h5>賣家提問：${select.qnAContent}</h5>
+							<h5>買家${select.queryName}提問：${select.qnAContent}</h5>
 							<br>
 							<label class="">回答問題</label>
 							<textarea id="ReQnA" name="ReQnA" class="form-control" rows="5"></textarea>

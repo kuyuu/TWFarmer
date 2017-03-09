@@ -36,9 +36,8 @@ html {
 			<div class="col-md-3">
 				<jsp:include page="backstageMenu.jsp" />
 			</div>
-			<div class="row jumbotron">
-				<div class="col-md-1"></div>
-				<div class="col-md-8">
+			<div class="col-md-9">
+				<div class="jumbotron">
 					<center>
 						<c:if test="${empty FarmerBean}">
 							<h2>您的小農資料為：</h2>

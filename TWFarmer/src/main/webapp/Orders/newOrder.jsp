@@ -138,11 +138,13 @@ html {
 
 
 		<!-- 	原始檔 -->
-		<div class="col-md-12 jumbotron">
+		<div class="col-md-10">
 			<!-- 			<div class=""> -->
-			<div class="col-sm-12 col-md-10 col-md-offset-1">
-				${farmerBean.memberBean.name}(${farmerBean.memberBean.account})<br>${farmerBean.farmerIntro}
-				<form action="NewOrder.do" method="POST">
+			<div class="col-sm-12 col-md-12 col-md-offset-1 jumbotron">
+				<span class="label label-success"
+					style="font-size: 28px; line-height: 25px; margin-right: 5px;">${farmerBean.memberBean.name}(${farmerBean.memberBean.account})</span>
+				<span style="font-size: 20px; line-height: 25px;">${farmerBean.farmerIntro}</span>
+				<form action="NewOrder.do" method="POST" style="margin-top: 20px;">
 					<input type="hidden" value="${farmerBean.memberId}" name="sellerId" />
 					<table class="table table-hover">
 						<thead>
@@ -173,7 +175,7 @@ html {
 										value="${x.key.price+x.key.freight}" name="price" /> <input
 										type="hidden" value="" name="price2" /><input type="hidden"
 										value="${x.key.productId}" name="productId" /></td>
-									<td class="col-sm-1 col-md-1 text-center"><strong>
+									<td class="col-sm-4 col-md-2 text-center" style="font-size: 14px; line-height: 20px; margin: 25px; color: #FF0000;"><strong>
 
 
 									</strong></td>
@@ -184,9 +186,10 @@ html {
 							<tr>
 								<td> </td>
 								<td> </td>
-								<td><h3>總計</h3></td>
-								<td class="text-right">
-									<div id="totalPrice"></div>
+								<td class="form-group text-right"><h3>總計</h3></td>
+								<td class="text-center">
+									<div id="totalPrice"
+										style="font-size: 20px; line-height: 20px; margin: 20px; color: #FF0000;"></div>
 								</td>
 							</tr>
 						</tfoot>
@@ -227,34 +230,55 @@ html {
 						</label>
 					</div>
 					<div class="form-group">
-						<label>收件人：</label> <input id='shipName' value="" type="text"
-							name="shipName" class="form-control" />
+						<label>收件人：</label>
+						<div class="input-group">
+							<span class="input-group-addon"> <span
+								class="glyphicon glyphicon-user"></span>
+							</span> <input id='shipName' value="" type="text" name="shipName"
+								class="form-control" />
+						</div>
 						<div>${errors.shipName}</div>
 					</div>
 
 					<div class="form-group">
-						<label>收件郵遞區號：</label> <input id='shipPostalCode' value=""
-							type="text" name="shipPostalCode" class="form-control" />
+						<label>收件郵遞區號：</label>
+						<div class="input-group">
+							<span class="input-group-addon"> <span
+								class="glyphicon glyphicon-map-marker"></span>
+							</span> <input id='shipPostalCode' value="" type="text"
+								name="shipPostalCode" class="form-control" />
+						</div>
 						<div>${errors.shipPostalCode}</div>
 					</div>
 
 					<div class="form-group">
-						<label>收件地區：</label> <input id='shipDistrict' value="" type="text"
-							name="shipDistrict" class="form-control" />
+						<label>收件地區：</label>
+						<div class="input-group">
+							<span class="input-group-addon"> <span
+								class="glyphicon glyphicon-road"></span>
+							</span> <input id='shipDistrict' value="" type="text"
+								name="shipDistrict" class="form-control" />
+						</div>
 						<div>${errors.shipDistrict}</div>
 					</div>
 
 					<div class="form-group">
-						<label>收件地址：</label> <input id='shipAddress' value="" type="text"
-							name="shipAddress" class="form-control" />
+						<label>收件地址：</label>
+						<div class="input-group">
+							<span class="input-group-addon"> <span
+								class="glyphicon glyphicon-home"></span>
+							</span> <input id='shipAddress' value="" type="text" name="shipAddress"
+								class="form-control" />
+						</div>
 						<div>${errors.shipAddress}</div>
 					</div>
 
-					<div class="form-group">
+					<div class="form-group text-right">
 						<button type="submit" class="btn btn-primary">確認訂單</button>
 					</div>
 				</form>
 				<!-- 				</div> -->
+
 			</div>
 		</div>
 	</div>
@@ -286,14 +310,14 @@ html {
 				var price2 = $(this).next().next();
 				var count = $(this).val();
 				var mult = price * count;
-				$(this).parent().next().html(mult);
+				$(this).parent().next().html("<h4>"+mult + " 元</h4>");
 				price2.val(mult);
 				var tp = 0;
 				$('input[name="price2"]').each(function() {
 					tp = tp + Number($(this).val());
 				});
 
-				$('#totalPrice').html(tp);
+				$('#totalPrice').html(tp + " 元");
 			});
 
 		});

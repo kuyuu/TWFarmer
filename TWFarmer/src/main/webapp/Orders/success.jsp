@@ -36,7 +36,7 @@ html {
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
-				<div style="padding: 5% 10% 10% 10%;">
+				<div class="jumbotron" style="padding: 5% 10% 10% 10%;">
 					<div
 						style="font-weight: bold; color: #ff0000; margin: .67em 0; font-size: 2em;">訂購成功</div>
 

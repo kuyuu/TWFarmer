@@ -29,7 +29,7 @@
 					<li><a href="/TWFarmer/MemberSubmit/MemberSubmit.jsp">註冊</a></li>
 <!-- 					<li><a href="/TWFarmer/Login.jsp">登入</a></li> -->
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+						data-toggle="dropdown"><b>登入</b> <span class="caret"></span></a>
 						<ul id="login-dp" class="dropdown-menu">
 							<li>
 								<div class="row" style="margin: 10px;">
@@ -49,8 +49,7 @@
 											</div>
 									</div>
 									<div class="form-group">
-										<button type="submit" class="btn btn-primary btn-block">Sign
-											in</button>
+										<button type="submit" class="btn btn-primary btn-block">登入</button>
 									</div>
 									</form>
 								</div>

@@ -39,7 +39,7 @@ html {
 				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
-				<div class="row jumbotron">
+				<div class="jumbotron">
 
 					<form name="form"
 						action="<%=request.getContextPath()%>/UploadDemo/changeImage.do"

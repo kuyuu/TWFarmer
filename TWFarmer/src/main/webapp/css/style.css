@@ -3,8 +3,14 @@ body {
 		sans-serif;
 	font-size: 14px;
 	line-height: 20px;
-/* 		background: #e1c192 url(/TWFarmer/img/submit-icon/wood_pattern.jpg); */
-  
+/* 	background: #e1c192 url(/TWFarmer/img/bg/back2.jpg); */
+	background: #e1c192 url(/TWFarmer/img/bg/914793674309831179.jpg);
+	background-size: 100%;
+	background-repeat:no-repeat;
+	background-position:top right;
+	background-attachment: fixed;
+/* 	opacity:0.5; */
+	
 }
 .thumbnail {
   display: block;

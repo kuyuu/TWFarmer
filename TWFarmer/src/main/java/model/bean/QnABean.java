@@ -2,7 +2,12 @@ package model.bean;
 
 import java.util.Date;
 
+import model.daojdbc.MemberDAOJdbc;
+import model.daojdbc.ProductDAOjdbc;
+
 public class QnABean {
+	MemberDAOJdbc memberDAOJdbc = new MemberDAOJdbc();
+	ProductDAOjdbc productDAOJdbc = new ProductDAOjdbc();
 	private int qnAId;
 	private int queryId;
 	private int productId;
@@ -12,6 +17,8 @@ public class QnABean {
 	private String reQnA;
 	private java.util.Date reDate;
 	private int reStatus;
+	
+	private String queryName;
 	
 	@Override
 	public String toString() {
@@ -91,6 +98,12 @@ public class QnABean {
 	}
 	public void setReStatus(int reStatus) {
 		this.reStatus = reStatus;
+	}
+	public String getqueryName() {
+		return memberDAOJdbc.select(queryId).getName();
+	}
+	public void setqueryName(String queryName) {
+		this.queryName = queryName;
 	}
 
 }

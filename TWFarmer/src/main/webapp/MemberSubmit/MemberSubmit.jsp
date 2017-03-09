@@ -41,7 +41,8 @@ html {
 			<div class="col-md-8">
 
 				<!-- 		會員註冊表單    Start    -->
-				<div style="padding: 5% 10% 10% 10%;">
+				<div class="jumbotron">
+				<div style="padding: 0 2% 5% 2%;">
 					<div
 						style="font-weight: bold; color: #ff0000; margin: .67em 0; font-size: 2em;">註冊會員</div>
 					<form
@@ -183,6 +184,7 @@ html {
 				<!-- 會員註冊表單  End -->
 
 			</div>
+</div>
 			<div class="col-md-2"></div>
 		</div>
 	</div>
