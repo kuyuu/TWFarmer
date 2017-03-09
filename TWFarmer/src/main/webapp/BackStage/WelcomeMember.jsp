@@ -38,96 +38,101 @@ html {
 			</div>
 			<div class="col-md-9">
 				<div class="jumbotron">
-					<center>
-						<c:if test="${empty Memberbean}">
-							<h2>您的會員資料為：</h2>
-						</c:if>
-						<c:if test="${not empty Memberbean}">
-							<h2>您修改後的會員資料為：</h2>
-						</c:if>
-					</center>
-					<table>
-						<tr>
-							<td><h4>帳號：</h4></td>
-							<td><h4>${LoginOK.account}</h4></td>
-						</tr>
-						<tr>
-							<td><h4>電話：</h4></td>
-							<td><h4>${LoginOK.phone}</h4></td>
-						</tr>
-						<tr>
-							<td><h4>電子信箱：</h4></td>
-							<td><h4>${LoginOK.email}</h4></td>
-						</tr>
-						<tr>
-							<td><h4>身分證字號：</h4></td>
-							<td><h4>${LoginOK.idNumber}</h4></td>
-						</tr>
-						<tr>
-							<td><h4>生日：</h4></td>
-							<td><h4>${LoginOK.birthDate}</h4></td>
-						</tr>
-						<tr>
-							<td><h4>性別：</h4></td>
-							<td><c:if test="${LoginOK.gender=='M'}">
-									<h4>男性</h4>
-								</c:if> <c:if test="${LoginOK.gender=='F'}">
-									<h4>女性</h4>
-								</c:if></td>
-						</tr>
-						<tr>
-							<td><h4>郵遞區號：</h4></td>
-							<td><h4>${LoginOK.postalCode}</h4></td>
-						</tr>
-						<tr>
-							<td><h4>地址：</h4></td>
-							<td><h4>${LoginOK.district}${LoginOK.address}</h4></td>
-						</tr>
-						<tr>
-							<td><h4>身分別：</h4></td>
-							<td><c:if test="${LoginOK.idType==1}">
-									<h4>會員</h4>
-								</c:if> <c:if test="${LoginOK.idType==2}">
-									<h4>小農</h4>
-								</c:if> <c:if test="${LoginOK.idType==3}">
-									<h4>管理員</h4>
+					<div class="row">
+						<div class="col-md-8">
+							<center>
+								<c:if test="${empty Memberbean}">
+									<h2>您的會員資料為：</h2>
 								</c:if>
-								<c:if test="${LoginOK.idType==4}">
-									<h4>小農審核中</h4>
-								</c:if></td>
-						</tr>
-						<!-- 							<tr> -->
-						<!-- 								<td><h4>評價：</h4></td> -->
-						<%-- 								<td><h4>${LoginOK.rating}</h4></td> --%>
-						<!-- 							</tr> -->
-					</table>
-					<div class="form-group">
-						<div class="col-sm-offset-6 col-sm-10">
-							<a href="changeMemberInfo.jsp"><button type="button"
-									class="btn btn-primary">修改會員資料</button></a> <a href="changePWD.jsp"><button
-									type="button" class="btn btn-danger" value="cancel">修改密碼</button></a>
+								<c:if test="${not empty Memberbean}">
+									<h2>您修改後的會員資料為：</h2>
+								</c:if>
+							</center>
+							<table>
+								<tr>
+									<td><h4>帳號：</h4></td>
+									<td><h4>${LoginOK.account}</h4></td>
+								</tr>
+								<tr>
+									<td><h4>電話：</h4></td>
+									<td><h4>${LoginOK.phone}</h4></td>
+								</tr>
+								<tr>
+									<td><h4>電子信箱：</h4></td>
+									<td><h4>${LoginOK.email}</h4></td>
+								</tr>
+								<tr>
+									<td><h4>身分證字號：</h4></td>
+									<td><h4>${LoginOK.idNumber}</h4></td>
+								</tr>
+								<tr>
+									<td><h4>生日：</h4></td>
+									<td><h4>${LoginOK.birthDate}</h4></td>
+								</tr>
+								<tr>
+									<td><h4>性別：</h4></td>
+									<td><c:if test="${LoginOK.gender=='M'}">
+											<h4>男性</h4>
+										</c:if> <c:if test="${LoginOK.gender=='F'}">
+											<h4>女性</h4>
+										</c:if></td>
+								</tr>
+								<tr>
+									<td><h4>郵遞區號：</h4></td>
+									<td><h4>${LoginOK.postalCode}</h4></td>
+								</tr>
+								<tr>
+									<td><h4>地址：</h4></td>
+									<td><h4>${LoginOK.district}${LoginOK.address}</h4></td>
+								</tr>
+								<tr>
+									<td><h4>身分別：</h4></td>
+									<td><c:if test="${LoginOK.idType==1}">
+											<h4>會員</h4>
+										</c:if> <c:if test="${LoginOK.idType==2}">
+											<h4>小農</h4>
+										</c:if> <c:if test="${LoginOK.idType==3}">
+											<h4>管理員</h4>
+										</c:if> <c:if test="${LoginOK.idType==4}">
+											<h4>小農審核中</h4>
+										</c:if></td>
+								</tr>
+								<!-- 							<tr> -->
+								<!-- 								<td><h4>評價：</h4></td> -->
+								<%-- 								<td><h4>${LoginOK.rating}</h4></td> --%>
+								<!-- 							</tr> -->
+							</table>
+						</div>
+						<div class="col-md-4"
+							style="font-family: monospace, Microsoft JhengHei">
+							<br>
+							<h4>${LoginOK.name}</h4>
+							<c:if test="${LoginOK.gender=='M'}">
+								<h5>先生，您好</h5>
+							</c:if>
+							<c:if test="${LoginOK.gender=='F'}">
+								<h5>小姐，您好</h5>
+							</c:if>
+							<img src="../resources/uploadImages/${LoginOK.memberPic}"
+								class="img-thumbnail">
+							<c:if test="${not empty ChangePic}">
+								<h5 style="color: #ff0000">照片修改成功</h5>
+							</c:if>
+							<center>
+								<a href="/TWFarmer/BackStage/changeMemberPic.jsp"><button
+										type="button" class="btn btn-success" value="cancel"
+										style="margin: 10px;">修改照片</button></a>
+							</center>
+						</div>
+						<div class="col-md-12 text-center" style="margin-top:20px;">
+							<div class="form-group">
+								<a href="changeMemberInfo.jsp"><button type="button"
+										class="btn btn-primary">修改會員資料</button></a> <a
+									href="changePWD.jsp"><button type="button"
+										class="btn btn-danger" value="cancel">修改密碼</button></a>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-3"
-					style="font-family: monospace, Microsoft JhengHei">
-					<br>
-					<h4>${LoginOK.name}</h4>
-					<c:if test="${LoginOK.gender=='M'}">
-						<h5>先生，您好</h5>
-					</c:if>
-					<c:if test="${LoginOK.gender=='F'}">
-						<h5>小姐，您好</h5>
-					</c:if>
-					<img src="../resources/uploadImages/${LoginOK.memberPic}"
-						class="img-thumbnail">
-					<c:if test="${not empty ChangePic}">
-						<h5 style="color: #ff0000">照片修改成功</h5>
-					</c:if>
-					<center>
-						<a href="/TWFarmer/BackStage/changeMemberPic.jsp"><button
-								type="button" class="btn btn-success" value="cancel">修改照片</button></a>
-					</center>
 				</div>
 			</div>
 		</div>
