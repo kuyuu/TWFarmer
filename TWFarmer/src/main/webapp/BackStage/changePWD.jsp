@@ -37,7 +37,7 @@ html {
 				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
-				<div class="jumbotron" >
+				<div class="row jumbotron" >
 					<center>
 						<h3>更改密碼</h3>
 					</center>

@@ -40,7 +40,7 @@ html {
 				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
-				<div class="jumbotron">
+				<div class="row jumbotron">
 					<center>
 						<h3>請修改需變更欄位</h3>
 					</center>
