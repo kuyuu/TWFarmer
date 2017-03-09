@@ -175,7 +175,7 @@ html {
 										value="${x.key.price+x.key.freight}" name="price" /> <input
 										type="hidden" value="" name="price2" /><input type="hidden"
 										value="${x.key.productId}" name="productId" /></td>
-									<td class="col-sm-4 col-md-2 text-center" style="font-size: 14px; line-height: 20px; margin: 20px; color: #FF0000;"><strong>
+									<td class="col-sm-4 col-md-2 text-center" style="font-size: 14px; line-height: 20px; margin: 25px; color: #FF0000;"><strong>
 
 
 									</strong></td>
@@ -310,7 +310,7 @@ html {
 				var price2 = $(this).next().next();
 				var count = $(this).val();
 				var mult = price * count;
-				$(this).parent().next().html(mult + " 元");
+				$(this).parent().next().html("<h4>"+mult + " 元</h4>");
 				price2.val(mult);
 				var tp = 0;
 				$('input[name="price2"]').each(function() {

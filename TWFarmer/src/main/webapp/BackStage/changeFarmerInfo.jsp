@@ -36,7 +36,7 @@ html {
 				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
-				<div class="row jumbotron">
+				<div class="jumbotron">
 					<center>
 						<h3>請修改需變更欄位</h3>
 					</center>

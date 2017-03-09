@@ -40,7 +40,7 @@ html {
 				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
-				<div class="row jumbotron" >
+				<div class="jumbotron" >
 					<center>
 						<h3>請修改需變更欄位</h3>
 					</center>
@@ -118,7 +118,7 @@ html {
 							</div>
 						</div>
 						<div class="form-group">
-							<div class="col-sm-offset-5 col-sm-10">
+							<div class="text-center">
 								<button name="submit" class="btn btn-primary" value="change">送出修改</button>
 								<button name="submit" class="btn btn-danger" value="cancel">取消</button>
 							</div>
