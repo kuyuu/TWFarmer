@@ -114,8 +114,8 @@ html {
 						<c:forEach items="${cartProductMap}" var="row">
 							<div class="row product">
 								<div class="col-md-3">
-									<img src="../img/${row.value[0].pictureName}"
-										class="img-responsive img-thumbnail" />
+									<a href="../ProductServlet?productId=${row.key.productId}"><img src="../img/${row.value[0].pictureName}"
+										class="img-responsive img-thumbnail" /></a>
 								</div>
 								<div class="col-md-3">
 									<p>${row.key.productName}</p>
