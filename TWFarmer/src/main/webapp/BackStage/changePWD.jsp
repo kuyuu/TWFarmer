@@ -21,7 +21,7 @@
 <style>
 body {
 	padding-top: 70px;
-	background-color:#fcf5e0;
+	background-color: #fcf5e0;
 }
 
 html {
@@ -37,41 +37,43 @@ html {
 				<jsp:include page="backstageMenu.jsp" />
 			</div>
 			<div class="col-md-9">
-				<div class="jumbotron" >
-					<center>
-						<h3>更改密碼</h3>
-					</center>
-					<form class="form-horizontal col-md-10" role="form"
-						action="/TWFarmer/BackStage/ChangePWDServlet" method="put">
-						<div class="form-group">
-							<label for="inputOldPassword" class="col-sm-3 control-label">原始密碼</label>
-							<div class="col-sm-9">
-								<input type="password" class="form-control" id="inputOldPassword" name="oldPassword"
-									placeholder="請輸入原始密碼">
+				<div class="jumbotron">
+					<div class="row">
+						<center>
+							<h3>更改密碼</h3>
+						</center>
+						<form class="form-horizontal col-md-10" role="form"
+							action="/TWFarmer/BackStage/ChangePWDServlet" method="put">
+							<div class="form-group">
+								<label for="inputOldPassword" class="col-sm-3 control-label">原始密碼</label>
+								<div class="col-sm-9">
+									<input type="password" class="form-control"
+										id="inputOldPassword" name="oldPassword" placeholder="請輸入原始密碼">
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label for="inputNewPassword" class="col-sm-3 control-label">新密碼</label>
-							<div class="col-sm-9">
-								<input type="password" class="form-control" id="inputNewPassword" name="newPassword"
-									placeholder="請輸入新密碼">
+							<div class="form-group">
+								<label for="inputNewPassword" class="col-sm-3 control-label">新密碼</label>
+								<div class="col-sm-9">
+									<input type="password" class="form-control"
+										id="inputNewPassword" name="newPassword" placeholder="請輸入新密碼">
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label for="inputNewPassword2" class="col-sm-3 control-label">確認新密碼</label>
-							<div class="col-sm-9">
-								<input type="password" class="form-control" id="inputNewPassword2" name="newPassword2"
-									placeholder="再次確認新密碼">
-								<span style="color: #ff0000">${errors.PWD}</span>
+							<div class="form-group">
+								<label for="inputNewPassword2" class="col-sm-3 control-label">確認新密碼</label>
+								<div class="col-sm-9">
+									<input type="password" class="form-control"
+										id="inputNewPassword2" name="newPassword2"
+										placeholder="再次確認新密碼"> <span style="color: #ff0000">${errors.PWD}</span>
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-offset-5 col-sm-10">
-								<button name="submit" class="btn btn-primary" value="change">送出修改</button>
-								<button name="submit" class="btn btn-danger" value="cancel">取消</button>
+							<div class="form-group">
+								<div class="col-sm-offset-5 col-sm-10">
+									<button name="submit" class="btn btn-primary" value="change">送出修改</button>
+									<button name="submit" class="btn btn-danger" value="cancel">取消</button>
+								</div>
 							</div>
-						</div>
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
