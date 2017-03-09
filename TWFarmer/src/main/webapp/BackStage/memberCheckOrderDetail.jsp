@@ -43,7 +43,7 @@ html {
 						action="<c:url value="../BackStage/NewRemittanceOfOrderServlet"/>"
 						method="get">
 						<table class="table">
-							<tr>
+							<tr class="warning">
 								<td>商品名稱</td>
 								<td>價格</td>
 								<td>運費</td>

@@ -43,7 +43,7 @@ html {
 					<c:if test="${not empty productList}">
 						<table class="table table-bordered">
 							<thead>
-								<tr>
+								<tr class="warning">
 									<th>商品編號</th>
 									<th>商品名稱</th>
 									<th>存貨</th>

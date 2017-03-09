@@ -34,8 +34,8 @@ html {
 	<div class="container">
 		<jsp:include page="../common/menu.jsp" />
 		<div class="row">
-			<div class="col-md-3"></div>
-			<div class="col-md-6">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
 				<div class="jumbotron" style="padding: 5% 10% 10% 10%;">
 					<div
 						style="font-weight: bold; color: #ff0000; margin: .67em 0; font-size: 2em;">訂購成功</div>
@@ -57,8 +57,8 @@ html {
 						</div>
 						
 						
-						<table class="table">
-							<tr>
+						<table class="table table-hover">
+							<tr class="warning">
 								<td>產品名稱:</td>
 								<td>購買數量:</td>
 								<td>購買單位:</td>
@@ -119,7 +119,7 @@ html {
 
 				</div>
 			</div>
-			<div class="col-md-3"></div>
+			<div class="col-md-2"></div>
 		</div>
 	</div>
 	</div>

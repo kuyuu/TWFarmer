@@ -55,7 +55,7 @@ html {
 
 					<table class="table table-bordered">
 						<thead>
-							<tr>
+							<tr class="warning">
 								<td>商品名稱</td>
 								<td>單價(含運)</td>
 								<td>購買數量</td>

@@ -141,9 +141,8 @@ html {
 		<div class="col-md-10">
 			<!-- 			<div class=""> -->
 			<div class="col-sm-12 col-md-12 col-md-offset-1 jumbotron">
-				<span class="label label-success"
-					style="font-size: 28px; line-height: 25px; margin-right: 5px;">${farmerBean.memberBean.name}(${farmerBean.memberBean.account})</span>
-				<span style="font-size: 20px; line-height: 25px;">${farmerBean.farmerIntro}</span>
+				<h2>${farmerBean.memberBean.name}(${farmerBean.memberBean.account})</h2>
+				<p>${farmerBean.farmerIntro}</p>
 				<form action="NewOrder.do" method="POST" style="margin-top: 20px;">
 					<input type="hidden" value="${farmerBean.memberId}" name="sellerId" />
 					<table class="table table-hover">

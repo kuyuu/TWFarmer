@@ -43,7 +43,7 @@ html {
 
 					<table class="table table-bordered">
 						<thead>
-							<tr>
+							<tr class="warning">
 								<th>訂單編號</th>
 								<th>賣家</th>
 								<th>訂購時間</th>

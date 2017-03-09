@@ -47,7 +47,7 @@ html {
 					<c:if test="${not empty Qna}">
 						<table class="table table-bordered">
 							<thead>
-								<tr>
+								<tr class="warning">
 									<th>問與答編號</th>
 									<th>商品名稱</th>
 									<th>提問內容</th>

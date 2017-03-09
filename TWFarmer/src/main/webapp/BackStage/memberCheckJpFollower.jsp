@@ -39,7 +39,7 @@ html {
 					<c:if test="${not empty jpFollowerList}">
 						<table class="table table-bordered">
 							<thead>
-								<tr>
+								<tr class="warning">
 									<th>合購團名</th>
 									<th>總價</th>
 									<th>開始日期</th>

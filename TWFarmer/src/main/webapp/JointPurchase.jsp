@@ -91,15 +91,16 @@ html {
 
 								<!-- Tab panes -->
 								<div class="tab-content">
-									<div role="tabpanel" class="tab-pane active" id="home">
-										<br>
-										<p>合購介紹：${jpBean.jpIntro}</p>
-										<p>合購地區：${jpBean.jpLocation}</p>
-										<p>截止日期：${jpBean.endDate}</p>
+									<div role="tabpanel" class="tab-pane active" id="home" style="background: rgba(255, 255, 255, 0.8);border-bottom: 1px solid #ddd;
+									    padding:20px; border-radius: 4px 4px 4px 4px;">
+										<h4>合購介紹：</h4>${jpBean.jpIntro}
+										<h4>合購地區：</h4>${jpBean.jpLocation}
+										<h4>截止日期：</h4>${jpBean.endDate}
 									</div>
-									<div role="tabpanel" class="tab-pane" id="profile">
+									<div role="tabpanel" class="tab-pane" id="profile" style="background: rgba(255, 255, 255, 0.8);border-bottom: 1px solid #ddd;
+									    padding:10px; border-radius: 4px 4px 4px 4px;">
 										<table class="table">
-											<tr>
+											<tr class="warning">
 												<td>商品名稱</td>
 												<td>價格</td>
 												<td>運費</td>
@@ -134,9 +135,10 @@ html {
 											</tr>
 										</table>
 									</div>
-									<div role="tabpanel" class="tab-pane" id="profile2">
+									<div role="tabpanel" class="tab-pane" id="profile2" style="background: rgba(255, 255, 255, 0.8);border-bottom: 1px solid #ddd;
+									    padding:10px; border-radius: 4px 4px 4px 4px;">
 										<table class="table">
-											<tr>
+											<tr class="warning">
 												<td>面交時間</td>
 												<td>面交地點</td>
 											</tr>
@@ -160,14 +162,14 @@ html {
 						<c:forEach items="${jpdMap}" var="x">
 							<c:forEach items="${x.value}" var="y">
 								<a href="ProductServlet?productId=${y.key.productId}">
-									<div class="col-md-4">
+									<div class="col-md-3">
 										<div class="thumbnail" style="height: 280px;">
 											<img src="img/${y.value[0].pictureName}"
 												style="height: 120px; width: auto;" />
 											<div class="caption">
 												<h3>${y.key.productName}</h3>
-												<p>${x.key.jpPrice+x.key.jpFreight}/${x.key.jpUnit}(含運)</p>
-												<p>${x.key.jpPopulationMin}${x.key.jpUnit}成團</p>
+												<h4>${x.key.jpPrice+x.key.jpFreight}/${x.key.jpUnit}(含運)</h4>
+												<h4>${x.key.jpPopulationMin}${x.key.jpUnit}成團</h4>
 											</div>
 										</div>
 									</div>

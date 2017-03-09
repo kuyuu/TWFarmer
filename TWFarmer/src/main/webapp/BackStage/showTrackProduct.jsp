@@ -36,7 +36,7 @@ html {
 				<div class="jumbotron">
 					<h2 class="text-center">追蹤商品</h2>
 					<table class="table">
-						<tr>
+						<tr class="warning">
 							<td>商品名稱</td>
 							<td>賣家</td>
 							<td>價格</td>

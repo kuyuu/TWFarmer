@@ -67,9 +67,9 @@ html {
 						</div>
 						<div class="form-group">
 							<label for="f2fId" class="control-label">欲購商品</label>
-							<table class="table table-bordered">
+							<table class="table table-bordered ">
 								<thead>
-									<tr>
+									<tr class="warning">
 										<td>商品名稱</td>
 										<td>單價</td>
 										<td>運費</td>
