@@ -37,7 +37,7 @@ html {
 				<div class="jumbotron">
 					<p>團名：${jpBean.jpName}</p>
 					<p>介紹：${jpBean.jpIntro}</p>
-<%-- 					<p>跟團開始日期：${jpBean.initDate}</p> --%>
+					<%-- 					<p>跟團開始日期：${jpBean.initDate}</p> --%>
 					<p>合購截止日期：${jpBean.endDate}</p>
 					<p>
 						面交時間：
@@ -75,9 +75,12 @@ html {
 								href="ToRemittanceFormServlet?jpFollowerId=${jpFollowerBean.JPFollowerId}"><button
 									type="button" class="btn btn-primary">填寫匯款資訊</button></a>
 						</c:when>
-						<c:otherwise>
+						<c:when test="${jpFollowerBean.jpStatusId!=4104 && jpFollowerBean.remittanceStatus!=1}">
+							<p>等待成團中，請靜候主購通知。</p>
+						</c:when>
+						<c:when test="${jpFollowerBean.remittanceStatus==1}">
 							<p>您已付款，請於指定時間地點取貨，如有任何更動，請盡快聯絡主購。</p>
-						</c:otherwise>
+						</c:when>
 					</c:choose>
 
 				</div>
